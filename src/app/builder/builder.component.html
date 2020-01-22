@@ -20,10 +20,13 @@
       </mat-nav-list>
     </mat-sidenav>
 
-    <mat-sidenav opened mode="side" position="end">Right content</mat-sidenav>
+    <mat-sidenav opened mode="side" position="end">
+      Right content
+      {{selectedCell | json}}
+    </mat-sidenav>
 
     <mat-sidenav-content>
-      <app-board-detail [board]="board"></app-board-detail>
+      <app-board-detail [board]="board" [(cell)]="selectedCell"></app-board-detail>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

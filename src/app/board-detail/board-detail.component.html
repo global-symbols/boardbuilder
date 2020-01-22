@@ -3,7 +3,7 @@
 <div *ngIf="board">
   <mat-grid-list [cols]="board.columns" rowHeight="2:1">
     <mat-grid-tile *ngFor="let cell of board.cells">
-      <mat-card tabindex="0">
+      <mat-card tabindex="0" (click)="selectCell(cell)" (keyup.enter)="selectCell(cell)">
         <mat-card-content class="board-cell">
           <div>
             <img src="{{cell.url ? cell.url : 'https://d18vdu4p71yql0.cloudfront.net/libraries/noun-project/Picture-abf86f3f72.svg'}}" />

@@ -3,6 +3,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {BoardSetService} from '../board-set.service';
 import {Board} from '../models/board.model';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
+import {Cell} from '../models/cell.model';
 
 @Component({
   selector: 'app-builder',
@@ -13,6 +14,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   boardSet;
   board;
+  selectedCell;
 
   mobileQuery: MediaQueryList;
 
@@ -72,5 +74,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.boardSet.boards = this.boardSet.boards.filter(b => b !== board);
     this.updateBoardSet().then(r => null);
     this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+  }
+
+  selectCell(cell: Cell) {
+    this.selectedCell = cell;
   }
 }
