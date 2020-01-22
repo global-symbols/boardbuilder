@@ -6,6 +6,7 @@ import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {Cell} from '../models/cell.model';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {MatDialog} from '@angular/material';
+import {SymbolSearchDialogComponent} from '../symbol-search-dialog/symbol-search-dialog.component';
 
 @Component({
   selector: 'app-builder',
@@ -99,5 +100,12 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   selectCell(cell: Cell) {
     this.selectedCell = cell;
+  }
+
+  searchSymbols() {
+    const dialogRef = this.dialog.open(SymbolSearchDialogComponent, {
+      width: '50vw',
+      // data: {heading: 'Delete this Board?', content: 'This cannot be undone.'}
+    });
   }
 }

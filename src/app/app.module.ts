@@ -9,7 +9,7 @@ import {
   MatCardModule, MatDialogModule, MatFormFieldModule,
   MatGridListModule,
   MatIconModule, MatInputModule,
-  MatListModule,
+  MatListModule, MatRadioModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -19,6 +19,7 @@ import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 import {HotkeyModule} from 'angular2-hotkeys';
 import {FormsModule} from '@angular/forms';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { SymbolSearchDialogComponent } from './symbol-search-dialog/symbol-search-dialog.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -41,7 +42,8 @@ const dbConfig: DBConfig  = {
     AppComponent,
     BuilderComponent,
     BoardDetailComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    SymbolSearchDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +61,12 @@ const dbConfig: DBConfig  = {
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule
   ],
-  entryComponents: [ConfirmDialogComponent],
+  entryComponents: [
+    ConfirmDialogComponent,
+    SymbolSearchDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
