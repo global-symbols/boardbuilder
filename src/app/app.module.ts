@@ -16,6 +16,7 @@ import {
 import {RouterModule} from '@angular/router';
 import { BoardDetailComponent } from './board-detail/board-detail.component';
 import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
+import {HotkeyModule} from 'angular2-hotkeys';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -50,7 +51,8 @@ const dbConfig: DBConfig  = {
     RouterModule,
     MatGridListModule,
     NgxIndexedDBModule.forRoot(dbConfig),
-    MatCardModule
+    MatCardModule,
+    HotkeyModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

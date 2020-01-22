@@ -2,6 +2,7 @@ import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {BoardSetService} from '../board-set.service';
 import {Board} from '../models/board.model';
+import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 
 @Component({
   selector: 'app-builder',
@@ -17,10 +18,25 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private service: BoardSetService) {
+  constructor(changeDetectorRef: ChangeDetectorRef,
+              media: MediaMatcher,
+              private service: BoardSetService,
+              private hotkeysService: HotkeysService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+
+    // Keyboard shortcut - delete Board
+    this.hotkeysService.add(new Hotkey('meta+backspace', (event: KeyboardEvent): boolean => {
+      this.deleteBoard(this.board);
+      return false; // Prevent bubbling
+    }));
+
+    // Keyboard shortcut - add Board
+    this.hotkeysService.add(new Hotkey('meta+enter', (event: KeyboardEvent): boolean => {
+      this.addBoard();
+      return false; // Prevent bubbling
+    }));
   }
 
   ngOnInit() {
@@ -51,8 +67,10 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   deleteBoard(board) {
+    if (board === null) { return; }
     this.selectBoard(null);
     this.boardSet.boards = this.boardSet.boards.filter(b => b !== board);
-    this.updateBoardSet();
+    this.updateBoardSet().then(r => null);
+    this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
   }
 }
