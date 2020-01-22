@@ -66,6 +66,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   selectBoard(board?: Board) {
     this.board = board;
+    this.updateBoardSet().then(r => null);
   }
 
   deleteBoard(board) {

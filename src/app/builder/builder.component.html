@@ -21,8 +21,16 @@
     </mat-sidenav>
 
     <mat-sidenav opened mode="side" position="end">
-      Right content
       {{selectedCell | json}}
+      <div *ngIf="selectedCell">
+
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="selectedCell.caption" placeholder="Caption">
+        </mat-form-field>
+
+
+      </div>
+
     </mat-sidenav>
 
     <mat-sidenav-content>

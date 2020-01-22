@@ -6,9 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BuilderComponent } from './builder/builder.component';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatFormFieldModule,
   MatGridListModule,
-  MatIconModule,
+  MatIconModule, MatInputModule,
   MatListModule,
   MatSidenavModule,
   MatToolbarModule
@@ -17,6 +17,7 @@ import {RouterModule} from '@angular/router';
 import { BoardDetailComponent } from './board-detail/board-detail.component';
 import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 import {HotkeyModule} from 'angular2-hotkeys';
+import {FormsModule} from '@angular/forms';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -52,7 +53,10 @@ const dbConfig: DBConfig  = {
     MatGridListModule,
     NgxIndexedDBModule.forRoot(dbConfig),
     MatCardModule,
-    HotkeyModule.forRoot()
+    HotkeyModule.forRoot(),
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
