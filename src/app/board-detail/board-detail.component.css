@@ -1,0 +1,7 @@
+.board-cell {
+  text-align: center;
+}
+
+.board-cell img {
+  margin-bottom: 1rem;
+}
