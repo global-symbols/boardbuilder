@@ -1,0 +1,16 @@
+<p>Select a Board</p>
+
+
+<!--<ion-grid>-->
+<!--  <ion-row *ngFor="let row of rowsArray; let y = index">-->
+<!--    <ion-col *ngFor="let col of columnsArray; let x = index;">-->
+<!--      <app-cell [(cell)]="board.cells[y*board.columns + x]"></app-cell>-->
+<!--      &lt;!&ndash;        <app-cell [(cell)]="board.cells[y*board.columns + x]" (change)="updateCell($event, y*board.columns + x)"></app-cell>&ndash;&gt;-->
+<!--    </ion-col>-->
+<!--  </ion-row>-->
+<!--</ion-grid>-->
+<div *ngIf="board">
+  <mat-grid-list [cols]="board.columns" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let cell of board.cells">{{cell.caption}}</mat-grid-tile>
+  </mat-grid-list>
+</div>

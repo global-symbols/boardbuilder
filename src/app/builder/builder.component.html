@@ -7,14 +7,19 @@
   <mat-sidenav-container class="example-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [opened]="!mobileQuery.matches">
+
+      <button mat-raised-button color="primary" style="margin: 10px" (click)="addBoard()">Add Board</button>
+
       <mat-nav-list>
-        <a mat-list-item *ngFor="let nav of fillerNav">{{nav}}</a>
+        <a mat-list-item *ngFor="let board of boardSet.boards">{{board.title}}</a>
       </mat-nav-list>
     </mat-sidenav>
 
+    <mat-sidenav opened mode="side" position="end">Right content</mat-sidenav>
+
     <mat-sidenav-content>
-      <p *ngFor="let content of fillerContent">{{content}}</p>
+      <app-board-detail></app-board-detail>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
