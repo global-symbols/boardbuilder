@@ -46,8 +46,13 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-  selectBoard(board: Board) {
+  selectBoard(board?: Board) {
     this.board = board;
   }
 
+  deleteBoard(board) {
+    this.selectBoard(null);
+    this.boardSet.boards = this.boardSet.boards.filter(b => b !== board);
+    this.updateBoardSet();
+  }
 }
