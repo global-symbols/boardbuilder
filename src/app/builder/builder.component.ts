@@ -4,6 +4,8 @@ import {BoardSetService} from '../board-set.service';
 import {Board} from '../models/board.model';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {Cell} from '../models/cell.model';
+import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-builder',
@@ -23,7 +25,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
   constructor(changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
               private service: BoardSetService,
-              private hotkeysService: HotkeysService) {
+              private hotkeysService: HotkeysService,
+              public dialog: MatDialog
+  ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -70,11 +74,24 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   deleteBoard(board) {
-    if (board === null) { return; }
-    this.selectBoard(null);
-    this.boardSet.boards = this.boardSet.boards.filter(b => b !== board);
-    this.updateBoardSet().then(r => null);
-    this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+    if (board === undefined) { return; }
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '250px',
+      data: {heading: 'Delete this Board?', content: 'This cannot be undone.'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+
+      if (result) {
+        this.selectBoard(null);
+        this.boardSet.boards = this.boardSet.boards.filter(b => b !== board);
+        this.updateBoardSet().then(r => null);
+        this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+      }
+    });
   }
 
   selectCell(cell: Cell) {

@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BuilderComponent } from './builder/builder.component';
 import {
   MatButtonModule,
-  MatCardModule, MatFormFieldModule,
+  MatCardModule, MatDialogModule, MatFormFieldModule,
   MatGridListModule,
   MatIconModule, MatInputModule,
   MatListModule,
@@ -18,6 +18,7 @@ import { BoardDetailComponent } from './board-detail/board-detail.component';
 import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 import {HotkeyModule} from 'angular2-hotkeys';
 import {FormsModule} from '@angular/forms';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -39,7 +40,8 @@ const dbConfig: DBConfig  = {
   declarations: [
     AppComponent,
     BuilderComponent,
-    BoardDetailComponent
+    BoardDetailComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -56,8 +58,10 @@ const dbConfig: DBConfig  = {
     HotkeyModule.forRoot(),
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
+  entryComponents: [ConfirmDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
