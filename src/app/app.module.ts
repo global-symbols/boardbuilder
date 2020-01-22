@@ -20,6 +20,7 @@ import {HotkeyModule} from 'angular2-hotkeys';
 import {FormsModule} from '@angular/forms';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { SymbolSearchDialogComponent } from './symbol-search-dialog/symbol-search-dialog.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -62,7 +63,8 @@ const dbConfig: DBConfig  = {
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    FlexLayoutModule
   ],
   entryComponents: [
     ConfirmDialogComponent,

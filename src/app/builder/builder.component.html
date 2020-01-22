@@ -20,11 +20,17 @@
       </mat-nav-list>
     </mat-sidenav>
 
-    <mat-sidenav [opened]="selectedCell" mode="side" position="end">
-      {{selectedCell | json}}
+    <mat-sidenav [opened]="selectedCell" mode="side" position="end" id="cellEditor">
+
 
       <div *ngIf="selectedCell">
-        <h3>Edit Cell</h3>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <h3>Edit Cell</h3>
+          <button mat-icon-button aria-label="Close the cell editor" (click)="selectCell(null)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+
         <mat-form-field class="example-full-width">
           <input matInput [(ngModel)]="selectedCell.caption" placeholder="Caption">
         </mat-form-field>
@@ -32,7 +38,7 @@
 
 
       </div>
-
+      {{selectedCell | json}}
     </mat-sidenav>
 
     <mat-sidenav-content>
