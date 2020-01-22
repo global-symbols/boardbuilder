@@ -23,6 +23,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   private _mobileQueryListener: () => void;
 
+  private deleteDialogRef;
+
   constructor(changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
               private service: BoardSetService,
@@ -79,15 +81,14 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   deleteBoard(board) {
     if (board === undefined) { return; }
+    if (this.deleteDialogRef !== undefined) { return; }
 
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    this.deleteDialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '250px',
       data: {heading: 'Delete this Board?', content: 'This cannot be undone.'}
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
+    this.deleteDialogRef.afterClosed().subscribe(result => {
 
       if (result) {
         this.selectBoard(null);
@@ -95,6 +96,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
         this.updateBoardSet().then(r => null);
         this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
       }
+
+      this.deleteDialogRef = undefined;
     });
   }
 
