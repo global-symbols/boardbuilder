@@ -20,7 +20,7 @@ export class BoardSet implements Deserialisable {
     }
 
     addBoard() {
-        this.boards.push(new Board());
+        this.boards.push(new Board({ title: 'Board ' + (this.boards.length + 1) }));
     }
 
 }

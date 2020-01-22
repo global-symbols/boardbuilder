@@ -8,10 +8,13 @@ export class Board implements Deserialisable {
     columns: number;
     cells: Array<Cell>;
 
-    constructor() {
+    constructor(init?: Partial<Board>) {
         this.rows = 3;
         this.columns = 4;
         this.title = 'New Board';
+
+
+        Object.assign(this, init);
 
         this.cells = Array<Cell>();
 
