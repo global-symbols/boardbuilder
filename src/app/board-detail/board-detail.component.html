@@ -1,5 +1,5 @@
 <p>Select a Board</p>
-
+{{board | json}}
 
 <!--<ion-grid>-->
 <!--  <ion-row *ngFor="let row of rowsArray; let y = index">-->
@@ -11,6 +11,13 @@
 <!--</ion-grid>-->
 <div *ngIf="board">
   <mat-grid-list [cols]="board.columns" rowHeight="2:1">
-    <mat-grid-tile *ngFor="let cell of board.cells">{{cell.caption}}</mat-grid-tile>
+    <mat-grid-tile *ngFor="let cell of board.cells">
+      cell {{cell.caption}}
+      <mat-card>
+        <mat-card-content>
+          <img src="{{cell.url ? cell.url : 'https://d18vdu4p71yql0.cloudfront.net/libraries/noun-project/Picture-abf86f3f72.svg'}}" />
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
   </mat-grid-list>
 </div>

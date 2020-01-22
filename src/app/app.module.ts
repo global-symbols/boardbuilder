@@ -4,7 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BuilderComponent } from './builder/builder.component';
-import {MatButtonModule, MatGridListModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatGridListModule,
+  MatIconModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 import {RouterModule} from '@angular/router';
 import { BoardDetailComponent } from './board-detail/board-detail.component';
 import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
@@ -41,7 +49,8 @@ const dbConfig: DBConfig  = {
     MatListModule,
     RouterModule,
     MatGridListModule,
-    NgxIndexedDBModule.forRoot(dbConfig)
+    NgxIndexedDBModule.forRoot(dbConfig),
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

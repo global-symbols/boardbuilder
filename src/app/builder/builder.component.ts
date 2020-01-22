@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {BoardSetService} from '../board-set.service';
+import {Board} from '../models/board.model';
 
 @Component({
   selector: 'app-builder',
@@ -10,6 +11,7 @@ import {BoardSetService} from '../board-set.service';
 export class BuilderComponent implements OnInit, OnDestroy {
 
   boardSet;
+  board;
 
   mobileQuery: MediaQueryList;
 
@@ -31,15 +33,21 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   addBoard() {
     this.boardSet.addBoard();
-    this.updateBoardSet();
+    this.updateBoardSet().then(bs => {
+      this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+    });
   }
 
   updateBoardSet() {
-    this.service.updateBoardSet(this.boardSet).then(r => null);
+    return this.service.updateBoardSet(this.boardSet).then(r => null);
   }
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  selectBoard(board: Board) {
+    this.board = board;
   }
 
 }
