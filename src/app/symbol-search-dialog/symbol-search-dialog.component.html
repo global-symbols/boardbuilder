@@ -28,18 +28,22 @@
             <mat-label>{{param.label}}</mat-label>
             <mat-select [(value)]="param.value" (selectionChange)="search()">
               <mat-option *ngIf="param.allowBlank" [value]="">{{param.allowBlank}}</mat-option>
-              <mat-option *ngFor="let option of param.options" [value]="option[param.option_id]">
-                {{option.name}}
-              </mat-option>
+              <mat-option *ngFor="let option of param.options" [value]="option[param.option_id]">{{option.name}}</mat-option>
             </mat-select>
           </mat-form-field>
-          {{param.value}}
         </div>
       </div>
     </div>
     <div fxFlex="80">
       Results
-      {{results | json}}
+      <div fxFlexFill fxLayoutGap="10px grid" fxLayout="wrap">
+        <div fxFlex="20" *ngFor="let result of results">
+          <mat-card>
+            <img mat-card-image [src]="result.picto.image_url" class="img-resonsive"/>
+          </mat-card>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
