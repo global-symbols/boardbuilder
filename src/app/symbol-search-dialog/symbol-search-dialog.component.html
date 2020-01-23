@@ -1,9 +1,14 @@
-<h1 mat-dialog-title>Search for a Symbol</h1>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+  <h1 mat-dialog-title>Search for a Symbol</h1>
+  <button mat-icon-button aria-label="Close the cell editor" [mat-dialog-close]="false">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+
 <div mat-dialog-content>
-  <mat-grid-list [cols]="3">
-
-    <mat-grid-tile>
-
+  <div fxLayout="row">
+    <div fxFlex="20">
       <div class="example-container">
 
         <label id="example-radio-group-label">Search in</label>
@@ -14,17 +19,29 @@
           </mat-radio-button>
         </mat-radio-group>
 
-        <mat-form-field class="example-full-width" *ngFor="let param of source.params">
-          <input matInput [(ngModel)]="param.value" [placeholder]="param.label">
-        </mat-form-field>
+        <div *ngFor="let param of source.params">
+          <mat-form-field class="example-full-width" *ngIf="param.type === 'text'">
+            <input matInput [(ngModel)]="param.value" [placeholder]="param.label" (change)="search()">
+          </mat-form-field>
+
+          <mat-form-field *ngIf="param.type === 'select'">
+            <mat-label>{{param.label}}</mat-label>
+            <mat-select [(value)]="param.value" (selectionChange)="search()">
+              <mat-option *ngIf="param.allowBlank" [value]="">{{param.allowBlank}}</mat-option>
+              <mat-option *ngFor="let option of param.options" [value]="option[param.option_id]">
+                {{option.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          {{param.value}}
+        </div>
       </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="3">
-      3
-    </mat-grid-tile>
-
-  </mat-grid-list>
+    </div>
+    <div fxFlex="80">
+      Results
+      {{results | json}}
+    </div>
+  </div>
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button [mat-dialog-close]="false" color="accent">Cancel</button>

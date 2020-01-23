@@ -27,6 +27,7 @@ export class CellEditorComponent implements OnInit {
   searchSymbols() {
     const dialogRef = this.dialog.open(SymbolSearchDialogComponent, {
       width: '50vw',
+      height: '60vh',
       // data: {heading: 'Delete this Board?', content: 'This cannot be undone.'}
     });
   }

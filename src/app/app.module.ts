@@ -23,6 +23,7 @@ import { SymbolSearchDialogComponent } from './symbol-search-dialog/symbol-searc
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { ColourSelectorComponent } from './colour-selector/colour-selector.component';
 import { CellEditorComponent } from './cell-editor/cell-editor.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -70,7 +71,8 @@ const dbConfig: DBConfig  = {
     MatRadioModule,
     FlexLayoutModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
   entryComponents: [
     ConfirmDialogComponent,
