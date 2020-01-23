@@ -20,8 +20,7 @@
       </mat-nav-list>
     </mat-sidenav>
 
-    <mat-sidenav [opened]="selectedCell" mode="side" position="end" id="cellEditor">
-
+    <mat-sidenav [opened]="selectedCell" mode="side" position="end" id="cellEditor" (opened)="disableCellEditorAnimations = false" (closed)="disableCellEditorAnimations = true">
 
       <div *ngIf="selectedCell">
         <div fxLayout="row" fxLayoutAlign="space-between center">
@@ -31,10 +30,17 @@
           </button>
         </div>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="w-100">
           <input matInput [(ngModel)]="selectedCell.caption" placeholder="Caption">
         </mat-form-field>
+
         <button mat-raised-button color="primary" style="margin: 10px" (click)="searchSymbols()">Search Symbols</button>
+
+        <mat-accordion [@.disabled]="disableCellEditorAnimations">
+          <app-colour-selector label="Background colour" [(value)]="selectedCell.backgroundColour"></app-colour-selector>
+          <app-colour-selector label="Border colour" [(value)]="selectedCell.borderColour"></app-colour-selector>
+          <app-colour-selector label="Text colour" [(value)]="selectedCell.textColour"></app-colour-selector>
+        </mat-accordion>
 
 
       </div>

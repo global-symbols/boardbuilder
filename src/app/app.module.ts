@@ -6,10 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BuilderComponent } from './builder/builder.component';
 import {
   MatButtonModule,
-  MatCardModule, MatDialogModule, MatFormFieldModule,
+  MatCardModule, MatDialogModule, MatExpansionModule, MatFormFieldModule,
   MatGridListModule,
   MatIconModule, MatInputModule,
-  MatListModule, MatRadioModule,
+  MatListModule, MatRadioModule, MatSelectModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -21,6 +21,7 @@ import {FormsModule} from '@angular/forms';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { SymbolSearchDialogComponent } from './symbol-search-dialog/symbol-search-dialog.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { ColourSelectorComponent } from './colour-selector/colour-selector.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -44,7 +45,8 @@ const dbConfig: DBConfig  = {
     BuilderComponent,
     BoardDetailComponent,
     ConfirmDialogComponent,
-    SymbolSearchDialogComponent
+    SymbolSearchDialogComponent,
+    ColourSelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,9 @@ const dbConfig: DBConfig  = {
     MatInputModule,
     MatDialogModule,
     MatRadioModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatExpansionModule,
+    MatSelectModule
   ],
   entryComponents: [
     ConfirmDialogComponent,

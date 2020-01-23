@@ -36,4 +36,9 @@ h1.example-app-name {
 
 mat-sidenav#cellEditor {
   padding: 0 1rem;
+  width: 333px;
+}
+
+.w-100 {
+  width: 100%;
 }

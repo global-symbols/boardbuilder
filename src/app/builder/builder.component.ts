@@ -19,6 +19,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
   board;
   selectedCell;
 
+  disableCellEditorAnimations = true;
+
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;

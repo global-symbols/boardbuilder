@@ -7,6 +7,9 @@ export class Cell implements Deserialisable {
     height?: number;
     content_type?: string;
     caption?: string;
+    backgroundColour: string;
+    borderColour: string;
+    textColour: string;
 
     deserialise(input: any): this {
         return Object.assign(this, input);
