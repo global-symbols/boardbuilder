@@ -3,7 +3,6 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {BoardSetService} from '../board-set.service';
 import {Board} from '../models/board.model';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
-import {Cell} from '../models/cell.model';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {MatDialog} from '@angular/material';
 import {SymbolSearchDialogComponent} from '../symbol-search-dialog/symbol-search-dialog.component';
@@ -18,6 +17,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   boardSet;
   board;
   selectedCell;
+  cellEditorOpen = false;
 
   disableCellEditorAnimations = true;
 
@@ -102,10 +102,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
       this.deleteDialogRef = undefined;
     });
-  }
-
-  selectCell(cell: Cell) {
-    this.selectedCell = cell;
   }
 
   searchSymbols() {
