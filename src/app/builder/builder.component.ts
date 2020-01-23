@@ -17,7 +17,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
   boardSet;
   board;
   selectedCell;
-  cellEditorOpen = false;
 
   disableCellEditorAnimations = true;
 
@@ -101,13 +100,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
       }
 
       this.deleteDialogRef = undefined;
-    });
-  }
-
-  searchSymbols() {
-    const dialogRef = this.dialog.open(SymbolSearchDialogComponent, {
-      width: '50vw',
-      // data: {heading: 'Delete this Board?', content: 'This cannot be undone.'}
     });
   }
 }

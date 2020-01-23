@@ -22,6 +22,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { SymbolSearchDialogComponent } from './symbol-search-dialog/symbol-search-dialog.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { ColourSelectorComponent } from './colour-selector/colour-selector.component';
+import { CellEditorComponent } from './cell-editor/cell-editor.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -46,7 +47,8 @@ const dbConfig: DBConfig  = {
     BoardDetailComponent,
     ConfirmDialogComponent,
     SymbolSearchDialogComponent,
-    ColourSelectorComponent
+    ColourSelectorComponent,
+    CellEditorComponent
   ],
   imports: [
     BrowserModule,

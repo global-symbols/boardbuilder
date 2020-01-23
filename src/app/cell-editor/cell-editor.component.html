@@ -1,0 +1,23 @@
+<div *ngIf="cell">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <h3>Edit Cell</h3>
+    <button mat-icon-button aria-label="Close the cell editor" (click)="closeEditor()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-form-field class="w-100">
+    <input matInput [(ngModel)]="cell.caption" placeholder="Caption">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" style="margin: 10px" (click)="searchSymbols()">Search Symbols</button>
+
+  <mat-accordion>
+    <app-colour-selector label="Background colour" [(value)]="cell.backgroundColour"></app-colour-selector>
+    <app-colour-selector label="Border colour" [(value)]="cell.borderColour"></app-colour-selector>
+    <app-colour-selector label="Text colour" [(value)]="cell.textColour"></app-colour-selector>
+  </mat-accordion>
+
+
+</div>
+{{cell | json}}
