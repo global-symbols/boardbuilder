@@ -3,6 +3,9 @@
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">{{board ? board.title : 'Global Symbols BoardBuilder' }}</h1>
     <span class="example-spacer"></span>
+    <button mat-icon-button aria-label="Edit this Board" (click)="editBoard(board)" *ngIf="board">
+      <mat-icon>edit</mat-icon>
+    </button>
     <button mat-icon-button aria-label="Delete this Board" (click)="deleteBoard(board)" *ngIf="board">
       <mat-icon>delete</mat-icon>
     </button>
@@ -24,11 +27,12 @@
                  (opened)="disableCellEditorAnimations = false"
                  (closed)="disableCellEditorAnimations = true; selectedCell = null">
 
-      <app-cell-editor [(cell)]="selectedCell" (close)="cellEditor.close()" [@.disabled]="disableCellEditorAnimations"></app-cell-editor>
+      <app-cell-editor [boardSet]="boardSet" [board]="board" [(cell)]="selectedCell" (close)="cellEditor.close()" [@.disabled]="disableCellEditorAnimations"></app-cell-editor>
     </mat-sidenav>
 
     <mat-sidenav-content>
       <app-board-detail [board]="board" [(cell)]="selectedCell"></app-board-detail>
+      {{board | json}}
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

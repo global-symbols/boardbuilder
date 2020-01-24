@@ -6,6 +6,7 @@ import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {MatDialog} from '@angular/material';
 import {SymbolSearchDialogComponent} from '../symbol-search-dialog/symbol-search-dialog.component';
+import {BoardEditorComponent} from '../board-editor/board-editor.component';
 
 @Component({
   selector: 'app-builder',
@@ -25,6 +26,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   private _mobileQueryListener: () => void;
 
   private deleteDialogRef;
+  private editDialogRef;
 
   constructor(changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
@@ -37,14 +39,19 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
 
     // Keyboard shortcut - delete Board
-    this.hotkeysService.add(new Hotkey('meta+backspace', (event: KeyboardEvent): boolean => {
+    this.hotkeysService.add(new Hotkey('backspace', (event: KeyboardEvent): boolean => {
       this.deleteBoard(this.board);
       return false; // Prevent bubbling
     }));
 
     // Keyboard shortcut - add Board
-    this.hotkeysService.add(new Hotkey('meta+enter', (event: KeyboardEvent): boolean => {
+    this.hotkeysService.add(new Hotkey('a', (event: KeyboardEvent): boolean => {
       this.addBoard();
+      return false; // Prevent bubbling
+    }));
+    // Keyboard shortcut - edit Board
+    this.hotkeysService.add(new Hotkey('e', (event: KeyboardEvent): boolean => {
+      this.editBoard(this.board);
       return false; // Prevent bubbling
     }));
   }
@@ -101,5 +108,20 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
       this.deleteDialogRef = undefined;
     });
+  }
+
+  editBoard(board) {
+    if (board === undefined) { return; }
+    if (this.editDialogRef !== undefined) { return; }
+
+    this.editDialogRef = this.dialog.open(BoardEditorComponent, {
+      width: '300px',
+      data: { board: this.board }
+    });
+
+    this.editDialogRef.afterClosed().subscribe(result => {
+      this.editDialogRef = undefined;
+    });
+
   }
 }

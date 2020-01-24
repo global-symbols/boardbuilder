@@ -24,6 +24,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { ColourSelectorComponent } from './colour-selector/colour-selector.component';
 import { CellEditorComponent } from './cell-editor/cell-editor.component';
 import {HttpClientModule} from '@angular/common/http';
+import { BoardEditorComponent } from './board-editor/board-editor.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -49,7 +50,8 @@ const dbConfig: DBConfig  = {
     ConfirmDialogComponent,
     SymbolSearchDialogComponent,
     ColourSelectorComponent,
-    CellEditorComponent
+    CellEditorComponent,
+    BoardEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,9 @@ const dbConfig: DBConfig  = {
   ],
   entryComponents: [
     ConfirmDialogComponent,
-    SymbolSearchDialogComponent],
+    SymbolSearchDialogComponent,
+    BoardEditorComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -5,10 +5,11 @@
                 [style.background-color]="cell.backgroundColour"
                 [style.border-color]="cell.borderColour">
         <mat-card-content class="board-cell" [style.color]="cell.textColour">
+          <span *ngIf="board.defaultCellFormat.labelPosition === 'top'">{{cell.caption}}</span>
           <div>
             <img src="{{cell.url ? cell.url : 'https://d18vdu4p71yql0.cloudfront.net/libraries/noun-project/Picture-abf86f3f72.svg'}}" />
           </div>
-          {{cell.caption}}
+          <span *ngIf="board.defaultCellFormat.labelPosition === 'bottom'">{{cell.caption}}</span>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

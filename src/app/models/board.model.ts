@@ -1,5 +1,6 @@
 import {Deserialisable} from './deserialisable.model';
 import {Cell} from './cell.model';
+import {CellFormat} from './cell-format.model';
 
 export class Board implements Deserialisable {
     id: number;
@@ -7,12 +8,14 @@ export class Board implements Deserialisable {
     rows: number;
     columns: number;
     cells: Array<Cell>;
+    defaultCellFormat: CellFormat;
 
     constructor(init?: Partial<Board>) {
         this.rows = 3;
         this.columns = 4;
         this.title = 'New Board';
 
+        this.defaultCellFormat = new CellFormat();
 
         Object.assign(this, init);
 
