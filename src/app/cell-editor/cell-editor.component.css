@@ -1,3 +1,13 @@
-.tab-content {
+.p-1 {
   padding: 1rem;
+}
+
+.cell-caption {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255, 0.5);
+  border-radius: 3px;
+  font-size: 1.3rem;
+  padding: 3px 5px;
+  margin-right: 1rem;
 }

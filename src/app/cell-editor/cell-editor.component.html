@@ -1,17 +1,17 @@
 <div *ngIf="cell">
 
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="p-1">
+<!--    <mat-form-field class="w-100">-->
+      <input [(ngModel)]="cell.caption" placeholder="Caption" class="cell-caption w-100">
+<!--    </mat-form-field>-->
+    <button mat-icon-button aria-label="Close the cell editor" (click)="closeEditor()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="Cell">
-      <div class="tab-content">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <button mat-icon-button aria-label="Close the cell editor" (click)="closeEditor()">
-            <mat-icon>close</mat-icon>
-          </button>
-        </div>
-
-        <mat-form-field class="w-100">
-          <input matInput [(ngModel)]="cell.caption" placeholder="Caption">
-        </mat-form-field>
+      <div class="p-1">
 
         <mat-accordion>
           <app-colour-selector label="Background colour" [(value)]="cell.backgroundColour"></app-colour-selector>
@@ -29,7 +29,7 @@
     </mat-tab>
 
     <mat-tab label="Symbol">
-      <div class="tab-content">
+      <div class="p-1">
         <app-symbol-search-panel (selectionChange)="selectImageUrl($event)"></app-symbol-search-panel>
       </div>
     </mat-tab>
