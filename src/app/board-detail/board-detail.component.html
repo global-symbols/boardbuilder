@@ -1,17 +1,20 @@
 <div *ngIf="board">
-  <mat-grid-list [cols]="board.columns" rowHeight="2:1">
-    <mat-grid-tile *ngFor="let cell of board.cells | slice:0:(board.columns * board.rows)">
-      <mat-card tabindex="0" (click)="selectCell(cell)" (keyup.enter)="selectCell(cell)"
-                [style.background-color]="cell.backgroundColour"
-                [style.border-color]="cell.borderColour">
-        <mat-card-content class="board-cell" [style.color]="cell.textColour">
-          <span *ngIf="board.defaultCellFormat.labelPosition === 'top'">{{cell.caption}}</span>
-          <div>
-            <img src="{{cell.url ? cell.url : 'https://d18vdu4p71yql0.cloudfront.net/libraries/noun-project/Picture-abf86f3f72.svg'}}" />
+  <mat-grid-list [cols]="board.columns" rowHeight="10rem" gutterSize="1rem">
+    <mat-grid-tile *ngFor="let cell of board.cells | slice:0 : (board.columns * board.rows)"
+
+                    class="mat-card" tabindex="0" (click)="selectCell(cell)" (keyup.enter)="selectCell(cell)"
+                   [style.background-color]="cell.backgroundColour"
+                   [style.border-color]="cell.borderColour"
+                   [style.color]="cell.textColour">
+<!--      <mat-grid-tile-header *ngIf="board.defaultCellFormat.labelPosition === 'top'">{{cell.caption}}</mat-grid-tile-header>-->
+
+          <div fxLayout="column" fxLayoutAlign="space-between stretch">
+            <span *ngIf="board.defaultCellFormat.labelPosition === 'top'">{{cell.caption}}</span>
+            <img *ngIf="cell.url" [src]="cell.url" class="img-responsive"/>
+            <mat-icon *ngIf="!cell.url">landscape</mat-icon>
+            <span *ngIf="board.defaultCellFormat.labelPosition === 'bottom'">{{cell.caption}}</span>
           </div>
-          <span *ngIf="board.defaultCellFormat.labelPosition === 'bottom'">{{cell.caption}}</span>
-        </mat-card-content>
-      </mat-card>
+<!--      <mat-grid-tile-footer *ngIf="board.defaultCellFormat.labelPosition === 'bottom'">{{cell.caption}}</mat-grid-tile-footer>-->
     </mat-grid-tile>
   </mat-grid-list>
 </div>

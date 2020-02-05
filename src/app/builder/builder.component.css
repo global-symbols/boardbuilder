@@ -41,3 +41,6 @@ mat-sidenav#cellEditor {
 .w-100 {
   width: 100%;
 }
+mat-sidenav-content {
+  padding: 1rem;
+}

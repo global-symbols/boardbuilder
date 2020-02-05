@@ -1,7 +1,26 @@
-.board-cell {
+mat-grid-tile {
+  position: absolute;
   text-align: center;
 }
 
-.board-cell img {
+mat-grid-tile div {
+  height: 100%;
+  padding: 0.5rem;
+}
+
+mat-grid-tile img {
   margin-bottom: 1rem;
+
+  height: 75%;
+}
+
+mat-grid-tile mat-icon {
+  font-size: 7rem;
+  height: auto;
+  width: auto;
+  opacity: 0.1;
+}
+
+mat-grid-tile span {
+  /*height: 25%;*/
 }
