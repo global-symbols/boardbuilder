@@ -8,7 +8,7 @@
 
 <div mat-dialog-content>
   <mat-form-field class="w-100">
-    <input matInput [(ngModel)]="data.board.title" placeholder="Title">
+    <input matInput required [(ngModel)]="data.board.title" placeholder="Title">
   </mat-form-field>
 
   <mat-form-field class="w-100">
@@ -19,6 +19,30 @@
       <mat-option value="hidden">Hidden</mat-option>
     </mat-select>
   </mat-form-field>
+
+  <mat-label>Columns</mat-label>
+  <mat-slider
+    class="example-margin w-100"
+    [max]="12"
+    [min]="1"
+    [step]="1"
+    [thumbLabel]="true"
+    [tickInterval]="1"
+    [(ngModel)]="data.board.columns"
+    (change)="data.board.populateCells()">
+  </mat-slider>
+
+  <mat-label>Rows</mat-label>
+  <mat-slider
+    class="example-margin w-100"
+    [max]="12"
+    [min]="1"
+    [step]="1"
+    [thumbLabel]="true"
+    [tickInterval]="1"
+    [(ngModel)]="data.board.rows"
+    (change)="data.board.populateCells()">
+  </mat-slider>
 
 
 <!--  <div fxLayout="row">-->

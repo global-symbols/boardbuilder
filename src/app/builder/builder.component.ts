@@ -7,6 +7,7 @@ import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component
 import {MatDialog} from '@angular/material';
 import {SymbolSearchDialogComponent} from '../symbol-search-dialog/symbol-search-dialog.component';
 import {BoardEditorComponent} from '../board-editor/board-editor.component';
+import {BoardSet} from '../models/boardset.model';
 
 @Component({
   selector: 'app-builder',
@@ -15,8 +16,8 @@ import {BoardEditorComponent} from '../board-editor/board-editor.component';
 })
 export class BuilderComponent implements OnInit, OnDestroy {
 
-  boardSet;
-  board;
+  boardSet: BoardSet;
+  board: Board;
   selectedCell;
 
   disableCellEditorAnimations = true;

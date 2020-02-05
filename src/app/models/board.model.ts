@@ -29,8 +29,9 @@ export class Board implements Deserialisable {
     }
 
     deserialise(input: any): this {
-        const object = Object.assign(this, input);
-        object.cells.map(cell => new Cell().deserialise(cell));
-        return object;
+      const object = Object.assign(this, input);
+      this.cells = object.cells.map(cell => new Cell().deserialise(cell));
+      return this;
+    }
     }
 }

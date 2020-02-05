@@ -14,9 +14,9 @@ export class BoardSet implements Deserialisable {
     }
 
     deserialise(input: any): this {
-        const object = Object.assign(this, input);
-        object.boards.map(board => new Board().deserialise(board));
-        return object;
+      const object = Object.assign(this, input);
+      this.boards = object.boards.map(board => new Board().deserialise(board));
+      return this;
     }
 
     addBoard() {
