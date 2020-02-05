@@ -10,8 +10,8 @@ import {
   MatGridListModule,
   MatIconModule, MatInputModule,
   MatListModule, MatRadioModule, MatSelectModule,
-  MatSidenavModule,
-  MatToolbarModule
+  MatSidenavModule, MatTabsModule,
+  MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import {RouterModule} from '@angular/router';
 import { BoardDetailComponent } from './board-detail/board-detail.component';
@@ -25,6 +25,7 @@ import { ColourSelectorComponent } from './colour-selector/colour-selector.compo
 import { CellEditorComponent } from './cell-editor/cell-editor.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BoardEditorComponent } from './board-editor/board-editor.component';
+import { SymbolSearchPanelComponent } from './symbol-search-panel/symbol-search-panel.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -51,7 +52,8 @@ const dbConfig: DBConfig  = {
     SymbolSearchDialogComponent,
     ColourSelectorComponent,
     CellEditorComponent,
-    BoardEditorComponent
+    BoardEditorComponent,
+    SymbolSearchPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,9 @@ const dbConfig: DBConfig  = {
     FlexLayoutModule,
     MatExpansionModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTooltipModule,
+    MatTabsModule
   ],
   entryComponents: [
     ConfirmDialogComponent,

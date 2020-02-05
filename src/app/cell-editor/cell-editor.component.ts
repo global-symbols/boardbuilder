@@ -32,4 +32,7 @@ export class CellEditorComponent implements OnInit {
     });
   }
 
+  selectImageUrl(url: string) {
+    this.cell.url = url;
+  }
 }

@@ -1,0 +1,32 @@
+<div fxLayout="row" fxLayoutAlign="space-between none" >
+  <label id="example-radio-group-label">Search in</label><br />
+
+  <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="source">
+    <mat-radio-button class="example-radio-button" *ngFor="let source of sources" [value]="source">
+      {{source.name}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+
+
+<div *ngFor="let param of source.params">
+  <mat-form-field class="w-100" *ngIf="param.type === 'text'">
+    <input matInput [(ngModel)]="param.value" [placeholder]="param.label" (change)="search()">
+  </mat-form-field>
+
+  <mat-form-field class="w-100" *ngIf="param.type === 'select'">
+    <mat-label>{{param.label}}</mat-label>
+    <mat-select [(value)]="param.value" (selectionChange)="search()">
+      <mat-option *ngIf="param.allowBlank" [value]="param.allowBlank.value">{{param.allowBlank.name}}</mat-option>
+      <mat-option *ngFor="let option of param.options" [value]="option[param.option_id]">{{option.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div fxLayoutGap="10px grid" fxLayout="row wrap">
+  <div fxFlex="25" *ngFor="let result of results">
+    <mat-card (click)="selectImage(result)">
+      <img mat-card-image [src]="result.picto.image_url"/>
+    </mat-card>
+  </div>
+</div>

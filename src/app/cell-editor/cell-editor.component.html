@@ -1,23 +1,44 @@
 <div *ngIf="cell">
-  <div fxLayout="row" fxLayoutAlign="space-between center">
-    <h3>Edit Cell</h3>
-    <button mat-icon-button aria-label="Close the cell editor" (click)="closeEditor()">
-      <mat-icon>close</mat-icon>
-    </button>
-  </div>
 
-  <mat-form-field class="w-100">
-    <input matInput [(ngModel)]="cell.caption" placeholder="Caption">
-  </mat-form-field>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Cell">
+      <div class="tab-content">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <button mat-icon-button aria-label="Close the cell editor" (click)="closeEditor()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
 
-  <button mat-raised-button color="primary" style="margin: 10px" (click)="searchSymbols()">Search Symbols</button>
+        <mat-form-field class="w-100">
+          <input matInput [(ngModel)]="cell.caption" placeholder="Caption">
+        </mat-form-field>
 
-  <mat-accordion>
-    <app-colour-selector label="Background colour" [(value)]="cell.backgroundColour"></app-colour-selector>
-    <app-colour-selector label="Border colour" [(value)]="cell.borderColour"></app-colour-selector>
-    <app-colour-selector label="Text colour" [(value)]="cell.textColour"></app-colour-selector>
-  </mat-accordion>
+        <mat-accordion>
+          <app-colour-selector label="Background colour" [(value)]="cell.backgroundColour"></app-colour-selector>
+          <app-colour-selector label="Border colour" [(value)]="cell.borderColour"></app-colour-selector>
+          <app-colour-selector label="Text colour" [(value)]="cell.textColour"></app-colour-selector>
+        </mat-accordion>
 
+        <mat-form-field>
+          <mat-label>Link to a Board</mat-label>
+          <mat-select [(ngModel)]="cell.linkToBoardId">
+            <mat-option *ngFor="let board of boardSet.boards" [value]="board.uuid">{{board.title}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Symbol">
+      <div class="tab-content">
+        <app-symbol-search-panel (selectionChange)="selectImageUrl($event)"></app-symbol-search-panel>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+
+
+<!--  <h3>Search Symbols</h3>-->
+<!--  <app-symbol-search-panel></app-symbol-search-panel>-->
 
 </div>
 {{cell | json}}
