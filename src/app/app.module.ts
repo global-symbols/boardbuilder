@@ -10,7 +10,7 @@ import {
   MatGridListModule,
   MatIconModule, MatInputModule,
   MatListModule, MatRadioModule, MatSelectModule,
-  MatSidenavModule, MatTabsModule,
+  MatSidenavModule, MatSliderModule, MatTabsModule,
   MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import {RouterModule} from '@angular/router';
@@ -78,7 +78,8 @@ const dbConfig: DBConfig  = {
     MatSelectModule,
     HttpClientModule,
     MatTooltipModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSliderModule
   ],
   entryComponents: [
     ConfirmDialogComponent,

@@ -1,6 +1,6 @@
 <div *ngIf="board">
   <mat-grid-list [cols]="board.columns" rowHeight="2:1">
-    <mat-grid-tile *ngFor="let cell of board.cells">
+    <mat-grid-tile *ngFor="let cell of board.cells | slice:0:(board.columns * board.rows)">
       <mat-card tabindex="0" (click)="selectCell(cell)" (keyup.enter)="selectCell(cell)"
                 [style.background-color]="cell.backgroundColour"
                 [style.border-color]="cell.borderColour">
@@ -15,4 +15,3 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-<!--{{board | json}}-->

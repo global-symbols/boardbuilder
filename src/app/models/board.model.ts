@@ -21,11 +21,7 @@ export class Board implements Deserialisable {
 
         this.cells = Array<Cell>();
 
-        for (let i = 0; i < (this.rows * this.columns); i++) {
-            const cell = new Cell();
-            cell.id = i;
-            this.cells.push(cell);
-        }
+        this.populateCells();
     }
 
     deserialise(input: any): this {
@@ -33,5 +29,12 @@ export class Board implements Deserialisable {
       this.cells = object.cells.map(cell => new Cell().deserialise(cell));
       return this;
     }
+
+    populateCells(): void {
+      for (let i = this.cells.length; i < (this.rows * this.columns); i++) {
+        const cell = new Cell();
+        cell.id = i;
+        this.cells.push(cell);
+      }
     }
 }
