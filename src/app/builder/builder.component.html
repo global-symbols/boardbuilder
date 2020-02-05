@@ -3,10 +3,10 @@
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">{{board ? board.title : 'Global Symbols BoardBuilder' }}</h1>
     <span class="example-spacer"></span>
-    <button mat-icon-button aria-label="Edit this Board" (click)="editBoard(board)" *ngIf="board">
+    <button mat-icon-button aria-label="Edit this Board" (click)="editBoard(board)" *ngIf="board" matTooltip="Edit this Board">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button aria-label="Delete this Board" (click)="deleteBoard(board)" *ngIf="board">
+    <button mat-icon-button aria-label="Delete this Board" (click)="deleteBoard(board)" *ngIf="board" matTooltip="Delete this Board">
       <mat-icon>delete</mat-icon>
     </button>
   </mat-toolbar>
