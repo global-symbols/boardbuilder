@@ -1,9 +1,11 @@
 import {Deserialisable} from './deserialisable.model';
 import {Cell} from './cell.model';
+import * as uuid from 'uuid';
 import {CellFormat} from './cell-format.model';
 
 export class Board implements Deserialisable {
     id: number;
+    uuid: string;
     title: string;
     rows: number;
     columns: number;
@@ -14,7 +16,7 @@ export class Board implements Deserialisable {
         this.rows = 3;
         this.columns = 4;
         this.title = 'New Board';
-
+        this.uuid = uuid.v4();
         this.defaultCellFormat = new CellFormat();
 
         Object.assign(this, init);
@@ -37,4 +39,20 @@ export class Board implements Deserialisable {
         this.cells.push(cell);
       }
     }
+
+    childBoards(): Array<Board> {
+      const out = [];
+      this.cells.forEach(c => {
+        if (c.board) { out.push(c.board); }
+      });
+      return out;
+    }
+
+  childBoardIds(): Array<string> {
+    const out = [];
+    this.cells.forEach(c => {
+      if (c.linkToBoardId) { out.push(c.linkToBoardId); }
+    });
+    return out;
+  }
 }

@@ -23,4 +23,8 @@ export class BoardSet implements Deserialisable {
         this.boards.push(new Board({ title: 'Board ' + (this.boards.length + 1) }));
     }
 
+    deleteBoard(board: Board) {
+      this.boards = this.boards.filter(b => b !== board);
+    }
+
 }

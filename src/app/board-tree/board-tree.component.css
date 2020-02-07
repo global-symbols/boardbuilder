@@ -4,3 +4,16 @@
   margin-bottom: 0;
   list-style-type: none;
 }
+.example-tree-invisible {
+  display: none;
+}
+
+.mat-tree-node {
+  padding-right: 10px;
+}
+
+div.mat-tree-node:hover,
+mat-tree-node:hover  {
+  background-color: rgba(255,255,255,.04);
+  cursor: pointer;
+}

@@ -102,7 +102,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
       if (result) {
         this.selectBoard(null);
-        this.boardSet.boards = this.boardSet.boards.filter(b => b !== board);
+        this.boardSet.deleteBoard(board);
         this.updateBoardSet().then(r => null);
         this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
       }

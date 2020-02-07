@@ -15,17 +15,17 @@ export class BoardTreeComponent implements OnInit {
   @Output() readonly selectionChange = new EventEmitter<Board>();
 
   treeControl = new NestedTreeControl<Board>(parentBoard => {
-    // return b.childBoards();
-    console.log('parent: ', parentBoard);
-    const children = this.boards.filter(child => parentBoard.childBoardIds().includes(child.uuid));
-    console.log('children: ', children);
+    const children = [];
+    parentBoard.cells.map(c => {
+      if (c.board) { children.push(c.board); }
+    });
     return children;
   });
   dataSource = new MatTreeNestedDataSource<Board>();
 
   constructor() { }
 
-  hasChild = (_: number, node: Board) => !!node.childBoardIds() && node.childBoardIds().length > 0;
+  hasChild = (_: number, node: Board) => !!node.childBoards() && node.childBoards().length > 0;
 
   ngOnInit() {
     console.log(this.boards);
