@@ -27,7 +27,6 @@ import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 import {HotkeyModule} from 'angular2-hotkeys';
 import {FormsModule} from '@angular/forms';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-import { SymbolSearchDialogComponent } from './symbol-search-dialog/symbol-search-dialog.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { ColourSelectorComponent } from './colour-selector/colour-selector.component';
 import { CellEditorComponent } from './cell-editor/cell-editor.component';
@@ -59,7 +58,6 @@ const dbConfig: DBConfig  = {
     BuilderComponent,
     BoardDetailComponent,
     ConfirmDialogComponent,
-    SymbolSearchDialogComponent,
     ColourSelectorComponent,
     CellEditorComponent,
     BoardEditorComponent,
@@ -96,7 +94,6 @@ const dbConfig: DBConfig  = {
   ],
   entryComponents: [
     ConfirmDialogComponent,
-    SymbolSearchDialogComponent,
     BoardEditorComponent
   ],
   providers: [],

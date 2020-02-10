@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Cell} from '../models/cell.model';
-import {SymbolSearchDialogComponent} from '../symbol-search-dialog/symbol-search-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
 import {BoardSet} from '../models/boardset.model';
@@ -29,14 +28,6 @@ export class CellEditorComponent implements OnInit {
 
   closeEditor() {
     this.close.emit(true);
-  }
-
-  searchSymbols() {
-    const dialogRef = this.dialog.open(SymbolSearchDialogComponent, {
-      width: '50vw',
-      height: '60vh',
-      // data: {heading: 'Delete this Board?', content: 'This cannot be undone.'}
-    });
   }
 
   selectImageUrl(url: string) {

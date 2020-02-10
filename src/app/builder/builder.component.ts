@@ -5,7 +5,6 @@ import {Board} from '../models/board.model';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import {SymbolSearchDialogComponent} from '../symbol-search-dialog/symbol-search-dialog.component';
 import {BoardEditorComponent} from '../board-editor/board-editor.component';
 import {BoardSet} from '../models/boardset.model';
 
