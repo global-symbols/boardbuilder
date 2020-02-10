@@ -25,12 +25,12 @@
         </mat-accordion>
 
         <h3>Linking</h3>
-        <mat-card *ngIf="cell.board" fxLayout="row" fxLayoutAlign="space-between center">
+        <div *ngIf="cell.board" fxLayout="row" fxLayoutAlign="space-between center">
           Linked to {{cell.board.title}}
           <button mat-icon-button aria-label="Unlink" matTooltip="Unlink" (click)="unlinkCellFromBoard()">
             <mat-icon>close</mat-icon>
           </button>
-        </mat-card>
+        </div>
 
         <mat-form-field class="w-100" *ngIf="!cell.board" appearance="outline">
           <mat-label>Link to a Board</mat-label>
