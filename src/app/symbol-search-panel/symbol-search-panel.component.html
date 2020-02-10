@@ -26,10 +26,18 @@
   </mat-form-field>
 </div>
 
-<div fxLayoutGap="10px grid" fxLayout="row wrap">
+<div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!isSearching">
   <div fxFlex="25" *ngFor="let result of results">
     <button mat-stroked-button color="primary" (click)="selectImage(result)" class="symbol-search-panel-image-button">
       <img mat-card-image [src]="result.imageUrl" class="img-responsive"/>
     </button>
   </div>
+</div>
+
+<div *ngIf="isSearching" class="symbol-search-panel-searching-notification">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate">
+  </mat-progress-spinner>
+  Searching&hellip;
 </div>

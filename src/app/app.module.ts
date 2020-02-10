@@ -35,6 +35,7 @@ import { BoardEditorComponent } from './board-editor/board-editor.component';
 import { SymbolSearchPanelComponent } from './symbol-search-panel/symbol-search-panel.component';
 import { BoardTreeComponent } from './board-tree/board-tree.component';
 import { BoardTreeItemComponent } from './board-tree-item/board-tree-item.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -90,7 +91,8 @@ const dbConfig: DBConfig  = {
     MatTooltipModule,
     MatTabsModule,
     MatSliderModule,
-    MatTreeModule
+    MatTreeModule,
+    MatProgressSpinnerModule
   ],
   entryComponents: [
     ConfirmDialogComponent,

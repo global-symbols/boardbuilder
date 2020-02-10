@@ -15,3 +15,11 @@
 .symbol-search-panel-image-button {
   padding: 0.5rem;
 }
+
+.symbol-search-panel-searching-notification {
+  text-align: center;
+}
+
+.symbol-search-panel-searching-notification mat-progress-spinner {
+  margin: 30px auto;
+}
