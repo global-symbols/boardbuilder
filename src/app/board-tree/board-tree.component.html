@@ -1,0 +1,3 @@
+<mat-nav-list *ngIf="boards">
+  <app-board-tree-item *ngFor="let board of boards" (selectChange)="selectBoard($event)" [board]="board"></app-board-tree-item>
+</mat-nav-list>

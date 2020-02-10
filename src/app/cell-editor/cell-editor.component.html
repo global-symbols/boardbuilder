@@ -24,10 +24,18 @@
           <app-colour-selector label="Text colour" [(value)]="cell.textColour"></app-colour-selector>
         </mat-accordion>
 
-        <mat-form-field class="w-100">
+        <h3>Linking</h3>
+        <mat-card *ngIf="cell.board" fxLayout="row" fxLayoutAlign="space-between center">
+          Linked to {{cell.board.title}}
+          <button mat-icon-button aria-label="Unlink" matTooltip="Unlink" (click)="unlinkCellFromBoard()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-card>
+
+        <mat-form-field class="w-100" *ngIf="!cell.board" appearance="outline">
           <mat-label>Link to a Board</mat-label>
-          <mat-select [(ngModel)]="cell.linkToBoardId">
-            <mat-option *ngFor="let board of boardSet.boards" [value]="board.uuid">{{board.title}}</mat-option>
+          <mat-select (selectionChange)="linkCellToBoard($event)">
+            <mat-option *ngFor="let board of linkToBoardsList()" [value]="board" (select)="linkCellToBoard(board)">{{board.title}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>

@@ -70,9 +70,17 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   addBoard() {
     this.boardSet.addBoard();
-    this.updateBoardSet().then(bs => {
-      this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
-    });
+    // this.boardSet = null;
+    // this.boardSet = boardSet;
+    // this.boardSet.boards.push(new Board());
+
+
+    this.updateBoardSet().then(r => null);
+    this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+
+    // this.updateBoardSet().then(bs => {
+    //   this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+    // });
   }
 
   updateBoardSet() {
@@ -102,7 +110,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
       if (result) {
         this.selectBoard(null);
-        this.boardSet.boards = this.boardSet.boards.filter(b => b !== board);
+        this.boardSet.deleteBoard(board);
         this.updateBoardSet().then(r => null);
         this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
       }
@@ -122,6 +130,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     this.editDialogRef.afterClosed().subscribe(result => {
       this.editDialogRef = undefined;
+      this.updateBoardSet().then(r => null);
     });
 
   }
