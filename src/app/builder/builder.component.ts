@@ -23,7 +23,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   mobileQuery: MediaQueryList;
 
-  private _mobileQueryListener: () => void;
+  private mobileQueryListener: () => void;
 
   private deleteDialogRef;
   private editDialogRef;
@@ -35,8 +35,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
               public dialog: MatDialog
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this.mobileQueryListener);
 
     // Keyboard shortcut - delete Board
     this.hotkeysService.add(new Hotkey('backspace', (event: KeyboardEvent): boolean => {
@@ -87,7 +87,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 
   selectBoard(board?: Board) {
