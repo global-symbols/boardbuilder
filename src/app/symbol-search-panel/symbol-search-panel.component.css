@@ -11,3 +11,7 @@
 .img-responsive {
   max-width: 100%;
 }
+
+.symbol-search-panel-image-button {
+  padding: 0.5rem;
+}

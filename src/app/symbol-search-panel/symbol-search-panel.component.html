@@ -25,8 +25,8 @@
 
 <div fxLayoutGap="10px grid" fxLayout="row wrap">
   <div fxFlex="25" *ngFor="let result of results">
-    <mat-card (click)="selectImage(result)">
-      <img mat-card-image [src]="result.picto.image_url"/>
-    </mat-card>
+    <button mat-stroked-button color="primary" (click)="selectImage(result)" class="symbol-search-panel-image-button">
+      <img mat-card-image [src]="result.picto.image_url" class="img-responsive"/>
+    </button>
   </div>
 </div>
