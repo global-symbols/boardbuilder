@@ -1,5 +1,5 @@
-<mat-nav-list *ngIf="boards">
-  <mat-list-item *ngFor="let board of boards" (click)="selectBoard(board)">{{board.title}}</mat-list-item>
+<mat-nav-list *ngIf="BOARDS">
+  <app-board-tree-item *ngFor="let board of BOARDS" (selectChange)="selectBoard($event)" [board]="board"></app-board-tree-item>
 </mat-nav-list>
 
 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">

@@ -20,11 +20,15 @@ export class BoardSet implements Deserialisable {
     }
 
     addBoard() {
-        this.boards.push(new Board({ title: 'Board ' + (this.boards.length + 1) }));
+        // Forces change detection by changing the Boards array reference.
+        this.boards = this.boards.concat([new Board({ title: 'Board ' + (this.boards.length + 1) })]);
     }
 
     deleteBoard(board: Board) {
       this.boards = this.boards.filter(b => b !== board);
     }
 
+  forceChangeDetect() {
+    this.boards = this.boards.concat([]);
+  }
 }

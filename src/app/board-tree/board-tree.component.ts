@@ -1,7 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges, ViewChild} from '@angular/core';
 import {Board} from '../models/board.model';
 import {NestedTreeControl} from '@angular/cdk/tree';
-import {MatTreeNestedDataSource} from '@angular/material';
+import {MatTree, MatTreeNestedDataSource} from '@angular/material';
+import {BoardSet} from '../models/boardset.model';
+import {Observable} from 'rxjs';
+import {CollectionViewer} from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-board-tree',
@@ -10,7 +13,14 @@ import {MatTreeNestedDataSource} from '@angular/material';
 })
 export class BoardTreeComponent implements OnInit {
 
-  @Input() boards: Array<Board>;
+  private BOARDS;
+  @Input()
+  set boards(val: Array<Board>) {
+    console.log('boards changed', val);
+    this.BOARDS = val;
+    this.dataSource.data = null;
+    this.dataSource.data = val.concat([]);
+  }
 
   @Output() readonly selectionChange = new EventEmitter<Board>();
 
@@ -28,11 +38,24 @@ export class BoardTreeComponent implements OnInit {
   hasChild = (_: number, node: Board) => !!node.childBoards() && node.childBoards().length > 0;
 
   ngOnInit() {
-    console.log(this.boards);
-    this.dataSource.data = this.boards;
+    // console.log(this.boards);
+    // this.updateDataSource();
   }
 
+  // updateDataSource() {
+  //   this.dataSource.data = this.BOARDS;
+  // }
+
+  // ngOnChanges(changes: SimpleChanges) {
+  //   console.log('ngOnChanges', changes);
+  //   const currentItem: SimpleChange = changes.boards;
+  //   // console.log('prev value: ', currentItem.previousValue);
+  //   console.log('got item: ', currentItem.currentValue);
+  //   if (currentItem.currentValue) { this.dataSource.data = this.boardss.boards; }
+  // }
+
   selectBoard(board: Board) {
+    console.log('selecting ', board);
     this.selectionChange.emit(board);
   }
 

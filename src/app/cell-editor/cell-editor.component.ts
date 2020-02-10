@@ -51,6 +51,7 @@ export class CellEditorComponent implements OnInit {
     console.log('linking to board', b);
     // Add the Board into the Cell.
     this.cell.board = new Board().deserialise(b);
+    // this.boardSet.forceChangeDetect();
 
     // Remove the Board from the top-level listing of Boards.
     this.boardSet.deleteBoard(b);

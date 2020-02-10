@@ -27,6 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BoardEditorComponent } from './board-editor/board-editor.component';
 import { SymbolSearchPanelComponent } from './symbol-search-panel/symbol-search-panel.component';
 import { BoardTreeComponent } from './board-tree/board-tree.component';
+import { BoardTreeItemComponent } from './board-tree-item/board-tree-item.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -55,7 +56,8 @@ const dbConfig: DBConfig  = {
     CellEditorComponent,
     BoardEditorComponent,
     SymbolSearchPanelComponent,
-    BoardTreeComponent
+    BoardTreeComponent,
+    BoardTreeItemComponent
   ],
   imports: [
     BrowserModule,
