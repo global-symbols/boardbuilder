@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Cell} from '../models/cell.model';
 import {SymbolSearchDialogComponent} from '../symbol-search-dialog/symbol-search-dialog.component';
-import {MatDialog, MatSelectChange} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSelectChange } from '@angular/material/select';
 import {BoardSet} from '../models/boardset.model';
 import {Board} from '../models/board.model';
 
