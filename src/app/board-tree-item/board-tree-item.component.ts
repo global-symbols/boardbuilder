@@ -6,14 +6,12 @@ import {Board} from '../models/board.model';
   templateUrl: './board-tree-item.component.html',
   styleUrls: ['./board-tree-item.component.css']
 })
-export class BoardTreeItemComponent implements OnInit {
+export class BoardTreeItemComponent {
 
   @Input() board: Board;
   @Input() level = 0;
   @Output() selectChange = new EventEmitter<Board>();
-  constructor() { }
 
-  ngOnInit() {
-  }
+  constructor() { }
 
 }

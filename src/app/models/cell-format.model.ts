@@ -2,6 +2,7 @@ import {Deserialisable} from './deserialisable.model';
 
 export class CellFormat implements Deserialisable {
 
+  name: string;
   backgroundColour: string;
   borderColour: string;
   textColour: string;
