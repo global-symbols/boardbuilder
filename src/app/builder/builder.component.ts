@@ -23,7 +23,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   mobileQuery: MediaQueryList;
 
-  private mobileQueryListener: () => void;
+  private readonly mobileQueryListener: () => void;
 
   private deleteDialogRef;
   private editDialogRef;
@@ -69,17 +69,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   addBoard() {
     this.boardSet.addBoard();
-    // this.boardSet = null;
-    // this.boardSet = boardSet;
-    // this.boardSet.boards.push(new Board());
-
-
     this.updateBoardSet().then(r => null);
     this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
-
-    // this.updateBoardSet().then(bs => {
-    //   this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
-    // });
   }
 
   updateBoardSet() {
