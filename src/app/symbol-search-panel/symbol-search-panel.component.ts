@@ -1,19 +1,20 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {GlobalSymbolsService} from '../global-symbols.service';
+import {from, fromEvent, Observable} from 'rxjs';
+import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-symbol-search-panel',
   templateUrl: './symbol-search-panel.component.html',
   styleUrls: ['./symbol-search-panel.component.css']
 })
-export class SymbolSearchPanelComponent implements OnInit {
+export class SymbolSearchPanelComponent implements AfterViewInit {
 
   sources = [
     {
       key: 'gs',
       name: 'Global Symbols',
       params: [
-        { key: 'query', label: 'Search for', value: '', type: 'text', options: null},
         { key: 'symbol_set', label: 'Symbol Set', value: 'all', type: 'select', options: null, option_id: 'slug',
           allowBlank: { name: 'All Symbol Sets', value: 'all' }},
         { key: 'language', label: 'Language', value: '', type: 'select', options: null, option_id: 'iso639_3', },
@@ -21,19 +22,24 @@ export class SymbolSearchPanelComponent implements OnInit {
     }, {
       key: 'os',
       name: 'Open Symbols',
-      params: [
-        { key: 'query', label: 'Search for', value: '', type: 'text', options: null}
-      ]
+      params: []
     },
   ];
+
+  query: string;
 
   source;
 
   results;
 
+  isSearching: boolean;
+
+  @ViewChild('queryInput') queryInput: ElementRef;
+
   @Output() readonly selectionChange = new EventEmitter<string>();
 
   constructor(private globalSymbolsService: GlobalSymbolsService) {
+    this.isSearching = false;
     this.source = this.sources[0];
     this.globalSymbolsService.getLanguages().then(
       l => {
@@ -47,15 +53,43 @@ export class SymbolSearchPanelComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    fromEvent(this.queryInput.nativeElement, 'keyup').pipe(
+
+      // get value
+      map((event: any) => event.target.value),
+
+      // if character length greater then 0
+      filter(res => res.length > 0),
+
+      // Time in milliseconds between key events
+      debounceTime(500),
+
+      // If previous query is different from current
+      distinctUntilChanged()
+
+      // subscription for response
+    ).subscribe((text: string) => {
+      this.isSearching = true;
+      this.searchCall().subscribe((res) => {
+        this.isSearching = false;
+        this.results = res;
+      }, (err) => {
+        this.isSearching = false;
+      });
+    });
   }
 
   search() {
-    if (this.source.params.find(p => p.key === 'query').value !== '') {
+    this.searchCall().subscribe(results => this.results = results);
+  }
+
+  searchCall() {
+    if (this.query !== '') {
 
       // Build params
       const params = {
-        query: this.source.params.find(p => p.key === 'query').value,
+        query: this.query,
         language: this.source.params.find(p => p.key === 'language').value,
         language_iso_format: '639-3',
         symbolset: this.source.params.find(p => p.key === 'symbol_set').value,
@@ -64,10 +98,8 @@ export class SymbolSearchPanelComponent implements OnInit {
       // Remove the symbolset param, if it's blank
       if (params.symbolset === 'all') { delete params.symbolset; }
 
-      this.globalSymbolsService.searchLabels(params).then(r => this.results = r);
+      return from(this.globalSymbolsService.searchLabels(params));
     }
-
-
   }
 
   selectImage(result: any) {

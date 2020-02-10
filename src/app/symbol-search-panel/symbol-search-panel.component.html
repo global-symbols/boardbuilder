@@ -8,6 +8,9 @@
   </mat-radio-group>
 </div>
 
+<mat-form-field class="w-100">
+  <input matInput [(ngModel)]="query" placeholder="Search for..." (change)="search()" #queryInput>
+</mat-form-field>
 
 <div *ngFor="let param of source.params">
   <mat-form-field class="w-100" *ngIf="param.type === 'text'">
