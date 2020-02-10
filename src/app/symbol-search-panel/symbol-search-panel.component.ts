@@ -2,6 +2,8 @@ import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, View
 import {GlobalSymbolsService} from '../global-symbols.service';
 import {from, fromEvent, Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
+import {SymbolSearchResult} from '../models/symbol-search-result.model';
+import {OpenSymbolsService} from '../open-symbols.service';
 
 @Component({
   selector: 'app-symbol-search-panel',
@@ -38,7 +40,8 @@ export class SymbolSearchPanelComponent implements AfterViewInit {
 
   @Output() readonly selectionChange = new EventEmitter<string>();
 
-  constructor(private globalSymbolsService: GlobalSymbolsService) {
+  constructor(private globalSymbolsService: GlobalSymbolsService,
+              private openSymbolsService: OpenSymbolsService) {
     this.isSearching = false;
     this.source = this.sources[0];
     this.globalSymbolsService.getLanguages().then(
@@ -87,22 +90,28 @@ export class SymbolSearchPanelComponent implements AfterViewInit {
   searchCall() {
     if (this.query !== '') {
 
-      // Build params
-      const params = {
-        query: this.query,
-        language: this.source.params.find(p => p.key === 'language').value,
-        language_iso_format: '639-3',
-        symbolset: this.source.params.find(p => p.key === 'symbol_set').value,
-      };
+      if (this.source.key === 'gs') {
+        // Build params
+        const params = {
+          query: this.query,
+          language: this.source.params.find(p => p.key === 'language').value,
+          language_iso_format: '639-3',
+          symbolset: this.source.params.find(p => p.key === 'symbol_set').value,
+        };
 
-      // Remove the symbolset param, if it's blank
-      if (params.symbolset === 'all') { delete params.symbolset; }
+        // Remove the symbolset param, if it's blank
+        if (params.symbolset === 'all') { delete params.symbolset; }
 
-      return from(this.globalSymbolsService.searchLabels(params));
+        return from(this.globalSymbolsService.search(params));
+
+      } else {
+        return from(this.openSymbolsService.search(this.query));
+      }
+
     }
   }
 
-  selectImage(result: any) {
-    this.selectionChange.emit(result.picto.image_url);
+  selectImage(result: SymbolSearchResult) {
+    this.selectionChange.emit(result.imageUrl);
   }
 }

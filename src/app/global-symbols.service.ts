@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../environments/environment';
+import {SymbolSearchResult} from './models/symbol-search-result.model';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -42,8 +44,20 @@ export class GlobalSymbolsService {
     }).toPromise();
   }
 
-  searchLabels(query): Promise<object> {
-    console.log(query);
-    return this.http.get(this.apiBase + '/api/v1/labels/search', { params: query }).toPromise();
+  search(query): Promise<SymbolSearchResult[]> {
+    return this.http.get(this.apiBase + '/api/v1/labels/search', { params: query }).pipe(
+      map(response => {
+        return this.parseResult(response);
+      })
+    ).toPromise();
+  }
+
+  parseResult(results): SymbolSearchResult[] {
+    return results.map(result => new SymbolSearchResult().deserialise({
+      id: result.id,
+      label: result.text,
+      imageUrl: result.picto.image_url
+    }));
   }
 }
+

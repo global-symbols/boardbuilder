@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="space-between none" >
   <label id="example-radio-group-label">Search in</label><br />
 
-  <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="source">
+  <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="source" (change)="search()">
     <mat-radio-button class="example-radio-button" *ngFor="let source of sources" [value]="source">
       {{source.name}}
     </mat-radio-button>
@@ -29,7 +29,7 @@
 <div fxLayoutGap="10px grid" fxLayout="row wrap">
   <div fxFlex="25" *ngFor="let result of results">
     <button mat-stroked-button color="primary" (click)="selectImage(result)" class="symbol-search-panel-image-button">
-      <img mat-card-image [src]="result.picto.image_url" class="img-responsive"/>
+      <img mat-card-image [src]="result.imageUrl" class="img-responsive"/>
     </button>
   </div>
 </div>
