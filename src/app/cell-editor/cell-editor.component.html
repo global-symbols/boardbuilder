@@ -31,16 +31,25 @@
         </mat-card>
 
         <div *ngIf="!cell.board">
-          <mat-form-field class="w-100" appearance="outline">
-            <mat-label>Link to a Board</mat-label>
-            <mat-select (selectionChange)="linkCellToBoard($event)">
-              <mat-option *ngFor="let board of linkToBoardsList()" [value]="board" (select)="linkCellToBoard(board)">{{board.title}}</mat-option>
-            </mat-select>
-          </mat-form-field>
+          <div *ngIf="linkToBoardsList().length > 0">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Link to a Board</mat-label>
+              <mat-select (selectionChange)="linkCellToBoard($event)">
+                <mat-option *ngFor="let board of linkToBoardsList()" [value]="board" (select)="linkCellToBoard(board)">{{board.title}}</mat-option>
+              </mat-select>
+            </mat-form-field>
 
-          <div fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-icon style="margin-right: 1rem;">info</mat-icon>
-            Can't find your Board? Make sure it isn't linked to any others first.
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <mat-icon style="margin-right: 1rem;">info</mat-icon>
+              This list shows only unlinked Boards.
+            </div>
+          </div>
+
+          <div *ngIf="linkToBoardsList().length === 0">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <mat-icon style="margin-right: 1rem;">info</mat-icon>
+              No Boards are available for linking.<br/>Unlink an existing Board, or create a new one.
+            </div>
           </div>
         </div>
       </div>
