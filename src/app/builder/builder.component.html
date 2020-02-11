@@ -9,6 +9,9 @@
     <button mat-icon-button aria-label="Delete this Board" (click)="deleteBoard(board)" *ngIf="board" matTooltip="Delete this Board">
       <mat-icon>delete</mat-icon>
     </button>
+    <button mat-icon-button aria-label="Download this Board" (click)="downloadBoard(board)" *ngIf="board" matTooltip="Download this Board">
+      <mat-icon>save_alt</mat-icon>
+    </button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
@@ -30,7 +33,7 @@
 
     <mat-sidenav-content>
       <app-board-detail [board]="board" [(cell)]="selectedCell"></app-board-detail>
-      {{board | json}}
+<!--      {{board | json}}-->
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

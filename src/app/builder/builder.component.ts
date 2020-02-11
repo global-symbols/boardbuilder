@@ -7,6 +7,7 @@ import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component
 import { MatDialog } from '@angular/material/dialog';
 import {BoardEditorComponent} from '../board-editor/board-editor.component';
 import {BoardSet} from '../models/boardset.model';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-builder',
@@ -123,5 +124,10 @@ export class BuilderComponent implements OnInit, OnDestroy {
       this.updateBoardSet().then(r => null);
     });
 
+  }
+
+  downloadBoard(board: Board) {
+    console.log(board.toObf());
+    saveAs(new Blob([JSON.stringify(board.toObf())], {type: 'text/plain;charset=utf-8'}), board.title + '.obf');
   }
 }
