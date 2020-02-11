@@ -1,0 +1,17 @@
+{
+  "hosting": [
+    {
+      "app": {
+        "project": "boardbuilder-angular",
+        "target": "build",
+        "configuration": "production",
+        "path": "dist/boardbuilder-angular"
+      },
+      "azureHosting": {
+        "subscription": "55a46f2f-fbf6-4eab-a55b-a07d0276b2e5",
+        "resourceGroupName": "GlobalSymbols-BoardBuilder",
+        "account": "gsboardbuilderdev"
+      }
+    }
+  ]
+}
