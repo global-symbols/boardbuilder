@@ -35,7 +35,7 @@ export class CellEditorComponent implements OnInit {
   }
 
   linkToBoardsList(): Array<Board> {
-    return this.boardSet.boards.filter(b => b.uuid !== this.board.uuid);
+    return this.boardSet.boards.filter(b => b.uuid !== this.board.uuid && b.childBoards().length === 0);
   }
 
   linkCellToBoard(event: MatSelectChange) {

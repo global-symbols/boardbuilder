@@ -1,15 +1,12 @@
 <div *ngIf="cell">
 
-  <div fxLayout="row" fxLayoutAlign="space-between center" class="p-1">
-    <input [(ngModel)]="cell.caption" placeholder="Caption" class="cell-caption w-100">
+  <div fxLayout="row" fxLayoutAlign="space-between start" class="p-1">
 
-<!--    <mat-form-field appearance="outline" [floatLabel]="'never'" class="w-100">-->
-<!--      <mat-label>Caption</mat-label>-->
-<!--      <input matInput [(ngModel)]="cell.caption">-->
-<!--      <mat-icon matSuffix>mode_edit</mat-icon>-->
-<!--    </mat-form-field>-->
+    <mat-form-field appearance="outline" [floatLabel]="'never'" class="w-100 no-label">
+      <input matInput [(ngModel)]="cell.caption" placeholder="Caption">
+    </mat-form-field>
 
-    <button mat-icon-button aria-label="Close the cell editor" (click)="closeEditor()">
+    <button mat-icon-button aria-label="Close the cell editor" (click)="closeEditor()" style="margin-left: 1rem; margin-top: 8px">
       <mat-icon>close</mat-icon>
     </button>
   </div>
@@ -18,6 +15,7 @@
     <mat-tab label="Cell">
       <div class="p-1">
 
+        <h3>Style</h3>
         <mat-accordion>
           <app-colour-selector label="Background colour" [(value)]="cell.backgroundColour"></app-colour-selector>
           <app-colour-selector label="Border colour" [(value)]="cell.borderColour"></app-colour-selector>
@@ -32,12 +30,19 @@
           </button>
         </mat-card>
 
-        <mat-form-field class="w-100" *ngIf="!cell.board" appearance="outline">
-          <mat-label>Link to a Board</mat-label>
-          <mat-select (selectionChange)="linkCellToBoard($event)">
-            <mat-option *ngFor="let board of linkToBoardsList()" [value]="board" (select)="linkCellToBoard(board)">{{board.title}}</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <div *ngIf="!cell.board">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Link to a Board</mat-label>
+            <mat-select (selectionChange)="linkCellToBoard($event)">
+              <mat-option *ngFor="let board of linkToBoardsList()" [value]="board" (select)="linkCellToBoard(board)">{{board.title}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-icon style="margin-right: 1rem;">info</mat-icon>
+            Can't find your Board? Make sure it isn't linked to any others first.
+          </div>
+        </div>
       </div>
     </mat-tab>
 
