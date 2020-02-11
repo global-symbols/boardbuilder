@@ -36,6 +36,7 @@ import { SymbolSearchPanelComponent } from './symbol-search-panel/symbol-search-
 import { BoardTreeComponent } from './board-tree/board-tree.component';
 import { BoardTreeItemComponent } from './board-tree-item/board-tree-item.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PdfDialogComponent } from './pdf-dialog/pdf-dialog.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -64,7 +65,8 @@ const dbConfig: DBConfig  = {
     BoardEditorComponent,
     SymbolSearchPanelComponent,
     BoardTreeComponent,
-    BoardTreeItemComponent
+    BoardTreeItemComponent,
+    PdfDialogComponent
   ],
   imports: [
     BrowserModule,

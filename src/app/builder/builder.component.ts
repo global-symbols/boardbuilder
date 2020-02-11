@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import {BoardEditorComponent} from '../board-editor/board-editor.component';
 import {BoardSet} from '../models/boardset.model';
 import { saveAs } from 'file-saver';
+import {PdfDialogComponent} from '../pdf-dialog/pdf-dialog.component';
 
 @Component({
   selector: 'app-builder',
@@ -28,6 +29,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   private deleteDialogRef;
   private editDialogRef;
+  private currentDialogRef;
 
   constructor(changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
@@ -129,5 +131,19 @@ export class BuilderComponent implements OnInit, OnDestroy {
   downloadBoard(board: Board) {
     console.log(board.toObf());
     saveAs(new Blob([JSON.stringify(board.toObf())], {type: 'text/plain;charset=utf-8'}), board.title + '.obf');
+  }
+
+  pdfDialog(board) {
+    if (board === undefined) { return; }
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(PdfDialogComponent, {
+      width: '600px',
+      data: this.board
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(result => {
+      this.currentDialogRef = undefined;
+    });
   }
 }
