@@ -57,12 +57,8 @@ export class PdfDialogComponent implements OnInit {
 
   generatePDF() {
 
-    const body = [];
-
     // Get the Cells as a matrix (rows * columns), and adjust each Cell to match pdfMake's format.
     const cells = this.board.cellsAsMatrix().map(row => row.map(cell => {
-
-
 
       const imageDefinition = (this.images[cell.id] === null) ? {} : {
         image: this.images[cell.id],
@@ -87,17 +83,10 @@ export class PdfDialogComponent implements OnInit {
 
       if (this.board.defaultCellFormat.labelPosition === 'bottom') { cellDefinition.stack.push(textDefinition); }
 
-
-
       return cellDefinition;
     }));
 
     console.log(cells);
-    console.log([
-      [ 'First', 'Second', 'Third', 'The last one' ],
-      [ 'Value 1', 'Value 2  a dsklkal dsjlkads jl jlkasd ', 'Value 3', 'Value 4' ],
-      [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
-    ]);
 
     this.pdfDefinition = {
       pageOrientation: (this.board.rows > this.board.columns) ? 'portrait' : 'landscape',
@@ -114,34 +103,17 @@ export class PdfDialogComponent implements OnInit {
             headerRows: 0,
             widths: '*', // All cols should have equal width
 
-            body: cells,
-            bodys: [
-              [ 'First', 'Second', 'Third', 'The last one' ],
-              [ 'Value 1', 'Value 2  a dsklkal dsjlkads jl jlkasd ', 'Value 3', 'Value 4' ],
-              [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
-            ]
+            body: cells
           }
         }
       ]
     };
 
-    // this.pdfMake.createPdf(pdfDefinition).download();
-
     this.compiledPdf = this.pdfMake.createPdf(this.pdfDefinition);
 
     this.compiledPdf.getDataUrl((dataUrl) => {
-      // this.pdfOutput = dataUrl;
       this.pdfFrame.nativeElement.src = dataUrl;
-      // const targetElement = document.querySelector('#iframeContainer');
-      // const iframe = document.createElement('iframe');
-      // iframe.src = dataUrl;
-      // targetElement.appendChild(iframe);
     });
-
-    // this.pdfOutput = this.sanitiser.sanitize(
-    //   SecurityContext.NONE, this.sanitiser.bypassSecurityTrustResourceUrl(this.pdf.output('datauristring'))
-    // );
-    // this.pdf.save('test.pdf');
   }
 
   downloadPdf() {
