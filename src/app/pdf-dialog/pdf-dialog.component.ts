@@ -76,13 +76,16 @@ export class PdfDialogComponent implements OnInit {
         cellGap: 100
       };
 
-      const cellDefinition = [];
+      const cellDefinition = {
+        stack: [],
+        fillColor: cell.backgroundColour
+      };
 
-      if (this.board.defaultCellFormat.labelPosition === 'top') { cellDefinition.push(textDefinition); }
+      if (this.board.defaultCellFormat.labelPosition === 'top') { cellDefinition.stack.push(textDefinition); }
 
-      cellDefinition.push(imageDefinition);
+      cellDefinition.stack.push(imageDefinition);
 
-      if (this.board.defaultCellFormat.labelPosition === 'bottom') { cellDefinition.push(textDefinition); }
+      if (this.board.defaultCellFormat.labelPosition === 'bottom') { cellDefinition.stack.push(textDefinition); }
 
 
 
