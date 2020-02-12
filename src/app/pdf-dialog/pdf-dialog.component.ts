@@ -82,10 +82,13 @@ export class PdfDialogComponent implements OnInit {
           text: cell.caption || '[no caption]'
         };
 
+        const borderColour = cell.borderColour ? cell.borderColour : '#000000';
+
         const cellDefinition = {
           stack: [],
           fillColor: cell.backgroundColour,
           border: [true, true, true, true],
+          borderColor: [borderColour, borderColour, borderColour, borderColour],
           style: 'imageCell'
         };
 
