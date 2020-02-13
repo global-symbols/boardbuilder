@@ -1,8 +1,12 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <button mat-icon-button [routerLink]="['/', 'boardsets']"><mat-icon>arrow_back</mat-icon></button>
+    <div>
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <button mat-button [routerLink]="['/', 'boardsets']"><mat-icon>arrow_back</mat-icon> Board Sets</button>
+    </div>
+    <div class="example-spacer"></div>
     <h1 class="example-app-name">{{boardSet ? boardSet.title : 'Global Symbols BoardBuilder' }}</h1>
+    <div class="example-spacer"></div>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
