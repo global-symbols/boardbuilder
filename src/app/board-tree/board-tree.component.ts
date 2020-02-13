@@ -9,6 +9,7 @@ import {Board} from '../models/board.model';
 export class BoardTreeComponent {
 
   @Input() boards: Array<Board>;
+  @Input() selectedBoard: Board;
   @Output() readonly selectionChange = new EventEmitter<Board>();
 
   constructor() { }

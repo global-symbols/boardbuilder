@@ -1,8 +1,10 @@
 <mat-list-item (click)="selectChange.emit(board)"
                [style.padding-left]="level + 'em'"
+               [class.board-tree-item-selected]="selectedBoard === board"
 >{{board.title}}</mat-list-item>
 <app-board-tree-item *ngFor="let b of board.childBoards()"
                      [board]="b"
+                     [selectedBoard]="selectedBoard"
                      (selectChange)="selectChange.emit($event)"
                      [level]="level + 1"
 ></app-board-tree-item>

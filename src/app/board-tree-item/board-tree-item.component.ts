@@ -10,6 +10,7 @@ export class BoardTreeItemComponent {
 
   @Input() board: Board;
   @Input() level = 0;
+  @Input() selectedBoard: Board;
   @Output() selectChange = new EventEmitter<Board>();
 
   constructor() { }

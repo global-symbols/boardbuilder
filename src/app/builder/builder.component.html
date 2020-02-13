@@ -26,7 +26,7 @@
       </div>
 
 
-      <app-board-tree *ngIf="boardSet" [boards]="boardSet.boards" (selectionChange)="selectBoard($event)"></app-board-tree>
+      <app-board-tree *ngIf="boardSet" [boards]="boardSet.boards" [selectedBoard]="board" (selectionChange)="selectBoard($event)"></app-board-tree>
     </mat-sidenav>
 
     <mat-sidenav [opened]="selectedCell" mode="side" position="end" id="cellEditor" #cellEditor
