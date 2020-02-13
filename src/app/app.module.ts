@@ -21,7 +21,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import { BoardDetailComponent } from './board-detail/board-detail.component';
 import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 import {HotkeyModule} from 'angular2-hotkeys';
@@ -37,6 +37,7 @@ import { BoardTreeComponent } from './board-tree/board-tree.component';
 import { BoardTreeItemComponent } from './board-tree-item/board-tree-item.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PdfDialogComponent } from './pdf-dialog/pdf-dialog.component';
+import { BoardsetListComponent } from './boardset-list/boardset-list.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -54,6 +55,16 @@ const dbConfig: DBConfig  = {
   ],
 };
 
+const appRoutes: Routes = [
+  { path: 'boardsets',      component: BoardsetListComponent },
+  { path: 'boardsets/:id',  component: BuilderComponent },
+  { path: '',
+    redirectTo: '/boardsets',
+    pathMatch: 'full'
+  },
+  { path: '**', redirectTo: '/boardsets' }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +77,8 @@ const dbConfig: DBConfig  = {
     SymbolSearchPanelComponent,
     BoardTreeComponent,
     BoardTreeItemComponent,
-    PdfDialogComponent
+    PdfDialogComponent,
+    BoardsetListComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +106,11 @@ const dbConfig: DBConfig  = {
     MatTabsModule,
     MatSliderModule,
     MatTreeModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: false } // <-- debugging purposes only
+    )
   ],
   entryComponents: [
     ConfirmDialogComponent,

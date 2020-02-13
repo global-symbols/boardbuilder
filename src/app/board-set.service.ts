@@ -11,16 +11,22 @@ export class BoardSetService {
 
   constructor(private dbService: NgxIndexedDBService) { }
 
-  getBoardSets(): Promise<unknown[]> {
-    return this.dbService.getAll('boardsets');
+  getBoardSets(): Promise<BoardSet[]> {
+    return this.dbService.getAll('boardsets').then(result => result.map(bs => new BoardSet().deserialise(bs)));
   }
 
-  newBoardSet(): Promise<number> {
-    return this.dbService.add('boardsets', new BoardSet());
+  newBoardSet(): Promise<BoardSet> {
+    const boardSet = new BoardSet();
+    return this.dbService.add('boardsets', boardSet).then(n => this.getBoardSet(n));
   }
 
-  getBoardSet(id: number): Promise<any> {
-    return this.dbService.getByKey('boardsets', id).then(bs => new BoardSet().deserialise(bs));
+  getBoardSet(id: number | string): Promise<BoardSet> {
+    if (typeof id === 'number') {
+      return this.dbService.getByKey('boardsets', id).then(bs => new BoardSet().deserialise(bs));
+    } else {
+      return this.dbService.getByIndex('boardsets', 'uuid', id).then(bs => new BoardSet().deserialise(bs));
+    }
+
   }
 
   getBoard(boardSetId: number, boardIndex: number) {

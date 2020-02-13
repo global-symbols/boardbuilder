@@ -9,6 +9,9 @@ import {BoardEditorComponent} from '../board-editor/board-editor.component';
 import {BoardSet} from '../models/boardset.model';
 import { saveAs } from 'file-saver';
 import {PdfDialogComponent} from '../pdf-dialog/pdf-dialog.component';
+import {Observable} from 'rxjs';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-builder',
@@ -19,6 +22,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   boardSet: BoardSet;
   board: Board;
+  boardSet$: Promise<BoardSet>;
   selectedCell;
 
   disableCellEditorAnimations = true;
@@ -35,7 +39,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
               media: MediaMatcher,
               private service: BoardSetService,
               private hotkeysService: HotkeysService,
-              public dialog: MatDialog
+              public dialog: MatDialog,
+              private route: ActivatedRoute
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -67,7 +72,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   private getBoardSet() {
-    return this.service.getBoardSet(1).then(bs => this.boardSet = bs);
+    return this.service.getBoardSet(this.route.snapshot.paramMap.get('id')).then(bs => this.boardSet = bs);
   }
 
   addBoard() {

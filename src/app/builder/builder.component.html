@@ -1,7 +1,8 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">{{board ? board.title : 'Global Symbols BoardBuilder' }}</h1>
+    <button mat-icon-button [routerLink]="['/', 'boardsets']"><mat-icon>arrow_back</mat-icon></button>
+    <h1 class="example-app-name">{{boardSet ? boardSet.title : 'Global Symbols BoardBuilder' }}</h1>
     <span class="example-spacer"></span>
     <button mat-icon-button aria-label="Edit this Board" (click)="editBoard(board)" *ngIf="board" matTooltip="Edit this Board">
       <mat-icon>edit</mat-icon>
