@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <h1>GlobalSymbols BoardBuilder</h1>
+</mat-toolbar>
+<h2>My Board Sets</h2>
+<button mat-button mat-raised-button color="primary" (click)="newBoardSet()">Create Board Set<mat-icon>add</mat-icon></button>
+<mat-nav-list>
+  <mat-list-item [routerLink]="boardSet.uuid" *ngFor="let boardSet of boardSets">
+    {{ boardSet.title }}
+    <mat-icon matListIcon>arrow_forward</mat-icon>
+  </mat-list-item>
+</mat-nav-list>

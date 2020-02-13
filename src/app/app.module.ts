@@ -37,6 +37,7 @@ import { BoardTreeComponent } from './board-tree/board-tree.component';
 import { BoardTreeItemComponent } from './board-tree-item/board-tree-item.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PdfDialogComponent } from './pdf-dialog/pdf-dialog.component';
+import { BoardsetListComponent } from './boardset-list/boardset-list.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -55,7 +56,7 @@ const dbConfig: DBConfig  = {
 };
 
 const appRoutes: Routes = [
-  { path: 'boardsets',      component: BuilderComponent },
+  { path: 'boardsets',      component: BoardsetListComponent },
   { path: 'boardsets/:id',  component: BuilderComponent },
   { path: '',
     redirectTo: '/boardsets',
@@ -76,7 +77,8 @@ const appRoutes: Routes = [
     SymbolSearchPanelComponent,
     BoardTreeComponent,
     BoardTreeItemComponent,
-    PdfDialogComponent
+    PdfDialogComponent,
+    BoardsetListComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +109,7 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     )
   ],
   entryComponents: [
