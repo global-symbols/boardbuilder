@@ -3,31 +3,42 @@
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <button mat-icon-button [routerLink]="['/', 'boardsets']"><mat-icon>arrow_back</mat-icon></button>
     <h1 class="example-app-name">{{boardSet ? boardSet.title : 'Global Symbols BoardBuilder' }}</h1>
-    <span class="example-spacer"></span>
-    <button mat-icon-button aria-label="Edit this Board" (click)="editBoard(board)" *ngIf="board" matTooltip="Edit this Board">
-      <mat-icon>edit</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Delete this Board" (click)="deleteBoard(board)" *ngIf="board" matTooltip="Delete this Board">
-      <mat-icon>delete</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Download this Board" (click)="downloadBoard(board)" *ngIf="board" matTooltip="Download this Board">
-      <mat-icon>save_alt</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Download as PDF" (click)="pdfDialog(board)" *ngIf="board" matTooltip="Download as PDF">
-      <mat-icon>picture_as_pdf</mat-icon>
-    </button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [opened]="!mobileQuery.matches">
-      <div style="margin: 10px">
-        <button mat-raised-button color="primary" fxFlexFill (click)="addBoard()">Add Board</button>
+      <div class="builder-sidenav-section">
+        <h3>{{board.title}}</h3>
+        <div class="board-toolbar">
+          <button mat-icon-button aria-label="Edit this Board" (click)="editBoard(board)" *ngIf="board" matTooltip="Edit this Board">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button aria-label="Delete this Board" (click)="deleteBoard(board)" *ngIf="board" matTooltip="Delete this Board">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button aria-label="Download this Board" (click)="downloadBoard(board)" *ngIf="board" matTooltip="Download this Board">
+            <mat-icon>save_alt</mat-icon>
+          </button>
+          <button mat-icon-button aria-label="Download as PDF" (click)="pdfDialog(board)" *ngIf="board" matTooltip="Download as PDF">
+            <mat-icon>picture_as_pdf</mat-icon>
+          </button>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+
+      <div class="builder-sidenav-section">
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="">
+          <h3>Boards</h3>
+          <button mat-icon-button (click)="addBoard()" matTooltip="Add Board" aria-label="Add Board">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
       </div>
 
-
       <app-board-tree *ngIf="boardSet" [boards]="boardSet.boards" [selectedBoard]="board" (selectionChange)="selectBoard($event)"></app-board-tree>
+
     </mat-sidenav>
 
     <mat-sidenav [opened]="selectedCell" mode="side" position="end" id="cellEditor" #cellEditor

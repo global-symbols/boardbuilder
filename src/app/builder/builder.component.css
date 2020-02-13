@@ -34,6 +34,8 @@ h1.example-app-name {
   flex: 1 1 auto;
 }
 
+
+
 mat-sidenav#cellEditor {
   width: 355px;
 }
@@ -43,4 +45,15 @@ mat-sidenav#cellEditor {
 }
 mat-sidenav-content {
   padding: 1rem;
+}
+
+.builder-sidenav-section {
+  margin: 16px 16px 0 16px;
+}
+.builder-sidenav-section h3 {
+  margin: 0;
+}
+
+.board-toolbar {
+  margin: 8px 0;
 }
