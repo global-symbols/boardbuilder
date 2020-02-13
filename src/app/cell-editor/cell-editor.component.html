@@ -57,7 +57,7 @@
 
     <mat-tab label="Symbol">
       <div class="p-1">
-        <app-symbol-search-panel (selectionChange)="selectImageUrl($event)"></app-symbol-search-panel>
+        <app-symbol-search-panel [initialQuery]="cell.caption" (selectionChange)="selectImageUrl($event)"></app-symbol-search-panel>
       </div>
     </mat-tab>
   </mat-tab-group>

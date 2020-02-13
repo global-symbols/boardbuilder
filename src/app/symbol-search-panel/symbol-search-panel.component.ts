@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {GlobalSymbolsService} from '../global-symbols.service';
 import {from, fromEvent, Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
@@ -10,7 +10,7 @@ import {OpenSymbolsService} from '../open-symbols.service';
   templateUrl: './symbol-search-panel.component.html',
   styleUrls: ['./symbol-search-panel.component.css']
 })
-export class SymbolSearchPanelComponent implements AfterViewInit {
+export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
 
   sources = [
     {
@@ -19,7 +19,7 @@ export class SymbolSearchPanelComponent implements AfterViewInit {
       params: [
         { key: 'symbol_set', label: 'Symbol Set', value: 'all', type: 'select', options: null, option_id: 'slug',
           allowBlank: { name: 'All Symbol Sets', value: 'all' }},
-        { key: 'language', label: 'Language', value: '', type: 'select', options: null, option_id: 'iso639_3', },
+        { key: 'language', label: 'Language', value: 'eng', type: 'select', options: null, option_id: 'iso639_3', },
       ]
     }, {
       key: 'os',
@@ -29,21 +29,23 @@ export class SymbolSearchPanelComponent implements AfterViewInit {
   ];
 
   query: string;
-
   source;
-
   results;
-
   isSearching: boolean;
 
   @ViewChild('queryInput') queryInput: ElementRef;
 
+  @Input() initialQuery: string;
   @Output() readonly selectionChange = new EventEmitter<string>();
 
   constructor(private globalSymbolsService: GlobalSymbolsService,
               private openSymbolsService: OpenSymbolsService) {
     this.isSearching = false;
     this.source = this.sources[0];
+
+  }
+
+  ngOnInit(): void {
     this.globalSymbolsService.getLanguages().then(
       l => {
         const param = this.sources.find(s => s.key === 'gs').params.find(p => p.key === 'language');
@@ -73,41 +75,42 @@ export class SymbolSearchPanelComponent implements AfterViewInit {
 
       // subscription for response
     ).subscribe((text: string) => {
-      this.isSearching = true;
-      this.searchCall().subscribe((res) => {
-        this.isSearching = false;
-        this.results = res;
-      }, (err) => {
-        this.isSearching = false;
-      });
+      if (this.query !== '') {
+        this.isSearching = true;
+        this.searchCall().subscribe((res) => {
+          this.isSearching = false;
+          this.results = res;
+        }, (err) => {
+          this.isSearching = false;
+        });
+      }
     });
+
+    // If an initial query was provided, search for it now.
+    if (this.initialQuery) { this.query = this.initialQuery; this.search(); }
   }
 
   search() {
     this.searchCall().subscribe(results => this.results = results);
   }
 
-  searchCall() {
-    if (this.query !== '') {
+  searchCall(): Observable<SymbolSearchResult[]> {
+    if (this.source.key === 'gs') {
+      // Build params
+      const params = {
+        query: this.query,
+        language: this.source.params.find(p => p.key === 'language').value,
+        language_iso_format: '639-3',
+        symbolset: this.source.params.find(p => p.key === 'symbol_set').value,
+      };
 
-      if (this.source.key === 'gs') {
-        // Build params
-        const params = {
-          query: this.query,
-          language: this.source.params.find(p => p.key === 'language').value,
-          language_iso_format: '639-3',
-          symbolset: this.source.params.find(p => p.key === 'symbol_set').value,
-        };
+      // Remove the symbolset param, if it's blank
+      if (params.symbolset === 'all') { delete params.symbolset; }
 
-        // Remove the symbolset param, if it's blank
-        if (params.symbolset === 'all') { delete params.symbolset; }
+      return from(this.globalSymbolsService.search(params));
 
-        return from(this.globalSymbolsService.search(params));
-
-      } else {
-        return from(this.openSymbolsService.search(this.query));
-      }
-
+    } else {
+      return from(this.openSymbolsService.search(this.query));
     }
   }
 

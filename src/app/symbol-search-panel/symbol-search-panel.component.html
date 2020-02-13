@@ -8,8 +8,10 @@
   </mat-radio-group>
 </div>
 
-<mat-form-field class="w-100 no-label" appearance="outline">
-  <input matInput [(ngModel)]="query" placeholder="Search for..." (change)="search()" #queryInput>
+<mat-form-field class="w-100" appearance="outline">
+  <mat-label>Search For</mat-label>
+  <input matInput [(ngModel)]="query" (change)="search()" #queryInput>
+  <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 
 <div *ngFor="let param of source.params">
