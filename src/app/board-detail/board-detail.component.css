@@ -30,3 +30,7 @@ mat-grid-tile span {
   color: white;
   background: rgba(255,255,255,0.1);
 }
+
+.board-detail-card-selected {
+  outline: rgba(0, 103, 244, 0.247) auto 5px;
+}

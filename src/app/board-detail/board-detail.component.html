@@ -1,16 +1,17 @@
 <div *ngIf="board">
   <mat-grid-list [cols]="board.columns" rowHeight="10rem" gutterSize="1rem">
-    <mat-grid-tile *ngFor="let cell of board.cells | slice:0 : (board.columns * board.rows)"
-                   class="board-detail-card" tabindex="0" (click)="selectCell(cell)" (keyup.enter)="selectCell(cell)"
-                   [style.background-color]="cell.backgroundColour"
-                   [style.border-color]="cell.borderColour"
-                   [style.color]="cell.textColour">
+    <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows)"
+                   class="board-detail-card" tabindex="0" (click)="selectCell(c)" (keyup.enter)="selectCell(c)"
+                   [style.background-color]="c.backgroundColour"
+                   [style.border-color]="c.borderColour"
+                   [style.color]="c.textColour"
+                   [class.board-detail-card-selected]="cell === c">
 
           <div fxLayout="column" fxLayoutAlign="space-between stretch">
-            <span *ngIf="board.defaultCellFormat.labelPosition === 'top'">{{cell.caption}}</span>
-            <img *ngIf="cell.url" [src]="cell.url" class="img-responsive"/>
-            <mat-icon *ngIf="!cell.url">landscape</mat-icon>
-            <span *ngIf="board.defaultCellFormat.labelPosition === 'bottom'">{{cell.caption}}</span>
+            <span *ngIf="board.defaultCellFormat.labelPosition === 'top'">{{c.caption}}</span>
+            <img *ngIf="c.url" [src]="c.url" class="img-responsive"/>
+            <mat-icon *ngIf="!c.url">landscape</mat-icon>
+            <span *ngIf="board.defaultCellFormat.labelPosition === 'bottom'">{{c.caption}}</span>
           </div>
     </mat-grid-tile>
   </mat-grid-list>
