@@ -9,7 +9,7 @@
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [opened]="!mobileQuery.matches">
-      <div class="builder-sidenav-section">
+      <div class="builder-sidenav-section" *ngIf="board">
         <h3>{{board.title}}</h3>
         <div class="board-toolbar">
           <button mat-icon-button aria-label="Board Settings" (click)="editBoard(board)" *ngIf="board" matTooltip="Board Settings">
