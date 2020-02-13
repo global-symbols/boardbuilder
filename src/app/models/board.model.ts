@@ -77,4 +77,9 @@ export class Board implements Deserialisable {
 
     return obf;
   }
+
+  cellsAsMatrix() {
+    return this.cells.slice(0, this.rows * this.columns).reduce((rows, key, index) => (index % this.columns === 0 ? rows.push([key])
+        : rows[rows.length - 1].push(key)) && rows, []);
+  }
 }

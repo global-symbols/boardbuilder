@@ -12,6 +12,9 @@
     <button mat-icon-button aria-label="Download this Board" (click)="downloadBoard(board)" *ngIf="board" matTooltip="Download this Board">
       <mat-icon>save_alt</mat-icon>
     </button>
+    <button mat-icon-button aria-label="Download as PDF" (click)="pdfDialog(board)" *ngIf="board" matTooltip="Download as PDF">
+      <mat-icon>picture_as_pdf</mat-icon>
+    </button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
