@@ -21,7 +21,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import { BoardDetailComponent } from './board-detail/board-detail.component';
 import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 import {HotkeyModule} from 'angular2-hotkeys';
@@ -53,6 +53,16 @@ const dbConfig: DBConfig  = {
   }
   ],
 };
+
+const appRoutes: Routes = [
+  { path: 'boardsets',      component: BuilderComponent },
+  { path: 'boardsets/:id',  component: BuilderComponent },
+  { path: '',
+    redirectTo: '/boardsets',
+    pathMatch: 'full'
+  },
+  { path: '**', redirectTo: '/boardsets' }
+];
 
 @NgModule({
   declarations: [
@@ -94,7 +104,11 @@ const dbConfig: DBConfig  = {
     MatTabsModule,
     MatSliderModule,
     MatTreeModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   entryComponents: [
     ConfirmDialogComponent,
