@@ -7,6 +7,7 @@
     <div class="example-spacer"></div>
     <h1 class="example-app-name">{{boardSet ? boardSet.title : 'Global Symbols BoardBuilder' }}</h1>
     <div class="example-spacer"></div>
+    <button mat-icon-button (click)="editBoardSet()" matTooltip="Board Set Details" aria-label="Board Set Details"><mat-icon>info</mat-icon></button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"

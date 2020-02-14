@@ -38,6 +38,7 @@ import { BoardTreeItemComponent } from './board-tree-item/board-tree-item.compon
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PdfDialogComponent } from './pdf-dialog/pdf-dialog.component';
 import { BoardsetListComponent } from './boardset-list/boardset-list.component';
+import { BoardsetEditorDialogComponent } from './boardset-editor-dialog/boardset-editor-dialog.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -78,7 +79,8 @@ const appRoutes: Routes = [
     BoardTreeComponent,
     BoardTreeItemComponent,
     PdfDialogComponent,
-    BoardsetListComponent
+    BoardsetListComponent,
+    BoardsetEditorDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -114,7 +116,8 @@ const appRoutes: Routes = [
   ],
   entryComponents: [
     ConfirmDialogComponent,
-    BoardEditorComponent
+    BoardEditorComponent,
+    BoardsetEditorDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,6 +12,7 @@ import {PdfDialogComponent} from '../pdf-dialog/pdf-dialog.component';
 import {Observable} from 'rxjs';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
+import {BoardsetEditorDialogComponent} from '../boardset-editor-dialog/boardset-editor-dialog.component';
 
 @Component({
   selector: 'app-builder',
@@ -149,6 +150,21 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     this.currentDialogRef.afterClosed().subscribe(result => {
       this.currentDialogRef = undefined;
+    });
+  }
+
+  editBoardSet() {
+    if (this.boardSet === undefined) { return; }
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(BoardsetEditorDialogComponent, {
+      width: '300px',
+      data: { boardSet: this.boardSet }
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(result => {
+      this.currentDialogRef = undefined;
+      this.updateBoardSet().then(r => null);
     });
   }
 }
