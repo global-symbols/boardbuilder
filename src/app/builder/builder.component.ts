@@ -10,7 +10,7 @@ import {BoardSet} from '../models/boardset.model';
 import { saveAs } from 'file-saver';
 import {PdfDialogComponent} from '../pdf-dialog/pdf-dialog.component';
 import {Observable} from 'rxjs';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {BoardsetEditorDialogComponent} from '../boardset-editor-dialog/boardset-editor-dialog.component';
 
@@ -41,7 +41,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
               private service: BoardSetService,
               private hotkeysService: HotkeysService,
               public dialog: MatDialog,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private router: Router
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -165,6 +166,29 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.currentDialogRef.afterClosed().subscribe(result => {
       this.currentDialogRef = undefined;
       this.updateBoardSet().then(r => null);
+    });
+  }
+
+  deleteBoardSet(boardset) {
+    if (boardset === undefined) { return; }
+    if (this.deleteDialogRef !== undefined) { return; }
+
+    this.deleteDialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '250px',
+      data: {heading: 'Delete this Board Set?', content: 'This will delete all Boards in the Board Set, and cannot be undone.'}
+    });
+
+    this.deleteDialogRef.afterClosed().subscribe(result => {
+
+      if (result) {
+        this.selectBoard(null);
+        this.service.delete(this.boardSet).then(bs => {
+          this.deleteDialogRef = undefined;
+          this.router.navigate(['/', 'boardsets']).then();
+        });
+      }
+
+      this.deleteDialogRef = undefined;
     });
   }
 }

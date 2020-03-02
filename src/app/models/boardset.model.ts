@@ -4,6 +4,7 @@ import {Board} from './board.model';
 import {DatePipe} from '@angular/common';
 
 export class BoardSet implements Deserialisable {
+    public localId: number;
     public uuid: string;
     public title: string;
     public boards = Array<Board>();

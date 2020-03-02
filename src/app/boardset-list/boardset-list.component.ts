@@ -21,7 +21,6 @@ export class BoardsetListComponent implements OnInit {
 
   newBoardSet() {
     this.service.newBoardSet().then(bs => {
-      console.log(bs);
       return this.router.navigate(['boardsets', bs.uuid]);
     });
   }

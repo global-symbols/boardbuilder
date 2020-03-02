@@ -45,15 +45,14 @@ const dbConfig: DBConfig  = {
   version: 1,
   objectStoresMeta: [{
     store: 'boardsets',
-    storeConfig: { keyPath: 'id', autoIncrement: true },
+    storeConfig: { keyPath: 'localId', autoIncrement: true },
     storeSchema: [
       { name: 'gs_id', keypath: 'gs_id', options: { unique: true } },
       { name: 'uuid', keypath: 'uuid', options: { unique: true } },
       { name: 'title', keypath: 'title', options: { unique: false } },
       { name: 'boards', keypath: 'title', options: { unique: false } },
     ]
-  }
-  ],
+  }],
 };
 
 const appRoutes: Routes = [
