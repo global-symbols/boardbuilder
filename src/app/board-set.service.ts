@@ -12,7 +12,7 @@ export class BoardSetService {
   constructor(private dbService: NgxIndexedDBService) { }
 
   getBoardSets(): Promise<BoardSet[]> {
-    return this.dbService.getAll('boardsets').then(result => result.map(bs => new BoardSet().deserialise(bs)));
+    return this.dbService.getAll('boardsets').then(result => result.map(bs => new BoardSet().deserialise(bs)).reverse());
   }
 
   newBoardSet(): Promise<BoardSet> {
