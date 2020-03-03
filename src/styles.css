@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Lato, "Helvetica Neue", sans-serif; }
 
 .w-100 {
   width: 100%;
@@ -10,11 +10,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   max-width: 100%;
 }
 
-
 mat-form-field.no-label .mat-form-field-infix{
   border-top-width: 5px;
 }
 
 .spacer {
   flex: 1 1 auto;
+}
+
+.mat-toolbar h1 {
+  font-weight: 300;
+}
+
+h1, h2, h3 {
+  font-weight: 300;
 }
