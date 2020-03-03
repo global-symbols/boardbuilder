@@ -1,0 +1,42 @@
+mat-grid-tile {
+  position: absolute;
+  text-align: center;
+  box-shadow: 
+    0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  color: black;
+  background: rgba(255,255,255,0.1);
+
+  &.outlined {
+    outline-offset: -4px;
+    outline-width: 4px;
+    outline-style: solid;
+  }
+
+  &.selected {
+    outline: rgba(0, 103, 244, 0.247) auto 5px;
+  }
+}
+
+mat-grid-tile div {
+  height: 100%;
+  padding: 0.5rem;
+}
+
+mat-grid-tile img {
+  margin-bottom: 1rem;
+
+  height: 75%;
+}
+
+mat-grid-tile mat-icon {
+  font-size: 7rem;
+  height: auto;
+  width: auto;
+  opacity: 0.1;
+}
+
+mat-grid-tile span {
+  /*height: 25%;*/
+}

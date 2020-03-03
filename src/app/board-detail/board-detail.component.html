@@ -1,11 +1,13 @@
 <div *ngIf="board">
   <mat-grid-list [cols]="board.columns" rowHeight="10rem" gutterSize="1rem">
     <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows)"
-                   class="board-detail-card" tabindex="0" (click)="selectCell(c)" (keyup.enter)="selectCell(c)"
+                   tabindex="0" (click)="selectCell(c)" (keyup.enter)="selectCell(c)"
                    [style.background-color]="c.backgroundColour"
-                   [style.border-color]="c.borderColour"
+                   [style.outline-color]="c.borderColour"
                    [style.color]="c.textColour"
-                   [class.board-detail-card-selected]="cell === c">
+                   [class.selected]="cell === c"
+                   [class.outlined]="c.borderColour"
+    >
 
           <div fxLayout="column" fxLayoutAlign="space-between stretch">
             <span *ngIf="board.defaultCellFormat.labelPosition === 'top'">{{c.caption}}</span>
