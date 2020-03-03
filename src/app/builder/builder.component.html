@@ -7,14 +7,14 @@
     <div class="example-spacer"></div>
     <h1 class="example-app-name">{{boardSet ? boardSet.title : 'Global Symbols BoardBuilder' }}</h1>
     <div class="example-spacer"></div>
-
+    <button mat-icon-button aria-label="Change Board Properties" (click)="editBoard(board)" *ngIf="board" matTooltip="Change Board Properties">
+      <mat-icon>edit</mat-icon>
+    </button>
     <button mat-icon-button [matMenuTriggerFor]="matBoardMenu"
             aria-label="Import/Export" matTooltip="Upload/Download">
       <mat-icon>import_export</mat-icon>
     </button>
-    <button mat-icon-button (click)="editBoardSet()" matTooltip="Edit this Board Set" aria-label="Edi this Board Set"><mat-icon>edit</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Delete this Board Set" (click)="deleteBoardSet(boardSet)" *ngIf="boardSet" matTooltip="Delete this Board Set">
+    <button mat-icon-button aria-label="Delete this Board" (click)="deleteBoard(board)" *ngIf="board" matTooltip="Delete this Board">
       <mat-icon>delete</mat-icon>
     </button>
   </mat-toolbar>
@@ -23,19 +23,6 @@
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [opened]="!mobileQuery.matches">
-      <div class="builder-sidenav-section" *ngIf="board">
-        <h3>{{board.title}}</h3>
-        <div class="board-toolbar">
-          <button mat-icon-button aria-label="Board Settings" (click)="editBoard(board)" *ngIf="board" matTooltip="Board Settings">
-            <mat-icon>settings</mat-icon>
-          </button>
-          <button mat-icon-button aria-label="Delete this Board" (click)="deleteBoard(board)" *ngIf="board" matTooltip="Delete this Board">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-      </div>
-      <mat-divider></mat-divider>
-
       <div class="builder-sidenav-section">
         <div fxLayout="row" fxLayoutAlign="space-between center" class="">
           <h3>Boards</h3>

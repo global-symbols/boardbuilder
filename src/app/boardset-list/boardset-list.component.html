@@ -3,11 +3,32 @@
 </mat-toolbar>
 <div class="section">
   <h2>My Board Sets</h2>
-  <button mat-button mat-raised-button color="primary" (click)="newBoardSet()">Create Board Set<mat-icon>add</mat-icon></button>
-  <mat-nav-list>
-    <mat-list-item [routerLink]="boardSet.uuid" *ngFor="let boardSet of boardSets">
-      {{ boardSet.title }}
-      <mat-icon matListIcon>arrow_forward</mat-icon>
-    </mat-list-item>
-  </mat-nav-list>
+  <p>Board Sets are saved in your browser. To return to your Board Sets, use BoardBuilder in the same browser.</p>
+  <p>
+    <button mat-button mat-raised-button color="primary" (click)="newBoardSet()">Create Board Set <mat-icon>add</mat-icon></button>
+  </p>
+
+  <mat-grid-list [cols]="4" rowHeight="10rem" gutterSize="1rem">
+    <mat-grid-tile *ngFor="let boardSet of boardSets">
+      <div class="w-100 boardset-grid-tile">
+        <div fxLayout="column" fxLayoutAlign="space-between none">
+          <h3>{{boardSet.title}}</h3>
+
+          <p>{{boardSet.boards.length}} Boards</p>
+
+          <div fxLayout="row">
+            <div fxFlex="50">
+              <button mat-icon-button aria-label="Delete this Board Set" (click)="deleteBoardSet(boardSet)" *ngIf="boardSet" matTooltip="Delete this Board Set">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-icon-button (click)="editBoardSet(boardSet)" matTooltip="Edit this Board Set" aria-label="Edit this Board Set"><mat-icon>edit</mat-icon>
+              </button>
+            </div>
+
+            <button fxFlex mat-flat-button color="primary" [routerLink]="boardSet.uuid">Open</button>
+          </div>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

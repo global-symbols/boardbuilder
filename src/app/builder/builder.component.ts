@@ -150,44 +150,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
     });
   }
 
-  editBoardSet() {
-    if (this.boardSet === undefined) { return; }
-    if (this.currentDialogRef !== undefined) { return; }
-
-    this.currentDialogRef = this.dialog.open(BoardsetEditorDialogComponent, {
-      width: '300px',
-      data: { boardSet: this.boardSet }
-    });
-
-    this.currentDialogRef.afterClosed().subscribe(result => {
-      this.currentDialogRef = undefined;
-      this.updateBoardSet().then(r => null);
-    });
-  }
-
-  deleteBoardSet(boardset) {
-    if (boardset === undefined) { return; }
-    if (this.deleteDialogRef !== undefined) { return; }
-
-    this.deleteDialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '250px',
-      data: {heading: 'Delete this Board Set?', content: 'This will delete all Boards in the Board Set, and cannot be undone.'}
-    });
-
-    this.deleteDialogRef.afterClosed().subscribe(result => {
-
-      if (result) {
-        this.selectBoard(null);
-        this.service.delete(this.boardSet).then(bs => {
-          this.deleteDialogRef = undefined;
-          this.router.navigate(['/', 'boardsets']).then();
-        });
-      }
-
-      this.deleteDialogRef = undefined;
-    });
-  }
-
   downloadBoard(board: Board) {
     saveAs(new Blob([JSON.stringify(board.toObf())], {type: 'text/plain;charset=utf-8'}), board.title + '.obf');
   }
