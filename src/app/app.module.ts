@@ -115,7 +115,7 @@ const appRoutes: Routes = [
       appRoutes,
       {enableTracing: false} // <-- debugging purposes only
     ),
-    MatMenuModule,
+    MatMenuModule
   ],
   entryComponents: [
     ConfirmDialogComponent,
