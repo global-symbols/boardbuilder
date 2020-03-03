@@ -1,9 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Cell} from '../models/cell.model';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
 import {BoardSet} from '../models/boardset.model';
 import {Board} from '../models/board.model';
+import {MatTabChangeEvent} from '@angular/material/tabs';
+import {SymbolSearchPanelComponent} from '../symbol-search-panel/symbol-search-panel.component';
 
 @Component({
   selector: 'app-cell-editor',
@@ -20,6 +22,8 @@ export class CellEditorComponent implements OnInit {
   @Output() boardSetChange = new EventEmitter<BoardSet>();
 
   @Output() close = new EventEmitter<boolean>();
+
+  @ViewChild('searchPanel') searchPanel: SymbolSearchPanelComponent;
 
   constructor(public dialog: MatDialog) { }
 
@@ -55,5 +59,9 @@ export class CellEditorComponent implements OnInit {
 
     // Remove the linked Board from this Cell.
     this.cell.board = null;
+  }
+
+  triggerSearch($event: MatTabChangeEvent) {
+    if ($event.index === 1) { this.searchPanel.search(); }
   }
 }

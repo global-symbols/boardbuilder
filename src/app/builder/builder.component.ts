@@ -98,7 +98,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.updateBoardSet().then(r => null);
   }
 
-  deleteBoard(board) {
+  deleteBoard(board: Board) {
     if (board === undefined) { return; }
     if (this.deleteDialogRef !== undefined) { return; }
 

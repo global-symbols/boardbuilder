@@ -11,7 +11,7 @@
     </button>
   </div>
 
-  <mat-tab-group mat-stretch-tabs>
+  <mat-tab-group mat-stretch-tabs (selectedTabChange)="triggerSearch($event)">
     <mat-tab label="Cell">
       <div class="p-1">
 
@@ -57,7 +57,7 @@
 
     <mat-tab label="Symbol">
       <div class="p-1">
-        <app-symbol-search-panel [initialQuery]="cell.caption" (selectionChange)="selectImageUrl($event)"></app-symbol-search-panel>
+        <app-symbol-search-panel #searchPanel [initialQuery]="cell.caption" (selectionChange)="selectImageUrl($event)"></app-symbol-search-panel>
       </div>
     </mat-tab>
   </mat-tab-group>

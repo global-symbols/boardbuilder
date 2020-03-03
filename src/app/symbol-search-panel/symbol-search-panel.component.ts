@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {GlobalSymbolsService} from '../global-symbols.service';
-import {from, fromEvent, Observable} from 'rxjs';
-import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
+import {BehaviorSubject, from, fromEvent, Observable} from 'rxjs';
+import {debounceTime, distinctUntilChanged, filter, finalize, flatMap, map} from 'rxjs/operators';
 import {SymbolSearchResult} from '../models/symbol-search-result.model';
 import {OpenSymbolsService} from '../open-symbols.service';
 
@@ -31,7 +31,9 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
   query: string;
   source;
   results;
-  isSearching: boolean;
+
+  private loadingSubject = new BehaviorSubject<boolean>(false);
+  public loading$ = this.loadingSubject.asObservable();
 
   @ViewChild('queryInput') queryInput: ElementRef;
 
@@ -40,9 +42,7 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
 
   constructor(private globalSymbolsService: GlobalSymbolsService,
               private openSymbolsService: OpenSymbolsService) {
-    this.isSearching = false;
     this.source = this.sources[0];
-
   }
 
   ngOnInit(): void {
@@ -56,6 +56,8 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
     this.globalSymbolsService.getSymbolSets().then(
       ss => this.sources.find(s => s.key === 'gs').params.find(p => p.key === 'symbol_set').options = ss
     );
+
+    this.query = this.initialQuery;
   }
 
   ngAfterViewInit() {
@@ -76,18 +78,9 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
       // subscription for response
     ).subscribe((text: string) => {
       if (this.query !== '') {
-        this.isSearching = true;
-        this.searchCall().subscribe((res) => {
-          this.isSearching = false;
-          this.results = res;
-        }, (err) => {
-          this.isSearching = false;
-        });
+        this.searchCall().subscribe(results => this.results = results);
       }
     });
-
-    // If an initial query was provided, search for it now.
-    if (this.initialQuery) { this.query = this.initialQuery; this.search(); }
   }
 
   search() {
@@ -95,6 +88,7 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
   }
 
   searchCall(): Observable<SymbolSearchResult[]> {
+    this.loadingSubject.next(true);
     if (this.source.key === 'gs') {
       // Build params
       const params = {
@@ -107,10 +101,14 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
       // Remove the symbolset param, if it's blank
       if (params.symbolset === 'all') { delete params.symbolset; }
 
-      return from(this.globalSymbolsService.search(params));
+      return from(this.globalSymbolsService.search(params)).pipe(finalize(() => {
+        this.loadingSubject.next(false);
+      }));
 
     } else {
-      return from(this.openSymbolsService.search(this.query));
+      return from(this.openSymbolsService.search(this.query)).pipe(finalize(() => {
+        this.loadingSubject.next(false);
+      }));
     }
   }
 
