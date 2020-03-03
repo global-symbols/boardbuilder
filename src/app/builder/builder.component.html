@@ -20,11 +20,13 @@
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+                         [autosize]="true"
+  >
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [opened]="!mobileQuery.matches">
       <div class="builder-sidenav-section">
-        <div fxLayout="row" fxLayoutAlign="space-between center" class="">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
           <h3>Boards</h3>
           <button mat-icon-button (click)="addBoard()" matTooltip="Add Board" aria-label="Add Board">
             <mat-icon>add</mat-icon>
