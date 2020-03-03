@@ -24,3 +24,10 @@
   margin: 30px auto;
 }
 
+.no-results {
+  text-align: center;
+  > div {
+    font-size: 7rem;
+    color: #666;
+  }
+}

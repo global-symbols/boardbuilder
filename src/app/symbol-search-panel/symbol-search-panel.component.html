@@ -29,11 +29,20 @@
 </div>
 
 <div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loading$ | async)">
-  <div fxFlex="25" *ngFor="let result of results">
+  <div fxFlex="25" *ngFor="let result of results$ | async">
     <button mat-stroked-button color="primary" (click)="selectImage(result)" class="symbol-search-panel-image-button">
       <img mat-card-image [src]="result.imageUrl" class="img-responsive"/>
     </button>
   </div>
+</div>
+
+<div *ngIf="!(loading$ | async) && (results$ | async)?.length === 0" class="no-results">
+  <div>
+    <mat-icon [inline]="true">category</mat-icon>
+  </div>
+
+  <p>We couldn't find any symbols.</p>
+  <p>Try broadening your search.</p>
 </div>
 
 <div *ngIf="loading$ | async" class="symbol-search-panel-searching-notification">

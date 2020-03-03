@@ -8,7 +8,7 @@ import {OpenSymbolsService} from '../open-symbols.service';
 @Component({
   selector: 'app-symbol-search-panel',
   templateUrl: './symbol-search-panel.component.html',
-  styleUrls: ['./symbol-search-panel.component.css']
+  styleUrls: ['./symbol-search-panel.component.scss']
 })
 export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
 
@@ -30,10 +30,12 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
 
   query: string;
   source;
-  results;
 
   private loadingSubject = new BehaviorSubject<boolean>(false);
   public loading$ = this.loadingSubject.asObservable();
+
+  private resultsSubject = new BehaviorSubject<SymbolSearchResult[]>(null);
+  public results$ = this.resultsSubject.asObservable();
 
   @ViewChild('queryInput') queryInput: ElementRef;
 
@@ -78,13 +80,17 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
       // subscription for response
     ).subscribe((text: string) => {
       if (this.query !== '') {
-        this.searchCall().subscribe(results => this.results = results);
+        this.searchCall().subscribe(results => {
+          this.resultsSubject.next(results);
+        });
       }
     });
   }
 
   search() {
-    this.searchCall().subscribe(results => this.results = results);
+    this.searchCall().subscribe(results => {
+      this.resultsSubject.next(results);
+    });
   }
 
   searchCall(): Observable<SymbolSearchResult[]> {
