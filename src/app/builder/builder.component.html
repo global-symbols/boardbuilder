@@ -8,10 +8,15 @@
     <h1 class="example-app-name">{{boardSet ? boardSet.title : 'Global Symbols BoardBuilder' }}</h1>
     <div class="example-spacer"></div>
 
+    <button mat-icon-button [matMenuTriggerFor]="matBoardMenu"
+            aria-label="Import/Export" matTooltip="Upload/Download">
+      <mat-icon>import_export</mat-icon>
+    </button>
+    <button mat-icon-button (click)="editBoardSet()" matTooltip="Board Set Details" aria-label="Board Set Details"><mat-icon>info</mat-icon>
+    </button>
     <button mat-icon-button aria-label="Delete this Board Set" (click)="deleteBoardSet(boardSet)" *ngIf="boardSet" matTooltip="Delete this Board Set">
       <mat-icon>delete</mat-icon>
     </button>
-    <button mat-icon-button (click)="editBoardSet()" matTooltip="Board Set Details" aria-label="Board Set Details"><mat-icon>info</mat-icon></button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
@@ -26,12 +31,6 @@
           </button>
           <button mat-icon-button aria-label="Delete this Board" (click)="deleteBoard(board)" *ngIf="board" matTooltip="Delete this Board">
             <mat-icon>delete</mat-icon>
-          </button>
-          <button mat-icon-button aria-label="Download this Board" (click)="downloadBoard(board)" *ngIf="board" matTooltip="Download this Board">
-            <mat-icon>save_alt</mat-icon>
-          </button>
-          <button mat-icon-button aria-label="Download as PDF" (click)="pdfDialog(board)" *ngIf="board" matTooltip="Download as PDF">
-            <mat-icon>picture_as_pdf</mat-icon>
           </button>
         </div>
       </div>
@@ -59,7 +58,18 @@
 
     <mat-sidenav-content>
       <app-board-detail [board]="board" [(cell)]="selectedCell"></app-board-detail>
-<!--      {{board | json}}-->
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
+
+<mat-menu #matBoardMenu="matMenu">
+  <button mat-menu-item (click)="uploadBoardObf(board)" *ngIf="board">
+    <mat-icon>insert_drive_file</mat-icon> Add Board from OBF
+  </button>
+  <button mat-menu-item (click)="downloadBoard(board)" *ngIf="board">
+    <mat-icon>save_alt</mat-icon> Download Board as OBF
+  </button>
+  <button mat-menu-item (click)="pdfDialog(board)" *ngIf="board">
+    <mat-icon>picture_as_pdf</mat-icon> Download Board as PDF
+  </button>
+</mat-menu>

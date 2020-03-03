@@ -13,6 +13,7 @@ import {Observable} from 'rxjs';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {BoardsetEditorDialogComponent} from '../boardset-editor-dialog/boardset-editor-dialog.component';
+import {ObfUploadDialogComponent} from '../obf-upload-dialog/obf-upload-dialog.component';
 
 @Component({
   selector: 'app-builder',
@@ -135,11 +136,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   }
 
-  downloadBoard(board: Board) {
-    console.log(board.toObf());
-    saveAs(new Blob([JSON.stringify(board.toObf())], {type: 'text/plain;charset=utf-8'}), board.title + '.obf');
-  }
-
   pdfDialog(board) {
     if (board === undefined) { return; }
     if (this.currentDialogRef !== undefined) { return; }
@@ -189,6 +185,28 @@ export class BuilderComponent implements OnInit, OnDestroy {
       }
 
       this.deleteDialogRef = undefined;
+    });
+  }
+
+  downloadBoard(board: Board) {
+    saveAs(new Blob([JSON.stringify(board.toObf())], {type: 'text/plain;charset=utf-8'}), board.title + '.obf');
+  }
+
+  uploadBoardObf(board: Board) {
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(ObfUploadDialogComponent, {
+      width: '300px'
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(result => {
+      if (result instanceof Board) {
+        // Add the new Board to the BoardSet
+        this.boardSet.boards.push(result);
+        // Select the new Board
+        this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+      }
+      this.currentDialogRef = undefined;
     });
   }
 }

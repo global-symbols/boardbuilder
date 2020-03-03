@@ -39,6 +39,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PdfDialogComponent } from './pdf-dialog/pdf-dialog.component';
 import { BoardsetListComponent } from './boardset-list/boardset-list.component';
 import { BoardsetEditorDialogComponent } from './boardset-editor-dialog/boardset-editor-dialog.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { ObfUploadDialogComponent } from './obf-upload-dialog/obf-upload-dialog.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -79,7 +81,8 @@ const appRoutes: Routes = [
     BoardTreeItemComponent,
     PdfDialogComponent,
     BoardsetListComponent,
-    BoardsetEditorDialogComponent
+    BoardsetEditorDialogComponent,
+    ObfUploadDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -110,13 +113,15 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: false } // <-- debugging purposes only
-    )
+      {enableTracing: false} // <-- debugging purposes only
+    ),
+    MatMenuModule,
   ],
   entryComponents: [
     ConfirmDialogComponent,
     BoardEditorComponent,
-    BoardsetEditorDialogComponent
+    BoardsetEditorDialogComponent,
+    ObfUploadDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -78,6 +78,30 @@ export class Board implements Deserialisable {
     return obf;
   }
 
+  fromObf(obf: any): boolean {
+    this.rows = obf.grid.rows;
+    this.columns = obf.grid.columns;
+    this.title = obf.name;
+    this.populateCells();
+
+    obf.grid.order.forEach((cellId, i) => {
+      const obfButton = obf.buttons.find(button => button.id === cellId);
+      const obfImage = obf.images.find(image => image.id === cellId);
+
+      if (obfButton) {
+        this.cells[i].caption = obfButton.label;
+        this.cells[i].borderColour = obfButton.border_color;
+        this.cells[i].backgroundColour = obfButton.background_color;
+      }
+
+      if (obfImage) {
+        this.cells[i].url = obfImage.url;
+        console.log(obfImage, obfImage.url, this.cells[i].url);
+      }
+    });
+    return true;
+  }
+
   cellsAsMatrix() {
     return this.cells.slice(0, this.rows * this.columns).reduce((rows, key, index) => (index % this.columns === 0 ? rows.push([key])
         : rows[rows.length - 1].push(key)) && rows, []);
