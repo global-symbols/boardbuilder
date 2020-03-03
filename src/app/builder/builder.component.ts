@@ -196,7 +196,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(ObfUploadDialogComponent, {
-      width: '300px'
+      width: '500px'
     });
 
     this.currentDialogRef.afterClosed().subscribe(result => {

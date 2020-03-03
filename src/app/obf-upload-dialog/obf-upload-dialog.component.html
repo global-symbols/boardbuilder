@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="space-between start">
-  <h1 mat-dialog-title>Upload OBF File to Board</h1>
+  <h1 mat-dialog-title>Add Board from OBF</h1>
   <button mat-icon-button aria-label="Close the cell editor" [mat-dialog-close]="false">
     <mat-icon>close</mat-icon>
   </button>
@@ -7,16 +7,22 @@
 
 
 <div mat-dialog-content>
-  <button mat-button color="primary" (click)="uploadInput.click()">Select OBF&hellip;</button>
+  <p>Add a new Board from an Open Board Format (OBF) file.</p>
+  <p>Select an OBF file to begin.</p>
+  <div fxLayout="row" fxLayoutAlign="center none" >
+    <button mat-stroked-button (click)="uploadInput.click()">{{ filename ? filename : 'Select OBF&hellip;'}}</button>
+  </div>
 
   <input type="file" accept=".obf" style="display: none" #uploadInput (change)="fileChanged($event.target)">
 
-  <div *ngIf="previewBoard">
-    Your OBF contains a Board with {{previewBoard.cells.length}} cells.
-  </div>
+  <p *ngIf="previewBoard" role="alert">
+    We found {{previewBoard.cells.length}} tiles in your OBF file.
+  </p>
+
+  <p *ngIf="obfInvalid" role="alert">Your OBF File could not be loaded.</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-raised-button [mat-dialog-close]="false" color="primary">Cancel</button>
+  <button mat-stroked-button [mat-dialog-close]="false" color="primary">Cancel</button>
   <span class="spacer"></span>
-  <button mat-raised-button [mat-dialog-close]="previewBoard" color="primary" [disabled]="!previewBoard">Save</button>
+  <button mat-raised-button [mat-dialog-close]="previewBoard" color="primary" [disabled]="!previewBoard">Add Board</button>
 </div>

@@ -94,10 +94,7 @@ export class Board implements Deserialisable {
         this.cells[i].backgroundColour = obfButton.background_color;
       }
 
-      if (obfImage) {
-        this.cells[i].url = obfImage.url;
-        console.log(obfImage, obfImage.url, this.cells[i].url);
-      }
+      if (obfImage) { this.cells[i].url = obfImage.url; }
     });
     return true;
   }
