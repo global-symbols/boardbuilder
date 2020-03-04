@@ -6,6 +6,8 @@ import {DomSanitizer} from '@angular/platform-browser';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {ImageBase64Service} from '../image-base64.service';
+import {HttpClient} from '@angular/common/http';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-pdf-dialog',
@@ -28,7 +30,8 @@ export class PdfDialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) board: Board,
               private sanitiser: DomSanitizer,
-              private imageBase64Service: ImageBase64Service) {
+              private imageBase64Service: ImageBase64Service,
+              private http: HttpClient) {
 
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
     this.pdfMake = pdfMake;
@@ -39,12 +42,29 @@ export class PdfDialogComponent implements OnInit {
 
     // Collect the images as Base64 and generatePDF() when all images are downloaded and ready.
     this.board.cells.map(cell => {
-      // If an image is present, get it as Base64.
-      if (cell.url) {
+      // If an image is present and IS NOT an SVG, get it as Base64.
+      if (cell.url && !cell.url.endsWith('.svg')) {
         this.imageBase64Service.getFromURL(cell.url).then(image => {
-          this.images[cell.id] = image;
+          this.images[cell.id] = { base64: image };
           if (this.imagesReady()) { this.generatePDF(); }
         });
+
+      // If an image is present and IS an SVG, get it as text.
+      } else if (cell.url && cell.url.endsWith('.svg')) {
+
+        this.http.get<string>(cell.url, {
+          responseType: 'text'
+        }).toPromise().then(result => {
+
+          this.images[cell.id] = { svg: result };
+          if (this.imagesReady()) { this.generatePDF(); }
+
+        }, error => console.log('ERROR SVG', error));
+        // this.http.get(cell.url).pipe(tap( result => {
+        //   this.images[cell.id] = { svg: result };
+        //   if (this.imagesReady()) { this.generatePDF(); }
+        // }));
+
       } else {
         this.images[cell.id] = null;
         if (this.imagesReady()) { this.generatePDF(); }
@@ -58,7 +78,7 @@ export class PdfDialogComponent implements OnInit {
   }
 
   generatePDF() {
-
+    console.log(this.images);
     const widths = [];
     const heights = [];
 
@@ -72,8 +92,26 @@ export class PdfDialogComponent implements OnInit {
     this.board.cellsAsMatrix().map((row, rowNumber) => {
       row = row.map((cell, cellNumber) => {
 
-        const imageDefinition = (this.images[cell.id] === null) ? {} : {
-          image: this.images[cell.id],
+        let imageDefinition: any = {};
+        if (this.images[cell.id] !== null) {
+          imageDefinition = {
+            fit: [90, 90],
+            alignment: 'center'
+          };
+
+          // For base64 images, use the 'image' key
+          if (this.images[cell.id].base64) {
+            imageDefinition.image = this.images[cell.id].base64;
+          }
+
+          // For svgs, use the 'svg' key
+          if (this.images[cell.id].svg) {
+            imageDefinition.svg = this.images[cell.id].svg;
+          }
+        }
+
+        const imageDefinition2 = (this.images[cell.id] === null) ? {} : {
+          image: this.images[cell.id].base64,
           fit: [90, 90],
           alignment: 'center'
         };
