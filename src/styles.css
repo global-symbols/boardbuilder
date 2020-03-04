@@ -25,3 +25,7 @@ mat-form-field.no-label .mat-form-field-infix{
 h1, h2, h3 {
   font-weight: 300;
 }
+
+.text-center {
+  text-align: center;
+}

@@ -7,7 +7,6 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {ImageBase64Service} from '../image-base64.service';
 import {HttpClient} from '@angular/common/http';
-import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-pdf-dialog',
@@ -16,9 +15,10 @@ import {tap} from 'rxjs/operators';
 })
 export class PdfDialogComponent implements OnInit {
 
+  generatingPdf = true;
+
   board: Board;
   pdfMake;
-  pdfOutput;
   pdfDefinition: object;
   compiledPdf;
 
@@ -52,21 +52,22 @@ export class PdfDialogComponent implements OnInit {
       // If an image is present and IS an SVG, get it as text.
       } else if (cell.url && cell.url.endsWith('.svg')) {
 
-        this.http.get<string>(cell.url, {
+        this.http.get(cell.url, {
           responseType: 'text'
         }).toPromise().then(result => {
+
+          // Remove the width and height attributes from the <svg> element, if they are present.
+          // Leaving them in causes the SVG to be rendered full-size.
+          result = result.replace(/(<svg.*?)width=['"].+?['"](.+?>)/gms, '$1$2');
+          result = result.replace(/(<svg.*?)height=['"].+?['"](.+?>)/gms, '$1$2');
 
           this.images[cell.id] = { svg: result };
           if (this.imagesReady()) { this.generatePDF(); }
 
-        }, error => console.log('ERROR SVG', error));
-        // this.http.get(cell.url).pipe(tap( result => {
-        //   this.images[cell.id] = { svg: result };
-        //   if (this.imagesReady()) { this.generatePDF(); }
-        // }));
+        });
 
       } else {
-        this.images[cell.id] = null;
+        this.images[cell.id] = { svg: '<svg viewBox="0 0 500 500"></svg>' };
         if (this.imagesReady()) { this.generatePDF(); }
       }
     });
@@ -81,6 +82,7 @@ export class PdfDialogComponent implements OnInit {
     console.log(this.images);
     const widths = [];
     const heights = [];
+    const imageFit = 120;
 
     const spacerRow = [{ text: '', height: this.cellSpacing, colSpan: this.board.columns + (this.board.columns - 1) }];
 
@@ -95,7 +97,7 @@ export class PdfDialogComponent implements OnInit {
         let imageDefinition: any = {};
         if (this.images[cell.id] !== null) {
           imageDefinition = {
-            fit: [90, 90],
+            fit: [imageFit, imageFit],
             alignment: 'center'
           };
 
@@ -104,20 +106,15 @@ export class PdfDialogComponent implements OnInit {
             imageDefinition.image = this.images[cell.id].base64;
           }
 
-          // For svgs, use the 'svg' key
+          // For SVGs, use the 'svg' key
           if (this.images[cell.id].svg) {
             imageDefinition.svg = this.images[cell.id].svg;
+            imageDefinition.height = imageFit;
           }
         }
 
-        const imageDefinition2 = (this.images[cell.id] === null) ? {} : {
-          image: this.images[cell.id].base64,
-          fit: [90, 90],
-          alignment: 'center'
-        };
-
         const textDefinition = {
-          text: cell.caption || '[no caption]'
+          text: cell.caption || ' '
         };
 
         const borderColour = cell.borderColour ? cell.borderColour : '#000000';
@@ -155,8 +152,9 @@ export class PdfDialogComponent implements OnInit {
         return ((cellNumber + 1) === this.board.columns) ? cellDefinition : [cellDefinition, ''];
       }).flat();
 
-      // An auto-height for the image row.
-      heights.push('*');
+      // Add a height for the image row.
+      // For auto-height, pass '*'.
+      heights.push(150);
       cells.push(row);
 
       if ((rowNumber + 1) < this.board.rows) {
@@ -170,6 +168,11 @@ export class PdfDialogComponent implements OnInit {
 
     console.log(cells);
 
+    const layout = {
+      // paddingTop: () => 20,
+      defaultBorder: false,
+    };
+
     this.pdfDefinition = {
       pageOrientation: (this.board.rows > this.board.columns) ? 'portrait' : 'landscape',
       styles: {
@@ -177,8 +180,13 @@ export class PdfDialogComponent implements OnInit {
           alignment: 'center'
         }
       },
+      info: {
+        title: this.board.title,
+        producer: 'GlobalSymbols Board Builder'
+      },
       content: [
         {
+          // layout: 'a4',
           table: {
             // headers are automatically repeated if the table spans over multiple pages
             // you can declare how many rows should be treated as headers
@@ -187,9 +195,7 @@ export class PdfDialogComponent implements OnInit {
             heights,
             body: cells
           },
-          layout: {
-            defaultBorder: false,
-          }
+          layout
         }
       ]
     };
@@ -197,7 +203,8 @@ export class PdfDialogComponent implements OnInit {
     this.compiledPdf = this.pdfMake.createPdf(this.pdfDefinition);
 
     this.compiledPdf.getDataUrl((dataUrl) => {
-      this.pdfFrame.nativeElement.src = dataUrl;
+      this.pdfFrame.nativeElement.src = dataUrl+'#toolbar=0&navpanes=0&scrollbar=0';
+      this.generatingPdf = false;
     });
   }
 
