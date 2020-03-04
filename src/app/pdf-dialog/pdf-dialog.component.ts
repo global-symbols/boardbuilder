@@ -79,7 +79,6 @@ export class PdfDialogComponent implements OnInit {
   }
 
   generatePDF() {
-    console.log(this.images);
     const widths = [];
     const heights = [];
     const imageFit = 120;
@@ -166,7 +165,7 @@ export class PdfDialogComponent implements OnInit {
       return ((rowNumber + 1) === this.board.rows) ? row : [row, spacerRow]; // TODO: Set colspan on the spacer.
     });
 
-    console.log(cells);
+    // console.log(cells);
 
     const layout = {
       // paddingTop: () => 20,
@@ -203,7 +202,7 @@ export class PdfDialogComponent implements OnInit {
     this.compiledPdf = this.pdfMake.createPdf(this.pdfDefinition);
 
     this.compiledPdf.getDataUrl((dataUrl) => {
-      this.pdfFrame.nativeElement.src = dataUrl+'#toolbar=0&navpanes=0&scrollbar=0';
+      this.pdfFrame.nativeElement.src = dataUrl;
       this.generatingPdf = false;
     });
   }
