@@ -61,6 +61,9 @@ export class PdfDialogComponent implements OnInit {
           result = result.replace(/(<svg.*?)width=['"].+?['"](.+?>)/gms, '$1$2');
           result = result.replace(/(<svg.*?)height=['"].+?['"](.+?>)/gms, '$1$2');
 
+          // Remove XML headers from the SVG.
+          // SVGs returned by OpenSymbols have headers that break the SVG converter, so we'll just remove them.
+          result = result.replace(/^.*?<svg/s, '<svg');
           this.images[cell.id] = { svg: result };
           if (this.imagesReady()) { this.generatePDF(); }
 
