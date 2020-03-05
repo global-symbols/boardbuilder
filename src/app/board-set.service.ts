@@ -3,6 +3,8 @@ import {Injectable} from '@angular/core';
 import {BoardSet} from './models/boardset.model';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
 import {Board} from './models/board.model';
+import {rejects} from 'assert';
+import * as JSZip from 'jszip';
 
 @Injectable({
   providedIn: 'root'
@@ -26,9 +28,22 @@ export class BoardSetService {
 
   getBoardSet(id: number | string): Promise<BoardSet> {
     if (typeof id === 'number') {
-      return this.dbService.getByKey(this.storeName, id).then(bs => new BoardSet().deserialise(bs));
+      return this.dbService.getByKey(this.storeName, id).then(
+        bs => {
+          console.log(bs);
+          // if (bs.length > 0) {
+          return new BoardSet().deserialise(bs);
+          // }
+        }
+      );
     } else {
-      return this.dbService.getByIndex(this.storeName, 'uuid', id).then(bs => new BoardSet().deserialise(bs));
+      return this.dbService.getByIndex(this.storeName, 'uuid', id).then(
+        bs => new BoardSet().deserialise(bs),
+        error => {
+          console.log(error);
+          return new BoardSet().deserialise(error);
+        }
+      );
     }
   }
 
@@ -40,5 +55,35 @@ export class BoardSetService {
     return this.dbService.delete(this.storeName, boardSet.localId).then(r => r, error => {
       console.log(error);
     });
+  }
+
+  convertToObz(boardSet: BoardSet): Promise<any> {
+    const zip = new JSZip();
+
+    // Prepare the bare OBZ Manifest data
+    const manifest = {
+      format: 'open-board-0.1',
+      root: 'boards/' + boardSet.boards[0].uuid + '.obf',
+      paths: {
+        boards: { },
+        images: { },
+        sounds: { }
+      }
+    };
+
+    boardSet.boards.forEach(board => {
+      const boardFilename = 'boards/' + board.uuid + '.obf';
+
+      // Add the Board OBF file to the ZIP file.
+      zip.file(boardFilename, JSON.stringify(board.toObf(), null, 2));
+
+      // Add the Board OBF file path to the OBZ Manifest
+      return manifest.paths.boards[board.uuid] = boardFilename;
+    });
+
+    // Add the OBZ Manifest file to the ZIP.
+    zip.file('manifest.json', JSON.stringify(manifest, null, 2));
+
+    return zip.generateAsync({type: 'blob'});
   }
 }

@@ -52,13 +52,17 @@
 </div>
 
 <mat-menu #matBoardMenu="matMenu">
-  <button mat-menu-item (click)="uploadBoardObf(board)" *ngIf="board">
-    <mat-icon>insert_drive_file</mat-icon> Add Board from OBF
-  </button>
-  <button mat-menu-item (click)="downloadBoard(board)" *ngIf="board">
+  <button mat-menu-item (click)="downloadBoard(board)">
     <mat-icon>save_alt</mat-icon> Download Board as OBF
   </button>
-  <button mat-menu-item (click)="pdfDialog(board)" *ngIf="board">
+  <button mat-menu-item (click)="pdfDialog(board)">
     <mat-icon>picture_as_pdf</mat-icon> Print or Download Board as PDF
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item (click)="uploadBoardObf(board)">
+    <mat-icon>insert_drive_file</mat-icon> Add Board from OBF
+  </button>
+  <button mat-menu-item (click)="downloadBoardSetObz()">
+    <mat-icon>save_alt</mat-icon> Download Board Set as OBZ
   </button>
 </mat-menu>

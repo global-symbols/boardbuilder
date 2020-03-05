@@ -151,7 +151,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   downloadBoard(board: Board) {
-    saveAs(new Blob([JSON.stringify(board.toObf())], {type: 'text/plain;charset=utf-8'}), board.title + '.obf');
+    saveAs(new Blob([JSON.stringify(board.toObf(), null, 2)], {type: 'text/plain;charset=utf-8'}), board.title + '.obf');
   }
 
   uploadBoardObf(board: Board) {
@@ -170,5 +170,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
       }
       this.currentDialogRef = undefined;
     });
+  }
+
+  downloadBoardSetObz() {
+    this.service.convertToObz(this.boardSet).then(content => saveAs(content, this.boardSet.title + '.obz'));
   }
 }

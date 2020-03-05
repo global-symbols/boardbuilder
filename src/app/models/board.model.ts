@@ -1,6 +1,7 @@
 import {Deserialisable} from './deserialisable.model';
 import {Cell} from './cell.model';
 import * as uuid from 'uuid';
+import * as mime from 'mime/lite';
 import {CellFormat} from './cell-format.model';
 import {Obf} from './obf.interface';
 
@@ -71,7 +72,7 @@ export class Board implements Deserialisable {
       images: this.cells.map((cell, index) => ({
         id: this.uuid + index,
         url: cell.url,
-        content_type: 'image/png'
+        content_type: mime.getType(cell.url)
       }))
     };
 

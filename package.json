@@ -25,6 +25,8 @@
     "@azure/ng-deploy": "^0.2.3",
     "angular2-hotkeys": "^2.1.5",
     "file-saver": "^2.0.2",
+    "jszip": "^3.2.2",
+    "mime": "^2.4.4",
     "ngx-indexed-db": "^4.0.3",
     "pdfmake": "^0.1.64",
     "rxjs": "~6.5.4",
