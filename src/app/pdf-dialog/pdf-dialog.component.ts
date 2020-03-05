@@ -46,7 +46,7 @@ export class PdfDialogComponent implements OnInit {
       if (cell.url && !cell.url.endsWith('.svg')) {
         this.imageBase64Service.getFromURL(cell.url).then(image => {
           this.images[cell.id] = { base64: image };
-          if (this.imagesReady()) { this.generatePDF(); }
+          this.generatePdfIfImagesReady();
         });
 
       // If an image is present and IS an SVG, get it as text.
@@ -64,17 +64,21 @@ export class PdfDialogComponent implements OnInit {
           // Remove XML headers from the SVG.
           // SVGs returned by OpenSymbols have headers that break the SVG converter, so we'll just remove them.
           result = result.replace(/^.*?<svg/s, '<svg');
+
           this.images[cell.id] = { svg: result };
-          if (this.imagesReady()) { this.generatePDF(); }
+          this.generatePdfIfImagesReady();
 
         });
 
       } else {
         this.images[cell.id] = { svg: '<svg viewBox="0 0 500 500"></svg>' };
-        if (this.imagesReady()) { this.generatePDF(); }
+        this.generatePdfIfImagesReady();
       }
     });
+  }
 
+  private generatePdfIfImagesReady(): void {
+    if (this.imagesReady()) { this.generatePDF(); }
   }
 
   private imagesReady(): boolean {
