@@ -1,4 +1,4 @@
-import {Component, ElementRef, Inject, OnInit, SecurityContext, ViewChild} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Board} from '../models/board.model';
 import {DomSanitizer} from '@angular/platform-browser';

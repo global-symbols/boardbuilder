@@ -5,9 +5,6 @@ export class Cell implements Deserialisable {
     id: number;
     url?: string;
     width?: number;
-    height?: number;
-    contentType?: string;
-    linkToBoardId?: string;
     board?: Board;
     caption?: string;
     backgroundColour: string;

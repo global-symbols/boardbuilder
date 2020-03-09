@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {GlobalSymbolsService} from '../global-symbols.service';
 import {BehaviorSubject, from, fromEvent, Observable} from 'rxjs';
-import {debounceTime, distinctUntilChanged, filter, finalize, flatMap, map} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, filter, finalize, map} from 'rxjs/operators';
 import {SymbolSearchResult} from '../models/symbol-search-result.model';
 import {OpenSymbolsService} from '../open-symbols.service';
 
@@ -29,7 +29,7 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
   ];
 
   query: string;
-  source;
+  source: any;
 
   private loadingSubject = new BehaviorSubject<boolean>(false);
   public loading$ = this.loadingSubject.asObservable();

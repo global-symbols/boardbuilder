@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
-import {Board} from '../models/board.model';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {BoardEditorDialogData} from '../board-editor/board-editor.component';
 import {BoardSet} from '../models/boardset.model';
 
 export interface BoardsetEditorDialogData {

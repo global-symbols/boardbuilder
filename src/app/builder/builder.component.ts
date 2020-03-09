@@ -9,10 +9,7 @@ import {BoardEditorComponent} from '../board-editor/board-editor.component';
 import {BoardSet} from '../models/boardset.model';
 import { saveAs } from 'file-saver';
 import {PdfDialogComponent} from '../pdf-dialog/pdf-dialog.component';
-import {Observable} from 'rxjs';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {switchMap} from 'rxjs/operators';
-import {BoardsetEditorDialogComponent} from '../boardset-editor-dialog/boardset-editor-dialog.component';
+import {ActivatedRoute} from '@angular/router';
 import {ObfUploadDialogComponent} from '../obf-upload-dialog/obf-upload-dialog.component';
 
 @Component({
@@ -24,7 +21,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   boardSet: BoardSet;
   board: Board;
-  boardSet$: Promise<BoardSet>;
   selectedCell;
 
   disableCellEditorAnimations = true;
@@ -42,8 +38,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
               private service: BoardSetService,
               private hotkeysService: HotkeysService,
               public dialog: MatDialog,
-              private route: ActivatedRoute,
-              private router: Router
+              private route: ActivatedRoute
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();

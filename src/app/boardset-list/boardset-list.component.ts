@@ -5,8 +5,6 @@ import {Router} from '@angular/router';
 import {BoardsetEditorDialogComponent} from '../boardset-editor-dialog/boardset-editor-dialog.component';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
-import {Board} from '../models/board.model';
-import {ObfUploadDialogComponent} from '../obf-upload-dialog/obf-upload-dialog.component';
 import {ObzUploadDialogComponent} from '../obz-upload-dialog/obz-upload-dialog.component';
 
 @Component({

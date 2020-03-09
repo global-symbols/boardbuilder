@@ -36,7 +36,4 @@ export class BoardSet implements Deserialisable {
       this.boards = this.boards.filter(b => b !== board);
     }
 
-  forceChangeDetect() {
-    this.boards = this.boards.concat([]);
-  }
 }

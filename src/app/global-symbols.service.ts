@@ -15,33 +15,12 @@ export class GlobalSymbolsService {
     this.apiBase = environment.globalSymbolsBase;
   }
 
-  searchParameters(): Array<object> {
-    return [{
-      key: 'query',
-      type: 'text'
-    }, {
-      key: 'symbolset',
-      type: 'select',
-      options: this.getSymbolSets()
-    }, {
-      key: 'language',
-      type: 'select',
-      options: this.getLanguages()
-    }];
-  }
-
   getLanguages(): Promise<object> {
     return this.http.get(this.apiBase + '/api/v1/languages/active').toPromise();
   }
 
   getSymbolSets(): Promise<object> {
     return this.http.get(this.apiBase + '/api/v1/symbolsets').toPromise();
-  }
-
-  searchConcepts(query): Promise<object> {
-    return this.http.get(this.apiBase + '/api/v1/concepts/suggest', {
-      params: { query }
-    }).toPromise();
   }
 
   search(query): Promise<SymbolSearchResult[]> {

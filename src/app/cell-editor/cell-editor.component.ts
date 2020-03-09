@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Cell} from '../models/cell.model';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
@@ -47,7 +47,6 @@ export class CellEditorComponent implements OnInit {
     console.log('linking to board', b);
     // Add the Board into the Cell.
     this.cell.board = new Board().deserialise(b);
-    // this.boardSet.forceChangeDetect();
 
     // Remove the Board from the top-level listing of Boards.
     this.boardSet.deleteBoard(b);

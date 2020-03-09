@@ -15,4 +15,4 @@ export const COLOURS = [
   { hex: '#FFF59D', name: '' },
   { hex: '#FFCC80', name: '' },
   { hex: '#EEEEEE', name: '' },
-]
+];
