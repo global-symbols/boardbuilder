@@ -26,15 +26,16 @@ export class BoardSetService {
     });
   }
 
+  addBoardSet(boardSet: BoardSet): Promise<BoardSet> {
+    return this.dbService.add(this.storeName, boardSet).then(n => {
+      return this.getBoardSet(n);
+    });
+  }
+
   getBoardSet(id: number | string): Promise<BoardSet> {
     if (typeof id === 'number') {
       return this.dbService.getByKey(this.storeName, id).then(
-        bs => {
-          console.log(bs);
-          // if (bs.length > 0) {
-          return new BoardSet().deserialise(bs);
-          // }
-        }
+        bs => new BoardSet().deserialise(bs)
       );
     } else {
       return this.dbService.getByIndex(this.storeName, 'uuid', id).then(

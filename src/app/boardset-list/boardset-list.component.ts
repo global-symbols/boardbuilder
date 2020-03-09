@@ -84,12 +84,11 @@ export class BoardsetListComponent implements OnInit {
 
     this.currentDialogRef.afterClosed().subscribe(result => {
       if (result instanceof BoardSet) {
-        console.log(result);
 
-        // Add the new Board to the BoardSet
-        // this.boardSet.boards.push(result);
-        // Select the new Board
-        // this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+        // Add the new BoardSet to the store, then navigate to view it.
+        this.service.addBoardSet(result).then(bs => {
+          return this.router.navigate(['boardsets', bs.uuid]);
+        });
       }
       this.currentDialogRef = undefined;
     });
