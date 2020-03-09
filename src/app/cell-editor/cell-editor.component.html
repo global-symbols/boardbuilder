@@ -35,7 +35,7 @@
             <mat-form-field class="w-100" appearance="outline">
               <mat-label>Link to a Board</mat-label>
               <mat-select (selectionChange)="linkCellToBoard($event)">
-                <mat-option *ngFor="let board of linkToBoardsList()" [value]="board" (select)="linkCellToBoard(board)">{{board.title}}</mat-option>
+                <mat-option *ngFor="let board of linkToBoardsList()" [value]="board">{{board.title}}</mat-option>
               </mat-select>
             </mat-form-field>
 
