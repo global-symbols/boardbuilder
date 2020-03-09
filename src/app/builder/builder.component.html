@@ -58,6 +58,9 @@
   <button mat-menu-item (click)="pdfDialog(board)">
     <mat-icon>picture_as_pdf</mat-icon> Print or Download Board as PDF
   </button>
+  <button *ngIf="board" mat-menu-item [routerLink]="['/','boardsets',boardSet.uuid, board.uuid, 'pdf']">
+    <mat-icon>picture_as_pdf</mat-icon> Print or Download Board as LAZY PDF
+  </button>
   <mat-divider></mat-divider>
   <button mat-menu-item (click)="uploadBoardObf(board)">
     <mat-icon>insert_drive_file</mat-icon> Add Board from OBF

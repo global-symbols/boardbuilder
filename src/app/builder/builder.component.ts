@@ -8,7 +8,6 @@ import { MatDialog } from '@angular/material/dialog';
 import {BoardEditorComponent} from '../board-editor/board-editor.component';
 import {BoardSet} from '../models/boardset.model';
 import { saveAs } from 'file-saver';
-import {PdfDialogComponent} from '../pdf-dialog/pdf-dialog.component';
 import {ActivatedRoute} from '@angular/router';
 import {ObfUploadDialogComponent} from '../obf-upload-dialog/obf-upload-dialog.component';
 
@@ -132,17 +131,17 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   pdfDialog(board) {
-    if (board === undefined) { return; }
-    if (this.currentDialogRef !== undefined) { return; }
-
-    this.currentDialogRef = this.dialog.open(PdfDialogComponent, {
-      width: '600px',
-      data: this.board
-    });
-
-    this.currentDialogRef.afterClosed().subscribe(result => {
-      this.currentDialogRef = undefined;
-    });
+    // if (board === undefined) { return; }
+    // if (this.currentDialogRef !== undefined) { return; }
+    //
+    // this.currentDialogRef = this.dialog.open(PdfDialogComponent, {
+    //   width: '600px',
+    //   data: this.board
+    // });
+    //
+    // this.currentDialogRef.afterClosed().subscribe(result => {
+    //   this.currentDialogRef = undefined;
+    // });
   }
 
   downloadBoard(board: Board) {

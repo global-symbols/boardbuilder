@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+  <button *ngIf="boardSet" mat-button [routerLink]="['/', 'boardsets', boardSet.uuid]"><mat-icon>arrow_back</mat-icon></button>
+  <h1>PDF Preview</h1>
+  <div></div>
+</mat-toolbar>
+<div class="section">
+  <div *ngIf="generatingPdf" class="text-center">
+    <mat-progress-spinner
+      mode="indeterminate">
+    </mat-progress-spinner>
+    <p>Generating your PDF&hellip;</p>
+  </div>
+
+  <embed [hidden]="generatingPdf" #pdfFrame class="w-100" style="height: 600px"/>
+
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <button *ngIf="boardSet" mat-stroked-button color="primary" [routerLink]="['/', 'boardsets', boardSet.uuid]">Done</button>
+    <button mat-raised-button (click)="downloadPdf()" color="primary" [disabled]="generatingPdf">Download</button>
+  </div>
+</div>
