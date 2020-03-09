@@ -136,20 +136,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   }
 
-  pdfDialog(board) {
-    // if (board === undefined) { return; }
-    // if (this.currentDialogRef !== undefined) { return; }
-    //
-    // this.currentDialogRef = this.dialog.open(PdfDialogComponent, {
-    //   width: '600px',
-    //   data: this.board
-    // });
-    //
-    // this.currentDialogRef.afterClosed().subscribe(result => {
-    //   this.currentDialogRef = undefined;
-    // });
-  }
-
   downloadBoard(board: Board) {
     saveAs(new Blob([JSON.stringify(board.toObf(), null, 2)], {type: 'text/plain;charset=utf-8'}), board.title + '.obf');
   }

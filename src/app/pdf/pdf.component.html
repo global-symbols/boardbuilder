@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-  <button *ngIf="boardSet && board" mat-button [routerLink]="['/', 'boardsets', boardSet.uuid]" [queryParams]="{board: board.uuid}"><mat-icon>arrow_back</mat-icon></button>
+  <button *ngIf="boardSet && board" mat-icon-button [routerLink]="['/', 'boardsets', boardSet.uuid]" [queryParams]="{board: board.uuid}"><mat-icon>arrow_back</mat-icon></button>
   <h1>PDF Preview</h1>
   <div></div>
 </mat-toolbar>
