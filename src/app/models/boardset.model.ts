@@ -10,11 +10,14 @@ export class BoardSet implements Deserialisable {
     public boards = Array<Board>();
     public createdAt: Date;
 
-    constructor() {
+    constructor(init?: Partial<BoardSet>) {
       const pipe = new DatePipe('en-GB');
       this.title = 'Untitled Board Set ' + pipe.transform(Date.now(), 'mediumDate');
       this.uuid = uuid.v4();
       this.createdAt = new Date();
+
+      Object.assign(this, init);
+
       this.addBoard();
     }
 

@@ -5,6 +5,9 @@ import {Router} from '@angular/router';
 import {BoardsetEditorDialogComponent} from '../boardset-editor-dialog/boardset-editor-dialog.component';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
+import {Board} from '../models/board.model';
+import {ObfUploadDialogComponent} from '../obf-upload-dialog/obf-upload-dialog.component';
+import {ObzUploadDialogComponent} from '../obz-upload-dialog/obz-upload-dialog.component';
 
 @Component({
   selector: 'app-boardset-list',
@@ -68,6 +71,26 @@ export class BoardsetListComponent implements OnInit {
         });
       }
 
+      this.currentDialogRef = undefined;
+    });
+  }
+
+  uploadBoardSetObz() {
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(ObzUploadDialogComponent, {
+      width: '500px'
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(result => {
+      if (result instanceof BoardSet) {
+        console.log(result);
+
+        // Add the new Board to the BoardSet
+        // this.boardSet.boards.push(result);
+        // Select the new Board
+        // this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+      }
       this.currentDialogRef = undefined;
     });
   }

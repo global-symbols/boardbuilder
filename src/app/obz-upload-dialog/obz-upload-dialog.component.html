@@ -1,0 +1,27 @@
+<div fxLayout="row" fxLayoutAlign="space-between start">
+  <h1 mat-dialog-title>Add Board Set from OBZ</h1>
+  <button mat-icon-button aria-label="Close the cell editor" [mat-dialog-close]="false">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div mat-dialog-content>
+  <p>Add a new Board Set from an Open Board Format Collection (OBZ) file.</p>
+  <p>Select an OBZ file to begin.</p>
+  <div fxLayout="row" fxLayoutAlign="center none" >
+    <button mat-stroked-button color="primary" (click)="uploadInput.click()">{{ filename ? filename : 'Select OBZ&hellip;'}}</button>
+  </div>
+
+  <input type="file" accept=".obz" style="display: none" #uploadInput (change)="fileChanged($event.target)">
+
+  <p *ngIf="boardSet && !fileInvalidReason" role="alert">
+    We found {{boardSet.boards.length}} boards in your OBZ file.
+  </p>
+
+  <p *ngIf="fileInvalidReason" role="alert">The OBZ file could not be read because {{fileInvalidReason}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-stroked-button [mat-dialog-close]="false" color="primary">Cancel</button>
+  <span class="spacer"></span>
+  <button mat-raised-button [mat-dialog-close]="boardSet" color="primary" [disabled]="!boardSet || !!fileInvalidReason">Add Board Set</button>
+</div>

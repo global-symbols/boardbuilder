@@ -41,6 +41,7 @@ import { BoardsetListComponent } from './boardset-list/boardset-list.component';
 import { BoardsetEditorDialogComponent } from './boardset-editor-dialog/boardset-editor-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { ObfUploadDialogComponent } from './obf-upload-dialog/obf-upload-dialog.component';
+import { ObzUploadDialogComponent } from './obz-upload-dialog/obz-upload-dialog.component';
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -82,7 +83,8 @@ const appRoutes: Routes = [
     PdfDialogComponent,
     BoardsetListComponent,
     BoardsetEditorDialogComponent,
-    ObfUploadDialogComponent
+    ObfUploadDialogComponent,
+    ObzUploadDialogComponent
   ],
   imports: [
     BrowserModule,

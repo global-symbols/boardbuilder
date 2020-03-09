@@ -9,7 +9,7 @@ import {Board} from '../models/board.model';
 export class ObfUploadDialogComponent implements OnInit {
 
   filename: string;
-  obfInvalid: boolean;
+  fileInvalid: boolean;
   previewBoard: Board;
   private reader: FileReader;
 
@@ -18,7 +18,7 @@ export class ObfUploadDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.reader = new FileReader();
-    this.obfInvalid = false;
+    this.fileInvalid = false;
 
     this.reader.onload = (e) => {
       try {
@@ -27,7 +27,7 @@ export class ObfUploadDialogComponent implements OnInit {
         this.previewBoard.fromObf(obfBody);
       } catch (error) {
         this.previewBoard = null;
-        this.obfInvalid = true;
+        this.fileInvalid = true;
       }
     };
   }

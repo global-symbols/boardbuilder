@@ -19,7 +19,7 @@
     We found {{previewBoard.cells.length}} tiles in your OBF file.
   </p>
 
-  <p *ngIf="obfInvalid" role="alert">Your OBF File could not be loaded.</p>
+  <p *ngIf="fileInvalid" role="alert">The file you provided is not a valid OBF file.</p>
 </div>
 <div mat-dialog-actions>
   <button mat-stroked-button [mat-dialog-close]="false" color="primary">Cancel</button>
