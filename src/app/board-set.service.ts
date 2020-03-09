@@ -5,6 +5,7 @@ import {NgxIndexedDBService} from 'ngx-indexed-db';
 import {Board} from './models/board.model';
 import {rejects} from 'assert';
 import * as JSZip from 'jszip';
+import {ObzManifest} from './models/obz-manifest.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -62,7 +63,7 @@ export class BoardSetService {
     const zip = new JSZip();
 
     // Prepare the bare OBZ Manifest data
-    const manifest = {
+    const manifest: ObzManifest = {
       format: 'open-board-0.1',
       root: 'boards/' + boardSet.boards[0].uuid + '.obf',
       paths: {
