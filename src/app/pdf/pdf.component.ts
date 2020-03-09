@@ -224,7 +224,7 @@ export class PdfComponent implements OnInit {
     return this.service.getBoardSet(this.route.snapshot.paramMap.get('boardset_id'))
       .then(bs => {
         this.boardSet = bs;
-        this.board = bs.boards.find(b => b.uuid === this.route.snapshot.paramMap.get('board_id'));
+        this.board = bs.findBoard(this.route.snapshot.paramMap.get('board_id'));
       });
   }
 

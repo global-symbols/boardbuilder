@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-  <button *ngIf="boardSet" mat-button [routerLink]="['/', 'boardsets', boardSet.uuid]"><mat-icon>arrow_back</mat-icon></button>
+  <button *ngIf="boardSet && board" mat-button [routerLink]="['/', 'boardsets', boardSet.uuid]" [queryParams]="{board: board.uuid}"><mat-icon>arrow_back</mat-icon></button>
   <h1>PDF Preview</h1>
   <div></div>
 </mat-toolbar>
@@ -14,7 +14,7 @@
   <embed [hidden]="generatingPdf" #pdfFrame class="w-100" style="height: 600px"/>
 
   <div fxLayout="row" fxLayoutAlign="space-between center">
-    <button *ngIf="boardSet" mat-stroked-button color="primary" [routerLink]="['/', 'boardsets', boardSet.uuid]">Done</button>
+    <button *ngIf="boardSet && board" mat-stroked-button color="primary" [routerLink]="['/', 'boardsets', boardSet.uuid]">Done</button>
     <button mat-raised-button (click)="downloadPdf()" color="primary" [disabled]="generatingPdf">Download</button>
   </div>
 </div>

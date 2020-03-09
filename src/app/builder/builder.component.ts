@@ -62,9 +62,15 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // Get the BoardSet, then select the first Board.
+    // Get the BoardSet
     this.getBoardSet().then(bs => {
-      if (this.boardSet.boards.length > 0) { this.selectBoard(this.boardSet.boards[0]); }
+      // If there are any Boards, select the first one.
+      if (this.boardSet.boards.length > 0) {
+        this.selectBoard(this.boardSet.boards[0]);
+        if (this.route.snapshot.queryParams.board) {
+          this.selectBoard(this.boardSet.boards.find(b => b.uuid === this.route.snapshot.queryParams.board));
+        }
+      }
     });
   }
 
