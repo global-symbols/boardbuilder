@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -42,6 +42,11 @@ import { BoardsetEditorDialogComponent } from './boardset-editor-dialog/boardset
 import {MatMenuModule} from '@angular/material/menu';
 import { ObfUploadDialogComponent } from './obf-upload-dialog/obf-upload-dialog.component';
 import { ObzUploadDialogComponent } from './obz-upload-dialog/obz-upload-dialog.component';
+import {registerLocaleData} from '@angular/common';
+import localeEnGb from '@angular/common/locales/en-GB';
+
+// Set en-GB as the default locale
+registerLocaleData(localeEnGb, 'en-GB');
 
 const dbConfig: DBConfig  = {
   name: 'BoardBuilder',
@@ -125,7 +130,9 @@ const appRoutes: Routes = [
     BoardsetEditorDialogComponent,
     ObfUploadDialogComponent
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'en-GB' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
