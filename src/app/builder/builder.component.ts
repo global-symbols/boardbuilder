@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import {BoardEditorComponent} from '../board-editor/board-editor.component';
 import {BoardSet} from '../models/boardset.model';
 import { saveAs } from 'file-saver';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ObfUploadDialogComponent} from '../obf-upload-dialog/obf-upload-dialog.component';
 
 @Component({
@@ -68,7 +68,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
       if (this.boardSet.boards.length > 0) {
         this.selectBoard(this.boardSet.boards[0]);
         if (this.route.snapshot.queryParams.board) {
-          this.selectBoard(this.boardSet.boards.find(b => b.uuid === this.route.snapshot.queryParams.board));
+          console.log('selecting board ', this.route.snapshot.queryParams.board);
+          this.selectBoard(this.boardSet.findBoard(this.route.snapshot.queryParams.board));
         }
       }
     });

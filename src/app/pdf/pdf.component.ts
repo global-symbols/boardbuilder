@@ -1,13 +1,15 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BoardSetService} from '../board-set.service';
 import {Board} from '../models/board.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {ImageBase64Service} from '../image-base64.service';
 import {HttpClient} from '@angular/common/http';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {BoardSet} from '../models/boardset.model';
+import {Hotkey, HotkeysService} from 'angular2-hotkeys';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-pdf',
@@ -17,12 +19,14 @@ import {BoardSet} from '../models/boardset.model';
 export class PdfComponent implements OnInit {
 
   generatingPdf = true;
+  pdfReady = false;
 
   boardSet: BoardSet;
   board: Board;
   pdfMake;
   pdfDefinition: object;
   compiledPdf;
+  failureReason: string;
 
   images = {};
 
@@ -32,50 +36,66 @@ export class PdfComponent implements OnInit {
 
   constructor(private service: BoardSetService,
               private route: ActivatedRoute,
+              private router: Router,
+              private location: Location,
               private sanitiser: DomSanitizer,
               private imageBase64Service: ImageBase64Service,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private hotkeysService: HotkeysService) {
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
     this.pdfMake = pdfMake;
+
+    // Keyboard shortcut - delete Board
+    this.hotkeysService.add(new Hotkey('escape', (event: KeyboardEvent): boolean => {
+      this.returnToBoard();
+      return false; // Prevent bubbling
+    }));
   }
 
   ngOnInit() {
     this.getBoard().then(bs => {
-      // Collect the images as Base64 and generatePDF() when all images are downloaded and ready.
-      this.board.cells.map(cell => {
-        // If an image is present and IS NOT an SVG, get it as Base64.
-        if (cell.url && !cell.url.endsWith('.svg')) {
-          this.imageBase64Service.getFromURL(cell.url).then(image => {
-            this.images[cell.id] = { base64: image };
+
+      if (!this.board) { return this.error('The Board could not be loaded.'); }
+
+      try {
+        // Collect the images as Base64 and generatePDF() when all images are downloaded and ready.
+        this.board.cells.map(cell => {
+          // If an image is present and IS NOT an SVG, get it as Base64.
+          if (cell.url && !cell.url.endsWith('.svg')) {
+            this.imageBase64Service.getFromURL(cell.url).then(image => {
+              this.images[cell.id] = {base64: image};
+              this.generatePdfIfImagesReady();
+            });
+
+            // If an image is present and IS an SVG, get it as text.
+          } else if (cell.url && cell.url.endsWith('.svg')) {
+
+            this.http.get(cell.url, {
+              responseType: 'text'
+            }).toPromise().then(result => {
+
+              // Remove the width and height attributes from the <svg> element, if they are present.
+              // Leaving them in causes the SVG to be rendered full-size.
+              result = result.replace(/(<svg.*?)width=['"].+?['"](.+?>)/gms, '$1$2');
+              result = result.replace(/(<svg.*?)height=['"].+?['"](.+?>)/gms, '$1$2');
+
+              // Remove XML headers from the SVG.
+              // SVGs returned by OpenSymbols have headers that break the SVG converter, so we'll just remove them.
+              result = result.replace(/^.*?<svg/s, '<svg');
+
+              this.images[cell.id] = {svg: result};
+              this.generatePdfIfImagesReady();
+
+            });
+
+          } else {
+            this.images[cell.id] = {svg: '<svg viewBox="0 0 500 500"></svg>'};
             this.generatePdfIfImagesReady();
-          });
-
-          // If an image is present and IS an SVG, get it as text.
-        } else if (cell.url && cell.url.endsWith('.svg')) {
-
-          this.http.get(cell.url, {
-            responseType: 'text'
-          }).toPromise().then(result => {
-
-            // Remove the width and height attributes from the <svg> element, if they are present.
-            // Leaving them in causes the SVG to be rendered full-size.
-            result = result.replace(/(<svg.*?)width=['"].+?['"](.+?>)/gms, '$1$2');
-            result = result.replace(/(<svg.*?)height=['"].+?['"](.+?>)/gms, '$1$2');
-
-            // Remove XML headers from the SVG.
-            // SVGs returned by OpenSymbols have headers that break the SVG converter, so we'll just remove them.
-            result = result.replace(/^.*?<svg/s, '<svg');
-
-            this.images[cell.id] = { svg: result };
-            this.generatePdfIfImagesReady();
-
-          });
-
-        } else {
-          this.images[cell.id] = { svg: '<svg viewBox="0 0 500 500"></svg>' };
-          this.generatePdfIfImagesReady();
-        }
-      });
+          }
+        });
+      } catch (error) {
+        return this.error(error);
+      }
     });
   }
 
@@ -85,6 +105,13 @@ export class PdfComponent implements OnInit {
 
   private imagesReady(): boolean {
     return Object.keys(this.images).length === this.board.cells.length;
+  }
+
+  error(reason: string) {
+    this.failureReason = reason;
+    this.generatingPdf = false;
+    this.pdfReady = false;
+    return null;
   }
 
   generatePDF() {
@@ -213,6 +240,7 @@ export class PdfComponent implements OnInit {
     this.compiledPdf.getDataUrl((dataUrl) => {
       this.pdfFrame.nativeElement.src = dataUrl;
       this.generatingPdf = false;
+      this.pdfReady = true;
     });
   }
 
@@ -228,4 +256,14 @@ export class PdfComponent implements OnInit {
       });
   }
 
+  returnToBoard() {
+    if (this.boardSet && this.board) {
+      this.router.navigate(['/', 'boardsets', this.boardSet.uuid], {
+        queryParams: {board: this.board.uuid}
+      });
+    } else {
+      this.location.back();
+    }
+
+  }
 }
