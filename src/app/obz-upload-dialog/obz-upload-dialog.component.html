@@ -18,7 +18,7 @@
   <input type="file" accept=".obz" style="display: none" #uploadInput (change)="fileChanged($event.target)">
 
   <p *ngIf="boardSet && !fileInvalidReason" role="alert" i18n>
-    We found {{boardSet.boards.length}} boards in your OBZ file.
+    We found {{boardSet.boards.length}} {boardSet.boards.length, plural, =1 {board} other {boards}} in your OBZ file.
   </p>
 
   <p *ngIf="fileInvalidReason" role="alert" i18n>The OBZ file could not be read because {{fileInvalidReason}}</p>
