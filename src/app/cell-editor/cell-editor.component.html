@@ -3,29 +3,32 @@
   <div fxLayout="row" fxLayoutAlign="space-between start" class="p-1">
 
     <mat-form-field appearance="outline" [floatLabel]="'never'" class="w-100 no-label">
-      <input matInput [(ngModel)]="cell.caption" placeholder="Caption" autocomplete="off">
+      <input matInput [(ngModel)]="cell.caption" placeholder="Caption" i18n-placeholder autocomplete="off">
     </mat-form-field>
 
-    <button mat-icon-button aria-label="Close the cell editor" (click)="closeEditor()" style="margin-left: 1rem; margin-top: 8px">
+    <button mat-icon-button aria-label="Close the cell editor" i18n-aria-label (click)="closeEditor()" style="margin-left: 1rem; margin-top: 8px">
       <mat-icon>close</mat-icon>
     </button>
   </div>
 
   <mat-tab-group mat-stretch-tabs (selectedTabChange)="triggerSearch($event)">
-    <mat-tab label="Cell">
+    <mat-tab label="Cell" i18n-label>
       <div class="p-1">
 
         <h3>Style</h3>
         <mat-accordion>
-          <app-colour-selector label="Background colour" [(value)]="cell.backgroundColour"></app-colour-selector>
-          <app-colour-selector label="Border colour" [(value)]="cell.borderColour"></app-colour-selector>
-          <app-colour-selector label="Text colour" [(value)]="cell.textColour"></app-colour-selector>
+          <app-colour-selector i18n-label label="Background colour" [(value)]="cell.backgroundColour">
+          </app-colour-selector>
+          <app-colour-selector i18n-label label="Border colour" [(value)]="cell.borderColour">
+          </app-colour-selector>
+          <app-colour-selector i18n-label label="Text colour" [(value)]="cell.textColour">
+          </app-colour-selector>
         </mat-accordion>
 
-        <h3>Linking</h3>
+        <h3 i18n>Linking</h3>
         <mat-card *ngIf="cell.board" fxLayout="row" fxLayoutAlign="space-between center">
-          Linked to {{cell.board.title}}
-          <button mat-icon-button aria-label="Unlink" matTooltip="Unlink" (click)="unlinkCellFromBoard()">
+          <ng-container i18n>Linked to</ng-container> {{cell.board.title}}
+          <button mat-icon-button aria-label="Unlink" i18n-aria-label matTooltip="Unlink" i18n-matTooltip (click)="unlinkCellFromBoard()">
             <mat-icon>close</mat-icon>
           </button>
         </mat-card>
@@ -33,7 +36,7 @@
         <div *ngIf="!cell.board">
           <div *ngIf="linkToBoardsList().length > 0">
             <mat-form-field class="w-100" appearance="outline">
-              <mat-label>Link to a Board</mat-label>
+              <mat-label i18n>Link to a Board</mat-label>
               <mat-select (selectionChange)="linkCellToBoard($event)">
                 <mat-option *ngFor="let board of linkToBoardsList()" [value]="board">{{board.title}}</mat-option>
               </mat-select>
@@ -41,21 +44,23 @@
 
             <div fxLayout="row" fxLayoutAlign="space-between center">
               <mat-icon style="margin-right: 1rem;">info</mat-icon>
-              This list shows only unlinked Boards.
+              <ng-container i18n>This list shows only unlinked Boards.</ng-container>
             </div>
           </div>
 
           <div *ngIf="linkToBoardsList().length === 0">
             <div fxLayout="row" fxLayoutAlign="space-between center">
               <mat-icon style="margin-right: 1rem;">info</mat-icon>
-              No Boards are available for linking.<br/>Unlink an existing Board, or create a new one.
+              <ng-container i18n>No Boards are available for linking.</ng-container>
+              <br/>
+              <ng-container i18n>Unlink an existing Board, or create a new one.</ng-container>
             </div>
           </div>
         </div>
       </div>
     </mat-tab>
 
-    <mat-tab label="Symbol">
+    <mat-tab label="Symbol" i18n-label>
       <div class="p-1">
         <app-symbol-search-panel #searchPanel [initialQuery]="cell.caption" (selectionChange)="selectImageUrl($event)"></app-symbol-search-panel>
       </div>

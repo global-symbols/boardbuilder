@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="space-between start">
-  <h1 mat-dialog-title>Edit {{data.board.title}}</h1>
+  <h1 mat-dialog-title i18n>Edit {{data.board.title}}</h1>
   <button mat-icon-button aria-label="Close the cell editor" [mat-dialog-close]="false">
     <mat-icon>close</mat-icon>
   </button>
@@ -8,19 +8,20 @@
 
 <div mat-dialog-content>
   <mat-form-field class="w-100">
-    <input matInput required [(ngModel)]="data.board.title" placeholder="Title">
+    <mat-label i18n>Title</mat-label>
+    <input matInput required [(ngModel)]="data.board.title">
   </mat-form-field>
 
   <mat-form-field class="w-100">
-    <mat-label>Label Position</mat-label>
+    <mat-label i18n>Label Position</mat-label>
     <mat-select [(ngModel)]="data.board.defaultCellFormat.labelPosition">
-      <mat-option value="top">Above Image</mat-option>
-      <mat-option value="bottom">Below Image</mat-option>
-      <mat-option value="hidden">Hidden</mat-option>
+      <mat-option value="top" i18n>Above Image</mat-option>
+      <mat-option value="bottom" i18n>Below Image</mat-option>
+      <mat-option value="hidden" i18n>Hidden</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-label>Columns</mat-label>
+  <mat-label i18n>Columns</mat-label>
   <mat-slider
     class="example-margin w-100"
     [max]="12"
@@ -32,7 +33,7 @@
     (change)="data.board.populateCells()">
   </mat-slider>
 
-  <mat-label>Rows</mat-label>
+  <mat-label i18n>Rows</mat-label>
   <mat-slider
     class="example-margin w-100"
     [max]="12"
@@ -47,5 +48,5 @@
 </div>
 <div mat-dialog-actions>
   <span class="spacer"></span>
-  <button mat-raised-button [mat-dialog-close]="true" color="primary" cdkFocusInitial>Done</button>
+  <button mat-raised-button [mat-dialog-close]="true" color="primary" cdkFocusInitial i18n>Done</button>
 </div>
