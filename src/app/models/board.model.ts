@@ -52,6 +52,16 @@ export class Board implements Deserialisable {
 
   toObf(): Obf {
 
+    // Chunk the Cells according to the number of rows/cols
+    const gridOrderMatrix = [];
+    for (let i = 0; i < this.cells.length; i += this.columns) {
+      // Chop out the right number of Cells
+      const chunk = this.cells.slice(i, i + this.columns);
+
+      // Replace each Cell with a unique identifier.
+      gridOrderMatrix.push(chunk.map((cell, index) => this.uuid + cell.id));
+    }
+
     const obf: Obf = {
       format: 'open-board-0.1',
       id: this.uuid,
@@ -67,10 +77,10 @@ export class Board implements Deserialisable {
       grid: {
         rows: this.rows,
         columns: this.columns,
-        order: this.cells.map((cell, index) => this.uuid + index)
+        order: gridOrderMatrix
       },
       images: this.cells.map((cell, index) => ({
-        id: this.uuid + index,
+        id: this.uuid + cell.id,
         url: cell.url,
         content_type: mime.getType(cell.url)
       }))
