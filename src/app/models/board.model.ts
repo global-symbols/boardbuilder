@@ -85,9 +85,10 @@ export class Board implements Deserialisable {
     this.title = obf.name;
     this.populateCells();
 
-    obf.grid.order.forEach((cellId, i) => {
+    // OBF grid.order is a matrix, so we flatten it to get the cells in sequential order.
+    obf.grid.order.flat().forEach((cellId, i) => {
       const obfButton = obf.buttons.find(button => button.id === cellId);
-      const obfImage = obf.images.find(image => image.id === cellId);
+      const obfImage = obf.images.find(image => image.id === obfButton.image_id);
 
       if (obfButton) {
         this.cells[i].caption = obfButton.label;
