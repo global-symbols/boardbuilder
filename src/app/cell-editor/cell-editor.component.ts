@@ -65,4 +65,16 @@ export class CellEditorComponent implements OnInit {
   triggerSearch($event: MatTabChangeEvent) {
     if ($event.index === 1 && this.cell.caption) { this.searchPanel.search(); }
   }
+
+  clearCell(subject: string) {
+    if (subject === 'colours') {
+      this.cell.backgroundColour = null;
+      this.cell.borderColour = null;
+      this.cell.textColour = null;
+    }
+
+    if (subject === 'symbol') {
+      this.cell.url = null;
+    }
+  }
 }

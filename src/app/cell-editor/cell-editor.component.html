@@ -52,6 +52,11 @@
             </div>
           </div>
         </div>
+
+        <h3>Reset Cell Contents</h3>
+        <button mat-stroked-button color="primary" (click)="clearCell('symbol')">Clear Symbol</button>&nbsp;
+        <button mat-stroked-button color="primary" (click)="clearCell('colours')">Clear Colours</button>
+
       </div>
     </mat-tab>
 
@@ -61,6 +66,4 @@
       </div>
     </mat-tab>
   </mat-tab-group>
-
 </div>
-<!--{{cell | json}}-->
