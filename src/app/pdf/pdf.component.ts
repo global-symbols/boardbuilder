@@ -153,11 +153,20 @@ export class PdfComponent implements OnInit {
           text: cell.caption || ' '
         };
 
-        const borderColour = cell.borderColour ? cell.borderColour : '#000000';
+        // PDFMake can't handle rgb(0,0,0) values yet, so convert these to hex.
+        let borderColour = cell.borderColour ? cell.borderColour : '#000000';
+        if (borderColour.startsWith('rgb')) {
+          borderColour = this.rgbToHex(borderColour);
+        }
+
+        let backgroundColour = cell.backgroundColour;
+        if (backgroundColour.startsWith('rgb')) {
+          backgroundColour = this.rgbToHex(backgroundColour);
+        }
 
         const cellDefinition = {
           stack: [],
-          fillColor: cell.backgroundColour,
+          fillColor: backgroundColour,
           border: [true, true, true, true],
           borderColor: [borderColour, borderColour, borderColour, borderColour],
           style: 'imageCell'
@@ -266,5 +275,20 @@ export class PdfComponent implements OnInit {
       this.location.back();
     }
 
+  }
+
+  // Converts a rgb(0,0,0) colour value into hex format.
+  private rgbToHex(rgb) {
+    const parts = rgb.substring(rgb.indexOf('(')).split(',');
+    const r = parseInt(parts[0].substring(1).trim(), 10);
+    const g = parseInt(parts[1].trim(), 10);
+    const b = parseInt(parts[2].trim(), 10);
+    // const a = parseFloat(parts[3].substring(0, parts[3].length - 1).trim()).toFixed(2);
+
+    return ('#' +
+      r.toString(16) +
+      g.toString(16) +
+      b.toString(16));
+      // (a * 255).toString(16).substring(0, 2));
   }
 }
