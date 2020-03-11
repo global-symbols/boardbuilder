@@ -88,6 +88,7 @@ export class PdfComponent implements OnInit {
 
             });
 
+          // If no image is present in the Cell, pop in a dummy SVG.
           } else {
             this.images[cell.id] = {svg: '<svg viewBox="0 0 500 500"></svg>'};
             this.generatePdfIfImagesReady();
@@ -117,7 +118,7 @@ export class PdfComponent implements OnInit {
   generatePDF() {
     const widths = [];
     const heights = [];
-    const imageFit = 120;
+    const imageFit = 480 / this.board.columns; // e.g. 120 for 4-wide grids.
 
     const spacerRow = [{ text: '', height: this.cellSpacing, colSpan: this.board.columns + (this.board.columns - 1) }];
 
