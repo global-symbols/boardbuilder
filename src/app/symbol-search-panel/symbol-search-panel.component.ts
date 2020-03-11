@@ -31,7 +31,9 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
   query: string;
   source: any;
 
-  private loadingSubject = new BehaviorSubject<boolean>(false);
+  // Initialised to null, which means no search has been performed yet.
+  // Then changes to true/false
+  private loadingSubject = new BehaviorSubject<boolean>(null);
   public loading$ = this.loadingSubject.asObservable();
 
   private resultsSubject = new BehaviorSubject<SymbolSearchResult[]>(null);

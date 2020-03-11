@@ -60,7 +60,9 @@ export class CellEditorComponent implements OnInit {
     this.cell.board = null;
   }
 
+  // Fires an automatic search when the Search tab is opened.
+  // Only fires if the cell has a caption we can search for.
   triggerSearch($event: MatTabChangeEvent) {
-    if ($event.index === 1) { this.searchPanel.search(); }
+    if ($event.index === 1 && this.cell.caption) { this.searchPanel.search(); }
   }
 }
