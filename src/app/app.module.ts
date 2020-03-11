@@ -21,7 +21,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
-import {RouterModule, Routes} from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import { BoardDetailComponent } from './board-detail/board-detail.component';
 import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 import {HotkeyModule} from 'angular2-hotkeys';
@@ -36,7 +36,6 @@ import { SymbolSearchPanelComponent } from './symbol-search-panel/symbol-search-
 import { BoardTreeComponent } from './board-tree/board-tree.component';
 import { BoardTreeItemComponent } from './board-tree-item/board-tree-item.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { PdfDialogComponent } from './pdf-dialog/pdf-dialog.component';
 import { BoardsetListComponent } from './boardset-list/boardset-list.component';
 import { BoardsetEditorDialogComponent } from './boardset-editor-dialog/boardset-editor-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
@@ -61,6 +60,7 @@ const dbConfig: DBConfig  = {
 const appRoutes: Routes = [
   { path: 'boardsets',      component: BoardsetListComponent },
   { path: 'boardsets/:id',  component: BuilderComponent },
+  { path: 'boardsets/:boardset_id/:board_id/pdf', loadChildren: () => import('./pdf/pdf.module').then(m => m.PdfModule) },
   { path: '',
     redirectTo: '/boardsets',
     pathMatch: 'full'
@@ -80,7 +80,6 @@ const appRoutes: Routes = [
     SymbolSearchPanelComponent,
     BoardTreeComponent,
     BoardTreeItemComponent,
-    PdfDialogComponent,
     BoardsetListComponent,
     BoardsetEditorDialogComponent,
     ObfUploadDialogComponent,
@@ -115,7 +114,10 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
     RouterModule.forRoot(
       appRoutes,
-      {enableTracing: false} // <-- debugging purposes only
+      {
+        enableTracing: false, // <-- debugging purposes only
+        preloadingStrategy: PreloadAllModules
+      }
     ),
     MatMenuModule
   ],

@@ -8,8 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import {BoardEditorComponent} from '../board-editor/board-editor.component';
 import {BoardSet} from '../models/boardset.model';
 import { saveAs } from 'file-saver';
-import {PdfDialogComponent} from '../pdf-dialog/pdf-dialog.component';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ObfUploadDialogComponent} from '../obf-upload-dialog/obf-upload-dialog.component';
 
 @Component({
@@ -63,9 +62,16 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // Get the BoardSet, then select the first Board.
+    // Get the BoardSet
     this.getBoardSet().then(bs => {
-      if (this.boardSet.boards.length > 0) { this.selectBoard(this.boardSet.boards[0]); }
+      // If there are any Boards, select the first one.
+      if (this.boardSet.boards.length > 0) {
+        this.selectBoard(this.boardSet.boards[0]);
+        if (this.route.snapshot.queryParams.board) {
+          console.log('selecting board ', this.route.snapshot.queryParams.board);
+          this.selectBoard(this.boardSet.findBoard(this.route.snapshot.queryParams.board));
+        }
+      }
     });
   }
 
@@ -129,20 +135,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
       this.updateBoardSet().then(r => null);
     });
 
-  }
-
-  pdfDialog(board) {
-    if (board === undefined) { return; }
-    if (this.currentDialogRef !== undefined) { return; }
-
-    this.currentDialogRef = this.dialog.open(PdfDialogComponent, {
-      width: '600px',
-      data: this.board
-    });
-
-    this.currentDialogRef.afterClosed().subscribe(result => {
-      this.currentDialogRef = undefined;
-    });
   }
 
   downloadBoard(board: Board) {
