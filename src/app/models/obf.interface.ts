@@ -21,7 +21,7 @@ export interface ObfButton {
 export interface ObfGrid {
   rows: number;
   columns: number;
-  order: string[];
+  order: string[][];
 }
 
 export interface ObfImage {
