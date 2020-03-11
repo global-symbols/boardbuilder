@@ -48,6 +48,7 @@ export class BoardSetService {
   }
 
   updateBoardSet(boardSet: any) {
+    boardSet.updatedAt = Date.now();
     return this.dbService.update(this.storeName, boardSet);
   }
 

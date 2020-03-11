@@ -10,6 +10,7 @@ import {BoardSet} from '../models/boardset.model';
 import { saveAs } from 'file-saver';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ObfUploadDialogComponent} from '../obf-upload-dialog/obf-upload-dialog.component';
+import {interval, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-builder',
@@ -31,6 +32,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
   private deleteDialogRef;
   private editDialogRef;
   private currentDialogRef;
+
+  private saveTimer: Subscription;
 
   constructor(changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
@@ -76,7 +79,13 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   private getBoardSet() {
-    return this.service.getBoardSet(this.route.snapshot.paramMap.get('id')).then(bs => this.boardSet = bs);
+    return this.service.getBoardSet(this.route.snapshot.paramMap.get('id')).then(bs => {
+
+      // Start a timer to auto-save the BoardSet.
+      this.saveTimer = interval(10000).subscribe(val => this.updateBoardSet().then());
+
+      return this.boardSet = bs;
+    });
   }
 
   addBoard() {

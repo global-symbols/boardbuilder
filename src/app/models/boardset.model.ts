@@ -9,6 +9,7 @@ export class BoardSet implements Deserialisable {
     public title: string;
     public boards = Array<Board>();
     public createdAt: Date;
+    public updatedAt: Date;
 
     constructor(init?: Partial<BoardSet>) {
       const pipe = new DatePipe('en-GB');
