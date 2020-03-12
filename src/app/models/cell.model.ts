@@ -4,6 +4,7 @@ import {Board} from './board.model';
 export class Cell implements Deserialisable {
     id: number;
     url?: string;
+    imageData?: string;
     width?: number;
     board?: Board;
     caption?: string;
