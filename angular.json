@@ -64,6 +64,9 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "fr": {
+              "localize": ["fr"]
             }
           }
         },
@@ -77,7 +80,7 @@
               "browserTarget": "boardbuilder-angular:build:production"
             },
             "fr": {
-              "browserTarget": "*project-name*:build:fr"
+              "browserTarget": "boardbuilder-angular:build:fr"
             }
           }
         },
