@@ -12,7 +12,7 @@
       "i18n": {
         "sourceLocale": "en-GB",
         "locales": {
-
+          "fr": "src/locale/messages.fr.xlf"
         }
       },
       "architect": {
@@ -75,6 +75,9 @@
           "configurations": {
             "production": {
               "browserTarget": "boardbuilder-angular:build:production"
+            },
+            "fr": {
+              "browserTarget": "*project-name*:build:fr"
             }
           }
         },
