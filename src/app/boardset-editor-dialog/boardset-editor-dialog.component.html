@@ -7,10 +7,10 @@
 
 <div mat-dialog-content>
   <mat-form-field class="w-100">
-    <mat-label>Title</mat-label>
+    <mat-label i18n>Title</mat-label>
     <input matInput required [(ngModel)]="data.boardSet.title" placeholder="Title">
   </mat-form-field>
-  <div *ngIf="data.boardSet.createdAt">
+  <div *ngIf="data.boardSet.createdAt" i18n>
     Created: {{data.boardSet.createdAt | date}}
   </div>
 
@@ -18,5 +18,5 @@
 </div>
 <div mat-dialog-actions>
   <span class="spacer"></span>
-  <button mat-raised-button [mat-dialog-close]="true" color="primary" cdkFocusInitial>Done</button>
+  <button mat-raised-button [mat-dialog-close]="true" color="primary" cdkFocusInitial i18n>Done</button>
 </div>

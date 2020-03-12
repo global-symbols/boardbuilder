@@ -2,19 +2,24 @@
   <mat-toolbar color="primary" class="example-toolbar">
     <div>
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-      <button mat-button [routerLink]="['/', 'boardsets']"><mat-icon>arrow_back</mat-icon> Board Sets</button>
+      <button mat-button [routerLink]="['/', 'boardsets']">
+        <mat-icon>arrow_back</mat-icon>
+        <ng-container i18n>Board Sets</ng-container></button>
     </div>
     <div class="example-spacer"></div>
-    <h1 class="example-app-name">{{boardSet ? boardSet.title : 'Global Symbols BoardBuilder' }}</h1>
+    <h1 class="example-app-name">
+      <ng-container *ngIf="boardSet">{{boardSet.title}}</ng-container>
+      <ng-container *ngIf="!boardSet" i18n>Global Symbols BoardBuilder</ng-container>
+    </h1>
     <div class="example-spacer"></div>
-    <button mat-icon-button aria-label="Change Board Properties" (click)="editBoard(board)" *ngIf="board" matTooltip="Change Board Properties">
+    <button mat-icon-button aria-label="Change Board Properties" i18n-aria-label (click)="editBoard(board)" *ngIf="board" matTooltip="Change Board Properties" i18n-matTooltip="">
       <mat-icon>edit</mat-icon>
     </button>
     <button mat-icon-button [matMenuTriggerFor]="matBoardMenu"
-            aria-label="Import/Export" matTooltip="Upload/Download">
+            aria-label="Import/Export" i18n-aria-label matTooltip="Upload/Download" i18n-matTooltip>
       <mat-icon>import_export</mat-icon>
     </button>
-    <button mat-icon-button aria-label="Delete this Board" (click)="deleteBoard(board)" *ngIf="board" matTooltip="Delete this Board">
+    <button mat-icon-button aria-label="Delete this Board" i18n-aria-label (click)="deleteBoard(board)" *ngIf="board" matTooltip="Delete this Board" i18n-matTooltip>
       <mat-icon>delete</mat-icon>
     </button>
   </mat-toolbar>
@@ -28,7 +33,7 @@
       <div class="builder-sidenav-section">
         <div fxLayout="row" fxLayoutAlign="space-between center">
           <h3>Boards</h3>
-          <button mat-icon-button (click)="addBoard()" matTooltip="Add Board" aria-label="Add Board">
+          <button mat-icon-button (click)="addBoard()" matTooltip="Add Board" i18n-matTooltip aria-label="Add Board" i18n-aria-label>
             <mat-icon>add</mat-icon>
           </button>
         </div>
@@ -53,16 +58,17 @@
 
 <mat-menu #matBoardMenu="matMenu">
   <button mat-menu-item (click)="downloadBoard(board)">
-    <mat-icon>save_alt</mat-icon> Download Board as OBF
+    <mat-icon>save_alt</mat-icon> <ng-container i18n>Download Board as OBF</ng-container>
   </button>
   <button *ngIf="board" mat-menu-item [routerLink]="['/','boardsets',boardSet.uuid, board.uuid, 'pdf']">
     <mat-icon>picture_as_pdf</mat-icon> Print or Download Board as PDF
+
   </button>
   <mat-divider></mat-divider>
   <button mat-menu-item (click)="uploadBoardObf(board)">
-    <mat-icon>insert_drive_file</mat-icon> Add Board from OBF
+    <mat-icon>insert_drive_file</mat-icon> <ng-container i18n>Add Board from OBF</ng-container>
   </button>
   <button mat-menu-item (click)="downloadBoardSetObz()">
-    <mat-icon>save_alt</mat-icon> Download Board Set as OBZ
+    <mat-icon>save_alt</mat-icon> <ng-container i18n>Download Board Set as OBZ</ng-container>
   </button>
 </mat-menu>
