@@ -33,4 +33,12 @@
       </div>
     </mat-grid-tile>
   </mat-grid-list>
+  <mat-form-field style="margin-top:2rem;">
+    <mat-label>Change Language</mat-label>
+    <mat-select (selectionChange)="changeLanguage($event)">
+      <mat-option *ngFor="let lang of languages" [value]="lang.code">
+        {{lang.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>

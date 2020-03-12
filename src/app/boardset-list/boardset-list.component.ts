@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {BoardSet} from '../models/boardset.model';
 import {BoardSetService} from '../board-set.service';
 import {Router} from '@angular/router';
@@ -6,6 +6,8 @@ import {BoardsetEditorDialogComponent} from '../boardset-editor-dialog/boardset-
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {ObzUploadDialogComponent} from '../obz-upload-dialog/obz-upload-dialog.component';
+import {LocaleService} from '../locale.service';
+import {MatSelectChange} from '@angular/material/select';
 
 @Component({
   selector: 'app-boardset-list',
@@ -15,15 +17,18 @@ import {ObzUploadDialogComponent} from '../obz-upload-dialog/obz-upload-dialog.c
 export class BoardsetListComponent implements OnInit {
 
   boardSets: BoardSet[];
+  languages: any;
 
   private currentDialogRef;
 
   constructor(private service: BoardSetService,
               public dialog: MatDialog,
-              private router: Router) { }
+              private router: Router,
+              private languageService: LocaleService) { }
 
   ngOnInit(): void {
     this.getBoardSets();
+    this.languages = this.languageService.availableLanguages();
   }
 
   getBoardSets(): void {
@@ -90,5 +95,9 @@ export class BoardsetListComponent implements OnInit {
       }
       this.currentDialogRef = undefined;
     });
+  }
+
+  changeLanguage($event: MatSelectChange) {
+    this.languageService.changeLanguage($event.value);
   }
 }
