@@ -155,12 +155,12 @@ export class PdfComponent implements OnInit {
 
         // PDFMake can't handle rgb(0,0,0) values yet, so convert these to hex.
         let borderColour = cell.borderColour ? cell.borderColour : '#000000';
-        if (borderColour.startsWith('rgb')) {
+        if (cell.borderColour?.startsWith('rgb')) {
           borderColour = this.rgbToHex(borderColour);
         }
 
         let backgroundColour = cell.backgroundColour;
-        if (backgroundColour.startsWith('rgb')) {
+        if (cell.backgroundColour?.startsWith('rgb')) {
           backgroundColour = this.rgbToHex(backgroundColour);
         }
 
