@@ -6,6 +6,7 @@ import {BoardSet} from '../models/boardset.model';
 import {Board} from '../models/board.model';
 import {MatTabChangeEvent} from '@angular/material/tabs';
 import {SymbolSearchPanelComponent} from '../symbol-search-panel/symbol-search-panel.component';
+import {moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-cell-editor',
@@ -76,5 +77,9 @@ export class CellEditorComponent implements OnInit {
     if (subject === 'symbol') {
       this.cell.url = null;
     }
+  }
+
+  moveCell(to: number) {
+    moveItemInArray(this.board.cells, this.board.cells.indexOf(this.cell), to);
   }
 }
