@@ -65,6 +65,11 @@ export class PdfComponent implements OnInit {
             this.imageBase64Service.getFromURL(cell.url).then(image => {
               this.images[cell.id] = {base64: image};
               this.generatePdfIfImagesReady();
+            },
+            error => {
+              console.log(error);
+              this.error('We couldn\'t generate your PDF because one of the images in your ' +
+                'Board could not be loaded. The error was "' + error.statusText + '" and the affected URL was ' + error.url);
             });
 
             // If an image is present and IS an SVG, get it as text.
@@ -87,6 +92,11 @@ export class PdfComponent implements OnInit {
               this.images[cell.id] = {svg: result};
               this.generatePdfIfImagesReady();
 
+            },
+            error => {
+              console.log(error);
+              this.error('We couldn\'t generate your PDF because one of the images in your ' +
+                'Board could not be loaded. The error was "' + error.statusText + '" and the affected URL was ' + error.url);
             });
 
           // If no image is present in the Cell, pop in a dummy SVG.
