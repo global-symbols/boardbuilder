@@ -40,7 +40,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
               private service: BoardSetService,
               private hotkeysService: HotkeysService,
               public dialog: MatDialog,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private router: Router
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -170,5 +171,10 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   downloadBoardSetObz() {
     this.service.convertToObz(this.boardSet).then(content => saveAs(content, this.boardSet.title + '.obz'));
+  }
+
+  generatePdf() {
+    this.updateBoardSet()
+      .then(r => this.router.navigate(['/', 'boardsets', this.boardSet.uuid, this.board.uuid, 'pdf']));
   }
 }

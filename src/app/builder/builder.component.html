@@ -60,7 +60,7 @@
   <button mat-menu-item (click)="downloadBoard(board)">
     <mat-icon>save_alt</mat-icon> <ng-container i18n>Download Board as OBF</ng-container>
   </button>
-  <button *ngIf="board" mat-menu-item [routerLink]="['/','boardsets',boardSet.uuid, board.uuid, 'pdf']">
+  <button *ngIf="board" mat-menu-item (click)="generatePdf()">
     <mat-icon>picture_as_pdf</mat-icon> Print or Download Board as PDF
 
   </button>
