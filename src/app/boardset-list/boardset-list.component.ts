@@ -49,10 +49,11 @@ export class BoardsetListComponent implements OnInit {
       data: { boardSet }
     });
 
-    this.currentDialogRef.afterClosed().subscribe(result => {
-      // if (result instanceof BoardSet) {
-      this.service.updateBoardSet(boardSet).then(r => null);
-      // }
+    this.currentDialogRef.afterClosed().subscribe(updatedBoardSet => {
+      if (updatedBoardSet instanceof BoardSet) {
+        boardSet = updatedBoardSet;
+        this.service.updateBoardSet(updatedBoardSet).then(r => null);
+      }
 
       this.currentDialogRef = undefined;
     });
