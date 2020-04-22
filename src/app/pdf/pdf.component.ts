@@ -76,12 +76,13 @@ export class PdfComponent implements OnInit {
 
               // Remove the width and height attributes from the <svg> element, if they are present.
               // Leaving them in causes the SVG to be rendered full-size.
-              result = result.replace(/(<svg.*?)width=['"].+?['"](.+?>)/gms, '$1$2');
-              result = result.replace(/(<svg.*?)height=['"].+?['"](.+?>)/gms, '$1$2');
+              // Regex dotall (/s flag) is not supported in Firefox, so we have to use [^] instead of '.'.
+              result = result.replace(/(<svg[^]*?)width=['"][^]+?['"]([^]+?>)/gm, '$1$2');
+              result = result.replace(/(<svg[^]*?)height=['"][^]+?['"]([^]+?>)/gm, '$1$2');
 
               // Remove XML headers from the SVG.
               // SVGs returned by OpenSymbols have headers that break the SVG converter, so we'll just remove them.
-              result = result.replace(/^.*?<svg/s, '<svg');
+              result = result.replace(/^[^]*?<svg/, '<svg');
 
               this.images[cell.id] = {svg: result};
               this.generatePdfIfImagesReady();
