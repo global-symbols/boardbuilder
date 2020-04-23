@@ -104,6 +104,7 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
         language: this.source.params.find(p => p.key === 'language').value,
         language_iso_format: '639-3',
         symbolset: this.source.params.find(p => p.key === 'symbol_set').value,
+        limit: 36
       };
 
       // Remove the symbolset param, if it's blank
