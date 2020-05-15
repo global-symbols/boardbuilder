@@ -58,6 +58,23 @@
           </div>
         </div>
 
+        <h3>Move Cell</h3>
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+          <button mat-stroked-button color="primary"
+                  (click)="moveCell(board.cells.indexOf(cell) - 1)"
+                  [disabled]="board.cells.indexOf(cell) === 0"
+                  [style.text-align]="'left'"
+                  fxFlex="50"
+          ><mat-icon>arrow_left</mat-icon> Move Earlier</button>&nbsp;
+          <button mat-stroked-button color="primary"
+                  (click)="moveCell(board.cells.indexOf(cell) + 1)"
+                  [disabled]="board.cells.indexOf(cell) === (board.cells.length - 1)"
+                  [style.text-align]="'right'"
+                  fxFlex="50"
+          >Move Later<mat-icon>arrow_right</mat-icon></button>
+        </div>
+
+
         <h3>Reset Cell Contents</h3>
         <button mat-stroked-button color="primary" (click)="clearCell('symbol')">Clear Symbol</button>&nbsp;
         <button mat-stroked-button color="primary" (click)="clearCell('colours')">Clear Colours</button>
