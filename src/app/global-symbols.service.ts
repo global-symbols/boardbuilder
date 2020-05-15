@@ -24,7 +24,8 @@ export class GlobalSymbolsService {
   }
 
   search(query): Promise<SymbolSearchResult[]> {
-    return this.http.get(this.apiBase + '/api/v1/labels/search', { params: query }).pipe(
+    return this.http
+      .get(this.apiBase + '/api/v1/labels/search', { params: query }).pipe(
       map(response => {
         return this.parseResult(response);
       })
