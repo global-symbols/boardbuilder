@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {GlobalSymbolsService} from '../global-symbols.service';
+import {GlobalSymbolsService} from '@data/services/global-symbols.service';
 import {BehaviorSubject, from, fromEvent, Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, finalize, map} from 'rxjs/operators';
-import {SymbolSearchResult} from '../models/symbol-search-result.model';
-import {OpenSymbolsService} from '../open-symbols.service';
+import {SymbolSearchResult} from '@data/models/symbol-search-result';
+import {SymbolService} from '@data/services/symbol.service';
 
 @Component({
   selector: 'app-symbol-search-panel',
@@ -22,8 +22,12 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
         { key: 'language', label: 'Language', value: 'eng', type: 'select', options: null, option_id: 'iso639_3', },
       ]
     }, {
-      key: 'os',
+      key: 'open-symbols',
       name: 'Open Symbols',
+      params: []
+    }, {
+      key: 'the-noun-project',
+      name: 'The Noun Project',
       params: []
     },
   ];
@@ -45,7 +49,7 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
   @Output() readonly selectionChange = new EventEmitter<string>();
 
   constructor(private globalSymbolsService: GlobalSymbolsService,
-              private openSymbolsService: OpenSymbolsService) {
+              private symbolService: SymbolService) {
     this.source = this.sources[0];
   }
 
@@ -115,7 +119,7 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
       }));
 
     } else {
-      return from(this.openSymbolsService.search(this.query)).pipe(finalize(() => {
+      return from(this.symbolService.search(this.query, this.source.key)).pipe(finalize(() => {
         this.loadingSubject.next(false);
       }));
     }

@@ -1,13 +1,13 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {BoardSetService} from '../board-set.service';
-import {Board} from '../models/board.model';
+import {BoardSetService} from '@data/services/board-set.service';
+import {Board} from '@data/models/board.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
-import {ImageBase64Service} from '../image-base64.service';
+import {ImageBase64Service} from '@data/services/image-base64.service';
 import {HttpClient} from '@angular/common/http';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
-import {BoardSet} from '../models/boardset.model';
+import {BoardSet} from '@data/models/boardset.model';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {Location} from '@angular/common';
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../environments/environment';
-import {SymbolSearchResult} from './models/symbol-search-result.model';
+import {environment} from '@env';
+import {SymbolSearchResult} from '../models/symbol-search-result';
 import {map} from 'rxjs/operators';
 
 @Injectable({
@@ -12,20 +12,20 @@ export class GlobalSymbolsService {
   private apiBase = null;
 
   constructor(public http: HttpClient) {
-    this.apiBase = environment.globalSymbolsBase;
+    this.apiBase = environment.globalSymbolsApiBase;
   }
 
   getLanguages(): Promise<object> {
-    return this.http.get(this.apiBase + '/api/v1/languages/active').toPromise();
+    return this.http.get(this.apiBase + '/languages/active').toPromise();
   }
 
   getSymbolSets(): Promise<object> {
-    return this.http.get(this.apiBase + '/api/v1/symbolsets').toPromise();
+    return this.http.get(this.apiBase + '/symbolsets').toPromise();
   }
 
   search(query): Promise<SymbolSearchResult[]> {
     return this.http
-      .get(this.apiBase + '/api/v1/labels/search', { params: query }).pipe(
+      .get(this.apiBase + '/labels/search', { params: query }).pipe(
       map(response => {
         return this.parseResult(response);
       })

@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  // globalSymbolsBase: 'http://localhost:3000'
-  globalSymbolsBase: 'https://globalsymbols.com'
+  // globalSymbolsBase: 'http://localhost:3000/api/v1'
+  globalSymbolsApiBase: 'https://globalsymbols.com/api/v1',
+  boardBuilderApiBase: 'http://localhost:3000/api/boardbuilder/v1'
 };
 
 /*

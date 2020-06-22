@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Board} from '../models/board.model';
+import {Board} from '@data/models/board.model';
 
 @Component({
   selector: 'app-obf-upload-dialog',

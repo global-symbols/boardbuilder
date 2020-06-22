@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  globalSymbolsBase: 'https://globalsymbols.com'
+  globalSymbolsApiBase: 'https://globalsymbols.com/api/v1',
+  boardBuilderApiBase: 'http://globalsymbols.com/api/boardbuilder/v1'
 };

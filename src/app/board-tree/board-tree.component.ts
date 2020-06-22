@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Board} from '../models/board.model';
+import {Board} from '@data/models/board.model';
 
 @Component({
   selector: 'app-board-tree',

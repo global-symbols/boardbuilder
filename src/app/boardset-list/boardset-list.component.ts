@@ -1,12 +1,12 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {BoardSet} from '../models/boardset.model';
-import {BoardSetService} from '../board-set.service';
+import {Component, OnInit} from '@angular/core';
+import {BoardSet} from '@data/models/boardset.model';
+import {BoardSetService} from '@data/services/board-set.service';
 import {Router} from '@angular/router';
 import {BoardsetEditorDialogComponent} from '../boardset-editor-dialog/boardset-editor-dialog.component';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {ObzUploadDialogComponent} from '../obz-upload-dialog/obz-upload-dialog.component';
-import {LocaleService} from '../locale.service';
+import {LocaleService} from '@data/services/locale.service';
 import {MatSelectChange} from '@angular/material/select';
 
 @Component({

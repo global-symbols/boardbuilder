@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 
-import {BoardSet} from './models/boardset.model';
+import {BoardSet} from '../models/boardset.model';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
 import * as JSZip from 'jszip';
-import {ObzManifest} from './models/obz-manifest.interface';
+import {ObzManifest} from '../models/obz-manifest.interface';
 
 @Injectable({
   providedIn: 'root'

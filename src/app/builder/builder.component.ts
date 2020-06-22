@@ -1,12 +1,12 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {BoardSetService} from '../board-set.service';
-import {Board} from '../models/board.model';
+import {BoardSetService} from '@data/services/board-set.service';
+import {Board} from '@data/models/board.model';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import {BoardEditorComponent} from '../board-editor/board-editor.component';
-import {BoardSet} from '../models/boardset.model';
+import {BoardSet} from '@data/models/boardset.model';
 import { saveAs } from 'file-saver';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ObfUploadDialogComponent} from '../obf-upload-dialog/obf-upload-dialog.component';

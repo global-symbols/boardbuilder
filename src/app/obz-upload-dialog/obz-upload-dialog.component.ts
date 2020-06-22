@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Board} from '../models/board.model';
+import {Board} from '@data/models/board.model';
 import * as JSZip from 'jszip';
-import {BoardSet} from '../models/boardset.model';
+import {BoardSet} from '@data/models/boardset.model';
 
 @Component({
   selector: 'app-obz-upload-dialog',

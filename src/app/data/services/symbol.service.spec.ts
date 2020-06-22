@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OpenSymbolsService } from './open-symbols.service';
+import { SymbolService } from './symbol.service';
 
-describe('OpenSymbolsService', () => {
-  let service: OpenSymbolsService;
+describe('SymbolService', () => {
+  let service: SymbolService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(OpenSymbolsService);
+    service = TestBed.inject(SymbolService);
   });
 
   it('should be created', () => {

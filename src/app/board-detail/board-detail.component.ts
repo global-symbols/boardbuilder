@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Board} from '../models/board.model';
-import {Cell} from '../models/cell.model';
+import {Board} from '@data/models/board.model';
+import {Cell} from '@data/models/cell.model';
 
 @Component({
   selector: 'app-board-detail',

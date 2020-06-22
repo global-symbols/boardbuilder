@@ -1,9 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {Cell} from '../models/cell.model';
+import {Cell} from '@data/models/cell.model';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
-import {BoardSet} from '../models/boardset.model';
-import {Board} from '../models/board.model';
+import {BoardSet} from '@data/models/boardset.model';
+import {Board} from '@data/models/board.model';
 import {MatTabChangeEvent} from '@angular/material/tabs';
 import {SymbolSearchPanelComponent} from '../symbol-search-panel/symbol-search-panel.component';
 import {moveItemInArray} from '@angular/cdk/drag-drop';
