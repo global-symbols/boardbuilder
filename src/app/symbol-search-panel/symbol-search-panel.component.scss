@@ -1,29 +1,19 @@
-.example-radio-group {
-  display: flex;
-  flex-direction: column;
-  /*margin: 15px 0;*/
-}
-
-.example-radio-button {
-  margin: 5px;
-}
-
-.img-responsive {
-  max-width: 100%;
-}
-
-.symbol-search-panel-image-button {
+.image-button {
   padding: 0.5rem;
   width: 100%;
   height: 100%;
+
+  img {
+    max-width: 100%;
+  }
 }
 
-.symbol-search-panel-searching-notification {
+.searching-notification {
   text-align: center;
-}
 
-.symbol-search-panel-searching-notification mat-progress-spinner {
-  margin: 30px auto;
+  mat-progress-spinner {
+    margin: 30px auto;
+  }
 }
 
 .no-results {
