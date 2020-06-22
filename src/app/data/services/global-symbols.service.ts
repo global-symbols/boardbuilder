@@ -3,6 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '@env';
 import {SymbolSearchResult} from '../models/symbol-search-result';
 import {map} from 'rxjs/operators';
+import {Symbolset} from '@data/models/symbolset';
+import {Observable} from 'rxjs';
+import {Language} from '@data/models/language';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +18,14 @@ export class GlobalSymbolsService {
     this.apiBase = environment.globalSymbolsApiBase;
   }
 
-  getLanguages(): Promise<object> {
-    return this.http.get(this.apiBase + '/languages/active').toPromise();
+  getLanguages(): Observable<Language[]> {
+    return this.http.get<Language[]>(this.apiBase + '/languages/active')
+      .pipe(map(arr => arr.map(record => new Language().deserialise(record))));
   }
 
-  getSymbolSets(): Promise<object> {
-    return this.http.get(this.apiBase + '/symbolsets').toPromise();
+  getSymbolSets(): Observable<Symbolset[]> {
+    return this.http.get<Symbolset[]>(this.apiBase + '/symbolsets')
+      .pipe(map(arr => arr.map(record => new Symbolset().deserialise(record))));
   }
 
   search(query): Promise<SymbolSearchResult[]> {

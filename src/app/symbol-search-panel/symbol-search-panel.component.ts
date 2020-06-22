@@ -4,6 +4,8 @@ import {BehaviorSubject, from, fromEvent, Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, finalize, map} from 'rxjs/operators';
 import {SymbolSearchResult} from '@data/models/symbol-search-result';
 import {SymbolService} from '@data/services/symbol.service';
+import {Symbolset} from '@data/models/symbolset';
+import {Language} from '@data/models/language';
 
 @Component({
   selector: 'app-symbol-search-panel',
@@ -15,25 +17,23 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
   sources = [
     {
       key: 'gs',
-      name: 'Global Symbols',
-      params: [
-        { key: 'symbol_set', label: 'Symbol Set', value: 'all', type: 'select', options: null, option_id: 'slug',
-          allowBlank: { name: 'All Symbol Sets', value: 'all' }},
-        { key: 'language', label: 'Language', value: 'eng', type: 'select', options: null, option_id: 'iso639_3', },
-      ]
+      name: 'Global Symbols'
     }, {
       key: 'open-symbols',
-      name: 'Open Symbols',
-      params: []
+      name: 'Open Symbols'
     }, {
       key: 'the-noun-project',
-      name: 'The Noun Project',
-      params: []
+      name: 'The Noun Project'
     },
   ];
 
   query: string;
   source: any;
+
+  gsParams: {
+    symbolset: GroupedGsParam<Symbolset>;
+    language: FlatGsParam<Language>;
+  };
 
   // Initialised to null, which means no search has been performed yet.
   // Then changes to true/false
@@ -51,18 +51,27 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
   constructor(private globalSymbolsService: GlobalSymbolsService,
               private symbolService: SymbolService) {
     this.source = this.sources[0];
+
+    this.gsParams = {
+      symbolset: { value: 'all', groups: [] },
+      language: { value: 'eng', options: [] }
+    };
+
   }
 
   ngOnInit(): void {
-    this.globalSymbolsService.getLanguages().then(
-      l => {
-        const param = this.sources.find(s => s.key === 'gs').params.find(p => p.key === 'language');
-        param.options = l;
-        param.value = l[0].iso639_3;
+    this.globalSymbolsService.getLanguages().subscribe(
+      languages => {
+        const param = this.gsParams.language;
+        param.options = languages;
+        param.value = languages[0].iso639_3;
       }
     );
-    this.globalSymbolsService.getSymbolSets().then(
-      ss => this.sources.find(s => s.key === 'gs').params.find(p => p.key === 'symbol_set').options = ss
+    this.globalSymbolsService.getSymbolSets().subscribe(
+      ss => this.gsParams.symbolset.groups = [
+        { name: 'Core Sets', options: ss.filter(q => q.featured_level)},
+        { name: 'Other Sets', options: ss.filter(q => !q.featured_level)},
+      ]
     );
 
     this.query = this.initialQuery;
@@ -105,9 +114,9 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
       // Build params
       const params = {
         query: this.query,
-        language: this.source.params.find(p => p.key === 'language').value,
+        language: this.gsParams.language.value,
         language_iso_format: '639-3',
-        symbolset: this.source.params.find(p => p.key === 'symbol_set').value,
+        symbolset: this.gsParams.symbolset.value,
         limit: 36
       };
 
@@ -128,4 +137,14 @@ export class SymbolSearchPanelComponent implements AfterViewInit, OnInit {
   selectImage(result: SymbolSearchResult) {
     this.selectionChange.emit(result.imageUrl);
   }
+}
+
+interface FlatGsParam<T> {
+  value: string;
+  options: Array<T>;
+}
+
+interface GroupedGsParam<T> {
+  value: string;
+  groups: Array<{name: string, options: Array<T>}>;
 }

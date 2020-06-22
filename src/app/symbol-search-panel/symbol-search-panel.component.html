@@ -1,32 +1,38 @@
-<div fxLayout="row" fxLayoutAlign="space-between none" >
-  <label id="example-radio-group-label" i18n>Search in</label><br />
-
-  <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="source" (change)="query && search()">
-    <mat-radio-button class="example-radio-button" *ngFor="let source of sources" [value]="source">
-      {{source.name}}
-    </mat-radio-button>
-  </mat-radio-group>
-</div>
-
 <mat-form-field class="w-100" appearance="outline">
   <mat-label i18n>Search For</mat-label>
   <input matInput [(ngModel)]="query" (change)="search()" #queryInput>
   <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 
-<div *ngFor="let param of source.params">
-  <mat-form-field class="w-100" *ngIf="param.type === 'text'">
-    <input matInput [(ngModel)]="param.value" [placeholder]="param.label" (change)="search()">
-  </mat-form-field>
+<mat-form-field class="w-100">
+  <mat-label>Search In</mat-label>
+  <mat-select [(value)]="source" (selectionChange)="search()">
+    <mat-option *ngFor="let source of sources" [value]="source">{{source.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
 
-  <mat-form-field class="w-100" *ngIf="param.type === 'select'">
-    <mat-label>{{param.label}}</mat-label>
-    <mat-select [(value)]="param.value" (selectionChange)="search()">
-      <mat-option *ngIf="param.allowBlank" [value]="param.allowBlank.value">{{param.allowBlank.name}}</mat-option>
-      <mat-option *ngFor="let option of param.options" [value]="option[param.option_id]">{{option.name}}</mat-option>
+<ng-container *ngIf="source.key === 'gs'">
+
+  <mat-form-field class="w-100">
+    <mat-label>Symbol Set</mat-label>
+    <mat-select [(value)]="gsParams.symbolset.value">
+      <mat-option value="all">All Symbol Sets</mat-option>
+      <mat-optgroup *ngFor="let group of gsParams.symbolset.groups" [label]="group.name">
+        <mat-option *ngFor="let symbolset of group.options" [value]="symbolset.id">
+          {{symbolset.name}}
+        </mat-option>
+      </mat-optgroup>
     </mat-select>
   </mat-form-field>
-</div>
+
+  <mat-form-field class="w-100">
+    <mat-label>Language</mat-label>
+    <mat-select [(value)]="gsParams.language.value" (selectionChange)="search()">
+      <mat-option *ngFor="let language of gsParams.language.options" [value]="language.iso639_3">{{language.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</ng-container>
 
 <div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loading$ | async)">
   <div fxFlex="25" *ngFor="let result of results$ | async">
