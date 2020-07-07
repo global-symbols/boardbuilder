@@ -4,9 +4,13 @@
 
 export const environment = {
   production: false,
-  // globalSymbolsBase: 'http://localhost:3000/api/v1'
-  globalSymbolsApiBase: 'https://globalsymbols.com/api/v1',
-  boardBuilderApiBase: 'http://localhost:3000/api/boardbuilder/v1'
+  globalSymbolsApiBase: 'http://localhost:3000/api/v1',
+  // globalSymbolsApiBase: 'https://globalsymbols.com/api/v1',
+  boardBuilderApiBase: 'http://localhost:3000/api/boardbuilder/v1',
+
+
+  oauth_client_id: '',
+  oauth_client_secret: '',
 };
 
 /*

@@ -8,6 +8,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {ObzUploadDialogComponent} from '../obz-upload-dialog/obz-upload-dialog.component';
 import {LocaleService} from '@data/services/locale.service';
 import {MatSelectChange} from '@angular/material/select';
+import {AuthService} from '@app/services/auth.service';
 
 @Component({
   selector: 'app-boardset-list',
@@ -19,16 +20,23 @@ export class BoardsetListComponent implements OnInit {
   boardSets: BoardSet[];
   languages: any;
 
+  loggedIn: boolean;
+
   private currentDialogRef;
 
   constructor(private service: BoardSetService,
               public dialog: MatDialog,
               private router: Router,
-              private languageService: LocaleService) { }
+              private languageService: LocaleService,
+              public authService: AuthService) { }
 
   ngOnInit(): void {
     this.getBoardSets();
     this.languages = this.languageService.availableLanguages();
+  }
+
+  login(): void {
+    this.authService.login();
   }
 
   getBoardSets(): void {
