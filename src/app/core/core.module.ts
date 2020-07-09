@@ -4,6 +4,8 @@ import {authConfig} from '@app/auth.config';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from '@app/services/auth.service';
 import {authModuleConfig} from '@app/auth.module.config';
+import {AuthGuard} from '@app/services/auth-guard.service';
+import {AuthGuardWithForcedLogin} from '@app/services/auth-guard-with-forced-login.service';
 
 // We need a factory since localStorage is not available at AOT build time
 export function storageFactory(): OAuthStorage {
@@ -17,8 +19,8 @@ export function storageFactory(): OAuthStorage {
   ],
   providers: [
     AuthService,
-    // AuthGuard,
-    // AuthGuardWithForcedLogin,
+    AuthGuard,
+    AuthGuardWithForcedLogin,
   ],
 })
 export class CoreModule {

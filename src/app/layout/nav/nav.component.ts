@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SampleAuthService} from '@app/services/sample-auth.service';
+import {AuthService} from '@app/services/auth.service';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ export class NavComponent implements OnInit {
 
   canActivateProtectedRoutes: Observable<boolean>;
 
-  constructor(private authService: SampleAuthService) {
+  constructor(private authService: AuthService) {
     this.canActivateProtectedRoutes = this.authService.canActivateProtectedRoutes$;
   }
 

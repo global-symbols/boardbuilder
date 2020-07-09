@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Observable} from 'rxjs';
-import {SampleAuthService} from '@app/services/sample-auth.service';
+import {AuthService} from '@app/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ export class AppComponent {
   canActivateProtectedRoutes: Observable<boolean>;
 
   constructor(
-    private authService: SampleAuthService,
+    private authService: AuthService,
   ) {
     this.isAuthenticated = this.authService.isAuthenticated$;
     this.isDoneLoading = this.authService.isDoneLoading$;
