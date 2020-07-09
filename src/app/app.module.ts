@@ -44,6 +44,8 @@ import {ObzUploadDialogComponent} from './obz-upload-dialog/obz-upload-dialog.co
 import {registerLocaleData} from '@angular/common';
 import localeEnGb from '@angular/common/locales/en-GB';
 import {CoreModule} from '@app/core.module';
+import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
+import { NavComponent } from './layout/nav/nav.component';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -67,9 +69,20 @@ const appRoutes: Routes = [
   { path: 'boardsets',      component: BoardsetListComponent },
   { path: 'boardsets/:id',  component: BuilderComponent },
   { path: 'boardsets/:boardset_id/:board_id/pdf', loadChildren: () => import('./pdf/pdf.module').then(m => m.PdfModule) },
-  { path: '',
-    redirectTo: '/boardsets',
-    pathMatch: 'full'
+  // { path: '',
+  //   redirectTo: '/boardsets',
+  //   pathMatch: 'full'
+  // },
+  {
+    path: '',
+    component: ContentLayoutComponent,
+    // canActivate: [NoAuthGuard], // Should be replaced with actual auth guard
+    children: [
+      {
+        path: 'dashboard',
+        loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule)
+      }
+    ]
   },
   { path: '**', redirectTo: '/boardsets' }
 ];
@@ -89,7 +102,9 @@ const appRoutes: Routes = [
     BoardsetListComponent,
     BoardsetEditorDialogComponent,
     ObfUploadDialogComponent,
-    ObzUploadDialogComponent
+    ObzUploadDialogComponent,
+    ContentLayoutComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

@@ -4,17 +4,10 @@
 
   <span>
     <a mat-button mat-icon-button href="https://training.globalsymbols.com/course/view.php?id=56#section-1" target="_blank" matTooltip="Help and Resources">
-    <mat-icon>help_outline</mat-icon>
-  </a>
-  <a mat-button mat-icon-button (click)="login()" target="_blank" matTooltip="Sign In">
-    <mat-icon>account_circle</mat-icon>
-  </a>
-  <a mat-button mat-icon-button (click)="authService.logOut()" target="_blank" matTooltip="Sign Out" *ngIf="!authService.isLoggedIn()">
-    <mat-icon>exit_to_app</mat-icon>
-  </a>
+      <mat-icon>help_outline</mat-icon>
+    </a>
   </span>
 </mat-toolbar>
-<p>{{authService.getIdentityClaims() | json}}</p>
 <div class="section">
   <h2 i18n>My Board Sets</h2>
   <p i18n>Board Sets are saved in your browser. To return to your Board Sets, use BoardBuilder in the same browser.</p>

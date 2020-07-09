@@ -39,24 +39,4 @@ export class AppComponent {
   get refreshToken() { return this.authService.refreshToken; }
   get identityClaims() { return this.authService.identityClaims; }
   get idToken() { return this.authService.idToken; }
-
-  // constructor(private oauthService: OAuthService) {
-  //   // this.oauthService.configure(authCodeFlowConfig);
-  //   // console.log('AppComponent is loading discover docuemnt');
-  //   // this.oauthService.loadDiscoveryDocumentAndTryLogin().then(dd => {
-  //   //   console.log('dd', dd);
-  //   //   console.log(this.oauthService.getIdentityClaims());
-  //   //   console.log(this.oauthService.getAccessToken());
-  //   //   console.log(this.oauthService.getGrantedScopes());
-  //   // }, err => console.error(err));
-  //
-  //   this.configure();
-  // }
-  //
-  //
-  //
-  // private configure() {
-  //   this.oauthService.configure(authCodeFlowConfig);
-  //   this.oauthService.loadDiscoveryDocumentAndTryLogin();
-  // }
 }
