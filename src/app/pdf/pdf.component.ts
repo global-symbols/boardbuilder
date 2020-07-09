@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {BoardSetService} from '@data/services/board-set.service';
+import {LocalBoardSetService} from '@data/services/local-board-set.service';
 import {Board} from '@data/models/board.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -34,7 +34,7 @@ export class PdfComponent implements OnInit {
 
   @ViewChild('pdfFrame') pdfFrame: ElementRef;
 
-  constructor(private service: BoardSetService,
+  constructor(private service: LocalBoardSetService,
               private route: ActivatedRoute,
               private router: Router,
               private location: Location,

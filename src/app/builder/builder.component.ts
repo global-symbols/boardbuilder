@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {BoardSetService} from '@data/services/board-set.service';
+import {LocalBoardSetService} from '@data/services/local-board-set.service';
 import {Board} from '@data/models/board.model';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
@@ -37,7 +37,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   constructor(changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
-              private service: BoardSetService,
+              private service: LocalBoardSetService,
               private hotkeysService: HotkeysService,
               public dialog: MatDialog,
               private route: ActivatedRoute,

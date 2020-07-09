@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BoardSetService } from './board-set.service';
+import { LocalBoardSetService } from './local-board-set.service';
 
 describe('BoardSetService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: BoardSetService = TestBed.get(BoardSetService);
+    const service: LocalBoardSetService = TestBed.get(LocalBoardSetService);
     expect(service).toBeTruthy();
   });
 });

@@ -8,7 +8,7 @@ import {ObzManifest} from '../models/obz-manifest.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class BoardSetService {
+export class LocalBoardSetService {
 
   private storeName = 'boardsets';
 

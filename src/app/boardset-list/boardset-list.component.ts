@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BoardSet} from '@data/models/boardset.model';
-import {BoardSetService} from '@data/services/board-set.service';
+import {LocalBoardSetService} from '@data/services/local-board-set.service';
 import {Router} from '@angular/router';
 import {BoardsetEditorDialogComponent} from '../boardset-editor-dialog/boardset-editor-dialog.component';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
@@ -23,7 +23,7 @@ export class BoardsetListComponent implements OnInit {
 
   private currentDialogRef;
 
-  constructor(private service: BoardSetService,
+  constructor(private service: LocalBoardSetService,
               public dialog: MatDialog,
               private router: Router,
               private languageService: LocaleService) { }
