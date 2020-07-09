@@ -1,50 +1,49 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BuilderComponent } from './builder/builder.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatListModule } from '@angular/material/list';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatTreeModule } from '@angular/material/tree';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BuilderComponent} from './builder/builder.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTreeModule} from '@angular/material/tree';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import { BoardDetailComponent } from './board-detail/board-detail.component';
+import {BoardDetailComponent} from './board-detail/board-detail.component';
 import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 import {HotkeyModule} from 'angular2-hotkeys';
 import {FormsModule} from '@angular/forms';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { ColourSelectorComponent } from './colour-selector/colour-selector.component';
-import { CellEditorComponent } from './cell-editor/cell-editor.component';
+import {ColourSelectorComponent} from './colour-selector/colour-selector.component';
+import {CellEditorComponent} from './cell-editor/cell-editor.component';
 import {HttpClientModule} from '@angular/common/http';
-import { BoardEditorComponent } from './board-editor/board-editor.component';
-import { SymbolSearchPanelComponent } from './symbol-search-panel/symbol-search-panel.component';
-import { BoardTreeComponent } from './board-tree/board-tree.component';
-import { BoardTreeItemComponent } from './board-tree-item/board-tree-item.component';
+import {BoardEditorComponent} from './board-editor/board-editor.component';
+import {SymbolSearchPanelComponent} from './symbol-search-panel/symbol-search-panel.component';
+import {BoardTreeComponent} from './board-tree/board-tree.component';
+import {BoardTreeItemComponent} from './board-tree-item/board-tree-item.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { BoardsetListComponent } from './boardset-list/boardset-list.component';
-import { BoardsetEditorDialogComponent } from './boardset-editor-dialog/boardset-editor-dialog.component';
+import {BoardsetListComponent} from './boardset-list/boardset-list.component';
+import {BoardsetEditorDialogComponent} from './boardset-editor-dialog/boardset-editor-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
-import { ObfUploadDialogComponent } from './obf-upload-dialog/obf-upload-dialog.component';
-import { ObzUploadDialogComponent } from './obz-upload-dialog/obz-upload-dialog.component';
+import {ObfUploadDialogComponent} from './obf-upload-dialog/obf-upload-dialog.component';
+import {ObzUploadDialogComponent} from './obz-upload-dialog/obz-upload-dialog.component';
 import {registerLocaleData} from '@angular/common';
 import localeEnGb from '@angular/common/locales/en-GB';
-import {AuthConfig, OAuthModule} from 'angular-oauth2-oidc';
-import {environment} from '@env';
+import {CoreModule} from '@app/core.module';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -74,39 +73,6 @@ const appRoutes: Routes = [
   },
   { path: '**', redirectTo: '/boardsets' }
 ];
-
-export const authCodeFlowConfig: AuthConfig = {
-  // Url of the Identity Provider
-  issuer: 'http://localhost:3000',
-
-  loginUrl: 'http://localhost:3000/oauth/authorize',
-  tokenEndpoint: 'http://localhost:3000/oauth/token',
-  revocationEndpoint: 'http://localhost:3000/oauth/revoke',
-
-  // URL of the SPA to redirect the user to after login
-  // redirectUri: window.location.origin,
-  redirectUri: 'http://localhost:3000',
-
-  // The SPA's id. The SPA is registerd with this id at the auth-server
-  // clientId: 'server.code',
-  clientId: 'li1Yc7MU9xyZrW_w-933B5nNEpU-wyF6-kNMOF64RBQ',
-
-  // Just needed if your auth server demands a secret. In general, this
-  // is a sign that the auth server is not configured with SPAs in mind
-  // and it might not enforce further best practices vital for security
-  // such applications.
-  // dummyClientSecret: 'secret',
-
-  responseType: 'code',
-
-  // set the scope for the permissions the client should request
-  // The first four are defined by OIDC.
-  // Important: Request offline_access to get a refresh token
-  // The api scope is a usecase specific one
-  scope: 'openid offline_access identity:read:user boardset:read boardset:write',
-
-  showDebugInformation: true,
-};
 
 @NgModule({
   declarations: [
@@ -160,12 +126,7 @@ export const authCodeFlowConfig: AuthConfig = {
       }
     ),
     MatMenuModule,
-    OAuthModule.forRoot({
-      resourceServer: {
-        allowedUrls: [environment.boardBuilderApiBase],
-        sendAccessToken: true
-      }
-    }),
+    CoreModule.forRoot(),
   ],
   entryComponents: [
     ConfirmDialogComponent,
