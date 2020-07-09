@@ -84,7 +84,7 @@ const appRoutes: Routes = [
       }
     ]
   },
-  { path: '**', redirectTo: '/boardsets' }
+  { path: '**', redirectTo: '/dashboard' }
 ];
 
 @NgModule({
