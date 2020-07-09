@@ -36,7 +36,7 @@ import {SymbolSearchPanelComponent} from './symbol-search-panel/symbol-search-pa
 import {BoardTreeComponent} from './board-tree/board-tree.component';
 import {BoardTreeItemComponent} from './board-tree-item/board-tree-item.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {BoardsetListComponent} from './boardset-list/boardset-list.component';
+import {LocalBoardsetListComponent} from './boardset-list/local-boardset-list.component';
 import {BoardsetEditorDialogComponent} from './boardset-editor-dialog/boardset-editor-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {ObfUploadDialogComponent} from './obf-upload-dialog/obf-upload-dialog.component';
@@ -66,7 +66,7 @@ const dbConfig: DBConfig  = {
 };
 
 const appRoutes: Routes = [
-  { path: 'boardsets',      component: BoardsetListComponent },
+  { path: 'boardsets',      component: LocalBoardsetListComponent },
   { path: 'boardsets/:id',  component: BuilderComponent },
   { path: 'boardsets/:boardset_id/:board_id/pdf', loadChildren: () => import('./pdf/pdf.module').then(m => m.PdfModule) },
   // { path: '',
@@ -99,7 +99,7 @@ const appRoutes: Routes = [
     SymbolSearchPanelComponent,
     BoardTreeComponent,
     BoardTreeItemComponent,
-    BoardsetListComponent,
+    LocalBoardsetListComponent,
     BoardsetEditorDialogComponent,
     ObfUploadDialogComponent,
     ObzUploadDialogComponent,

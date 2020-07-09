@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BoardsetListComponent } from './boardset-list.component';
+import { LocalBoardsetListComponent } from './local-boardset-list.component';
 
 describe('BoardsetListComponent', () => {
-  let component: BoardsetListComponent;
-  let fixture: ComponentFixture<BoardsetListComponent>;
+  let component: LocalBoardsetListComponent;
+  let fixture: ComponentFixture<LocalBoardsetListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoardsetListComponent ]
+      declarations: [ LocalBoardsetListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BoardsetListComponent);
+    fixture = TestBed.createComponent(LocalBoardsetListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

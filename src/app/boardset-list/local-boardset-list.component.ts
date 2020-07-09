@@ -11,15 +11,13 @@ import {MatSelectChange} from '@angular/material/select';
 
 @Component({
   selector: 'app-boardset-list',
-  templateUrl: './boardset-list.component.html',
-  styleUrls: ['./boardset-list.component.scss']
+  templateUrl: './local-boardset-list.component.html',
+  styleUrls: ['./local-boardset-list.component.scss']
 })
-export class BoardsetListComponent implements OnInit {
+export class LocalBoardsetListComponent implements OnInit {
 
   boardSets: BoardSet[];
   languages: any;
-
-  loggedIn: boolean;
 
   private currentDialogRef;
 
