@@ -61,8 +61,8 @@ export class PdfComponent implements OnInit {
         // Collect the images as Base64 and generatePDF() when all images are downloaded and ready.
         this.board.cells.map(cell => {
           // If an image is present and IS NOT an SVG, get it as Base64.
-          if (cell.url && !cell.url.endsWith('.svg')) {
-            this.imageBase64Service.getFromURL(cell.url).then(image => {
+          if (cell.image_url && !cell.image_url.endsWith('.svg')) {
+            this.imageBase64Service.getFromURL(cell.image_url).then(image => {
               this.images[cell.id] = {base64: image};
               this.generatePdfIfImagesReady();
             },
@@ -73,9 +73,9 @@ export class PdfComponent implements OnInit {
             });
 
             // If an image is present and IS an SVG, get it as text.
-          } else if (cell.url && cell.url.endsWith('.svg')) {
+          } else if (cell.image_url && cell.image_url.endsWith('.svg')) {
 
-            this.http.get(cell.url, {
+            this.http.get(cell.image_url, {
               responseType: 'text'
             }).toPromise().then(result => {
 

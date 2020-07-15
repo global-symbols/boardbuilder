@@ -4,14 +4,14 @@ import {Board} from './board.model';
 export class Cell implements Deserialisable {
     id: number;
     board_id: number;
+    board?: Board;
     image_url?: string;
     imageData?: string;
     width?: number;
-    board?: Board;
     caption?: string;
-    backgroundColour: string;
-    borderColour: string;
-    textColour: string;
+    background_colour: string;
+    border_colour: string;
+    text_colour: string;
 
     deserialise(input: any): this {
         const object = Object.assign(this, input);

@@ -2,17 +2,17 @@
   <mat-grid-list [cols]="board.columns" rowHeight="10rem" gutterSize="1rem">
     <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows)"
                    tabindex="0" (click)="selectCell(c)" (keyup.enter)="selectCell(c)"
-                   [style.background-color]="c.backgroundColour"
-                   [style.outline-color]="c.borderColour"
-                   [style.color]="c.textColour"
+                   [style.background-color]="c.background_colour"
+                   [style.outline-color]="c.border_colour"
+                   [style.color]="c.text_colour"
                    [class.selected]="cell === c"
-                   [class.outlined]="c.borderColour"
+                   [class.outlined]="c.border_colour"
     >
 
           <div fxLayout="column" fxLayoutAlign="space-between stretch">
             <span *ngIf="board.defaultCellFormat.labelPosition === 'top'">{{c.caption}}</span>
-            <img *ngIf="c.url" [src]="c.url" class="img-responsive"/>
-            <mat-icon *ngIf="!c.url">landscape</mat-icon>
+            <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive"/>
+            <mat-icon *ngIf="!c.image_url">landscape</mat-icon>
             <span *ngIf="board.defaultCellFormat.labelPosition === 'bottom'">{{c.caption}}</span>
           </div>
     </mat-grid-tile>

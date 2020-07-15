@@ -73,8 +73,8 @@ export class Board implements Deserialisable {
         id: this.uuid + index,
         image_id: this.uuid + index,
         label: cell.caption,
-        border_color: cell.borderColour,
-        background_color: cell.backgroundColour
+        border_color: cell.border_colour,
+        background_color: cell.background_colour
       })),
       grid: {
         rows: this.rows,
@@ -83,8 +83,8 @@ export class Board implements Deserialisable {
       },
       images: this.cells.map((cell, index) => ({
         id: this.uuid + cell.id,
-        url: cell.url,
-        content_type: mime.getType(cell.url)
+        url: cell.image_url,
+        content_type: mime.getType(cell.image_url)
       }))
     };
 

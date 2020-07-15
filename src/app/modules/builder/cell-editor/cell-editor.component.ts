@@ -36,7 +36,7 @@ export class CellEditorComponent implements OnInit {
   }
 
   selectImageUrl(url: string) {
-    this.cell.url = url;
+    this.cell.image_url = url;
   }
 
   linkToBoardsList(): Array<Board> {
@@ -69,13 +69,13 @@ export class CellEditorComponent implements OnInit {
 
   clearCell(subject: string) {
     if (subject === 'colours') {
-      this.cell.backgroundColour = null;
-      this.cell.borderColour = null;
-      this.cell.textColour = null;
+      this.cell.background_colour = null;
+      this.cell.border_colour = null;
+      this.cell.text_colour = null;
     }
 
     if (subject === 'symbol') {
-      this.cell.url = null;
+      this.cell.image_url = null;
     }
   }
 
