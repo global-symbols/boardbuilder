@@ -37,4 +37,10 @@ export class BoardService {
   delete(record: Board) {
     return this.http.delete<Board>(`${this.apiEndpoint}/${record.id}`);
   }
+
+  reorderCells(board: Board) {
+    const newOrder = board.cells.map(t => t.id);
+    // console.log(newOrder);
+    return this.http.patch<Board>(`${this.apiEndpoint}/${board.id}/reorder_cells`, { cell_ids: newOrder});
+  }
 }

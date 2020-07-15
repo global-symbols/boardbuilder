@@ -7,6 +7,7 @@ import {Board} from '@data/models/board.model';
 import {MatTabChangeEvent} from '@angular/material/tabs';
 import {moveItemInArray} from '@angular/cdk/drag-drop';
 import {CellEditorSearchPanelComponent} from '@modules/builder/cell-editor-search-panel/cell-editor-search-panel.component';
+import {BoardService} from '@data/services/board.service';
 
 @Component({
   selector: 'app-cell-editor',
@@ -26,7 +27,7 @@ export class CellEditorComponent implements OnInit {
 
   @ViewChild('searchPanel') searchPanel: CellEditorSearchPanelComponent;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private boardService: BoardService) { }
 
   ngOnInit() {
   }
@@ -81,5 +82,7 @@ export class CellEditorComponent implements OnInit {
 
   moveCell(to: number) {
     moveItemInArray(this.board.cells, this.board.cells.indexOf(this.cell), to);
+    // TODO: Debounce for chained cell movements.
+    this.boardService.reorderCells(this.board).subscribe();
   }
 }
