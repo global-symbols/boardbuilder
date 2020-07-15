@@ -22,7 +22,6 @@ import {Cell} from '@data/models/cell.model';
 })
 export class BuilderComponent implements OnInit, OnDestroy {
 
-  boardSet$: Observable<BoardSet>;
   boardSet: BoardSet;
   board: Board;
   selectedCell;
@@ -75,8 +74,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     // Get the BoardSet
     this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
-      // Start a timer to auto-save the BoardSet.
-      //this.saveTimer = interval(10000).subscribe(val => this.updateBoardSet().subscribe());
 
       this.boardSet = bs;
 
@@ -100,10 +97,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
         this.boardSet = bs;
       });
     });
-
-    // this.boardSet.addBoard();
-    // this.updateBoardSet().subscribe(r => null);
-    // this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
   }
 
   updateBoardSet() {

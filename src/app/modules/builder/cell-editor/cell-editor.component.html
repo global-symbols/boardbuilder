@@ -6,8 +6,8 @@
       <input matInput [(ngModel)]="cell.caption" placeholder="Caption" i18n-placeholder autocomplete="off">
     </mat-form-field>
 
-    <button mat-icon-button aria-label="Close the cell editor" i18n-aria-label (click)="closeEditor()" style="margin-left: 1rem; margin-top: 8px">
-      <mat-icon>close</mat-icon>
+    <button mat-icon-button aria-label="Save and close the cell editor" matTooltip="Save and Close" i18n-aria-label (click)="closeEditor()" style="margin-left: 1rem; margin-top: 8px">
+      <mat-icon>check</mat-icon>
     </button>
   </div>
 

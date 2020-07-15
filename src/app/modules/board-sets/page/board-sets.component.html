@@ -3,7 +3,6 @@
     <div class="w-100 boardset-grid-tile">
       <div fxLayout="column" fxLayoutAlign="space-between none">
         <h3>{{boardSet.name}}</h3>
-        <a [routerLink]="[boardSet.id.toString()]">Go</a>
 
 <!--        <p>{{boardSet.boards.length}} Boards</p>-->
 
@@ -16,7 +15,7 @@
             </button>
           </div>
 
-          <button fxFlex mat-flat-button color="primary" [routerLink]="['boardsets', boardSet.id.toString()]" i18n>Open</button>
+          <button fxFlex mat-flat-button color="primary" [routerLink]="boardSet.id.toString()" i18n>Open</button>
         </div>
       </div>
     </div>
