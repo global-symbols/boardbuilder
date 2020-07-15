@@ -1,20 +1,25 @@
 <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-  <div>app-nav</div>
+  <div fxFlex="20">app-nav</div>
 
   <a routerLink="/" style="line-height: 1rem;"><img src="assets/navbar-logo.svg" alt="Board Builder" style="max-height: 2.5rem;"></a>
 
-  <span>
+  <div fxFlex="20" style="text-align: right">
     <a mat-button mat-icon-button href="https://training.globalsymbols.com/course/view.php?id=56#section-1" target="_blank" matTooltip="Help and Resources">
-    <mat-icon>help_outline</mat-icon>
-  </a>
-  <a mat-button mat-icon-button (click)="login()" target="_blank" matTooltip="Sign In" *ngIf="!(canActivateProtectedRoutes | async)">
-    <mat-icon>account_circle</mat-icon>
-  </a>
-  <ng-container *ngIf="canActivateProtectedRoutes | async">
-    {{identityClaims.name}}
-  </ng-container>
-  <a mat-button mat-icon-button (click)="logout()" target="_blank" matTooltip="Sign Out" *ngIf="canActivateProtectedRoutes | async">
-    <mat-icon>exit_to_app</mat-icon>
-  </a>
-  </span>
+      <mat-icon>help_outline</mat-icon>
+    </a>
+    <a mat-button mat-icon-button (click)="login()" target="_blank" matTooltip="Sign In" *ngIf="!(canActivateProtectedRoutes | async)">
+      <mat-icon>account_circle</mat-icon>
+    </a>
+    <ng-container *ngIf="canActivateProtectedRoutes | async">
+
+      <mat-menu #userMenu="matMenu" xPosition="before">
+        <span mat-menu-item>{{identityClaims.name}}</span>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          Sign Out
+        </button>
+      </mat-menu>
+      <button mat-button mat-icon-button [matMenuTriggerFor]="userMenu" matTooltip="Global Symbols Account"><mat-icon>account_circle</mat-icon></button>
+    </ng-container>
+  </div>
 </mat-toolbar>
