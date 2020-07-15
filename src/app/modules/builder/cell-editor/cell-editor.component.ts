@@ -19,9 +19,6 @@ export class CellEditorComponent implements OnInit {
   @Input() boardSet: BoardSet;
   @Input() board: Board;
   @Input() cell: Cell;
-  @Output() cellChange = new EventEmitter<Cell>();
-  @Output() boardChange = new EventEmitter<Board>();
-  @Output() boardSetChange = new EventEmitter<BoardSet>();
 
   @Output() closed = new EventEmitter<boolean>();
 
