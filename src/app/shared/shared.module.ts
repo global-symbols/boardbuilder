@@ -7,6 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {FlexModule} from '@angular/flex-layout';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 
@@ -25,7 +26,8 @@ import {FlexModule} from '@angular/flex-layout';
     MatIconModule,
     MatDialogModule,
     MatButtonModule,
-    FlexModule
+    FlexModule,
+    DragDropModule
   ]
 })
 export class SharedModule { }

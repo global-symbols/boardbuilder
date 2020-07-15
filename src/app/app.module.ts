@@ -39,6 +39,7 @@ import {CoreModule} from '@app/core.module';
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
 import { NavComponent } from './layout/nav/nav.component';
 import {SharedModule} from '@shared/shared.module';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -135,7 +136,8 @@ const appRoutes: Routes = [
     ),
     MatMenuModule,
     CoreModule.forRoot(),
-    SharedModule
+    SharedModule,
+    DragDropModule
   ],
   entryComponents: [
     BoardEditorComponent,
