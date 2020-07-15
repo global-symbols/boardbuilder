@@ -84,7 +84,7 @@
 
     <mat-tab label="Symbol" i18n-label>
       <div class="p-1">
-        <app-symbol-search-panel #searchPanel [initialQuery]="cell.caption" (selectionChange)="selectImageUrl($event)"></app-symbol-search-panel>
+        <app-cell-editor-search-panel #searchPanel [initialQuery]="cell.caption" (selectionChange)="selectImageUrl($event)"></app-cell-editor-search-panel>
       </div>
     </mat-tab>
   </mat-tab-group>

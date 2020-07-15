@@ -3,7 +3,6 @@ import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {BuilderComponent} from './builder/builder.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -22,19 +21,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {BoardDetailComponent} from './board-detail/board-detail.component';
 import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 import {HotkeyModule} from 'angular2-hotkeys';
 import {FormsModule} from '@angular/forms';
-import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {ColourSelectorComponent} from './colour-selector/colour-selector.component';
-import {CellEditorComponent} from './cell-editor/cell-editor.component';
 import {HttpClientModule} from '@angular/common/http';
 import {BoardEditorComponent} from './board-editor/board-editor.component';
-import {SymbolSearchPanelComponent} from './symbol-search-panel/symbol-search-panel.component';
-import {BoardTreeComponent} from './board-tree/board-tree.component';
-import {BoardTreeItemComponent} from './board-tree-item/board-tree-item.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {LocalBoardsetListComponent} from './boardset-list/local-boardset-list.component';
 import {BoardsetEditorDialogComponent} from './boardset-editor-dialog/boardset-editor-dialog.component';
@@ -46,6 +38,7 @@ import localeEnGb from '@angular/common/locales/en-GB';
 import {CoreModule} from '@app/core.module';
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
 import { NavComponent } from './layout/nav/nav.component';
+import {SharedModule} from '@shared/shared.module';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -66,9 +59,9 @@ const dbConfig: DBConfig  = {
 };
 
 const appRoutes: Routes = [
-  { path: 'boardsets',      component: LocalBoardsetListComponent },
-  { path: 'boardsets/:id',  component: BuilderComponent },
-  { path: 'boardsets/:boardset_id/:board_id/pdf', loadChildren: () => import('./pdf/pdf.module').then(m => m.PdfModule) },
+  // { path: 'local-boardsets',      component: LocalBoardsetListComponent },
+  // { path: 'local-boardsets/:id',  component: BuilderComponent },
+  // { path: 'local-boardsets/:boardset_id/:board_id/pdf', loadChildren: () => import('./pdf/pdf.module').then(m => m.PdfModule) },
   // { path: '',
   //   redirectTo: '/boardsets',
   //   pathMatch: 'full'
@@ -81,6 +74,14 @@ const appRoutes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule)
+      },
+      {
+        path: 'boardsets',
+        loadChildren: () => import('@modules/board-sets/board-sets.module').then(m => m.BoardSetsModule)
+      },
+      {
+        path: 'boardsets/:id',
+        loadChildren: () => import('@modules/builder/builder.module').then(m => m.BuilderModule)
       }
     ]
   },
@@ -90,15 +91,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    BuilderComponent,
-    BoardDetailComponent,
-    ConfirmDialogComponent,
-    ColourSelectorComponent,
-    CellEditorComponent,
     BoardEditorComponent,
-    SymbolSearchPanelComponent,
-    BoardTreeComponent,
-    BoardTreeItemComponent,
     LocalBoardsetListComponent,
     BoardsetEditorDialogComponent,
     ObfUploadDialogComponent,
@@ -142,15 +135,17 @@ const appRoutes: Routes = [
     ),
     MatMenuModule,
     CoreModule.forRoot(),
+    SharedModule
   ],
   entryComponents: [
-    ConfirmDialogComponent,
     BoardEditorComponent,
     BoardsetEditorDialogComponent,
     ObfUploadDialogComponent
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'en-GB' }
+    {provide: LOCALE_ID, useValue: 'en-GB'}
+  ],
+  exports: [
   ],
   bootstrap: [AppComponent]
 })

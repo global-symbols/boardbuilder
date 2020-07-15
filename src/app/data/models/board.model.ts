@@ -7,17 +7,19 @@ import {Obf} from './obf.interface';
 
 export class Board implements Deserialisable {
   id: number;
+  board_set_id: number;
   uuid: string;
-  title: string;
+  name: string;
   rows: number;
   columns: number;
   cells: Array<Cell>;
+  captions_position: string;
   defaultCellFormat: CellFormat;
 
   constructor(init?: Partial<Board>) {
       this.rows = 3;
       this.columns = 4;
-      this.title = 'New Board';
+      this.name = 'New Board';
       this.uuid = uuid.v4();
       this.defaultCellFormat = new CellFormat();
 
@@ -118,4 +120,7 @@ export class Board implements Deserialisable {
     return this.cells.slice(0, this.rows * this.columns).reduce((rows, key, index) => (index % this.columns === 0 ? rows.push([key])
         : rows[rows.length - 1].push(key)) && rows, []);
   }
+
+  get title(): string { return this.name; }
+  set title(t) { this.name = t; }
 }

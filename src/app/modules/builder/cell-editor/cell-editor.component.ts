@@ -5,8 +5,8 @@ import { MatSelectChange } from '@angular/material/select';
 import {BoardSet} from '@data/models/boardset.model';
 import {Board} from '@data/models/board.model';
 import {MatTabChangeEvent} from '@angular/material/tabs';
-import {SymbolSearchPanelComponent} from '../symbol-search-panel/symbol-search-panel.component';
 import {moveItemInArray} from '@angular/cdk/drag-drop';
+import {CellEditorSearchPanelComponent} from '@modules/builder/cell-editor-search-panel/cell-editor-search-panel.component';
 
 @Component({
   selector: 'app-cell-editor',
@@ -24,7 +24,7 @@ export class CellEditorComponent implements OnInit {
 
   @Output() close = new EventEmitter<boolean>();
 
-  @ViewChild('searchPanel') searchPanel: SymbolSearchPanelComponent;
+  @ViewChild('searchPanel') searchPanel: CellEditorSearchPanelComponent;
 
   constructor(public dialog: MatDialog) { }
 

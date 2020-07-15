@@ -2,24 +2,18 @@ import {Deserialisable} from './deserialisable.model';
 import * as uuid from 'uuid';
 import {Board} from './board.model';
 import {DatePipe} from '@angular/common';
+import {Record} from '@data/models/record';
 
-export class BoardSet implements Deserialisable {
+export class BoardSet extends Record implements Deserialisable {
     public localId: number;
     public uuid: string;
-    public title: string;
+    public name: string;
     public boards = Array<Board>();
     public createdAt: Date;
     public updatedAt: Date;
 
     constructor(init?: Partial<BoardSet>) {
-      const pipe = new DatePipe('en-GB');
-      this.title = 'Untitled Board Set ' + pipe.transform(Date.now(), 'mediumDate');
-      this.uuid = uuid.v4();
-      this.createdAt = new Date();
-
-      Object.assign(this, init);
-
-      this.addBoard();
+      super();
     }
 
     deserialise(input: any): this {
@@ -52,5 +46,8 @@ export class BoardSet implements Deserialisable {
 
       return null;
     }
+
+    get title(): string { return this.name; }
+    set title(t) { this.name = t; }
 
 }

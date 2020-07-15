@@ -8,7 +8,7 @@
     </div>
     <div class="example-spacer"></div>
     <h1 class="example-app-name">
-      <ng-container *ngIf="boardSet">{{boardSet.title}}</ng-container>
+      <ng-container *ngIf="boardSet">{{boardSet.name}}</ng-container>
       <ng-container *ngIf="!boardSet" i18n>Global Symbols BoardBuilder</ng-container>
     </h1>
     <div class="example-spacer"></div>
@@ -45,9 +45,9 @@
 
     <mat-sidenav [opened]="selectedCell" mode="side" position="end" id="cellEditor" #cellEditor
                  (opened)="disableCellEditorAnimations = false"
-                 (closed)="disableCellEditorAnimations = true; selectedCell = null; updateBoardSet()">
+                 (closed)="disableCellEditorAnimations = true; selectedCell = null">
 
-      <app-cell-editor [(boardSet)]="boardSet" [(board)]="board" [(cell)]="selectedCell" (close)="cellEditor.close()" [@.disabled]="disableCellEditorAnimations"></app-cell-editor>
+      <app-cell-editor [(boardSet)]="boardSet" [(board)]="board" [(cell)]="selectedCell" (close)="updateCell(selectedCell); cellEditor.close(); " [@.disabled]="disableCellEditorAnimations"></app-cell-editor>
     </mat-sidenav>
 
     <mat-sidenav-content>

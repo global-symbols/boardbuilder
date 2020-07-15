@@ -177,7 +177,8 @@ export class AuthService {
   // for debugging it makes sense.
   public get accessToken() { return this.oauthService.getAccessToken(); }
   public get refreshToken() { return this.oauthService.getRefreshToken(); }
-  public get identityClaims() { return this.oauthService.getIdentityClaims(); }
+  // TODO: Strict type IdentityClaims
+  public get identityClaims(): any { return this.oauthService.getIdentityClaims(); }
   public get idToken() { return this.oauthService.getIdToken(); }
   public get logoutUrl() { return this.oauthService.logoutUrl; }
 }

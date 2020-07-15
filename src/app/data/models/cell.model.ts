@@ -3,7 +3,8 @@ import {Board} from './board.model';
 
 export class Cell implements Deserialisable {
     id: number;
-    url?: string;
+    board_id: number;
+    image_url?: string;
     imageData?: string;
     width?: number;
     board?: Board;
@@ -17,4 +18,7 @@ export class Cell implements Deserialisable {
         if (object.board) { this.board = new Board().deserialise(object.board); }
         return this;
     }
+
+    get url(): string { return this.image_url; }
+    set url(t) { this.image_url = t; }
 }

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {COLOURS} from '../colour-palette';
+import {COLOURS} from '../../../colour-palette';
 
 @Component({
   selector: 'app-colour-selector',

@@ -1,16 +1,19 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {LocalBoardSetService} from '@data/services/local-board-set.service';
 import {Board} from '@data/models/board.model';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
-import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import {BoardEditorComponent} from '../board-editor/board-editor.component';
 import {BoardSet} from '@data/models/boardset.model';
 import { saveAs } from 'file-saver';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ObfUploadDialogComponent} from '../obf-upload-dialog/obf-upload-dialog.component';
-import {interval, Subscription} from 'rxjs';
+import {interval, Observable, Subscription} from 'rxjs';
+import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
+import {ObfUploadDialogComponent} from '../../../obf-upload-dialog/obf-upload-dialog.component';
+import {BoardEditorComponent} from '../../../board-editor/board-editor.component';
+import {BoardSetService} from '@data/services/board-set.service';
+import {BoardService} from '@data/services/board.service';
+import {CellService} from '@data/services/cell.service';
+import {Cell} from '@data/models/cell.model';
 
 @Component({
   selector: 'app-builder',
@@ -19,6 +22,7 @@ import {interval, Subscription} from 'rxjs';
 })
 export class BuilderComponent implements OnInit, OnDestroy {
 
+  boardSet$: Observable<BoardSet>;
   boardSet: BoardSet;
   board: Board;
   selectedCell;
@@ -37,7 +41,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   constructor(changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
-              private service: LocalBoardSetService,
+              private boardSetService: BoardSetService,
+              private boardService: BoardService,
+              private cellService: CellService,
               private hotkeysService: HotkeysService,
               public dialog: MatDialog,
               private route: ActivatedRoute,
@@ -66,8 +72,14 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
     // Get the BoardSet
-    this.getBoardSet().then(bs => {
+    this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
+      // Start a timer to auto-save the BoardSet.
+      this.saveTimer = interval(10000).subscribe(val => this.updateBoardSet().subscribe());
+
+      this.boardSet = bs;
+
       // If there are any Boards, select the first one.
       if (this.boardSet.boards.length > 0) {
         this.selectBoard(this.boardSet.boards[0]);
@@ -79,24 +91,23 @@ export class BuilderComponent implements OnInit, OnDestroy {
     });
   }
 
-  private getBoardSet() {
-    return this.service.getBoardSet(this.route.snapshot.paramMap.get('id')).then(bs => {
-
-      // Start a timer to auto-save the BoardSet.
-      this.saveTimer = interval(10000).subscribe(val => this.updateBoardSet().then());
-
-      return this.boardSet = bs;
-    });
-  }
-
   addBoard() {
-    this.boardSet.addBoard();
-    this.updateBoardSet().then(r => null);
-    this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+    this.boardService.add(new Board({
+      name: 'Board ' + (this.boardSet.boards.length + 1),
+      board_set_id: this.boardSet.id
+    })).subscribe(board => {
+      this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
+        this.boardSet = bs;
+      });
+    });
+
+    // this.boardSet.addBoard();
+    // this.updateBoardSet().subscribe(r => null);
+    // this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
   }
 
   updateBoardSet() {
-    return this.service.updateBoardSet(this.boardSet).then(r => null);
+    return this.boardSetService.update(this.boardSet);
   }
 
   ngOnDestroy(): void {
@@ -106,7 +117,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   selectBoard(board?: Board) {
     this.board = board;
     this.selectedCell = undefined;
-    this.updateBoardSet().then(r => null);
+    this.updateBoardSet().subscribe(r => null);
   }
 
   deleteBoard(board: Board) {
@@ -115,16 +126,20 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     this.deleteDialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '250px',
-      data: {heading: 'Delete this Board?', content: 'This cannot be undone.'}
+      data: {heading: `Delete '${board.name}'?`, content: 'This cannot be undone.'}
     });
 
     this.deleteDialogRef.afterClosed().subscribe(result => {
 
       if (result) {
         this.selectBoard(null);
-        this.boardSet.deleteBoard(board);
-        this.updateBoardSet().then(r => null);
-        this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+
+        this.boardService.delete(board).subscribe(r => {
+          this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
+            this.boardSet = bs;
+            this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+          });
+        });
       }
 
       this.deleteDialogRef = undefined;
@@ -142,7 +157,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     this.editDialogRef.afterClosed().subscribe(result => {
       this.editDialogRef = undefined;
-      this.updateBoardSet().then(r => null);
+      this.boardService.update(board).subscribe();
     });
 
   }
@@ -170,11 +185,15 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   downloadBoardSetObz() {
-    this.service.convertToObz(this.boardSet).then(content => saveAs(content, this.boardSet.title + '.obz'));
+    // this.service.convertToObz(this.boardSet).then(content => saveAs(content, this.boardSet.title + '.obz'));
   }
 
   generatePdf() {
     this.updateBoardSet()
-      .then(r => this.router.navigate(['/', 'boardsets', this.boardSet.uuid, this.board.uuid, 'pdf']));
+      .subscribe(r => this.router.navigate(['/', 'boardsets', this.boardSet.uuid, this.board.uuid, 'pdf']));
+  }
+
+  updateCell(cell: Cell) {
+    this.cellService.update(cell).subscribe();
   }
 }
