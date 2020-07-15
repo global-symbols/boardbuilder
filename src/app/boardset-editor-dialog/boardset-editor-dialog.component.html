@@ -10,8 +10,8 @@
     <mat-label i18n>Title</mat-label>
     <input matInput required [(ngModel)]="data.boardSet.title" placeholder="Title">
   </mat-form-field>
-  <div *ngIf="data.boardSet.createdAt" i18n>
-    Created: {{data.boardSet.createdAt | date}}
+  <div *ngIf="data.boardSet.created_at" i18n>
+    Created: {{data.boardSet.created_at | date}}
   </div>
 
 

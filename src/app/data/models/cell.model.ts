@@ -1,7 +1,8 @@
 import {Deserialisable} from './deserialisable.model';
 import {Board} from './board.model';
+import {Record} from '@data/models/record';
 
-export class Cell implements Deserialisable {
+export class Cell extends Record implements Deserialisable {
     id: number;
     board_id: number;
     board?: Board;

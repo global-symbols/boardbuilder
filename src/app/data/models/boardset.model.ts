@@ -9,8 +9,6 @@ export class BoardSet extends Record implements Deserialisable {
     public uuid: string;
     public name: string;
     public boards = Array<Board>();
-    public createdAt: Date;
-    public updatedAt: Date;
 
     constructor(init?: Partial<BoardSet>) {
       super();

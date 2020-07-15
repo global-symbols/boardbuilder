@@ -4,9 +4,9 @@ import * as uuid from 'uuid';
 import * as mime from 'mime/lite';
 import {CellFormat} from './cell-format.model';
 import {Obf} from './obf.interface';
+import {Record} from '@data/models/record';
 
-export class Board implements Deserialisable {
-  id: number;
+export class Board extends Record implements Deserialisable {
   board_set_id: number;
   uuid: string;
   name: string;
@@ -17,6 +17,7 @@ export class Board implements Deserialisable {
   defaultCellFormat: CellFormat;
 
   constructor(init?: Partial<Board>) {
+      super();
       this.rows = 3;
       this.columns = 4;
       this.name = 'New Board';
@@ -104,8 +105,8 @@ export class Board implements Deserialisable {
 
       if (obfButton) {
         this.cells[i].caption = obfButton.label;
-        this.cells[i].borderColour = obfButton.border_color;
-        this.cells[i].backgroundColour = obfButton.background_color;
+        this.cells[i].border_colour = obfButton.border_color;
+        this.cells[i].background_colour = obfButton.background_color;
       }
 
       if (obfImage) {
