@@ -47,7 +47,8 @@
                  (opened)="disableCellEditorAnimations = false"
                  (closed)="disableCellEditorAnimations = true; selectedCell = null">
 
-      <app-cell-editor [(boardSet)]="boardSet" [(board)]="board" [(cell)]="selectedCell" (close)="updateCell(selectedCell); cellEditor.close(); " [@.disabled]="disableCellEditorAnimations"></app-cell-editor>
+      <app-cell-editor [(boardSet)]="boardSet" [(board)]="board" [(cell)]="selectedCell"
+                       (closed)="updateCell(selectedCell); cellEditor.close(); " [@.disabled]="disableCellEditorAnimations"></app-cell-editor>
     </mat-sidenav>
 
     <mat-sidenav-content>

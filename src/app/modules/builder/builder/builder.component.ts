@@ -76,7 +76,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     // Get the BoardSet
     this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
       // Start a timer to auto-save the BoardSet.
-      this.saveTimer = interval(10000).subscribe(val => this.updateBoardSet().subscribe());
+      //this.saveTimer = interval(10000).subscribe(val => this.updateBoardSet().subscribe());
 
       this.boardSet = bs;
 

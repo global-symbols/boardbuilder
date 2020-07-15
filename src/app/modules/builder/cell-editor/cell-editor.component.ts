@@ -23,7 +23,7 @@ export class CellEditorComponent implements OnInit {
   @Output() boardChange = new EventEmitter<Board>();
   @Output() boardSetChange = new EventEmitter<BoardSet>();
 
-  @Output() close = new EventEmitter<boolean>();
+  @Output() closed = new EventEmitter<boolean>();
 
   @ViewChild('searchPanel') searchPanel: CellEditorSearchPanelComponent;
 
@@ -33,7 +33,7 @@ export class CellEditorComponent implements OnInit {
   }
 
   closeEditor() {
-    this.close.emit(true);
+    this.closed.emit(true);
   }
 
   selectImageUrl(url: string) {
