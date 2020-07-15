@@ -1,6 +1,7 @@
 <div class="mat-app-background basic-container">
   <router-outlet></router-outlet>
-  <ng-container #authDebugData>
+  <button (click)="showAuthDebug = !showAuthDebug">Toggle Auth Debug</button>
+  <ng-container #authDebugData *ngIf="showAuthDebug">
 
     <div class="authenticating-loader" *ngIf="!(isDoneLoading | async)"><div>Authenticating...</div></div>
     <hr>

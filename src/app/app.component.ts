@@ -13,6 +13,7 @@ export class AppComponent {
   isAuthenticated: Observable<boolean>;
   isDoneLoading: Observable<boolean>;
   canActivateProtectedRoutes: Observable<boolean>;
+  showAuthDebug = false;
 
   constructor(
     private authService: AuthService,
