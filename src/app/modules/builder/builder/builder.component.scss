@@ -71,21 +71,17 @@ mat-sidenav-content {
   left: 0;
   z-index: 9999;
 
-  //transition: all 0.5s;
+  transition: all 0.5s;
 
   mat-icon {
     position: relative;
     top: -2px;
 
-
-    transition: transform 0.5s;
+    transition: all 0.5s;
   }
 
   &.open {
-    //margin-left: 0;
-
     mat-icon {
-      //padding-left: 16px;
       transform: rotate(180deg);
     }
   }

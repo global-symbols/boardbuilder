@@ -1,7 +1,6 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="boardSet">
   <mat-toolbar color="primary" class="example-toolbar" fxLayout="row" fxLayoutAlign="space-between center">
     <div>
-      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
       <button mat-button [routerLink]="['/', 'boardsets']">
         <mat-icon>arrow_back</mat-icon>
         <ng-container i18n>Board Sets</ng-container></button>
@@ -59,11 +58,10 @@
   </mat-sidenav-container>
 
   <div id="leftSidebarToggler" [class.open]="snav.opened">
-    <button [class.mat-elevation-z2]="true" mat-mini-fab color="primary" (click)="snav.toggle()" matTooltip="Show/Hide Board Sets" matTooltipPosition="right">
+    <button [class.mat-elevation-z2]="true" mat-mini-fab color="primary" (click)="snav.toggle()" [matTooltip]="(snav.opened ? 'Hide' : 'Show') + ' Boards Panel'" matTooltipPosition="right">
       <mat-icon>chevron_right</mat-icon>
     </button>
   </div>
-
 </div>
 
 <mat-menu #matBoardSetMenu="matMenu">
