@@ -4,7 +4,7 @@ import {COLOURS} from '../../../colour-palette';
 @Component({
   selector: 'app-colour-selector',
   templateUrl: './colour-selector.component.html',
-  styleUrls: ['./colour-selector.component.css']
+  styleUrls: ['./colour-selector.component.scss']
 })
 export class ColourSelectorComponent implements OnInit {
 

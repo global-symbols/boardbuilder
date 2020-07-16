@@ -6,7 +6,7 @@ import {BoardSet} from '@data/models/boardset.model';
 @Component({
   selector: 'app-obz-upload-dialog',
   templateUrl: './obz-upload-dialog.component.html',
-  styleUrls: ['./obz-upload-dialog.component.css']
+  styleUrls: ['./obz-upload-dialog.component.scss']
 })
 export class ObzUploadDialogComponent implements OnInit {
 

@@ -6,7 +6,7 @@ import {BoardSet} from '@data/models/boardset.model';
 @Component({
   selector: 'app-board-sets',
   templateUrl: './board-sets.component.html',
-  styleUrls: ['./board-sets.component.css']
+  styleUrls: ['./board-sets.component.scss']
 })
 export class BoardSetsComponent implements OnInit {
 

@@ -4,7 +4,7 @@ import {Board} from '@data/models/board.model';
 @Component({
   selector: 'app-board-tree',
   templateUrl: './board-tree.component.html',
-  styleUrls: ['./board-tree.component.css']
+  styleUrls: ['./board-tree.component.scss']
 })
 export class BoardTreeComponent {
 

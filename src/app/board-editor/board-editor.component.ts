@@ -9,7 +9,7 @@ export interface BoardEditorDialogData {
 @Component({
   selector: 'app-board-editor',
   templateUrl: './board-editor.component.html',
-  styleUrls: ['./board-editor.component.css']
+  styleUrls: ['./board-editor.component.scss']
 })
 export class BoardEditorComponent implements OnInit {
 

@@ -13,7 +13,7 @@ import {CellService} from '@data/services/cell.service';
 @Component({
   selector: 'app-cell-editor',
   templateUrl: './cell-editor.component.html',
-  styleUrls: ['./cell-editor.component.css']
+  styleUrls: ['./cell-editor.component.scss']
 })
 export class CellEditorComponent implements OnInit, OnChanges, OnDestroy {
 

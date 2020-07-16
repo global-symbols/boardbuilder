@@ -4,7 +4,7 @@ import {Board} from '@data/models/board.model';
 @Component({
   selector: 'app-obf-upload-dialog',
   templateUrl: './obf-upload-dialog.component.html',
-  styleUrls: ['./obf-upload-dialog.component.css']
+  styleUrls: ['./obf-upload-dialog.component.scss']
 })
 export class ObfUploadDialogComponent implements OnInit {
 

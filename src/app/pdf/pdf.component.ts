@@ -14,7 +14,7 @@ import {Location} from '@angular/common';
 @Component({
   selector: 'app-pdf',
   templateUrl: './pdf.component.html',
-  styleUrls: ['./pdf.component.css']
+  styleUrls: ['./pdf.component.scss']
 })
 export class PdfComponent implements OnInit {
 

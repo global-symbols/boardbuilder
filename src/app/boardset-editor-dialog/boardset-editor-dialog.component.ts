@@ -9,7 +9,7 @@ export interface BoardsetEditorDialogData {
 @Component({
   selector: 'app-boardset-editor-dialog',
   templateUrl: './boardset-editor-dialog.component.html',
-  styleUrls: ['./boardset-editor-dialog.component.css']
+  styleUrls: ['./boardset-editor-dialog.component.scss']
 })
 export class BoardsetEditorDialogComponent implements OnInit {
 
