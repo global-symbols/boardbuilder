@@ -57,3 +57,36 @@ mat-sidenav-content {
 .board-toolbar {
   margin: 8px 0;
 }
+
+#leftSidebarToggler {
+  margin: 16px;
+  bottom: 0;
+  display: -webkit-flex;
+  display: flex;
+  //height: 56px;
+  //width: 56px;
+  overflow: hidden;
+  //pointer-events: none;
+  position: absolute;
+  left: 0;
+  z-index: 9999;
+
+  //transition: all 0.5s;
+
+  mat-icon {
+    position: relative;
+    top: -2px;
+
+
+    transition: transform 0.5s;
+  }
+
+  &.open {
+    //margin-left: 0;
+
+    mat-icon {
+      //padding-left: 16px;
+      transform: rotate(180deg);
+    }
+  }
+}
