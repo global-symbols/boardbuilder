@@ -1,23 +1,65 @@
-<mat-grid-list [cols]="4" rowHeight="10rem" gutterSize="1rem">
-  <mat-grid-tile *ngFor="let boardSet of boardSets | async">
-    <div class="w-100 boardset-grid-tile">
-      <div fxLayout="column" fxLayoutAlign="space-between none">
-        <h3>{{boardSet.name}}</h3>
+<div class="container">
+  <mat-grid-list [cols]="4" gutterSize="1rem">
+    <mat-grid-tile *ngFor="let boardSet of boardSets | async">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{boardSet.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="column" fxLayoutAlign="space-between none">
+            <h3>{{boardSet.name}}</h3>
 
-<!--        <p>{{boardSet.boards.length}} Boards</p>-->
+            <!--        <p>{{boardSet.boards.length}} Boards</p>-->
 
-        <div fxLayout="row">
-          <div fxFlex="50">
-            <button mat-icon-button i18n-aria-label aria-label="Delete this Board Set" (click)="null" *ngIf="boardSet" i18n-matTooltip matTooltip="Delete this Board Set">
-              <mat-icon>delete</mat-icon>
-            </button>
-            <button mat-icon-button (click)="null" i18n-matTooltip matTooltip="Edit this Board Set" i18n-aria-label aria-label="Edit this Board Set"><mat-icon>edit</mat-icon>
-            </button>
+            <div fxLayout="row">
+              <div fxFlex="50">
+                <button mat-icon-button i18n-aria-label aria-label="Delete this Board Set" (click)="null" *ngIf="boardSet" i18n-matTooltip matTooltip="Delete this Board Set">
+                  <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-icon-button (click)="null" i18n-matTooltip matTooltip="Edit this Board Set" i18n-aria-label aria-label="Edit this Board Set"><mat-icon>edit</mat-icon>
+                </button>
+              </div>
+
+              <button fxFlex mat-flat-button color="primary" [routerLink]="boardSet.id.toString()" i18n>Open</button>
+            </div>
           </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 
-          <button fxFlex mat-flat-button color="primary" [routerLink]="boardSet.id.toString()" i18n>Open</button>
+  <div fxLayout="row">
+    <mat-card fxFlex="25" style="margin: 1rem;">
+      <button fxFlex mat-flat-button color="primary" i18n>New Board Set</button>
+    </mat-card>
+
+    <mat-card *ngFor="let boardSet of boardSets | async" fxFlex="25" style="margin: 1rem;">
+      <mat-card-header>
+        <mat-card-title>{{boardSet.name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="space-between none">
+          {{boardSet.boards.length}} Boards
+          {{boardSet.updated_at | timeago:false}} Boards
+
+          <div fxLayout="row">
+            <div fxFlex="50">
+              <button mat-icon-button i18n-aria-label aria-label="Delete this Board Set" (click)="null" *ngIf="boardSet" i18n-matTooltip matTooltip="Delete this Board Set">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-icon-button (click)="null" i18n-matTooltip matTooltip="Edit this Board Set" i18n-aria-label aria-label="Edit this Board Set"><mat-icon>edit</mat-icon>
+              </button>
+            </div>
+
+
+          </div>
         </div>
-      </div>
-    </div>
-  </mat-grid-tile>
-</mat-grid-list>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button fxFlex mat-flat-button color="primary" [routerLink]="boardSet.id.toString()" i18n>Open</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>

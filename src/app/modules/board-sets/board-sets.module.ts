@@ -7,6 +7,7 @@ import {FlexModule} from '@angular/flex-layout';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 export const routes: Routes = [
   {
@@ -18,14 +19,15 @@ export const routes: Routes = [
 
 @NgModule({
   declarations: [BoardSetsComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatGridListModule,
-    FlexModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatGridListModule,
+        FlexModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatButtonModule,
+        MatCardModule
+    ]
 })
 export class BoardSetsModule { }
