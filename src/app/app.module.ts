@@ -139,11 +139,6 @@ const appRoutes: Routes = [
     SharedModule,
     DragDropModule
   ],
-  entryComponents: [
-    BoardEditorComponent,
-    BoardsetEditorDialogComponent,
-    ObfUploadDialogComponent
-  ],
   providers: [
     {provide: LOCALE_ID, useValue: 'en-GB'}
   ],
