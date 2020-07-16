@@ -1,22 +1,30 @@
-<div fxLayout="row" fxLayoutAlign="space-between start">
-  <h1 mat-dialog-title>{{data.boardSet.title}}</h1>
-  <button mat-icon-button aria-label="Close the cell editor" [mat-dialog-close]="false">
-    <mat-icon>close</mat-icon>
-  </button>
-</div>
+<div cdkDrag
+     cdkDragRootElement=".cdk-overlay-pane"
+     cdkDragBoundary="body"
+>
 
-<div mat-dialog-content>
-  <mat-form-field class="w-100">
-    <mat-label i18n>Title</mat-label>
-    <input matInput required [(ngModel)]="data.boardSet.title" placeholder="Title">
-  </mat-form-field>
-  <div *ngIf="data.boardSet.created_at" i18n>
-    Created: {{data.boardSet.created_at | date}}
+  <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
+    <h1 mat-dialog-title i18n class="mb-0">Board Set Properties</h1>
+    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <div mat-dialog-content>
+    <mat-form-field class="w-100">
+      <mat-label i18n>Title</mat-label>
+      <input matInput required placeholder="Title"
+             [(ngModel)]="data.boardSet.title"
+             (mousedown)="$event.stopPropagation()">
+    </mat-form-field>
+    <div *ngIf="data.boardSet.created_at" i18n>
+      Created: {{data.boardSet.created_at | date}}
+    </div>
+
+
   </div>
-
-
-</div>
-<div mat-dialog-actions>
-  <span class="spacer"></span>
-  <button mat-raised-button [mat-dialog-close]="data.boardSet" color="primary" cdkFocusInitial i18n>Done</button>
+  <div mat-dialog-actions>
+    <span class="spacer"></span>
+    <button mat-raised-button [mat-dialog-close]="data.boardSet" color="primary" cdkFocusInitial i18n>Done</button>
+  </div>
 </div>

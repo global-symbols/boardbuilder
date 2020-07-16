@@ -1,3 +1,5 @@
+@import "~app/shared/variables";
+
 .example-container {
   display: flex;
   flex-direction: column;
@@ -30,11 +32,6 @@ h1.example-app-name {
   flex: 1 0 auto;
 }
 
-.example-spacer {
-  flex: 1 1 auto;
-}
-
-
 
 mat-sidenav#cellEditor {
   width: 355px;
@@ -45,10 +42,16 @@ mat-sidenav-content {
 }
 
 .builder-sidenav-section {
-  margin: 16px 16px 0 16px;
+  //padding: 16px 16px 0 16px;
+  padding: 16px;
+  //background-color: $blue;
+  background-color: lighten($blue, 50%);
+
+  user-select: none;
 }
 .builder-sidenav-section h3 {
   margin: 0;
+  padding-right: 16px;
 }
 
 .board-toolbar {

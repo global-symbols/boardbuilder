@@ -3,7 +3,7 @@ import {BoardSet} from '@data/models/boardset.model';
 import {LocalBoardSetService} from '@data/services/local-board-set.service';
 import {Router} from '@angular/router';
 import {BoardsetEditorDialogComponent} from '../boardset-editor-dialog/boardset-editor-dialog.component';
-import {ConfirmDialogComponent} from '../shared/components/confirm-dialog/confirm-dialog.component';
+import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {ObzUploadDialogComponent} from '../obz-upload-dialog/obz-upload-dialog.component';
 import {LocaleService} from '@data/services/locale.service';

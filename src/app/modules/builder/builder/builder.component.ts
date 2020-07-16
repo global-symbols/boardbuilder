@@ -14,6 +14,7 @@ import {BoardSetService} from '@data/services/board-set.service';
 import {BoardService} from '@data/services/board.service';
 import {CellService} from '@data/services/cell.service';
 import {Cell} from '@data/models/cell.model';
+import {BoardsetEditorDialogComponent} from '../../../boardset-editor-dialog/boardset-editor-dialog.component';
 
 @Component({
   selector: 'app-builder',
@@ -158,6 +159,24 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   downloadBoard(board: Board) {
     saveAs(new Blob([JSON.stringify(board.toObf(), null, 2)], {type: 'text/plain;charset=utf-8'}), board.title + '.obf');
+  }
+
+  editBoardSet() {
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(BoardsetEditorDialogComponent, {
+      width: '300px',
+      data: { boardSet: this.boardSet }
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(updatedBoardSet => {
+      if (updatedBoardSet instanceof BoardSet) {
+        // boardSet = updatedBoardSet;
+        this.boardSetService.update(updatedBoardSet).subscribe();
+      }
+
+      this.currentDialogRef = undefined;
+    });
   }
 
   uploadBoardObf(board: Board) {

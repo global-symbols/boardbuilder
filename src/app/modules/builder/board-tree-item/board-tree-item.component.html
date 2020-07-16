@@ -1,14 +1,16 @@
 <mat-list-item (click)="selectChange.emit(board)"
+               (keyup.enter)="selectChange.emit(board)"
                (dblclick)="edit()"
                [style.padding-left]="level + 'em'"
                [class.board-tree-item-selected]="selectedBoard === board"
+               tabindex="0"
 
 >
   <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%">
     <span>{{board.title}}</span>
     <button mat-button mat-icon-button
             [matMenuTriggerFor]="boardMenu"
-            matTooltip="Board Actions"
+            matTooltip="Board Actions" matTooltipPosition="right"
             (click)="$event.stopPropagation()"
             (mousedown)="$event.stopPropagation()"
     >

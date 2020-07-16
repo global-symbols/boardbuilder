@@ -1,25 +1,14 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="boardSet">
-  <mat-toolbar color="primary" class="example-toolbar">
+  <mat-toolbar color="primary" class="example-toolbar" fxLayout="row" fxLayoutAlign="space-between center">
     <div>
 <!--      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>-->
       <button mat-button [routerLink]="['/', 'boardsets']">
         <mat-icon>arrow_back</mat-icon>
         <ng-container i18n>Board Sets</ng-container></button>
     </div>
-    <div class="example-spacer"></div>
 <!--    <h1 class="example-app-name">Global Symbols BoardBuilder</h1>-->
     <a routerLink="/" style="line-height: 1rem;"><img src="assets/navbar-logo.svg" alt="Board Builder" style="max-height: 2.5rem;"></a>
-    <div class="example-spacer"></div>
-    <button mat-icon-button aria-label="Change Board Properties" i18n-aria-label (click)="editBoard(board)" *ngIf="board" matTooltip="Change Board Properties" i18n-matTooltip="">
-      <mat-icon>edit</mat-icon>
-    </button>
-    <button mat-icon-button [matMenuTriggerFor]="matBoardMenu"
-            aria-label="Import/Export" i18n-aria-label matTooltip="Upload/Download" i18n-matTooltip>
-      <mat-icon>import_export</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Delete this Board" i18n-aria-label (click)="deleteBoard(board)" *ngIf="board" matTooltip="Delete this Board" i18n-matTooltip>
-      <mat-icon>delete</mat-icon>
-    </button>
+    <div></div>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
@@ -29,15 +18,30 @@
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [opened]="!mobileQuery.matches">
       <div class="builder-sidenav-section">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
+
+
+        <div fxLayout="row" fxLayoutAlign="space-between center" (dblclick)="editBoardSet()">
           <h3>{{boardSet.name}}</h3>
-          <button mat-icon-button (click)="addBoard()" matTooltip="Add Board" i18n-matTooltip aria-label="Add Board" i18n-aria-label>
-            <mat-icon>add</mat-icon>
+          <button mat-button mat-icon-button
+                  [matMenuTriggerFor]="matBoardSetMenu"
+                  matTooltip="Board Set Actions" matTooltipPosition="right"
+                  (click)="$event.stopPropagation()"
+          >
+            <mat-icon>more_vert</mat-icon>
           </button>
         </div>
+
+
       </div>
 
       <app-board-tree *ngIf="boardSet" [boards]="boardSet.boards" [selectedBoard]="board" (selectionChange)="selectBoard($event)"></app-board-tree>
+
+      <div style="text-align: right; padding: 0 16px">
+        <button mat-icon-button (click)="addBoard()" matTooltip="Add Board" matTooltipPosition="right" i18n-matTooltip aria-label="Add Board" i18n-aria-label>
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+
 
     </mat-sidenav>
 
@@ -55,19 +59,21 @@
   </mat-sidenav-container>
 </div>
 
-<mat-menu #matBoardMenu="matMenu">
-  <button mat-menu-item (click)="downloadBoard(board)">
-    <mat-icon>save_alt</mat-icon> <ng-container i18n>Download Board as OBF</ng-container>
-  </button>
-  <button *ngIf="board" mat-menu-item (click)="generatePdf()">
-    <mat-icon>picture_as_pdf</mat-icon> Print or Download Board as PDF
-
-  </button>
-  <mat-divider></mat-divider>
+<mat-menu #matBoardSetMenu="matMenu">
   <button mat-menu-item (click)="uploadBoardObf(board)">
     <mat-icon>insert_drive_file</mat-icon> <ng-container i18n>Add Board from OBF</ng-container>
   </button>
   <button mat-menu-item (click)="downloadBoardSetObz()">
     <mat-icon>save_alt</mat-icon> <ng-container i18n>Download Board Set as OBZ</ng-container>
+  </button>
+
+  <mat-divider></mat-divider>
+
+  <button mat-menu-item (click)="null">
+    <mat-icon>delete</mat-icon> Delete
+  </button>
+
+  <button mat-menu-item (click)="editBoardSet()">
+    <mat-icon>edit</mat-icon> Properties
   </button>
 </mat-menu>

@@ -2,9 +2,9 @@
      cdkDragRootElement=".cdk-overlay-pane"
      cdkDragBoundary="body"
 >
-  <header fxLayout="row" fxLayoutAlign="space-between center">
-    <h1 mat-dialog-title i18n>Board Properties</h1>
-    <button mat-icon-button aria-label="Close the cell editor" [mat-dialog-close]="false">
+  <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
+    <h1 mat-dialog-title i18n class="mb-0">Board Properties</h1>
+    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false">
       <mat-icon>close</mat-icon>
     </button>
   </header>
@@ -13,7 +13,9 @@
   <div mat-dialog-content>
     <mat-form-field class="w-100">
       <mat-label i18n>Title</mat-label>
-      <input matInput required [(ngModel)]="data.board.title">
+      <input matInput required
+             [(ngModel)]="data.board.title"
+             (mousedown)="$event.stopPropagation()">
     </mat-form-field>
 
     <mat-form-field class="w-100">
@@ -34,7 +36,8 @@
       [thumbLabel]="true"
       [tickInterval]="1"
       [(ngModel)]="data.board.columns"
-      (change)="data.board.populateCells()">
+      (change)="data.board.populateCells()"
+      (mousedown)="$event.stopPropagation()">
     </mat-slider>
 
     <mat-label i18n>Rows</mat-label>
@@ -46,7 +49,8 @@
       [thumbLabel]="true"
       [tickInterval]="1"
       [(ngModel)]="data.board.rows"
-      (change)="data.board.populateCells()">
+      (change)="data.board.populateCells()"
+      (mousedown)="$event.stopPropagation()">
     </mat-slider>
 
   </div>
