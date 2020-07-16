@@ -1,7 +1,6 @@
 import {Deserialisable} from './deserialisable.model';
-import * as uuid from 'uuid';
 import {Board} from './board.model';
-import {DatePipe} from '@angular/common';
+import {DatePipe, Time} from '@angular/common';
 import {Record} from '@data/models/record';
 
 export class BoardSet extends Record implements Deserialisable {
@@ -9,6 +8,8 @@ export class BoardSet extends Record implements Deserialisable {
     public uuid: string;
     public name: string;
     public boards = Array<Board>();
+    opened_at: Date;
+
 
     constructor(init?: Partial<BoardSet>) {
       super();

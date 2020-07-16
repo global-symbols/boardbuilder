@@ -40,7 +40,9 @@
       <mat-card-content>
         <div fxLayout="column" fxLayoutAlign="space-between none">
           {{boardSet.boards.length}} Boards
-          {{boardSet.updated_at | timeago:false}} Boards
+          <br/>
+          <ng-container *ngIf="boardSet.opened_at">Opened {{boardSet.opened_at.toString() | amTimeAgo}}</ng-container>
+          <ng-container *ngIf="!boardSet.opened_at">Never Opened</ng-container>
 
           <div fxLayout="row">
             <div fxFlex="50">

@@ -78,6 +78,10 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
       this.boardSet = bs;
 
+      // Update the opened_at date
+      this.boardSet.opened_at = new Date();
+      this.boardSetService.update(this.boardSet);
+
       // If there are any Boards, select the first one.
       if (this.boardSet.boards.length > 0) {
         this.selectBoard(this.boardSet.boards[0]);
