@@ -9,7 +9,7 @@ import { saveAs } from 'file-saver';
 @Component({
   selector: 'app-board-tree-item',
   templateUrl: './board-tree-item.component.html',
-  styleUrls: ['./board-tree-item.component.css']
+  styleUrls: ['./board-tree-item.component.scss']
 })
 export class BoardTreeItemComponent {
 

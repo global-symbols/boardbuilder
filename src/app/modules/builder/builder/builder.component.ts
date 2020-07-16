@@ -95,6 +95,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     })).subscribe(board => {
       this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
         this.boardSet = bs;
+        this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
       });
     });
   }
