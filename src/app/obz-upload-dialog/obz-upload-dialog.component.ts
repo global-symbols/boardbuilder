@@ -33,9 +33,9 @@ export class ObzUploadDialogComponent implements OnInit {
         }
 
         // Try to open the manifest file
-        zip.file('manifest.json').async('string').then(manifest => {
+        zip.file('manifest.json').async('string').then(data => {
 
-          manifest = JSON.parse(manifest);
+          const manifest: any = JSON.parse(data);
 
           // Create a new BoardSet using the OBZ filename as the title
           this.boardSet = new BoardSet({title: this.filename});
@@ -48,7 +48,7 @@ export class ObzUploadDialogComponent implements OnInit {
             // The key is the ID of the OBF, used for referencing when linking Boards.
             const obfId = board[0];
             // The value is the OBF path and filename within the zip file.
-            const obfFilename = board[1];
+            const obfFilename = board[1].toString();
 
             // Check the OBF file exists within the zip.
             if (!zip.file(obfFilename)) {
