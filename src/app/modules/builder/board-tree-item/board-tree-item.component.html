@@ -1,4 +1,5 @@
 <mat-list-item (click)="selectChange.emit(board)"
+               (dblclick)="edit()"
                [style.padding-left]="level + 'em'"
                [class.board-tree-item-selected]="selectedBoard === board"
 
@@ -25,16 +26,6 @@
 <mat-menu #boardMenu="matMenu">
   <ng-template matMenuContent>
 
-    <button mat-menu-item (click)="edit()">
-      <mat-icon>edit</mat-icon> Properties
-    </button>
-
-    <button mat-menu-item (click)="delete()">
-      <mat-icon>delete</mat-icon> Delete
-    </button>
-
-    <mat-divider></mat-divider>
-
     <button mat-menu-item (click)="download()">
       <mat-icon>save_alt</mat-icon> Download as OBF
     </button>
@@ -43,5 +34,14 @@
       <mat-icon>picture_as_pdf</mat-icon> Download/Print PDF
     </button>
 
+    <mat-divider></mat-divider>
+
+    <button mat-menu-item (click)="delete()">
+      <mat-icon>delete</mat-icon> Delete
+    </button>
+
+    <button mat-menu-item (click)="edit()">
+      <mat-icon>edit</mat-icon> Properties
+    </button>
   </ng-template>
 </mat-menu>

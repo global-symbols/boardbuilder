@@ -5,6 +5,9 @@
 }
 
 mat-list-item {
+
+  user-select: none;
+
   mat-icon {
     opacity: 0.4;
   }
