@@ -32,6 +32,7 @@ export class AuthService {
 
   private navigateToLoginPage() {
     // TODO: Remember current URL
+    console.log('navigating to login page');
     this.router.navigateByUrl('/should-login');
   }
 
@@ -43,6 +44,7 @@ export class AuthService {
     this.oauthService.events.subscribe(event => {
       if (event instanceof OAuthErrorEvent) {
         console.error(event);
+        // this.isDoneLoadingSubject$.next(true);
       } else {
         console.warn(event);
       }
@@ -65,15 +67,18 @@ export class AuthService {
       }
     });
 
+    // Keep isAuthenticatedSubject$ up to date on all oauth events
     this.oauthService.events
       .subscribe(_ => {
         this.isAuthenticatedSubject$.next(this.oauthService.hasValidAccessToken());
       });
 
+    // When a token is received, loadUserProfile().
     this.oauthService.events
       .pipe(filter(e => ['token_received'].includes(e.type)))
       .subscribe(e => this.oauthService.loadUserProfile());
 
+    // When the user logs out or there is a problem with the oauth session, redirect to the login page
     this.oauthService.events
       .pipe(filter(e => ['session_terminated', 'session_error'].includes(e.type)))
       .subscribe(e => this.navigateToLoginPage());
@@ -94,7 +99,7 @@ export class AuthService {
     return this.oauthService.loadDiscoveryDocument()
 
       // For demo purposes, we pretend the previous call was very slow
-      .then(() => new Promise(resolve => setTimeout(() => resolve(), 1000)))
+      // .then(() => new Promise(resolve => setTimeout(() => resolve(), 2000)))
 
       // 1. HASH LOGIN:
       // Try to log in via hash fragment after redirect back
@@ -112,6 +117,7 @@ export class AuthService {
         return this.oauthService.silentRefresh()
           .then(() => Promise.resolve())
           .catch(result => {
+
             // Subset of situations from https://openid.net/specs/openid-connect-core-1_0.html#AuthError
             // Only the ones where it's reasonably sure that sending the
             // user to the IdServer will help.
@@ -139,13 +145,13 @@ export class AuthService {
               return Promise.resolve();
             }
 
-            // We can't handle the truth, just pass on the problem to the
-            // next handler.
+            // We can't handle the truth, just pass on the problem to the next handler.
             return Promise.reject(result);
           });
       })
 
       .then(() => {
+        console.log('final then');
         this.isDoneLoadingSubject$.next(true);
 
         // Check for the strings 'undefined' and 'null' just to be sure. Our current
@@ -169,7 +175,7 @@ export class AuthService {
     this.oauthService.initLoginFlow(targetUrl || this.router.url);
   }
 
-  public logout() { this.oauthService.logOut(); }
+  public logout() { this.oauthService.revokeTokenAndLogout(); }
   public refresh() { this.oauthService.silentRefresh(); }
   public hasValidToken() { return this.oauthService.hasValidAccessToken(); }
 

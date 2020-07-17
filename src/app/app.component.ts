@@ -22,7 +22,7 @@ export class AppComponent {
     this.isDoneLoading = this.authService.isDoneLoading$;
     this.canActivateProtectedRoutes = this.authService.canActivateProtectedRoutes$;
 
-    this.authService.runInitialLoginSequence();
+    this.authService.runInitialLoginSequence().then();
   }
 
   login() { this.authService.login(); }

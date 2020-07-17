@@ -6,6 +6,7 @@ import {AuthService} from '@app/services/auth.service';
 import {authModuleConfig} from '@app/auth.module.config';
 import {AuthGuard} from '@app/services/auth-guard.service';
 import {AuthGuardWithForcedLogin} from '@app/services/auth-guard-with-forced-login.service';
+import { ShouldLoginComponent } from './components/should-login/should-login.component';
 
 // We need a factory since localStorage is not available at AOT build time
 export function storageFactory(): OAuthStorage {
@@ -22,6 +23,7 @@ export function storageFactory(): OAuthStorage {
     AuthGuard,
     AuthGuardWithForcedLogin,
   ],
+  declarations: [ShouldLoginComponent],
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders<CoreModule> {

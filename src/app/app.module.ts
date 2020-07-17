@@ -40,6 +40,7 @@ import { ContentLayoutComponent } from './layout/content-layout/content-layout.c
 import { NavComponent } from './layout/nav/nav.component';
 import {SharedModule} from '@shared/shared.module';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {ShouldLoginComponent} from '@app/components/should-login/should-login.component';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -69,14 +70,18 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'should-login',
+    component: ShouldLoginComponent
+  },
+  {
     path: '',
     component: ContentLayoutComponent,
     // canActivate: [NoAuthGuard], // Should be replaced with actual auth guard
     children: [
-      { path: '',
-        loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule),
-        pathMatch: 'full'
-      },
+      // { path: '',
+      //   loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule),
+      //   pathMatch: 'full'
+      // },
       {
         path: 'dashboard',
         loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule)
