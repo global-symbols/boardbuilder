@@ -39,4 +39,6 @@ export const authConfig: AuthConfig = {
     silentRefreshRedirectUri: window.location.origin + '/silent-refresh.html',
     silentRefreshTimeout: 10000, // For faster testing
     timeoutFactor: 0.8, // For faster testing
+
+    // logoutUrl: 'http://localhost:3000/users/sign_out',
 };

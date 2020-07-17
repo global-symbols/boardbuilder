@@ -41,6 +41,8 @@ import { NavComponent } from './layout/nav/nav.component';
 import {SharedModule} from '@shared/shared.module';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {ShouldLoginComponent} from '@app/components/should-login/should-login.component';
+import {AuthGuard} from '@app/auth.guard';
+import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -61,22 +63,26 @@ const dbConfig: DBConfig  = {
 };
 
 const appRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: '/auth/login',
+    pathMatch: 'full',
+  },
+
   // { path: 'local-boardsets',      component: LocalBoardsetListComponent },
   // { path: 'local-boardsets/:id',  component: BuilderComponent },
   // { path: 'local-boardsets/:boardset_id/:board_id/pdf', loadChildren: () => import('./pdf/pdf.module').then(m => m.PdfModule) },
   {
-    path: '',
-    loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule),
-    pathMatch: 'full'
-  },
-  {
-    path: 'should-login',
-    component: ShouldLoginComponent
+    path: 'auth',
+    component: AuthLayoutComponent,
+    loadChildren: () =>
+      import('@modules/auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: '',
     component: ContentLayoutComponent,
-    // canActivate: [NoAuthGuard], // Should be replaced with actual auth guard
+    canActivate: [AuthGuard], // Should be replaced with actual auth guard
+    // canActivateChild: [AuthGuard],
     children: [
       // { path: '',
       //   loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule),
@@ -96,7 +102,7 @@ const appRoutes: Routes = [
       }
     ]
   },
-  { path: '**', redirectTo: '/dashboard' }
+  { path: '**', redirectTo: '/auth/login', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -108,7 +114,8 @@ const appRoutes: Routes = [
     ObfUploadDialogComponent,
     ObzUploadDialogComponent,
     ContentLayoutComponent,
-    NavComponent
+    NavComponent,
+    AuthLayoutComponent
   ],
   imports: [
     BrowserModule,

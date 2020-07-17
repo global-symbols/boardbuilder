@@ -7,6 +7,12 @@ import {authModuleConfig} from '@app/auth.module.config';
 import {AuthGuard} from '@app/services/auth-guard.service';
 import {AuthGuardWithForcedLogin} from '@app/services/auth-guard-with-forced-login.service';
 import { ShouldLoginComponent } from './components/should-login/should-login.component';
+import {CommonModule} from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatButtonModule} from '@angular/material/button';
+import {RouterModule} from '@angular/router';
 
 // We need a factory since localStorage is not available at AOT build time
 export function storageFactory(): OAuthStorage {
@@ -17,6 +23,12 @@ export function storageFactory(): OAuthStorage {
   imports: [
     HttpClientModule,
     OAuthModule.forRoot(),
+    CommonModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    FlexLayoutModule,
+    MatButtonModule,
+    RouterModule,
   ],
   providers: [
     AuthService,

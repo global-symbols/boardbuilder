@@ -32,8 +32,7 @@ export class AuthService {
 
   private navigateToLoginPage() {
     // TODO: Remember current URL
-    console.log('navigating to login page');
-    this.router.navigateByUrl('/should-login');
+    this.router.navigateByUrl('/auth/login');
   }
 
   constructor(
@@ -43,10 +42,9 @@ export class AuthService {
     // Useful for debugging:
     this.oauthService.events.subscribe(event => {
       if (event instanceof OAuthErrorEvent) {
-        console.error(event);
-        // this.isDoneLoadingSubject$.next(true);
+        // console.error(event);
       } else {
-        console.warn(event);
+        // console.warn(event);
       }
     });
 
@@ -151,7 +149,6 @@ export class AuthService {
       })
 
       .then(() => {
-        console.log('final then');
         this.isDoneLoadingSubject$.next(true);
 
         // Check for the strings 'undefined' and 'null' just to be sure. Our current

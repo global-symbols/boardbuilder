@@ -4,11 +4,11 @@ import {AuthService} from '@app/services/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-should-login',
-  templateUrl: './should-login.component.html',
-  styleUrls: ['./should-login.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class ShouldLoginComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   isDoneLoading: Observable<boolean>;
   canActivateProtectedRoutes: Observable<boolean>;
