@@ -63,15 +63,20 @@ const appRoutes: Routes = [
   // { path: 'local-boardsets',      component: LocalBoardsetListComponent },
   // { path: 'local-boardsets/:id',  component: BuilderComponent },
   // { path: 'local-boardsets/:boardset_id/:board_id/pdf', loadChildren: () => import('./pdf/pdf.module').then(m => m.PdfModule) },
-  // { path: '',
-  //   redirectTo: '/boardsets',
-  //   pathMatch: 'full'
-  // },
+  {
+    path: '',
+    loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule),
+    pathMatch: 'full'
+  },
   {
     path: '',
     component: ContentLayoutComponent,
     // canActivate: [NoAuthGuard], // Should be replaced with actual auth guard
     children: [
+      { path: '',
+        loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule),
+        pathMatch: 'full'
+      },
       {
         path: 'dashboard',
         loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule)
