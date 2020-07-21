@@ -4,8 +4,6 @@ import {authConfig} from '@app/auth.config';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from '@app/services/auth.service';
 import {authModuleConfig} from '@app/auth.module.config';
-import {AuthGuard} from '@app/services/auth-guard.service';
-import {AuthGuardWithForcedLogin} from '@app/services/auth-guard-with-forced-login.service';
 import { ShouldLoginComponent } from './components/should-login/should-login.component';
 import {CommonModule} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
@@ -32,8 +30,6 @@ export function storageFactory(): OAuthStorage {
   ],
   providers: [
     AuthService,
-    AuthGuard,
-    AuthGuardWithForcedLogin,
   ],
   declarations: [ShouldLoginComponent],
 })
