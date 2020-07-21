@@ -1,14 +1,4 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="boardSet">
-  <mat-toolbar color="primary" class="example-toolbar" fxLayout="row" fxLayoutAlign="space-between center">
-    <div>
-      <button mat-button [routerLink]="['/', 'boardsets']">
-        <mat-icon>arrow_back</mat-icon>
-        <ng-container i18n>Board Sets</ng-container></button>
-    </div>
-<!--    <h1 class="example-app-name">Global Symbols BoardBuilder</h1>-->
-    <a routerLink="/" style="line-height: 1rem;"><img src="assets/navbar-logo.svg" alt="Board Builder" style="max-height: 2.5rem;"></a>
-    <div></div>
-  </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0"

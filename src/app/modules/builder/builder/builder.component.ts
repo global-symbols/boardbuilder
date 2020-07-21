@@ -15,6 +15,7 @@ import {BoardService} from '@data/services/board.service';
 import {CellService} from '@data/services/cell.service';
 import {Cell} from '@data/models/cell.model';
 import {BoardsetEditorDialogComponent} from '../../../boardset-editor-dialog/boardset-editor-dialog.component';
+import {ToolbarService} from '@app/services/toolbar.service';
 
 @Component({
   selector: 'app-builder',
@@ -45,6 +46,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
               private boardService: BoardService,
               private cellService: CellService,
               private hotkeysService: HotkeysService,
+              private toolbarService: ToolbarService,
               public dialog: MatDialog,
               private route: ActivatedRoute,
               private router: Router
@@ -91,6 +93,12 @@ export class BuilderComponent implements OnInit, OnDestroy {
         }
       }
     });
+
+    this.toolbarService.setButtons([{
+      text: 'Board Sets',
+      icon: 'arrow_back',
+      routerLink: ['/', 'boardsets']
+    }]);
   }
 
   addBoard() {
@@ -111,6 +119,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this.mobileQueryListener);
+
+    this.toolbarService.clearButtons();
   }
 
   selectBoard(board?: Board) {

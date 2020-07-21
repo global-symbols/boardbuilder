@@ -1,5 +1,10 @@
 <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-  <div fxFlex="20">app-nav</div>
+  <div fxFlex="20">
+    <button mat-button [routerLink]="button.routerLink" *ngFor="let button of buttons$ | async">
+      <mat-icon *ngIf="button.icon">{{button.icon}}</mat-icon>
+      <ng-container>{{button.text}}</ng-container>
+    </button>
+  </div>
 
   <a routerLink="/" style="line-height: 1rem;" id="homeLink" alt="Board Builder"><img src="assets/navbar-logo.svg" alt="Board Builder" style="max-height: 2.5rem;"></a>
 

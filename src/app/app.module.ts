@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
 
+import { CommonModule } from '@angular/common';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
@@ -40,7 +41,6 @@ import { ContentLayoutComponent } from './layout/content-layout/content-layout.c
 import { NavComponent } from './layout/nav/nav.component';
 import {SharedModule} from '@shared/shared.module';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import {ShouldLoginComponent} from '@app/components/should-login/should-login.component';
 import {AuthGuard} from '@app/auth.guard';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 
@@ -120,6 +120,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CommonModule,
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
