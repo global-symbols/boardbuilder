@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {Observable} from 'rxjs';
 import {AuthService} from '@app/services/auth.service';
+import {NavigationEnd, Router} from '@angular/router';
+
+declare let googleAnalytics: any;
 
 @Component({
   selector: 'app-root',
@@ -17,12 +20,22 @@ export class AppComponent {
 
   constructor(
     private authService: AuthService,
+    private router: Router
   ) {
     this.isAuthenticated = this.authService.isAuthenticated$;
     this.isDoneLoading = this.authService.isDoneLoading$;
     this.canActivateProtectedRoutes = this.authService.canActivateProtectedRoutes$;
 
     this.authService.runInitialLoginSequence().then();
+
+    // Subscribe to Router Events
+    this.router.events.subscribe(event => {
+      // When a navigation is completed...
+      if (event instanceof NavigationEnd) {
+        // Push a pageview to Google Analytics.
+        googleAnalytics('config', 'UA-171526118-2', {page_path: event.urlAfterRedirects});
+      }
+    });
   }
 
   login() { this.authService.login(); }
