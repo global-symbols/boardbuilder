@@ -1,5 +1,4 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {LocalBoardSetService} from '@data/services/local-board-set.service';
 import {Board} from '@data/models/board.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -7,9 +6,9 @@ import {ImageBase64Service} from '@data/services/image-base64.service';
 import {HttpClient} from '@angular/common/http';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
-import {BoardSet} from '@data/models/boardset.model';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {Location} from '@angular/common';
+import {BoardService} from '@data/services/board.service';
 
 @Component({
   selector: 'app-pdf',
@@ -18,10 +17,27 @@ import {Location} from '@angular/common';
 })
 export class PdfComponent implements OnInit {
 
+  constructor(private boardService: BoardService,
+              private route: ActivatedRoute,
+              private router: Router,
+              private location: Location,
+              private sanitiser: DomSanitizer,
+              private imageBase64Service: ImageBase64Service,
+              private http: HttpClient,
+              private hotkeysService: HotkeysService) {
+    pdfMake.vfs = pdfFonts.pdfMake.vfs;
+    this.pdfMake = pdfMake;
+
+    // Keyboard shortcut - delete Board
+    this.hotkeysService.add(new Hotkey('escape', () => {
+      this.returnToBoard();
+      return false; // Prevent bubbling
+    }));
+  }
+
   generatingPdf = true;
   pdfReady = false;
 
-  boardSet: BoardSet;
   board: Board;
   pdfMake;
   pdfDefinition: object;
@@ -34,26 +50,25 @@ export class PdfComponent implements OnInit {
 
   @ViewChild('pdfFrame') pdfFrame: ElementRef;
 
-  constructor(private service: LocalBoardSetService,
-              private route: ActivatedRoute,
-              private router: Router,
-              private location: Location,
-              private sanitiser: DomSanitizer,
-              private imageBase64Service: ImageBase64Service,
-              private http: HttpClient,
-              private hotkeysService: HotkeysService) {
-    pdfMake.vfs = pdfFonts.pdfMake.vfs;
-    this.pdfMake = pdfMake;
+  // Converts a rgb(0,0,0) colour value into hex format.
+  private static rgbToHex(rgb) {
+    const parts = rgb.substring(rgb.indexOf('(')).split(',');
+    const r = parseInt(parts[0].substring(1).trim(), 10);
+    const g = parseInt(parts[1].trim(), 10);
+    const b = parseInt(parts[2].trim(), 10);
+    // const a = parseFloat(parts[3].substring(0, parts[3].length - 1).trim()).toFixed(2);
 
-    // Keyboard shortcut - delete Board
-    this.hotkeysService.add(new Hotkey('escape', (event: KeyboardEvent): boolean => {
-      this.returnToBoard();
-      return false; // Prevent bubbling
-    }));
+    return ('#' +
+      r.toString(16) +
+      g.toString(16) +
+      b.toString(16));
+      // (a * 255).toString(16).substring(0, 2));
   }
 
   ngOnInit() {
-    this.getBoard().then(bs => {
+    this.boardService.get(this.route.snapshot.paramMap.get('board_id'), 'cells').subscribe(board => {
+
+      this.board = board;
 
       if (!this.board) { return this.error('The Board could not be loaded.'); }
 
@@ -167,12 +182,12 @@ export class PdfComponent implements OnInit {
         // PDFMake can't handle rgb(0,0,0) values yet, so convert these to hex.
         let borderColour = cell.border_colour ? cell.border_colour : '#000000';
         if (cell.border_colour?.startsWith('rgb')) {
-          borderColour = this.rgbToHex(borderColour);
+          borderColour = PdfComponent.rgbToHex(borderColour);
         }
 
         let backgroundColour = cell.background_colour;
         if (cell.background_colour?.startsWith('rgb')) {
-          backgroundColour = this.rgbToHex(backgroundColour);
+          backgroundColour = PdfComponent.rgbToHex(backgroundColour);
         }
 
         const cellDefinition = {
@@ -269,37 +284,13 @@ export class PdfComponent implements OnInit {
     this.compiledPdf.download();
   }
 
-  private getBoard() {
-    return this.service.getBoardSet(this.route.snapshot.paramMap.get('boardset_id'))
-      .then(bs => {
-        this.boardSet = bs;
-        this.board = bs.findBoard(this.route.snapshot.paramMap.get('board_id'));
-      });
-  }
-
   returnToBoard() {
-    if (this.boardSet && this.board) {
-      this.router.navigate(['/', 'boardsets', this.boardSet.uuid], {
+    if (this.board) {
+      this.router.navigate(['/', 'boardsets', this.board.board_set_id], {
         queryParams: {board: this.board.uuid}
-      });
+      }).then();
     } else {
       this.location.back();
     }
-
-  }
-
-  // Converts a rgb(0,0,0) colour value into hex format.
-  private rgbToHex(rgb) {
-    const parts = rgb.substring(rgb.indexOf('(')).split(',');
-    const r = parseInt(parts[0].substring(1).trim(), 10);
-    const g = parseInt(parts[1].trim(), 10);
-    const b = parseInt(parts[2].trim(), 10);
-    // const a = parseFloat(parts[3].substring(0, parts[3].length - 1).trim()).toFixed(2);
-
-    return ('#' +
-      r.toString(16) +
-      g.toString(16) +
-      b.toString(16));
-      // (a * 255).toString(16).substring(0, 2));
   }
 }

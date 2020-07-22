@@ -22,7 +22,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 import {HotkeyModule} from 'angular2-hotkeys';
 import {FormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -46,21 +45,6 @@ import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component'
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
-
-const dbConfig: DBConfig  = {
-  name: 'BoardBuilder',
-  version: 1,
-  objectStoresMeta: [{
-    store: 'boardsets',
-    storeConfig: { keyPath: 'localId', autoIncrement: true },
-    storeSchema: [
-      { name: 'gs_id', keypath: 'gs_id', options: { unique: true } },
-      { name: 'uuid', keypath: 'uuid', options: { unique: true } },
-      { name: 'title', keypath: 'title', options: { unique: false } },
-      { name: 'boards', keypath: 'title', options: { unique: false } },
-    ]
-  }],
-};
 
 const appRoutes: Routes = [
   {
@@ -128,7 +112,6 @@ const appRoutes: Routes = [
     MatListModule,
     RouterModule,
     MatGridListModule,
-    NgxIndexedDBModule.forRoot(dbConfig),
     MatCardModule,
     HotkeyModule.forRoot(),
     FormsModule,
