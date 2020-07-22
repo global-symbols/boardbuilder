@@ -48,7 +48,7 @@
   </mat-sidenav-container>
 
   <div id="leftSidebarToggler" [class.open]="snav.opened">
-    <button [class.mat-elevation-z2]="true" mat-mini-fab color="primary" (click)="snav.toggle()" [matTooltip]="(snav.opened ? 'Hide' : 'Show') + ' Boards Panel'" matTooltipPosition="right">
+    <button mat-mini-fab color="primary" (click)="snav.toggle()" [matTooltip]="(snav.opened ? 'Hide' : 'Show') + ' Boards Panel'" matTooltipPosition="right" class="mat-elevation-z2">
       <mat-icon>chevron_right</mat-icon>
     </button>
   </div>
