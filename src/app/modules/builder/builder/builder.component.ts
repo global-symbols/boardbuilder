@@ -14,7 +14,7 @@ import {BoardSetService} from '@data/services/board-set.service';
 import {BoardService} from '@data/services/board.service';
 import {CellService} from '@data/services/cell.service';
 import {Cell} from '@data/models/cell.model';
-import {BoardsetEditorDialogComponent} from '../../../boardset-editor-dialog/boardset-editor-dialog.component';
+import {BoardSetEditorDialogComponent} from '../board-set-editor-dialog/board-set-editor-dialog.component';
 import {ToolbarService} from '@app/services/toolbar.service';
 
 @Component({
@@ -178,7 +178,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   editBoardSet() {
     if (this.currentDialogRef !== undefined) { return; }
 
-    this.currentDialogRef = this.dialog.open(BoardsetEditorDialogComponent, {
+    this.currentDialogRef = this.dialog.open(BoardSetEditorDialogComponent, {
       width: '300px',
       data: { boardSet: this.boardSet }
     });

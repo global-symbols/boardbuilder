@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BoardsetEditorDialogComponent } from './boardset-editor-dialog.component';
+import { BoardSetEditorDialogComponent } from './board-set-editor-dialog.component';
 
 describe('BoardsetEditorDialogComponent', () => {
-  let component: BoardsetEditorDialogComponent;
-  let fixture: ComponentFixture<BoardsetEditorDialogComponent>;
+  let component: BoardSetEditorDialogComponent;
+  let fixture: ComponentFixture<BoardSetEditorDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoardsetEditorDialogComponent ]
+      declarations: [ BoardSetEditorDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BoardsetEditorDialogComponent);
+    fixture = TestBed.createComponent(BoardSetEditorDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

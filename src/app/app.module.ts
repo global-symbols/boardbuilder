@@ -27,7 +27,6 @@ import {FormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {BoardsetEditorDialogComponent} from './boardset-editor-dialog/boardset-editor-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {ObfUploadDialogComponent} from './obf-upload-dialog/obf-upload-dialog.component';
 import {ObzUploadDialogComponent} from './obz-upload-dialog/obz-upload-dialog.component';
@@ -50,10 +49,6 @@ const appRoutes: Routes = [
     redirectTo: '/auth/login',
     pathMatch: 'full',
   },
-
-  // { path: 'local-boardsets',      component: LocalBoardsetListComponent },
-  // { path: 'local-boardsets/:id',  component: BuilderComponent },
-  // { path: 'local-boardsets/:boardset_id/:board_id/pdf', loadChildren: () => import('./pdf/pdf.module').then(m => m.PdfModule) },
   {
     path: 'auth',
     component: AuthLayoutComponent,
@@ -66,10 +61,6 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard], // Should be replaced with actual auth guard
     // canActivateChild: [AuthGuard],
     children: [
-      // { path: '',
-      //   loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule),
-      //   pathMatch: 'full'
-      // },
       {
         path: 'dashboard',
         loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule)
@@ -90,7 +81,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    BoardsetEditorDialogComponent,
     ObfUploadDialogComponent,
     ObzUploadDialogComponent,
     ContentLayoutComponent,

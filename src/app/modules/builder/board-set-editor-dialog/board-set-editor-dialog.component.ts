@@ -8,10 +8,10 @@ export interface BoardsetEditorDialogData {
 
 @Component({
   selector: 'app-boardset-editor-dialog',
-  templateUrl: './boardset-editor-dialog.component.html',
-  styleUrls: ['./boardset-editor-dialog.component.scss']
+  templateUrl: './board-set-editor-dialog.component.html',
+  styleUrls: ['./board-set-editor-dialog.component.scss']
 })
-export class BoardsetEditorDialogComponent implements OnInit {
+export class BoardSetEditorDialogComponent implements OnInit {
 
   @Input() boardSet: BoardSet;
   @Output() boardSetChange = new EventEmitter<BoardSet>();

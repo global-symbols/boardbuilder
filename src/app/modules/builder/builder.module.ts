@@ -31,6 +31,7 @@ import {BoardEditorDialogComponent} from './board-editor-dialog/board-editor-dia
 import {MatDialogModule} from '@angular/material/dialog';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatSliderModule} from '@angular/material/slider';
+import {BoardSetEditorDialogComponent} from './board-set-editor-dialog/board-set-editor-dialog.component';
 
 export const routes: Routes = [
   {
@@ -49,7 +50,8 @@ export const routes: Routes = [
     BoardTreeItemComponent,
     BoardDetailComponent,
     SymbolSearchPanelComponent,
-    BoardEditorDialogComponent
+    BoardEditorDialogComponent,
+    BoardSetEditorDialogComponent
   ],
   imports: [
     CommonModule,
