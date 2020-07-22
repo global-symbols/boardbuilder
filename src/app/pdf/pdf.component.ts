@@ -198,13 +198,13 @@ export class PdfComponent implements OnInit {
           style: 'imageCell'
         };
 
-        if (this.board.defaultCellFormat.labelPosition === 'top') {
+        if (this.board.captions_position === 'above') {
           cellDefinition.stack.push(textDefinition);
         }
 
         cellDefinition.stack.push(imageDefinition);
 
-        if (this.board.defaultCellFormat.labelPosition === 'bottom') {
+        if (this.board.captions_position === 'below') {
           cellDefinition.stack.push(textDefinition);
         }
 

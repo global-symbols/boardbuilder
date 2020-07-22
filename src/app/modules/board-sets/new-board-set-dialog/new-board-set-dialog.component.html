@@ -1,0 +1,53 @@
+<div cdkDrag
+     cdkDragRootElement=".cdk-overlay-pane"
+     cdkDragBoundary="body"
+>
+
+  <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
+    <h1 mat-dialog-title i18n class="mb-0">Create Board Set</h1>
+    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false"
+            (mousedown)="$event.stopPropagation()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <div mat-dialog-content>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label i18n>Board Set Name</mat-label>
+      <input matInput required placeholder="Name" cdkFocusInitial
+             [formControl]="name"
+             (mousedown)="$event.stopPropagation()">
+    </mat-form-field>
+
+    <mat-label i18n>{{columns.value}} Columns</mat-label>
+    <mat-slider
+      class="w-100"
+      [max]="12"
+      [min]="1"
+      [step]="1"
+      [thumbLabel]="true"
+      [tickInterval]="1"
+      [formControl]="columns"
+      (mousedown)="$event.stopPropagation()">
+    </mat-slider>
+
+    <mat-label i18n>{{rows.value}} Rows</mat-label>
+    <mat-slider
+      class="w-100"
+      [max]="12"
+      [min]="1"
+      [step]="1"
+      [thumbLabel]="true"
+      [tickInterval]="1"
+      [formControl]="rows"
+      (mousedown)="$event.stopPropagation()">
+    </mat-slider>
+
+
+  </div>
+  <div mat-dialog-actions>
+    <span class="spacer"></span>
+    <button mat-raised-button (click)="create()" color="primary" i18n
+            (mousedown)="$event.stopPropagation()">Create</button>
+  </div>
+</div>

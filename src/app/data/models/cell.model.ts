@@ -14,7 +14,12 @@ export class Cell extends Record implements Deserialisable {
     border_colour: string;
     text_colour: string;
 
-    deserialise(input: any): this {
+    constructor(init?: Partial<Cell>) {
+      super();
+      this.deserialise(init);
+    }
+
+    deserialise(input: Partial<Cell>): this {
         const object = Object.assign(this, input);
         if (object.board) { this.board = new Board().deserialise(object.board); }
         return this;

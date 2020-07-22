@@ -9,6 +9,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MomentModule} from 'ngx-moment';
+import { NewBoardSetDialogComponent } from './new-board-set-dialog/new-board-set-dialog.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatSliderModule} from '@angular/material/slider';
 
 export const routes: Routes = [
   {
@@ -21,6 +27,7 @@ export const routes: Routes = [
 @NgModule({
   declarations: [
     BoardSetsComponent,
+    NewBoardSetDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +38,13 @@ export const routes: Routes = [
     MatButtonModule,
     MatCardModule,
     MatGridListModule,
-    MomentModule
+    MomentModule,
+    DragDropModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSliderModule
   ]
 })
 export class BoardSetsModule { }

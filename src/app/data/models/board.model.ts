@@ -14,26 +14,17 @@ export class Board extends Record implements Deserialisable {
   columns: number;
   cells: Array<Cell>;
   captions_position: string;
-  defaultCellFormat: CellFormat;
 
   constructor(init?: Partial<Board>) {
       super();
-      this.rows = 3;
-      this.columns = 4;
-      this.name = 'New Board';
-      this.uuid = uuid.v4();
-      this.defaultCellFormat = new CellFormat();
-
-      Object.assign(this, init);
-
-      this.cells = Array<Cell>();
-
+      this.cells = new Array<Cell>();
+      if (init) { this.deserialise(init); }
       this.populateCells();
   }
 
-  deserialise(input: any): this {
+  deserialise(input: Partial<Board>): this {
     const object = Object.assign(this, input);
-    this.cells = object.cells.map(cell => new Cell().deserialise(cell));
+    if (input.cells) { this.cells = input.cells.map(cell => new Cell().deserialise(cell)); }
     return this;
   }
 

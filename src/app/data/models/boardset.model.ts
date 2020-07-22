@@ -1,6 +1,5 @@
 import {Deserialisable} from './deserialisable.model';
 import {Board} from './board.model';
-import {DatePipe, Time} from '@angular/common';
 import {Record} from '@data/models/record';
 
 export class BoardSet extends Record implements Deserialisable {
@@ -13,11 +12,12 @@ export class BoardSet extends Record implements Deserialisable {
 
     constructor(init?: Partial<BoardSet>) {
       super();
+      this.deserialise(init);
     }
 
-    deserialise(input: any): this {
+    deserialise(input: Partial<BoardSet>): this {
       const object = Object.assign(this, input);
-      this.boards = object.boards.map(board => new Board().deserialise(board));
+      if (object.boards) { this.boards = object.boards.map(board => new Board().deserialise(board)); }
       return this;
     }
 
