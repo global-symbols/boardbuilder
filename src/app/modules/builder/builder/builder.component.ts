@@ -6,7 +6,6 @@ import { MatDialog } from '@angular/material/dialog';
 import {BoardSet} from '@data/models/boardset.model';
 import { saveAs } from 'file-saver';
 import {ActivatedRoute, Router} from '@angular/router';
-import {interval, Observable, Subscription} from 'rxjs';
 import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
 import {ObfUploadDialogComponent} from '../../../obf-upload-dialog/obf-upload-dialog.component';
 import {BoardEditorDialogComponent} from '../board-editor-dialog/board-editor-dialog.component';
@@ -38,8 +37,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
   private editDialogRef;
   private currentDialogRef;
 
-  private saveTimer: Subscription;
-
   constructor(changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
               private boardSetService: BoardSetService,
@@ -57,7 +54,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     // Keyboard shortcut - delete Board
     this.hotkeysService.add(new Hotkey('backspace', (event: KeyboardEvent): boolean => {
-      this.deleteBoard(this.board);
+      if(this.board) { this.deleteBoard(this.board); }
       return false; // Prevent bubbling
     }));
 
@@ -68,7 +65,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     }));
     // Keyboard shortcut - edit Board
     this.hotkeysService.add(new Hotkey('e', (event: KeyboardEvent): boolean => {
-      this.editBoard(this.board);
+      if(this.board) { this.editBoard(this.board); }
       return false; // Prevent bubbling
     }));
   }
@@ -128,7 +125,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   selectBoard(board?: Board) {
     this.board = board;
     this.selectedCell = undefined;
-    this.updateBoardSet().subscribe(r => null);
+    // this.updateBoardSet().subscribe(r => null);
   }
 
   deleteBoard(board: Board) {
@@ -148,7 +145,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
         this.boardService.delete(board).subscribe(r => {
           this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
             this.boardSet = bs;
-            this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+            if (this.boardSet.boards.length > 0) {
+              this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+            }
           });
         });
       }
