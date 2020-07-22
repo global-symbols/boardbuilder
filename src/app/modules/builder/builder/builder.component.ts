@@ -104,7 +104,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
   addBoard() {
     this.boardService.add(new Board({
       name: 'Board ' + (this.boardSet.boards.length + 1),
-      board_set_id: this.boardSet.id
+      board_set_id: this.boardSet.id,
+      rows: this.board?.rows,
+      columns: this.board?.columns
     })).subscribe(board => {
       this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
         this.boardSet = bs;
