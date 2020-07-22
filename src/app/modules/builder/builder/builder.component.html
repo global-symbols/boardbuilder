@@ -10,7 +10,7 @@
 
 
         <div fxLayout="row" fxLayoutAlign="space-between center" (dblclick)="editBoardSet()">
-          <h3>{{boardSet.name}}</h3>
+          <h3 id="boardSetName">{{boardSet.name}}</h3>
           <button mat-button mat-icon-button
                   [matMenuTriggerFor]="matBoardSetMenu"
                   matTooltip="Board Set Actions" matTooltipPosition="right"

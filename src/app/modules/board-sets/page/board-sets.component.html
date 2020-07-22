@@ -1,42 +1,36 @@
-<div class="container">
+<div class="container mt-3">
 
-  <div fxLayout="row">
-    <mat-card fxFlex="25" style="margin: 1rem;">
-      <mat-card-actions fxFlex fxLayout="column">
-        <button fxFlex mat-flat-button color="primary" i18n (click)="newBoardSet()">New Board Set</button>
-        <button mat-flat-button color="primary" i18n class="mt-1">Import OBF/OBZ</button>
-      </mat-card-actions>
-    </mat-card>
+<!--  <div gdAuto gdColumns="4">-->
+  <div fxLayout="row wrap" fxLayoutGap="1rem grid">
+    <div fxFlex="25">
+      <mat-card fxFlexFill>
+        <mat-card-actions fxFlex fxLayout="column">
+          <button fxFlex mat-flat-button color="primary" i18n (click)="newBoardSet()">New Board Set</button>
+          <button mat-flat-button color="primary" i18n class="mt-1">Import OBF/OBZ</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
 
-    <mat-card *ngFor="let boardSet of boardSets | async" fxFlex="25" style="margin: 1rem;">
-      <mat-card-header>
-        <mat-card-title>{{boardSet.name}}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div fxLayout="column" fxLayoutAlign="space-between none">
-          {{boardSet.boards.length}} Boards
-          <br/>
-          <ng-container *ngIf="boardSet.opened_at">Opened {{boardSet.opened_at.toString() | amTimeAgo}}</ng-container>
-          <ng-container *ngIf="!boardSet.opened_at">Never Opened</ng-container>
+    <div fxFlex="25" *ngFor="let boardSet of boardSets | async" >
+      <mat-card fxFlexFill fxLayout="column">
+        <mat-card-header fxFlex="grow">
+          <mat-card-title>{{boardSet.name}}</mat-card-title>
+        </mat-card-header>
 
-          <div fxLayout="row">
-            <div fxFlex="50">
-              <button mat-icon-button i18n-aria-label aria-label="Delete this Board Set" (click)="null" *ngIf="boardSet" i18n-matTooltip matTooltip="Delete this Board Set">
-                <mat-icon>delete</mat-icon>
-              </button>
-              <button mat-icon-button (click)="null" i18n-matTooltip matTooltip="Edit this Board Set" i18n-aria-label aria-label="Edit this Board Set"><mat-icon>edit</mat-icon>
-              </button>
-            </div>
-
-
+        <mat-card-content>
+          <div fxLayout="column" fxLayoutAlign="space-between none">
+            {{boardSet.boards.length}} Boards
+            <br/>
+            <ng-container *ngIf="boardSet.opened_at">Opened {{boardSet.opened_at.toString() | amTimeAgo}}</ng-container>
+            <ng-container *ngIf="!boardSet.opened_at">Never Opened</ng-container>
           </div>
-        </div>
-      </mat-card-content>
+        </mat-card-content>
 
-      <mat-card-actions>
-        <button fxFlex mat-flat-button color="primary" [routerLink]="boardSet.id.toString()" i18n>Open</button>
-      </mat-card-actions>
-    </mat-card>
+        <mat-card-actions>
+          <button fxFlex mat-flat-button color="primary" [routerLink]="boardSet.id.toString()" i18n>Open</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
 
 </div>

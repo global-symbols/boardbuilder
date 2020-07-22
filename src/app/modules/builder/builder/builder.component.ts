@@ -54,7 +54,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     // Keyboard shortcut - delete Board
     this.hotkeysService.add(new Hotkey('backspace', (event: KeyboardEvent): boolean => {
-      if(this.board) { this.deleteBoard(this.board); }
+      if (this.board) { this.deleteBoard(this.board); }
       return false; // Prevent bubbling
     }));
 
@@ -65,7 +65,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     }));
     // Keyboard shortcut - edit Board
     this.hotkeysService.add(new Hotkey('e', (event: KeyboardEvent): boolean => {
-      if(this.board) { this.editBoard(this.board); }
+      if (this.board) { this.editBoard(this.board); }
       return false; // Prevent bubbling
     }));
   }
@@ -78,14 +78,12 @@ export class BuilderComponent implements OnInit, OnDestroy {
       this.boardSet = bs;
 
       // Update the opened_at date
-      this.boardSet.opened_at = new Date();
-      this.boardSetService.update(this.boardSet);
+      this.boardSetService.touch(this.boardSet).subscribe();
 
       // If there are any Boards, select the first one.
       if (this.boardSet.boards.length > 0) {
         this.selectBoard(this.boardSet.boards[0]);
         if (this.route.snapshot.queryParams.board) {
-          console.log('selecting board ', this.route.snapshot.queryParams.board);
           this.selectBoard(this.boardSet.findBoard(this.route.snapshot.queryParams.board));
         }
       }

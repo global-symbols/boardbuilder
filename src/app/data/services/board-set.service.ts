@@ -24,17 +24,30 @@ export class BoardSetService {
       .pipe(map(data => new BoardSet().deserialise(data)));
   }
 
-  add(record: BoardSet) {
+  add(record: BoardSet): Observable<BoardSet> {
     return this.http.post<BoardSet>(this.apiEndpoint, record)
       .pipe(map(data => new BoardSet().deserialise(data)));
   }
 
-  update(record: BoardSet) {
+  update(record: BoardSet): Observable<BoardSet> {
     return this.http.patch<BoardSet>(`${this.apiEndpoint}/${record.id}`, record)
       .pipe(map(data => new BoardSet().deserialise(data)));
   }
 
-  delete(record: BoardSet) {
+  delete(record: BoardSet): Observable<BoardSet> {
     return this.http.delete<BoardSet>(`${this.apiEndpoint}/${record.id}`);
+  }
+
+  touch(record: BoardSet): Observable<BoardSet> {
+
+    record.opened_at = new Date();
+
+    const params = new BoardSet({
+      id: record.id,
+      opened_at: record.opened_at
+    });
+    delete params.boards;
+
+    return this.update(params);
   }
 }
