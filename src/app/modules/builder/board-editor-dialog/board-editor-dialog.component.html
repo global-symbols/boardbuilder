@@ -9,8 +9,7 @@
     </button>
   </header>
 
-
-  <div mat-dialog-content>
+  <div mat-dialog-content *ngIf="data.board">
     <mat-form-field class="w-100">
       <mat-label i18n>Title</mat-label>
       <input matInput required

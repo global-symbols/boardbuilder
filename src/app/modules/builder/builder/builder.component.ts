@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {interval, Observable, Subscription} from 'rxjs';
 import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
 import {ObfUploadDialogComponent} from '../../../obf-upload-dialog/obf-upload-dialog.component';
-import {BoardEditorComponent} from '../../../board-editor/board-editor.component';
+import {BoardEditorDialogComponent} from '../board-editor-dialog/board-editor-dialog.component';
 import {BoardSetService} from '@data/services/board-set.service';
 import {BoardService} from '@data/services/board.service';
 import {CellService} from '@data/services/cell.service';
@@ -159,7 +159,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (board === undefined) { return; }
     if (this.editDialogRef !== undefined) { return; }
 
-    this.editDialogRef = this.dialog.open(BoardEditorComponent, {
+    this.editDialogRef = this.dialog.open(BoardEditorDialogComponent, {
       width: '300px',
       data: { board: this.board }
     });

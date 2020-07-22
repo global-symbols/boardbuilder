@@ -27,6 +27,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {BoardDetailComponent} from '@modules/builder/board-detail/board-detail.component';
 import {SymbolSearchPanelComponent} from '@modules/builder/symbol-search-panel/symbol-search-panel.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {BoardEditorDialogComponent} from './board-editor-dialog/board-editor-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatSliderModule} from '@angular/material/slider';
 
 export const routes: Routes = [
   {
@@ -44,7 +48,8 @@ export const routes: Routes = [
     BoardTreeComponent,
     BoardTreeItemComponent,
     BoardDetailComponent,
-    SymbolSearchPanelComponent
+    SymbolSearchPanelComponent,
+    BoardEditorDialogComponent
   ],
   imports: [
     CommonModule,
@@ -68,7 +73,10 @@ export const routes: Routes = [
     MatInputModule,
     FormsModule,
     MatProgressSpinnerModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule,
+    DragDropModule,
+    MatSliderModule
   ]
 })
 export class BuilderModule { }

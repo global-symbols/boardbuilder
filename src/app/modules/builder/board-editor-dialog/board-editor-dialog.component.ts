@@ -8,10 +8,10 @@ export interface BoardEditorDialogData {
 
 @Component({
   selector: 'app-board-editor',
-  templateUrl: './board-editor.component.html',
-  styleUrls: ['./board-editor.component.scss']
+  templateUrl: './board-editor-dialog.component.html',
+  styleUrls: ['./board-editor-dialog.component.scss']
 })
-export class BoardEditorComponent implements OnInit {
+export class BoardEditorDialogComponent implements OnInit {
 
   @Input() board: Board;
   @Output() boardChange = new EventEmitter<Board>();

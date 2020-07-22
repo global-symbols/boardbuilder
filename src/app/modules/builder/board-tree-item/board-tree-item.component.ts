@@ -3,8 +3,8 @@ import {Board} from '@data/models/board.model';
 import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {BoardService} from '@data/services/board.service';
-import {BoardEditorComponent} from '../../../board-editor/board-editor.component';
 import { saveAs } from 'file-saver';
+import {BoardEditorDialogComponent} from '@modules/builder/board-editor-dialog/board-editor-dialog.component';
 
 @Component({
   selector: 'app-board-tree-item',
@@ -54,7 +54,7 @@ export class BoardTreeItemComponent {
   edit() {
     if (this.currentDialogRef !== undefined) { return; }
 
-    this.currentDialogRef = this.dialog.open(BoardEditorComponent, {
+    this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
       width: '300px',
       data: { board: this.board }
     });

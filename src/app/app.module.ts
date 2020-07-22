@@ -26,9 +26,7 @@ import {HotkeyModule} from 'angular2-hotkeys';
 import {FormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
-import {BoardEditorComponent} from './board-editor/board-editor.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {LocalBoardsetListComponent} from './boardset-list/local-boardset-list.component';
 import {BoardsetEditorDialogComponent} from './boardset-editor-dialog/boardset-editor-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {ObfUploadDialogComponent} from './obf-upload-dialog/obf-upload-dialog.component';
@@ -92,8 +90,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    BoardEditorComponent,
-    LocalBoardsetListComponent,
     BoardsetEditorDialogComponent,
     ObfUploadDialogComponent,
     ObzUploadDialogComponent,
