@@ -12,6 +12,7 @@ export class BoardDetailComponent implements OnInit {
   @Input() board: Board;
   @Input() cell: Cell;
   @Output() cellChange = new EventEmitter<Cell>();
+  @Output() boardChange = new EventEmitter<number>();
 
   constructor() { }
 
@@ -20,5 +21,9 @@ export class BoardDetailComponent implements OnInit {
 
   selectCell(cell: Cell) {
     this.cellChange.emit(cell);
+  }
+
+  showBoard(linkedBoardId: number) {
+    this.boardChange.emit(linkedBoardId);
   }
 }

@@ -96,6 +96,13 @@ export class BuilderComponent implements OnInit, OnDestroy {
     }]);
   }
 
+  loadBoardSet() {
+    // Get the BoardSet
+    this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
+      this.boardSet = bs;
+    });
+  }
+
   addBoard() {
     this.boardService.add(new Board({
       name: 'Board ' + (this.boardSet.boards.length + 1),
@@ -120,9 +127,14 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.toolbarService.clearButtons();
   }
 
-  selectBoard(board?: Board) {
-    this.board = board;
+  selectBoard(board?: Board | number) {
+    if (typeof board === 'number') {
+      this.board = this.boardSet.boards.find(b => b.id === board);
+    } else {
+      this.board = board;
+    }
     this.selectedCell = undefined;
+
     // this.updateBoardSet().subscribe(r => null);
   }
 
