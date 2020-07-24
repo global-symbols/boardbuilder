@@ -10,6 +10,11 @@ interface ExampleFlatNode {
   level: number;
 }
 
+interface BoardTreeMenuItem {
+  board: Board;
+  children: BoardTreeMenuItem[];
+}
+
 @Component({
   selector: 'app-board-tree',
   templateUrl: './board-tree.component.html',
@@ -76,38 +81,25 @@ export class BoardTreeComponent implements OnInit, OnChanges {
       allBoards[board.id] = board;
     });
 
-    console.log('child Boards ', childBoardIds);
-
     // connect children to their parents, and split roots apart
     Object.keys(allBoards).forEach((id) => {
       const board = allBoards[id];
-      console.log('checking ', board);
 
-      // const parentBoard = this.boards.filter(b => b.cells.filter(c => c.linked_board_id === board.id));
-      const isRootBoard = !childBoardIds.includes(board.id);
-
-      console.log('isRootBoard ', isRootBoard);
-      // If the Board has no parent, push it to Roots
-      // if (parentBoard === null) {
-      if (isRootBoard) {
+      // If the Board is not in the list of Child Boards, push it to Roots
+      if (!childBoardIds.includes(board.id)) {
         roots.push(board);
 
-      // Otherwise, push to children of the Board in allBoards. TS pass-by-reference does the rest!
-      // } else if (board.parent in allBoards) {
+      // Otherwise, push the Board to the children of the Parent Board in allBoards. TS pass-by-reference does the rest!
       } else {
         // This is a child board. Find the parent.
-        let boardParent: Board;
         // TODO: replace with .find or .some
+        const parentBoard = this.boards.find(b => b.cells.find(cell => cell.linked_board_id === board.id));
+
         this.boards.forEach((b) => {
           if (b.cells.find(cell => cell.linked_board_id === board.id)) {
-            boardParent = b;
-            console.log('found parent of ', board, b);
-            const parent = allBoards[boardParent.id];
-            if (!('Children' in parent)) {
-              parent.Children = [];
-            }
+            const parent = allBoards[b.id];
+            if (!parent.Children) { parent.Children = []; }
             parent.Children.push(board);
-            console.log('added child to parent', parent);
           }
         });
       }
