@@ -66,6 +66,10 @@ export class BoardTreeComponent implements OnInit, OnChanges {
   }
 
   flatToHierarchy() {
+
+    const allMenuItems = {};
+    const menuItemsTree = new Array<BoardTreeMenuItem>();
+
     const roots = []; // things without parent
 
     // make them accessible by guid on this map
@@ -79,6 +83,10 @@ export class BoardTreeComponent implements OnInit, OnChanges {
 
       // Add to allBoards
       allBoards[board.id] = board;
+      allMenuItems[board.id] = {
+        board,
+        children: []
+      };
     });
 
     // connect children to their parents, and split roots apart
@@ -105,7 +113,23 @@ export class BoardTreeComponent implements OnInit, OnChanges {
       }
     });
 
+    Object.keys(allMenuItems).forEach((id) => {
+      const menuItem = allMenuItems[id];
+
+      if (!childBoardIds.includes(menuItem.board.id)) {
+        menuItemsTree.push(menuItem);
+      } else {
+        this.boards.forEach((b) => {
+          if (b.cells.find(cell => cell.linked_board_id === menuItem.board.id)) {
+            allMenuItems[b.id].children.push(menuItem);
+          }
+        });
+      }
+    });
+
     console.log('roots', roots);
+    console.log('menuItemsTree', menuItemsTree);
+    console.log('allMenuItems', allMenuItems);
 
     // done!
     return roots;
