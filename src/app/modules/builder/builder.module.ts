@@ -32,6 +32,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatSliderModule} from '@angular/material/slider';
 import {BoardSetEditorDialogComponent} from './board-set-editor-dialog/board-set-editor-dialog.component';
+import {MatTreeModule} from '@angular/material/tree';
 
 export const routes: Routes = [
   {
@@ -53,32 +54,33 @@ export const routes: Routes = [
     BoardEditorDialogComponent,
     BoardSetEditorDialogComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatExpansionModule,
-    MatTabsModule,
-    MatIconModule,
-    FlexModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    _MatMenuDirectivesModule,
-    MatSidenavModule,
-    MatMenuModule,
-    MatDividerModule,
-    MatListModule,
-    SharedModule,
-    MatCardModule,
-    MatInputModule,
-    FormsModule,
-    MatProgressSpinnerModule,
-    MatGridListModule,
-    MatDialogModule,
-    DragDropModule,
-    MatSliderModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatExpansionModule,
+        MatTabsModule,
+        MatIconModule,
+        FlexModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatToolbarModule,
+        MatTooltipModule,
+        _MatMenuDirectivesModule,
+        MatSidenavModule,
+        MatMenuModule,
+        MatDividerModule,
+        MatListModule,
+        SharedModule,
+        MatCardModule,
+        MatInputModule,
+        FormsModule,
+        MatProgressSpinnerModule,
+        MatGridListModule,
+        MatDialogModule,
+        DragDropModule,
+        MatSliderModule,
+        MatTreeModule
+    ]
 })
 export class BuilderModule { }

@@ -4,7 +4,6 @@
                    tabindex="0" (click)="selectCell(c)" (keyup.enter)="selectCell(c)"
                    [style.background-color]="c.background_colour"
                    [style.outline-color]="c.border_colour"
-
                    [class.selected]="cell === c"
                    [class.outlined]="c.border_colour"
     >
@@ -12,7 +11,8 @@
       <div fxLayout="column" fxLayoutAlign="space-between stretch" fxFlexFill id="cellBox">
 
         <div *ngIf="board.captions_position === 'below'" fxFlex="grow">
-          <ng-template *ngTemplateOutlet="image; context: {$implicit: c.image_url}"></ng-template>
+          <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive"/>
+          <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
         </div>
 
         <div fxFlex fxLayout="row"  fxLayoutAlign="space-between center">
@@ -27,13 +27,10 @@
         </div>
 
         <div *ngIf="board.captions_position === 'above'" fxFlex="grow">
-          <ng-template *ngTemplateOutlet="image; context: {$implicit: c.image_url}"></ng-template>
+          <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive"/>
+          <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
         </div>
       </div>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-<ng-template #image let-url fxLayout="row" class="w-100">
-  <img *ngIf="url" [src]="url" class="img-responsive"/>
-  <mat-icon *ngIf="!url" id="placeholder">landscape</mat-icon>
-</ng-template>
