@@ -37,41 +37,78 @@ mat-sidenav#cellEditor {
   width: 355px;
 }
 
+$leftSidebarScrollbarWidth: 5px;
+$leftSidebarBasePadding: 16px;
+
+app-board-tree {
+  &::-webkit-scrollbar {
+    width: $leftSidebarScrollbarWidth;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    margin-left: 1px;
+    border-left: 1px solid white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #BBB;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #888;
+  }
+}
+
 mat-sidenav-content {
   padding: 1rem;
 }
-
-.builder-sidenav-section {
-  //padding: 16px 16px 0 16px;
-  padding: 16px;
-  //background-color: $blue;
+#leftSidebarHeaderPanel, #leftSidebarBottomPanel {
   background-color: lighten($blue, 50%);
-
-  user-select: none;
+  padding: $leftSidebarBasePadding ($leftSidebarBasePadding + $leftSidebarScrollbarWidth) $leftSidebarBasePadding $leftSidebarBasePadding;
 }
-.builder-sidenav-section h3 {
-  margin: 0;
-  padding-right: 16px;
+
+#leftSidebarHeaderPanel {
+  user-select: none;
+  h3 {
+    margin: 0;
+    padding-right: $leftSidebarBasePadding;
+  }
 }
 
 .board-toolbar {
   margin: 8px 0;
 }
 
+#leftSidebarBottomPanel {
+  // Mimic mat-elevation-z4 but upside-down!
+  box-shadow:
+    0px -2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+  text-align: right;
+}
+
+#leftSidebarToggler, #leftSidebarBottomPanel {
+  z-index: 2;
+
+  mat-icon {
+    position: relative;
+    top: -2px;
+  }
+}
+
 #leftSidebarToggler {
-  padding: 16px;
+  padding: $leftSidebarBasePadding;
   bottom: 0;
   display: -webkit-flex;
   display: flex;
   overflow: hidden;
   position: absolute;
   left: 0;
-  z-index: 2;
 
   mat-icon {
-    position: relative;
-    top: -2px;
-
     transition: all 0.5s;
   }
 
@@ -79,6 +116,13 @@ mat-sidenav-content {
     mat-icon {
       transform: scaleX(-1);
     }
+  }
+
+  // The left sidebar toggle button is blue when closed.
+  // This makes it white when open, for less distraction.
+  &.open button {
+    background-color: white;
+    color: $blue;
   }
 }
 

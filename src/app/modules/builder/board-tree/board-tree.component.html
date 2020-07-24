@@ -2,21 +2,90 @@
   <app-board-tree-item *ngFor="let board of boards" [selectedBoard]="selectedBoard" (selectChange)="selectBoard($event)" [board]="board"></app-board-tree-item>
 </mat-nav-list>
 
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-  <!-- This is the tree node template for leaf nodes -->
-  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-    <!-- use a disabled button to provide padding for tree leaf -->
-    <button mat-icon-button disabled></button>
-    {{node.name}}
-  </mat-tree-node>
-  <!-- This is the tree node template for expandable nodes -->
-  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
-    <button mat-icon-button matTreeNodeToggle
-            [attr.aria-label]="'toggle ' + node.name">
-      <mat-icon class="mat-icon-rtl-mirror">
-        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-      </mat-icon>
+<mat-nav-list>
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+
+    <!-- This is the tree node template for leaf nodes -->
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePaddingIndent]="treeNodePadding">
+
+        <mat-list-item (click)="selectBoard(node.board)">
+          <!-- use a disabled button to provide padding for tree leaf -->
+<!--          <button mat-icon-button disabled></button>-->
+
+          <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100" style="padding-left: 40px">
+            <span>{{node.board.name}}</span>
+            <button mat-button mat-icon-button
+                    [matMenuTriggerFor]="boardMenu"
+                    matTooltip="Board Actions" matTooltipPosition="right"
+                    (click)="$event.stopPropagation()"
+                    (mousedown)="$event.stopPropagation()"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </div>
+
+        </mat-list-item>
+
+    </mat-tree-node>
+
+    <!-- This is the tree node template for expandable nodes -->
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding [matTreeNodePaddingIndent]="treeNodePadding" (click)="selectBoard(node.board)">
+      <mat-list-item (click)="selectBoard(node.board)">
+
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
+          <button mat-icon-button matTreeNodeToggle
+                  (mousedown)="$event.stopPropagation()"
+                  [attr.aria-label]="'toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          <span fxFlex="grow">{{node.board.name}}</span>
+          <button mat-button mat-icon-button
+                  [matMenuTriggerFor]="boardMenu"
+                  matTooltip="Board Actions" matTooltipPosition="right"
+                  (click)="$event.stopPropagation()"
+                  (mousedown)="$event.stopPropagation()"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </div>
+
+
+<!--        <button mat-icon-button matTreeNodeToggle-->
+<!--                (mousedown)="$event.stopPropagation()"-->
+<!--                [attr.aria-label]="'toggle ' + node.name">-->
+<!--          <mat-icon class="mat-icon-rtl-mirror">-->
+<!--            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}-->
+<!--          </mat-icon>-->
+<!--        </button>-->
+<!--        {{node.board.name}}-->
+      </mat-list-item>
+    </mat-tree-node>
+
+  </mat-tree>
+</mat-nav-list>
+
+
+<mat-menu #boardMenu="matMenu">
+  <ng-template matMenuContent>
+
+    <button mat-menu-item (click)="null">
+      <mat-icon>save_alt</mat-icon> Download as OBF
     </button>
-    {{node.name}}
-  </mat-tree-node>
-</mat-tree>
+
+    <button mat-menu-item>
+      <mat-icon>picture_as_pdf</mat-icon> Download/Print PDF
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-menu-item (click)="null">
+      <mat-icon>delete</mat-icon> Delete
+    </button>
+
+    <button mat-menu-item (click)="null">
+      <mat-icon>edit</mat-icon> Properties
+    </button>
+  </ng-template>
+</mat-menu>
