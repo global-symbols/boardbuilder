@@ -1,6 +1,6 @@
-<mat-nav-list *ngIf="boards">
-  <app-board-tree-item *ngFor="let board of boards" [selectedBoard]="selectedBoard" (selectChange)="selectBoard($event)" [board]="board"></app-board-tree-item>
-</mat-nav-list>
+<!--<mat-nav-list *ngIf="boards">-->
+<!--  <app-board-tree-item *ngFor="let board of boards" [selectedBoard]="selectedBoard" (selectChange)="selectBoard($event)" [board]="board"></app-board-tree-item>-->
+<!--</mat-nav-list>-->
 
 <mat-nav-list>
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
@@ -8,7 +8,11 @@
     <!-- This is the tree node template for leaf nodes -->
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePaddingIndent]="treeNodePadding">
 
-        <mat-list-item (click)="selectBoard(node.board)">
+        <mat-list-item (click)="selectBoard(node.board)"
+                       (dblclick)="edit(node.board)"
+                       (keyup.enter)="selectBoard(node.board)"
+                       [class.selected]="selectedBoard === node.board"
+                       tabindex="0">
           <!-- use a disabled button to provide padding for tree leaf -->
 <!--          <button mat-icon-button disabled></button>-->
 
@@ -16,6 +20,7 @@
             <span>{{node.board.name}}</span>
             <button mat-button mat-icon-button
                     [matMenuTriggerFor]="boardMenu"
+                    [matMenuTriggerData]="{board: node.board}"
                     matTooltip="Board Actions" matTooltipPosition="right"
                     (click)="$event.stopPropagation()"
                     (mousedown)="$event.stopPropagation()"
@@ -30,12 +35,17 @@
 
     <!-- This is the tree node template for expandable nodes -->
     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding [matTreeNodePaddingIndent]="treeNodePadding" (click)="selectBoard(node.board)">
-      <mat-list-item (click)="selectBoard(node.board)">
+      <mat-list-item (click)="selectBoard(node.board)"
+                     (dblclick)="edit(node.board)"
+                     (keyup.enter)="selectBoard(node.board)"
+                     [attr.aria-label]="'select ' + node.board.name"
+                     [class.selected]="selectedBoard === node.board"
+                     tabindex="0">
 
         <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
           <button mat-icon-button matTreeNodeToggle
                   (mousedown)="$event.stopPropagation()"
-                  [attr.aria-label]="'toggle ' + node.name">
+                  [attr.aria-label]="'expand ' + node.board.name">
             <mat-icon class="mat-icon-rtl-mirror">
               {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
             </mat-icon>
@@ -43,6 +53,7 @@
           <span fxFlex="grow">{{node.board.name}}</span>
           <button mat-button mat-icon-button
                   [matMenuTriggerFor]="boardMenu"
+                  [matMenuTriggerData]="{board: node.board}"
                   matTooltip="Board Actions" matTooltipPosition="right"
                   (click)="$event.stopPropagation()"
                   (mousedown)="$event.stopPropagation()"
@@ -68,9 +79,9 @@
 
 
 <mat-menu #boardMenu="matMenu">
-  <ng-template matMenuContent>
+  <ng-template matMenuContent let-board="board">
 
-    <button mat-menu-item (click)="null">
+    <button mat-menu-item (click)="download(board)">
       <mat-icon>save_alt</mat-icon> Download as OBF
     </button>
 
@@ -80,11 +91,11 @@
 
     <mat-divider></mat-divider>
 
-    <button mat-menu-item (click)="null">
+    <button mat-menu-item (click)="delete(board)">
       <mat-icon>delete</mat-icon> Delete
     </button>
 
-    <button mat-menu-item (click)="null">
+    <button mat-menu-item (click)="edit(board)">
       <mat-icon>edit</mat-icon> Properties
     </button>
   </ng-template>

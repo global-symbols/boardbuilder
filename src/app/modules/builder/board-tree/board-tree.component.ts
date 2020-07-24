@@ -2,6 +2,11 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import {Board} from '@data/models/board.model';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import {FlatTreeControl} from '@angular/cdk/tree';
+import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
+import {BoardEditorDialogComponent} from '@modules/builder/board-editor-dialog/board-editor-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
+import {BoardService} from '@data/services/board.service';
+import { saveAs } from 'file-saver';
 
 /** Flat node with expandable and level information */
 interface BoardTreeMenuFlatNode {
@@ -26,6 +31,8 @@ export class BoardTreeComponent implements OnInit, OnChanges {
   @Input() selectedBoard: Board;
   @Output() readonly selectionChange = new EventEmitter<Board>();
 
+  private currentDialogRef;
+
   // Padding for child tree elements, in pixels
   treeNodePadding = 20;
 
@@ -44,7 +51,9 @@ export class BoardTreeComponent implements OnInit, OnChanges {
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog,
+    private boardService: BoardService) { }
 
   ngOnInit() {
   }
@@ -94,4 +103,49 @@ export class BoardTreeComponent implements OnInit, OnChanges {
   }
 
   hasChild = (_: number, node: BoardTreeMenuFlatNode) => node.expandable;
+
+  delete(board: Board) {
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '250px',
+      data: {heading: `Delete '${board.name}'?`, content: 'This cannot be undone.'}
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(result => {
+
+      if (result) {
+        // this.selectBoard(null);
+
+        this.boardService.delete(board).subscribe(r => {
+          // TODO: Update other components with new BoardSet list.
+          // this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
+          //   this.boardSet = bs;
+          //   this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+          // });
+        });
+      }
+
+      this.currentDialogRef = undefined;
+    });
+  }
+
+  edit(board: Board) {
+    console.log(board);
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
+      width: '300px',
+      data: { board }
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(result => {
+      this.currentDialogRef = undefined;
+      this.boardService.update(board).subscribe();
+    });
+  }
+
+  download(board: Board) {
+    saveAs(new Blob([JSON.stringify(board.toObf(), null, 2)], {type: 'text/plain;charset=utf-8'}), board.title + '.obf');
+  }
 }
