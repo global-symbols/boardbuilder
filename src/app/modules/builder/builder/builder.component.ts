@@ -72,10 +72,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    // Get the BoardSet
-    this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
-
-      this.boardSet = bs;
+    this.getBoardSet().subscribe(bs => {
 
       // Update the opened_at date
       this.boardSetService.touch(this.boardSet).subscribe();
@@ -138,8 +135,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
       this.board = board;
     }
     this.selectedCell = undefined;
-
-    // this.updateBoardSet().subscribe(r => null);
   }
 
   selectLastBoard() {
@@ -239,9 +234,5 @@ export class BuilderComponent implements OnInit, OnDestroy {
   generatePdf() {
     this.updateBoardSet()
       .subscribe(r => this.router.navigate(['/', 'boardsets', this.boardSet.uuid, this.board.id, 'pdf']));
-  }
-
-  updateCell(cell: Cell) {
-    this.cellService.update(cell).subscribe();
   }
 }
