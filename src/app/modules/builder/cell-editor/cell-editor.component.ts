@@ -85,7 +85,7 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
   }
 
   linkToBoardsList(): Array<Board> {
-    return this.boardSet.boards.filter(b => b.uuid !== this.board.uuid && b.childBoards().length === 0);
+    return this.boardSet.boards.filter(b => b.id !== this.board.id && b.childBoards().length === 0);
   }
 
   linkCellToBoard(event: MatSelectChange) {

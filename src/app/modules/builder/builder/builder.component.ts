@@ -79,11 +79,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
       // If there are any Boards, select the first one.
       if (this.boardSet.boards.length > 0) {
-        if (this.route.snapshot.queryParams.board) {
-          this.selectBoard(this.boardSet.findBoard(this.route.snapshot.queryParams.board));
-        } else {
-          this.selectBoard(this.boardSet.boards[0]);
-        }
+        this.selectBoard(this.boardSet.boards[0]);
       }
     });
 
@@ -232,6 +228,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   generatePdf() {
     this.updateBoardSet()
-      .subscribe(r => this.router.navigate(['/', 'boardsets', this.boardSet.uuid, this.board.id, 'pdf']));
+      .subscribe(r => this.router.navigate(['/', 'boardsets', this.boardSet.id, this.board.id, 'pdf']));
   }
 }

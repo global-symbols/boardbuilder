@@ -287,7 +287,7 @@ export class PdfComponent implements OnInit {
   returnToBoard() {
     if (this.board) {
       this.router.navigate(['/', 'boardsets', this.board.board_set_id], {
-        queryParams: {board: this.board.uuid}
+        queryParams: {board: this.board.id}
       }).then();
     } else {
       this.location.back();

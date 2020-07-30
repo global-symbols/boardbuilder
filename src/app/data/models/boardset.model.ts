@@ -4,7 +4,6 @@ import {Record} from '@data/models/record';
 
 export class BoardSet extends Record implements Deserialisable {
     public localId: number;
-    public uuid: string;
     public name: string;
     public boards = Array<Board>();
     opened_at: Date;
@@ -28,22 +27,6 @@ export class BoardSet extends Record implements Deserialisable {
 
     deleteBoard(board: Board) {
       this.boards = this.boards.filter(b => b !== board);
-    }
-
-    // Finds a Board within this BoardSet by the UUID.
-    // Recurses to search Boards nested within the Cells of other Boards.
-    findBoard(searchUuid: string, boards: Board[] = this.boards): Board {
-
-      if (boards.length === 0) { return null; }
-
-      for (const board of boards) {
-        if (board.uuid === searchUuid) { return board; }
-
-        const b = this.findBoard(searchUuid, board.cells.filter(c => c.board !== undefined).map(c => c.board));
-        if (b instanceof Board) { return b; }
-      }
-
-      return null;
     }
 
     get title(): string { return this.name; }
