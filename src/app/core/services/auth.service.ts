@@ -78,7 +78,7 @@ export class AuthService {
 
     // When the user logs out or there is a problem with the oauth session, redirect to the login page
     this.oauthService.events
-      .pipe(filter(e => ['session_terminated', 'session_error'].includes(e.type)))
+      .pipe(filter(e => ['session_terminated', 'session_error', 'logout'].includes(e.type)))
       .subscribe(e => this.navigateToLoginPage());
 
     // TODO: Re-enable auto silent refresh

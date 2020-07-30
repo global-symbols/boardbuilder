@@ -10,7 +10,7 @@ export const authConfig: AuthConfig = {
 
     // URL of the SPA to redirect the user to after login
     // redirectUri: window.location.origin,
-    redirectUri: 'http://localhost:4200',
+    redirectUri: 'http://localhost:4200/auth/login',
 
     // The SPA's id. The SPA is registerd with this id at the auth-server
     // clientId: 'server.code',
