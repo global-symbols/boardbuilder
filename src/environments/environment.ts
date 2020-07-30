@@ -4,13 +4,14 @@
 
 export const environment = {
   production: false,
+
+  globalSymbolsBase: 'http://localhost:3000',
+
   globalSymbolsApiBase: 'http://localhost:3000/api/v1',
   // globalSymbolsApiBase: 'https://globalsymbols.com/api/v1',
   boardBuilderApiBase: 'http://localhost:3000/api/boardbuilder/v1',
 
-
-  oauth_client_id: 'Msd0ocExMmwsloYOox-CQrg-e767OR_akzUEYoNstgc',
-  oauth_client_secret: 'kY4zHdNwf867J4ckJzscqbMRX-YD7FPtue6TbIP19gI',
+  globalSymbolsOauthClientId: 'RKBryis4wFurzoH14-J9gMiHbXHRll6YHTZXrYVJc_A',
 };
 
 /*

@@ -1,8 +1,9 @@
 import {AuthConfig} from 'angular-oauth2-oidc';
+import {environment} from '@env';
 
 export const authConfig: AuthConfig = {
     // Url of the Identity Provider
-    issuer: 'http://localhost:3000',
+    issuer: environment.globalSymbolsBase,
 
     // loginUrl: 'http://localhost:3000/oauth/authorize',
     // tokenEndpoint: 'http://localhost:3000/oauth/token',
@@ -10,11 +11,11 @@ export const authConfig: AuthConfig = {
 
     // URL of the SPA to redirect the user to after login
     // redirectUri: window.location.origin,
-    redirectUri: 'http://localhost:4200/auth/login',
+    redirectUri: window.location.origin + '/auth/login',
 
     // The SPA's id. The SPA is registerd with this id at the auth-server
     // clientId: 'server.code',
-    clientId: 'Msd0ocExMmwsloYOox-CQrg-e767OR_akzUEYoNstgc',
+    clientId: environment.globalSymbolsOauthClientId,
 
     // Just needed if your auth server demands a secret. In general, this
     // is a sign that the auth server is not configured with SPAs in mind
@@ -30,7 +31,7 @@ export const authConfig: AuthConfig = {
     // The api scope is a usecase specific one
     scope: 'openid profile email boardset:read boardset:write offline_access',
 
-    showDebugInformation: true,
+    showDebugInformation: !environment.production,
     // nonceStateSeparator : 'semicolon' // ?????
 
     sessionChecksEnabled: true,
