@@ -2,7 +2,7 @@
 
 <!--  <div gdAuto gdColumns="4">-->
   <div fxLayout="row wrap" fxLayoutGap="1rem grid">
-    <div fxFlex="25">
+    <div fxFlex="25" class="card-container">
       <mat-card fxFlexFill>
         <mat-card-actions fxFlex fxLayout="column">
           <button fxFlex mat-flat-button color="primary" i18n (click)="newBoardSet()">Create Board Set</button>
@@ -11,7 +11,7 @@
       </mat-card>
     </div>
 
-    <div fxFlex="25" *ngFor="let boardSet of boardSets | async" >
+    <div fxFlex="25" class="card-container" *ngFor="let boardSet of boardSets | async" >
       <mat-card fxFlexFill fxLayout="column">
         <mat-card-header fxFlex="grow">
           <mat-card-title>{{boardSet.name}}</mat-card-title>
