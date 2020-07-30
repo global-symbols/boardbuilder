@@ -11,7 +11,7 @@ export const environment = {
   // globalSymbolsApiBase: 'https://globalsymbols.com/api/v1',
   boardBuilderApiBase: 'http://localhost:3000/api/boardbuilder/v1',
 
-  globalSymbolsOauthClientId: 'RKBryis4wFurzoH14-J9gMiHbXHRll6YHTZXrYVJc_A',
+  globalSymbolsOauthClientId: 'Msd0ocExMmwsloYOox-CQrg-e767OR_akzUEYoNstgc',
 };
 
 /*

@@ -71,6 +71,9 @@ export class AuthService {
         this.isAuthenticatedSubject$.next(this.oauthService.hasValidAccessToken());
       });
 
+    // TURN THIS ON TO LOG ALL OAUTH EVENTS
+    // this.oauthService.events.subscribe(_ => console.log('oauth event ', _));
+
     // When a token is received, loadUserProfile().
     this.oauthService.events
       .pipe(filter(e => ['token_received'].includes(e.type)))
