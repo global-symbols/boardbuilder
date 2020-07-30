@@ -5,7 +5,7 @@
     <div fxFlex="25">
       <mat-card fxFlexFill>
         <mat-card-actions fxFlex fxLayout="column">
-          <button fxFlex mat-flat-button color="primary" i18n (click)="newBoardSet()">New Board Set</button>
+          <button fxFlex mat-flat-button color="primary" i18n (click)="newBoardSet()">Create Board Set</button>
           <button mat-flat-button color="primary" i18n class="mt-1">Import OBF/OBZ</button>
         </mat-card-actions>
       </mat-card>
@@ -19,8 +19,6 @@
 
         <mat-card-content>
           <div fxLayout="column" fxLayoutAlign="space-between none">
-            {{boardSet.boards.length}} Boards
-            <br/>
             <ng-container *ngIf="boardSet.opened_at">Opened {{boardSet.opened_at.toString() | amTimeAgo}}</ng-container>
             <ng-container *ngIf="!boardSet.opened_at">Never Opened</ng-container>
           </div>

@@ -7,7 +7,7 @@
 
 
 <div mat-dialog-content>
-  <p i18n>Add a new Board from an Open Board Format (OBF) file.</p>
+  <p i18n>Add a new Board by importing an Open Board Format (OBF) file.</p>
   <p i18n>Select an OBF file to begin.</p>
   <div fxLayout="row" fxLayoutAlign="center none" >
     <button mat-stroked-button (click)="uploadInput.click()">
@@ -19,7 +19,7 @@
   <input type="file" accept=".obf" style="display: none" #uploadInput (change)="fileChanged($event.target)">
 
   <p *ngIf="previewBoard" role="alert" i18n>
-    We found {{previewBoard.cells.length}} {previewBoard.cells.length, plural, =1 {tile} other {tiles}} in your OBF file.
+    We found {{previewBoard.cells.length}} {previewBoard.cells.length, plural, =1 {cell} other {cells}} in your OBF file.
   </p>
 
   <p *ngIf="fileInvalid" role="alert" i18n>The file you provided is not a valid OBF file.</p>

@@ -1,14 +1,11 @@
 import {Deserialisable} from './deserialisable.model';
 import {Cell} from './cell.model';
-import * as uuid from 'uuid';
 import * as mime from 'mime/lite';
-import {CellFormat} from './cell-format.model';
 import {Obf} from './obf.interface';
 import {Record} from '@data/models/record';
 
 export class Board extends Record implements Deserialisable {
   board_set_id: number;
-  uuid: string;
   name: string;
   rows: number;
   columns: number;
@@ -44,7 +41,12 @@ export class Board extends Record implements Deserialisable {
     return out;
   }
 
+
+
   toObf(): Obf {
+
+    // Returns a string that identifies and connects Cell/Image/Button items in the OBF
+    const cellId = cell => this.id.toString() + cell.id.toString();
 
     // Chunk the Cells according to the number of rows/cols
     const gridOrderMatrix = [];
@@ -53,17 +55,17 @@ export class Board extends Record implements Deserialisable {
       const chunk = this.cells.slice(i, i + this.columns);
 
       // Replace each Cell with a unique identifier.
-      gridOrderMatrix.push(chunk.map((cell, index) => this.uuid + cell.id));
+      gridOrderMatrix.push(chunk.map((cell, index) => cellId(cell) ));
     }
 
     const obf: Obf = {
       format: 'open-board-0.1',
-      id: this.uuid,
+      id: this.id.toString(),
       locale: 'en',
       name: this.title,
       buttons: this.cells.map((cell, index) => ({
-        id: this.uuid + index,
-        image_id: this.uuid + index,
+        id: cellId(cell),
+        image_id: cellId(cell),
         label: cell.caption,
         border_color: cell.border_colour,
         background_color: cell.background_colour
@@ -74,7 +76,7 @@ export class Board extends Record implements Deserialisable {
         order: gridOrderMatrix
       },
       images: this.cells.map((cell, index) => ({
-        id: this.uuid + cell.id,
+        id: cellId(cell),
         url: cell.image_url,
         content_type: mime.getType(cell.image_url)
       }))
@@ -101,8 +103,9 @@ export class Board extends Record implements Deserialisable {
       }
 
       if (obfImage) {
-        if (obfImage.url) { this.cells[i].url = obfImage.url; }
-        if (obfImage.data) { this.cells[i].imageData = obfImage.data; }
+        if (obfImage.url) { this.cells[i].image_url = obfImage.url; }
+        // TODO: Restore embedded imagedata OBFs
+        // if (obfImage.data) { this.cells[i].imageData = obfImage.data; }
       }
     });
     return true;

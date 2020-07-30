@@ -29,6 +29,7 @@
                         [boards]="boardSet.boards"
                         [selectedBoard]="board"
                         (selectionChange)="selectBoard($event)"
+                        (deleteBoard)="deleteBoard($event)"
                         fxFlex="grow"
                         style="overflow-y: scroll"
         >

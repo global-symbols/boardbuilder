@@ -15,6 +15,8 @@ import {CellService} from '@data/services/cell.service';
 import {Cell} from '@data/models/cell.model';
 import {BoardSetEditorDialogComponent} from '../board-set-editor-dialog/board-set-editor-dialog.component';
 import {ToolbarService} from '@app/services/toolbar.service';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-builder',
@@ -33,8 +35,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   private readonly mobileQueryListener: () => void;
 
-  private deleteDialogRef;
-  private editDialogRef;
   private currentDialogRef;
 
   constructor(changeDetectorRef: ChangeDetectorRef,
@@ -96,11 +96,15 @@ export class BuilderComponent implements OnInit, OnDestroy {
     }]);
   }
 
+  // Gets the BoardSet and loads it into this.boardSet.
+  private getBoardSet(): Observable<BoardSet> {
+    return this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells')
+      .pipe(map(bs => this.boardSet = bs));
+  }
+
   loadBoardSet() {
     // Get the BoardSet
-    this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
-      this.boardSet = bs;
-    });
+    this.getBoardSet().subscribe();
   }
 
   addBoard() {
@@ -138,45 +142,46 @@ export class BuilderComponent implements OnInit, OnDestroy {
     // this.updateBoardSet().subscribe(r => null);
   }
 
-  deleteBoard(board: Board) {
-    if (board === undefined) { return; }
-    if (this.deleteDialogRef !== undefined) { return; }
+  selectLastBoard() {
+    if (this.boardSet.boards.length > 0) {
+      this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+    }
+  }
 
-    this.deleteDialogRef = this.dialog.open(ConfirmDialogComponent, {
+  deleteBoard(board: Board) {
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '250px',
       data: {heading: `Delete '${board.name}'?`, content: 'This cannot be undone.'}
     });
 
-    this.deleteDialogRef.afterClosed().subscribe(result => {
+    this.currentDialogRef.afterClosed().subscribe(result => {
 
       if (result) {
         this.selectBoard(null);
 
         this.boardService.delete(board).subscribe(r => {
-          this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
-            this.boardSet = bs;
-            if (this.boardSet.boards.length > 0) {
-              this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
-            }
+          this.getBoardSet().subscribe(bs => {
+            this.selectLastBoard();
           });
         });
       }
 
-      this.deleteDialogRef = undefined;
+      this.currentDialogRef = undefined;
     });
   }
 
-  editBoard(board) {
-    if (board === undefined) { return; }
-    if (this.editDialogRef !== undefined) { return; }
+  editBoard(board: Board) {
+    if (this.currentDialogRef !== undefined) { return; }
 
-    this.editDialogRef = this.dialog.open(BoardEditorDialogComponent, {
+    this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
       width: '300px',
       data: { board: this.board }
     });
 
-    this.editDialogRef.afterClosed().subscribe(result => {
-      this.editDialogRef = undefined;
+    this.currentDialogRef.afterClosed().subscribe(result => {
+      this.currentDialogRef = undefined;
       this.boardService.update(board).subscribe();
     });
 
@@ -211,12 +216,17 @@ export class BuilderComponent implements OnInit, OnDestroy {
       width: '500px'
     });
 
-    this.currentDialogRef.afterClosed().subscribe(result => {
-      if (result instanceof Board) {
-        // Add the new Board to the BoardSet
-        this.boardSet.boards.push(result);
-        // Select the new Board
-        this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+    this.currentDialogRef.afterClosed().subscribe(newBoard => {
+      if (newBoard instanceof Board) {
+        newBoard.board_set_id = this.boardSet.id;
+
+        // Save the newBoard, then reload the BoardSet.
+        this.boardService.add(newBoard).subscribe(done => {
+          this.getBoardSet().subscribe(bs => {
+            // Select the new Board
+            this.selectLastBoard();
+          });
+        });
       }
       this.currentDialogRef = undefined;
     });
@@ -228,7 +238,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   generatePdf() {
     this.updateBoardSet()
-      .subscribe(r => this.router.navigate(['/', 'boardsets', this.boardSet.uuid, this.board.uuid, 'pdf']));
+      .subscribe(r => this.router.navigate(['/', 'boardsets', this.boardSet.uuid, this.board.id, 'pdf']));
   }
 
   updateCell(cell: Cell) {
