@@ -4,6 +4,8 @@ import {BoardSet} from '@data/models/boardset.model';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '@env';
 import {map} from 'rxjs/operators';
+import * as JSZip from 'jszip';
+import {ObzManifest} from '@data/models/obz-manifest.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +51,35 @@ export class BoardSetService {
     delete params.boards;
 
     return this.update(params);
+  }
+
+  convertToObz(boardSet: BoardSet): Promise<any> {
+    const zip = new JSZip();
+
+    // Prepare the bare OBZ Manifest data
+    const manifest: ObzManifest = {
+      format: 'open-board-0.1',
+      root: 'boards/' + boardSet.boards[0].id + '.obf',
+      paths: {
+        boards: { },
+        images: { },
+        sounds: { }
+      }
+    };
+
+    boardSet.boards.forEach(board => {
+      const boardFilename = 'boards/' + board.id + '.obf';
+
+      // Add the Board OBF file to the ZIP file.
+      zip.file(boardFilename, JSON.stringify(board.toObf(), null, 2));
+
+      // Add the Board OBF file path to the OBZ Manifest
+      return manifest.paths.boards[board.id] = boardFilename;
+    });
+
+    // Add the OBZ Manifest file to the ZIP.
+    zip.file('manifest.json', JSON.stringify(manifest, null, 2));
+
+    return zip.generateAsync({type: 'blob'});
   }
 }

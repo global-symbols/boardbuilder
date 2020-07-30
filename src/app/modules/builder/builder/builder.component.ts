@@ -203,7 +203,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     });
   }
 
-  uploadBoardObf(board: Board) {
+  uploadBoardObf() {
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(ObfUploadDialogComponent, {
@@ -227,7 +227,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   downloadBoardSetObz() {
-    // this.service.convertToObz(this.boardSet).then(content => saveAs(content, this.boardSet.title + '.obz'));
+    this.boardSetService.convertToObz(this.boardSet).then(content => saveAs(content, this.boardSet.title + '.obz'));
   }
 
   generatePdf() {

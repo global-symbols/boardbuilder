@@ -5,6 +5,9 @@ import {BoardSet} from '@data/models/boardset.model';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {NewBoardSetDialogComponent} from '@modules/board-sets/new-board-set-dialog/new-board-set-dialog.component';
+import {Board} from '@data/models/board.model';
+import {ObfUploadDialogComponent} from '../../../obf-upload-dialog/obf-upload-dialog.component';
+import {ObzUploadDialogComponent} from '../../../obz-upload-dialog/obz-upload-dialog.component';
 
 @Component({
   selector: 'app-board-sets',
@@ -34,19 +37,34 @@ export class BoardSetsComponent implements OnInit {
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(NewBoardSetDialogComponent, {
-      width: '400px',
-      // data: { boardSet: this.boardSet }
+      width: '400px'
     });
 
     this.currentDialogRef.afterClosed().subscribe(newBoardSet => {
-      console.log(newBoardSet);
       if (newBoardSet instanceof BoardSet) {
         this.router.navigate(['/', 'boardsets', newBoardSet.id]);
       }
 
       this.currentDialogRef = undefined;
     });
-    // this.service.add(new BoardSet()).subscribe(bs => this.router.navigate(['/', bs.id]));
   }
 
+  uploadObz() {
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(ObzUploadDialogComponent, {
+      width: '500px'
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(newBoardSet => {
+      if (newBoardSet instanceof BoardSet) {
+
+        // Save the newBoardSet, then reload the BoardSet.
+        this.service.add(newBoardSet).subscribe(bs => {
+          this.router.navigate(['/', 'boardsets', bs.id]);
+        });
+      }
+      this.currentDialogRef = undefined;
+    });
+  }
 }
