@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AuthService} from '@app/services/auth.service';
 import {NavigationEnd, Router} from '@angular/router';
@@ -11,7 +11,7 @@ declare let googleAnalytics: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'boardbuilder-angular';
+  title = 'boardbuilder';
 
   isAuthenticated: Observable<boolean>;
   isDoneLoading: Observable<boolean>;
