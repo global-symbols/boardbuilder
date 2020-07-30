@@ -4,7 +4,7 @@
 >
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
     <h1 mat-dialog-title i18n class="mb-0">Board Properties</h1>
-    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false">
+    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false" (mousedown)="$event.stopPropagation()">
       <mat-icon>close</mat-icon>
     </button>
   </header>
@@ -55,6 +55,6 @@
   </div>
   <div mat-dialog-actions>
     <span class="spacer"></span>
-    <button mat-raised-button [mat-dialog-close]="true" color="primary" cdkFocusInitial i18n>Done</button>
+    <button mat-raised-button [mat-dialog-close]="true" color="primary" (mousedown)="$event.stopPropagation()" cdkFocusInitial i18n>Done</button>
   </div>
 </div>
