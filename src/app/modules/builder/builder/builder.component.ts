@@ -79,9 +79,10 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
       // If there are any Boards, select the first one.
       if (this.boardSet.boards.length > 0) {
-        this.selectBoard(this.boardSet.boards[0]);
         if (this.route.snapshot.queryParams.board) {
           this.selectBoard(this.boardSet.findBoard(this.route.snapshot.queryParams.board));
+        } else {
+          this.selectBoard(this.boardSet.boards[0]);
         }
       }
     });
@@ -111,9 +112,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
       rows: this.board?.rows,
       columns: this.board?.columns
     })).subscribe(board => {
-      this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells').subscribe(bs => {
-        this.boardSet = bs;
-        this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
+      this.getBoardSet().subscribe(bs => {
+        this.selectLastBoard();
       });
     });
   }
@@ -157,9 +157,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
         this.selectBoard(null);
 
         this.boardService.delete(board).subscribe(r => {
-          this.getBoardSet().subscribe(bs => {
-            this.selectLastBoard();
-          });
+          // Remove the Board from the array of Boards.
+          this.boardSet.boards = this.boardSet.boards.filter(b => b !== board);
         });
       }
 
