@@ -84,8 +84,7 @@ export class AuthService {
       .pipe(filter(e => ['session_terminated', 'session_error', 'logout'].includes(e.type)))
       .subscribe(e => this.navigateToLoginPage());
 
-    // TODO: Re-enable auto silent refresh
-    // this.oauthService.setupAutomaticSilentRefresh();
+    this.oauthService.setupAutomaticSilentRefresh();
   }
 
   public runInitialLoginSequence(): Promise<void> {
