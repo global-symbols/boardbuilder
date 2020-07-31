@@ -8,17 +8,24 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {FlexModule} from '@angular/flex-layout';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ErrorNotFoundComponent } from './components/error-not-found/error-not-found.component';
+import { LoadingNoticeComponent } from './components/loading-notice/loading-notice.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
 @NgModule({
   declarations: [
     ColourSelectorComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ErrorNotFoundComponent,
+    LoadingNoticeComponent
   ],
   exports: [
     ColourSelectorComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ErrorNotFoundComponent,
+    LoadingNoticeComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +34,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatDialogModule,
     MatButtonModule,
     FlexModule,
-    DragDropModule
+    DragDropModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SharedModule { }

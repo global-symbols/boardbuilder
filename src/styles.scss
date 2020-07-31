@@ -35,6 +35,10 @@ body { margin: 0; font-family: Lato, "Helvetica Neue", sans-serif; }
   margin-bottom: 1.5rem !important;
 }
 
+.mr-1 {
+  margin-right: .5rem !important;
+}
+
 .py-2 {
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
@@ -67,4 +71,9 @@ h1, h2, h3 {
 .container {
   margin: 0 auto;
   max-width: 1200px;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
 }

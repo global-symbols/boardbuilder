@@ -16,7 +16,8 @@ import {ObzUploadDialogComponent} from '../../../obz-upload-dialog/obz-upload-di
 })
 export class BoardSetsComponent implements OnInit {
 
-  boardSets: Observable<BoardSet[]>;
+  boardSets: BoardSet[];
+  loading: boolean;
   private currentDialogRef;
 
   constructor(
@@ -30,7 +31,12 @@ export class BoardSetsComponent implements OnInit {
   }
 
   loadBoardSets(): void {
-    this.boardSets = this.service.list();
+    this.loading = true;
+    this.service.list().subscribe(
+        bs => this.boardSets = bs,
+        error => null,
+        () => this.loading = false
+    );
   }
 
   newBoardSet(): void {

@@ -15,8 +15,8 @@ import {CellService} from '@data/services/cell.service';
 import {Cell} from '@data/models/cell.model';
 import {BoardSetEditorDialogComponent} from '../board-set-editor-dialog/board-set-editor-dialog.component';
 import {ToolbarService} from '@app/services/toolbar.service';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {Observable, throwError} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-builder',
@@ -28,6 +28,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
   boardSet: BoardSet;
   board: Board;
   selectedCell;
+
+  loading: boolean;
+  loadingError = false;
 
   disableCellEditorAnimations = true;
 
@@ -71,7 +74,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+    this.loading = true;
     this.getBoardSet().subscribe(bs => {
 
       // Update the opened_at date
@@ -81,7 +84,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
       if (this.boardSet.boards.length > 0) {
         this.selectBoard(this.boardSet.boards[0]);
       }
-    });
+    },
+      err => null,
+      () => this.loading = false);
 
     this.toolbarService.setButtons([{
       text: 'Board Sets',
@@ -92,8 +97,16 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   // Gets the BoardSet and loads it into this.boardSet.
   private getBoardSet(): Observable<BoardSet> {
+    this.loadingError = false;
     return this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells')
-      .pipe(map(bs => this.boardSet = bs));
+      .pipe(
+        catchError(e => {
+          this.loadingError = true;
+          this.loading = false;
+          return throwError(e);
+        }),
+        map(bs => this.boardSet = bs)
+      );
   }
 
   loadBoardSet() {

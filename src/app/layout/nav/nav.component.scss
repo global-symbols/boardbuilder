@@ -5,3 +5,24 @@
     opacity: 1;
   }
 }
+
+$button-bottom-padding: 2px;
+$icon-button-side-padding: 7px;
+
+.user-controls-button {
+  padding-right: $icon-button-side-padding;
+
+  mat-icon {
+    padding-bottom: $button-bottom-padding;
+  }
+}
+
+.buttons .mat-button {
+
+  padding-left: $icon-button-side-padding;
+
+  mat-icon {
+    padding-bottom: $button-bottom-padding;
+    padding-right: 4px;
+  }
+}
