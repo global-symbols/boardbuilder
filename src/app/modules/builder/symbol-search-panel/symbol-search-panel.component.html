@@ -15,11 +15,11 @@
 
   <mat-form-field class="w-100">
     <mat-label>Symbol Set</mat-label>
-    <mat-select [(value)]="gsParams.symbolset.value">
+    <mat-select [(value)]="gsParams.symbolset.value" (selectionChange)="search()">
       <mat-option value="all">All Symbol Sets</mat-option>
       <mat-optgroup *ngFor="let group of gsParams.symbolset.groups" [label]="group.name">
-        <mat-option *ngFor="let symbolset of group.options" [value]="symbolset.id">
-          {{symbolset.name}}
+        <mat-option *ngFor="let symbolset of group.options" [value]="symbolset.slug">
+          {{symbolset.name}} {{symbolset.slug}}
         </mat-option>
       </mat-optgroup>
     </mat-select>
