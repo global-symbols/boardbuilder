@@ -6,6 +6,7 @@ import {BoardEditorDialogComponent} from '@modules/builder/board-editor-dialog/b
 import {MatDialog} from '@angular/material/dialog';
 import {BoardService} from '@data/services/board.service';
 import {saveAs} from 'file-saver';
+import {Router} from '@angular/router';
 
 /** Flat node with expandable and level information */
 interface BoardTreeMenuFlatNode {
@@ -55,7 +56,9 @@ export class BoardTreeComponent implements OnInit, OnChanges {
 
   constructor(
     public dialog: MatDialog,
-    private boardService: BoardService) { }
+    private boardService: BoardService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -127,5 +130,9 @@ export class BoardTreeComponent implements OnInit, OnChanges {
 
   download(board: Board) {
     saveAs(new Blob([JSON.stringify(board.toObf(), null, 2)], {type: 'text/plain;charset=utf-8'}), board.title + '.obf');
+  }
+
+  pdf(board: any) {
+    this.router.navigate(['boardsets', board.board_set_id, 'pdf', board.id]);
   }
 }

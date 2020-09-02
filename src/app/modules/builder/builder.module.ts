@@ -17,7 +17,6 @@ import {_MatMenuDirectivesModule, MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {BoardTreeComponent} from '@modules/builder/board-tree/board-tree.component';
-import {BoardTreeItemComponent} from '@modules/builder/board-tree-item/board-tree-item.component';
 import {MatListModule} from '@angular/material/list';
 import {SharedModule} from '@shared/shared.module';
 import {MatCardModule} from '@angular/material/card';
@@ -25,7 +24,6 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {BoardDetailComponent} from '@modules/builder/board-detail/board-detail.component';
-import {SymbolSearchPanelComponent} from '@modules/builder/symbol-search-panel/symbol-search-panel.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {BoardEditorDialogComponent} from './board-editor-dialog/board-editor-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -40,6 +38,10 @@ export const routes: Routes = [
     component: BuilderComponent,
     pathMatch: 'full'
   },
+  {
+    path: 'pdf',
+    loadChildren: () => import('@modules/pdf/pdf.module').then(m => m.PdfModule)
+  }
 ];
 
 @NgModule({
@@ -48,9 +50,7 @@ export const routes: Routes = [
     CellEditorComponent,
     CellEditorSearchPanelComponent,
     BoardTreeComponent,
-    BoardTreeItemComponent,
     BoardDetailComponent,
-    SymbolSearchPanelComponent,
     BoardEditorDialogComponent,
     BoardSetEditorDialogComponent
   ],
