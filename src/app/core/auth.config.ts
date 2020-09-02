@@ -34,7 +34,8 @@ export const authConfig: AuthConfig = {
   showDebugInformation: !environment.production,
   // nonceStateSeparator : 'semicolon' // ?????
 
-  sessionChecksEnabled: true,
+  // sessionChecks requires sessionCheckIFrameUrl to be specified
+  // sessionChecksEnabled: true,
 
 
   // Silently refresh tokens when they are close to expiry.

@@ -56,19 +56,30 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.mobileQuery.addListener(this.mobileQueryListener);
 
     // Keyboard shortcut - delete Board
-    this.hotkeysService.add(new Hotkey('backspace', (event: KeyboardEvent): boolean => {
+    this.hotkeysService.add(new Hotkey(['del'], (event: KeyboardEvent): boolean => {
       if (this.board) { this.deleteBoard(this.board); }
       return false; // Prevent bubbling
     }));
 
+    // Keyboard shortcut - edit Board
+    this.hotkeysService.add(new Hotkey(['ctrl+backspace', 'command+backspace'], (event: KeyboardEvent): boolean => {
+      this.router.navigate(['/', 'boardsets']);
+      return false; // Prevent bubbling
+    }));
+
     // Keyboard shortcut - add Board
-    this.hotkeysService.add(new Hotkey('a', (event: KeyboardEvent): boolean => {
+    this.hotkeysService.add(new Hotkey(['ctrl+a', 'command+a'], (event: KeyboardEvent): boolean => {
       this.addBoard();
       return false; // Prevent bubbling
     }));
     // Keyboard shortcut - edit Board
-    this.hotkeysService.add(new Hotkey('e', (event: KeyboardEvent): boolean => {
+    this.hotkeysService.add(new Hotkey(['ctrl+e', 'command+e'], (event: KeyboardEvent): boolean => {
       if (this.board) { this.editBoard(this.board); }
+      return false; // Prevent bubbling
+    }));
+    // Keyboard shortcut - edit Board
+    this.hotkeysService.add(new Hotkey(['ctrl+s', 'command+s'], (event: KeyboardEvent): boolean => {
+      if (this.boardSet) { this.editBoardSet(); }
       return false; // Prevent bubbling
     }));
   }
