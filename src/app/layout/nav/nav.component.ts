@@ -11,7 +11,8 @@ import {ToolbarButton, ToolbarService} from '@app/services/toolbar.service';
 export class NavComponent implements OnInit {
 
   canActivateProtectedRoutes: Observable<boolean>;
-  buttons$: Observable<ToolbarButton[]>;
+  leftButtons$: Observable<ToolbarButton[]>;
+  rightButtons$: Observable<ToolbarButton[]>;
 
   constructor(
     private authService: AuthService,
@@ -21,7 +22,8 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.buttons$ = this.toolbarService.buttons$;
+    this.leftButtons$ = this.toolbarService.leftButtons$;
+    this.rightButtons$ = this.toolbarService.rightButtons$;
   }
 
   login() { this.authService.login(); }

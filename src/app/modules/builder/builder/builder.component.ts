@@ -54,34 +54,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
-
-    // Keyboard shortcut - delete Board
-    this.hotkeysService.add(new Hotkey(['del'], (event: KeyboardEvent): boolean => {
-      if (this.board) { this.deleteBoard(this.board); }
-      return false; // Prevent bubbling
-    }));
-
-    // Keyboard shortcut - edit Board
-    this.hotkeysService.add(new Hotkey(['ctrl+backspace', 'command+backspace'], (event: KeyboardEvent): boolean => {
-      this.router.navigate(['/', 'boardsets']);
-      return false; // Prevent bubbling
-    }));
-
-    // Keyboard shortcut - add Board
-    this.hotkeysService.add(new Hotkey(['ctrl+a', 'command+a'], (event: KeyboardEvent): boolean => {
-      this.addBoard();
-      return false; // Prevent bubbling
-    }));
-    // Keyboard shortcut - edit Board
-    this.hotkeysService.add(new Hotkey(['ctrl+e', 'command+e'], (event: KeyboardEvent): boolean => {
-      if (this.board) { this.editBoard(this.board); }
-      return false; // Prevent bubbling
-    }));
-    // Keyboard shortcut - edit Board
-    this.hotkeysService.add(new Hotkey(['ctrl+s', 'command+s'], (event: KeyboardEvent): boolean => {
-      if (this.boardSet) { this.editBoardSet(); }
-      return false; // Prevent bubbling
-    }));
   }
 
   ngOnInit() {
@@ -102,8 +74,49 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.toolbarService.setButtons([{
       text: 'Board Sets',
       icon: 'arrow_back',
-      routerLink: ['/', 'boardsets']
+      action: () => this.router.navigate(['/', 'boardsets'])
+    }], [{
+      tooltip: 'Keyboard Shortcuts',
+      icon: 'keyboard',
+      action: () => this.hotkeysService.cheatSheetToggle.next()
     }]);
+
+    // Keyboard shortcut - edit Board
+    this.hotkeysService.add(new Hotkey(['ctrl+backspace', 'command+backspace'], (event: KeyboardEvent): boolean => {
+      this.router.navigate(['/', 'boardsets']);
+      return false; // Prevent bubbling
+    }, undefined, 'Return to Main Menu'));
+
+    // Keyboard shortcut - edit Board
+    this.hotkeysService.add(new Hotkey(['ctrl+s', 'command+s'], (event: KeyboardEvent): boolean => {
+      if (this.boardSet) { this.editBoardSet(); }
+      return false; // Prevent bubbling
+    }, undefined, 'Edit Board Set'));
+
+    // Keyboard shortcut - add Board
+    this.hotkeysService.add(new Hotkey(['ctrl+enter', 'command+enter'], (event: KeyboardEvent): boolean => {
+      this.addBoard();
+      return false; // Prevent bubbling
+    }, undefined, 'Add Board'));
+
+    // Keyboard shortcut - edit Board
+    this.hotkeysService.add(new Hotkey(['ctrl+e', 'command+e'], (event: KeyboardEvent): boolean => {
+      if (this.board) { this.editBoard(this.board); }
+      return false; // Prevent bubbling
+    }, undefined, 'Edit Current Board'));
+
+    // Keyboard shortcut - delete Board
+    this.hotkeysService.add(new Hotkey(['del'], (event: KeyboardEvent): boolean => {
+      if (this.board) { this.deleteBoard(this.board); }
+      return false; // Prevent bubbling
+    }, undefined, 'Delete Current Board'));
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this.mobileQueryListener);
+
+    this.toolbarService.clearButtons();
+    this.hotkeysService.reset();
   }
 
   // Gets the BoardSet and loads it into this.boardSet.
@@ -140,12 +153,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   updateBoardSet() {
     return this.boardSetService.update(this.boardSet);
-  }
-
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this.mobileQueryListener);
-
-    this.toolbarService.clearButtons();
   }
 
   selectBoard(board?: Board | number) {

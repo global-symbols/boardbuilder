@@ -1,14 +1,13 @@
 <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-  <div fxFlex="20" class="buttons">
-    <button mat-button [routerLink]="button.routerLink" *ngFor="let button of buttons$ | async">
-      <mat-icon *ngIf="button.icon">{{button.icon}}</mat-icon>
-      <ng-container>{{button.text}}</ng-container>
-    </button>
+  <div fxFlex="20">
+    <app-nav-button *ngFor="let button of leftButtons$ | async" [button]="button"></app-nav-button>
   </div>
 
   <a routerLink="/" style="line-height: 1rem;" id="homeLink" alt="Board Builder"><img src="assets/navbar-logo.svg" alt="Board Builder" style="max-height: 2.5rem;"></a>
 
   <div fxFlex="20" style="text-align: right">
+
+    <app-nav-button *ngFor="let button of rightButtons$ | async" [button]="button"></app-nav-button>
 
     <a mat-button mat-icon-button href="https://training.globalsymbols.com/course/view.php?id=56#section-1" target="_blank" matTooltip="Help and Resources" class="mr-1">
       <mat-icon>help_outline</mat-icon>

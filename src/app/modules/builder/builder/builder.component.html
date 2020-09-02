@@ -1,6 +1,5 @@
 <app-loading-notice class="container" subject="Board Set" *ngIf="loading"></app-loading-notice>
 <app-error-not-found class="container" subject="Board Set" *ngIf="loadingError"></app-error-not-found>
-
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="boardSet">
 
   <mat-sidenav-container class="example-sidenav-container"
@@ -99,3 +98,4 @@
 </mat-menu>
 
 
+<hotkeys-cheatsheet title="Keyboard Shortcuts" ></hotkeys-cheatsheet>

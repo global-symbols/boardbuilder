@@ -31,6 +31,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatSliderModule} from '@angular/material/slider';
 import {BoardSetEditorDialogComponent} from './board-set-editor-dialog/board-set-editor-dialog.component';
 import {MatTreeModule} from '@angular/material/tree';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {HotkeyModule} from 'angular2-hotkeys';
 
 export const routes: Routes = [
   {
@@ -54,33 +57,36 @@ export const routes: Routes = [
     BoardEditorDialogComponent,
     BoardSetEditorDialogComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        MatExpansionModule,
-        MatTabsModule,
-        MatIconModule,
-        FlexModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatToolbarModule,
-        MatTooltipModule,
-        _MatMenuDirectivesModule,
-        MatSidenavModule,
-        MatMenuModule,
-        MatDividerModule,
-        MatListModule,
-        SharedModule,
-        MatCardModule,
-        MatInputModule,
-        FormsModule,
-        MatProgressSpinnerModule,
-        MatGridListModule,
-        MatDialogModule,
-        DragDropModule,
-        MatSliderModule,
-        MatTreeModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatExpansionModule,
+    MatTabsModule,
+    MatIconModule,
+    FlexModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    _MatMenuDirectivesModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatListModule,
+    SharedModule,
+    MatCardModule,
+    MatInputModule,
+    FormsModule,
+    MatProgressSpinnerModule,
+    MatGridListModule,
+    MatDialogModule,
+    DragDropModule,
+    MatSliderModule,
+    MatTreeModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    HotkeyModule
+  ]
 })
 export class BuilderModule { }

@@ -4,9 +4,10 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export interface ToolbarButton {
   text?: string;
   icon?: string;
-  iconPosition?: string;
-  action?: object;
+  tooltip?: string;
   routerLink?: Array<string>;
+
+  action?();
 }
 
 @Injectable({
@@ -14,16 +15,21 @@ export interface ToolbarButton {
 })
 export class ToolbarService {
 
-  private buttonsSubject$ = new BehaviorSubject<ToolbarButton[]>([]);
-  public buttons$ = this.buttonsSubject$.asObservable();
+  private leftButtonsSubject$ = new BehaviorSubject<ToolbarButton[]>([]);
+  public leftButtons$ = this.leftButtonsSubject$.asObservable();
+
+  private rightButtonsSubject$ = new BehaviorSubject<ToolbarButton[]>([]);
+  public rightButtons$ = this.rightButtonsSubject$.asObservable();
 
   constructor() { }
 
-  setButtons(buttons: ToolbarButton[]) {
-    this.buttonsSubject$.next(buttons);
+  setButtons(left: ToolbarButton[], right?: ToolbarButton[]) {
+    this.leftButtonsSubject$.next(left);
+    this.rightButtonsSubject$.next(right);
   }
 
   clearButtons() {
-    this.buttonsSubject$.next([]);
+    this.leftButtonsSubject$.next([]);
+    this.rightButtonsSubject$.next([]);
   }
 }

@@ -17,9 +17,15 @@
              [(ngModel)]="data.boardSet.title"
              (mousedown)="$event.stopPropagation()">
     </mat-form-field>
-    <div *ngIf="data.boardSet.created_at" i18n>
-      Created: {{data.boardSet.created_at | date}}
-    </div>
+
+    <mat-form-field class="w-100 mb-3">
+      <mat-label>Visibility</mat-label>
+      <mat-select [(value)]="data.boardSet.public" (mousedown)="$event.stopPropagation()">
+        <mat-option [value]="false">Private</mat-option>
+        <mat-option [value]="true">Public</mat-option>
+      </mat-select>
+      <mat-hint>Public Board Sets can be found and viewed by anyone.</mat-hint>
+    </mat-form-field>
 
 
   </div>

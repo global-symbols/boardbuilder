@@ -39,6 +39,7 @@ import {SharedModule} from '@shared/shared.module';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AuthGuard} from '@app/auth.guard';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
+import { NavButtonComponent } from './layout/nav-button/nav-button.component';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -85,7 +86,8 @@ const appRoutes: Routes = [
     ObzUploadDialogComponent,
     ContentLayoutComponent,
     NavComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    NavButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +101,9 @@ const appRoutes: Routes = [
     RouterModule,
     MatGridListModule,
     MatCardModule,
-    HotkeyModule.forRoot(),
+    HotkeyModule.forRoot({
+      cheatSheetCloseEsc: true
+}),
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
