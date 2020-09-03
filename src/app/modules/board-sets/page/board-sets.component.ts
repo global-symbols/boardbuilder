@@ -17,6 +17,8 @@ import {ObzUploadDialogComponent} from '../../../obz-upload-dialog/obz-upload-di
 export class BoardSetsComponent implements OnInit {
 
   boardSets: BoardSet[];
+  featuredBoardSets: BoardSet[];
+
   loading: boolean;
   private currentDialogRef;
 
@@ -28,6 +30,7 @@ export class BoardSetsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadBoardSets();
+    this.loadFeaturedBoardSets();
   }
 
   loadBoardSets(): void {
@@ -37,6 +40,10 @@ export class BoardSetsComponent implements OnInit {
         error => null,
         () => this.loading = false
     );
+  }
+
+  loadFeaturedBoardSets(): void {
+    this.service.featured().subscribe(bs => this.featuredBoardSets = bs);
   }
 
   newBoardSet(): void {

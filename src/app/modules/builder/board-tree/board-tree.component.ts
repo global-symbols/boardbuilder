@@ -7,6 +7,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {BoardService} from '@data/services/board.service';
 import {saveAs} from 'file-saver';
 import {Router} from '@angular/router';
+import {BoardSet} from '@data/models/boardset.model';
 
 /** Flat node with expandable and level information */
 interface BoardTreeMenuFlatNode {
@@ -27,6 +28,7 @@ interface BoardTreeMenuItem {
 })
 export class BoardTreeComponent implements OnInit, OnChanges {
 
+  @Input() boardSet: BoardSet;
   @Input() boards: Array<Board>;
   @Input() selectedBoard: Board;
   @Output() readonly selectionChange = new EventEmitter<Board>();

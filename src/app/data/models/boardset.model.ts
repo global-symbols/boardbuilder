@@ -6,6 +6,7 @@ export class BoardSet extends Record implements Deserialisable {
     public localId: number;
     public name: string;
     public public: boolean;
+    public readonly: boolean;
     public boards = Array<Board>();
     opened_at: Date;
 

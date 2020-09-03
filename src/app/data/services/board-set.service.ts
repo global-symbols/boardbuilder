@@ -40,6 +40,13 @@ export class BoardSetService {
     return this.http.delete<BoardSet>(`${this.apiEndpoint}/${record.id}`);
   }
 
+  // Featured BoardSets
+  featured(): Observable<BoardSet[]> {
+    return this.http.get<BoardSet[]>(`${this.apiEndpoint}/featured`)
+      .pipe(map(arr => arr.map(item => new BoardSet().deserialise(item))));
+  }
+
+  // Update opened_at date
   touch(record: BoardSet): Observable<BoardSet> {
 
     record.opened_at = new Date();
