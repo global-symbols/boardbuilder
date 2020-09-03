@@ -70,7 +70,7 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
     // Load linkable Boards when this.cell has a value
     if (changes.cell?.currentValue) {
       this.cellService.get(this.cell.id, 'linkable_boards').subscribe(lb => {
-        console.log('linkable boards', lb);
+        // console.log('linkable boards', lb);
         this.linkableBoards = lb.linkable_boards;
       });
     }
