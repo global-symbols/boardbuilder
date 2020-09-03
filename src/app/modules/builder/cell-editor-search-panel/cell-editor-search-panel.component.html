@@ -1,0 +1,60 @@
+<mat-form-field class="w-100" appearance="outline">
+  <mat-label i18n>Search For</mat-label>
+  <input matInput [(ngModel)]="query" #queryInput>
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+
+<mat-form-field class="w-100">
+  <mat-label>Search In</mat-label>
+  <mat-select [(value)]="source" (selectionChange)="search()">
+    <mat-option *ngFor="let source of sources" [value]="source">{{source.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<ng-container *ngIf="source.key === 'gs'">
+
+  <mat-form-field class="w-100">
+    <mat-label>Symbol Set</mat-label>
+    <mat-select [(value)]="gsParams.symbolset.value" (selectionChange)="search()">
+      <mat-option value="all">All Symbol Sets</mat-option>
+      <mat-optgroup *ngFor="let group of gsParams.symbolset.groups" [label]="group.name">
+        <mat-option *ngFor="let symbolset of group.options" [value]="symbolset.slug">
+          {{symbolset.name}}
+        </mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Language</mat-label>
+    <mat-select [(value)]="gsParams.language.value" (selectionChange)="search()">
+      <mat-option *ngFor="let language of gsParams.language.options" [value]="language.iso639_3">{{language.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</ng-container>
+
+<div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loading$ | async)">
+  <div fxFlex="25" *ngFor="let result of results$ | async">
+    <button mat-stroked-button color="primary" (click)="selectImage(result)" class="image-button">
+      <img mat-card-image [src]="result.imageUrl"/>
+    </button>
+  </div>
+</div>
+
+<div *ngIf="(loading$ | async) === false && (results$ | async)?.length === 0" class="no-results">
+  <div>
+    <mat-icon [inline]="true">category</mat-icon>
+  </div>
+
+  <p i18n>We couldn't find any symbols.</p>
+  <p i18n>Try broadening your search.</p>
+</div>
+
+<div *ngIf="loading$ | async" class="searching-notification">
+  <mat-progress-spinner
+    class="example-margin"
+    mode="indeterminate">
+  </mat-progress-spinner>
+  <ng-container i18n>Searching&hellip;</ng-container>
+</div>

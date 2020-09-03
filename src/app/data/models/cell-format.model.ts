@@ -9,7 +9,7 @@ export class CellFormat implements Deserialisable {
   labelPosition: string;
 
   constructor() {
-    this.labelPosition = 'bottom';
+    this.labelPosition = 'below';
   }
 
   deserialise(input: any): this {

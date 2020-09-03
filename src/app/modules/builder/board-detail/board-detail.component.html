@@ -1,0 +1,36 @@
+<div *ngIf="board">
+  <mat-grid-list [cols]="board.columns" rowHeight="12rem" gutterSize="1rem">
+    <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows)"
+                   tabindex="0" (click)="selectCell(c)" (keyup.enter)="selectCell(c)"
+                   [style.background-color]="c.background_colour"
+                   [style.outline-color]="c.border_colour"
+                   [class.selected]="cell === c"
+                   [class.outlined]="c.border_colour"
+    >
+
+      <div fxLayout="column" fxLayoutAlign="space-between stretch" fxFlexFill id="cellBox">
+
+        <div *ngIf="board.captions_position === 'below'" fxFlex="grow">
+          <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive"/>
+          <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
+        </div>
+
+        <div fxFlex fxLayout="row"  fxLayoutAlign="space-between center">
+          <span fxFlex="grow" fxFlexOffset="10" [style.color]="c.text_colour">{{c.caption}}</span>
+          <span fxFlex="10">
+            <button mat-icon-button [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
+                    (click)="showBoard(c.linked_board_id)"
+                    matTooltip="Go to Linked Board">
+              <mat-icon>link</mat-icon>
+            </button>
+          </span>
+        </div>
+
+        <div *ngIf="board.captions_position === 'above'" fxFlex="grow">
+          <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive"/>
+          <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

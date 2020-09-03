@@ -1,31 +1,37 @@
-<div fxLayout="row" fxLayoutAlign="space-between start">
-  <h1 mat-dialog-title i18n>Add Board from OBF</h1>
-  <button mat-icon-button aria-label="Close the cell editor" i18n-aria-label [mat-dialog-close]="false">
-    <mat-icon>close</mat-icon>
-  </button>
-</div>
+<div cdkDrag
+     cdkDragRootElement=".cdk-overlay-pane"
+     cdkDragBoundary="body"
+>
 
-
-<div mat-dialog-content>
-  <p i18n>Add a new Board from an Open Board Format (OBF) file.</p>
-  <p i18n>Select an OBF file to begin.</p>
-  <div fxLayout="row" fxLayoutAlign="center none" >
-    <button mat-stroked-button (click)="uploadInput.click()">
-      {{filename}}
-      <ng-container *ngIf="!filename" i18n>Select OBF&hellip;</ng-container>
+  <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
+    <h1 mat-dialog-title i18n class="mb-0">Add Board from OBF</h1>
+    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false" (mousedown)="$event.stopPropagation()">
+      <mat-icon>close</mat-icon>
     </button>
+  </header>
+
+
+  <div mat-dialog-content>
+    <p i18n>Add a new Board by importing an Open Board Format (OBF) file.</p>
+    <p i18n>Select an OBF file to begin.</p>
+    <div fxLayout="row" fxLayoutAlign="center none" >
+      <button mat-stroked-button (click)="uploadInput.click()" (mousedown)="$event.stopPropagation()">
+        {{filename}}
+        <ng-container *ngIf="!filename" i18n>Select OBF&hellip;</ng-container>
+      </button>
+    </div>
+
+    <input type="file" accept=".obf" style="display: none" #uploadInput (change)="fileChanged($event.target)">
+
+    <p *ngIf="previewBoard" role="alert" i18n>
+      We found {{previewBoard.cells.length}} {previewBoard.cells.length, plural, =1 {cell} other {cells}} in your OBF file.
+    </p>
+
+    <p *ngIf="fileInvalid" role="alert" i18n>The file you provided is not a valid OBF file.</p>
   </div>
-
-  <input type="file" accept=".obf" style="display: none" #uploadInput (change)="fileChanged($event.target)">
-
-  <p *ngIf="previewBoard" role="alert" i18n>
-    We found {{previewBoard.cells.length}} {previewBoard.cells.length, plural, =1 {tile} other {tiles}} in your OBF file.
-  </p>
-
-  <p *ngIf="fileInvalid" role="alert" i18n>The file you provided is not a valid OBF file.</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-stroked-button [mat-dialog-close]="false" color="primary" i18n>Cancel</button>
-  <span class="spacer"></span>
-  <button mat-raised-button [mat-dialog-close]="previewBoard" color="primary" [disabled]="!previewBoard" i18n>Add Board</button>
+  <div mat-dialog-actions>
+    <button mat-stroked-button [mat-dialog-close]="false" color="primary" (mousedown)="$event.stopPropagation()" i18n>Cancel</button>
+    <span class="spacer"></span>
+    <button mat-raised-button [mat-dialog-close]="previewBoard" color="primary" [disabled]="!previewBoard" (mousedown)="$event.stopPropagation()" i18n>Add Board</button>
+  </div>
 </div>

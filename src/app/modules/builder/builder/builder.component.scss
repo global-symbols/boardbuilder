@@ -1,0 +1,140 @@
+@import "~app/shared/variables";
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 4rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+
+mat-sidenav#cellEditor {
+  width: 355px;
+}
+
+$leftSidebarScrollbarWidth: 5px;
+$leftSidebarBasePadding: 16px;
+
+app-board-tree {
+  &::-webkit-scrollbar {
+    width: $leftSidebarScrollbarWidth;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    margin-left: 1px;
+    border-left: 1px solid white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #BBB;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #888;
+  }
+}
+
+mat-sidenav-content {
+  padding: 1rem;
+}
+#leftSidebarHeaderPanel, #leftSidebarBottomPanel {
+  background-color: lighten($blue, 50%);
+  padding: $leftSidebarBasePadding ($leftSidebarBasePadding + $leftSidebarScrollbarWidth) $leftSidebarBasePadding $leftSidebarBasePadding;
+}
+
+#leftSidebarHeaderPanel {
+  user-select: none;
+  h3 {
+    margin: 0;
+    padding-right: $leftSidebarBasePadding;
+  }
+}
+
+.board-toolbar {
+  margin: 8px 0;
+}
+
+#leftSidebarBottomPanel {
+  // Mimic mat-elevation-z4 but upside-down!
+  box-shadow:
+    0px -2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+  text-align: right;
+}
+
+#leftSidebarToggler, #leftSidebarBottomPanel {
+  z-index: 2;
+
+  mat-icon {
+    position: relative;
+    top: -2px;
+  }
+}
+
+#leftSidebarToggler {
+  padding: $leftSidebarBasePadding;
+  bottom: 0;
+  display: -webkit-flex;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+
+  mat-icon {
+    transition: all 0.5s;
+  }
+
+  &.open {
+    mat-icon {
+      transform: scaleX(-1);
+    }
+  }
+
+  // The left sidebar toggle button is blue when closed.
+  // This makes it white when open, for less distraction.
+  &.open button {
+    background-color: white;
+    color: $blue;
+  }
+}
+
+#boardSetName {
+  max-width: 10vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.read-only {
+  color: #666666;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}

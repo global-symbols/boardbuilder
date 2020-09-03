@@ -1,36 +1,27 @@
 import {Deserialisable} from './deserialisable.model';
 import {Cell} from './cell.model';
-import * as uuid from 'uuid';
 import * as mime from 'mime/lite';
-import {CellFormat} from './cell-format.model';
 import {Obf} from './obf.interface';
+import {Record} from '@data/models/record';
 
-export class Board implements Deserialisable {
-  id: number;
-  uuid: string;
-  title: string;
+export class Board extends Record implements Deserialisable {
+  board_set_id: number;
+  name: string;
   rows: number;
   columns: number;
   cells: Array<Cell>;
-  defaultCellFormat: CellFormat;
+  captions_position: string;
 
   constructor(init?: Partial<Board>) {
-      this.rows = 3;
-      this.columns = 4;
-      this.title = 'New Board';
-      this.uuid = uuid.v4();
-      this.defaultCellFormat = new CellFormat();
-
-      Object.assign(this, init);
-
-      this.cells = Array<Cell>();
-
+      super();
+      this.cells = new Array<Cell>();
+      if (init) { this.deserialise(init); }
       this.populateCells();
   }
 
-  deserialise(input: any): this {
+  deserialise(input: Partial<Board>): this {
     const object = Object.assign(this, input);
-    this.cells = object.cells.map(cell => new Cell().deserialise(cell));
+    if (input.cells) { this.cells = input.cells.map(cell => new Cell().deserialise(cell)); }
     return this;
   }
 
@@ -50,7 +41,12 @@ export class Board implements Deserialisable {
     return out;
   }
 
+
+
   toObf(): Obf {
+
+    // Returns a string that identifies and connects Cell/Image/Button items in the OBF
+    const cellId = cell => this.id.toString() + cell.id.toString();
 
     // Chunk the Cells according to the number of rows/cols
     const gridOrderMatrix = [];
@@ -59,20 +55,20 @@ export class Board implements Deserialisable {
       const chunk = this.cells.slice(i, i + this.columns);
 
       // Replace each Cell with a unique identifier.
-      gridOrderMatrix.push(chunk.map((cell, index) => this.uuid + cell.id));
+      gridOrderMatrix.push(chunk.map((cell, index) => cellId(cell) ));
     }
 
     const obf: Obf = {
       format: 'open-board-0.1',
-      id: this.uuid,
+      id: this.id.toString(),
       locale: 'en',
       name: this.title,
       buttons: this.cells.map((cell, index) => ({
-        id: this.uuid + index,
-        image_id: this.uuid + index,
+        id: cellId(cell),
+        image_id: cellId(cell),
         label: cell.caption,
-        border_color: cell.borderColour,
-        background_color: cell.backgroundColour
+        border_color: cell.border_colour,
+        background_color: cell.background_colour
       })),
       grid: {
         rows: this.rows,
@@ -80,9 +76,9 @@ export class Board implements Deserialisable {
         order: gridOrderMatrix
       },
       images: this.cells.map((cell, index) => ({
-        id: this.uuid + cell.id,
-        url: cell.url,
-        content_type: mime.getType(cell.url)
+        id: cellId(cell),
+        url: cell.image_url,
+        content_type: mime.getType(cell.image_url)
       }))
     };
 
@@ -102,13 +98,14 @@ export class Board implements Deserialisable {
 
       if (obfButton) {
         this.cells[i].caption = obfButton.label;
-        this.cells[i].borderColour = obfButton.border_color;
-        this.cells[i].backgroundColour = obfButton.background_color;
+        this.cells[i].border_colour = obfButton.border_color;
+        this.cells[i].background_colour = obfButton.background_color;
       }
 
       if (obfImage) {
-        if (obfImage.url) { this.cells[i].url = obfImage.url; }
-        if (obfImage.data) { this.cells[i].imageData = obfImage.data; }
+        if (obfImage.url) { this.cells[i].image_url = obfImage.url; }
+        // TODO: Restore embedded imagedata OBFs
+        // if (obfImage.data) { this.cells[i].imageData = obfImage.data; }
       }
     });
     return true;
@@ -118,4 +115,7 @@ export class Board implements Deserialisable {
     return this.cells.slice(0, this.rows * this.columns).reduce((rows, key, index) => (index % this.columns === 0 ? rows.push([key])
         : rows[rows.length - 1].push(key)) && rows, []);
   }
+
+  get title(): string { return this.name; }
+  set title(t) { this.name = t; }
 }

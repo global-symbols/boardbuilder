@@ -1,30 +1,24 @@
 import {Deserialisable} from './deserialisable.model';
-import * as uuid from 'uuid';
 import {Board} from './board.model';
-import {DatePipe} from '@angular/common';
+import {Record} from '@data/models/record';
 
-export class BoardSet implements Deserialisable {
+export class BoardSet extends Record implements Deserialisable {
     public localId: number;
-    public uuid: string;
-    public title: string;
+    public name: string;
+    public public: boolean;
+    public readonly: boolean;
     public boards = Array<Board>();
-    public createdAt: Date;
-    public updatedAt: Date;
+    opened_at: Date;
+
 
     constructor(init?: Partial<BoardSet>) {
-      const pipe = new DatePipe('en-GB');
-      this.title = 'Untitled Board Set ' + pipe.transform(Date.now(), 'mediumDate');
-      this.uuid = uuid.v4();
-      this.createdAt = new Date();
-
-      Object.assign(this, init);
-
-      this.addBoard();
+      super();
+      this.deserialise(init);
     }
 
-    deserialise(input: any): this {
+    deserialise(input: Partial<BoardSet>): this {
       const object = Object.assign(this, input);
-      this.boards = object.boards.map(board => new Board().deserialise(board));
+      if (object.boards) { this.boards = object.boards.map(board => new Board().deserialise(board)); }
       return this;
     }
 
@@ -37,20 +31,7 @@ export class BoardSet implements Deserialisable {
       this.boards = this.boards.filter(b => b !== board);
     }
 
-    // Finds a Board within this BoardSet by the UUID.
-    // Recurses to search Boards nested within the Cells of other Boards.
-    findBoard(searchUuid: string, boards: Board[] = this.boards): Board {
-
-      if (boards.length === 0) { return null; }
-
-      for (const board of boards) {
-        if (board.uuid === searchUuid) { return board; }
-
-        const b = this.findBoard(searchUuid, board.cells.filter(c => c.board !== undefined).map(c => c.board));
-        if (b instanceof Board) { return b; }
-      }
-
-      return null;
-    }
+    get title(): string { return this.name; }
+    set title(t) { this.name = t; }
 
 }

@@ -1,61 +1,63 @@
-import {Injectable} from '@angular/core';
-
-import {BoardSet} from '../models/boardset.model';
-import {NgxIndexedDBService} from 'ngx-indexed-db';
+import { Injectable } from '@angular/core';
+import {Observable} from 'rxjs';
+import {BoardSet} from '@data/models/boardset.model';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '@env';
+import {map} from 'rxjs/operators';
 import * as JSZip from 'jszip';
-import {ObzManifest} from '../models/obz-manifest.interface';
+import {ObzManifest} from '@data/models/obz-manifest.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoardSetService {
 
-  private storeName = 'boardsets';
+  private apiEndpoint = `${environment.boardBuilderApiBase}/board_sets`;
 
-  constructor(private dbService: NgxIndexedDBService) { }
+  constructor(private http: HttpClient) { }
 
-  getBoardSets(): Promise<BoardSet[]> {
-    return this.dbService.getAll(this.storeName).then(result => result.map(bs => new BoardSet().deserialise(bs)).reverse());
+  list(): Observable<BoardSet[]> {
+    return this.http.get<BoardSet[]>(this.apiEndpoint)
+      .pipe(map(arr => arr.map(item => new BoardSet().deserialise(item))));
   }
 
-  newBoardSet(): Promise<BoardSet> {
-    const boardSet = new BoardSet();
-    return this.dbService.add(this.storeName, boardSet).then(n => {
-      return this.getBoardSet(n);
+  get(id: number|string, expand = ''): Observable<BoardSet> {
+    return this.http.get<BoardSet>(`${this.apiEndpoint}/${id}`, { params: { expand } })
+      .pipe(map(data => new BoardSet().deserialise(data)));
+  }
+
+  add(record: BoardSet): Observable<BoardSet> {
+    return this.http.post<BoardSet>(this.apiEndpoint, record)
+      .pipe(map(data => new BoardSet().deserialise(data)));
+  }
+
+  update(record: BoardSet): Observable<BoardSet> {
+    return this.http.patch<BoardSet>(`${this.apiEndpoint}/${record.id}`, record)
+      .pipe(map(data => new BoardSet().deserialise(data)));
+  }
+
+  delete(record: BoardSet): Observable<BoardSet> {
+    return this.http.delete<BoardSet>(`${this.apiEndpoint}/${record.id}`);
+  }
+
+  // Featured BoardSets
+  featured(): Observable<BoardSet[]> {
+    return this.http.get<BoardSet[]>(`${this.apiEndpoint}/featured`)
+      .pipe(map(arr => arr.map(item => new BoardSet().deserialise(item))));
+  }
+
+  // Update opened_at date
+  touch(record: BoardSet): Observable<BoardSet> {
+
+    record.opened_at = new Date();
+
+    const params = new BoardSet({
+      id: record.id,
+      opened_at: record.opened_at
     });
-  }
+    delete params.boards;
 
-  addBoardSet(boardSet: BoardSet): Promise<BoardSet> {
-    return this.dbService.add(this.storeName, boardSet).then(n => {
-      return this.getBoardSet(n);
-    });
-  }
-
-  getBoardSet(id: number | string): Promise<BoardSet> {
-    if (typeof id === 'number') {
-      return this.dbService.getByKey(this.storeName, id).then(
-        bs => new BoardSet().deserialise(bs)
-      );
-    } else {
-      return this.dbService.getByIndex(this.storeName, 'uuid', id).then(
-        bs => new BoardSet().deserialise(bs),
-        error => {
-          console.log(error);
-          return new BoardSet().deserialise(error);
-        }
-      );
-    }
-  }
-
-  updateBoardSet(boardSet: any) {
-    boardSet.updatedAt = Date.now();
-    return this.dbService.update(this.storeName, boardSet);
-  }
-
-  delete(boardSet: BoardSet): Promise<boolean> {
-    return this.dbService.delete(this.storeName, boardSet.localId).then(r => r, error => {
-      console.log(error);
-    });
+    return this.update(params);
   }
 
   convertToObz(boardSet: BoardSet): Promise<any> {
@@ -64,7 +66,7 @@ export class BoardSetService {
     // Prepare the bare OBZ Manifest data
     const manifest: ObzManifest = {
       format: 'open-board-0.1',
-      root: 'boards/' + boardSet.boards[0].uuid + '.obf',
+      root: 'boards/' + boardSet.boards[0].id + '.obf',
       paths: {
         boards: { },
         images: { },
@@ -73,13 +75,13 @@ export class BoardSetService {
     };
 
     boardSet.boards.forEach(board => {
-      const boardFilename = 'boards/' + board.uuid + '.obf';
+      const boardFilename = 'boards/' + board.id + '.obf';
 
       // Add the Board OBF file to the ZIP file.
       zip.file(boardFilename, JSON.stringify(board.toObf(), null, 2));
 
       // Add the Board OBF file path to the OBZ Manifest
-      return manifest.paths.boards[board.uuid] = boardFilename;
+      return manifest.paths.boards[board.id] = boardFilename;
     });
 
     // Add the OBZ Manifest file to the ZIP.

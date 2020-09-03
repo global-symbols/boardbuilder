@@ -1,0 +1,63 @@
+<div class="container mt-3">
+
+  <app-loading-notice *ngIf="loading" subject="Board Sets"></app-loading-notice>
+
+  <ng-container *ngIf="!loading">
+    <h2>My Board Sets</h2>
+    <div fxLayout="row wrap" fxLayoutGap="1rem grid">
+      <div fxFlex="25" class="card-container">
+        <mat-card fxFlexFill class="add-boardset">
+          <mat-card-actions fxFlex fxLayout="column">
+            <button fxFlex mat-flat-button color="primary" i18n (click)="newBoardSet()">Create Board Set</button>
+            <button mat-flat-button color="primary" i18n class="mt-1" (click)="uploadObz()">Upload OBZ File</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <div fxFlex="25" class="card-container" *ngFor="let boardSet of boardSets" >
+        <mat-card fxFlexFill fxLayout="column">
+          <mat-card-header fxFlex="grow">
+            <mat-card-title>{{boardSet.name}}</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div fxLayout="column" fxLayoutAlign="space-between none">
+              <ng-container *ngIf="boardSet.opened_at">Opened {{boardSet.opened_at.toString() | amTimeAgo}}</ng-container>
+              <ng-container *ngIf="!boardSet.opened_at">Never Opened</ng-container>
+            </div>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button fxFlex mat-flat-button color="primary" [routerLink]="boardSet.id.toString()" i18n>Open</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+
+
+    <h2>Featured Board Sets</h2>
+
+    <div fxLayout="row wrap" fxLayoutGap="1rem grid">
+      <div fxFlex="25" class="card-container" *ngFor="let boardSet of featuredBoardSets" >
+        <mat-card fxFlexFill fxLayout="column">
+          <mat-card-header fxFlex="grow">
+            <mat-card-title>{{boardSet.name}}</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div fxLayout="column" fxLayoutAlign="space-between none">
+              <ng-container *ngIf="boardSet.opened_at">Opened {{boardSet.opened_at.toString() | amTimeAgo}}</ng-container>
+              <ng-container *ngIf="!boardSet.opened_at">Never Opened</ng-container>
+            </div>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button fxFlex mat-flat-button color="primary" [routerLink]="boardSet.id.toString()" i18n>Open</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
