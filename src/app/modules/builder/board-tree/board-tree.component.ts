@@ -116,7 +116,6 @@ export class BoardTreeComponent implements OnInit, OnChanges {
   }
 
   edit(board: Board) {
-    console.log(board);
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {

@@ -11,6 +11,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ErrorNotFoundComponent } from './components/error-not-found/error-not-found.component';
 import { LoadingNoticeComponent } from './components/loading-notice/loading-notice.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { CopyBoardSetDialogComponent } from './components/copy-board-set-dialog/copy-board-set-dialog.component';
 
 
 
@@ -19,7 +20,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ColourSelectorComponent,
     ConfirmDialogComponent,
     ErrorNotFoundComponent,
-    LoadingNoticeComponent
+    LoadingNoticeComponent,
+    CopyBoardSetDialogComponent
   ],
   exports: [
     ColourSelectorComponent,

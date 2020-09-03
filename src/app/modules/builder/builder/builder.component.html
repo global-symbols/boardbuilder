@@ -16,10 +16,7 @@
 
 
           <div fxLayout="row" fxLayoutAlign="space-between center" (dblclick)="editBoardSet()">
-            <div>
-              <h3 id="boardSetName">{{boardSet.name}}</h3>
-              <div *ngIf="boardSet?.readonly" class="read-only">Read Only</div>
-            </div>
+            <h3 id="boardSetName">{{boardSet.name}}</h3>
 
             <button mat-button mat-icon-button
                     [matMenuTriggerFor]="matBoardSetMenu"
@@ -29,6 +26,16 @@
               <mat-icon>more_vert</mat-icon>
             </button>
           </div>
+
+          <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf="boardSet?.readonly">
+            <div class="read-only">Read Only</div>
+
+            <button mat-button mat-icon-button (click)="copyBoardSet()"
+                    matTooltip="Create Editable Copy" matTooltipPosition="right">
+              <mat-icon>create</mat-icon>
+            </button>
+          </div>
+
         </div>
 
         <app-board-tree *ngIf="boardSet"

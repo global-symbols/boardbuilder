@@ -17,6 +17,7 @@ import {BoardSetEditorDialogComponent} from '../board-set-editor-dialog/board-se
 import {ToolbarService} from '@app/services/toolbar.service';
 import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
+import {CopyBoardSetDialogComponent} from '@shared/components/copy-board-set-dialog/copy-board-set-dialog.component';
 
 @Component({
   selector: 'app-builder',
@@ -83,7 +84,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
       action: () => this.hotkeysService.cheatSheetToggle.next()
     }]);
 
-    // Keyboard shortcut - edit Board
+    // Keyboard shortcut - main menu
     this.hotkeys.push(
       this.hotkeysService.add(new Hotkey(['ctrl+backspace', 'command+backspace'], (event: KeyboardEvent): boolean => {
         this.router.navigate(['/', 'boardsets']);
@@ -94,7 +95,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
     // Keyboard shortcut - edit Board
     this.hotkeys.push(
       this.hotkeysService.add(new Hotkey(['ctrl+s', 'command+s'], (event: KeyboardEvent): boolean => {
-        if (this.boardSet) { this.editBoardSet(); }
+        if (this.boardSet) {
+          this.editBoardSet();
+        }
         return false; // Prevent bubbling
       }, undefined, 'Edit Board Set'))
     );
@@ -110,7 +113,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
     // Keyboard shortcut - edit Board
     this.hotkeys.push(
       this.hotkeysService.add(new Hotkey(['ctrl+e', 'command+e'], (event: KeyboardEvent): boolean => {
-        if (this.board) { this.editBoard(this.board); }
+        if (this.board) {
+          this.editBoard(this.board);
+        }
         return false; // Prevent bubbling
       }, undefined, 'Edit Current Board'))
     );
@@ -118,7 +123,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
     // Keyboard shortcut - delete Board
     this.hotkeys.push(
       this.hotkeysService.add(new Hotkey(['del'], (event: KeyboardEvent): boolean => {
-        if (this.board) { this.deleteBoard(this.board); }
+        if (this.board) {
+          this.deleteBoard(this.board);
+        }
         return false; // Prevent bubbling
       }, undefined, 'Delete Current Board'))
     );
@@ -154,6 +161,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   addBoard() {
+    if (this.boardSet.readonly) { return; }
     this.boardService.add(new Board({
       name: 'Board ' + (this.boardSet.boards.length + 1),
       board_set_id: this.boardSet.id,
@@ -167,6 +175,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   updateBoardSet() {
+    if (this.boardSet.readonly) { return; }
     return this.boardSetService.update(this.boardSet);
   }
 
@@ -186,6 +195,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   deleteBoard(board: Board) {
+    if (this.boardSet.readonly) { return; }
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -209,6 +219,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   editBoard(board: Board) {
+    if (this.boardSet.readonly) { return; }
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
@@ -228,6 +239,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   editBoardSet() {
+    if (this.boardSet.readonly) { return; }
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(BoardSetEditorDialogComponent, {
@@ -275,5 +287,23 @@ export class BuilderComponent implements OnInit, OnDestroy {
   generatePdf() {
     this.updateBoardSet()
       .subscribe(r => this.router.navigate(['/', 'boardsets', this.boardSet.id, this.board.id, 'pdf']));
+  }
+
+  copyBoardSet() {
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(CopyBoardSetDialogComponent, {
+      width: '300px',
+      data: this.boardSet
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(updatedBoardSet => {
+      if (updatedBoardSet instanceof BoardSet) {
+        // boardSet = updatedBoardSet;
+        this.boardSetService.update(updatedBoardSet).subscribe();
+      }
+
+      this.currentDialogRef = undefined;
+    });
   }
 }

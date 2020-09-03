@@ -1,0 +1,22 @@
+<div cdkDrag
+     cdkDragRootElement=".cdk-overlay-pane"
+     cdkDragBoundary="body"
+>
+  <h1 mat-dialog-title>Copy {{boardSet.name}}</h1>
+
+  <div mat-dialog-content>
+    <ng-container *ngIf="status === 'Confirming'">
+      <p>Copy this Board Set?</p>
+      <p *ngIf="boardSet.readonly === true">You will be able to edit the copy.</p>
+    </ng-container>
+    <app-loading-notice *ngIf="status === 'Copying'" action="Copying" subject="Board Set"></app-loading-notice>
+    <p *ngIf="status === 'Copied'">Copy complete!</p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-stroked-button [mat-dialog-close]="false" color="primary" i18n [disabled]="status === 'Copying'" (mousedown)="$event.stopPropagation()" *ngIf="status != 'Copied'">Cancel</button>
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" i18n (click)="copyBoardSet()" [disabled]="status === 'Copying'" (mousedown)="$event.stopPropagation()" *ngIf="status != 'Copied'">Copy</button>
+    <button mat-raised-button color="primary" i18n (click)="openCopiedBoardSet()" (mousedown)="$event.stopPropagation()" *ngIf="status === 'Copied'">Go To Copy</button>
+  </div>
+</div>
