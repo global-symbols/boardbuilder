@@ -71,7 +71,7 @@ export class PdfComponent implements OnInit {
     this.toolbarService.setButtons([{
       text: 'Board Set',
       icon: 'arrow_back',
-      routerLink: ['/', 'boardsets', this.route.snapshot.paramMap.get('id')]
+      action: () => this.router.navigate(['/', 'boardsets', this.route.snapshot.paramMap.get('id')])
     }]);
 
     this.boardService.get(this.route.snapshot.paramMap.get('board_id'), 'cells').subscribe(board => {

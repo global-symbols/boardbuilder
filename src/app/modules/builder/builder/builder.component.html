@@ -18,7 +18,7 @@
           <div fxLayout="row" fxLayoutAlign="space-between center" (dblclick)="editBoardSet()">
             <div>
               <h3 id="boardSetName">{{boardSet.name}}</h3>
-              <div *ngIf="boardSet.readonly" class="read-only">Read Only</div>
+              <div *ngIf="boardSet?.readonly" class="read-only">Read Only</div>
             </div>
 
             <button mat-button mat-icon-button
@@ -46,7 +46,7 @@
         <div id="leftSidebarBottomPanel">
           <button mat-mini-fab
                   (click)="addBoard()"
-                  [disabled]="boardSet.readonly"
+                  [disabled]="boardSet?.readonly"
                   matTooltip="Add Board" matTooltipPosition="right" i18n-matTooltip
                   aria-label="Add Board" i18n-aria-label
                   color="primary" >
@@ -62,7 +62,7 @@
     <mat-sidenav [opened]="selectedCell" mode="side" position="end" id="cellEditor" #cellEditor
                  (opened)="disableCellEditorAnimations = false"
                  (closed)="disableCellEditorAnimations = true; selectedCell = null"
-                 *ngIf="!boardSet.readonly">
+                 *ngIf="!boardSet?.readonly">
 
       <app-cell-editor [(boardSet)]="boardSet"
                        [(board)]="board"
@@ -86,7 +86,7 @@
 </div>
 
 <mat-menu #matBoardSetMenu="matMenu">
-  <button mat-menu-item (click)="uploadBoardObf()" [disabled]="boardSet.readonly">
+  <button mat-menu-item (click)="uploadBoardObf()" [disabled]="boardSet?.readonly">
     <mat-icon>insert_drive_file</mat-icon> <ng-container i18n>Add Board from OBF</ng-container>
   </button>
   <button mat-menu-item (click)="downloadBoardSetObz()">
@@ -95,11 +95,11 @@
 
   <mat-divider></mat-divider>
 
-  <button mat-menu-item (click)="null" [disabled]="boardSet.readonly">
+  <button mat-menu-item (click)="null" [disabled]="boardSet?.readonly">
     <mat-icon>delete</mat-icon> Delete
   </button>
 
-  <button mat-menu-item (click)="editBoardSet()" [disabled]="boardSet.readonly">
+  <button mat-menu-item (click)="editBoardSet()" [disabled]="boardSet?.readonly">
     <mat-icon>edit</mat-icon> Properties
   </button>
 </mat-menu>

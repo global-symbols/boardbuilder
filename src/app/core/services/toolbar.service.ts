@@ -5,7 +5,6 @@ export interface ToolbarButton {
   text?: string;
   icon?: string;
   tooltip?: string;
-  routerLink?: Array<string>;
 
   action?();
 }
