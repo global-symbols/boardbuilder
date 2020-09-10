@@ -20,6 +20,7 @@ import {moveItemInArray} from '@angular/cdk/drag-drop';
 import {CellEditorSearchPanelComponent} from '@modules/builder/cell-editor-search-panel/cell-editor-search-panel.component';
 import {BoardService} from '@data/services/board.service';
 import {CellService} from '@data/services/cell.service';
+import {Media} from '@data/models/media.model';
 
 @Component({
   selector: 'app-cell-editor',
@@ -125,5 +126,11 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
     moveItemInArray(this.board.cells, this.board.cells.indexOf(this.cell), to);
     // TODO: Debounce for chained cell movements.
     this.boardService.reorderCells(this.board).subscribe();
+  }
+
+  selectMedia(media: Media) {
+    this.cell.media = media;
+    this.cell.media_id = media.id;
+    this.cell.image_url = media.public_url;
   }
 }

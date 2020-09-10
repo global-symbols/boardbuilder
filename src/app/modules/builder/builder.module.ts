@@ -34,6 +34,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {HotkeyModule} from 'angular2-hotkeys';
+import { MediaLibraryComponent } from './media-library/media-library.component';
 
 export const routes: Routes = [
   {
@@ -55,7 +56,8 @@ export const routes: Routes = [
     BoardTreeComponent,
     BoardDetailComponent,
     BoardEditorDialogComponent,
-    BoardSetEditorDialogComponent
+    BoardSetEditorDialogComponent,
+    MediaLibraryComponent
   ],
   imports: [
     CommonModule,

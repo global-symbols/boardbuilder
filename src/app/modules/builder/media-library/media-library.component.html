@@ -1,0 +1,32 @@
+<div class="dropzone text-center" fxLayout="column">
+
+  <ng-container *ngIf="!uploadingMedia">
+    Drop an image file here
+    <em class="py-1">or&hellip;</em>
+  </ng-container>
+
+  <ng-container *ngIf="uploadingMedia">
+    <mat-spinner diameter="24" style="margin: 0 auto"></mat-spinner>
+    <em class="py-1">Uploading&hellip;</em>
+  </ng-container>
+
+  <button mat-flat-button color="primary"
+          (click)="selectFile()"
+          [disabled]="uploadingMedia">
+    Upload from Device&hellip;
+  </button>
+</div>
+
+<div *ngIf="uploadingMediaError" class="py-2">We couldn't upload your file. Please try again, or use a different file.</div>
+
+<div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loadingMedia)" class="mt-2">
+  <div fxFlex="25" *ngFor="let mediaItem of media">
+    <button fxFlex mat-stroked-button color="primary" (click)="mediaSelect.emit(mediaItem)" class="image-button"
+    >
+      <img mat-card-image [src]="mediaItem.public_url"/>
+    </button>
+  </div>
+</div>
+
+<input type="file" #fileUpload name="fileUpload" accept=".svg,.png,.jpg,.jpeg,.gif" style="display:none;"
+       (change)="uploadFile()"/>

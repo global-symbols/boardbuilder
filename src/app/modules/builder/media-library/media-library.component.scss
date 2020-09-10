@@ -1,0 +1,15 @@
+.dropzone {
+  border: 4px dashed #ccc;
+  border-radius: 10px;
+  padding: 7px 10px;
+}
+
+.image-button {
+  padding: 0.5rem;
+  width: 100%;
+  height: 100%;
+
+  img {
+    max-width: 100%;
+  }
+}

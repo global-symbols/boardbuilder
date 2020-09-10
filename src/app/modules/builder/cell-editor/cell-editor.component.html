@@ -84,7 +84,38 @@
 
     <mat-tab label="Symbol" i18n-label>
       <div class="p-1">
-        <app-cell-editor-search-panel #searchPanel [initialQuery]="cell.caption" (selectionChange)="selectImageUrl($event)"></app-cell-editor-search-panel>
+        <mat-accordion>
+
+          <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Search
+              </mat-panel-title>
+              <mat-panel-description>
+                <mat-icon class="mr-1">search</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-cell-editor-search-panel #searchPanel [initialQuery]="cell.caption" (selectionChange)="selectImageUrl($event)"></app-cell-editor-search-panel>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+
+                My Images
+              </mat-panel-title>
+              <mat-panel-description>
+                <mat-icon class="mr-1">perm_media</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+
+            <app-media-library (mediaSelect)="selectMedia($event)"></app-media-library>
+
+          </mat-expansion-panel>
+
+        </mat-accordion>
+
       </div>
     </mat-tab>
   </mat-tab-group>
