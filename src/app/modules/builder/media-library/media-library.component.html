@@ -1,23 +1,30 @@
-<div class="dropzone text-center" fxLayout="column">
+<div class="dropzone text-center" fxLayout="column" [class.dropzone-active]="dropzoneActive"
+    (drop)="dropFile($event); dropzoneActive = false"
+    (dragenter)="allowDragDrop($event); dropzoneActive = true"
+    (dragover)="allowDragDrop($event); dropzoneActive = true"
+    (dragleave)="allowDragDrop($event); dropzoneActive = false"
+>
 
-  <ng-container *ngIf="!uploadingMedia">
+  <ng-container *ngIf="uploadStatus != 'Uploading'">
     Drop an image file here
-    <em class="py-1">or&hellip;</em>
+    <small class="py-1">
+      <em>SVG &middot; PNG &middot; JPG &middot; GIF</em>
+    </small>
   </ng-container>
 
-  <ng-container *ngIf="uploadingMedia">
+  <ng-container *ngIf="uploadStatus === 'Uploading'">
     <mat-spinner diameter="24" style="margin: 0 auto"></mat-spinner>
     <em class="py-1">Uploading&hellip;</em>
   </ng-container>
 
   <button mat-flat-button color="primary"
-          (click)="selectFile()"
-          [disabled]="uploadingMedia">
+          (click)="openFileSelector()"
+          [disabled]="uploadStatus === 'Uploading'">
     Upload from Device&hellip;
   </button>
 </div>
 
-<div *ngIf="uploadingMediaError" class="py-2">We couldn't upload your file. Please try again, or use a different file.</div>
+<div *ngIf="uploadStatus === 'Error'" class="py-2">We couldn't upload your file. Please try again, or use a different file.</div>
 
 <div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loadingMedia)" class="mt-2">
   <div fxFlex="25" *ngFor="let mediaItem of media">
@@ -29,4 +36,4 @@
 </div>
 
 <input type="file" #fileUpload name="fileUpload" accept=".svg,.png,.jpg,.jpeg,.gif" style="display:none;"
-       (change)="uploadFile()"/>
+       (change)="selectFile()"/>
