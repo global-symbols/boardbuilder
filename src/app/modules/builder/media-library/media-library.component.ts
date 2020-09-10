@@ -9,6 +9,12 @@ export enum UploadStatus {
   Error = 'Error'
 }
 
+export enum UploadErrorReason {
+  WrongType = 'WrongType',
+  TooLarge = 'TooLarge',
+  Unknown = 'Unknown'
+}
+
 @Component({
   selector: 'app-media-library',
   templateUrl: './media-library.component.html',
@@ -20,9 +26,11 @@ export class MediaLibraryComponent implements OnInit {
   media: Media[];
 
   uploadStatus: UploadStatus;
+  uploadError?: UploadErrorReason;
 
   dropzoneActive = false;
 
+  maxSize = 10000000;
   allowedTypes = ['image/svg+xml', 'image/jpeg', 'image/gif', 'image/png'];
 
   @Output() readonly mediaSelect = new EventEmitter<Media>();
@@ -34,7 +42,7 @@ export class MediaLibraryComponent implements OnInit {
   ngOnInit(): void {
     // TODO: lazy-load media when panel becomes visible
     this.loadMedia();
-    this.uploadStatus = UploadStatus.Idle;
+    this.resetUploadStatus();
   }
 
   loadMedia(): void {
@@ -45,8 +53,13 @@ export class MediaLibraryComponent implements OnInit {
     });
   }
 
-  openFileSelector() {
+  resetUploadStatus() {
     this.uploadStatus = UploadStatus.Idle;
+    this.uploadError = null;
+  }
+
+  openFileSelector() {
+    this.resetUploadStatus();
     this.fileUpload.nativeElement.click();
   }
 
@@ -58,12 +71,21 @@ export class MediaLibraryComponent implements OnInit {
 
   dropFile($event: DragEvent) {
     this.allowDragDrop($event);
+    this.resetUploadStatus();
     const files = $event.dataTransfer.files;
     if (files.length === 1) { this.uploadFile(files[0]); }
   }
 
   uploadFile(file: File) {
-    if (this.allowedTypes.includes(file.type)) {
+    if (!this.allowedTypes.includes(file.type)) {
+      this.uploadStatus = UploadStatus.Error;
+      this.uploadError = UploadErrorReason.WrongType;
+
+    } else if (file.size > this.maxSize) {
+      this.uploadStatus = UploadStatus.Error;
+      this.uploadError = UploadErrorReason.TooLarge;
+
+    } else {
       this.uploadStatus = UploadStatus.Uploading;
 
       this.service.add(file).subscribe(media => {
@@ -78,9 +100,8 @@ export class MediaLibraryComponent implements OnInit {
           // Clear the <input> value and reset uploading status
           this.fileUpload.nativeElement.value = null;
           this.uploadStatus = UploadStatus.Error;
+          this.uploadError = UploadErrorReason.Unknown;
         });
-    } else {
-      this.uploadStatus = UploadStatus.Error;
     }
   }
 

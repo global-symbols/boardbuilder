@@ -8,7 +8,7 @@
   <ng-container *ngIf="uploadStatus != 'Uploading'">
     Drop an image file here
     <small class="py-1">
-      <em>SVG &middot; PNG &middot; JPG &middot; GIF</em>
+      <em>SVG &middot; PNG &middot; JPG &middot; GIF &middot; <{{this.maxSize / 1000000}}MB</em>
     </small>
   </ng-container>
 
@@ -24,7 +24,17 @@
   </button>
 </div>
 
-<div *ngIf="uploadStatus === 'Error'" class="py-2">We couldn't upload your file. Please try again, or use a different file.</div>
+<div *ngIf="uploadError" class="py-2">
+  <ng-container *ngIf="uploadError === 'WrongType'">
+    We don't accept files of this type.
+  </ng-container>
+  <ng-container *ngIf="uploadError === 'TooLarge'">
+    Your file is too large.
+  </ng-container>
+  <ng-container *ngIf="uploadError === 'Unknown'">
+    We couldn't upload your file. Please try again, or use a different file.
+  </ng-container>
+</div>
 
 <div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loadingMedia)" class="mt-2">
   <div fxFlex="25" *ngFor="let mediaItem of media">
