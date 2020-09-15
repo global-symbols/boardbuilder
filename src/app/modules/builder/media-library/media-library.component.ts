@@ -23,6 +23,7 @@ export enum UploadErrorReason {
 export class MediaLibraryComponent implements OnInit {
 
   loadingMedia = false;
+  loadingMediaError = false;
   media: Media[];
 
   uploadStatus: UploadStatus;
@@ -50,7 +51,7 @@ export class MediaLibraryComponent implements OnInit {
     this.service.list().subscribe(media => {
       this.loadingMedia = false;
       return this.media = media;
-    });
+    }, error => this.loadingMediaError = true);
   }
 
   resetUploadStatus() {

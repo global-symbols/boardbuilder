@@ -1,12 +1,12 @@
-<app-loading-notice class="container" subject="Board Set" *ngIf="loading"></app-loading-notice>
-<app-error-not-found class="container" subject="Board Set" *ngIf="loadingError"></app-error-not-found>
+<app-loading-notice class="mt-3" subject="Board Set" *ngIf="loading"></app-loading-notice>
+<app-error-not-found class="container mt-3" subject="Board Set" *ngIf="loadingError"></app-error-not-found>
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="boardSet">
 
   <mat-sidenav-container class="example-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
                          [autosize]="true"
   >
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+    <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"
                  [opened]="!mobileQuery.matches"
 
@@ -71,9 +71,9 @@
                  (closed)="disableCellEditorAnimations = true; selectedCell = null"
                  *ngIf="!boardSet?.readonly">
 
-      <app-cell-editor [(boardSet)]="boardSet"
-                       [(board)]="board"
-                       [(cell)]="selectedCell"
+      <app-cell-editor [boardSet]="boardSet"
+                       [board]="board"
+                       [cell]="selectedCell"
                        (closed)="cellEditor.close();"
                        (cellLinkedToBoard)="loadBoardSet()"
                        [@.disabled]="disableCellEditorAnimations"
@@ -85,8 +85,8 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 
-  <div id="leftSidebarToggler" [class.open]="snav.opened">
-    <button mat-mini-fab color="primary" (click)="snav.toggle()" [matTooltip]="(snav.opened ? 'Hide' : 'Show') + ' Boards Panel'" matTooltipPosition="right" class="mat-elevation-z2">
+  <div id="leftSidebarToggler" [class.open]="sideNav.opened">
+    <button mat-mini-fab color="primary" (click)="sideNav.toggle()" [matTooltip]="(sideNav.opened ? 'Hide' : 'Show') + ' Boards Panel'" matTooltipPosition="right" class="mat-elevation-z2">
       <mat-icon>chevron_right</mat-icon>
     </button>
   </div>

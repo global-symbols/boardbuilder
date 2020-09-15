@@ -18,8 +18,9 @@
 
 .no-results {
   text-align: center;
-  > div {
+  mat-icon {
     font-size: 7rem;
+    line-height: 7rem;
     color: #666;
   }
 }

@@ -24,7 +24,7 @@
   </button>
 </div>
 
-<div *ngIf="uploadError" class="py-2">
+<div *ngIf="uploadError" class="text-center py-2">
   <ng-container *ngIf="uploadError === 'WrongType'">
     We don't accept files of this type.
   </ng-container>
@@ -34,6 +34,10 @@
   <ng-container *ngIf="uploadError === 'Unknown'">
     We couldn't upload your file. Please try again, or use a different file.
   </ng-container>
+</div>
+
+<div *ngIf="loadingMediaError" class="text-center py-2">
+  We couldn't load your images because of a technical issue.
 </div>
 
 <div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loadingMedia)" class="mt-2">
