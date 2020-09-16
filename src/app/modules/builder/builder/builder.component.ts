@@ -12,7 +12,6 @@ import {BoardEditorDialogComponent} from '../board-editor-dialog/board-editor-di
 import {BoardSetService} from '@data/services/board-set.service';
 import {BoardService} from '@data/services/board.service';
 import {CellService} from '@data/services/cell.service';
-import {Cell} from '@data/models/cell.model';
 import {BoardSetEditorDialogComponent} from '../board-set-editor-dialog/board-set-editor-dialog.component';
 import {ToolbarService} from '@app/services/toolbar.service';
 import {Observable, throwError} from 'rxjs';
@@ -261,19 +260,16 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(ObfUploadDialogComponent, {
-      width: '500px'
+      width: '500px',
+      data: { boardSet: this.boardSet }
     });
 
     this.currentDialogRef.afterClosed().subscribe(newBoard => {
       if (newBoard instanceof Board) {
-        newBoard.board_set_id = this.boardSet.id;
-
-        // Save the newBoard, then reload the BoardSet.
-        this.boardService.add(newBoard).subscribe(done => {
-          this.getBoardSet().subscribe(bs => {
-            // Select the new Board
-            this.selectLastBoard();
-          });
+        // Reload the BoardSet.
+        this.getBoardSet().subscribe(bs => {
+          // Select the new Board
+          this.selectLastBoard();
         });
       }
       this.currentDialogRef = undefined;

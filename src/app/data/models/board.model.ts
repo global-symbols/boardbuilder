@@ -93,20 +93,29 @@ export class Board extends Record implements Deserialisable {
 
     // OBF grid.order is a matrix, so we flatten it to get the cells in sequential order.
     obf.grid.order.flat().forEach((cellId, i) => {
-      const obfButton = obf.buttons.find(button => button.id === cellId);
-      const obfImage = obf.images.find(image => image.id === obfButton.image_id);
 
-      if (obfButton) {
-        this.cells[i].caption = obfButton.label;
-        this.cells[i].border_colour = obfButton.border_color;
-        this.cells[i].background_colour = obfButton.background_color;
+      // If the cell ID is not null (CBoard OBFs have null cell IDs on unused cells).
+      if (cellId != null) {
+        const obfButton = obf.buttons.find(button => button.id === cellId);
+        const obfImage = obf.images.find(image => image.id === obfButton.image_id);
+
+        if (obfButton) {
+          this.cells[i].caption = obfButton.label;
+          this.cells[i].border_colour = obfButton.border_color;
+          this.cells[i].background_colour = obfButton.background_color;
+        }
+
+        if (obfImage) {
+          if (obfImage.url) {
+            this.cells[i].image_url = obfImage.url;
+          } else if (obfImage.data) {
+            this.cells[i].imageData = obfImage.data;
+          }
+          // TODO: Restore embedded imagedata OBFs
+          // if (obfImage.data) { this.cells[i].imageData = obfImage.data; }
+        }
       }
 
-      if (obfImage) {
-        if (obfImage.url) { this.cells[i].image_url = obfImage.url; }
-        // TODO: Restore embedded imagedata OBFs
-        // if (obfImage.data) { this.cells[i].imageData = obfImage.data; }
-      }
     });
     return true;
   }

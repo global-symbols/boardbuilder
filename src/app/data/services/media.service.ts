@@ -24,15 +24,25 @@ export class MediaService {
       .pipe(map(data => new Media().deserialise(data)));
   }
 
-  add(file: File): Observable<Media> {
+  add(file: File|Blob): Observable<Media> {
     const formData: FormData = new FormData();
-    formData.append('file', file, file.name);
+
+    const fileName = file instanceof File ? file.name : 'uploaded file';
+
+    formData.append('file', file, fileName);
     return this.http.post<Media>(this.apiEndpoint, formData)
       .pipe(map(data => new Media().deserialise(data)));
-      // .map(() => { return true; })
-      // .catch((e) => this.handleError(e));
+  }
 
-    // return this.http.post<Media>(this.apiEndpoint, record)
-    //   .pipe(map(data => new Media().deserialise(data)));
+  base64toBlob(dataURI: string): Blob {
+
+      const byteString = atob(dataURI.split(',')[1]);
+      const ab = new ArrayBuffer(byteString.length);
+      const ia = new Uint8Array(ab);
+
+      for (let i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+      }
+      return new Blob([ab], { type: 'image/jpeg' });
   }
 }

@@ -4,6 +4,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Board} from '@data/models/board.model';
+import {Obf} from '@data/models/obf.interface';
+import {BoardSet} from '@data/models/boardset.model';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +42,11 @@ export class BoardService {
 
   reorderCells(board: Board) {
     const newOrder = board.cells.map(t => t.id);
-    // console.log(newOrder);
     return this.http.patch<Board>(`${this.apiEndpoint}/${board.id}/reorder_cells`, { cell_ids: newOrder});
+  }
+
+  public addFromObf(obf: Obf, boardSet: BoardSet): Observable<Board> {
+    return this.http.post<Board>(`${this.apiEndpoint}/obf`, {obf, board_set_id: boardSet.id})
+      .pipe(map(data => new Board().deserialise(data)));
   }
 }
