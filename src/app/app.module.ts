@@ -73,6 +73,10 @@ const appRoutes: Routes = [
       {
         path: 'boardsets/:id',
         loadChildren: () => import('@modules/builder/builder.module').then(m => m.BuilderModule)
+      },
+      {
+        path: 'media',
+        loadChildren: () => import('@modules/media/media.module').then(m => m.MediaModule)
       }
     ]
   },

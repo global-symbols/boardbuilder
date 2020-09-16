@@ -9,6 +9,10 @@
 
     <app-nav-button *ngFor="let button of rightButtons$ | async" [button]="button"></app-nav-button>
 
+    <a mat-button mat-icon-button [routerLink]="['/', 'media']" matTooltip="Manage My Images" class="mr-1">
+      <mat-icon>perm_media</mat-icon>
+    </a>
+
     <a mat-button mat-icon-button href="https://training.globalsymbols.com/course/view.php?id=56#section-1" target="_blank" matTooltip="Help and Resources" class="mr-1">
       <mat-icon>help_outline</mat-icon>
     </a>

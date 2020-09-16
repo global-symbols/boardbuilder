@@ -1,0 +1,25 @@
+<div class="container mt-3">
+
+  <app-loading-notice *ngIf="loading" subject="Media"></app-loading-notice>
+
+  <ng-container *ngIf="!loading">
+    <h2>My Images</h2>
+    <p>Images you have uploaded to use in your Boards. You have used {{spaceUsed | filesize}}.</p>
+
+    <p *ngIf="media.length === 0" class="text-center mt-3">You have not uploaded any images yet.</p>
+
+    <div fxLayout="row wrap" fxLayoutGap="2rem grid">
+      <div fxFlex="20" *ngFor="let mediaItem of media">
+        <mat-card>
+          <img mat-card-image [src]="mediaItem.public_url" alt="Media Item"/>
+          <mat-card-actions fxLayoutAlign="space-between center" >
+            <span>{{mediaItem.filesize | filesize}}</span>
+            <button mat-icon-button matTooltip="Delete Image" aria-label="Delete this Image" (click)="delete(mediaItem)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </ng-container>
+</div>

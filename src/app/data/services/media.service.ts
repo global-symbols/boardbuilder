@@ -34,6 +34,10 @@ export class MediaService {
       .pipe(map(data => new Media().deserialise(data)));
   }
 
+  delete(record: Media) {
+    return this.http.delete<Media>(`${this.apiEndpoint}/${record.id}`);
+  }
+
   base64toBlob(dataURI: string): Blob {
 
       const byteString = atob(dataURI.split(',')[1]);

@@ -81,7 +81,7 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
     this.closed.emit(true);
   }
 
-  // Sets the Cell's image URL for a web image, not from the User's media library.
+  // Sets the Cell's image URL for a web image, not from the User's page library.
   selectImageUrl(url: string) {
     this.cell.media = null;
     this.cell.media_id = null;
@@ -131,7 +131,7 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
     this.boardService.reorderCells(this.board).subscribe();
   }
 
-  // Sets the Cell's image URL for an image from the User's media library.
+  // Sets the Cell's image URL for an image from the User's page library.
   selectMedia(media: Media) {
     this.cell.media = media;
     this.cell.media_id = media.id;

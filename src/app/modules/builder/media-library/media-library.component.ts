@@ -41,7 +41,7 @@ export class MediaLibraryComponent implements OnInit {
   constructor(private service: MediaService) { }
 
   ngOnInit(): void {
-    // TODO: lazy-load media when panel becomes visible
+    // TODO: lazy-load page when panel becomes visible
     this.loadMedia();
     this.resetUploadStatus();
   }
