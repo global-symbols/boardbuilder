@@ -105,12 +105,14 @@ export class PdfComponent implements OnInit {
                 // Remove the width and height attributes from the <svg> element, if they are present.
                 // Leaving them in causes the SVG to be rendered full-size.
                 // Regex dotall (/s flag) is not supported in Firefox, so we have to use [^] instead of '.'.
-                result = result.replace(/(<svg[^]*?)width=['"][^]+?['"]([^]+?>)/gm, '$1$2');
-                result = result.replace(/(<svg[^]*?)height=['"][^]+?['"]([^]+?>)/gm, '$1$2');
+                result = result.replace(/(<svg[^>]*) width=['"][\d\w]+?['"]/gm, '$1');
+                result = result.replace(/(<svg[^>]*) height=['"][\d\w]+?['"]/gm, '$1');
 
                 // Remove XML headers from the SVG.
                 // SVGs returned by OpenSymbols have headers that break the SVG converter, so we'll just remove them.
                 result = result.replace(/^[^]*?<svg/, '<svg');
+
+                // console.log('output svg', result);
 
                 this.images[cell.id] = {svg: result};
                 this.generatePdfIfImagesReady();
@@ -131,7 +133,7 @@ export class PdfComponent implements OnInit {
       } catch (error) {
         return this.error(error);
       }
-    });
+    }, error => this.error(error));
   }
 
   private generatePdfIfImagesReady(): void {
@@ -150,6 +152,7 @@ export class PdfComponent implements OnInit {
   }
 
   generatePDF() {
+    // console.log('Generating PDF with images', this.images);
     const widths = [];
     const heights = [];
     const imageFit = 480 / this.board.columns; // e.g. 120 for 4-wide grids.
@@ -163,7 +166,7 @@ export class PdfComponent implements OnInit {
     const cells = [];
     this.board.cellsAsMatrix().map((row, rowNumber) => {
       row = row.map((cell, cellNumber) => {
-
+        // console.log(`R${rowNumber} C${cellNumber}`);
         let imageDefinition: any = {};
         if (this.images[cell.id] !== null) {
           imageDefinition = {
@@ -278,6 +281,8 @@ export class PdfComponent implements OnInit {
         }
       ]
     };
+
+    // console.log('Creating PDF');
 
     this.compiledPdf = this.pdfMake.createPdf(this.pdfDefinition);
 
