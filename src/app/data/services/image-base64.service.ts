@@ -9,7 +9,10 @@ export class ImageBase64Service {
   constructor(private httpClient: HttpClient) { }
 
   getFromURL(url: string): Promise<string | ArrayBuffer> {
-    return this.httpClient.get(url, { responseType: 'blob' }).toPromise().then(blob => {
+
+    return this.httpClient.get(url, {
+      responseType: 'blob'
+    }).toPromise().then(blob => {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onerror = reject;

@@ -11,7 +11,7 @@
       <div fxLayout="column" fxLayoutAlign="space-between stretch" fxFlexFill id="cellBox">
 
         <div *ngIf="board.captions_position === 'below'" fxFlex="grow">
-          <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive"/>
+          <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive" crossorigin="anonymous"/>
           <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
         </div>
 
