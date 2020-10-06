@@ -8,15 +8,22 @@
                    [class.outlined]="c.border_colour"
     >
 
-      <div fxLayout="column" fxLayoutAlign="space-between stretch" fxFlexFill id="cellBox">
+      <div fxLayout="column" fxLayoutAlign="space-between" fxFlex id="cellBox">
 
-        <div *ngIf="board.captions_position === 'below'" fxFlex="grow">
+        <div *ngIf="board.captions_position === 'above'" fxFlex="grow">
+          <span fxFlex="grow" [style.color]="c.text_colour">{{c.caption}}</span>
+        </div>
+
+        <div>
           <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive" crossorigin="anonymous"/>
           <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
-          <span fxFlex="grow" fxFlexOffset="10" [style.color]="c.text_colour">{{c.caption}}</span>
         </div>
 
         <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+
+          <div fxFlex="grow">
+            <span fxFlex="grow" fxFlexOffset="10" [style.color]="c.text_colour" *ngIf="board.captions_position === 'below'">{{c.caption}}</span>
+          </div>
           <span fxFlex="10">
             <button mat-icon-button [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
                     (click)="showBoard(c.linked_board_id)"
@@ -24,12 +31,6 @@
               <mat-icon>link</mat-icon>
             </button>
           </span>
-        </div>
-
-        <div *ngIf="board.captions_position === 'above'" fxFlex="grow">
-          <span fxFlex="grow" fxFlexOffset="10" [style.color]="c.text_colour">{{c.caption}}</span>
-          <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive" crossorigin="anonymous"/>
-          <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
         </div>
       </div>
     </mat-grid-tile>
