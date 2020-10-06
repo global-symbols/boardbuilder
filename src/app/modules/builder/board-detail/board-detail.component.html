@@ -13,10 +13,10 @@
         <div *ngIf="board.captions_position === 'below'" fxFlex="grow">
           <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive" crossorigin="anonymous"/>
           <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
+          <span fxFlex="grow" fxFlexOffset="10" [style.color]="c.text_colour">{{c.caption}}</span>
         </div>
 
-        <div fxFlex fxLayout="row"  fxLayoutAlign="space-between center">
-          <span fxFlex="grow" fxFlexOffset="10" [style.color]="c.text_colour">{{c.caption}}</span>
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
           <span fxFlex="10">
             <button mat-icon-button [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
                     (click)="showBoard(c.linked_board_id)"
@@ -27,6 +27,7 @@
         </div>
 
         <div *ngIf="board.captions_position === 'above'" fxFlex="grow">
+          <span fxFlex="grow" fxFlexOffset="10" [style.color]="c.text_colour">{{c.caption}}</span>
           <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive" crossorigin="anonymous"/>
           <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
         </div>
