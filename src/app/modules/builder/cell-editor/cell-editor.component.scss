@@ -15,3 +15,9 @@
 mat-panel-description {
   flex-direction: row-reverse;
 }
+
+// Set tab widths
+::ng-deep.mat-tab-label,
+::ng-deep.mat-tab-label-active{
+  min-width: 118px !important;
+}
