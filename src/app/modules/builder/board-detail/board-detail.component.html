@@ -27,7 +27,7 @@
         </div>
 
         <div *ngIf="board.captions_position === 'above'" fxFlex="grow">
-          <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive"/>
+          <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive" crossorigin="anonymous"/>
           <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
         </div>
       </div>
