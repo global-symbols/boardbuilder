@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {LOCALE_ID, NgModule} from '@angular/core';
+import {APP_INITIALIZER, ErrorHandler, LOCALE_ID, NgModule} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import {AppComponent} from './app.component';
@@ -21,7 +21,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
-import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {PreloadAllModules, Router, RouterModule, Routes} from '@angular/router';
 import {HotkeyModule} from 'angular2-hotkeys';
 import {FormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -40,6 +40,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AuthGuard} from '@app/auth.guard';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { NavButtonComponent } from './layout/nav-button/nav-button.component';
+import * as Sentry from "@sentry/angular";
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -125,7 +126,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       {
-        enableTracing: false, // <-- debugging purposes only
+        enableTracing: true, // <-- debugging purposes only
         preloadingStrategy: PreloadAllModules
       }
     ),
@@ -135,7 +136,28 @@ const appRoutes: Routes = [
     DragDropModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'en-GB'}
+    {provide: LOCALE_ID, useValue: 'en-GB'},
+
+    {
+      provide: ErrorHandler,
+      useValue: Sentry.createErrorHandler({
+        showDialog: true,
+        dialogOptions: {
+          title: 'We ran into a problem',
+          labelSubmit: 'Send Report',
+        }
+      }),
+    },
+    {
+      provide: Sentry.TraceService,
+      deps: [Router],
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => () => {},
+      deps: [Sentry.TraceService],
+      multi: true,
+    },
   ],
   exports: [
   ],

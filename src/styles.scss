@@ -86,3 +86,24 @@ h1, h2, h3 {
   font-size: 1.25rem;
   font-weight: 300;
 }
+
+
+.sentry-error-embed {
+
+  * {
+    font-weight: 300 !important;
+  }
+
+  .form-submit {
+    .btn,
+    .btn:hover {
+      background: $blue !important;
+    }
+
+    .close {
+      font-size: 16px !important;
+      float: right !important;
+    }
+  }
+
+}

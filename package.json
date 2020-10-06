@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "^10.1.2",
     "@angular/router": "^10.1.2",
     "@azure/ng-deploy": "^0.2.3",
+    "@sentry/angular": "^5.25.0",
+    "@sentry/tracing": "^5.25.0",
     "angular-oauth2-oidc": "^10.0.3",
     "angular2-hotkeys": "^2.2.0",
     "file-saver": "^2.0.2",
