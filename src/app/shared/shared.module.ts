@@ -12,6 +12,12 @@ import { ErrorNotFoundComponent } from './components/error-not-found/error-not-f
 import { LoadingNoticeComponent } from './components/loading-notice/loading-notice.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CopyBoardSetDialogComponent } from './components/copy-board-set-dialog/copy-board-set-dialog.component';
+import { SearchPanelComponent } from './components/search-panel/search-panel.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -21,13 +27,16 @@ import { CopyBoardSetDialogComponent } from './components/copy-board-set-dialog/
     ConfirmDialogComponent,
     ErrorNotFoundComponent,
     LoadingNoticeComponent,
-    CopyBoardSetDialogComponent
+    CopyBoardSetDialogComponent,
+    SearchPanelComponent,
+    SearchPanelComponent
   ],
   exports: [
     ColourSelectorComponent,
     ConfirmDialogComponent,
     ErrorNotFoundComponent,
-    LoadingNoticeComponent
+    LoadingNoticeComponent,
+    SearchPanelComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +46,12 @@ import { CopyBoardSetDialogComponent } from './components/copy-board-set-dialog/
     MatButtonModule,
     FlexModule,
     DragDropModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    MatInputModule,
+    MatCardModule
   ]
 })
 export class SharedModule { }

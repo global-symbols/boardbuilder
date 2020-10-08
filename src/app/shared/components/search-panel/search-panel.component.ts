@@ -8,11 +8,11 @@ import {Symbolset} from '@data/models/symbolset';
 import {Language} from '@data/models/language';
 
 @Component({
-  selector: 'app-cell-editor-search-panel',
-  templateUrl: './cell-editor-search-panel.component.html',
-  styleUrls: ['./cell-editor-search-panel.component.scss']
+  selector: 'app-search-panel',
+  templateUrl: './search-panel.component.html',
+  styleUrls: ['./search-panel.component.scss']
 })
-export class CellEditorSearchPanelComponent implements AfterViewInit, OnInit {
+export class SearchPanelComponent implements AfterViewInit, OnInit {
 
   sources = [
     {

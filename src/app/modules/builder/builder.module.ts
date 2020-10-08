@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {BuilderComponent} from '@modules/builder/builder/builder.component';
 import {CellEditorComponent} from '@modules/builder/cell-editor/cell-editor.component';
-import {CellEditorSearchPanelComponent} from '@modules/builder/cell-editor-search-panel/cell-editor-search-panel.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
@@ -49,46 +48,45 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    BuilderComponent,
-    CellEditorComponent,
-    CellEditorSearchPanelComponent,
-    BoardTreeComponent,
-    BoardDetailComponent,
-    BoardEditorDialogComponent,
-    BoardSetEditorDialogComponent,
-    MediaLibraryComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatExpansionModule,
-    MatTabsModule,
-    MatIconModule,
-    FlexModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    _MatMenuDirectivesModule,
-    MatSidenavModule,
-    MatMenuModule,
-    MatDividerModule,
-    MatListModule,
-    SharedModule,
-    MatCardModule,
-    MatInputModule,
-    FormsModule,
-    MatProgressSpinnerModule,
-    MatGridListModule,
-    MatDialogModule,
-    DragDropModule,
-    MatSliderModule,
-    MatTreeModule,
-    MatSlideToggleModule,
-    MatCheckboxModule,
-    HotkeyModule
-  ]
+    declarations: [
+        BuilderComponent,
+        CellEditorComponent,
+        BoardTreeComponent,
+        BoardDetailComponent,
+        BoardEditorDialogComponent,
+        BoardSetEditorDialogComponent,
+        MediaLibraryComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatExpansionModule,
+        MatTabsModule,
+        MatIconModule,
+        FlexModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatToolbarModule,
+        MatTooltipModule,
+        _MatMenuDirectivesModule,
+        MatSidenavModule,
+        MatMenuModule,
+        MatDividerModule,
+        MatListModule,
+        SharedModule,
+        MatCardModule,
+        MatInputModule,
+        FormsModule,
+        MatProgressSpinnerModule,
+        MatGridListModule,
+        MatDialogModule,
+        DragDropModule,
+        MatSliderModule,
+        MatTreeModule,
+        MatSlideToggleModule,
+        MatCheckboxModule,
+        HotkeyModule
+    ]
 })
 export class BuilderModule { }

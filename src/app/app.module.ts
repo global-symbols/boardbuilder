@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {APP_INITIALIZER, ErrorHandler, LOCALE_ID, NgModule} from '@angular/core';
+import {APP_INITIALIZER, ErrorHandler, Injectable, LOCALE_ID, NgModule} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import {AppComponent} from './app.component';
@@ -40,7 +40,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AuthGuard} from '@app/auth.guard';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { NavButtonComponent } from './layout/nav-button/nav-button.component';
-import * as Sentry from "@sentry/angular";
+import * as Sentry from '@sentry/angular';
+import {environment} from '@env';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -78,7 +79,11 @@ const appRoutes: Routes = [
       {
         path: 'media',
         loadChildren: () => import('@modules/media/media.module').then(m => m.MediaModule)
-      }
+      },
+      {
+        path: 'editor',
+        loadChildren: () => import('@modules/symbol-creator/symbol-creator.module').then(m => m.SymbolCreatorModule)
+      },
     ]
   },
   { path: '**', redirectTo: '/auth/login', pathMatch: 'full' }
@@ -126,7 +131,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       {
-        enableTracing: true, // <-- debugging purposes only
+        enableTracing: false, // <-- debugging purposes only
         preloadingStrategy: PreloadAllModules
       }
     ),
@@ -141,6 +146,7 @@ const appRoutes: Routes = [
     {
       provide: ErrorHandler,
       useValue: Sentry.createErrorHandler({
+        logErrors: true,
         showDialog: true,
         dialogOptions: {
           title: 'We ran into a problem',

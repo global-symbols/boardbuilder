@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaderResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +24,10 @@ export class ImageBase64Service {
         return reader.readAsDataURL(blob);
       });
     });
+  }
+
+  getMimeType(url: string): Observable<string> {
+    return this.httpClient.head(url, {responseType: 'blob'})
+      .pipe(map(response => response.type));
   }
 }

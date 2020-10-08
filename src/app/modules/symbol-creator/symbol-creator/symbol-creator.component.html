@@ -1,0 +1,167 @@
+<div class="container mt-3">
+  <h1>Symbol Creator</h1>
+
+  <div fxLayout="row" fxLayoutGap="2rem grid">
+    <div fxFlex="40">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+
+        <div>
+          <button mat-icon-button aria-label="Add Text" (click)="addText()" color="primary" matTooltip="Add Text Box">
+            <mat-icon>format_shapes</mat-icon>
+          </button>
+
+          <button mat-icon-button aria-label="Add Circle" (click)="addCircle()" color="primary" matTooltip="Add Circle">
+            <mat-icon>panorama_fish_eye</mat-icon>
+          </button>
+
+          <button mat-icon-button aria-label="Add Line" (click)="addLine()" color="primary" matTooltip="Add Line">
+            <mat-icon>remove</mat-icon>
+          </button>
+
+          <button mat-icon-button aria-label="Add Triangle" (click)="addTriangle()" color="primary" matTooltip="Add Triangle">
+            <mat-icon>change_history</mat-icon>
+          </button>
+
+          <button mat-icon-button aria-label="Add Square" (click)="addSquare()" color="primary" matTooltip="Add Square">
+            <mat-icon>crop_din</mat-icon>
+          </button>
+
+          <button mat-icon-button aria-label="Add Plus" (click)="addPlus()" color="primary" matTooltip="Add Plus">
+            <mat-icon>add</mat-icon>
+          </button>
+
+          <button mat-icon-button aria-label="Add Cross" (click)="addPlus(45)" color="primary" matTooltip="Add Cross">
+            <mat-icon>close</mat-icon>
+          </button>
+
+          <button mat-icon-button aria-label="Add Arrow" (click)="addArrow()" color="primary" matTooltip="Add Arrow">
+            <mat-icon>arrow_right_alt</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <button mat-icon-button aria-label="Delete Selected Items" (click)="deleteSelectedItems()" color="primary" [matTooltip]="selectedElements.length === 1 ? 'Delete Selected Item' : 'Delete '+ selectedElements.length +' Selected Items'" [disabled]="selectedElements.length === 0">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+          <button mat-icon-button aria-label="Save Symbol to Device" matTooltip="Save Symbol to Device" (click)="savePNG()" color="primary">
+            <mat-icon>save_alt</mat-icon>
+          </button>
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <mat-card class="mt-3">
+        <canvas #canvasElement id="canvas" width="430" height="430"></canvas>
+      </mat-card>
+
+
+      {{selectedElement | json}}
+    </div>
+
+    <div fxFlex="30">
+      <h2>Selected Item</h2>
+      <div *ngIf="selectedElement">
+
+        <mat-accordion multi>
+
+          <mat-expansion-panel [expanded]="['i-text', 'rect'].includes(selectedElement.type)">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Fill
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-form-field appearance="fill" *ngIf="selectedElement.fill">
+              <mat-label>Fill Colour</mat-label>
+              <mat-select [(ngModel)]="selectedElement.fill" (selectionChange)="setProperty('fill', $event.value)">
+                <mat-option [value]="null">None</mat-option>
+                <mat-option *ngFor="let colour of colours" [value]="colour">
+                  {{colour | titlecase}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel [expanded]="['i-text', 'rect'].includes(selectedElement.type)">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Outline
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-form-field appearance="fill" *ngIf="selectedElement.stroke !== 'undefined'">
+              <mat-label>Outline Colour</mat-label>
+              <mat-select [(ngModel)]="selectedElement.stroke" (selectionChange)="setProperty('stroke', $event.value)">
+                <mat-option [value]="null">None</mat-option>
+                <mat-option *ngFor="let colour of colours" [value]="colour">
+                  {{colour | titlecase}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Thickness</mat-label>
+              <input matInput type="number" placeholder="12" min="0" step="0.25"
+                     [(ngModel)]="selectedElement.strokeWidth"
+                     (change)="redrawSelectedElement()"
+              >
+            </mat-form-field>
+
+          </mat-expansion-panel>
+
+
+          <mat-expansion-panel [disabled]="selectedElement.type !== 'i-text'" [expanded]="selectedElement.type === 'i-text'">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon>format_size</mat-icon>
+                Text
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <button mat-icon-button aria-label="Bold" [color]="selectedElement.fontWeight === 'bold' ? 'primary' : null" (click)="toggleFontWeight()">
+              <mat-icon>format_bold</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Italic" [color]="selectedElement.fontStyle === 'italic' ? 'primary' : null" (click)="toggleFontStyle()">
+              <mat-icon>format_italic</mat-icon>
+            </button>
+
+
+            <button mat-icon-button aria-label="Underline" [color]="selectedElement.underline ? 'primary' : null" (click)="setProperty('underline', !selectedElement.underline)">
+              <mat-icon>format_underline</mat-icon>
+            </button>
+
+            <mat-form-field appearance="fill" *ngIf="selectedElement.fontFamily">
+              <mat-label>Font</mat-label>
+              <mat-select [(ngModel)]="selectedElement.fontFamily" (selectionChange)="setProperty('fontFamily', $event.value)">
+                <mat-optgroup *ngFor="let group of fonts" [label]="group.name">
+                  <mat-option *ngFor="let font of group.fonts" [value]="font" [ngStyle]="{fontFamily: font}">
+                    {{font}}
+                  </mat-option>
+                </mat-optgroup>
+              </mat-select>
+            </mat-form-field>
+
+          </mat-expansion-panel>
+
+
+        </mat-accordion>
+
+      </div>
+
+    </div>
+
+    <app-search-panel fxFlex="30" (selectionChange)="addImage($event)"></app-search-panel>
+  </div>
+
+
+</div>

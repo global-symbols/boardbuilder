@@ -1,5 +1,5 @@
 import {
-  AfterContentInit, AfterViewInit,
+  AfterViewInit,
   Component,
   EventEmitter,
   Input,
@@ -17,10 +17,10 @@ import {BoardSet} from '@data/models/boardset.model';
 import {Board} from '@data/models/board.model';
 import {MatTabChangeEvent} from '@angular/material/tabs';
 import {moveItemInArray} from '@angular/cdk/drag-drop';
-import {CellEditorSearchPanelComponent} from '@modules/builder/cell-editor-search-panel/cell-editor-search-panel.component';
 import {BoardService} from '@data/services/board.service';
 import {CellService} from '@data/services/cell.service';
 import {Media} from '@data/models/media.model';
+import {SearchPanelComponent} from '@shared/components/search-panel/search-panel.component';
 
 @Component({
   selector: 'app-cell-editor',
@@ -36,7 +36,7 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
   @Output() closed = new EventEmitter<boolean>();
   @Output() cellLinkedToBoard = new EventEmitter<boolean>();
 
-  @ViewChild('searchPanel') searchPanel: CellEditorSearchPanelComponent;
+  @ViewChild('searchPanel') searchPanel: SearchPanelComponent;
 
   linkableBoards: Board[];
 
