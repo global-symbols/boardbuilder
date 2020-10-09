@@ -31,6 +31,7 @@ export class AuthService {
   ]).pipe(map(values => values.every(b => b)));
 
   private navigateToLoginPage() {
+    console.warn('navigateToLoginPage was called');
     // TODO: Remember current URL
     this.router.navigateByUrl('/auth/login');
   }
@@ -46,11 +47,14 @@ export class AuthService {
       } else {
         // console.warn(event);
       }
+      // this.dumpState();
     });
 
     // This is tricky, as it might cause race conditions (where access_token is set in another
     // tab before everything is said and done there.
     // TODO: Improve this setup.
+
+    // Subscribe to changes in localStorage, and filter by access_token
     window.addEventListener('storage', (event) => {
       // The `key` is `null` if the event was caused by `.clear()`
       if (event.key !== 'access_token' && event.key !== null) {
@@ -61,6 +65,7 @@ export class AuthService {
       this.isAuthenticatedSubject$.next(this.oauthService.hasValidAccessToken());
 
       if (!this.oauthService.hasValidAccessToken()) {
+        console.warn('NO VALID ACCESS TOKEN, NAVIGATING TO LOGIN PAGE!');
         this.navigateToLoginPage();
       }
     });
@@ -82,7 +87,10 @@ export class AuthService {
     // When the user logs out or there is a problem with the oauth session, redirect to the login page
     this.oauthService.events
       .pipe(filter(e => ['session_terminated', 'session_error', 'logout'].includes(e.type)))
-      .subscribe(e => this.navigateToLoginPage());
+      .subscribe(e => {
+        console.warn('PROBLEM DETECTED WITH SESSION. GOING TO LOGIN PAGE.');
+        this.navigateToLoginPage();
+      });
 
     this.oauthService.setupAutomaticSilentRefresh();
   }
@@ -114,10 +122,11 @@ export class AuthService {
         // 2. SILENT LOGIN:
         // Try to log in via a refresh because then we can prevent
         // needing to redirect the user:
+        console.log('running silent refresh');
         return this.oauthService.silentRefresh()
           .then(() => Promise.resolve())
           .catch(result => {
-
+            console.log('caught silent refresh error:', result);
             // Subset of situations from https://openid.net/specs/openid-connect-core-1_0.html#AuthError
             // Only the ones where it's reasonably sure that sending the
             // user to the IdServer will help.
@@ -153,6 +162,8 @@ export class AuthService {
       .then(() => {
         this.isDoneLoadingSubject$.next(true);
 
+        // console.log('finished isDoneLoadingSubject:');
+
         // Check for the strings 'undefined' and 'null' just to be sure. Our current
         // login(...) should never have this, but in case someone ever calls
         // initImplicitFlow(undefined | null) this could happen.
@@ -186,4 +197,14 @@ export class AuthService {
   public get identityClaims(): any { return this.oauthService.getIdentityClaims(); }
   public get idToken() { return this.oauthService.getIdToken(); }
   public get logoutUrl() { return this.oauthService.logoutUrl; }
+
+  private dumpState() {
+    console.log('auth state:', {
+      accessToken: this.accessToken,
+      refreshToken: this.refreshToken,
+      identityClaims: this.identityClaims,
+      idToken: this.idToken,
+      logoutUrl: this.logoutUrl,
+    });
+  }
 }

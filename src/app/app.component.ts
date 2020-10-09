@@ -22,9 +22,15 @@ export class AppComponent {
     private authService: AuthService,
     private router: Router
   ) {
+    // this.authService.canActivateProtectedRoutes$.subscribe(result => console.warn('canActivateProtectedRoutes$ changed: ', result));
+    // this.authService.isAuthenticated$.subscribe(result => console.warn('isAuthenticated$ changed: ', result));
+    // this.authService.isDoneLoading$.subscribe(result => console.warn('isDoneLoading$ changed: ', result));
+
     this.isAuthenticated = this.authService.isAuthenticated$;
     this.isDoneLoading = this.authService.isDoneLoading$;
     this.canActivateProtectedRoutes = this.authService.canActivateProtectedRoutes$;
+
+
 
     this.authService.runInitialLoginSequence().then();
 

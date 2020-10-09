@@ -31,7 +31,8 @@ export const authConfig: AuthConfig = {
   // The api scope is a usecase specific one
   scope: 'openid profile email boardset:read boardset:write offline_access',
 
-  showDebugInformation: !environment.production,
+  // showDebugInformation: !environment.production,
+  showDebugInformation: true,
   // nonceStateSeparator : 'semicolon' // ?????
 
   // sessionChecks requires sessionCheckIFrameUrl to be specified
