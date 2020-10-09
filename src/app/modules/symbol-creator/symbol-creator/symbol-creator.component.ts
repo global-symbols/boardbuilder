@@ -5,6 +5,8 @@ import {WebFontsService} from '@data/services/web-fonts.service';
 import {FontGroup} from '@data/web-safe-fonts';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {saveAs} from 'file-saver';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {AddSymbolDialogComponent} from '@modules/symbol-creator/add-symbol-dialog/add-symbol-dialog.component';
 
 @Component({
   selector: 'app-symbol-creator',
@@ -13,15 +15,12 @@ import {saveAs} from 'file-saver';
 })
 export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
+  pickerColours =
+    ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#555555', '#000000',
+     '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB', '#AAAAAA', '#FFFFFF'];
+
   canvas;
   @ViewChild('canvasElement') canvasElement: ElementRef;
-
-  imageDefaults = {
-    left: 100,
-    top: 100,
-    // scaleX: 4,
-    // scaleY: 4
-  };
 
   fonts: Array<FontGroup>;
 
@@ -30,12 +29,14 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
   selectedElement;
   selectedElements = [];
 
+  private currentDialogRef: MatDialogRef<any>;
   private hotkeys: Array<Hotkey | Hotkey[]>;
 
   constructor(
     private imageService: ImageBase64Service,
     private hotkeysService: HotkeysService,
-    private fontService: WebFontsService
+    private fontService: WebFontsService,
+    private dialog: MatDialog
   ) {
     this.hotkeys = [];
   }
@@ -46,6 +47,8 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     this.canvas = new fabric.Canvas('canvas');
 
     // All objects should snap on rotation
+    fabric.Object.prototype.top = 100;
+    fabric.Object.prototype.left = 100;
     fabric.Object.prototype.snapAngle = 15;
     fabric.Object.prototype.hasBorders = false;
     fabric.Object.prototype.transparentCorners = false;
@@ -53,6 +56,9 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     fabric.Object.prototype.cornerStrokeColor = 'rgb(0,106,186)';
     fabric.Object.prototype.cornerSize = 8;
     fabric.Object.prototype.rotatingPointOffset = 2;
+
+    fabric.Object.prototype.fill = 'transparent';
+    fabric.Object.prototype.stroke = 'transparent';
 
     this.canvas.selectionColor  = 'rgba(0,106,186, 0.1)';
     this.canvas.selectionBorderColor  = '#006aba';
@@ -107,6 +113,22 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     this.canvas.renderAll();
   }
 
+  showImageSelectDialog(): void {
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(AddSymbolDialogComponent, {
+      width: '400px'
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(selectedImageUrl => {
+      if (typeof selectedImageUrl === 'string') {
+        this.addImage(selectedImageUrl);
+      }
+
+      this.currentDialogRef = undefined;
+    });
+  }
+
   addImage(imageUrl: string) {
 
     this.imageService.getMimeType(imageUrl).subscribe(mimeType => {
@@ -114,9 +136,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
         // Load SVGs as SVGs
 
         fabric.loadSVGFromURL(imageUrl, (objects, options) => {
-          const obj = fabric.util.groupSVGElements(objects, options);
-          obj.set(this.imageDefaults);
-          this.canvas.add(obj).renderAll();
+          this.addShape(fabric.util.groupSVGElements(objects, {...options, ...{top: 100, left: 100}}));
         });
 
       } else {
@@ -124,7 +144,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
         const image = new Image();
         image.onload = () => {
-          this.canvas.add(new fabric.Image(image, this.imageDefaults));
+          this.addShape(new fabric.Image(image));
         };
 
         image.crossOrigin = 'Anonymous';
@@ -144,7 +164,14 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
   }
 
   addText() {
-    const text = new fabric.IText('Text', { left: 100, top: 100, fontFamily: 'Arial', fill: 'black', textAlign: 'center' });
+    const text = new fabric.IText('Text', {
+      left: 100,
+      top: 100,
+      fontFamily: 'Arial',
+      stroke: 'transparent',
+      fill: 'black',
+      textAlign: 'center'
+    });
     this.canvas.add(text);
     this.canvas.setActiveObject(text);
   }
@@ -200,8 +227,6 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
   addSquare() {
     this.addShape(new fabric.Rect({
-      top: 100,
-      left: 100,
       width: 50,
       height: 50,
       stroke: 'red',
@@ -211,8 +236,6 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
   addTriangle() {
     this.addShape(new fabric.Triangle({
-      top: 100,
-      left: 100,
       width: 50,
       height: 50,
       stroke: 'red',
@@ -222,16 +245,12 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
   addLine() {
     this.addShape(new fabric.Line([100, 100, 200, 100], {
-      top:    100,
-      left:   100,
       stroke: 'red',
     }));
   }
 
   addCircle() {
     this.addShape(new fabric.Circle({
-      top:    100,
-      left:   100,
       radius: 25,
       stroke: 'red',
       fill:   'transparent'
@@ -285,8 +304,6 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     ];
 
     this.addShape(new fabric.Polyline(points, {
-      top:    100,
-      left:   100,
       fill: 'red',
       stroke: 'black',
       opacity: 1,
@@ -313,5 +330,12 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     this.canvas.discardActiveObject();
     this.renderCanvas();
     this.canvasElement.nativeElement.toBlob(blob => saveAs(blob, 'My Symbol.png'));
+  }
+
+  sendToBack() {
+    this.canvas.sendToBack(this.selectedElement);
+    // this.redrawSelectedElement();
+    this.canvas.discardActiveObject();
+    this.renderCanvas();
   }
 }

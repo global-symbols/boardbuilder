@@ -12,6 +12,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {ColorGithubModule} from 'ngx-color/github';
+import {MatSliderModule} from '@angular/material/slider';
+import { AddSymbolDialogComponent } from './add-symbol-dialog/add-symbol-dialog.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 const routes: Routes = [
@@ -23,21 +29,26 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [SymbolCreatorComponent],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        MatCardModule,
-        SharedModule,
-        FlexModule,
-        FormsModule,
-        MatInputModule,
-        MatButtonModule,
-        MatSelectModule,
-        ReactiveFormsModule,
-        MatIconModule,
-        MatExpansionModule,
-        MatTooltipModule,
-    ]
+  declarations: [SymbolCreatorComponent, AddSymbolDialogComponent],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatCardModule,
+    SharedModule,
+    FlexModule,
+    FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatExpansionModule,
+    MatTooltipModule,
+    ColorGithubModule,
+    MatSliderModule,
+    DragDropModule,
+    MatDialogModule,
+    MatTabsModule,
+  ]
 })
 export class SymbolCreatorModule { }
