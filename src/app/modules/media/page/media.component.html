@@ -9,14 +9,36 @@
     <p *ngIf="media.length === 0" class="text-center mt-3">You have not uploaded any images yet.</p>
 
     <div fxLayout="row wrap" fxLayoutGap="2rem grid">
+      <div fxFlex="20" class="add-symbol-button text-center">
+        <button mat-flat-button color="primary" fxFlex (click)="openSymbolCreator()">
+          <div fxLayout="column" fxLayoutAlign="space-between center">
+            <mat-icon fxFlex="grow">construction</mat-icon>
+            <div class="mt-3">Create Symbol</div>
+          </div>
+        </button>
+      </div>
+
       <div fxFlex="20" *ngFor="let mediaItem of media">
         <mat-card>
-          <img mat-card-image [src]="mediaItem.public_url" alt="Media Item"/>
+          <img    mat-card-image *ngIf="mediaItem.format != 'image/svg+xml'"  [src]="mediaItem.public_url" alt="Media Item"/>
+          <object mat-card-image *ngIf="mediaItem.format === 'image/svg+xml'" [data]="mediaItem.safePublicUrl" title="Media Item" [type]="mediaItem.format"></object>
           <mat-card-actions fxLayoutAlign="space-between center" >
             <span>{{mediaItem.filesize | filesize}}</span>
-            <button mat-icon-button matTooltip="Delete Image" aria-label="Delete this Image" (click)="delete(mediaItem)">
-              <mat-icon>delete</mat-icon>
-            </button>
+            <div>
+              <button (click)="openSymbolCreator(mediaItem)" *ngIf="mediaItem.canvas_url" aria-label="Edit this Image" mat-icon-button
+                      matTooltip="Edit Image">
+                <mat-icon>construction</mat-icon>
+              </button>
+
+              <button mat-icon-button matTooltip="Save Image to Device" aria-label="Save Image to Device" (click)="download(mediaItem)">
+                <mat-icon>save_alt</mat-icon>
+              </button>
+
+              <button mat-icon-button matTooltip="Delete Image" aria-label="Delete this Image" (click)="delete(mediaItem)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+
           </mat-card-actions>
         </mat-card>
       </div>

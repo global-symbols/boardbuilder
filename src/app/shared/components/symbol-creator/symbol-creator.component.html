@@ -1,0 +1,163 @@
+<app-loading-notice action="Loading" subject="Symbol" *ngIf="status === 'Loading'"></app-loading-notice>
+<app-loading-notice action="Saving" subject="Symbol" *ngIf="status === 'Saving'"></app-loading-notice>
+
+<div fxLayout="row" fxLayoutAlign="center none" [class.d-none]="status != 'Editing'">
+
+  <div fxFlex fxLayout="column" class="mr-3">
+    <!-- Top buttons-->
+    <div fxLayout="row" fxLayoutAlign="space-between none">
+      <div fxFlexOffset="4rem">
+        <button mat-icon-button aria-label="Save Symbol to Device" matTooltip="Save Symbol to Device" color="primary" [matMenuTriggerFor]="downloadMenu">
+          <mat-icon>save_alt</mat-icon>
+        </button>
+      </div>
+
+
+      <div style="margin-right: 1rem;">
+        <button mat-icon-button aria-label="Send Behind other Items" matTooltip="Send Behind other Items" (click)="sendToBack()" color="primary" [disabled]="selectedElements.length === 0">
+          <mat-icon>flip_to_back</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Delete Selected Items" (click)="deleteSelectedItems()" color="primary" [matTooltip]="selectedElements.length === 1 ? 'Delete Selected Item' : 'Delete '+ selectedElements.length +' Selected Items'" [disabled]="selectedElements.length === 0">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+
+
+    </div>
+
+    <!-- Side buttons and Canvas -->
+    <div fxLayout="row" fxLayoutGap="1rem grid">
+      <!-- Side Buttons -->
+      <div fxLayout="column" fxLayoutAlign="start center">
+        <button mat-icon-button aria-label="Add Image" (click)="showImageSelectDialog()" color="primary" matTooltipPosition="right" matTooltip="Add Image" fxFlexOffset="2rem">
+          <mat-icon>insert_photo</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Add Text" (click)="addText()" color="primary" matTooltipPosition="right" matTooltip="Add Text Box">
+          <mat-icon>format_shapes</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Add Circle" (click)="addCircle()" color="primary" matTooltipPosition="right" matTooltip="Add Circle">
+          <mat-icon>panorama_fish_eye</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Add Line" (click)="addLine()" color="primary" matTooltipPosition="right" matTooltip="Add Line">
+          <mat-icon>remove</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Add Triangle" (click)="addTriangle()" color="primary" matTooltipPosition="right" matTooltip="Add Triangle">
+          <mat-icon>change_history</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Add Square" (click)="addSquare()" color="primary" matTooltipPosition="right" matTooltip="Add Square">
+          <mat-icon>crop_din</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Add Plus" (click)="addPlus()" color="primary" matTooltipPosition="right" matTooltip="Add Plus">
+          <mat-icon>add</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Add Cross" (click)="addPlus(45)" color="primary" matTooltipPosition="right" matTooltip="Add Cross">
+          <mat-icon>close</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Add Arrow" (click)="addArrow()" color="primary" matTooltipPosition="right" matTooltip="Add Arrow">
+          <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+      </div>
+
+      <!-- Canvas -->
+      <mat-card class="mt-3">
+        <canvas #canvasElement id="canvas" width="400" height="400"></canvas>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- Properties -->
+  <div fxFlex="30">
+      <div *ngIf="selectedElement?.fill">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <h2>Fill</h2>
+            <button mat-icon-button *ngIf="selectedElement?.fill !== 'transparent'"
+                    matTooltip="Clear Fill" matTooltipPosition="left"
+                    (click)="setProperty('fill', 'transparent')">
+              <mat-icon color="primary" [style.color]="selectedElement?.fill" *ngIf="selectedElement && selectedElement?.fill">format_color_reset</mat-icon>
+            </button>
+
+          </div>
+
+          <color-github *ngIf="selectedElement && selectedElement?.fill"
+                        [color]="selectedElement?.fill" [colors]="pickerColours" [width]="238" triangle="hide"
+                        (onChange)="setProperty('fill', $event.color.hex)"></color-github>
+
+    </div>
+      <div *ngIf="selectedElement?.stroke">
+
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <h2>Outline</h2>
+          <button mat-icon-button *ngIf="selectedElement?.stroke !== 'transparent'"
+                  matTooltip="Clear Outline" matTooltipPosition="left"
+                  (click)="setProperty('stroke', 'transparent')">
+            <mat-icon color="primary" [style.color]="selectedElement?.stroke" *ngIf="selectedElement && selectedElement?.stroke">format_color_reset</mat-icon>
+          </button>
+
+        </div>
+
+        <color-github *ngIf="selectedElement && selectedElement.stroke !== undefined"
+                      [color]="selectedElement?.stroke" [colors]="pickerColours" [width]="238" triangle="hide"
+                      (onChange)="setProperty('stroke', $event.color.hex)"></color-github>
+
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <mat-label  fxFlex="30" i18n>Thickness</mat-label>
+          <mat-slider fxFlex="70"  [(ngModel)]="selectedElement.strokeWidth" min="0" max="10"
+                    [step]="1"
+                    [thumbLabel]="true"
+                    (change)="setProperty('strokeWidth', $event.value)"></mat-slider>
+        </div>
+
+      </div>
+      <div *ngIf="selectedElement?.type === 'i-text'">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+        <h2>Text</h2>
+          <div>
+            <button mat-icon-button aria-label="Bold"
+                    [color]="selectedElement?.fontWeight === 'bold' ? 'primary' : null" (click)="toggleFontWeight()">
+              <mat-icon>format_bold</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Italic"
+                    [color]="selectedElement?.fontStyle === 'italic' ? 'primary' : null" (click)="toggleFontStyle()">
+              <mat-icon>format_italic</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Underline"
+                    [color]="selectedElement?.underline ? 'primary' : null" (click)="setProperty('underline', !selectedElement.underline)">
+              <mat-icon>format_underline</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <mat-form-field appearance="fill" *ngIf="selectedElement?.fontFamily" class="w-100">
+          <mat-label>Font</mat-label>
+          <mat-select [(ngModel)]="selectedElement.fontFamily" (selectionChange)="setProperty('fontFamily', $event.value)">
+            <mat-optgroup *ngFor="let group of fonts" [label]="group.name">
+              <mat-option *ngFor="let font of group.fonts" [value]="font" [ngStyle]="{fontFamily: font}">
+                {{font}}
+              </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+
+
+      </div>
+  </div>
+</div>
+<!--{{selectedElement | json}}-->
+<mat-menu #downloadMenu="matMenu">
+  <button mat-menu-item (click)="saveSVG()">
+    <span>Save SVG to Device</span>
+  </button>
+  <button mat-menu-item (click)="savePNG()">
+    <span>Save PNG to Device</span>
+  </button>
+</mat-menu>

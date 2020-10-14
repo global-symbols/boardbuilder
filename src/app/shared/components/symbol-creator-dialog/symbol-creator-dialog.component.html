@@ -1,0 +1,18 @@
+<div cdkDrag
+     cdkDragRootElement=".cdk-overlay-pane"
+     cdkDragBoundary="body"
+>
+
+  <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-1">
+    <h1 mat-dialog-title i18n class="mb-0">Symbol Creator</h1>
+
+    <button mat-icon-button aria-label="Close" (click)="saveAndClose()"
+            (mousedown)="$event.stopPropagation()" matTooltip="Save and Close" matTooltipPosition="left">
+      <mat-icon>check</mat-icon>
+    </button>
+  </header>
+
+  <div mat-dialog-content class="pb-3 mr-1">
+    <app-symbol-creator (mousedown)="$event.stopPropagation()" [media]="media"></app-symbol-creator>
+  </div>
+</div>

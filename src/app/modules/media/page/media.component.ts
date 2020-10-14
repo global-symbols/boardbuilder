@@ -5,6 +5,8 @@ import {MatDialog} from '@angular/material/dialog';
 import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
 import {ToolbarService} from '@app/services/toolbar.service';
 import {Router} from '@angular/router';
+import {SymbolCreatorDialogComponent} from '@shared/components/symbol-creator-dialog/symbol-creator-dialog.component';
+import {saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-media',
@@ -72,5 +74,31 @@ export class MediaComponent implements OnInit, OnDestroy {
     let sum = 0;
     this.media.forEach(a => sum += a.filesize);
     return sum;
+  }
+
+  openSymbolCreator(media?: Media) {
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(SymbolCreatorDialogComponent, {
+      width: '800px',
+      data: {media}
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(mediaItem => {
+
+      if (mediaItem) {
+        // Reload the Media list
+        this.loadMedia();
+      }
+
+      this.currentDialogRef = undefined;
+    });
+  }
+
+  download(media: Media) {
+    this.service.getImage(media).subscribe(blob => {
+      const extension = blob.type.match(/\/([a-z]+)/)[1];
+      saveAs(blob, `image.${extension}`);
+    });
   }
 }

@@ -1,5 +1,7 @@
 import {Deserialisable} from './deserialisable.model';
 import {Record} from '@data/models/record';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+
 
 export class Media extends Record implements Deserialisable {
   id: number;
@@ -11,6 +13,9 @@ export class Media extends Record implements Deserialisable {
   width: number;
 
   public_url: string;
+  canvas_url?: string;
+
+  safePublicUrl: SafeResourceUrl;
 
   constructor(init?: Partial<Media>) {
     super();

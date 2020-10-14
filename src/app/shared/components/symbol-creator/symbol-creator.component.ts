@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {fabric} from 'fabric';
 import {ImageBase64Service} from '@data/services/image-base64.service';
 import {WebFontsService} from '@data/services/web-fonts.service';
@@ -6,7 +6,17 @@ import {FontGroup} from '@data/web-safe-fonts';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {saveAs} from 'file-saver';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {AddSymbolDialogComponent} from '@modules/symbol-creator/add-symbol-dialog/add-symbol-dialog.component';
+import {AddSymbolDialogComponent} from '@shared/components/add-symbol-dialog/add-symbol-dialog.component';
+import {Media} from '@data/models/media.model';
+import {MediaService} from '@data/services/media.service';
+import {Observable} from 'rxjs';
+
+export enum SymbolCreatorState {
+  Loading = 'Loading',
+  Editing = 'Editing',
+  Saving = 'Saving',
+  SavingError = 'SavingError'
+}
 
 @Component({
   selector: 'app-symbol-creator',
@@ -19,7 +29,16 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#555555', '#000000',
      '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB', '#AAAAAA', '#FFFFFF'];
 
-  canvas;
+  private defaultColour = 'black';
+
+  @Input() media: Media;
+
+  // private statusSubject = new BehaviorSubject<SymbolCreatorState>(SymbolCreatorState.Loading);
+  // public loading$ = this.statusSubject.asObservable();
+
+  status: SymbolCreatorState;
+
+  workingCanvas: fabric.Canvas;
   @ViewChild('canvasElement') canvasElement: ElementRef;
 
   fonts: Array<FontGroup>;
@@ -29,11 +48,15 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
   selectedElement;
   selectedElements = [];
 
+  width = 400;
+  height = 400;
+
   private currentDialogRef: MatDialogRef<any>;
   private hotkeys: Array<Hotkey | Hotkey[]>;
 
   constructor(
     private imageService: ImageBase64Service,
+    private mediaService: MediaService,
     private hotkeysService: HotkeysService,
     private fontService: WebFontsService,
     private dialog: MatDialog
@@ -44,7 +67,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.fonts = this.fontService.groupedByCategory();
 
-    this.canvas = new fabric.Canvas('canvas');
+    this.workingCanvas = new fabric.Canvas('canvas');
 
     // All objects should snap on rotation
     fabric.Object.prototype.top = 100;
@@ -60,17 +83,60 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     fabric.Object.prototype.fill = 'transparent';
     fabric.Object.prototype.stroke = 'transparent';
 
-    this.canvas.selectionColor  = 'rgba(0,106,186, 0.1)';
-    this.canvas.selectionBorderColor  = '#006aba';
-    this.canvas.selectionDashArray  = [4, 3];
+    this.workingCanvas.selectionColor  = 'rgba(0,106,186, 0.1)';
+    this.workingCanvas.selectionBorderColor  = '#006aba';
+    this.workingCanvas.selectionDashArray  = [4, 3];
+
+    this.workingCanvas.setDimensions({width: this.width, height: this.height});
 
     // Handle object selection/deselection events.
-    this.canvas.on('selection:created', event => this.selectElementFromEvent(event));
-    this.canvas.on('selection:updated', event => this.selectElementFromEvent(event));
-    this.canvas.on('selection:cleared', event => {
+    this.workingCanvas.on('selection:created', event => this.selectElementFromEvent(event));
+    this.workingCanvas.on('selection:updated', event => this.selectElementFromEvent(event));
+    this.workingCanvas.on('selection:cleared', event => {
       this.selectedElement = null;
       this.selectedElements = [];
     });
+
+    // Prevent objects from being moved outside the canvas area
+    this.workingCanvas.on('object:moving', (event) => {
+      const object = event.target;
+      // console.log(event);
+      const top = object.top;
+      const bottom = (top + object.height) * object.scaleY;
+      const height = object.height * object.scaleY;
+      const left = object.left;
+      const right = (left + object.width) * object.scaleX;
+      const width = object.width * object.scaleY;
+
+      const topBound = 0;
+      const bottomBound = this.height;
+      const leftBound = 0;
+      const rightBound = this.width;
+
+      // capping logic here
+      object.set('left', Math.min(Math.max(left, leftBound), rightBound - width));
+      object.set('top', Math.min(Math.max(top, topBound), bottomBound - height));
+    });
+
+    // this.workingCanvas.on('object:scaling', (event) => {
+    //   const object = event.target;
+    //   console.log(event);
+    //
+    //   if (object.top + (object.height * object.scaleY) > this.height) {
+    //     object.set('scaleY', (450 - object.top) / object.height);
+    //   }
+    //
+    //   if (object.left + (object.width * object.scaleX) > this.width) {
+    //     object.set('scaleX', (450 - object.left) / object.width);
+    //   }
+    //
+    // });
+
+    if (this.media) {
+      this.loadCanvasFromMedia();
+    } else {
+      this.status = SymbolCreatorState.Editing;
+    }
 
     // Keyboard shortcut - delete selected items
     this.hotkeys.push(
@@ -80,13 +146,21 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       }, undefined, 'Delete Selected Items'))
     );
 
-    this.addSquare();
-    this.addText();
+    // this.addSquare();
+    // this.addText();
   }
 
   ngOnDestroy(): void {
     // Unassign all keyboard shortcuts
     [].concat(...this.hotkeys).map(hotkey => this.hotkeysService.remove(hotkey));
+  }
+
+  loadCanvasFromMedia(): void {
+    this.mediaService.getCanvas(this.media).subscribe(canvas => {
+      this.workingCanvas.loadFromJSON(canvas, () => {
+        return this.status = SymbolCreatorState.Editing;
+      });
+    });
   }
 
   selectElementFromEvent(event): void {
@@ -110,7 +184,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
   }
 
   renderCanvas(): void {
-    this.canvas.renderAll();
+    this.workingCanvas.renderAll();
   }
 
   showImageSelectDialog(): void {
@@ -169,11 +243,11 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       top: 100,
       fontFamily: 'Arial',
       stroke: 'transparent',
-      fill: 'black',
+      fill: this.defaultColour,
       textAlign: 'center'
     });
-    this.canvas.add(text);
-    this.canvas.setActiveObject(text);
+    this.workingCanvas.add(text);
+    this.workingCanvas.setActiveObject(text);
   }
 
   addPlus(angle = 0) {
@@ -195,7 +269,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     this.addShape(new fabric.Polygon(startPoints, {
       left: 50,
       top: 50,
-      fill: 'red',
+      fill: this.defaultColour,
       angle,
       objectCaching: false,
     }));
@@ -229,7 +303,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     this.addShape(new fabric.Rect({
       width: 50,
       height: 50,
-      stroke: 'red',
+      stroke: this.defaultColour,
       fill: 'transparent'
     }));
   }
@@ -238,30 +312,30 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     this.addShape(new fabric.Triangle({
       width: 50,
       height: 50,
-      stroke: 'red',
+      stroke: this.defaultColour,
       fill: 'transparent'
     }));
   }
 
   addLine() {
     this.addShape(new fabric.Line([100, 100, 200, 100], {
-      stroke: 'red',
+      stroke: this.defaultColour,
     }));
   }
 
   addCircle() {
     this.addShape(new fabric.Circle({
       radius: 25,
-      stroke: 'red',
+      stroke: this.defaultColour,
       fill:   'transparent'
     }));
   }
 
   addArrow() {
-    const fromx = 0;
-    let tox = 75;
-    const fromy = 0;
-    let toy = 0;
+    const fromx = 100;
+    let tox = 175;
+    const fromy = 100;
+    let toy = 100;
 
     const angle = Math.atan2(toy - fromy, tox - fromx);
 
@@ -304,8 +378,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     ];
 
     this.addShape(new fabric.Polyline(points, {
-      fill: 'red',
-      stroke: 'black',
+      fill: this.defaultColour,
       opacity: 1,
       strokeWidth: 2,
       originX: 'left',
@@ -315,27 +388,57 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
   }
 
   private addShape(shape): void {
-    this.canvas.add(shape);
-    this.canvas.setActiveObject(shape);
+    this.workingCanvas.add(shape);
+    this.workingCanvas.setActiveObject(shape);
   }
 
   deleteSelectedItems() {
-    this.canvas.getActiveObjects().forEach((obj) => {
-      this.canvas.remove(obj);
+    this.workingCanvas.getActiveObjects().forEach((obj) => {
+      this.workingCanvas.remove(obj);
     });
-    this.canvas.discardActiveObject().renderAll();
+    this.workingCanvas.discardActiveObject().renderAll();
   }
 
   savePNG(): void {
-    this.canvas.discardActiveObject();
+    this.workingCanvas.discardActiveObject();
     this.renderCanvas();
     this.canvasElement.nativeElement.toBlob(blob => saveAs(blob, 'My Symbol.png'));
   }
 
-  sendToBack() {
-    this.canvas.sendToBack(this.selectedElement);
-    // this.redrawSelectedElement();
-    this.canvas.discardActiveObject();
+  saveSVG() {
+    this.workingCanvas.discardActiveObject();
     this.renderCanvas();
+    saveAs(this.getSVGBlob(), 'My Symbol.svg');
+  }
+
+  sendToBack() {
+    this.workingCanvas.sendToBack(this.selectedElement);
+    this.workingCanvas.discardActiveObject();
+    this.renderCanvas();
+  }
+
+  private getSVGBlob(): Blob {
+    return new Blob([this.workingCanvas.toSVG()], {type: 'image/svg+xml'});
+  }
+
+  private getSerialisedCanvas() {
+    return JSON.stringify(this.workingCanvas);
+  }
+
+  private getSerialisedCanvasBlob(): Blob {
+    return new Blob([this.getSerialisedCanvas()], {type: 'application/json'});
+  }
+
+  save(): Observable<Media> {
+    this.status = SymbolCreatorState.Saving;
+
+    const svg = this.getSVGBlob();
+    const canvas = this.getSerialisedCanvasBlob();
+
+    if (this.media) {
+      return this.mediaService.update(this.media, svg, canvas);
+    } else {
+      return this.mediaService.add(svg, canvas);
+    }
   }
 }

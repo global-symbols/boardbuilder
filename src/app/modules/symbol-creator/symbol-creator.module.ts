@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SymbolCreatorComponent } from './symbol-creator/symbol-creator.component';
 import {RouterModule, Routes} from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import {SharedModule} from '../../shared/shared.module';
@@ -14,22 +13,23 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {ColorGithubModule} from 'ngx-color/github';
 import {MatSliderModule} from '@angular/material/slider';
-import { AddSymbolDialogComponent } from './add-symbol-dialog/add-symbol-dialog.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatMenuModule} from '@angular/material/menu';
+import { PageComponent } from './page/page.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: SymbolCreatorComponent,
+    component: PageComponent,
     pathMatch: 'full'
   }
 ];
 
 @NgModule({
-  declarations: [SymbolCreatorComponent, AddSymbolDialogComponent],
+  declarations: [PageComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -49,6 +49,7 @@ const routes: Routes = [
     DragDropModule,
     MatDialogModule,
     MatTabsModule,
+    MatMenuModule,
   ]
 })
 export class SymbolCreatorModule { }

@@ -18,6 +18,15 @@ import {MatSelectModule} from '@angular/material/select';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import {MediaLibraryComponent} from '@shared/components/media-library/media-library.component';
+import {SymbolCreatorComponent} from '@shared/components/symbol-creator/symbol-creator.component';
+import {MatSliderModule} from '@angular/material/slider';
+import {ColorGithubModule} from 'ngx-color/github';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {AddSymbolDialogComponent} from '@shared/components/add-symbol-dialog/add-symbol-dialog.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { SymbolCreatorDialogComponent } from './components/symbol-creator-dialog/symbol-creator-dialog.component';
 
 
 
@@ -27,16 +36,22 @@ import {MatCardModule} from '@angular/material/card';
     ConfirmDialogComponent,
     ErrorNotFoundComponent,
     LoadingNoticeComponent,
+    MediaLibraryComponent,
     CopyBoardSetDialogComponent,
     SearchPanelComponent,
-    SearchPanelComponent
+    SearchPanelComponent,
+    SymbolCreatorComponent,
+    AddSymbolDialogComponent,
+    SymbolCreatorDialogComponent
   ],
   exports: [
     ColourSelectorComponent,
     ConfirmDialogComponent,
     ErrorNotFoundComponent,
     LoadingNoticeComponent,
-    SearchPanelComponent
+    MediaLibraryComponent,
+    SearchPanelComponent,
+    SymbolCreatorComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +66,12 @@ import {MatCardModule} from '@angular/material/card';
     MatSelectModule,
     FormsModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatSliderModule,
+    ColorGithubModule,
+    MatMenuModule,
+    MatTooltipModule,
+    MatTabsModule
   ]
 })
 export class SharedModule { }

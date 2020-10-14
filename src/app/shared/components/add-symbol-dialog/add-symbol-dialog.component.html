@@ -12,21 +12,20 @@
   </header>
 
   <div mat-dialog-content>
-    <mat-tab-group>
+    <mat-tab-group mat-align-tabs="center" dynamicHeight>
       <mat-tab label="Search">
-        <app-search-panel (selectionChange)="selectSymbol($event)"></app-search-panel>
+        <div class="p-1">
+          <app-search-panel (selectionChange)="selectSymbol($event)"></app-search-panel>
+        </div>
       </mat-tab>
 
       <mat-tab label="My Images">
-
+        <div class="p-1">
+          <app-media-library (mediaSelect)="selectSymbol($event.public_url)"></app-media-library>
+        </div>
       </mat-tab>
     </mat-tab-group>
 
 
-  </div>
-  <div mat-dialog-actions>
-    <span class="spacer"></span>
-<!--    <button mat-raised-button (click)="create()" color="primary" i18n-->
-<!--            (mousedown)="$event.stopPropagation()">Create</button>-->
   </div>
 </div>

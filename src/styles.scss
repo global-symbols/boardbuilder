@@ -5,6 +5,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Lato, "Helvetica Neue", sans-serif; }
 
+.d-none {
+  display: none !important;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -32,6 +36,9 @@ body { margin: 0; font-family: Lato, "Helvetica Neue", sans-serif; }
 .mt-3 {
   margin-top: 1.5rem !important;
 }
+.mb-1 {
+  margin-bottom: 0.5rem !important;
+}
 .mb-2 {
   margin-bottom: 1rem !important;
 }
@@ -41,6 +48,18 @@ body { margin: 0; font-family: Lato, "Helvetica Neue", sans-serif; }
 
 .mr-1 {
   margin-right: .5rem !important;
+}
+
+.mr-3 {
+  margin-right: 1.5rem !important;
+}
+
+.pb-1 {
+  padding-bottom: 0.5rem !important;
+}
+
+.pb-3 {
+  padding-bottom: 1.5rem !important;
 }
 
 .py-1 {
