@@ -219,40 +219,39 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
     this.imageService.getMimeType(imageUrl).subscribe(mimeType => {
       if (mimeType === 'image/svg+xml') {
-        // Load SVGs as SVGs
-
+        // Load SVGs as a collection of objects in the canvas
         fabric.loadSVGFromURL(imageUrl, (objects, options) => {
-          console.log(objects, options);
           this.addShape(fabric.util.groupSVGElements(objects, {...options, ...{top: 0, left: 0}}));
         });
 
       } else {
         // Load all other images as Image DOM elements
+        this.imageService.getFromURL(imageUrl).then(base64 => {
 
-        const image = new Image();
-        image.onload = () => {
-          const options = {
-            scaleX: 1,
-            scaleY: 1
+          const image = new Image();
+          image.onload = () => {
+
+            const options = {
+              scaleX: 1,
+              scaleY: 1
+            };
+
+            // If the image is square or taller than it is wide...
+            if (image.naturalHeight >= image.naturalWidth) {
+              // Shrink it to fit 50% of the canvas height
+              options.scaleY = (this.height / 2) / image.naturalHeight;
+              options.scaleX = (options.scaleY);
+
+            } else {
+              // Otherwise, shrink it to fit 50% of the canvas width
+              options.scaleX = (this.width / 2) / image.naturalWidth;
+              options.scaleY = (options.scaleX);
+            }
+
+            this.addShape(new fabric.Image(image, options));
           };
-
-          // If the image is square or taller than it is wide...
-          if (image.naturalHeight >= image.naturalWidth) {
-            // Shrink it to fit 50% of the canvas height
-            options.scaleY = (this.height / 2) / image.naturalHeight;
-            options.scaleX = (options.scaleY);
-
-          } else {
-            // Otherwise, shrink it to fit 50% of the canvas width
-            options.scaleX = (this.width / 2) / image.naturalWidth;
-            options.scaleY = (options.scaleX);
-          }
-
-          this.addShape(new fabric.Image(image, options));
-        };
-
-        image.crossOrigin = 'Anonymous';
-        image.src = imageUrl;
+          image.src = base64.toString();
+        });
       }
     });
   }
