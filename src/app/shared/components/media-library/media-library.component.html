@@ -44,7 +44,8 @@
   <div fxFlex="25" *ngFor="let mediaItem of media">
     <button fxFlex mat-stroked-button color="primary" (click)="mediaSelect.emit(mediaItem)" class="image-button"
     >
-      <img mat-card-image [src]="mediaItem.public_url" crossorigin="anonymous"/>
+      <img    mat-card-image *ngIf="mediaItem.format != 'image/svg+xml'"  [src]="mediaItem.public_url" crossorigin="anonymous"/>
+      <object mat-card-image *ngIf="mediaItem.format === 'image/svg+xml'" [data]="mediaItem.public_url | bypassSanitiser:'resourceUrl'" [type]="mediaItem.format"></object>
     </button>
   </div>
 </div>

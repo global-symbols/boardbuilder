@@ -34,4 +34,9 @@ export class Cell extends Record implements Deserialisable {
 
     get url(): string { return this.image_url; }
     set url(t) { this.image_url = t; }
+
+    get urlExtension(): string | undefined {
+      const matches = this.image_url.match(/\.(jpg|jpeg|gif|png|bmp|tiff|tga|svg)/);
+      return matches.length > 1 ? matches[1] : null;
+    }
 }

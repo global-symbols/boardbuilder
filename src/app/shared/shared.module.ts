@@ -27,6 +27,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {AddSymbolDialogComponent} from '@shared/components/add-symbol-dialog/add-symbol-dialog.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { SymbolCreatorDialogComponent } from './components/symbol-creator-dialog/symbol-creator-dialog.component';
+import { BypassSanitiserPipe } from './pipes/bypass-sanitiser.pipe';
 
 
 
@@ -42,7 +43,8 @@ import { SymbolCreatorDialogComponent } from './components/symbol-creator-dialog
     SearchPanelComponent,
     SymbolCreatorComponent,
     AddSymbolDialogComponent,
-    SymbolCreatorDialogComponent
+    SymbolCreatorDialogComponent,
+    BypassSanitiserPipe
   ],
   exports: [
     ColourSelectorComponent,
@@ -51,7 +53,8 @@ import { SymbolCreatorDialogComponent } from './components/symbol-creator-dialog
     LoadingNoticeComponent,
     MediaLibraryComponent,
     SearchPanelComponent,
-    SymbolCreatorComponent
+    SymbolCreatorComponent,
+    BypassSanitiserPipe
   ],
   imports: [
     CommonModule,

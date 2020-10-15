@@ -194,12 +194,24 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       width: '400px'
     });
 
-    this.currentDialogRef.afterClosed().subscribe(selectedImageUrl => {
-      if (typeof selectedImageUrl === 'string') {
-        this.addImage(selectedImageUrl);
+    this.currentDialogRef.afterClosed().subscribe(media => {
+      if (media?.canvas_url) {
+        this.addObjectsFromMedia(media);
+      } else if (media?.public_url) {
+        this.addImage(media.public_url);
       }
 
       this.currentDialogRef = undefined;
+    });
+  }
+
+  // Gets the FabricJS Canvas data for the Media item, deserialises it
+  // and adds the objects to the current canvas in a group
+  addObjectsFromMedia(media: Media) {
+    this.mediaService.getCanvas(media).subscribe(canvas => {
+      if (canvas.objects) {
+        fabric.util.enlivenObjects(canvas.objects, (objects) => this.addShape(new fabric.Group(objects)));
+      }
     });
   }
 
@@ -210,7 +222,8 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
         // Load SVGs as SVGs
 
         fabric.loadSVGFromURL(imageUrl, (objects, options) => {
-          this.addShape(fabric.util.groupSVGElements(objects, {...options, ...{top: 100, left: 100}}));
+          console.log(objects, options);
+          this.addShape(fabric.util.groupSVGElements(objects, {...options, ...{top: 0, left: 0}}));
         });
 
       } else {
@@ -218,7 +231,24 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
         const image = new Image();
         image.onload = () => {
-          this.addShape(new fabric.Image(image));
+          const options = {
+            scaleX: 1,
+            scaleY: 1
+          };
+
+          // If the image is square or taller than it is wide...
+          if (image.naturalHeight >= image.naturalWidth) {
+            // Shrink it to fit 50% of the canvas height
+            options.scaleY = (this.height / 2) / image.naturalHeight;
+            options.scaleX = (options.scaleY);
+
+          } else {
+            // Otherwise, shrink it to fit 50% of the canvas width
+            options.scaleX = (this.width / 2) / image.naturalWidth;
+            options.scaleY = (options.scaleX);
+          }
+
+          this.addShape(new fabric.Image(image, options));
         };
 
         image.crossOrigin = 'Anonymous';
@@ -440,5 +470,11 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     } else {
       return this.mediaService.add(svg, canvas);
     }
+  }
+
+  flip(direction: 'horizontal' | 'vertical') {
+    direction === 'horizontal' ?
+      this.setProperty('flipX', !this.selectedElement.flipX) :
+      this.setProperty('flipY', !this.selectedElement.flipY);
   }
 }

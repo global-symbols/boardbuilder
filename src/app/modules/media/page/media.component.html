@@ -21,7 +21,7 @@
       <div fxFlex="20" *ngFor="let mediaItem of media">
         <mat-card>
           <img    mat-card-image *ngIf="mediaItem.format != 'image/svg+xml'"  [src]="mediaItem.public_url" alt="Media Item"/>
-          <object mat-card-image *ngIf="mediaItem.format === 'image/svg+xml'" [data]="mediaItem.safePublicUrl" title="Media Item" [type]="mediaItem.format"></object>
+          <object mat-card-image *ngIf="mediaItem.format === 'image/svg+xml'" [data]="mediaItem.public_url | bypassSanitiser:'resourceUrl'" title="Media Item" [type]="mediaItem.format"></object>
           <mat-card-actions fxLayoutAlign="space-between center" >
             <span>{{mediaItem.filesize | filesize}}</span>
             <div>

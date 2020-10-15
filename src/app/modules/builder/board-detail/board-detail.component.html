@@ -15,7 +15,8 @@
         </div>
 
         <div>
-          <img *ngIf="c.image_url" [src]="c.image_url" class="img-responsive" crossorigin="anonymous"/>
+          <img    *ngIf="c.image_url && c.urlExtension != 'svg'"  [src]="c.image_url" crossorigin="anonymous"/>
+          <object *ngIf="c.image_url && c.urlExtension === 'svg'" [data]="c.image_url | bypassSanitiser:'resourceUrl'" type="image/svg+xml"></object>
           <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
         </div>
 

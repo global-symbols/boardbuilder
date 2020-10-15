@@ -4,7 +4,6 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Media} from '@data/models/media.model';
-import {DomSanitizer} from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +12,11 @@ export class MediaService {
 
   private apiEndpoint = `${environment.boardBuilderApiBase}/media`;
 
-  constructor(private http: HttpClient, private sanitiser: DomSanitizer) { }
+  constructor(private http: HttpClient) { }
 
   list(): Observable<Media[]> {
     return this.http.get<Media[]>(this.apiEndpoint)
-      .pipe(map(arr => arr.map(item => this.build(item))));
+      .pipe(map(arr => arr.map(item => new Media().deserialise(item))));
   }
 
   get(id: number|string, expand = ''): Observable<Media> {
@@ -71,10 +70,5 @@ export class MediaService {
         ia[i] = byteString.charCodeAt(i);
       }
       return new Blob([ab], { type: 'image/jpeg' });
-  }
-
-  private build(item): Media {
-    item.safePublicUrl = this.sanitiser.bypassSecurityTrustResourceUrl(item.public_url);
-    return new Media().deserialise(item);
   }
 }
