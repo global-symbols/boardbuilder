@@ -26,7 +26,11 @@
           <mat-icon>flip_to_back</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Delete Selected Items" (click)="deleteSelectedItems()" color="primary" [matTooltip]="selectedElements.length === 1 ? 'Delete Selected Item' : 'Delete '+ selectedElements.length +' Selected Items'" [disabled]="selectedElements.length === 0">
+        <button mat-icon-button aria-label="Duplicate Object" [matTooltip]="selectedElements.length === 1 ? 'Duplicate Selected Item' : 'Duplicate Selected Items'" (click)="duplicate()" color="primary" [disabled]="selectedElements.length === 0" class="mr-2">
+          <mat-icon>content_copy</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Delete Selected Items" (click)="deleteSelectedItems()" color="primary" [matTooltip]="selectedElements.length === 1 ? 'Delete Selected Item' : 'Delete Selected Items'" [disabled]="selectedElements.length === 0">
           <mat-icon>delete</mat-icon>
         </button>
       </div>

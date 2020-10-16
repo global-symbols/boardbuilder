@@ -138,6 +138,22 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       this.status = SymbolCreatorState.Editing;
     }
 
+    // Keyboard shortcut - select all items
+    this.hotkeys.push(
+      this.hotkeysService.add(new Hotkey(['ctrl+a'], (event: KeyboardEvent): boolean => {
+        this.selectAll();
+        return false; // Prevent bubbling
+      }, undefined, 'Select All Items'))
+    );
+
+    // Keyboard shortcut - duplicate selected items
+    this.hotkeys.push(
+      this.hotkeysService.add(new Hotkey(['ctrl+d'], (event: KeyboardEvent): boolean => {
+        this.duplicate();
+        return false; // Prevent bubbling
+      }, undefined, 'Duplicate Selected Items'))
+    );
+
     // Keyboard shortcut - delete selected items
     this.hotkeys.push(
       this.hotkeysService.add(new Hotkey(['del', 'backspace'], (event: KeyboardEvent): boolean => {
@@ -207,7 +223,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
   // Gets the FabricJS Canvas data for the Media item, deserialises it
   // and adds the objects to the current canvas in a group
-  addObjectsFromMedia(media: Media) {
+  addObjectsFromMedia(media: Media): void {
     this.mediaService.getCanvas(media).subscribe(canvas => {
       if (canvas.objects) {
         fabric.util.enlivenObjects(canvas.objects, (objects) => this.addShape(new fabric.Group(objects)));
@@ -215,7 +231,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     });
   }
 
-  addImage(imageUrl: string) {
+  addImage(imageUrl: string): void {
 
     this.imageService.getMimeType(imageUrl).subscribe(mimeType => {
       if (mimeType === 'image/svg+xml') {
@@ -256,17 +272,17 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     });
   }
 
-  toggleFontWeight() {
+  toggleFontWeight(): void {
     const newFontWeight = this.selectedElement.fontWeight === 'normal' ? 'bold' : 'normal';
     this.setProperty('fontWeight', newFontWeight);
   }
 
-  toggleFontStyle() {
+  toggleFontStyle(): void {
     const newFontStyle = this.selectedElement.fontStyle === 'normal' ? 'italic' : 'normal';
     this.setProperty('fontStyle', newFontStyle);
   }
 
-  addText() {
+  addText(): void {
     const text = new fabric.IText('Text', {
       left: 100,
       top: 100,
@@ -279,7 +295,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     this.workingCanvas.setActiveObject(text);
   }
 
-  addPlus(angle = 0) {
+  addPlus(angle = 0): void {
     const startPoints = [
       {x: 45, y: 0},
       {x: 55, y: 0},
@@ -328,7 +344,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     // }));
   }
 
-  addSquare() {
+  addSquare(): void {
     this.addShape(new fabric.Rect({
       width: 50,
       height: 50,
@@ -337,7 +353,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     }));
   }
 
-  addTriangle() {
+  addTriangle(): void {
     this.addShape(new fabric.Triangle({
       width: 50,
       height: 50,
@@ -346,13 +362,13 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     }));
   }
 
-  addLine() {
+  addLine(): void {
     this.addShape(new fabric.Line([100, 100, 200, 100], {
       stroke: this.defaultColour,
     }));
   }
 
-  addCircle() {
+  addCircle(): void {
     this.addShape(new fabric.Circle({
       radius: 25,
       stroke: this.defaultColour,
@@ -360,7 +376,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     }));
   }
 
-  addArrow() {
+  addArrow(): void {
     const fromx = 100;
     let tox = 175;
     const fromy = 100;
@@ -421,7 +437,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     this.workingCanvas.setActiveObject(shape);
   }
 
-  deleteSelectedItems() {
+  deleteSelectedItems(): void {
     this.workingCanvas.getActiveObjects().forEach((obj) => {
       this.workingCanvas.remove(obj);
     });
@@ -434,28 +450,30 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     this.canvasElement.nativeElement.toBlob(blob => saveAs(blob, 'My Symbol.png'));
   }
 
-  saveSVG() {
+  saveSVG(): void {
     this.workingCanvas.discardActiveObject();
     this.renderCanvas();
     saveAs(this.getSVGBlob(), 'My Symbol.svg');
-  }
-
-  sendToBack() {
-    this.workingCanvas.sendToBack(this.selectedElement);
-    this.workingCanvas.discardActiveObject();
-    this.renderCanvas();
   }
 
   private getSVGBlob(): Blob {
     return new Blob([this.workingCanvas.toSVG()], {type: 'image/svg+xml'});
   }
 
-  private getSerialisedCanvas() {
+  private getSerialisedCanvas(): string {
     return JSON.stringify(this.workingCanvas);
   }
 
   private getSerialisedCanvasBlob(): Blob {
     return new Blob([this.getSerialisedCanvas()], {type: 'application/json'});
+  }
+
+  selectAll(): void {
+    this.workingCanvas.discardActiveObject();
+    this.workingCanvas.setActiveObject(new fabric.ActiveSelection(this.workingCanvas.getObjects(), {
+      canvas: this.workingCanvas,
+    }));
+    this.renderCanvas();
   }
 
   save(): Observable<Media> {
@@ -471,9 +489,47 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     }
   }
 
-  flip(direction: 'horizontal' | 'vertical') {
+  sendToBack(): void {
+    this.workingCanvas.sendToBack(this.selectedElement);
+    this.workingCanvas.discardActiveObject();
+    this.renderCanvas();
+  }
+
+  flip(direction: 'horizontal' | 'vertical'): void {
     direction === 'horizontal' ?
       this.setProperty('flipX', !this.selectedElement.flipX) :
       this.setProperty('flipY', !this.selectedElement.flipY);
+  }
+
+  duplicate(): void {
+    if (this.selectedElements.length === 0) { return; }
+
+    // We have to discard the selection, because this causes the top/left attributes
+    // of the first object to be set relative to the selection centre.
+    const objectsToClone = (this.selectedElements);
+    this.workingCanvas.discardActiveObject();
+
+    const clones = [];
+
+    objectsToClone.forEach(object => {
+      object.clone(clone => {
+        clone.canvas = this.workingCanvas;
+        clone.set({
+          left: object.left + 10,
+          top: object.top + 10,
+          evented: true
+        });
+        clones.push(clone);
+        this.workingCanvas.add(clone);
+
+        // If all clones have been made, select them on the canvas.
+        if (clones.length === objectsToClone.length) {
+          this.workingCanvas.setActiveObject(new fabric.ActiveSelection(clones, {
+            canvas: this.workingCanvas,
+          }));
+          this.renderCanvas();
+        }
+      });
+    });
   }
 }
