@@ -1,6 +1,12 @@
 <app-loading-notice action="Loading" subject="Symbol" *ngIf="status === 'Loading'"></app-loading-notice>
 <app-loading-notice action="Saving" subject="Symbol" *ngIf="status === 'Saving'"></app-loading-notice>
 
+<div *ngIf="status === 'SavingError'">
+  <h2>There was a problem saving your symbol</h2>
+  <p>{{lastError}}</p>
+  <button mat-flat-button color="primary" (click)="status = 'Editing'" class="mt-3">Continue Editing</button>
+</div>
+
 <div fxLayout="row" fxLayoutAlign="center none" [class.d-none]="status != 'Editing'">
 
   <div fxFlex fxLayout="column" class="mr-3">

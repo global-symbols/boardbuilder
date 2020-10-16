@@ -10,6 +10,7 @@ import {AddSymbolDialogComponent} from '@shared/components/add-symbol-dialog/add
 import {Media} from '@data/models/media.model';
 import {MediaService} from '@data/services/media.service';
 import {Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
 
 export enum SymbolCreatorState {
   Loading = 'Loading',
@@ -37,6 +38,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
   // public loading$ = this.statusSubject.asObservable();
 
   status: SymbolCreatorState;
+  lastError: string;
 
   workingCanvas: fabric.Canvas;
   @ViewChild('canvasElement') canvasElement: ElementRef;
@@ -482,11 +484,21 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     const svg = this.getSVGBlob();
     const canvas = this.getSerialisedCanvasBlob();
 
+    let action: Observable<Media> = null;
+
     if (this.media) {
-      return this.mediaService.update(this.media, svg, canvas);
+      action = this.mediaService.update(this.media, svg, canvas);
     } else {
-      return this.mediaService.add(svg, canvas);
+      action = this.mediaService.add(svg, canvas);
     }
+
+    return action.pipe(tap(
+      () => this.status = SymbolCreatorState.SavingError,
+      err => {
+        this.lastError = err.error.message;
+        return this.status = SymbolCreatorState.SavingError;
+      })
+    );
   }
 
   sendToBack(): void {

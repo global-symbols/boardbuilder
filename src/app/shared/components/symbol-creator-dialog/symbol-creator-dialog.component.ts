@@ -25,6 +25,6 @@ export class SymbolCreatorDialogComponent {
   }
 
   saveAndClose() {
-    this.symbolCreator.save().subscribe(media => this.dialogRef.close(media));
+    this.symbolCreator.save().subscribe(media => this.dialogRef.close(media), error => null);
   }
 }
