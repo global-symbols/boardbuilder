@@ -176,9 +176,13 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
   loadCanvasFromMedia(): void {
     this.mediaService.getCanvas(this.media).subscribe(canvas => {
       this.workingCanvas.loadFromJSON(canvas, () => {
-        return this.status = SymbolCreatorState.Editing;
+        return this.editMode();
       });
     });
+  }
+
+  editMode(): void {
+    this.status = SymbolCreatorState.Editing;
   }
 
   selectElementFromEvent(event): void {
@@ -543,5 +547,16 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
         }
       });
     });
+  }
+
+  align(direction: 'horizontal' | 'vertical') {
+    const object = this.workingCanvas.getActiveObject();
+
+    if (direction === 'horizontal') {
+      this.setProperty('left', (this.workingCanvas.width / 2) - (((object.width + object.strokeWidth) * object.scaleX) / 2));
+    } else {
+      this.setProperty('top', (this.workingCanvas.height / 2) - (((object.height + object.strokeWidth) * object.scaleY) / 2));
+    }
+
   }
 }

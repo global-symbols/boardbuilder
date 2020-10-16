@@ -4,7 +4,7 @@
 <div *ngIf="status === 'SavingError'">
   <h2>There was a problem saving your symbol</h2>
   <p>{{lastError}}</p>
-  <button mat-flat-button color="primary" (click)="status = 'Editing'" class="mt-3">Continue Editing</button>
+  <button mat-flat-button color="primary" (click)="editMode()" class="mt-3">Continue Editing</button>
 </div>
 
 <div fxLayout="row" fxLayoutAlign="center none" [class.d-none]="status != 'Editing'">
@@ -20,6 +20,17 @@
 
 
       <div style="margin-right: 1rem;">
+
+        <button mat-icon-button aria-label="Align to Horizontal Centre" matTooltip="Align to Horizontal Centre" (click)="align('horizontal')" color="primary" [disabled]="selectedElements.length != 1">
+          <mat-icon>align_horizontal_center</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Align to Vertical Centre" matTooltip="Align to Vertical Centre" (click)="align('vertical')" color="primary" [disabled]="selectedElements.length != 1" class="mr-2">
+          <mat-icon>align_vertical_center</mat-icon>
+        </button>
+
+
+
         <button mat-icon-button aria-label="Flip Horizontal" matTooltip="Flip Horizontal" (click)="flip('horizontal')" color="primary" [disabled]="selectedElements.length != 1">
           <mat-icon>flip</mat-icon>
         </button>
@@ -170,6 +181,7 @@
       </div>
   </div>
 </div>
+<!--{{selectedElement | json}}-->
 <mat-menu #downloadMenu="matMenu">
   <button mat-menu-item (click)="saveSVG()">
     <span>Save SVG to Device</span>
