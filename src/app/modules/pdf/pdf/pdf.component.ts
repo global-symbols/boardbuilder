@@ -98,6 +98,17 @@ export class PdfComponent implements OnInit {
             // If an image is present and IS an SVG, get it as text.
           } else if (cell.image_url && cell.image_url.endsWith('.svg')) {
 
+            // this.imageBase64Service.getSanitisedSvg(cell.image_url).subscribe(result => {
+            //   console.log('received SVG', result);
+            //   this.images[cell.id] = {svg: result};
+            //   this.generatePdfIfImagesReady();
+            // },
+            // error => {
+            //   console.log(error);
+            //   this.error('We couldn\'t generate your PDF because one of the images in your ' +
+            //     'Board could not be loaded. The error was "' + error.statusText + '" and the affected URL was ' + error.url);
+            // });
+
             this.http.get(cell.image_url, {
               responseType: 'text'
             }).toPromise().then(result => {
@@ -112,8 +123,12 @@ export class PdfComponent implements OnInit {
                 // SVGs returned by OpenSymbols have headers that break the SVG converter, so we'll just remove them.
                 result = result.replace(/^[^]*?<svg/, '<svg');
 
-                // console.log('output svg', result);
 
+                // Referenced XML entities break pdfmake. Remove them.
+                result = result.replace(/xmlns:?\w*=["'][^'"]+['"]/g, '');
+
+                // console.log('processing ' + cell.image_url);
+                // console.log('output svg', result);
                 this.images[cell.id] = {svg: result};
                 this.generatePdfIfImagesReady();
 
