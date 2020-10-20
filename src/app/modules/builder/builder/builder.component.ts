@@ -62,8 +62,10 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.getBoardSet().subscribe(bs => {
 
-      // Update the opened_at date
-      this.boardSetService.touch(this.boardSet).subscribe();
+      // Update the opened_at date, unless this is a readonly boardset
+      if (!this.boardSet.readonly) {
+        this.boardSetService.touch(this.boardSet).subscribe();
+      }
 
       // If there are any Boards, select the first one.
       if (this.boardSet.boards.length > 0) {

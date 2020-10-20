@@ -61,7 +61,7 @@ export class AuthService {
         return;
       }
 
-      console.warn('Noticed changes to access_token (most likely from another tab), updating isAuthenticated');
+      console.warn('Noticed changes to access_token (most likely from another tab), updating isAuthenticated', event);
       this.isAuthenticatedSubject$.next(this.oauthService.hasValidAccessToken());
 
       if (!this.oauthService.hasValidAccessToken()) {
@@ -82,13 +82,16 @@ export class AuthService {
     // When a token is received, loadUserProfile().
     this.oauthService.events
       .pipe(filter(e => ['token_received'].includes(e.type)))
-      .subscribe(e => this.oauthService.loadUserProfile());
+      .subscribe(e => {
+        console.log('token_received, loading user profile', e);
+        this.oauthService.loadUserProfile();
+      });
 
     // When the user logs out or there is a problem with the oauth session, redirect to the login page
     this.oauthService.events
       .pipe(filter(e => ['session_terminated', 'session_error', 'logout'].includes(e.type)))
       .subscribe(e => {
-        console.warn('PROBLEM DETECTED WITH SESSION. GOING TO LOGIN PAGE.');
+        console.warn('PROBLEM DETECTED WITH SESSION. GOING TO LOGIN PAGE.', e);
         this.navigateToLoginPage();
       });
 

@@ -21,3 +21,7 @@ mat-panel-description {
 ::ng-deep.mat-tab-label-active{
   min-width: 118px !important;
 }
+
+::ng-deep.mat-drawer-inner-container {
+  overflow: overlay;
+}

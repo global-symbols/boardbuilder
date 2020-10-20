@@ -114,6 +114,25 @@ h1, h2, h3 {
   font-weight: 300;
 }
 
+// Scrollbars
+::-webkit-scrollbar {
+  width: $scrollbar-width;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  margin-left: 1px;
+  border-left: 1px solid white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BBB;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
 
 .sentry-error-embed {
 
