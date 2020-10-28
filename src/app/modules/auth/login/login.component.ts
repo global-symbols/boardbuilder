@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Observable, Subscription} from 'rxjs';
 import {AuthService} from '@app/services/auth.service';
 import {Router} from '@angular/router';
 
@@ -8,22 +8,27 @@ import {Router} from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnDestroy {
 
   isDoneLoading: Observable<boolean>;
   canActivateProtectedRoutes: Observable<boolean>;
+
+  subscription: Subscription;
 
   constructor(private authService: AuthService,
               private router: Router) {
     this.isDoneLoading = this.authService.isDoneLoading$;
     this.canActivateProtectedRoutes = this.authService.canActivateProtectedRoutes$;
 
-    this.authService.canActivateProtectedRoutes$.subscribe(canActivate => {
+    this.subscription = this.authService.canActivateProtectedRoutes$.subscribe(canActivate => {
       if (canActivate) { this.router.navigate(['/', 'boardsets']); }
     });
   }
 
-  ngOnInit(): void {
+  ngOnDestroy(): void {
+    // Unsubscribe from future canActivateProtectedRoutes$ events.
+    // This prevents the post-login redirect from firing when LoginComponent is unloaded.
+    this.subscription.unsubscribe();
   }
 
   login() { this.authService.login(); }
