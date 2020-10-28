@@ -16,21 +16,14 @@ export class AppComponent {
   isAuthenticated: Observable<boolean>;
   isDoneLoading: Observable<boolean>;
   canActivateProtectedRoutes: Observable<boolean>;
-  showAuthDebug = false;
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) {
-    // this.authService.canActivateProtectedRoutes$.subscribe(result => console.warn('canActivateProtectedRoutes$ changed: ', result));
-    // this.authService.isAuthenticated$.subscribe(result => console.warn('isAuthenticated$ changed: ', result));
-    // this.authService.isDoneLoading$.subscribe(result => console.warn('isDoneLoading$ changed: ', result));
-
     this.isAuthenticated = this.authService.isAuthenticated$;
     this.isDoneLoading = this.authService.isDoneLoading$;
     this.canActivateProtectedRoutes = this.authService.canActivateProtectedRoutes$;
-
-
 
     this.authService.runInitialLoginSequence().then();
 
@@ -46,17 +39,12 @@ export class AppComponent {
 
   login() { this.authService.login(); }
   logout() { this.authService.logout(); }
-  refresh() { this.authService.refresh(); }
   reload() { window.location.reload(); }
   clearStorage() { localStorage.clear(); }
 
   logoutExternally() {
     window.open(this.authService.logoutUrl);
   }
-
-  get hasValidToken() { return this.authService.hasValidToken(); }
-  get accessToken() { return this.authService.accessToken; }
-  get refreshToken() { return this.authService.refreshToken; }
   get identityClaims() { return this.authService.identityClaims; }
   get idToken() { return this.authService.idToken; }
 }

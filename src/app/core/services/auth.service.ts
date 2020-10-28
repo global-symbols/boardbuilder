@@ -31,7 +31,7 @@ export class AuthService {
   ]).pipe(map(values => values.every(b => b)));
 
   private navigateToLoginPage() {
-    console.warn('navigateToLoginPage was called');
+    // console.warn('navigateToLoginPage was called');
     // TODO: Remember current URL
     this.router.navigateByUrl('/auth/login');
   }
@@ -61,11 +61,11 @@ export class AuthService {
         return;
       }
 
-      console.warn('Noticed changes to access_token (most likely from another tab), updating isAuthenticated', event);
+      // console.warn('Noticed changes to access_token (most likely from another tab), updating isAuthenticated', event);
       this.isAuthenticatedSubject$.next(this.oauthService.hasValidAccessToken());
 
       if (!this.oauthService.hasValidAccessToken()) {
-        console.warn('NO VALID ACCESS TOKEN, NAVIGATING TO LOGIN PAGE!');
+        // console.warn('NO VALID ACCESS TOKEN, NAVIGATING TO LOGIN PAGE!');
         this.navigateToLoginPage();
       }
     });
@@ -83,7 +83,7 @@ export class AuthService {
     this.oauthService.events
       .pipe(filter(e => ['token_received'].includes(e.type)))
       .subscribe(e => {
-        console.log('token_received, loading user profile', e);
+        // console.log('token_received, loading user profile', e);
         this.oauthService.loadUserProfile();
       });
 
@@ -91,7 +91,7 @@ export class AuthService {
     this.oauthService.events
       .pipe(filter(e => ['session_terminated', 'session_error', 'logout'].includes(e.type)))
       .subscribe(e => {
-        console.warn('PROBLEM DETECTED WITH SESSION. GOING TO LOGIN PAGE.', e);
+        // console.warn('PROBLEM DETECTED WITH SESSION. GOING TO LOGIN PAGE.', e);
         this.navigateToLoginPage();
       });
 
@@ -100,8 +100,8 @@ export class AuthService {
 
   public runInitialLoginSequence(): Promise<void> {
     if (location.hash) {
-      console.log('Encountered hash fragment, plotting as table...');
-      console.table(location.hash.substr(1).split('&').map(kvp => kvp.split('=')));
+      // console.log('Encountered hash fragment, plotting as table...');
+      // console.table(location.hash.substr(1).split('&').map(kvp => kvp.split('=')));
     }
 
     // 0. LOAD CONFIG:
@@ -125,11 +125,11 @@ export class AuthService {
         // 2. SILENT LOGIN:
         // Try to log in via a refresh because then we can prevent
         // needing to redirect the user:
-        console.log('running silent refresh');
+        // console.log('running silent refresh');
         return this.oauthService.silentRefresh()
           .then(() => Promise.resolve())
           .catch(result => {
-            console.log('caught silent refresh error:', result);
+            // console.log('caught silent refresh error:', result);
             // Subset of situations from https://openid.net/specs/openid-connect-core-1_0.html#AuthError
             // Only the ones where it's reasonably sure that sending the
             // user to the IdServer will help.
@@ -153,7 +153,7 @@ export class AuthService {
               // this.oauthService.initImplicitFlow();
               //
               // Instead, we'll now do this:
-              console.warn('User interaction is needed to log in, we will wait for the user to manually log in.');
+              // console.warn('User interaction is needed to log in, we will wait for the user to manually log in.');
               return Promise.resolve();
             }
 
@@ -175,7 +175,7 @@ export class AuthService {
           if (stateUrl.startsWith('/') === false) {
             stateUrl = decodeURIComponent(stateUrl);
           }
-          console.log(`There was state of ${this.oauthService.state}, so we are sending you to: ${stateUrl}`);
+          // console.log(`There was state of ${this.oauthService.state}, so we are sending you to: ${stateUrl}`);
           this.router.navigateByUrl(stateUrl);
         }
       })
@@ -183,6 +183,7 @@ export class AuthService {
   }
 
   public login(targetUrl?: string) {
+    // console.log('login was called', targetUrl);
     // Note: before version 9.1.0 of the library you needed to
     // call encodeURIComponent on the argument to the method.
     this.oauthService.initLoginFlow(targetUrl || this.router.url);
@@ -200,14 +201,4 @@ export class AuthService {
   public get identityClaims(): any { return this.oauthService.getIdentityClaims(); }
   public get idToken() { return this.oauthService.getIdToken(); }
   public get logoutUrl() { return this.oauthService.logoutUrl; }
-
-  private dumpState() {
-    console.log('auth state:', {
-      accessToken: this.accessToken,
-      refreshToken: this.refreshToken,
-      identityClaims: this.identityClaims,
-      idToken: this.idToken,
-      logoutUrl: this.logoutUrl,
-    });
-  }
 }
