@@ -183,10 +183,10 @@
 </div>
 <!--{{selectedElement | json}}-->
 <mat-menu #downloadMenu="matMenu">
-  <button mat-menu-item (click)="saveSVG()">
-    <span>Save SVG to Device</span>
-  </button>
   <button mat-menu-item (click)="savePNG()">
-    <span>Save PNG to Device</span>
+    <span>Save to Device (PNG)</span>
+  </button>
+  <button mat-menu-item (click)="saveSVG()">
+    <span>Save to Device (SVG, Advanced)</span>
   </button>
 </mat-menu>
