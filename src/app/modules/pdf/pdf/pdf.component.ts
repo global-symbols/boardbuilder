@@ -10,6 +10,7 @@ import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {Location} from '@angular/common';
 import {BoardService} from '@data/services/board.service';
 import {ToolbarService} from '@app/services/toolbar.service';
+import {saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-pdf',
@@ -40,10 +41,13 @@ export class PdfComponent implements OnInit {
   generatingPdf = true;
   pdfReady = false;
 
+  pdfUrl: string;
+
   board: Board;
   pdfMake;
   pdfDefinition: object;
   compiledPdf;
+  serverPdf;
   failureReason: string;
 
   images = {};
@@ -68,11 +72,30 @@ export class PdfComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // this.pdfUrl = this.boardService.pdfUrl(this.route.snapshot.paramMap.get('board_id'));
+
+    this.boardService.pdf(this.route.snapshot.paramMap.get('board_id'))
+      .then(pdfData => {
+        this.compiledPdf = pdfData;
+        this.pdfFrame.nativeElement.src = this.compiledPdf;
+        this.pdfReady = true;
+        this.generatingPdf = false;
+      });
+
+    // this.boardService.pdf(this.route.snapshot.paramMap.get('board_id'))
+    //   .subscribe(pdf => this.serverPdf = pdf);
+
     this.toolbarService.setButtons([{
       text: 'Board Set',
       icon: 'arrow_back',
       action: () => this.router.navigate(['/', 'boardsets', this.route.snapshot.paramMap.get('id')])
     }]);
+
+    this.boardService.get(this.route.snapshot.paramMap.get('board_id'))
+      .subscribe(board => this.board = board);
+
+    return;
 
     this.boardService.get(this.route.snapshot.paramMap.get('board_id'), 'cells').subscribe(board => {
 
@@ -309,7 +332,8 @@ export class PdfComponent implements OnInit {
   }
 
   downloadPdf() {
-    this.compiledPdf.download(`${this.board.name}.pdf`);
+    saveAs(this.compiledPdf, `${this.board.name}.pdf`);
+    // this.compiledPdf.download(`${this.board.name}.pdf`);
   }
 
   returnToBoard() {
