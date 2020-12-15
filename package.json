@@ -36,7 +36,6 @@
     "ngx-color": "^6.0.4",
     "ngx-filesize": "^2.0.16",
     "ngx-moment": "^5.0.0",
-    "pdfmake": "^0.1.68",
     "rxjs": "^6.6.3",
     "timers": "^0.1.1",
     "tslib": "^2.0.3",

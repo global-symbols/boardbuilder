@@ -1,0 +1,23 @@
+<div class="section">
+
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <h2>PDF Preview</h2>
+
+    <div *ngIf="status === 'loading'" class="text-center">
+      <mat-progress-spinner
+        mode="indeterminate">
+      </mat-progress-spinner>
+      <p>Generating your PDF&hellip;</p>
+    </div>
+
+    <button mat-raised-button *ngIf="status == 'success'" (click)="downloadPdf()" class="mb-2" color="primary">Download</button>
+
+    <embed [hidden]="status != 'success'" #pdfFrame style="height: 600px; max-width: 1000px; width: 100%"/>
+  </div>
+
+
+  <div *ngIf="failureReason">
+    <h2>Something went wrong</h2>
+    <p>{{failureReason}}</p>
+  </div>
+</div>

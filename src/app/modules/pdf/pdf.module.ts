@@ -1,23 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PdfComponent } from './pdf/pdf.component';
 import {RouterModule, Routes} from '@angular/router';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {FlexModule} from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
+import { PdfPreviewComponent } from './pdf-preview/pdf-preview.component';
 
 
 export const routes: Routes = [
   {
     path: ':board_id',
-    component: PdfComponent,
+    component: PdfPreviewComponent,
     pathMatch: 'full'
   },
 ];
 
-
 @NgModule({
-  declarations: [PdfComponent],
+  declarations: [PdfPreviewComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
