@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {Board} from '@data/models/board.model';
 import {Cell} from '@data/models/cell.model';
 
@@ -7,7 +7,7 @@ import {Cell} from '@data/models/cell.model';
   templateUrl: './board-detail.component.html',
   styleUrls: ['./board-detail.component.scss']
 })
-export class BoardDetailComponent implements OnInit {
+export class BoardDetailComponent implements OnChanges {
 
   @Input() board: Board;
   @Input() cell: Cell;
@@ -16,7 +16,7 @@ export class BoardDetailComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges() {
   }
 
   selectCell(cell: Cell) {

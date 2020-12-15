@@ -10,7 +10,7 @@ export class Board extends Record implements Deserialisable {
   rows: number;
   columns: number;
   cells: Array<Cell>;
-  captions_position: string;
+  captions_position: 'hidden' | 'above' | 'below' | 'left' | 'right';
 
   constructor(init?: Partial<Board>) {
       super();
@@ -127,4 +127,8 @@ export class Board extends Record implements Deserialisable {
 
   get title(): string { return this.name; }
   set title(t) { this.name = t; }
+
+  get cellLayout(): 'column' | 'row' {
+    return ['above', 'below', 'hidden'].includes(this.captions_position) ? 'column' : 'row';
+  }
 }

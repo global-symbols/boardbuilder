@@ -18,9 +18,9 @@ mat-grid-tile {
     outline: rgba(0, 103, 244, 0.247) auto 5px;
   }
 
-  div#cellBox {
+  div.tile-body {
     //  height: 100%;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
   }
 
   img, object {

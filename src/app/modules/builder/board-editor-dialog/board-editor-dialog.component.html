@@ -20,8 +20,10 @@
     <mat-form-field class="w-100">
       <mat-label i18n>Label Position</mat-label>
       <mat-select [(ngModel)]="data.board.captions_position">
-        <mat-option value="above" i18n>Above Image</mat-option>
-        <mat-option value="below" i18n>Below Image</mat-option>
+        <mat-option value="above" i18n>Top</mat-option>
+        <mat-option value="below" i18n>Bottom</mat-option>
+        <mat-option value="left" i18n>Left</mat-option>
+        <mat-option value="right" i18n>Right</mat-option>
         <mat-option value="hidden" i18n>Hidden</mat-option>
       </mat-select>
     </mat-form-field>
