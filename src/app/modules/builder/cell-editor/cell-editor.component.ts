@@ -21,6 +21,7 @@ import {BoardService} from '@data/services/board.service';
 import {CellService} from '@data/services/cell.service';
 import {Media} from '@data/models/media.model';
 import {SearchPanelComponent} from '@shared/components/search-panel/search-panel.component';
+import {SymbolSearchResult} from '@data/models/symbol-search-result';
 
 @Component({
   selector: 'app-cell-editor',
@@ -79,6 +80,11 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
 
   closeEditor() {
     this.closed.emit(true);
+  }
+
+  selectSearchResult(result: SymbolSearchResult) {
+    this.selectImageUrl(result.imageUrl);
+    this.cell.picto_id = result.pictoId;
   }
 
   // Sets the Cell's image URL for a web image, not from the User's page library.

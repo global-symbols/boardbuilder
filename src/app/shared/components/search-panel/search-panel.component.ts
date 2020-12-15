@@ -46,7 +46,7 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
   @ViewChild('queryInput') queryInput: ElementRef;
 
   @Input() initialQuery: string;
-  @Output() readonly selectionChange = new EventEmitter<string>();
+  @Output() readonly selectionChange = new EventEmitter<SymbolSearchResult>();
 
   constructor(private globalSymbolsService: GlobalSymbolsService,
               private symbolService: SymbolService) {
@@ -135,7 +135,7 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
   }
 
   selectImage(result: SymbolSearchResult) {
-    this.selectionChange.emit(result.imageUrl);
+    this.selectionChange.emit(result);
   }
 }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {Media} from '@data/models/media.model';
+import {SymbolSearchResult} from '@data/models/symbol-search-result';
 
 @Component({
   selector: 'app-add-symbol-dialog',
@@ -18,8 +19,8 @@ export class AddSymbolDialogComponent implements OnInit {
     this.dialogRef.close(media);
   }
 
-  selectSymbol(url): void {
-    this.dialogRef.close(new Media().deserialise({public_url: url}));
+  selectSymbol(result: SymbolSearchResult): void {
+    this.dialogRef.close(new Media().deserialise({public_url: result.imageUrl}));
   }
 
 }

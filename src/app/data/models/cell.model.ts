@@ -8,6 +8,7 @@ export class Cell extends Record implements Deserialisable {
     board_id: number;
     linked_board_id: number;
     media_id: number;
+    picto_id: number;
     board?: Board;
     media?: Media;
     linkable_boards?: Board[];

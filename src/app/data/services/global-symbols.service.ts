@@ -41,7 +41,8 @@ export class GlobalSymbolsService {
     return results.map(result => new SymbolSearchResult().deserialise({
       id: result.id,
       label: result.text,
-      imageUrl: result.picto.image_url
+      imageUrl: result.picto.image_url,
+      pictoId: result.picto.id
     }));
   }
 }
