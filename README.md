@@ -13,6 +13,12 @@ To do this, ensure <img> tags have the crossorigin="" attribute.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Deploy to app.globalsymbols.com
+`firebase deploy`
+
+## Deploy to app-dev.globalsymbols.com
+`ng deploy`
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

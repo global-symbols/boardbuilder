@@ -28,6 +28,7 @@ import {AddSymbolDialogComponent} from '@shared/components/add-symbol-dialog/add
 import {MatTabsModule} from '@angular/material/tabs';
 import { SymbolCreatorDialogComponent } from './components/symbol-creator-dialog/symbol-creator-dialog.component';
 import { BypassSanitiserPipe } from './pipes/bypass-sanitiser.pipe';
+import { BoardEditorFormComponent } from './components/board-editor-form/board-editor-form.component';
 
 
 
@@ -44,7 +45,8 @@ import { BypassSanitiserPipe } from './pipes/bypass-sanitiser.pipe';
     SymbolCreatorComponent,
     AddSymbolDialogComponent,
     SymbolCreatorDialogComponent,
-    BypassSanitiserPipe
+    BypassSanitiserPipe,
+    BoardEditorFormComponent
   ],
   exports: [
     ColourSelectorComponent,
@@ -54,7 +56,8 @@ import { BypassSanitiserPipe } from './pipes/bypass-sanitiser.pipe';
     MediaLibraryComponent,
     SearchPanelComponent,
     SymbolCreatorComponent,
-    BypassSanitiserPipe
+    BypassSanitiserPipe,
+    BoardEditorFormComponent
   ],
   imports: [
     CommonModule,

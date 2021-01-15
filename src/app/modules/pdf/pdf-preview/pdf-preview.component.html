@@ -59,12 +59,12 @@
 
 
 <!--    <object [data]="compiledPdf | bypassSanitiser: 'resourceUrl'" type="application/pdf" #pdfObject style="height: 600px; max-width: 1000px; width: 100%"></object>-->
-    <embed [hidden]="status != 'success'" type="application/pdf" [src]="compiledPdf | bypassSanitiser: 'resourceUrl'" #pdfFrame style="height: 600px; max-width: 1000px; width: 100%"/>
+    <embed [style.visibility]="status === 'success' ? 'visible' : 'hidden'" [hidden]="status != 'success'" type="application/pdf" [src]="compiledPdf | bypassSanitiser: 'resourceUrl'" #pdfFrame style="height: 600px; max-width: 1000px; width: 100%"/>
   </div>
 
 
   <div *ngIf="failureReason">
     <h2>Something went wrong</h2>
-    <p>{{failureReason}}</p>
+    <p>{{failureReason | json}}</p>
   </div>
 </div>

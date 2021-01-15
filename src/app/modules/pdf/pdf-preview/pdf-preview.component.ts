@@ -83,6 +83,8 @@ export class PdfPreviewComponent implements OnInit {
   }
 
   loadPdf() {
+    this.status = 'loading';
+    this.failureReason = null;
     this.boardService.pdf(this.route.snapshot.paramMap.get('board_id'), this.template)
       .then(pdfData => {
         this.compiledPdf = pdfData;
