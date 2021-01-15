@@ -50,7 +50,7 @@ export class BoardSetsComponent implements OnInit {
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(NewBoardSetDialogComponent, {
-      width: '700px'
+      width: '600px'
     });
 
     this.currentDialogRef.afterClosed().subscribe(newBoardSet => {

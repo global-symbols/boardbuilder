@@ -1,61 +1,23 @@
-<div fxLayout="row" fxLayoutGap="20px">
+<div>
 
-  <div fxFlex="50">
-    <mat-form-field class="w-100">
-      <mat-label i18n>
-        <ng-container *ngIf="!board.board_set_id">First Board </ng-container>
-        Title
-      </mat-label>
-      <input matInput required
-             [(ngModel)]="board.title"
-             (mousedown)="$event.stopPropagation()">
-    </mat-form-field>
+  <mat-form-field class="w-100 mb-2">
+    <mat-label i18n>
+      <ng-container *ngIf="!board.board_set_id">First Board </ng-container>
+      Title
+    </mat-label>
+    <input matInput required
+           [(ngModel)]="board.title"
+           (mousedown)="$event.stopPropagation()">
+  </mat-form-field>
 
-    <mat-form-field class="w-100">
-      <mat-label i18n>Label Position</mat-label>
-      <mat-select [(ngModel)]="board.captions_position">
-        <mat-option value="above" i18n>Top</mat-option>
-        <mat-option value="below" i18n>Bottom</mat-option>
-        <mat-option value="left" i18n>Left</mat-option>
-        <mat-option value="right" i18n>Right</mat-option>
-        <mat-option value="hidden" i18n>Hidden</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <div>
 
-    <mat-label i18n>Columns</mat-label>
-    <mat-slider
-      class="example-margin w-100"
-      [max]="12"
-      [min]="1"
-      [step]="1"
-      [thumbLabel]="true"
-      [tickInterval]="1"
-      [(ngModel)]="board.columns"
-      (change)="board.populateCells()"
-      (mousedown)="$event.stopPropagation()">
-    </mat-slider>
+    <mat-tab-group mat-stretch-tabs dynamicHeight>
 
-    <mat-label i18n>Rows</mat-label>
-    <mat-slider
-      class="example-margin w-100"
-      [max]="12"
-      [min]="1"
-      [step]="1"
-      [thumbLabel]="true"
-      [tickInterval]="1"
-      [(ngModel)]="board.rows"
-      (change)="board.populateCells()"
-      (mousedown)="$event.stopPropagation()">
-    </mat-slider>
-  </div>
-
-  <div fxFlex="50">
-
-    <mat-tab-group>
       <mat-tab label="Generic Templates">
         <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="space-around center" class="w-100 p-1">
           <div *ngFor="let template of templates" fxFlex="0 1 calc(50% - 20px)" class="template">
-            <button mat-button (click)="selectTemplate(template)" [title]="template.description">
+            <button mat-button color="primary" (click)="selectTemplate(template)" [title]="template.description" appStopPropagation>
               <img [src]="'assets/images/board-templates/'+template.slug+'.svg'"/>
             </button>
 
@@ -65,9 +27,59 @@
 
       <mat-tab label="Device Templates">
         <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="space-around center" class="w-100 p-1">
-          Device templates here
+          Coming Soon!
         </div>
       </mat-tab>
+
+      <mat-tab label="Custom Settings">
+
+        <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="20px" class="mt-2">
+          <div fxFlex="50">
+            <mat-label i18n>Columns: {{board.columns}}</mat-label>
+            <mat-slider
+              class="example-margin w-100"
+              [max]="12"
+              [min]="1"
+              [step]="1"
+              [thumbLabel]="true"
+              [tickInterval]="1"
+              [(ngModel)]="board.columns"
+              (change)="board.populateCells()"
+              appStopPropagation>
+            </mat-slider>
+
+            <mat-label i18n>Rows: {{board.rows}}</mat-label>
+            <mat-slider
+              class="example-margin w-100"
+              [max]="12"
+              [min]="1"
+              [step]="1"
+              [thumbLabel]="true"
+              [tickInterval]="1"
+              [(ngModel)]="board.rows"
+              (change)="board.populateCells()"
+              appStopPropagation>
+            </mat-slider>
+          </div>
+
+          <mat-form-field fxFlex="50">
+            <mat-label i18n>Label Position</mat-label>
+            <mat-select [(ngModel)]="board.captions_position" appStopPropagation>
+              <mat-option value="above" i18n>Top</mat-option>
+              <mat-option value="below" i18n>Bottom</mat-option>
+              <mat-option value="left" i18n>Left</mat-option>
+              <mat-option value="right" i18n>Right</mat-option>
+              <mat-option value="hidden" i18n>Hidden</mat-option>
+            </mat-select>
+            <mat-hint>Sets where your text appears in each cell of the Board.</mat-hint>
+          </mat-form-field>
+        </div>
+
+
+
+
+      </mat-tab>
+
     </mat-tab-group>
 
   </div>

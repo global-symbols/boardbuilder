@@ -16,6 +16,7 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSliderModule} from '@angular/material/slider';
 import {SharedModule} from '../../shared/shared.module';
+import {MatStepperModule} from '@angular/material/stepper';
 
 export const routes: Routes = [
   {
@@ -30,23 +31,24 @@ export const routes: Routes = [
     BoardSetsComponent,
     NewBoardSetDialogComponent,
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        FlexModule,
-        MatIconModule,
-        MatTooltipModule,
-        MatButtonModule,
-        MatCardModule,
-        MatGridListModule,
-        MomentModule,
-        DragDropModule,
-        MatDialogModule,
-        MatInputModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatSliderModule,
-        SharedModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FlexModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
+    MomentModule,
+    DragDropModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSliderModule,
+    SharedModule,
+    MatStepperModule
+  ]
 })
 export class BoardSetsModule { }

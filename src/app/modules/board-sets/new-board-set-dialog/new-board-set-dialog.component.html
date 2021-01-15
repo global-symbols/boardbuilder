@@ -13,43 +13,44 @@
 
   <div mat-dialog-content>
 
-<!--    <mat-horizontal-stepper linear #stepper>-->
-<!--      <mat-step [stepControl]="firstFormGroup">-->
-<!--        <form [formGroup]="firstFormGroup">-->
-<!--          <ng-template matStepLabel>Board Set Name</ng-template>-->
-<!--          <mat-form-field>-->
-<!--            <mat-label>Board Set Name</mat-label>-->
-<!--            <input matInput formControlName="name" required>-->
-<!--          </mat-form-field>-->
-<!--          <div>-->
-<!--            <button mat-button matStepperNext>Next</button>-->
-<!--          </div>-->
-<!--        </form>-->
-<!--      </mat-step>-->
-<!--      <mat-step [stepControl]="secondFormGroup">-->
-<!--        <app-board-editor-form [board]="board"></app-board-editor-form>-->
-<!--        <form [formGroup]="secondFormGroup">-->
-<!--          <ng-template matStepLabel>Fill out your address</ng-template>-->
-<!--          <mat-form-field>-->
-<!--            <mat-label>Address</mat-label>-->
-<!--            <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"-->
-<!--                   required>-->
-<!--          </mat-form-field>-->
-<!--          <div>-->
-<!--            <button mat-button matStepperPrevious>Back</button>-->
-<!--            <button mat-button matStepperNext>Next</button>-->
-<!--          </div>-->
-<!--        </form>-->
-<!--      </mat-step>-->
-<!--      <mat-step>-->
-<!--        <ng-template matStepLabel>Done</ng-template>-->
-<!--        <p>You are now done.</p>-->
-<!--        <div>-->
-<!--          <button mat-button matStepperPrevious>Back</button>-->
-<!--          <button mat-button (click)="stepper.reset()">Reset</button>-->
-<!--        </div>-->
-<!--      </mat-step>-->
-<!--    </mat-horizontal-stepper>-->
+    <mat-horizontal-stepper linear>
+
+      <mat-step [stepControl]="boardSetForm">
+        <ng-template matStepLabel>Board Set</ng-template>
+        <form [formGroup]="boardSetForm">
+
+          <mat-form-field class="w-100 mb-3">
+            <mat-label>Board Set Title</mat-label>
+            <input matInput formControlName="name" required>
+            <mat-hint>Choose a name for your new Board Set.</mat-hint>
+          </mat-form-field>
+        </form>
+
+        <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="20px">
+          <img src="/assets/images/board-set.svg" alt="Board Set" />
+          <div>
+            <p>A Board Set is a collection of communication Boards - as many or as few as you like.</p>
+            <p>Next, we'll set up your first Board.</p>
+          </div>
+        </div>
+
+
+        <div fxLayout="row" fxLayoutAlign="end none" class="mt-2">
+          <button mat-raised-button matStepperNext color="primary" appStopPropagation>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step [stepControl]="boardForm">
+        <ng-template matStepLabel>Choose Template</ng-template>
+        <app-board-editor-form [board]="board"></app-board-editor-form>
+
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-2">
+          <button mat-stroked-button matStepperPrevious appStopPropagation>Back</button>
+          <button mat-raised-button (click)="create()" color="primary" i18n
+                  appStopPropagation>Create</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
 
 
 <!--    <mat-form-field class="w-100" appearance="outline">-->
@@ -61,10 +62,5 @@
 
 
 
-  </div>
-  <div mat-dialog-actions>
-    <span class="spacer"></span>
-    <button mat-raised-button (click)="create()" color="primary" i18n
-            (mousedown)="$event.stopPropagation()">Create</button>
   </div>
 </div>

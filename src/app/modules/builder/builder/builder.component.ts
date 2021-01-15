@@ -227,8 +227,12 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '250px',
-      data: {heading: `Delete '${board.name}'?`, content: 'This cannot be undone.'}
+      width: '400px',
+      data: {
+        heading: `Delete '${board.name}'?`,
+        content: 'This cannot be undone.',
+        icon: 'delete'
+      }
     });
 
     this.currentDialogRef.afterClosed().subscribe(result => {
@@ -250,6 +254,31 @@ export class BuilderComponent implements OnInit, OnDestroy {
           } else if (this.boardSet.boards[deletedBoardIndex - 1]) {
             this.selectBoard(this.boardSet.boards[deletedBoardIndex - 1]);
           }
+        });
+      }
+
+      this.currentDialogRef = undefined;
+    });
+  }
+
+  deleteBoardSet(boardSet: BoardSet) {
+    if (this.boardSet.readonly) { return; }
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data: {
+        heading: `Delete '${boardSet.name}'? (contains ${boardSet.boards.length} Board${boardSet.boards.length > 1 ? 's' : ''})`,
+        content: `The Board Set and ${boardSet.boards.length} Board${boardSet.boards.length > 1 ? 's' : ''} will be deleted. This cannot be undone.`,
+        icon: 'delete'
+      }
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(result => {
+
+      if (result) {
+        this.boardSetService.delete(boardSet).subscribe(r => {
+          this.router.navigate(['/', 'boardsets']);
         });
       }
 

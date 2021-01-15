@@ -5,6 +5,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Board} from '@data/models/board.model';
 import {MatDialogRef} from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-new-board-set-dialog',
   templateUrl: './new-board-set-dialog.component.html',
@@ -14,8 +15,7 @@ export class NewBoardSetDialogComponent implements OnInit {
 
   name = new FormControl('');
 
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  boardSetForm: FormGroup;
 
   board: Board;
 
@@ -26,7 +26,7 @@ export class NewBoardSetDialogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.firstFormGroup = this.formBuilder.group({
+    this.boardSetForm = this.formBuilder.group({
       name: ['', Validators.required]
     });
 
@@ -40,7 +40,7 @@ export class NewBoardSetDialogComponent implements OnInit {
 
   create(): void {
     const boardSet = new BoardSet({
-      name: this.name.value,
+      name: this.boardSetForm.value.name,
       boards: [this.board]
     });
 

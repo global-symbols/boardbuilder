@@ -4,7 +4,10 @@
 >
   <h1 mat-dialog-title>{{data.heading}}</h1>
   <div mat-dialog-content>
-    <p>{{data.content}}</p>
+    <div fxLayout="row" fxLayoutAlign=" center" >
+      <mat-icon *ngIf="data.icon" class="mx-2">{{data.icon}}</mat-icon>
+      <p>{{data.content}}</p>
+    </div>
   </div>
   <div mat-dialog-actions>
     <button mat-stroked-button [mat-dialog-close]="false" color="primary" (mousedown)="$event.stopPropagation()" i18n>Cancel</button>
