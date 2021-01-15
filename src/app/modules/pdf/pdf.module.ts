@@ -5,6 +5,12 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {FlexModule} from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
 import { PdfPreviewComponent } from './pdf-preview/pdf-preview.component';
+import {FormsModule} from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+import {SharedModule} from '../../shared/shared.module';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 export const routes: Routes = [
@@ -23,6 +29,12 @@ export const routes: Routes = [
     MatProgressSpinnerModule,
     FlexModule,
     MatButtonModule,
+    FormsModule,
+    MatSelectModule,
+    MatCardModule,
+    SharedModule,
+    MatIconModule,
+    MatTooltipModule,
   ]
 })
 export class PdfModule { }

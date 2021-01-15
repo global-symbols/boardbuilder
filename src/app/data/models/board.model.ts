@@ -27,9 +27,7 @@ export class Board extends Record implements Deserialisable {
 
   populateCells(): void {
     for (let i = this.cells.length; i < (this.rows * this.columns); i++) {
-      const cell = new Cell();
-      cell.id = i;
-      this.cells.push(cell);
+      this.cells.push(new Cell());
     }
   }
 

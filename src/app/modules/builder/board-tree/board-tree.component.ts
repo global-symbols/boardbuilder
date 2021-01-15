@@ -35,6 +35,7 @@ export class BoardTreeComponent implements OnInit, OnChanges {
 
   // Emitted when the user requests to delete a Board, and before the Board has been deleted.
   @Output() readonly deleteBoard = new EventEmitter<Board>();
+  @Output() readonly updateBoard = new EventEmitter<Board>();
 
   private currentDialogRef;
 
@@ -119,13 +120,16 @@ export class BoardTreeComponent implements OnInit, OnChanges {
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
-      width: '300px',
+      width: '700px',
       data: { board }
     });
 
     this.currentDialogRef.afterClosed().subscribe(result => {
       this.currentDialogRef = undefined;
-      this.boardService.update(board).subscribe();
+      this.boardService.update(board).subscribe(b => {
+        // this.boardService.get(b.id, 'cells').subscribe(newBoard => board = newBoard);
+        this.updateBoard.emit(b);
+      });
     });
   }
 

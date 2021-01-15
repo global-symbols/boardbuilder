@@ -145,6 +145,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   // Gets the BoardSet and loads it into this.boardSet.
   private getBoardSet(): Observable<BoardSet> {
     this.loadingError = false;
+    this.loading = true;
     return this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells')
       .pipe(
         catchError(e => {
@@ -152,26 +153,52 @@ export class BuilderComponent implements OnInit, OnDestroy {
           this.loading = false;
           return throwError(e);
         }),
-        map(bs => this.boardSet = bs)
+        map(bs => {
+          this.loading = false;
+          return this.boardSet = bs;
+        })
       );
   }
 
+  // Loads (or re-loads) the current BoardSet.
+  // If re-loading, this also re-selects the selected Board after the reload.
   loadBoardSet() {
+    const currentBoard = this.board;
     // Get the BoardSet
-    this.getBoardSet().subscribe();
+    this.getBoardSet().subscribe(boardSet => {
+      if (currentBoard) { this.selectBoard(currentBoard.id); }
+    });
   }
 
   addBoard() {
     if (this.boardSet.readonly) { return; }
-    this.boardService.add(new Board({
+
+    if (this.currentDialogRef !== undefined) { return; }
+
+    const newBoard = new Board({
       name: 'Board ' + (this.boardSet.boards.length + 1),
       board_set_id: this.boardSet.id,
       rows: this.board?.rows,
-      columns: this.board?.columns
-    })).subscribe(board => {
-      this.getBoardSet().subscribe(bs => {
-        this.selectLastBoard();
-      });
+      columns: this.board?.columns,
+      captions_position: this.board?.captions_position
+    });
+
+    this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
+      width: '700px',
+      data: { board: newBoard }
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(confirmed => {
+
+      this.currentDialogRef = undefined;
+
+      if (confirmed) {
+        this.boardService.add(newBoard).subscribe(result => {
+          this.getBoardSet().subscribe(bs => {
+            this.selectLastBoard();
+          });
+        });
+      }
     });
   }
 
@@ -211,7 +238,18 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
         this.boardService.delete(board).subscribe(r => {
           // Remove the Board from the array of Boards.
+          // Then select a Board adjacent to the one that was deleted.
+          const deletedBoardIndex = this.boardSet.boards.indexOf(board);
           this.boardSet.boards = this.boardSet.boards.filter(b => b !== board);
+
+          // Try to select the next Board.
+          if (this.boardSet.boards[deletedBoardIndex]) {
+            this.selectBoard(this.boardSet.boards[deletedBoardIndex]);
+
+          // Try to select the previous Board.
+          } else if (this.boardSet.boards[deletedBoardIndex - 1]) {
+            this.selectBoard(this.boardSet.boards[deletedBoardIndex - 1]);
+          }
         });
       }
 
@@ -224,7 +262,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
-      width: '300px',
+      width: '700px',
       data: { board: this.board }
     });
 

@@ -11,10 +11,11 @@ export class ImageBase64Service {
 
   constructor(private httpClient: HttpClient) { }
 
-  getFromURL(url: string): Promise<string | ArrayBuffer> {
+  getFromURL(url: string, params: any = {}): Promise<string | ArrayBuffer> {
 
     return this.httpClient.get(url, {
-      responseType: 'blob'
+      responseType: 'blob',
+      params
     }).toPromise().then(blob => {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
