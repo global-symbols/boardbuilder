@@ -131,9 +131,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       {
-        enableTracing: false, // <-- debugging purposes only
-        preloadingStrategy: PreloadAllModules
-      }
+    enableTracing: false,
+    preloadingStrategy: PreloadAllModules,
+    relativeLinkResolution: 'legacy'
+}
     ),
     MatMenuModule,
     CoreModule.forRoot(),

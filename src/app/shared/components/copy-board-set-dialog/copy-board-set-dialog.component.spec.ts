@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CopyBoardSetDialogComponent } from './copy-board-set-dialog.component';
 
@@ -6,7 +6,7 @@ describe('CopyBoardSetDialogComponent', () => {
   let component: CopyBoardSetDialogComponent;
   let fixture: ComponentFixture<CopyBoardSetDialogComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CopyBoardSetDialogComponent ]
     })

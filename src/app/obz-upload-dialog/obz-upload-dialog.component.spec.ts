@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ObzUploadDialogComponent } from './obz-upload-dialog.component';
 
@@ -6,7 +6,7 @@ describe('ObzUploadDialogComponent', () => {
   let component: ObzUploadDialogComponent;
   let fixture: ComponentFixture<ObzUploadDialogComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ObzUploadDialogComponent ]
     })

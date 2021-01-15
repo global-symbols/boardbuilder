@@ -13,43 +13,43 @@
 
   <div mat-dialog-content>
 
-    <mat-horizontal-stepper linear #stepper>
-      <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>Board Set Name</ng-template>
-          <mat-form-field>
-            <mat-label>Board Set Name</mat-label>
-            <input matInput formControlName="name" required>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="secondFormGroup">
-        <app-board-editor-form [board]="board"></app-board-editor-form>
-        <form [formGroup]="secondFormGroup">
-          <ng-template matStepLabel>Fill out your address</ng-template>
-          <mat-form-field>
-            <mat-label>Address</mat-label>
-            <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                   required>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
-        </div>
-      </mat-step>
-    </mat-horizontal-stepper>
+<!--    <mat-horizontal-stepper linear #stepper>-->
+<!--      <mat-step [stepControl]="firstFormGroup">-->
+<!--        <form [formGroup]="firstFormGroup">-->
+<!--          <ng-template matStepLabel>Board Set Name</ng-template>-->
+<!--          <mat-form-field>-->
+<!--            <mat-label>Board Set Name</mat-label>-->
+<!--            <input matInput formControlName="name" required>-->
+<!--          </mat-form-field>-->
+<!--          <div>-->
+<!--            <button mat-button matStepperNext>Next</button>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </mat-step>-->
+<!--      <mat-step [stepControl]="secondFormGroup">-->
+<!--        <app-board-editor-form [board]="board"></app-board-editor-form>-->
+<!--        <form [formGroup]="secondFormGroup">-->
+<!--          <ng-template matStepLabel>Fill out your address</ng-template>-->
+<!--          <mat-form-field>-->
+<!--            <mat-label>Address</mat-label>-->
+<!--            <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"-->
+<!--                   required>-->
+<!--          </mat-form-field>-->
+<!--          <div>-->
+<!--            <button mat-button matStepperPrevious>Back</button>-->
+<!--            <button mat-button matStepperNext>Next</button>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </mat-step>-->
+<!--      <mat-step>-->
+<!--        <ng-template matStepLabel>Done</ng-template>-->
+<!--        <p>You are now done.</p>-->
+<!--        <div>-->
+<!--          <button mat-button matStepperPrevious>Back</button>-->
+<!--          <button mat-button (click)="stepper.reset()">Reset</button>-->
+<!--        </div>-->
+<!--      </mat-step>-->
+<!--    </mat-horizontal-stepper>-->
 
 
 <!--    <mat-form-field class="w-100" appearance="outline">-->
