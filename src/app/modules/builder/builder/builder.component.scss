@@ -64,7 +64,7 @@ mat-sidenav-content {
   padding: 1rem;
 }
 #leftSidebarHeaderPanel, #leftSidebarBottomPanel {
-  background-color: lighten($blue, 50%);
+  background-color: $light-blue;
   padding: $leftSidebarBasePadding ($leftSidebarBasePadding + $leftSidebarScrollbarWidth) $leftSidebarBasePadding $leftSidebarBasePadding;
 }
 

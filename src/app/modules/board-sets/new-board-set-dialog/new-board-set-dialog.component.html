@@ -19,7 +19,7 @@
         <ng-template matStepLabel>Board Set</ng-template>
         <form [formGroup]="boardSetForm">
 
-          <mat-form-field class="w-100 mb-3">
+          <mat-form-field class="w-100 mb-3" appStopPropagation>
             <mat-label>Board Set Title</mat-label>
             <input matInput formControlName="name" required>
             <mat-hint>Choose a name for your new Board Set.</mat-hint>
@@ -30,7 +30,7 @@
           <img src="/assets/images/board-set.svg" alt="Board Set" />
           <div>
             <p>A Board Set is a collection of communication Boards - as many or as few as you like.</p>
-            <p>Next, we'll set up your first Board.</p>
+            <p>On the next page, we'll set up your first Board.</p>
           </div>
         </div>
 
@@ -40,12 +40,12 @@
         </div>
       </mat-step>
 
-      <mat-step [stepControl]="boardForm">
+      <mat-step>
         <ng-template matStepLabel>Choose Template</ng-template>
         <app-board-editor-form [board]="board"></app-board-editor-form>
 
         <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-2">
-          <button mat-stroked-button matStepperPrevious appStopPropagation>Back</button>
+          <button mat-raised-button matStepperPrevious appStopPropagation>Back</button>
           <button mat-raised-button (click)="create()" color="primary" i18n
                   appStopPropagation>Create</button>
         </div>

@@ -3,6 +3,7 @@ import {Cell} from './cell.model';
 import * as mime from 'mime/lite';
 import {Obf} from './obf.interface';
 import {Record} from '@data/models/record';
+import {BoardTemplate} from '@data/models/board-template.model';
 
 export class Board extends Record implements Deserialisable {
   board_set_id: number;
@@ -121,6 +122,14 @@ export class Board extends Record implements Deserialisable {
   cellsAsMatrix() {
     return this.cells.slice(0, this.rows * this.columns).reduce((rows, key, index) => (index % this.columns === 0 ? rows.push([key])
         : rows[rows.length - 1].push(key)) && rows, []);
+  }
+
+  matchesTemplate(template: BoardTemplate) {
+    return (
+      this.rows === template.board.rows
+      && this.columns === template.board.columns
+      && this.captions_position === template.board.captions_position
+    );
   }
 
   get title(): string { return this.name; }

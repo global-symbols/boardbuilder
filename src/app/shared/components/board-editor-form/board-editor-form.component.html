@@ -8,6 +8,7 @@
     <input matInput required
            [(ngModel)]="board.title"
            (mousedown)="$event.stopPropagation()">
+    <mat-hint *ngIf="!board.board_set_id">Choose a name for the first Board in your new Board Set.</mat-hint>
   </mat-form-field>
 
   <div>
@@ -17,8 +18,8 @@
       <mat-tab label="Generic Templates">
         <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="space-around center" class="w-100 p-1">
           <div *ngFor="let template of templates" fxFlex="0 1 calc(50% - 20px)" class="template">
-            <button mat-button color="primary" (click)="selectTemplate(template)" [title]="template.description" appStopPropagation>
-              <img [src]="'assets/images/board-templates/'+template.slug+'.svg'"/>
+            <button mat-button color="primary" (click)="selectTemplate(template)" [title]="template.description" appStopPropagation [class.selected]="board.matchesTemplate(template)">
+              <img [src]="'assets/images/board-templates/'+template.slug+'.svg'" />
             </button>
 
           </div>
