@@ -17,15 +17,8 @@
   fill: none;
 }
 
-.selected {
+svg.selected {
   .page {
     fill: $blue;
-  }
-
-  .text {
-    stroke: white;
-  }
-  .thumbnail {
-    fill: white;
   }
 }

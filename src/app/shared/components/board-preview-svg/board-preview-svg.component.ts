@@ -29,6 +29,15 @@ export class BoardPreviewSvgComponent implements OnChanges {
 
   @Input() selected: boolean;
 
+  @Input() size: number;
+  @Input() maxHeight: number;
+  @Input() maxWidth: number;
+
+  randomId: number;
+
+  svgHeight: string | number;
+  svgWidth: string | number;
+
   // Cell spacing to apply, as a fraction of the shortest dimension of the Cell.
   private cellSpacingFraction = 0.2;
 
@@ -53,15 +62,12 @@ export class BoardPreviewSvgComponent implements OnChanges {
 
   thumbnails: BoardPreviewSvgThumbnail[];
 
+  constructor() {
+    this.generateRandomId(1, 100000000);
+  }
+
   ngOnChanges(): void {
-    // Work out if landscape or portrait is best for this chart.
-    if (this.board.rows > this.board.columns) {
-      this.height = this.paper.longEdge;
-      this.width = this.paper.shortEdge;
-    } else {
-      this.height = this.paper.shortEdge;
-      this.width = this.paper.longEdge;
-    }
+    this.calculatePageDimensions();
 
     this.pagePadding = this.paper.shortEdge * this.pagePaddingFraction;
 
@@ -77,7 +83,7 @@ export class BoardPreviewSvgComponent implements OnChanges {
     this.viewBox = `0 0 ${this.width} ${this.height}`;
     this.innerPageViewBox = `${this.pagePadding} ${this.pagePadding} ${this.width - this.pagePadding * 2} ${this.height - this.pagePadding * 2}`;
 
-    this.pageOutlineWidth = this.height / 50;
+    this.pageOutlineWidth = this.paper.longEdge / 55;
 
     this.thumbnails = [];
 
@@ -108,14 +114,36 @@ export class BoardPreviewSvgComponent implements OnChanges {
       // Incremenent CellY.
       cellY = cellY + cellHeight + this.cellSpacing;
     }
-    console.log(this);
-    console.log(cellHeight);
-    console.log(cellWidth);
   }
 
   private calculateCellSpacing() {
     const maxSymbols = Math.max.apply(Math, [this.board.rows, this.board.columns]);
     const maxDimension = Math.max.apply(Math, [this.pageInnerHeight, this.pageInnerWidth]);
     this.cellSpacing = (maxDimension / maxSymbols) * this.cellSpacingFraction;
+  }
+
+  // Work out if landscape or portrait is best for this chart.
+  private calculatePageDimensions() {
+    // When labels are to go left or right, cells will be wider
+    // This effectively treats cells with a left/right caption as double-width.
+    const cellWidthMultiplier = ['left', 'right'].includes(this.board.captions_position) ? 2 : 1;
+
+    if (this.board.rows > (this.board.columns * cellWidthMultiplier)) {
+      // Portrait
+      this.height = this.paper.longEdge;
+      this.width = this.paper.shortEdge;
+      this.svgWidth = 'auto';
+      this.svgHeight = this.size;
+    } else {
+      // Landscape
+      this.height = this.paper.shortEdge;
+      this.width = this.paper.longEdge;
+      this.svgWidth = this.size;
+      this.svgHeight = 'auto';
+    }
+  }
+
+  private generateRandomId(min, max) {
+    this.randomId = Math.random() * (max - min) + min;
   }
 }
