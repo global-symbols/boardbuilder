@@ -32,7 +32,7 @@
 
   <g [attr.transform]="innerPageTranslate">
     <use *ngFor="let thumb of thumbnails"
-         [attr.xlink:href]="'#caption-'+thumb.captionPosition"
+         [attr.xlink:href]="'#caption-'+board.captions_position"
          [attr.x]="thumb.x"
          [attr.y]="thumb.y"
          [attr.height]="thumb.height"
