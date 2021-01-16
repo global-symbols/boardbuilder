@@ -9,25 +9,42 @@
   fill-rule="evenodd"
 >
 
+  <style>
+    .fill-primary {
+      fill: #206eb5;
+    }
+
+    .stroke-primary {
+      stroke: #206eb5;
+    }
+  </style>
+
   <symbol id="thumbnail" height="24" viewBox="0 0 24 24" width="24">
-    <path d="M0 0h24v24H0z" fill="red"/>
-    <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z" fill="#206eb5"/>
+<!--    <path d="M0 0h24v24H0z" fill="red"/>-->
+    <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z" class="fill-primary"/>
+  </symbol>
+
+  <symbol id="caption-below" height="24" viewBox="0 0 24 24" width="24">
+    <use xlink:href="#thumbnail" transform="translate(0, -4)"/>
+    <line x1="1" y1="20" x2="23" y2="20" class="stroke-primary" stroke-width="2"></line>
   </symbol>
 
 
   <g [attr.transform]="innerPageTranslate">
-    <use *ngFor="let thumb of thumbnails" xlink:href="#thumbnail"
+    <use *ngFor="let thumb of thumbnails"
+         [attr.xlink:href]="'#caption-'+thumb.captionPosition"
          [attr.x]="thumb.x"
          [attr.y]="thumb.y"
          [attr.height]="thumb.height"
          [attr.width]="thumb.width"
-
     />
   </g>
 
   <rect class="page-outline"
-        [attr.width]="width"
-        [attr.height]="height"
+        [attr.x]="pageOutlineWidth"
+        [attr.y]="pageOutlineWidth"
+        [attr.width]="width - pageOutlineWidth * 2"
+        [attr.height]="height - pageOutlineWidth * 2"
         [attr.stroke]="pageOutlineColour"
         [attr.stroke-width]="pageOutlineWidth"
         fill="none"

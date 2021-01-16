@@ -7,6 +7,8 @@ interface BoardPreviewSvgThumbnail {
   width: number;
   x: number;
   y: number;
+  template?: 'caption-below' | 'caption-above' | 'caption-left' | 'caption-right' | 'caption-hidden';
+  captionPosition: 'below' | 'above' | 'left' | 'right' | 'hidden';
 }
 
 @Component({
@@ -35,7 +37,8 @@ export class BoardPreviewSvgComponent implements OnChanges {
 
   // symbolSize = 24;
 
-  pagePadding = 20;
+  pagePadding: number;
+  cellSpacing: number;
 
   pageInnerHeight: number;
   pageInnerWidth: number;
@@ -53,6 +56,9 @@ export class BoardPreviewSvgComponent implements OnChanges {
       this.width = this.paper.longEdge;
     }
 
+    this.pagePadding = this.paper.shortEdge * 0.1;
+    this.cellSpacing = this.pagePadding / 2;
+
     this.pageInnerHeight = this.height - this.pagePadding * 2;
     this.pageInnerWidth = this.width - this.pagePadding * 2;
 
@@ -61,13 +67,16 @@ export class BoardPreviewSvgComponent implements OnChanges {
     this.viewBox = `0 0 ${this.width} ${this.height}`;
     this.innerPageViewBox = `${this.pagePadding} ${this.pagePadding} ${this.width - this.pagePadding * 2} ${this.height - this.pagePadding * 2}`;
 
-    this.pageOutlineWidth = this.height / 26.25;
+    this.pageOutlineWidth = this.height / 50;
 
     this.thumbnails = [];
 
+    const cellHeight = this.pageInnerHeight / this.board.rows;
+    const cellWidth  = this.pageInnerWidth / this.board.columns;
+
     for (let row = 1; row <= this.board.rows; row++) {
 
-      const cellY = this.pageInnerHeight / this.board.rows * (row - 1);
+      let cellY = this.pageInnerHeight / this.board.rows * (row - 1);
 
       for (let col = 1; col <= this.board.columns; col++) {
 
@@ -76,8 +85,9 @@ export class BoardPreviewSvgComponent implements OnChanges {
         this.thumbnails.push({
           x: cellX,
           y: cellY,
-          height: this.pageInnerHeight / this.board.rows,
-          width: this.pageInnerWidth / this.board.columns,
+          height: cellHeight,
+          width: cellWidth,
+          captionPosition: this.board.captions_position
         });
 
       }
