@@ -27,6 +27,8 @@ export class BoardPreviewSvgComponent implements OnChanges {
     y: 297
   });
 
+  @Input() selected: boolean;
+
   // Cell spacing to apply, as a fraction of the shortest dimension of the Cell.
   private cellSpacingFraction = 0.2;
 

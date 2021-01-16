@@ -1,0 +1,31 @@
+@import "../../variables";
+
+.debug {
+  display: none;
+}
+
+.thumbnail {
+  fill: $blue;
+}
+
+.text {
+  stroke-width: 2;
+  stroke: $blue;
+}
+
+.page {
+  fill: none;
+}
+
+.selected {
+  .page {
+    fill: $blue;
+  }
+
+  .text {
+    stroke: white;
+  }
+  .thumbnail {
+    fill: white;
+  }
+}

@@ -7,28 +7,49 @@
   shape-rendering="geometricPrecision"
   image-rendering="optimizeQuality"
   fill-rule="evenodd"
+  [class.selected]="selected"
 >
-
   <style>
-    .fill-primary {
-      fill: #206eb5;
-    }
 
-    .stroke-primary {
-      stroke: #206eb5;
-    }
   </style>
 
   <symbol id="thumbnail" height="24" viewBox="0 0 24 24" width="24">
-<!--    <path d="M0 0h24v24H0z" fill="red"/>-->
-    <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z" class="fill-primary"/>
+    <path d="M0 0h24v24H0z" fill="red" class='debug'/>
+    <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z" class="thumbnail"/>
   </symbol>
 
-  <symbol id="caption-below" height="24" viewBox="0 0 24 24" width="24">
+  <symbol id="caption-hidden" viewBox="0 0 24 24">
+    <use xlink:href="#thumbnail"/>
+  </symbol>
+
+  <symbol id="caption-above" viewBox="0 0 24 24">
+    <use xlink:href="#thumbnail" transform="translate(0, 4)"/>
+    <line x1="1" y1="4" x2="23" y2="4" class="text"></line>
+  </symbol>
+
+  <symbol id="caption-below" viewBox="0 0 24 24">
     <use xlink:href="#thumbnail" transform="translate(0, -4)"/>
-    <line x1="1" y1="20" x2="23" y2="20" class="stroke-primary" stroke-width="2"></line>
+    <line x1="1" y1="20" x2="23" y2="20" class="text"></line>
   </symbol>
 
+  <symbol id="caption-left" viewBox="0 0 52 24">
+    <use xlink:href="#thumbnail" transform="translate(28, 0)"/>
+    <line x1="0" y1="12" x2="24" y2="12" class="text"></line>
+  </symbol>
+
+  <symbol id="caption-right" viewBox="0 0 52 24">
+    <use xlink:href="#thumbnail"/>
+    <line x1="28" y1="12" x2="52" y2="12" class="text"></line>
+  </symbol>
+
+  <rect class="page"
+        [attr.x]="pageOutlineWidth"
+        [attr.y]="pageOutlineWidth"
+        [attr.width]="width - pageOutlineWidth * 2"
+        [attr.height]="height - pageOutlineWidth * 2"
+        [attr.stroke]="pageOutlineColour"
+        [attr.stroke-width]="pageOutlineWidth"
+  />
 
   <g [attr.transform]="innerPageTranslate">
     <use *ngFor="let thumb of thumbnails"
@@ -39,14 +60,4 @@
          [attr.width]="thumb.width"
     />
   </g>
-
-  <rect class="page-outline"
-        [attr.x]="pageOutlineWidth"
-        [attr.y]="pageOutlineWidth"
-        [attr.width]="width - pageOutlineWidth * 2"
-        [attr.height]="height - pageOutlineWidth * 2"
-        [attr.stroke]="pageOutlineColour"
-        [attr.stroke-width]="pageOutlineWidth"
-        fill="none"
-  />
 </svg>
