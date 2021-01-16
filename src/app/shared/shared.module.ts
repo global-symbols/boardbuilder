@@ -30,6 +30,7 @@ import { SymbolCreatorDialogComponent } from './components/symbol-creator-dialog
 import { BypassSanitiserPipe } from './pipes/bypass-sanitiser.pipe';
 import { BoardEditorFormComponent } from './components/board-editor-form/board-editor-form.component';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
+import { BoardPreviewSvgComponent } from './components/board-preview-svg/board-preview-svg.component';
 
 
 
@@ -48,7 +49,8 @@ import { StopPropagationDirective } from './directives/stop-propagation.directiv
     SymbolCreatorDialogComponent,
     BypassSanitiserPipe,
     BoardEditorFormComponent,
-    StopPropagationDirective
+    StopPropagationDirective,
+    BoardPreviewSvgComponent
   ],
   exports: [
     ColourSelectorComponent,
@@ -60,7 +62,8 @@ import { StopPropagationDirective } from './directives/stop-propagation.directiv
     SymbolCreatorComponent,
     BypassSanitiserPipe,
     BoardEditorFormComponent,
-    StopPropagationDirective
+    StopPropagationDirective,
+    BoardPreviewSvgComponent
   ],
   imports: [
     CommonModule,

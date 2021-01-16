@@ -7,8 +7,6 @@ interface BoardPreviewSvgThumbnail {
   width: number;
   x: number;
   y: number;
-  // template?: 'caption-below' | 'caption-above' | 'caption-left' | 'caption-right' | 'caption-hidden';
-  // captionPosition: 'below' | 'above' | 'left' | 'right' | 'hidden';
 }
 
 @Component({
@@ -33,6 +31,7 @@ export class BoardPreviewSvgComponent implements OnChanges {
   @Input() maxHeight: number;
   @Input() maxWidth: number;
 
+  // We use a random ID to avoid clashes between IDs of re-used SVG elements, when this component is used more than once in a page.
   randomId: number;
 
   svgHeight: string | number;
@@ -144,6 +143,6 @@ export class BoardPreviewSvgComponent implements OnChanges {
   }
 
   private generateRandomId(min, max) {
-    this.randomId = Math.random() * (max - min) + min;
+    this.randomId = Math.floor(Math.random() * (max - min) + min);
   }
 }

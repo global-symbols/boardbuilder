@@ -17,9 +17,12 @@
 
       <mat-tab label="Generic Templates">
         <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="space-around center" class="w-100 p-1">
-          <div *ngFor="let template of templates" fxFlex="0 1 calc(50% - 20px)" class="template">
-            <button mat-button color="primary" (click)="selectTemplate(template)" [title]="template.description" appStopPropagation [class.selected]="board.matchesTemplate(template)">
-              <img [src]="'assets/images/board-templates/'+template.slug+'.svg'" />
+          <div *ngFor="let template of templates" fxFlex="0 1 calc(25% - 20px)" class="template">
+            <button mat-button color="primary"
+                    (click)="selectTemplate(template)"
+                    [title]="template.description"
+                    appStopPropagation disableRipple>
+              <app-board-preview-svg [board]="template.board" [selected]="board.matchesTemplate(template)" size="90" maxHeight="90" maxWidth="90"></app-board-preview-svg>
             </button>
 
           </div>

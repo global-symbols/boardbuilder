@@ -1,70 +1,89 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
   [attr.width]="svgWidth"
   [attr.height]="svgHeight"
   [attr.viewBox]="viewBox"
   shape-rendering="geometricPrecision"
   image-rendering="optimizeQuality"
   fill-rule="evenodd"
-  [class.selected]="selected"
   [style.maxHeight]="maxHeight"
   [style.maxWidth]="maxWidth"
+  [class.selected]="selected"
 >
   <style>
-    svg.selected .text {
+    .thumbnail {
+      fill: #006aba;
+    }
+
+    .text {
+      stroke-width: 2;
+      stroke: #006aba;
+    }
+
+    .page {
+      fill: none;
+    }
+
+    .selected .text {
       stroke: white;
     }
-    svg.selected .thumbnail {
+    .selected use.thumbnail {
       fill: white;
     }
+
+    .selected .page {
+      fill: #006aba;
+    }
+
   </style>
 
-  <symbol id="thumbnail" height="24" viewBox="0 0 24 24" width="24">
-    <path d="M0 0h24v24H0z" fill="red" class='debug'/>
-    <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z" class="thumbnail"/>
+  <defs>
+    <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z" [id]="randomId + 'thumbnail'"/>
+  </defs>
+
+  <symbol [id]="randomId + 'caption-hidden'" viewBox="0 0 24 24">
+    <use [attr.href]="'#' + randomId + 'thumbnail'" class="thumbnail"/>
   </symbol>
 
-  <symbol id="caption-hidden" viewBox="0 0 24 24">
-    <use xlink:href="#thumbnail"/>
-  </symbol>
-
-  <symbol id="caption-above" viewBox="0 0 24 24">
-    <use xlink:href="#thumbnail" transform="translate(0, 4)"/>
+  <symbol [id]="randomId + 'caption-above'" viewBox="0 0 24 24">
+    <use [attr.href]="'#' + randomId + 'thumbnail'" class="thumbnail" transform="translate(0, 4)"/>
     <line x1="1" y1="4" x2="23" y2="4" class="text"></line>
   </symbol>
 
-  <symbol id="caption-below" viewBox="0 0 24 24">
-    <use xlink:href="#thumbnail" transform="translate(0, -4)"/>
+  <symbol [id]="randomId + 'caption-below'" viewBox="0 0 24 24">
+    <use [attr.href]="'#' + randomId + 'thumbnail'" class="thumbnail" transform="translate(0, -4)"/>
     <line x1="1" y1="20" x2="23" y2="20" class="text"></line>
   </symbol>
 
-  <symbol id="caption-left" viewBox="0 0 52 24">
-    <use xlink:href="#thumbnail" transform="translate(28, 0)"/>
+  <symbol [id]="randomId + 'caption-left'" viewBox="0 0 52 24">
+    <use [attr.href]="'#' + randomId + 'thumbnail'" transform="translate(28, 0)" class="thumbnail"/>
     <line x1="0" y1="12" x2="24" y2="12" class="text"></line>
   </symbol>
 
-  <symbol id="caption-right" viewBox="0 0 52 24">
-    <use xlink:href="#thumbnail"/>
+  <symbol [id]="randomId + 'caption-right'" viewBox="0 0 52 24">
+    <use [attr.href]="'#' + randomId + 'thumbnail'" class="thumbnail"/>
     <line x1="28" y1="12" x2="52" y2="12" class="text"></line>
   </symbol>
 
-  <rect class="page"
-        [attr.x]="pageOutlineWidth"
-        [attr.y]="pageOutlineWidth"
-        [attr.width]="width - pageOutlineWidth * 2"
-        [attr.height]="height - pageOutlineWidth * 2"
-        [attr.stroke]="pageOutlineColour"
-        [attr.stroke-width]="pageOutlineWidth"
-  />
-
-  <g [attr.transform]="innerPageTranslate">
-    <use *ngFor="let thumb of thumbnails"
-         [attr.xlink:href]="'#caption-'+board.captions_position"
-         [attr.x]="thumb.x"
-         [attr.y]="thumb.y"
-         [attr.height]="thumb.height"
-         [attr.width]="thumb.width"
+  <g >
+    <rect class="page"
+          [attr.x]="pageOutlineWidth"
+          [attr.y]="pageOutlineWidth"
+          [attr.width]="width - pageOutlineWidth * 2"
+          [attr.height]="height - pageOutlineWidth * 2"
+          [attr.stroke]="pageOutlineColour"
+          [attr.stroke-width]="pageOutlineWidth"
     />
+
+    <g [attr.transform]="innerPageTranslate">
+      <use *ngFor="let thumb of thumbnails"
+           [attr.x]="thumb.x"
+           [attr.y]="thumb.y"
+           [attr.height]="thumb.height"
+           [attr.width]="thumb.width"
+           [attr.href]="'#' + randomId + 'caption-'+board.captions_position"
+           class="cell"
+      />
+    </g>
   </g>
 </svg>

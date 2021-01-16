@@ -30,4 +30,11 @@ export const boardTemplates: Array<BoardTemplate> = [
       captions_position: 'below',
     })
   }),
+  new BoardTemplate().deserialise({
+    board: new Board().deserialise({
+      columns: 2,
+      rows: 4,
+      captions_position: 'right',
+    })
+  }),
   ];

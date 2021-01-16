@@ -27,10 +27,11 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline" fxFlex="33">
-            <mat-label>Text Size</mat-label>
+            <mat-label>Text Size (Maximum)</mat-label>
             <mat-select [(value)]="template.fontSize" (valueChange)="loadPdf()">
               <mat-option *ngFor="let size of fontSizes" [value]="size">{{size}}</mat-option>
             </mat-select>
+            <mat-hint>Text will be shrunk to fit each cell</mat-hint>
           </mat-form-field>
         </div>
 
@@ -40,7 +41,7 @@
         <button mat-raised-button [disabled]="status != 'success'" (click)="downloadPdf()" color="primary" class="mr-2">
           Download
         </button>
-        <button mat-icon-button aria-label="Reload" [disabled]="status == 'loading'" matTooltip="Refresh PDF" (click)="loadPdf()">
+        <button mat-icon-button aria-label="Reload" [disabled]="status == 'loading'" matTooltip="Refresh PDF" (click)="loadPdf()" matTooltipPosition="right">
           <mat-icon>refresh</mat-icon>
         </button>
       </mat-card-actions>
