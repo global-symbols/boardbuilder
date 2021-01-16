@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges} from '@angular/core';
 import {Board} from '@data/models/board.model';
+import {PageSize} from '@data/models/page-size.model';
 
 interface BoardPreviewSvgThumbnail {
   height: number;
@@ -16,23 +17,25 @@ interface BoardPreviewSvgThumbnail {
 export class BoardPreviewSvgComponent implements OnChanges {
 
   @Input() board: Board;
-
-  a4 = {
-    shortEdge: 210,
-    longEdge: 297
-  };
+  @Input() paper: PageSize = new PageSize({
+    name: 'A4',
+    x: 210,
+    y: 297
+  });
 
   height: number;
   width: number;
 
   viewBox: string;
+  innerPageViewBox: string;
+  innerPageTranslate: string;
 
   pageOutlineColour = '#6b6b6b';
   pageOutlineWidth: number;
 
-  symbolSize = 24;
+  // symbolSize = 24;
 
-  pagePadding = 0;
+  pagePadding = 20;
 
   pageInnerHeight: number;
   pageInnerWidth: number;
@@ -43,19 +46,22 @@ export class BoardPreviewSvgComponent implements OnChanges {
 
   ngOnChanges(): void {
     if (this.board.rows > this.board.columns) {
-      this.height = this.a4.longEdge;
-      this.width = this.a4.shortEdge;
+      this.height = this.paper.longEdge;
+      this.width = this.paper.shortEdge;
     } else {
-      this.height = this.a4.shortEdge;
-      this.width = this.a4.longEdge;
+      this.height = this.paper.shortEdge;
+      this.width = this.paper.longEdge;
     }
 
+    this.pageInnerHeight = this.height - this.pagePadding * 2;
+    this.pageInnerWidth = this.width - this.pagePadding * 2;
+
+    this.innerPageTranslate = `translate(${this.pagePadding} ${this.pagePadding})`;
+
     this.viewBox = `0 0 ${this.width} ${this.height}`;
+    this.innerPageViewBox = `${this.pagePadding} ${this.pagePadding} ${this.width - this.pagePadding * 2} ${this.height - this.pagePadding * 2}`;
 
     this.pageOutlineWidth = this.height / 26.25;
-
-    this.pageInnerHeight = this.height - this.pagePadding;
-    this.pageInnerWidth = this.width - this.pagePadding;
 
     this.thumbnails = [];
 

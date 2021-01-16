@@ -8,74 +8,21 @@
   image-rendering="optimizeQuality"
   fill-rule="evenodd"
 >
-  <style>
-    .E {
-      fill: #206eb5
-    }
 
-    .F {
-      stroke: #206eb5
-    }
-
-    .G {
-      stroke-width: 69.98
-    }
-
-    .H {
-      stroke-miterlimit: 22.9256
-    }
-
-    .I {
-      fill: none
-    }
-
-    .page-outline {
-      stroke-width: 8;
-      stroke-miterlimit: 22.9256;
-      fill: none;
-    }
-  </style>
-
-  <symbol id="mountain" height="24" viewBox="0 0 24 24" width="24">
-<!--    <path d="M0 0h24v24H0z" fill="none"/>-->
+  <symbol id="thumbnail" height="24" viewBox="0 0 24 24" width="24">
+    <path d="M0 0h24v24H0z" fill="red"/>
     <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z" fill="#206eb5"/>
   </symbol>
 
 
-  <use *ngFor="let thumb of thumbnails" xlink:href="#mountain"
-       [attr.x]="thumb.x"
-       [attr.y]="thumb.y"
-       [attr.height]="thumb.height"
-       [attr.width]="thumb.width"
+  <g [attr.transform]="innerPageTranslate">
+    <use *ngFor="let thumb of thumbnails" xlink:href="#thumbnail"
+         [attr.x]="thumb.x"
+         [attr.y]="thumb.y"
+         [attr.height]="thumb.height"
+         [attr.width]="thumb.width"
 
-  />
-<!--  x="25"  y="25" height="240" width="240"-->
-
-  <path d="M679.6 432.08l77.06 103.68-46.42 31.63-119.83-161.2-159.78 214.96 597.92.41-244.99-329.31z" class="E"/>
-  <path d="M396.1 833.42h666.98" class="F G H I"/>
-  <path d="M3402.66 432.08l77.07 103.68-46.42 31.63-119.83-161.2-159.79 214.96 597.93.41-245-329.31z" class="E"/>
-  <path d="M3119.16 833.42h666.99" class="F G H I"/>
-  <path d="M2494.97 432.08l77.07 103.68-46.42 31.63-119.83-161.2L2246 621.15l597.93.41-245-329.31z" class="E"/>
-  <path d="M2211.47 833.42h666.99" class="F G H I"/>
-  <path d="M1587.29 432.08l77.06 103.68-46.42 31.63-119.83-161.2-159.78 214.96 597.92.41-244.99-329.31z" class="E"/>
-  <path d="M1303.79 833.42h666.98" class="F G H I"/>
-  <path d="M3402.66 1298.2l77.07 103.67-46.42 31.64-119.83-161.2-159.79 214.96 597.93.41-245-329.31z" class="E"/>
-  <path d="M3119.16 1699.54h666.99" class="F G H I"/>
-  <path d="M2494.97 1298.2l77.07 103.67-46.42 31.64-119.83-161.2L2246 1487.27l597.93.41-245-329.31z" class="E"/>
-  <path d="M2211.47 1699.54h666.99" class="F G H I"/>
-  <use xlink:href="#thumbnail" class="E"/>
-  <path d="M1303.79 1699.54h666.98" class="F G H I"/>
-  <use xlink:href="#thumbnail" x="-907.69" class="E"/>
-  <path d="M396.1 1699.54h666.98" class="F G H I"/>
-  <path d="M3402.66 2164.32l77.07 103.67-46.42 31.64-119.83-161.2-159.79 214.96 597.93.41-245-329.31z" class="E"/>
-  <path d="M3119.16 2565.66h666.99" class="F G H I"/>
-  <path d="M2494.97 2164.32l77.07 103.67-46.42 31.64-119.83-161.2L2246 2353.39l597.93.41-245-329.31z" class="E"/>
-  <path d="M2211.47 2565.66h666.99" class="F G H I"/>
-  <use xlink:href="#thumbnail" y="866.12" class="E" width="10"/>
-  <path d="M1303.79 2565.66h666.98" class="F G H I"/>
-  <use xlink:href="#thumbnail" x="-907.69" y="866.12" class="E"/>
-  <g class="G H I">
-    <path d="M396.1 2565.66h666.98" class="F"/>
+    />
   </g>
 
   <rect class="page-outline"
@@ -83,9 +30,6 @@
         [attr.height]="height"
         [attr.stroke]="pageOutlineColour"
         [attr.stroke-width]="pageOutlineWidth"
+        fill="none"
   />
-
-  <defs>
-    <path id="thumbnail" d="M1587.29 1298.2l77.06 103.67-46.42 31.64-119.83-161.2-159.78 214.96 597.92.41-244.99-329.31z"/>
-  </defs>
 </svg>

@@ -6,7 +6,21 @@ export class PageSize implements Deserialisable {
   x: number;
   y: number;
 
+  constructor(init?: Partial<PageSize>) {
+    if (init) { this.deserialise(init); }
+  }
+
   deserialise(input: any): this {
-    return Object.assign(this, input);
+    Object.assign(this, input);
+
+    return this;
+  }
+
+  get shortEdge(): number {
+    return Math.min.apply(Math, [this.x, this.y]);
+  }
+
+  get longEdge(): number {
+    return Math.max.apply(Math, [this.x, this.y]);
   }
 }
