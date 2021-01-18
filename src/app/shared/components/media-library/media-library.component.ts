@@ -1,6 +1,7 @@
-import {Component, ElementRef, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
+import {Component, ElementRef, OnInit, Output, ViewChild, EventEmitter, Input} from '@angular/core';
 import {Media} from '@data/models/media.model';
 import {MediaService} from '@data/services/media.service';
+import {DialogService} from '@app/services/dialog.service';
 
 
 export enum UploadStatus {
@@ -34,11 +35,16 @@ export class MediaLibraryComponent implements OnInit {
   maxSize = 10000000;
   allowedTypes = ['image/svg+xml', 'image/jpeg', 'image/gif', 'image/png'];
 
+  @Input() showCreate: boolean;
+
   @Output() readonly mediaSelect = new EventEmitter<Media>();
 
   @ViewChild('fileUpload') fileUpload: ElementRef;
 
-  constructor(private service: MediaService) { }
+  constructor(
+    private service: MediaService,
+    private dialogService: DialogService
+  ) { }
 
   ngOnInit(): void {
     // TODO: lazy-load page when panel becomes visible
@@ -109,5 +115,14 @@ export class MediaLibraryComponent implements OnInit {
   allowDragDrop($event: DragEvent) {
     $event.preventDefault();
     $event.stopPropagation();
+  }
+
+  openSymbolCreator(media?: Media) {
+    const currentDialogRef = this.dialogService.openSymbolCreator(media);
+
+    currentDialogRef.afterClosed().subscribe(mediaItem => {
+      // Reload the Media list
+      if (mediaItem) { this.loadMedia(); }
+    });
   }
 }

@@ -31,7 +31,9 @@ export function storageFactory(): OAuthStorage {
   providers: [
     AuthService,
   ],
-  declarations: [ShouldLoginComponent],
+  declarations: [
+    ShouldLoginComponent
+  ],
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders<CoreModule> {

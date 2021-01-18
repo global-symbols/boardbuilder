@@ -5,8 +5,8 @@ import {MatDialog} from '@angular/material/dialog';
 import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
 import {ToolbarService} from '@app/services/toolbar.service';
 import {Router} from '@angular/router';
-import {SymbolCreatorDialogComponent} from '@shared/components/symbol-creator-dialog/symbol-creator-dialog.component';
 import {saveAs} from 'file-saver';
+import {DialogService} from '@app/services/dialog.service';
 
 @Component({
   selector: 'app-media',
@@ -21,6 +21,7 @@ export class MediaComponent implements OnInit, OnDestroy {
 
   constructor(private service: MediaService,
               private dialog: MatDialog,
+              private dialogService: DialogService,
               private toolbarService: ToolbarService,
               private router: Router
   ) { }
@@ -79,10 +80,7 @@ export class MediaComponent implements OnInit, OnDestroy {
   openSymbolCreator(media?: Media) {
     if (this.currentDialogRef !== undefined) { return; }
 
-    this.currentDialogRef = this.dialog.open(SymbolCreatorDialogComponent, {
-      width: '800px',
-      data: {media}
-    });
+    this.currentDialogRef = this.dialogService.openSymbolCreator(media);
 
     this.currentDialogRef.afterClosed().subscribe(mediaItem => {
 

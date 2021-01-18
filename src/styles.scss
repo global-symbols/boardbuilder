@@ -123,6 +123,13 @@ h1, h2, h3 {
   font-weight: 300;
 }
 
+.mat-icon.mat-icon-2x {
+  $icon-size-2x: 48px;
+  font-size: $icon-size-2x;
+  height: $icon-size-2x;
+  width: $icon-size-2x;
+}
+
 // Scrollbars
 ::-webkit-scrollbar {
   width: $scrollbar-width;

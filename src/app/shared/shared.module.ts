@@ -26,11 +26,11 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {AddSymbolDialogComponent} from '@shared/components/add-symbol-dialog/add-symbol-dialog.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import { SymbolCreatorDialogComponent } from './components/symbol-creator-dialog/symbol-creator-dialog.component';
 import { BypassSanitiserPipe } from './pipes/bypass-sanitiser.pipe';
 import { BoardEditorFormComponent } from './components/board-editor-form/board-editor-form.component';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
 import { BoardPreviewSvgComponent } from './components/board-preview-svg/board-preview-svg.component';
+import {SymbolCreatorDialogComponent} from '@shared/components/symbol-creator-dialog/symbol-creator-dialog.component';
 
 
 
@@ -46,11 +46,11 @@ import { BoardPreviewSvgComponent } from './components/board-preview-svg/board-p
     SearchPanelComponent,
     SymbolCreatorComponent,
     AddSymbolDialogComponent,
-    SymbolCreatorDialogComponent,
     BypassSanitiserPipe,
     BoardEditorFormComponent,
     StopPropagationDirective,
-    BoardPreviewSvgComponent
+    BoardPreviewSvgComponent,
+    SymbolCreatorDialogComponent
   ],
   exports: [
     ColourSelectorComponent,

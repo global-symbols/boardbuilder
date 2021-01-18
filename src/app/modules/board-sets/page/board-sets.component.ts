@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {BoardSetService} from '@data/services/board-set.service';
-import {Observable} from 'rxjs';
 import {BoardSet} from '@data/models/boardset.model';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {NewBoardSetDialogComponent} from '@modules/board-sets/new-board-set-dialog/new-board-set-dialog.component';
-import {Board} from '@data/models/board.model';
-import {ObfUploadDialogComponent} from '../../../obf-upload-dialog/obf-upload-dialog.component';
 import {ObzUploadDialogComponent} from '../../../obz-upload-dialog/obz-upload-dialog.component';
 
 @Component({
