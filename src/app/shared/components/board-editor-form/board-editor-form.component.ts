@@ -13,6 +13,7 @@ export class BoardEditorFormComponent implements OnInit {
   @Input() board: Board;
 
   templates: BoardTemplate[];
+  selectedTab: number;
 
   constructor(
     private service: BoardService
@@ -20,7 +21,14 @@ export class BoardEditorFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.templates().subscribe(
-      templates => this.templates = templates
+      templates => {
+        this.templates = templates;
+
+        // If the Board doesn't match any Generic Templates, select the Custom Settings tab.
+        if (this.board.persisted() && !templates.find(t => this.board.matchesTemplate(t))) {
+          this.selectedTab = 2;
+        }
+      }
     );
   }
 
