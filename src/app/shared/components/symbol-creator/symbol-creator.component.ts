@@ -301,7 +301,32 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     this.workingCanvas.setActiveObject(text);
   }
 
-  addPlus(angle = 0): void {
+  addCross(): void {
+    const startPoints = [
+      {x: 7, y: 0},
+      {x: 50, y: 43},
+      {x: 93, y: 0},
+      {x: 100, y: 7},
+      {x: 57, y: 50},
+      {x: 100, y: 93},
+      {x: 93, y: 100},
+      {x: 50, y: 57},
+      {x: 7, y: 100},
+      {x: 0, y: 93},
+      {x: 43, y: 50},
+      {x: 0, y: 7},
+    ];
+
+    this.addShape(new fabric.Polygon(startPoints, {
+      left: 50,
+      top: 50,
+      fill: this.defaultColour,
+      angle: 0,
+      objectCaching: false,
+    }));
+  }
+
+  addPlus(): void {
     const startPoints = [
       {x: 45, y: 0},
       {x: 55, y: 0},
@@ -321,7 +346,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       left: 50,
       top: 50,
       fill: this.defaultColour,
-      angle,
+      angle: 0,
       objectCaching: false,
     }));
 
