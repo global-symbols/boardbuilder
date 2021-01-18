@@ -15,13 +15,13 @@
     <mat-tab label="Cell" i18n-label>
       <div class="p-1">
 
-        <h3>Style</h3>
+        <h3>Colours</h3>
         <mat-accordion>
-          <app-colour-selector i18n-label label="Background colour" [(value)]="cell.background_colour">
+          <app-colour-selector i18n-label label="Background" [(value)]="cell.background_colour" icon="format_color_fill">
           </app-colour-selector>
-          <app-colour-selector i18n-label label="Border colour" [(value)]="cell.border_colour">
+          <app-colour-selector i18n-label label="Border" [(value)]="cell.border_colour" icon="border_color">
           </app-colour-selector>
-          <app-colour-selector i18n-label label="Text colour" [(value)]="cell.text_colour">
+          <app-colour-selector i18n-label label="Text" [(value)]="cell.text_colour" icon="format_color_text">
           </app-colour-selector>
         </mat-accordion>
 
