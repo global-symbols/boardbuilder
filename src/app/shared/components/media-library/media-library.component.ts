@@ -52,11 +52,12 @@ export class MediaLibraryComponent implements OnInit {
     this.resetUploadStatus();
   }
 
-  loadMedia(): void {
+  loadMedia(selectMediaAfterLoad?: Media): void {
     this.loadingMedia = true;
     this.service.list().subscribe(media => {
       this.loadingMedia = false;
-      return this.media = media;
+      this.media = media;
+      if (selectMediaAfterLoad) { this.mediaSelect.emit(selectMediaAfterLoad); }
     }, error => this.loadingMediaError = true);
   }
 
@@ -122,7 +123,7 @@ export class MediaLibraryComponent implements OnInit {
 
     currentDialogRef.afterClosed().subscribe(mediaItem => {
       // Reload the Media list
-      if (mediaItem) { this.loadMedia(); }
+      if (mediaItem) { this.loadMedia(mediaItem); }
     });
   }
 }

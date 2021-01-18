@@ -6,10 +6,17 @@
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-1">
     <h1 mat-dialog-title i18n class="mb-0">Symbol Creator</h1>
 
-    <button mat-icon-button aria-label="Close" (click)="saveAndClose()"
-            appStopPropagation matTooltip="Save and Close" matTooltipPosition="left">
-      <mat-icon>check</mat-icon>
-    </button>
+    <div>
+      <button mat-icon-button aria-label="Discard" (click)="dialogRef.close()"
+              appStopPropagation [matTooltip]="media?.persisted() ? 'Discard Changes' : 'Cancel'">
+        <mat-icon>close</mat-icon>
+      </button>
+
+      <button mat-icon-button aria-label="Save and Close" (click)="saveAndClose()"
+              appStopPropagation matTooltip="Save and Close">
+        <mat-icon>check</mat-icon>
+      </button>
+    </div>
   </header>
 
   <div mat-dialog-content class="pb-3">

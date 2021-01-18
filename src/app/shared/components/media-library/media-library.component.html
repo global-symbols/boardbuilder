@@ -42,8 +42,11 @@
 
 <div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loadingMedia)" class="mt-2">
 
-  <div fxFlex="25">
-    <button fxFlex mat-flat-button color="primary" (click)="openSymbolCreator()" class="p-1" matTooltip="Create Symbol" matTooltipPosition="left">
+  <div fxFlex="25" *ngIf="showCreate">
+    <button fxFlex mat-flat-button color="primary" (click)="openSymbolCreator()" class="p-1"
+            matTooltip="Create Symbol" matTooltipPosition="left"
+            aria-label="Create Symbol"
+    >
       <div fxLayout="column" fxLayoutAlign="center center">
         <mat-icon class="mat-icon-2x">construction</mat-icon>
       </div>

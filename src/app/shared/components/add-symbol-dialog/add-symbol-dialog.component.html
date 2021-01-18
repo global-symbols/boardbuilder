@@ -12,7 +12,7 @@
   </header>
 
   <div mat-dialog-content>
-    <mat-tab-group mat-align-tabs="center" dynamicHeight>
+    <mat-tab-group dynamicHeight mat-stretch-tabs>
       <mat-tab label="Search">
         <div class="p-1">
           <app-search-panel (selectionChange)="selectSymbol($event)"></app-search-panel>
