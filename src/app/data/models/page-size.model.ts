@@ -23,4 +23,8 @@ export class PageSize implements Deserialisable {
   get longEdge(): number {
     return Math.max.apply(Math, [this.x, this.y]);
   }
+
+  get ratio(): number {
+    return this.longEdge / this.shortEdge;
+  }
 }

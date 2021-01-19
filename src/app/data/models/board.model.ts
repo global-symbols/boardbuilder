@@ -8,6 +8,7 @@ import {BoardTemplate} from '@data/models/board-template.model';
 export class Board extends Record implements Deserialisable {
   board_set_id: number;
   name: string;
+  description: string;
   rows: number;
   columns: number;
   cells: Array<Cell>;
