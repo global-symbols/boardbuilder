@@ -50,6 +50,9 @@ export class PdfPreviewComponent implements OnInit {
   compiledPdf;
   failureReason: string;
 
+  pdfEmbedWidth = 1000;
+  pdfEmbedHeight = 600;
+
   @ViewChild('pdfFrame') pdfFrame: ElementRef;
   @ViewChild('pdfObject') pdfObject: ElementRef;
 
@@ -85,6 +88,9 @@ export class PdfPreviewComponent implements OnInit {
   loadPdf() {
     this.status = 'loading';
     this.failureReason = null;
+
+    this.setEmbedHeight();
+
     this.boardService.pdf(this.route.snapshot.paramMap.get('board_id'), this.template)
       .then(pdfData => {
         this.compiledPdf = pdfData;
@@ -100,6 +106,16 @@ export class PdfPreviewComponent implements OnInit {
         this.failureReason = error;
         return this.status = 'error';
       });
+  }
+
+  setEmbedHeight(): void {
+    // Set the height of the PDF Embed container so it fits the paper size
+    if (this.template.orientation === 'portrait') {
+      this.pdfEmbedHeight = this.pdfEmbedWidth * this.template.pageSize.ratio + 60;
+    } else {
+      this.pdfEmbedHeight = this.pdfEmbedWidth / this.template.pageSize.ratio + 60;
+    }
+
   }
 
   downloadPdf() {
