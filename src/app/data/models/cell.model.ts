@@ -30,6 +30,7 @@ export class Cell extends Record implements Deserialisable {
         if (object.board) { this.board = new Board().deserialise(object.board); }
         if (object.media) { this.media = new Media().deserialise(object.media); }
         if (object.linkable_boards) { this.linkable_boards = input.linkable_boards.map(board => new Board().deserialise(board)); }
+
         return this;
     }
 

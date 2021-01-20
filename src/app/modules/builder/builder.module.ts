@@ -33,6 +33,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {HotkeyModule} from 'angular2-hotkeys';
+import {ColorGithubModule} from 'ngx-color/github';
 
 export const routes: Routes = [
   {
@@ -55,36 +56,37 @@ export const routes: Routes = [
         BoardEditorDialogComponent,
         BoardSetEditorDialogComponent
     ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        MatExpansionModule,
-        MatTabsModule,
-        MatIconModule,
-        FlexModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatToolbarModule,
-        MatTooltipModule,
-        _MatMenuDirectivesModule,
-        MatSidenavModule,
-        MatMenuModule,
-        MatDividerModule,
-        MatListModule,
-        SharedModule,
-        MatCardModule,
-        MatInputModule,
-        FormsModule,
-        MatProgressSpinnerModule,
-        MatGridListModule,
-        MatDialogModule,
-        DragDropModule,
-        MatSliderModule,
-        MatTreeModule,
-        MatSlideToggleModule,
-        MatCheckboxModule,
-        HotkeyModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatExpansionModule,
+    MatTabsModule,
+    MatIconModule,
+    FlexModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    _MatMenuDirectivesModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatListModule,
+    SharedModule,
+    MatCardModule,
+    MatInputModule,
+    FormsModule,
+    MatProgressSpinnerModule,
+    MatGridListModule,
+    MatDialogModule,
+    DragDropModule,
+    MatSliderModule,
+    MatTreeModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    HotkeyModule,
+    ColorGithubModule
+  ]
 })
 export class BuilderModule { }

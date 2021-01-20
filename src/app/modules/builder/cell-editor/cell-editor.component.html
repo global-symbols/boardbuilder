@@ -16,12 +16,15 @@
       <div class="p-1">
 
         <h3>Colours</h3>
+
+<!--        <color-github [color]="cell.background_colour" [colors]="colourPickerColours" [width]="238" triangle="hide"></color-github>-->
+
         <mat-accordion>
-          <app-colour-selector i18n-label label="Background" [(value)]="cell.background_colour" icon="format_color_fill">
+          <app-colour-selector i18n-label width="302" label="Background" [(value)]="cell.background_colour" icon="format_color_fill">
           </app-colour-selector>
-          <app-colour-selector i18n-label label="Border" [(value)]="cell.border_colour" icon="border_color">
+          <app-colour-selector i18n-label width="302" label="Border" [(value)]="cell.border_colour" icon="border_color">
           </app-colour-selector>
-          <app-colour-selector i18n-label label="Text" [(value)]="cell.text_colour" icon="format_color_text">
+          <app-colour-selector i18n-label width="302" label="Text" [(value)]="cell.text_colour" icon="format_color_text">
           </app-colour-selector>
         </mat-accordion>
 

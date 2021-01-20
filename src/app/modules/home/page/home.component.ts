@@ -13,14 +13,21 @@ export class HomeComponent implements OnInit {
   isDoneLoading: Observable<boolean>;
   canActivateProtectedRoutes: Observable<boolean>;
 
-  constructor(private authService: AuthService,
-              private router: Router) {
+  signedIn: boolean;
+
+  // Width in % of the text columns
+  textColumnWidth = 45;
+  panelLayoutGap = '40px grid';
+  panelLayoutAlign = 'space-between center';
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.isDoneLoading = this.authService.isDoneLoading$;
     this.canActivateProtectedRoutes = this.authService.canActivateProtectedRoutes$;
 
-    this.authService.canActivateProtectedRoutes$.subscribe(canActivate => {
-      if (canActivate) { this.router.navigate(['/', 'boardsets']); }
-    });
+    this.authService.canActivateProtectedRoutes$.subscribe(canActivate => this.signedIn = canActivate);
   }
 
   ngOnInit(): void {
@@ -28,4 +35,11 @@ export class HomeComponent implements OnInit {
 
   login() { this.authService.login(); }
 
+  getStarted() {
+    if (this.signedIn) {
+      this.router.navigate(['/', 'boardsets']);
+    } else {
+      this.authService.login();
+    }
+  }
 }

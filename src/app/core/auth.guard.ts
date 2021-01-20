@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
       .pipe(tap(x => {
         // console.log('You tried to go to ' + state.url + ' and this guard said ' + x);
         // If the Guard denies the action, redirect to the login page.
-        if (!x) { this.router.navigateByUrl('/auth/login'); }
+        if (!x) { this.router.navigateByUrl('/'); }
       }));
   }
 

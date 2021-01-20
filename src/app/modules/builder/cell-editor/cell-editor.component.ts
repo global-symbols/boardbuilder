@@ -22,6 +22,7 @@ import {CellService} from '@data/services/cell.service';
 import {Media} from '@data/models/media.model';
 import {SearchPanelComponent} from '@shared/components/search-panel/search-panel.component';
 import {SymbolSearchResult} from '@data/models/symbol-search-result';
+import {colourPickerColours} from '@data/colour-picker-colours';
 
 @Component({
   selector: 'app-cell-editor',
@@ -41,15 +42,19 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
 
   linkableBoards: Board[];
 
+  colourPickerColours: Array<string>;
+
   constructor(
     public dialog: MatDialog,
     private cellService: CellService,
     private boardService: BoardService
   ) {
     this.linkableBoards = new Array<Board>();
+    this.colourPickerColours = colourPickerColours;
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   ngAfterViewInit() {
     // this.cellService.get(this.cell.id, 'linkable_boards').subscribe(lb => console.log('linkable boards', lb));

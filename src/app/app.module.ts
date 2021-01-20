@@ -49,14 +49,14 @@ registerLocaleData(localeEnGb, 'en-GB');
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/auth/login',
     pathMatch: 'full',
+    component: ContentLayoutComponent,
+    loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'auth',
     component: AuthLayoutComponent,
-    loadChildren: () =>
-      import('@modules/auth/auth.module').then(m => m.AuthModule),
+    loadChildren: () => import('@modules/auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: '',
@@ -86,7 +86,7 @@ const appRoutes: Routes = [
       },
     ]
   },
-  { path: '**', redirectTo: '/auth/login', pathMatch: 'full' }
+  { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -131,10 +131,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       {
-    enableTracing: false,
-    preloadingStrategy: PreloadAllModules,
-    relativeLinkResolution: 'legacy'
-}
+        enableTracing: false,
+        preloadingStrategy: PreloadAllModules,
+        relativeLinkResolution: 'legacy'
+      }
     ),
     MatMenuModule,
     CoreModule.forRoot(),

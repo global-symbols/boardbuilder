@@ -1,9 +1,49 @@
+@import "~app/shared/variables";
+
 .example-container {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 4rem;
+  top: 40rem;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.container {
+  font-size: 1.2rem;
+}
+
+.panel {
+  margin-bottom: 2rem !important;
+
+  &.even {
+    flex-direction: row-reverse !important;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 3.2rem;
+}
+
+h2 {
+  font-weight: 400;
+
+  padding-bottom: 0.83em;
+  border-bottom: 2px solid $blue;
+}
+
+p {
+  line-height: 1.8rem;
+}
+
+.button-lg {
+  font-size:    1.2rem;
+  line-height:  3rem;
+  padding:      0 32px;
 }

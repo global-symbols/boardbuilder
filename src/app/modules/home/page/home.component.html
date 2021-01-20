@@ -1,36 +1,92 @@
-<div class="example-container" fxLayout="column" fxLayoutAlign="center center">
-  <div class="container" style="width: 400px">
+<div class="container" style="max-width: 800px">
+  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel">
+    <div [fxFlex]="textColumnWidth">
+      <h1>Communication boards the easy way</h1>
+      <p>Create boards to aid communication with thousands of free images.</p>
+      <p>Everything is stored safely in your GlobalSymbols account.</p>
+      <button mat-flat-button color="primary" (click)="getStarted()" class="button-lg">
+        <ng-container *ngIf="!signedIn">Get Started</ng-container>
+        <ng-container *ngIf="signedIn">My Board Sets</ng-container>
+      </button>
+    </div>
+    <div fxFlex>
+      <img src="assets/images/home/main.svg" alt="Board Builder" />
+    </div>
+  </div>
 
-    <mat-card class="mt-3">
-      <div mat-card-image class="bg-primary text-center py-2">
-        <img src="assets/navbar-logo.svg" alt="Global Symbols Board Builder">
-      </div>
+  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel even">
+    <div [fxFlex]="textColumnWidth">
+      <h2>Start with a template or make your own layout</h2>
+      <p>Get started quickly with our collection of handy templates.</p>
+      <p>You always have control to customise the layout beyond our templates.</p>
+    </div>
+    <div fxFlex>
+      <img src="assets/images/home/templates.svg" alt="Start with a template or make your own layout" />
+    </div>
+  </div>
 
-      <mat-card-content *ngIf="!(isDoneLoading | async)" class="py-2 text-center">
-        <mat-spinner style="margin: 0 auto"></mat-spinner>
-        <p class="mt-3">Checking your Account&hellip;</p>
-      </mat-card-content>
+  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel">
+    <div [fxFlex]="textColumnWidth">
+      <h2>Search thousands of free images and use your own</h2>
+      <p>Quickly find the symbols you need by searching thousands of free images from popular symbol sets on GlobalSymbols.</p>
+      <p>Store your own photos and images in BoardBuilder and use them throughout your boards.</p>
+    </div>
+    <div fxFlex>
+      <img src="assets/images/home/search-images.svg" alt="Search thousands of images or use your own" />
+    </div>
+  </div>
 
-      <ng-container *ngIf="(isDoneLoading | async)">
-        <mat-card-content class="mt-3">
-          <p>Use Board Builder to create communication boards.</p>
-          <p>Everything is saved to your Global Symbols account.</p>
-        </mat-card-content>
+  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel even">
+    <div [fxFlex]="textColumnWidth">
+      <h2>Communicate with colour and more</h2>
+      <p>Tailor boards with your favourite colours and preferred fonts.</p>
+      <p>Easily re-arrange boards and link between boards to create communication books.</p>
+    </div>
+    <div fxFlex>
+      <img src="assets/images/home/colour.svg" alt="Communicate with colour and more" />
+    </div>
+  </div>
 
-        <mat-card-actions class="mt-3">
-          <ng-container *ngIf="!(canActivateProtectedRoutes | async)">
-              <button fxFlex mat-flat-button color="primary" (click)="login()">Sign in with Global Symbols</button>
-          </ng-container>
+  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel">
+    <div [fxFlex]="textColumnWidth">
+      <h2>Create your own Symbols</h2>
+      <p>Intuitively create your own symbols in seconds by combining shapes, text, other symbols and even your own pictures.</p>
+      <p>Perfect for those times when you need something a little different.</p>
+    </div>
+    <div fxFlex>
+      <img src="assets/images/home/symbol-creator.svg" alt="Create your own Symbols" />
+    </div>
+  </div>
 
-          <ng-container *ngIf="canActivateProtectedRoutes | async">
-            <button fxFlex mat-flat-button color="primary" routerLink="boardsets">Continue</button>
-          </ng-container>
-        </mat-card-actions>
+  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel even">
+    <div [fxFlex]="textColumnWidth">
+      <h2>Download, Print and Share</h2>
+      <p>Quickly convert boards to PDF so they can be easily shared with anyone.</p>
+      <p>Print boards to your preferred paper size, import and export boards in OBF and OBZ formats.</p>
+    </div>
+    <div fxFlex>
+      <img src="assets/images/home/pdf-and-print.svg" alt="Download, Print and Share" />
+    </div>
+  </div>
 
-      </ng-container>
-
-
-    </mat-card>
-
+  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel">
+    <div [fxFlex]="textColumnWidth">
+      <h2>Get Started</h2>
+      <p>Create a Global Symbols account, if you don't already have one.</p>
+      <button mat-flat-button color="primary" (click)="login()" class="button-lg">Get Started</button>
+    </div>
+    <div fxFlex>
+      Image here
+    </div>
   </div>
 </div>
+
+
+<mat-toolbar color="primary">
+  <div class="text-center" fxFlex>
+    <small>
+      &copy; Global Symbols CIC
+    </small>
+  </div>
+
+</mat-toolbar>
