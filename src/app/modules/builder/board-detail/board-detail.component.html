@@ -1,4 +1,19 @@
 <div *ngIf="board">
+
+  <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center" class="mb-3 board-header">
+    <div fxFlex="33" fxLayout="row">
+
+      <button mat-button mat-stroked-button (click)="selectHeaderImage()" [class.p-0]="board.header_media">
+        <img [src]="board.header_media?.public_url" *ngIf="board.header_media" />
+        <ng-container *ngIf="!board.header_media">
+          Add Header Image
+        </ng-container>
+      </button>
+    </div>
+    <h1 fxFlex="33" class="text-center board-title">{{board.title}}</h1>
+    <span fxFlex="33" class="text-right">{{board.description}}</span>
+  </div>
+
   <mat-grid-list [cols]="board.columns" rowHeight="12rem" gutterSize="1rem">
     <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows)"
                    tabindex="0" (click)="selectCell(c)" (keyup.enter)="selectCell(c)"

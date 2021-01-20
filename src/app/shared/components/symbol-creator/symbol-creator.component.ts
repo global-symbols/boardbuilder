@@ -5,12 +5,11 @@ import {WebFontsService} from '@data/services/web-fonts.service';
 import {FontGroup} from '@data/web-safe-fonts';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
 import {saveAs} from 'file-saver';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {AddSymbolDialogComponent} from '@shared/components/add-symbol-dialog/add-symbol-dialog.component';
 import {Media} from '@data/models/media.model';
 import {MediaService} from '@data/services/media.service';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
+import {DialogService} from '@app/services/dialog.service';
 
 export enum SymbolCreatorState {
   Loading = 'Loading',
@@ -52,8 +51,6 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
   width = 400;
   height = 400;
-
-  private currentDialogRef: MatDialogRef<any>;
   private hotkeys: Array<Hotkey | Hotkey[]>;
 
   constructor(
@@ -61,7 +58,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     private mediaService: MediaService,
     private hotkeysService: HotkeysService,
     private fontService: WebFontsService,
-    private dialog: MatDialog
+    private dialogService: DialogService
   ) {
     this.hotkeys = [];
   }
@@ -210,20 +207,12 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
   }
 
   showImageSelectDialog(): void {
-    if (this.currentDialogRef !== undefined) { return; }
-
-    this.currentDialogRef = this.dialog.open(AddSymbolDialogComponent, {
-      width: '400px'
-    });
-
-    this.currentDialogRef.afterClosed().subscribe(media => {
+    this.dialogService.openMediaLibrary().afterClosed().subscribe(media => {
       if (media?.canvas_url) {
         this.addObjectsFromMedia(media);
       } else if (media?.public_url) {
         this.addImage(media.public_url);
       }
-
-      this.currentDialogRef = undefined;
     });
   }
 

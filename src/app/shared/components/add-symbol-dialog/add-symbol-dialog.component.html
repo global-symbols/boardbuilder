@@ -4,22 +4,31 @@
 >
 
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
-    <h1 mat-dialog-title i18n class="mb-0">Add Symbol</h1>
-    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false"
-            (mousedown)="$event.stopPropagation()">
-      <mat-icon>close</mat-icon>
-    </button>
+    <h1 mat-dialog-title i18n class="mb-0">Select Image</h1>
+
+    <div>
+      <button mat-stroked-button (click)="clearImage()" *ngIf="data.allowClear"
+              (mousedown)="$event.stopPropagation()">
+        Clear Image
+      </button>
+
+      <button mat-icon-button aria-label="Close" [mat-dialog-close]="false"
+              (mousedown)="$event.stopPropagation()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
   </header>
 
   <div mat-dialog-content>
-    <mat-tab-group dynamicHeight mat-stretch-tabs>
-      <mat-tab label="Search">
+    <mat-tab-group dynamicHeight mat-stretch-tabs [(selectedIndex)]="selectedTab">
+      <mat-tab label="Search" [disabled]="!showSymbols">
         <div class="p-1">
           <app-search-panel (selectionChange)="selectSymbol($event)"></app-search-panel>
         </div>
       </mat-tab>
 
-      <mat-tab label="My Images">
+      <mat-tab label="My Images" [disabled]="!showMedia">
         <div class="p-1">
           <app-media-library (mediaSelect)="selectMedia($event)"></app-media-library>
         </div>

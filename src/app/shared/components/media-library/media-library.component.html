@@ -8,7 +8,7 @@
   <ng-container *ngIf="uploadStatus != 'Uploading'">
     Drop an image file here
     <small class="py-1">
-      <em>SVG &middot; PNG &middot; JPG &middot; GIF &middot; <{{this.maxSize / 1000000}}MB</em>
+      <em>SVG &middot; PNG &middot; JPG &middot; <{{this.maxSize / 1000000}}MB</em>
     </small>
   </ng-container>
 
@@ -17,7 +17,7 @@
     <em class="py-1">Uploading&hellip;</em>
   </ng-container>
 
-  <button mat-flat-button color="primary"
+  <button mat-flat-button color="primary" appStopPropagation
           (click)="openFileSelector()"
           [disabled]="uploadStatus === 'Uploading'">
     Upload from Device&hellip;
@@ -40,25 +40,29 @@
   We couldn't load your images because of a technical issue.
 </div>
 
-<div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loadingMedia)" class="mt-2">
+<div class="mt-2">
+  <div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loadingMedia)">
 
-  <div fxFlex="25" *ngIf="showCreate">
-    <button fxFlex mat-flat-button color="primary" (click)="openSymbolCreator()" class="p-1"
-            matTooltip="Create Symbol" matTooltipPosition="left"
-            aria-label="Create Symbol"
-    >
-      <div fxLayout="column" fxLayoutAlign="center center">
-        <mat-icon class="mat-icon-2x">construction</mat-icon>
-      </div>
-    </button>
+    <div fxFlex="25" *ngIf="showCreate">
+      <button fxFlex mat-flat-button color="primary" (click)="openSymbolCreator()" class="p-1"
+              matTooltip="Create Symbol" matTooltipPosition="left"
+              aria-label="Create Symbol"
+      >
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <mat-icon class="mat-icon-2x">construction</mat-icon>
+        </div>
+      </button>
+    </div>
+
+    <div fxFlex="25" *ngFor="let mediaItem of media">
+      <button fxFlex mat-stroked-button color="primary" (click)="mediaSelect.emit(mediaItem)" class="image-button" appStopPropagation
+      >
+        <img mat-card-image [src]="mediaItem.public_url" crossorigin="anonymous"/>
+      </button>
+    </div>
   </div>
 
-  <div fxFlex="25" *ngFor="let mediaItem of media">
-    <button fxFlex mat-stroked-button color="primary" (click)="mediaSelect.emit(mediaItem)" class="image-button"
-    >
-      <img mat-card-image [src]="mediaItem.public_url" crossorigin="anonymous"/>
-    </button>
-  </div>
+  <app-loading-notice *ngIf="loadingMedia" action="Loading" subject="Images"></app-loading-notice>
 </div>
 
 <input type="file" #fileUpload name="fileUpload" accept=".svg,.png,.jpg,.jpeg,.gif" style="display:none;"

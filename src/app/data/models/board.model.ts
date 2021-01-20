@@ -4,15 +4,18 @@ import * as mime from 'mime/lite';
 import {Obf} from './obf.interface';
 import {Record} from '@data/models/record';
 import {BoardTemplate} from '@data/models/board-template.model';
+import {Media} from '@data/models/media.model';
 
 export class Board extends Record implements Deserialisable {
   board_set_id: number;
+  header_media_id: number;
   name: string;
   description: string;
   rows: number;
   columns: number;
   cells: Array<Cell>;
   captions_position: 'hidden' | 'above' | 'below' | 'left' | 'right';
+  header_media: Media;
 
   constructor(init?: Partial<Board>) {
       super();

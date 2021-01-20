@@ -63,15 +63,22 @@
           <button mat-stroked-button color="primary"
                   (click)="moveCell(board.cells.indexOf(cell) - 1)"
                   [disabled]="board.cells.indexOf(cell) === 0"
-                  [style.text-align]="'left'"
                   fxFlex="50"
-          ><mat-icon>arrow_left</mat-icon> Move Earlier</button>&nbsp;
+          >
+            <div fxLayoutAlign="start center">
+              <mat-icon>arrow_left</mat-icon>
+              Move Earlier
+            </div></button>&nbsp;
           <button mat-stroked-button color="primary"
                   (click)="moveCell(board.cells.indexOf(cell) + 1)"
                   [disabled]="board.cells.indexOf(cell) === (board.cells.length - 1)"
-                  [style.text-align]="'right'"
                   fxFlex="50"
-          >Move Later<mat-icon>arrow_right</mat-icon></button>
+          >
+            <div fxLayoutAlign="end center">
+              Move Later
+              <mat-icon>arrow_right</mat-icon>
+            </div>
+          </button>
         </div>
 
 

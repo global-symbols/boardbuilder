@@ -146,7 +146,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   private getBoardSet(): Observable<BoardSet> {
     this.loadingError = false;
     this.loading = true;
-    return this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells')
+    return this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells boards.header_media')
       .pipe(
         catchError(e => {
           this.loadingError = true;
