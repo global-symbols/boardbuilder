@@ -64,7 +64,7 @@ export class PdfPreviewComponent implements OnInit {
       .subscribe(board => {
         this.board = board;
 
-        this.template.orientation = (this.board.rows > this.board.columns) ? 'portrait' : 'landscape';
+        this.template.orientation = (this.board.rows > this.board.logicalColumns) ? 'portrait' : 'landscape';
 
         this.templateService.pageSizes().subscribe(
           sizes => {

@@ -142,4 +142,12 @@ export class Board extends Record implements Deserialisable {
   get cellLayout(): 'column' | 'row' {
     return ['above', 'below', 'hidden'].includes(this.captions_position) ? 'column' : 'row';
   }
+
+  // Return the number of logical columns.
+  // When captions are to be placed to the left/right of the image, this effectively doubles the width of each Cell.
+  // Hence, the logical number of columns would be double the actual number.
+  // Used for calculating whether pages should be portrait or landscape.
+  get logicalColumns(): number {
+    return ['left', 'right'].includes(this.captions_position) ? this.columns * 2 : this.columns;
+  }
 }
