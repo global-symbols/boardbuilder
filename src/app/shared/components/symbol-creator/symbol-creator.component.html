@@ -7,7 +7,7 @@
   <button mat-flat-button color="primary" (click)="editMode()" class="mt-3">Continue Editing</button>
 </div>
 
-<div fxLayout="row" fxLayoutAlign="center none" [class.d-none]="status != 'Editing'">
+<div fxLayout="row" fxLayoutAlign="center none" [class.d-none]="status != 'Editing'" gaCategory="SymbolCreator">
 
   <div fxFlex fxLayout="column" class="mr-3">
     <!-- Top buttons-->
@@ -21,33 +21,43 @@
 
       <div style="margin-right: 1rem;">
 
-        <button mat-icon-button aria-label="Align to Horizontal Centre" matTooltip="Align to Horizontal Centre" (click)="align('horizontal')" color="primary" [disabled]="selectedElements.length != 1">
+        <button mat-icon-button aria-label="Align to Horizontal Centre" matTooltip="Align to Horizontal Centre" (click)="align('horizontal')" color="primary" [disabled]="selectedElements.length != 1"
+                gaEvent="click" gaLabel="AlignHorizontalCentre">
           <mat-icon>align_horizontal_center</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Align to Vertical Centre" matTooltip="Align to Vertical Centre" (click)="align('vertical')" color="primary" [disabled]="selectedElements.length != 1" class="mr-2">
+        <button mat-icon-button aria-label="Align to Vertical Centre" matTooltip="Align to Vertical Centre" (click)="align('vertical')" color="primary" [disabled]="selectedElements.length != 1" class="mr-2"
+                gaEvent="click" gaLabel="AlignVerticalCentre">
           <mat-icon>align_vertical_center</mat-icon>
         </button>
 
 
 
-        <button mat-icon-button aria-label="Flip Horizontal" matTooltip="Flip Horizontal" (click)="flip('horizontal')" color="primary" [disabled]="selectedElements.length != 1">
+        <button mat-icon-button aria-label="Flip Horizontal" matTooltip="Flip Horizontal"
+                (click)="flip('horizontal')" color="primary" [disabled]="selectedElements.length != 1"
+                gaEvent="click" gaLabel="FlipHorizontal">
           <mat-icon>flip</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Flip Vertical" matTooltip="Flip Vertical" (click)="flip('vertical')" color="primary" [disabled]="selectedElements.length != 1" class="mr-2">
+        <button mat-icon-button aria-label="Flip Vertical" matTooltip="Flip Vertical"
+                (click)="flip('vertical')" color="primary" [disabled]="selectedElements.length != 1" class="mr-2"
+                gaEvent="click" gaLabel="FlipVertical">
           <mat-icon class="rot-90-cw">flip</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Send Behind other Items" matTooltip="Send Behind other Items" (click)="sendToBack()" color="primary" [disabled]="selectedElements.length === 0" class="mr-2">
+        <button mat-icon-button aria-label="Send Behind other Items" matTooltip="Send Behind other Items"
+                (click)="sendToBack()" color="primary" [disabled]="selectedElements.length === 0" class="mr-2"
+                gaEvent="click" gaLabel="SendBehind">
           <mat-icon>flip_to_back</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Duplicate Object" [matTooltip]="selectedElements.length === 1 ? 'Duplicate Selected Item' : 'Duplicate Selected Items'" (click)="duplicate()" color="primary" [disabled]="selectedElements.length === 0" class="mr-2">
+        <button mat-icon-button aria-label="Duplicate Object" [matTooltip]="selectedElements.length === 1 ? 'Duplicate Selected Item' : 'Duplicate Selected Items'" (click)="duplicate()" color="primary" [disabled]="selectedElements.length === 0" class="mr-2"
+                gaEvent="click" gaLabel="Duplicate">
           <mat-icon>content_copy</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Delete Selected Items" (click)="deleteSelectedItems()" color="primary" [matTooltip]="selectedElements.length === 1 ? 'Delete Selected Item' : 'Delete Selected Items'" [disabled]="selectedElements.length === 0">
+        <button mat-icon-button aria-label="Delete Selected Items" (click)="deleteSelectedItems()" color="primary" [matTooltip]="selectedElements.length === 1 ? 'Delete Selected Item' : 'Delete Selected Items'" [disabled]="selectedElements.length === 0"
+                gaEvent="click" gaLabel="Delete">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
@@ -60,39 +70,48 @@
     <div fxLayout="row" fxLayoutGap="1rem grid">
       <!-- Side Buttons -->
       <div fxLayout="column" fxLayoutAlign="start center">
-        <button mat-icon-button aria-label="Add Image" (click)="showImageSelectDialog()" color="primary" matTooltipPosition="right" matTooltip="Add Image" fxFlexOffset="2rem">
+        <button mat-icon-button aria-label="Add Image" (click)="showImageSelectDialog()" color="primary" matTooltipPosition="right" matTooltip="Add Image" fxFlexOffset="2rem"
+                gaEvent="click" gaLabel="AddImage">
           <mat-icon>insert_photo</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Text" (click)="addText()" color="primary" matTooltipPosition="right" matTooltip="Add Text Box">
+        <button mat-icon-button aria-label="Add Text" (click)="addText()" color="primary" matTooltipPosition="right" matTooltip="Add Text Box"
+                gaEvent="click" gaLabel="AddText">
           <mat-icon>format_shapes</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Circle" (click)="addCircle()" color="primary" matTooltipPosition="right" matTooltip="Add Circle">
+        <button mat-icon-button aria-label="Add Circle" (click)="addCircle()" color="primary" matTooltipPosition="right" matTooltip="Add Circle"
+                gaEvent="click" gaLabel="AddCircle">
           <mat-icon>panorama_fish_eye</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Line" (click)="addLine()" color="primary" matTooltipPosition="right" matTooltip="Add Line">
+        <button mat-icon-button aria-label="Add Line" (click)="addLine()" color="primary" matTooltipPosition="right" matTooltip="Add Line"
+                gaEvent="click" gaLabel="AddLine">
           <mat-icon>remove</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Triangle" (click)="addTriangle()" color="primary" matTooltipPosition="right" matTooltip="Add Triangle">
+        <button mat-icon-button aria-label="Add Triangle" (click)="addTriangle()" color="primary" matTooltipPosition="right" matTooltip="Add Triangle"
+                gaEvent="click" gaLabel="AddTriangle">
           <mat-icon>change_history</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Square" (click)="addSquare()" color="primary" matTooltipPosition="right" matTooltip="Add Square">
+        <button mat-icon-button aria-label="Add Square" (click)="addSquare()" color="primary" matTooltipPosition="right" matTooltip="Add Square"
+                gaEvent="click" gaLabel="AddSquare">
           <mat-icon>crop_din</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Plus" (click)="addPlus()" color="primary" matTooltipPosition="right" matTooltip="Add Plus">
+        <button mat-icon-button aria-label="Add Plus" (click)="addPlus()" color="primary" matTooltipPosition="right" matTooltip="Add Plus"
+                gaEvent="click" gaLabel="AddPlus">
           <mat-icon>add</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Cross" (click)="addCross()" color="primary" matTooltipPosition="right" matTooltip="Add Cross">
+        <button mat-icon-button aria-label="Add Cross" (click)="addCross()" color="primary" matTooltipPosition="right" matTooltip="Add Cross"
+                gaEvent="click" gaLabel="AddCross">
           <mat-icon>close</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Arrow" (click)="addArrow()" color="primary" matTooltipPosition="right" matTooltip="Add Arrow">
+        <button mat-icon-button aria-label="Add Arrow" (click)="addArrow()" color="primary" matTooltipPosition="right" matTooltip="Add Arrow"
+                gaEvent="click" gaLabel="AddArrow">
           <mat-icon>arrow_right_alt</mat-icon>
         </button>
       </div>
@@ -182,11 +201,13 @@
   </div>
 </div>
 <!--{{selectedElement | json}}-->
-<mat-menu #downloadMenu="matMenu">
-  <button mat-menu-item (click)="savePNG()">
+<mat-menu #downloadMenu="matMenu" gaCategory="SymbolCreator">
+  <button mat-menu-item (click)="savePNG()"
+          gaEvent="click" gaLabel="SaveAsPNG">
     <span>Save to Device (PNG)</span>
   </button>
-  <button mat-menu-item (click)="saveSVG()">
+  <button mat-menu-item (click)="saveSVG()"
+          gaEvent="click" gaLabel="SaveAsSVG">
     <span>Save to Device (SVG, Advanced)</span>
   </button>
 </mat-menu>

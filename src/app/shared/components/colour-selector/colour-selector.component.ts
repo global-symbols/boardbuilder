@@ -25,6 +25,7 @@ export class ColourSelectorComponent implements OnChanges {
   }
 
   selectColour(colour: string) {
-    this.valueChange.emit(colour);
+    // 'Transparent' should never be output as a colour
+    if (colour !== 'transparent') { this.valueChange.emit(colour); }
   }
 }

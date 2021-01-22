@@ -34,6 +34,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {HotkeyModule} from 'angular2-hotkeys';
 import {ColorGithubModule} from 'ngx-color/github';
+import {NgxGoogleAnalyticsModule} from 'ngx-google-analytics';
 
 export const routes: Routes = [
   {
@@ -86,7 +87,8 @@ export const routes: Routes = [
     MatSlideToggleModule,
     MatCheckboxModule,
     HotkeyModule,
-    ColorGithubModule
+    ColorGithubModule,
+    NgxGoogleAnalyticsModule
   ]
 })
 export class BuilderModule { }

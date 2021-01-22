@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {Board} from '@data/models/board.model';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
@@ -17,6 +17,10 @@ import {ToolbarService} from '@app/services/toolbar.service';
 import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {CopyBoardSetDialogComponent} from '@shared/components/copy-board-set-dialog/copy-board-set-dialog.component';
+import {DialogService} from '@app/services/dialog.service';
+import {Cell} from '@data/models/cell.model';
+import {CellEditorComponent} from '@modules/builder/cell-editor/cell-editor.component';
+import {BoardTreeComponent} from '@modules/builder/board-tree/board-tree.component';
 
 @Component({
   selector: 'app-builder',
@@ -36,6 +40,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   mobileQuery: MediaQueryList;
 
+  @ViewChild(BoardTreeComponent) boardTree: BoardTreeComponent;
+
   private readonly mobileQueryListener: () => void;
 
   private currentDialogRef;
@@ -48,6 +54,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
               private cellService: CellService,
               private hotkeysService: HotkeysService,
               private toolbarService: ToolbarService,
+              private dialogService: DialogService,
               public dialog: MatDialog,
               private route: ActivatedRoute,
               private router: Router
@@ -166,7 +173,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     const currentBoard = this.board;
     // Get the BoardSet
     this.getBoardSet().subscribe(boardSet => {
-      if (currentBoard) { this.selectBoard(currentBoard.id); }
+      if (currentBoard) { this.selectBoard(currentBoard.id, this.selectedCell?.id); }
     });
   }
 
@@ -207,13 +214,18 @@ export class BuilderComponent implements OnInit, OnDestroy {
     return this.boardSetService.update(this.boardSet);
   }
 
-  selectBoard(board?: Board | number) {
+  selectBoard(board?: Board | number, cell?: Cell | number) {
     if (typeof board === 'number') {
       this.board = this.boardSet.boards.find(b => b.id === board);
     } else {
       this.board = board;
     }
-    this.selectedCell = undefined;
+
+    if (typeof cell === 'number') {
+      this.selectedCell = this.board.cells.find(c => c.id === cell);
+    } else {
+      this.selectedCell = undefined;
+    }
   }
 
   selectLastBoard() {
@@ -262,27 +274,14 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   deleteBoardSet(boardSet: BoardSet) {
-    if (this.boardSet.readonly) { return; }
-    if (this.currentDialogRef !== undefined) { return; }
-
-    this.currentDialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '400px',
-      data: {
-        heading: `Delete '${boardSet.name}'? (contains ${boardSet.boards.length} Board${boardSet.boards.length > 1 ? 's' : ''})`,
-        content: `The Board Set and ${boardSet.boards.length} Board${boardSet.boards.length > 1 ? 's' : ''} will be deleted. This cannot be undone.`,
-        icon: 'delete'
-      }
-    });
-
-    this.currentDialogRef.afterClosed().subscribe(result => {
-
+    this.dialogService.deleteBoardSet(boardSet, {
+      heading: `Delete '${boardSet.name}'? (contains ${boardSet.boards.length} Board${boardSet.boards.length !== 1 ? 's' : ''})`,
+      content: `The Board Set and ${boardSet.boards.length} Board${boardSet.boards.length !== 1 ? 's' : ''} will be deleted. This cannot be undone.`,
+      icon: 'delete'
+    }).afterClosed().subscribe(result => {
       if (result) {
-        this.boardSetService.delete(boardSet).subscribe(r => {
-          this.router.navigate(['/', 'boardsets']);
-        });
+        this.boardSetService.delete(boardSet).subscribe(r => this.router.navigate(['/', 'boardsets']));
       }
-
-      this.currentDialogRef = undefined;
     });
   }
 
@@ -370,5 +369,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
       this.currentDialogRef = undefined;
     });
+  }
+
+  refreshTree() {
+    this.boardTree.rebuildTree();
   }
 }

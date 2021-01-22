@@ -1,18 +1,7 @@
-import {
-  AfterViewInit,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  Output,
-  SimpleChanges,
-  ViewChild
-} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {Cell} from '@data/models/cell.model';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSelectChange } from '@angular/material/select';
+import {MatDialog} from '@angular/material/dialog';
+import {MatSelectChange} from '@angular/material/select';
 import {BoardSet} from '@data/models/boardset.model';
 import {Board} from '@data/models/board.model';
 import {MatTabChangeEvent} from '@angular/material/tabs';
@@ -41,6 +30,7 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
   @ViewChild('searchPanel') searchPanel: SearchPanelComponent;
 
   linkableBoards: Board[];
+  linkedBoard: Board;
 
   colourPickerColours: Array<string>;
 
@@ -76,10 +66,20 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
 
     // Load linkable Boards when this.cell has a value
     if (changes.cell?.currentValue) {
-      this.cellService.get(this.cell.id, 'linkable_boards').subscribe(lb => {
-        // console.log('linkable boards', lb);
-        this.linkableBoards = lb.linkable_boards;
-      });
+      this.loadLinkableBoards();
+      this.loadLinkedBoard();
+    }
+  }
+
+  loadLinkableBoards(): void {
+    this.cellService.get(this.cell.id, 'linkable_boards').subscribe(lb => this.linkableBoards = lb.linkable_boards);
+  }
+
+  loadLinkedBoard(): void {
+    // If this Cell links to a Board, load the linked Board so we have a title, etc.
+    if (this.cell.linked_board_id) {
+      this.boardService.get(this.cell.linked_board_id)
+        .subscribe(linkedBoard => this.linkedBoard = linkedBoard);
     }
   }
 
@@ -99,18 +99,21 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
   }
 
   linkCellToBoard(event: MatSelectChange) {
-    const linkedBoardId = event.value;
-    console.log('linking to board', linkedBoardId);
-    this.cell.linked_board_id = linkedBoardId;
-    console.log('linked', this.cell.linked_board_id);
-
-    this.cellService.update(this.cell).subscribe(success => this.cellLinkedToBoard.emit(true));
+    this.cell.linked_board_id = event.value;
+    this.cellService.update(this.cell).subscribe(success => {
+      this.cellLinkedToBoard.emit(true);
+      this.loadLinkedBoard();
+    });
   }
 
   unlinkCellFromBoard() {
     this.cell.linked_board_id = null;
+    this.linkedBoard = null;
 
-    this.cellService.update(this.cell).subscribe(success => this.cellLinkedToBoard.emit(true));
+    this.cellService.update(this.cell).subscribe(success => {
+      this.cellLinkedToBoard.emit(true);
+      this.loadLinkableBoards();
+    });
   }
 
   // Fires an automatic search when the Search tab is opened.

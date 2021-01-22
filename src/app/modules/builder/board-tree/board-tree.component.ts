@@ -1,4 +1,15 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import {Board} from '@data/models/board.model';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import {FlatTreeControl} from '@angular/cdk/tree';
@@ -26,7 +37,7 @@ interface BoardTreeMenuItem {
   templateUrl: './board-tree.component.html',
   styleUrls: ['./board-tree.component.scss']
 })
-export class BoardTreeComponent implements OnInit, OnChanges {
+export class BoardTreeComponent implements AfterViewInit, OnChanges {
 
   @Input() boardSet: BoardSet;
   @Input() boards: Array<Board>;
@@ -36,6 +47,8 @@ export class BoardTreeComponent implements OnInit, OnChanges {
   // Emitted when the user requests to delete a Board, and before the Board has been deleted.
   @Output() readonly deleteBoard = new EventEmitter<Board>();
   @Output() readonly updateBoard = new EventEmitter<Board>();
+
+  @ViewChild('matTree') matTree;
 
   private currentDialogRef;
 
@@ -63,12 +76,18 @@ export class BoardTreeComponent implements OnInit, OnChanges {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  // Expand all parts of the tree after the viewInit and after every onChanges
+  ngAfterViewInit() {
+    this.matTree.treeControl.expandAll();
   }
 
   ngOnChanges(changes: SimpleChanges) {
     // Reload the Boards hierarchy when this.boards changes.
-    if (changes.boards) { this.dataSource.data = this.flatToHierarchy(); }
+    if (changes.boards) { this.rebuildTree(); }
+  }
+
+  rebuildTree(): void {
+    this.dataSource.data = this.flatToHierarchy();
   }
 
   private flatToHierarchy(): BoardTreeMenuItem[] {

@@ -8,12 +8,16 @@
 
     <div>
       <button mat-icon-button aria-label="Discard" (click)="dialogRef.close()"
-              appStopPropagation [matTooltip]="media?.persisted() ? 'Discard Changes' : 'Cancel'">
+              appStopPropagation [matTooltip]="media?.persisted() ? 'Discard Changes' : 'Cancel'"
+              gaCategory="SymbolCreator" gaEvent="click" gaLabel="DiscardChanges"
+      >
         <mat-icon>close</mat-icon>
       </button>
 
       <button mat-icon-button aria-label="Save and Close" (click)="saveAndClose()"
-              appStopPropagation matTooltip="Save and Close">
+              appStopPropagation matTooltip="Save and Close"
+              gaCategory="SymbolCreator" gaEvent="click" gaLabel="SaveAndClose"
+      >
         <mat-icon>check</mat-icon>
       </button>
     </div>

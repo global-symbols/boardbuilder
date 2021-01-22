@@ -17,6 +17,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSliderModule} from '@angular/material/slider';
 import {SharedModule} from '../../shared/shared.module';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatMenuModule} from '@angular/material/menu';
+import { BoardSetTileComponent } from './board-set-tile/board-set-tile.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +32,7 @@ export const routes: Routes = [
   declarations: [
     BoardSetsComponent,
     NewBoardSetDialogComponent,
+    BoardSetTileComponent,
   ],
   imports: [
     CommonModule,
@@ -48,7 +51,8 @@ export const routes: Routes = [
     ReactiveFormsModule,
     MatSliderModule,
     SharedModule,
-    MatStepperModule
+    MatStepperModule,
+    MatMenuModule
   ]
 })
 export class BoardSetsModule { }

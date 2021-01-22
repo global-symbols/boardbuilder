@@ -10,7 +10,9 @@
 
     <div fxLayout="row wrap" fxLayoutGap="2rem grid">
       <div fxFlex="20" class="add-symbol-button text-center">
-        <button mat-flat-button color="primary" fxFlex (click)="openSymbolCreator()">
+        <button mat-flat-button color="primary" fxFlex (click)="openSymbolCreator()"
+                gaCategory="SymbolCreator" gaEvent="open"
+        >
           <div fxLayout="column" fxLayoutAlign="space-between center">
             <mat-icon fxFlex="grow">construction</mat-icon>
             <div class="mt-3">Create Symbol</div>

@@ -1,6 +1,6 @@
 <app-loading-notice class="mt-3" subject="Board Set" *ngIf="loading"></app-loading-notice>
 <app-error-not-found class="container mt-3" subject="Board Set" *ngIf="loadingError"></app-error-not-found>
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="boardSet && !loading">
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="boardSet">
 
   <mat-sidenav-container class="example-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
@@ -76,7 +76,7 @@
                        [board]="board"
                        [cell]="selectedCell"
                        (closed)="cellEditor.close();"
-                       (cellLinkedToBoard)="loadBoardSet()"
+                       (cellLinkedToBoard)="boardTree.rebuildTree()"
                        [@.disabled]="disableCellEditorAnimations"
       ></app-cell-editor>
     </mat-sidenav>

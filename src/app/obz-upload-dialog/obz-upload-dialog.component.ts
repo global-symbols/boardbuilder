@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BoardSet} from '@data/models/boardset.model';
 import {ObfObzService} from '@data/services/obf-obz.service';
 
@@ -7,15 +7,23 @@ import {ObfObzService} from '@data/services/obf-obz.service';
   templateUrl: './obz-upload-dialog.component.html',
   styleUrls: ['./obz-upload-dialog.component.scss']
 })
-export class ObzUploadDialogComponent implements OnInit {
+export class ObzUploadDialogComponent implements AfterViewInit {
 
   filename: string;
   fileInvalidReason: string;
   boardSet: BoardSet;
 
+  @ViewChild('uploadInput') uploadInput: ElementRef<HTMLInputElement>;
+
   constructor(private obfObzService: ObfObzService) { }
 
-  ngOnInit(): void { }
+  ngAfterViewInit() {
+    this.showFileSelector();
+  }
+
+  showFileSelector(): void {
+    this.uploadInput.nativeElement.click();
+  }
 
   fileChanged(filesList: any) {
     if (filesList.files.length !== 1) { return; }

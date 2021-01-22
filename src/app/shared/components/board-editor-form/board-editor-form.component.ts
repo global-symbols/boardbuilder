@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Board} from '@data/models/board.model';
 import {BoardTemplate} from '@data/models/board-template.model';
 import {BoardService} from '@data/services/board.service';
@@ -11,6 +11,8 @@ import {BoardService} from '@data/services/board.service';
 export class BoardEditorFormComponent implements OnInit {
 
   @Input() board: Board;
+
+  @ViewChild('titleField') titleField: ElementRef;
 
   templates: BoardTemplate[];
   selectedTab: number;
@@ -37,6 +39,10 @@ export class BoardEditorFormComponent implements OnInit {
     this.board.columns = template.board.columns;
     this.board.captions_position = template.board.captions_position;
     this.board.populateCells();
+  }
+
+  focusTitleField(): void {
+    setTimeout(() => this.titleField.nativeElement.select(), 500);
   }
 
 }

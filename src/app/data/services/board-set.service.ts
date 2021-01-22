@@ -16,8 +16,8 @@ export class BoardSetService {
 
   constructor(private http: HttpClient) { }
 
-  list(): Observable<BoardSet[]> {
-    return this.http.get<BoardSet[]>(this.apiEndpoint)
+  list(expand = ''): Observable<BoardSet[]> {
+    return this.http.get<BoardSet[]>(this.apiEndpoint, { params: { expand } })
       .pipe(map(arr => arr.map(item => new BoardSet().deserialise(item))));
   }
 
@@ -41,8 +41,8 @@ export class BoardSetService {
   }
 
   // Featured BoardSets
-  featured(): Observable<BoardSet[]> {
-    return this.http.get<BoardSet[]>(`${this.apiEndpoint}/featured`)
+  featured(expand = ''): Observable<BoardSet[]> {
+    return this.http.get<BoardSet[]>(`${this.apiEndpoint}/featured`, { params: { expand } })
       .pipe(map(arr => arr.map(item => new BoardSet().deserialise(item))));
   }
 

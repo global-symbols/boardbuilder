@@ -42,6 +42,7 @@ import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component'
 import { NavButtonComponent } from './layout/nav-button/nav-button.component';
 import * as Sentry from '@sentry/angular';
 import {environment} from '@env';
+import {NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule} from 'ngx-google-analytics';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -139,7 +140,9 @@ const appRoutes: Routes = [
     MatMenuModule,
     CoreModule.forRoot(),
     SharedModule,
-    DragDropModule
+    DragDropModule,
+    NgxGoogleAnalyticsModule.forRoot('UA-171526118-2'),
+    NgxGoogleAnalyticsRouterModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'en-GB'},

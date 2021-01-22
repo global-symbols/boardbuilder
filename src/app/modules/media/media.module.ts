@@ -10,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {NgxFilesizeModule} from 'ngx-filesize';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {NgxGoogleAnalyticsModule} from 'ngx-google-analytics';
 
 
 export const routes: Routes = [
@@ -22,17 +23,18 @@ export const routes: Routes = [
 
 @NgModule({
   declarations: [MediaComponent],
-  imports: [
-    NgxFilesizeModule,
-    CommonModule,
-    SharedModule,
-    RouterModule.forChild(routes),
-    MatMenuModule,
-    MatIconModule,
-    FlexModule,
-    MatButtonModule,
-    MatCardModule,
-    MatTooltipModule,
-  ]
+    imports: [
+        NgxFilesizeModule,
+        CommonModule,
+        SharedModule,
+        RouterModule.forChild(routes),
+        MatMenuModule,
+        MatIconModule,
+        FlexModule,
+        MatButtonModule,
+        MatCardModule,
+        MatTooltipModule,
+        NgxGoogleAnalyticsModule,
+    ]
 })
 export class MediaModule { }

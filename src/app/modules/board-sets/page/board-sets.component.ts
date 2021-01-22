@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {NewBoardSetDialogComponent} from '@modules/board-sets/new-board-set-dialog/new-board-set-dialog.component';
 import {ObzUploadDialogComponent} from '../../../obz-upload-dialog/obz-upload-dialog.component';
+import {DialogService} from '@app/services/dialog.service';
 
 @Component({
   selector: 'app-board-sets',
@@ -22,7 +23,8 @@ export class BoardSetsComponent implements OnInit {
   constructor(
     private service: BoardSetService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class BoardSetsComponent implements OnInit {
 
   loadBoardSets(): void {
     this.loading = true;
-    this.service.list().subscribe(
+    this.service.list('preview_cells').subscribe(
         bs => this.boardSets = bs,
         error => null,
         () => this.loading = false
@@ -40,7 +42,7 @@ export class BoardSetsComponent implements OnInit {
   }
 
   loadFeaturedBoardSets(): void {
-    this.service.featured().subscribe(bs => this.featuredBoardSets = bs);
+    this.service.featured('preview_cells').subscribe(bs => this.featuredBoardSets = bs);
   }
 
   newBoardSet(): void {
@@ -60,21 +62,28 @@ export class BoardSetsComponent implements OnInit {
   }
 
   uploadObz() {
-    if (this.currentDialogRef !== undefined) { return; }
-
-    this.currentDialogRef = this.dialog.open(ObzUploadDialogComponent, {
-      width: '500px'
-    });
-
-    this.currentDialogRef.afterClosed().subscribe(newBoardSet => {
+    this.dialogService.uploadObz().afterClosed().subscribe(newBoardSet => {
       if (newBoardSet instanceof BoardSet) {
-
-        // Save the newBoardSet, then reload the BoardSet.
-        this.service.add(newBoardSet).subscribe(bs => {
-          this.router.navigate(['/', 'boardsets', bs.id]);
-        });
+        // Save the newBoardSet, then open it.
+        this.service.add(newBoardSet).subscribe(bs => this.openBoardSet(bs));
       }
-      this.currentDialogRef = undefined;
+    });
+  }
+
+  openBoardSet(boardSet: BoardSet) {
+    this.router.navigate(['/', 'boardsets', boardSet.id]);
+  }
+
+  deleteBoardSet(boardSet: BoardSet) {
+
+    this.dialogService.deleteBoardSet(boardSet, {
+      heading: `Delete '${boardSet.name}'?`,
+      content: `The Board Set and all its Boards will be deleted. This cannot be undone.`,
+      icon: 'delete'
+    }).afterClosed().subscribe(result => {
+      if (result) {
+        this.service.delete(boardSet).subscribe(r => this.loadBoardSets());
+      }
     });
   }
 }

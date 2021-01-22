@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {BoardSet} from '@data/models/boardset.model';
 import {BoardSetService} from '@data/services/board-set.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Board} from '@data/models/board.model';
 import {MatDialogRef} from '@angular/material/dialog';
+import {StepperSelectionEvent} from '@angular/cdk/stepper';
+import {BoardEditorFormComponent} from '@shared/components/board-editor-form/board-editor-form.component';
 
 
 @Component({
@@ -18,6 +20,8 @@ export class NewBoardSetDialogComponent implements OnInit {
   boardSetForm: FormGroup;
 
   board: Board;
+
+  @ViewChild(BoardEditorFormComponent) boardEditorForm: BoardEditorFormComponent;
 
   constructor(
     public dialogRef: MatDialogRef<NewBoardSetDialogComponent>,
@@ -47,4 +51,9 @@ export class NewBoardSetDialogComponent implements OnInit {
     this.service.add(boardSet).subscribe(bs => this.dialogRef.close(bs));
   }
 
+  stepperStepChanged($event: StepperSelectionEvent) {
+    if ($event.selectedIndex === 1) {
+      this.boardEditorForm.focusTitleField();
+    }
+  }
 }

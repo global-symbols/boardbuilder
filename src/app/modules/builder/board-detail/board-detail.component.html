@@ -21,6 +21,7 @@
                    [style.outline-color]="c.border_colour"
                    [class.selected]="cell === c"
                    [class.outlined]="c.border_colour"
+                   gaCategory="CellEditor" gaEvent="open"
     >
 
       <div *ngIf="board.cellLayout === 'column'" fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex id="cellBox" class="tile-body">

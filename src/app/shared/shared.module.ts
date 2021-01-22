@@ -31,6 +31,7 @@ import { BoardEditorFormComponent } from './components/board-editor-form/board-e
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
 import { BoardPreviewSvgComponent } from './components/board-preview-svg/board-preview-svg.component';
 import {SymbolCreatorDialogComponent} from '@shared/components/symbol-creator-dialog/symbol-creator-dialog.component';
+import {NgxGoogleAnalyticsModule} from 'ngx-google-analytics';
 
 
 
@@ -83,7 +84,8 @@ import {SymbolCreatorDialogComponent} from '@shared/components/symbol-creator-di
     ColorGithubModule,
     MatMenuModule,
     MatTooltipModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxGoogleAnalyticsModule
   ]
 })
 export class SharedModule { }

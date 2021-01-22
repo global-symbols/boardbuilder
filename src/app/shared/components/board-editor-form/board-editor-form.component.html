@@ -5,7 +5,7 @@
       <ng-container *ngIf="!board.board_set_id">First Board </ng-container>
       Title
     </mat-label>
-    <input matInput required
+    <input matInput required #titleField
            [(ngModel)]="board.title"
            (mousedown)="$event.stopPropagation()">
     <mat-hint *ngIf="!board.board_set_id">Choose a name for the first Board in your new Board Set.</mat-hint>
@@ -24,7 +24,7 @@
 </div>
 
 <div>
-
+  <h2>Layout</h2>
   <mat-tab-group mat-stretch-tabs dynamicHeight [(selectedIndex)]="selectedTab">
 
     <mat-tab label="Generic Templates">
@@ -32,7 +32,7 @@
         <div *ngFor="let template of templates" fxFlex="0 1 calc(25% - 20px)" class="template">
           <button mat-button color="primary"
                   (click)="selectTemplate(template)"
-                  [title]="template.description"
+                  [matTooltip]="template.description"
                   appStopPropagation disableRipple>
             <app-board-preview-svg [board]="template.board" [selected]="board.matchesTemplate(template)" size="90" maxHeight="90" maxWidth="90"></app-board-preview-svg>
           </button>
@@ -41,11 +41,11 @@
       </div>
     </mat-tab>
 
-    <mat-tab label="Device Templates">
-      <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="space-around center" class="w-100 p-1">
-        Coming Soon!
-      </div>
-    </mat-tab>
+<!--    <mat-tab label="Device Templates">-->
+<!--      <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="space-around center" class="w-100 p-1">-->
+<!--        Coming Soon!-->
+<!--      </div>-->
+<!--    </mat-tab>-->
 
     <mat-tab label="Custom Settings">
 
@@ -87,7 +87,7 @@
             <mat-option value="right" i18n>Right</mat-option>
             <mat-option value="hidden" i18n>Hidden</mat-option>
           </mat-select>
-          <mat-hint>Sets where your text appears in each cell of the Board.</mat-hint>
+          <mat-hint>Sets where text appears in each cell, relative to the image.</mat-hint>
         </mat-form-field>
       </div>
 

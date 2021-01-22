@@ -9,10 +9,6 @@
 
     <app-nav-button *ngFor="let button of rightButtons$ | async" [button]="button"></app-nav-button>
 
-    <a mat-button mat-icon-button [routerLink]="['/', 'media']" matTooltip="Manage My Images" class="mr-1" *ngIf="canActivateProtectedRoutes | async">
-      <mat-icon>perm_media</mat-icon>
-    </a>
-
     <a mat-button mat-icon-button href="https://training.globalsymbols.com/course/view.php?id=56#section-1" target="_blank" matTooltip="Help and Resources" class="mr-1">
       <mat-icon>help_outline</mat-icon>
     </a>
@@ -23,9 +19,17 @@
 
     <ng-container *ngIf="canActivateProtectedRoutes | async">
       <mat-menu #userMenu="matMenu" xPosition="before">
+        <a mat-menu-item [routerLink]="['/', 'boardsets']">
+          <mat-icon>view_comfy</mat-icon>
+          Board Sets
+        </a>
+        <a mat-menu-item [routerLink]="['/', 'media']">
+          <mat-icon>perm_media</mat-icon>
+          Media
+        </a>
         <a mat-menu-item href="https://globalsymbols.com/users/edit" target="_blank">
-          <mat-icon></mat-icon>
-          Manage your Account
+          <mat-icon>person</mat-icon>
+          Manage Account
         </a>
         <button mat-menu-item (click)="logout()">
           <mat-icon>exit_to_app</mat-icon>

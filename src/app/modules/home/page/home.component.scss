@@ -12,30 +12,7 @@
 
 .container {
   font-size: 1.2rem;
-}
-
-.panel {
-  margin-bottom: 2rem !important;
-
-  &.even {
-    flex-direction: row-reverse !important;
-  }
-
-  img {
-    max-width: 100%;
-  }
-}
-
-h1 {
-  font-size: 3rem;
-  line-height: 3.2rem;
-}
-
-h2 {
-  font-weight: 400;
-
-  padding-bottom: 0.83em;
-  border-bottom: 2px solid $blue;
+  padding: 0 2rem;
 }
 
 p {

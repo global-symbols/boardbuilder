@@ -2,14 +2,3 @@
   min-height: 165px;
 }
 
-::ng-deep .mat-card-header-text {
-  margin-left: 0 !important;
-}
-
-mat-card.add-boardset {
-  mat-card-actions {
-    padding-top: 0;
-    margin-top: -8px;
-  }
-}
-

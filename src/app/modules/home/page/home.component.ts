@@ -15,10 +15,7 @@ export class HomeComponent implements OnInit {
 
   signedIn: boolean;
 
-  // Width in % of the text columns
-  textColumnWidth = 45;
-  panelLayoutGap = '40px grid';
-  panelLayoutAlign = 'space-between center';
+  panelId = 0;
 
   constructor(
     private authService: AuthService,

@@ -1,0 +1,30 @@
+::ng-deep .mat-card-header-text {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+mat-card-title a {
+  color: black !important;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+mat-card.add-boardset {
+  mat-card-actions {
+    padding-top: 0;
+    margin-top: -8px;
+  }
+}
+
+img.preview-image {
+  max-height: 54px;
+  max-width: 100%;
+  opacity: 0.7;
+}
+
+mat-card:hover img.preview-image {
+  opacity: 1;
+}

@@ -1,84 +1,77 @@
-<div class="container" style="max-width: 800px">
-  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel">
-    <div [fxFlex]="textColumnWidth">
-      <h1>Communication boards the easy way</h1>
-      <p>Create boards to aid communication with thousands of free images.</p>
-      <p>Everything is stored safely in your GlobalSymbols account.</p>
-      <button mat-flat-button color="primary" (click)="getStarted()" class="button-lg">
-        <ng-container *ngIf="!signedIn">Get Started</ng-container>
-        <ng-container *ngIf="signedIn">My Board Sets</ng-container>
-      </button>
-    </div>
-    <div fxFlex>
-      <img src="assets/images/home/main.svg" alt="Board Builder" />
-    </div>
-  </div>
+<div class="container" style="max-width: 1000px">
 
-  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel even">
-    <div [fxFlex]="textColumnWidth">
-      <h2>Start with a template or make your own layout</h2>
-      <p>Get started quickly with our collection of handy templates.</p>
-      <p>You always have control to customise the layout beyond our templates.</p>
-    </div>
-    <div fxFlex>
-      <img src="assets/images/home/templates.svg" alt="Start with a template or make your own layout" />
-    </div>
-  </div>
+  <app-home-panel
+    heading="Communication boards the easy way"
+    imageUrl="assets/images/home/main.svg"
+    [even]="false"
+    headingType="h1"
+  >
+    <p>Create boards to aid communication with thousands of free images.</p>
+    <p>Everything is stored safely in your Global Symbols account.</p>
+    <button mat-flat-button color="primary" (click)="getStarted()" class="button-lg" [ngSwitch]="signedIn">
+      <ng-container *ngSwitchCase="true">My Board Sets</ng-container>
+      <ng-container *ngSwitchCase="false">Get Started</ng-container>
+    </button>
+  </app-home-panel>
 
-  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel">
-    <div [fxFlex]="textColumnWidth">
-      <h2>Search thousands of free images and use your own</h2>
-      <p>Quickly find the symbols you need by searching thousands of free images from popular symbol sets on GlobalSymbols.</p>
-      <p>Store your own photos and images in BoardBuilder and use them throughout your boards.</p>
-    </div>
-    <div fxFlex>
-      <img src="assets/images/home/search-images.svg" alt="Search thousands of images or use your own" />
-    </div>
-  </div>
 
-  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel even">
-    <div [fxFlex]="textColumnWidth">
-      <h2>Communicate with colour and more</h2>
-      <p>Tailor boards with your favourite colours and preferred fonts.</p>
-      <p>Easily re-arrange boards and link between boards to create communication books.</p>
-    </div>
-    <div fxFlex>
-      <img src="assets/images/home/colour.svg" alt="Communicate with colour and more" />
-    </div>
-  </div>
+  <app-home-panel
+    heading="Start with a template or make your own layout"
+    imageUrl="assets/images/home/templates.svg"
+    [even]="true"
+  >
+    <p>Get started quickly with our collection of handy templates.</p>
+    <p>You always have control to customise the layout beyond our templates.</p>
+  </app-home-panel>
 
-  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel">
-    <div [fxFlex]="textColumnWidth">
-      <h2>Create your own Symbols</h2>
-      <p>Intuitively create your own symbols in seconds by combining shapes, text, other symbols and even your own pictures.</p>
-      <p>Perfect for those times when you need something a little different.</p>
-    </div>
-    <div fxFlex>
-      <img src="assets/images/home/symbol-creator.svg" alt="Create your own Symbols" />
-    </div>
-  </div>
+  <app-home-panel
+    heading="Search thousands of free images and use your own"
+    imageUrl="assets/images/home/search-images.svg"
+    [even]="false"
+  >
+    <p>Quickly find the symbols you need by searching thousands of free images from popular symbol sets on GlobalSymbols.</p>
+    <p>Store your own photos and images in BoardBuilder and use them throughout your boards.</p>
+  </app-home-panel>
 
-  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel even">
-    <div [fxFlex]="textColumnWidth">
-      <h2>Download, Print and Share</h2>
-      <p>Quickly convert boards to PDF so they can be easily shared with anyone.</p>
-      <p>Print boards to your preferred paper size, import and export boards in OBF and OBZ formats.</p>
-    </div>
-    <div fxFlex>
-      <img src="assets/images/home/pdf-and-print.svg" alt="Download, Print and Share" />
-    </div>
-  </div>
+  <app-home-panel
+    heading="Communicate with colour and more"
+    imageUrl="assets/images/home/colour.svg"
+    [even]="true"
+  >
+    <p>Tailor boards with your favourite colours and preferred fonts.</p>
+    <p>Easily re-arrange boards and link between boards to create communication books.</p>
+  </app-home-panel>
 
-  <div [fxLayoutGap]="panelLayoutGap" [fxLayoutAlign]="panelLayoutAlign" class="panel">
-    <div [fxFlex]="textColumnWidth">
-      <h2>Get Started</h2>
-      <p>Create a Global Symbols account, if you don't already have one.</p>
-      <button mat-flat-button color="primary" (click)="login()" class="button-lg">Get Started</button>
-    </div>
-    <div fxFlex>
-      Image here
-    </div>
-  </div>
+  <app-home-panel
+    heading="Create your own Symbols"
+    imageUrl="assets/images/home/symbol-creator.svg"
+    [even]="false"
+  >
+    <p>Create your own symbols in seconds by combining shapes, text, symbols and even your own pictures.</p>
+    <p>Perfect for those times when you need something a little different.</p>
+  </app-home-panel>
+
+  <app-home-panel
+    heading="Download, Print and Share"
+    imageUrl="assets/images/home/pdf-and-print.svg"
+    [even]="true"
+  >
+    <p>Quickly convert boards to PDF so they can be easily shared with anyone.</p>
+    <p>Print boards to your preferred paper size, import and export boards in OBF and OBZ formats.</p>
+  </app-home-panel>
+
+  <app-home-panel
+    heading="Get Started"
+    imageUrl="assets/images/home/get-started.svg"
+    [even]="false"
+  >
+    <p>BoardBuilder stores everything in your Global Symbols account.</p>
+    <p>Create an account if you don't already have one.</p>
+    <button mat-flat-button color="primary" (click)="getStarted()" class="button-lg" [ngSwitch]="signedIn">
+      <ng-container *ngSwitchCase="true">My Board Sets</ng-container>
+      <ng-container *ngSwitchCase="false">Get Started</ng-container>
+    </button>
+  </app-home-panel>
 </div>
 
 

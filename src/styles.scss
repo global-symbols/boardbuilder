@@ -30,6 +30,10 @@ body { margin: 0; font-family: Lato, "Helvetica Neue", sans-serif; }
   margin-bottom: 0 !important;
 }
 
+.mt-0 {
+  margin-top: 0 !important;
+}
+
 .mt-1 {
   margin-top: .5rem !important;
 }
@@ -118,11 +122,15 @@ h1, h2, h3 {
 }
 
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .text-right {
-  text-align: right;
+  text-align: right !important;
+}
+
+.text-muted {
+  color: gray !important;
 }
 
 .container {
