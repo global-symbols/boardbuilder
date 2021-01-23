@@ -2,7 +2,7 @@
 
   <div fxLayout="row" fxLayoutAlign="space-between start" class="p-1">
 
-    <mat-form-field appearance="outline" [floatLabel]="'never'" class="w-100 no-label">
+    <mat-form-field appearance="outline" [floatLabel]="'never'" class="w-100 no-label cell-caption-form-field">
       <input #cellCaptionInput matInput [(ngModel)]="cell.caption" placeholder="Caption" i18n-placeholder autocomplete="off">
     </mat-form-field>
 
@@ -12,108 +12,109 @@
       <mat-icon>check</mat-icon>
     </button>
   </div>
+</div>
 
-  <mat-tab-group (selectedTabChange)="triggerSearch($event)" mat-align-tabs="center" dynamicHeight>
-    <mat-tab label="Cell" i18n-label>
-      <div class="p-1">
+<mat-tab-group (selectedTabChange)="triggerSearch($event)" mat-align-tabs="center" *ngIf="cell" gaCategory="CellEditor"
+               fxFlex="grow">
+  <mat-tab label="Cell" i18n-label>
+    <div class="p-1">
 
-        <h3>Colours</h3>
+      <h3 class="mt-0">Colours</h3>
 
-        <mat-accordion>
-          <app-colour-selector i18n-label width="302" label="Background" [(value)]="cell.background_colour" icon="format_color_fill">
-          </app-colour-selector>
-          <app-colour-selector i18n-label width="302" label="Border" [(value)]="cell.border_colour" icon="border_color">
-          </app-colour-selector>
-          <app-colour-selector i18n-label width="302" label="Text" [(value)]="cell.text_colour" icon="format_color_text">
-          </app-colour-selector>
-        </mat-accordion>
+      <mat-accordion>
+        <app-colour-selector i18n-label width="302" label="Background" [(value)]="cell.background_colour" icon="format_color_fill">
+        </app-colour-selector>
+        <app-colour-selector i18n-label width="302" label="Border" [(value)]="cell.border_colour" icon="border_color">
+        </app-colour-selector>
+        <app-colour-selector i18n-label width="302" label="Text" [(value)]="cell.text_colour" icon="format_color_text">
+        </app-colour-selector>
+      </mat-accordion>
 
-        <h3 i18n>Linking</h3>
-        <mat-card *ngIf="cell.linked_board_id" fxLayout="row" fxLayoutAlign="space-between center">
-          <ng-container i18n>Linked to</ng-container> {{linkedBoard ? linkedBoard.name : cell.linked_board_id}}
-          <button mat-icon-button aria-label="Unlink" i18n-aria-label matTooltip="Unlink" matTooltipPosition="left" i18n-matTooltip (click)="unlinkCellFromBoard()">
-            <mat-icon>close</mat-icon>
-          </button>
-        </mat-card>
+      <h3 i18n>Linking</h3>
+      <mat-card *ngIf="cell.linked_board_id" fxLayout="row" fxLayoutAlign="space-between center">
+        <ng-container i18n>Linked to</ng-container> {{linkedBoard ? linkedBoard.name : cell.linked_board_id}}
+        <button mat-icon-button aria-label="Unlink" i18n-aria-label matTooltip="Unlink" matTooltipPosition="left" i18n-matTooltip (click)="unlinkCellFromBoard()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-card>
 
-        <div *ngIf="!cell.linked_board_id">
-          <div *ngIf="linkableBoards$ | async as linkableBoards; else loadingLinkableBoards">
+      <div *ngIf="!cell.linked_board_id">
+        <div *ngIf="linkableBoards$ | async as linkableBoards; else loadingLinkableBoards">
 
-            <div *ngIf="linkableBoards.length > 0">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label i18n>Link to a Board</mat-label>
-                <mat-select (selectionChange)="linkCellToBoard($event)">
-                  <mat-option *ngFor="let board of linkableBoards" [value]="board.id">{{board.name}}</mat-option>
-                </mat-select>
-                <mat-hint>This list shows only unlinked Boards.</mat-hint>
-              </mat-form-field>
-            </div>
-
-            <div *ngIf="linkableBoards.length === 0">
-              <div fxLayout="row" fxLayoutAlign="space-between center">
-                <mat-icon style="margin-right: 1rem;">info</mat-icon>
-                <ng-container i18n>No Boards are available for linking.</ng-container>
-                <br/>
-                <ng-container i18n>Unlink an existing Board, or create a new one.</ng-container>
-              </div>
-            </div>
+          <div *ngIf="linkableBoards.length > 0">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label i18n>Link to a Board</mat-label>
+              <mat-select (selectionChange)="linkCellToBoard($event)">
+                <mat-option *ngFor="let board of linkableBoards" [value]="board.id">{{board.name}}</mat-option>
+              </mat-select>
+              <mat-hint>This list shows only unlinked Boards.</mat-hint>
+            </mat-form-field>
           </div>
 
-          <ng-template #loadingLinkableBoards>
-            <app-loading-notice diameter="49" layout="row" subject="Linkable Boards" [style.padding]="'20px 0'"></app-loading-notice>
-          </ng-template>
-        </div>
-
-        <h3>Move Cell</h3>
-        <div fxLayout="row" fxLayoutAlign="space-between start">
-          <button mat-stroked-button color="primary"
-                  (click)="moveCell(board.cells.indexOf(cell) - 1)"
-                  [disabled]="board.cells.indexOf(cell) === 0"
-                  fxFlex="50"
-                  gaEvent="click" gaLabel="MoveCellEarlier"
-          >
-            <div fxLayoutAlign="start center">
-              <mat-icon>arrow_left</mat-icon>
-              Move Earlier
-            </div></button>&nbsp;
-          <button mat-stroked-button color="primary"
-                  (click)="moveCell(board.cells.indexOf(cell) + 1)"
-                  [disabled]="board.cells.indexOf(cell) === (board.cells.length - 1)"
-                  fxFlex="50"
-                  gaEvent="click" gaLabel="MoveCellLater"
-          >
-            <div fxLayoutAlign="end center">
-              Move Later
-              <mat-icon>arrow_right</mat-icon>
+          <div *ngIf="linkableBoards.length === 0">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <mat-icon style="margin-right: 1rem;">info</mat-icon>
+              <ng-container i18n>No Boards are available for linking.</ng-container>
+              <br/>
+              <ng-container i18n>Unlink an existing Board, or create a new one.</ng-container>
             </div>
-          </button>
+          </div>
         </div>
 
+        <ng-template #loadingLinkableBoards>
+          <app-loading-notice diameter="49" layout="row" subject="Linkable Boards" [style.padding]="'20px 0'"></app-loading-notice>
+        </ng-template>
+      </div>
 
-        <h3>Reset Cell Contents</h3>
-        <button mat-stroked-button color="primary" (click)="clearCell('symbol')"
-                gaEvent="click" gaLabel="ClearSymbol">
-          Clear Symbol
-        </button>&nbsp;
-        <button mat-stroked-button color="primary" (click)="clearCell('colours')"
-                gaEvent="click" gaLabel="ClearColours"
+      <h3>Move Cell</h3>
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <button mat-stroked-button color="primary"
+                (click)="moveCell(board.cells.indexOf(cell) - 1)"
+                [disabled]="board.cells.indexOf(cell) === 0"
+                fxFlex="50"
+                gaEvent="click" gaLabel="MoveCellEarlier"
         >
-          Clear Colours
+          <div fxLayoutAlign="start center">
+            <mat-icon>arrow_left</mat-icon>
+            Move Earlier
+          </div></button>&nbsp;
+        <button mat-stroked-button color="primary"
+                (click)="moveCell(board.cells.indexOf(cell) + 1)"
+                [disabled]="board.cells.indexOf(cell) === (board.cells.length - 1)"
+                fxFlex="50"
+                gaEvent="click" gaLabel="MoveCellLater"
+        >
+          <div fxLayoutAlign="end center">
+            Move Later
+            <mat-icon>arrow_right</mat-icon>
+          </div>
         </button>
-
       </div>
-    </mat-tab>
 
-    <mat-tab label="Symbol" i18n-label>
-      <div class="p-1">
-        <app-search-panel #searchPanel [initialQuery]="cell.caption" (selectionChange)="selectSearchResult($event)"></app-search-panel>
-      </div>
-    </mat-tab>
 
-    <mat-tab label="My Images" i18n-label>
-      <div class="p-1">
-        <app-media-library (mediaSelect)="selectMedia($event)" [showCreate]="true"></app-media-library>
-      </div>
-    </mat-tab>
-  </mat-tab-group>
-</div>
+      <h3>Reset Cell Contents</h3>
+      <button mat-stroked-button color="primary" (click)="clearCell('symbol')"
+              gaEvent="click" gaLabel="ClearSymbol">
+        Clear Symbol
+      </button>&nbsp;
+      <button mat-stroked-button color="primary" (click)="clearCell('colours')"
+              gaEvent="click" gaLabel="ClearColours"
+      >
+        Clear Colours
+      </button>
+
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Symbol" i18n-label>
+    <div class="p-1">
+      <app-search-panel #searchPanel [initialQuery]="cell.caption" (selectionChange)="selectSearchResult($event)"></app-search-panel>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="My Images" i18n-label>
+    <div class="p-1">
+      <app-media-library (mediaSelect)="selectMedia($event)" [showCreate]="true"></app-media-library>
+    </div>
+  </mat-tab>
+</mat-tab-group>

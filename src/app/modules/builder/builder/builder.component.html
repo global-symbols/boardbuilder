@@ -65,7 +65,6 @@
     </mat-sidenav>
 
     <mat-sidenav [opened]="selectedCell" [mode]="cellEditorMobileQuery.matches ? 'over' : 'side'"
-
                  position="end" id="cellEditor" #cellEditor
                  (opened)="disableCellEditorAnimations = false"
                  (closed)="disableCellEditorAnimations = true; selectedCell = null"
@@ -77,6 +76,7 @@
                        (closed)="cellEditor.close();"
                        (cellLinkedToBoard)="boardTree.rebuildTree()"
                        [@.disabled]="disableCellEditorAnimations"
+                       fxLayout="column" fxFlex
       ></app-cell-editor>
     </mat-sidenav>
 

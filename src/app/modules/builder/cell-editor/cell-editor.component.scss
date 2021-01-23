@@ -12,12 +12,29 @@ mat-panel-description {
   flex-direction: row-reverse;
 }
 
+// Remove padding from the bottom of the Cell Caption box.
+// Added automatically because it's a mat-form-field
+::ng-deep.cell-caption-form-field .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
 // Set tab widths
 ::ng-deep.mat-tab-label,
 ::ng-deep.mat-tab-label-active{
   min-width: 118px !important;
 }
 
-::ng-deep.mat-drawer-inner-container {
-  overflow: overlay;
+// Hide overflow on the tab group - prevents showing another scollbar
+mat-tab-group {
+  overflow-y: hidden;
+}
+
+// Prevent jumping of tab-body heights when changing tabs
+::ng-deep.mat-tab-body-wrapper {
+  min-height: 100%;
+}
+
+// Overlay the scrollbar on tab body content
+::ng-deep.mat-tab-body-content {
+  overflow-y: overlay !important;
 }
