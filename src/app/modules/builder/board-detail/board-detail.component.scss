@@ -1,3 +1,5 @@
+@import "~app/shared/variables";
+
 mat-grid-tile {
   position: absolute;
   text-align: center;
@@ -14,8 +16,28 @@ mat-grid-tile {
     outline-style: solid;
   }
 
-  &.selected {
-    outline: rgba(0, 103, 244, 0.247) auto 5px;
+  transition: box-shadow 0.05s ease-in;
+
+  &:hover {
+    transition-duration: 0.2s;
+    box-shadow: 0 0 8px 3px rgba($light-blue, 0.8);
+    cursor: pointer;
+  }
+
+  &.selected,
+  &.selected:focus {
+    //outline: rgba(0, 103, 244, 0.247) auto 5px;
+    //box-shadow: 0 0 5px 3px $blue;
+    box-shadow: 0 0 8px 4px $blue;
+  }
+
+  // When a tile is focussed, show a glow around it.
+  // Also, disguise the default user agent outline, but retain user-applied outlines.
+  &:focus {
+    transition-duration: 0.2s;
+    box-shadow: 0 0 5px 3px $light-blue;
+    outline-style: solid;
+    outline-color: transparent;
   }
 
   div.tile-body {

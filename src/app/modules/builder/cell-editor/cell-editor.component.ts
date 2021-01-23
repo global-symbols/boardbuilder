@@ -65,9 +65,21 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     }
   }
 
+  linkToBoardsList(): Array<Board> {
+    return this.boardSet.boards.filter(b => b.id !== this.board.id && b.childBoards().length === 0);
+  }
+
   loadLinkableBoards(): void {
     this.linkableBoards$ = this.cellService.get(this.cell.id, 'linkable_boards').pipe(map(cell => cell.linkable_boards));
     // this.cellService.get(this.cell.id, 'linkable_boards').subscribe(lb => this.linkableBoards = lb.linkable_boards);
+  }
+
+  linkCellToBoard(event: MatSelectChange) {
+    this.cell.linked_board_id = event.value;
+    this.cellService.update(this.cell).subscribe(success => {
+      this.cellLinkedToBoard.emit(true);
+      this.loadLinkedBoard();
+    });
   }
 
   loadLinkedBoard(): void {
@@ -87,18 +99,6 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     this.cell.media_id = null;
     this.cell.image_url = result.imageUrl;
     this.cell.picto_id = result.pictoId;
-  }
-
-  linkToBoardsList(): Array<Board> {
-    return this.boardSet.boards.filter(b => b.id !== this.board.id && b.childBoards().length === 0);
-  }
-
-  linkCellToBoard(event: MatSelectChange) {
-    this.cell.linked_board_id = event.value;
-    this.cellService.update(this.cell).subscribe(success => {
-      this.cellLinkedToBoard.emit(true);
-      this.loadLinkedBoard();
-    });
   }
 
   unlinkCellFromBoard() {

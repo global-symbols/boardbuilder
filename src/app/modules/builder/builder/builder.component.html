@@ -67,7 +67,8 @@
     <mat-sidenav [opened]="selectedCell" [mode]="cellEditorMobileQuery.matches ? 'over' : 'side'"
                  position="end" id="cellEditor" #cellEditor
                  (opened)="disableCellEditorAnimations = false"
-                 (closed)="disableCellEditorAnimations = true; selectedCell = null"
+                 (closed)="disableCellEditorAnimations = true"
+                 (closedStart)="selectedCell = null"
                  *ngIf="!boardSet?.readonly">
 
       <app-cell-editor [boardSet]="boardSet"
