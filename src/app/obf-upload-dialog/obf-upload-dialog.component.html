@@ -5,7 +5,7 @@
 
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
     <h1 mat-dialog-title i18n class="mb-0">Add Board from OBF</h1>
-    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false" (mousedown)="$event.stopPropagation()">
+    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false" appStopPropagation>
       <mat-icon>close</mat-icon>
     </button>
   </header>
@@ -20,7 +20,7 @@
 
       <mat-spinner *ngIf="state === 'Uploading'" diameter="24" style="margin: 0 auto"></mat-spinner>
 
-      <button *ngIf="state !== 'Uploading'" mat-stroked-button (click)="uploadInput.click()" (mousedown)="$event.stopPropagation()">
+      <button *ngIf="state !== 'Uploading'" mat-stroked-button (click)="uploadInput.click()" appStopPropagation>
         {{filename}}
         <ng-container *ngIf="!filename" i18n>Select OBF&hellip;</ng-container>
       </button>
@@ -33,9 +33,9 @@
     <p *ngIf="state === 'FileInvalid'" role="alert" i18n>The file you provided is not a valid OBF file.</p>
   </div>
   <div mat-dialog-actions>
-    <button mat-stroked-button [mat-dialog-close]="false" color="primary" (mousedown)="$event.stopPropagation()" i18n>Cancel</button>
+    <button mat-stroked-button [mat-dialog-close]="false" color="primary" appStopPropagation i18n>Cancel</button>
     <span class="spacer"></span>
-    <button mat-raised-button color="primary" [disabled]="!previewBoard || state === 'Uploading'" (mousedown)="$event.stopPropagation()" i18n (click)="uploadBoard()">Add Board</button>
+    <button mat-raised-button color="primary" [disabled]="!previewBoard || state === 'Uploading'" appStopPropagation i18n (click)="uploadBoard()">Add Board</button>
   </div>
   <input type="file" accept=".obf" style="display: none" #uploadInput (change)="fileChanged($event.target)">
 </div>

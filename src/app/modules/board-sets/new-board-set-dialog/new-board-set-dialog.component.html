@@ -6,7 +6,7 @@
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
     <h1 mat-dialog-title i18n class="mb-0">Create Board Set</h1>
     <button mat-icon-button aria-label="Close" [mat-dialog-close]="false"
-            (mousedown)="$event.stopPropagation()">
+            appStopPropagation>
       <mat-icon>close</mat-icon>
     </button>
   </header>
@@ -25,7 +25,7 @@
             <mat-hint>Choose a name for the new Board Set.</mat-hint>
           </mat-form-field>
 
-          <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="20px">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutGap="20px">
             <img src="/assets/images/board-set.svg" alt="Board Set" />
             <div>
               <p>A Board Set is a collection of communication Boards - as many or as few as you like.</p>
@@ -51,14 +51,6 @@
         </div>
       </mat-step>
     </mat-horizontal-stepper>
-
-
-<!--    <mat-form-field class="w-100" appearance="outline">-->
-<!--      <mat-label i18n>Board Set Name</mat-label>-->
-<!--      <input matInput required placeholder="Name" cdkFocusInitial-->
-<!--             [formControl]="name"-->
-<!--             (mousedown)="$event.stopPropagation()">-->
-<!--    </mat-form-field>-->
 
 
 

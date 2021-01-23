@@ -38,14 +38,14 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   disableCellEditorAnimations = true;
 
-  mobileQuery: MediaQueryList;
+  cellEditorMobileQuery: MediaQueryList;
+  boardTreeMobileQuery: MediaQueryList;
+  private readonly mobileQueryListener: () => void;
 
   @ViewChild(BoardTreeComponent) boardTree: BoardTreeComponent;
 
-  private readonly mobileQueryListener: () => void;
-
   private currentDialogRef;
-  private hotkeys: Array<Hotkey | Hotkey[]>;
+  private hotkeys: Array<Hotkey | Hotkey[]> = [];
 
   constructor(changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
@@ -59,10 +59,13 @@ export class BuilderComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               private router: Router
   ) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this.mobileQueryListener);
-    this.hotkeys = [];
+
+    this.boardTreeMobileQuery = media.matchMedia('(max-width: 900px)');
+    this.boardTreeMobileQuery.addListener(this.mobileQueryListener);
+
+    this.cellEditorMobileQuery = media.matchMedia('(max-width: 1400px)');
+    this.cellEditorMobileQuery.addListener(this.mobileQueryListener);
   }
 
   ngOnInit() {
@@ -140,7 +143,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this.mobileQueryListener);
+    this.boardTreeMobileQuery.removeListener(this.mobileQueryListener);
 
     // Clear navbar buttons
     this.toolbarService.clearButtons();

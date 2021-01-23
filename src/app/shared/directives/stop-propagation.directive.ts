@@ -9,4 +9,8 @@ export class StopPropagationDirective {
     $event.stopPropagation();
   }
 
+  @HostListener('touchstart', ['$event']) onTouchStart($event) {
+    $event.stopPropagation();
+  }
+
 }

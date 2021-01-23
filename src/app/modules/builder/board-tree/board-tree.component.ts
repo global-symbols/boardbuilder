@@ -37,7 +37,7 @@ interface BoardTreeMenuItem {
   templateUrl: './board-tree.component.html',
   styleUrls: ['./board-tree.component.scss']
 })
-export class BoardTreeComponent implements AfterViewInit, OnChanges {
+export class BoardTreeComponent implements OnChanges {
 
   @Input() boardSet: BoardSet;
   @Input() boards: Array<Board>;
@@ -76,18 +76,16 @@ export class BoardTreeComponent implements AfterViewInit, OnChanges {
     private router: Router
   ) { }
 
-  // Expand all parts of the tree after the viewInit and after every onChanges
-  ngAfterViewInit() {
-    this.matTree.treeControl.expandAll();
-  }
-
   ngOnChanges(changes: SimpleChanges) {
     // Reload the Boards hierarchy when this.boards changes.
     if (changes.boards) { this.rebuildTree(); }
   }
 
-  rebuildTree(): void {
+  // Generates the tree and then expands all nodes
+  rebuildTree(expandNodes = true): void {
     this.dataSource.data = this.flatToHierarchy();
+    // Expand all parts of the tree after the viewInit and after every onChanges
+    if (expandNodes) { this.treeControl.expandAll(); }
   }
 
   private flatToHierarchy(): BoardTreeMenuItem[] {

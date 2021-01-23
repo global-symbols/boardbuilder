@@ -13,32 +13,18 @@ import {DialogService} from '@app/services/dialog.service';
   templateUrl: './media.component.html',
   styleUrls: ['./media.component.scss']
 })
-export class MediaComponent implements OnInit, OnDestroy {
+export class MediaComponent implements OnInit {
 
   media: Media[];
   loading: boolean;
-  private currentDialogRef;
 
-  constructor(private service: MediaService,
-              private dialog: MatDialog,
-              private dialogService: DialogService,
-              private toolbarService: ToolbarService,
-              private router: Router
+  constructor(
+    private service: MediaService,
+    private dialogService: DialogService,
   ) { }
 
   ngOnInit(): void {
     this.loadMedia();
-
-    this.toolbarService.setButtons([{
-      text: 'Board Sets',
-      icon: 'arrow_back',
-      action: () => this.router.navigate(['/', 'boardsets'])
-    }]);
-  }
-
-  ngOnDestroy(): void {
-    // Clear navbar buttons
-    this.toolbarService.clearButtons();
   }
 
   loadMedia(): void {
@@ -50,15 +36,13 @@ export class MediaComponent implements OnInit, OnDestroy {
     );
   }
 
-  delete(mediaItem: any) {
-    if (this.currentDialogRef !== undefined) { return; }
+  delete(mediaItem: Media) {
 
-    this.currentDialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '300px',
-      data: {heading: 'Delete this Image?', content: 'The image will be permanently removed from any Boards it\'s used in.'}
-    });
-
-    this.currentDialogRef.afterClosed().subscribe(result => {
+    this.dialogService.delete({
+      heading: `Delete this Symbol?`,
+      content: `The Symbol will be permanently removed from any Boards it\'s used in.`,
+      icon: 'delete'
+    }).afterClosed().subscribe(result => {
 
       if (result) {
         this.service.delete(mediaItem).subscribe(r => {
@@ -66,8 +50,6 @@ export class MediaComponent implements OnInit, OnDestroy {
           this.media = this.media.filter(m => m !== mediaItem);
         });
       }
-
-      this.currentDialogRef = undefined;
     });
   }
 
@@ -78,18 +60,9 @@ export class MediaComponent implements OnInit, OnDestroy {
   }
 
   openSymbolCreator(media?: Media) {
-    if (this.currentDialogRef !== undefined) { return; }
-
-    this.currentDialogRef = this.dialogService.openSymbolCreator(media);
-
-    this.currentDialogRef.afterClosed().subscribe(mediaItem => {
-
-      if (mediaItem) {
-        // Reload the Media list
-        this.loadMedia();
-      }
-
-      this.currentDialogRef = undefined;
+    this.dialogService.openSymbolCreator(media).afterClosed().subscribe(mediaItem => {
+      // Reload the Media list
+      if (mediaItem) { this.loadMedia(); }
     });
   }
 

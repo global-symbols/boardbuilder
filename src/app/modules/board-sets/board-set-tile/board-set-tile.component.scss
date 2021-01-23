@@ -1,6 +1,12 @@
+@import "~app/shared/variables";
+
 ::ng-deep .mat-card-header-text {
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+
+mat-card-title {
+  @include word-wrap;
 }
 
 mat-card-title a {

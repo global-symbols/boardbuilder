@@ -1,14 +1,11 @@
 <app-loading-notice class="mt-3" subject="Board Set" *ngIf="loading"></app-loading-notice>
 <app-error-not-found class="container mt-3" subject="Board Set" *ngIf="loadingError"></app-error-not-found>
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="boardSet">
+<div class="example-container" [class.example-is-mobile]="boardTreeMobileQuery.matches" *ngIf="boardSet">
 
-  <mat-sidenav-container class="example-sidenav-container"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
-                         [autosize]="true"
-  >
-    <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"
-                 [opened]="!mobileQuery.matches"
+  <mat-sidenav-container class="example-sidenav-container" [autosize]="true">
+    <mat-sidenav #sideNav [mode]="boardTreeMobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="boardTreeMobileQuery.matches" fixedTopGap="56"
+                 [opened]="!boardTreeMobileQuery.matches"
 
     >
       <div fxLayout="column" fxFlex>
@@ -67,7 +64,9 @@
 
     </mat-sidenav>
 
-    <mat-sidenav [opened]="selectedCell" mode="side" position="end" id="cellEditor" #cellEditor
+    <mat-sidenav [opened]="selectedCell" [mode]="cellEditorMobileQuery.matches ? 'over' : 'side'"
+
+                 position="end" id="cellEditor" #cellEditor
                  (opened)="disableCellEditorAnimations = false"
                  (closed)="disableCellEditorAnimations = true; selectedCell = null"
                  *ngIf="!boardSet?.readonly">
@@ -95,7 +94,7 @@
 
 <mat-menu #matBoardSetMenu="matMenu">
   <button mat-menu-item (click)="uploadBoardObf()" [disabled]="boardSet?.readonly">
-    <mat-icon>insert_drive_file</mat-icon> <ng-container i18n>Add Board from OBF</ng-container>
+    <mat-icon>note_add</mat-icon> <ng-container i18n>Add Board from OBF</ng-container>
   </button>
   <button mat-menu-item (click)="downloadBoardSetObz()">
     <mat-icon>save_alt</mat-icon> <ng-container i18n>Download Board Set as OBZ</ng-container>

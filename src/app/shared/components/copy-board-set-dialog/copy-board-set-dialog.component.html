@@ -14,9 +14,9 @@
   </div>
 
   <div mat-dialog-actions>
-    <button mat-stroked-button [mat-dialog-close]="false" color="primary" i18n [disabled]="status === 'Copying'" (mousedown)="$event.stopPropagation()" *ngIf="status != 'Copied'">Cancel</button>
+    <button mat-stroked-button [mat-dialog-close]="false" color="primary" i18n [disabled]="status === 'Copying'" appStopPropagation *ngIf="status != 'Copied'">Cancel</button>
     <span class="spacer"></span>
-    <button mat-raised-button color="primary" i18n (click)="copyBoardSet()" [disabled]="status === 'Copying'" (mousedown)="$event.stopPropagation()" *ngIf="status != 'Copied'">Copy</button>
-    <button mat-raised-button color="primary" i18n (click)="openCopiedBoardSet()" (mousedown)="$event.stopPropagation()" *ngIf="status === 'Copied'">Go To Copy</button>
+    <button mat-raised-button color="primary" i18n (click)="copyBoardSet()" [disabled]="status === 'Copying'" appStopPropagation *ngIf="status != 'Copied'">Copy</button>
+    <button mat-raised-button color="primary" i18n (click)="openCopiedBoardSet()" appStopPropagation *ngIf="status === 'Copied'">Go To Copy</button>
   </div>
 </div>

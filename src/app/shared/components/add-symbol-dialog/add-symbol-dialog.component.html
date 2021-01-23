@@ -8,12 +8,12 @@
 
     <div>
       <button mat-stroked-button (click)="clearImage()" *ngIf="data.allowClear"
-              (mousedown)="$event.stopPropagation()">
+              appStopPropagation>
         Clear Image
       </button>
 
       <button mat-icon-button aria-label="Close" [mat-dialog-close]="false"
-              (mousedown)="$event.stopPropagation()">
+              appStopPropagation>
         <mat-icon>close</mat-icon>
       </button>
     </div>

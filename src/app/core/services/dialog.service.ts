@@ -41,15 +41,17 @@ export class DialogService {
     return this.currentDialog;
   }
 
-  deleteBoardSet(boardSet: BoardSet, data: DialogData): MatDialogRef<ConfirmDialogComponent> {
-    if (boardSet.readonly) { return; }
-
+  delete(data: DialogData): MatDialogRef<ConfirmDialogComponent> {
     this.currentDialog = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',
       data
     });
-
     return this.currentDialog;
+  }
+
+  deleteBoardSet(boardSet: BoardSet, data: DialogData): MatDialogRef<ConfirmDialogComponent> {
+    if (boardSet.readonly) { return; }
+    return this.delete(data);
   }
 
   uploadObz(): MatDialogRef<ObzUploadDialogComponent> {

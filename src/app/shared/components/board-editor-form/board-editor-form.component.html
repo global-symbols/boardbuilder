@@ -7,7 +7,7 @@
     </mat-label>
     <input matInput required #titleField
            [(ngModel)]="board.title"
-           (mousedown)="$event.stopPropagation()">
+           appStopPropagation>
     <mat-hint *ngIf="!board.board_set_id">Choose a name for the first Board in your new Board Set.</mat-hint>
   </mat-form-field>
 
@@ -18,7 +18,7 @@
     </mat-label>
     <input matInput maxlength="250"
            [(ngModel)]="board.description"
-           (mousedown)="$event.stopPropagation()">
+           appStopPropagation>
     <mat-hint>Optional. Shown in PDFs made from this Board.</mat-hint>
   </mat-form-field>
 </div>

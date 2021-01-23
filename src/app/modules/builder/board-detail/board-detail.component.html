@@ -14,7 +14,7 @@
     <span fxFlex="33" class="text-right">{{board.description}}</span>
   </div>
 
-  <mat-grid-list [cols]="board.columns" rowHeight="12rem" gutterSize="1rem">
+  <mat-grid-list [cols]="board.columns" rowHeight="11.85rem" gutterSize="1rem">
     <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows)"
                    tabindex="0" (click)="selectCell(c)" (keyup.enter)="selectCell(c)"
                    [style.background-color]="c.background_colour"
@@ -36,13 +36,15 @@
 
         >
 
-          <button mat-icon-button [style.visibility]="'hidden'">
+          <button mat-icon-button *ngIf="c.linked_board_id"
+                  [style.visibility]="'hidden'">
             <mat-icon>link</mat-icon>
           </button>
 
           <span fxFlex="grow" [style.color]="c.text_colour" *ngIf="board.captions_position != 'hidden'">{{c.caption}}</span>
 
-          <button mat-icon-button [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
+          <button mat-icon-button *ngIf="c.linked_board_id"
+                  [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
                   (click)="showBoard(c.linked_board_id)"
                   matTooltip="Go to Linked Board">
             <mat-icon>link</mat-icon>

@@ -12,13 +12,15 @@ import {Media} from '@data/models/media.model';
 import {SearchPanelComponent} from '@shared/components/search-panel/search-panel.component';
 import {SymbolSearchResult} from '@data/models/symbol-search-result';
 import {colourPickerColours} from '@data/colour-picker-colours';
+import {Observable} from 'rxjs';
+import {delay, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-cell-editor',
   templateUrl: './cell-editor.component.html',
   styleUrls: ['./cell-editor.component.scss']
 })
-export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterViewInit {
+export class CellEditorComponent implements OnChanges, OnDestroy {
 
   @Input() boardSet: BoardSet;
   @Input() board: Board;
@@ -29,7 +31,7 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
 
   @ViewChild('searchPanel') searchPanel: SearchPanelComponent;
 
-  linkableBoards: Board[];
+  linkableBoards$: Observable<Board[]>;
   linkedBoard: Board;
 
   colourPickerColours: Array<string>;
@@ -39,15 +41,7 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
     private cellService: CellService,
     private boardService: BoardService
   ) {
-    this.linkableBoards = new Array<Board>();
     this.colourPickerColours = colourPickerColours;
-  }
-
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-    // this.cellService.get(this.cell.id, 'linkable_boards').subscribe(lb => console.log('linkable boards', lb));
   }
 
   // Save the Cell to the API when the component is destroyed
@@ -72,7 +66,8 @@ export class CellEditorComponent implements OnInit, OnChanges, OnDestroy, AfterV
   }
 
   loadLinkableBoards(): void {
-    this.cellService.get(this.cell.id, 'linkable_boards').subscribe(lb => this.linkableBoards = lb.linkable_boards);
+    this.linkableBoards$ = this.cellService.get(this.cell.id, 'linkable_boards').pipe(map(cell => cell.linkable_boards));
+    // this.cellService.get(this.cell.id, 'linkable_boards').subscribe(lb => this.linkableBoards = lb.linkable_boards);
   }
 
   loadLinkedBoard(): void {

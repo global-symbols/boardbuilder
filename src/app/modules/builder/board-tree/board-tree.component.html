@@ -23,7 +23,7 @@
                     [matMenuTriggerData]="{board: node.board}"
                     matTooltip="Board Actions" matTooltipPosition="right"
                     (click)="$event.stopPropagation()"
-                    (mousedown)="$event.stopPropagation()"
+                    appStopPropagation
             >
               <mat-icon>more_vert</mat-icon>
             </button>
@@ -44,7 +44,7 @@
 
         <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
           <button mat-icon-button matTreeNodeToggle
-                  (mousedown)="$event.stopPropagation()"
+                  appStopPropagation
                   [attr.aria-label]="'expand ' + node.board.name">
             <mat-icon class="mat-icon-rtl-mirror">
               {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
@@ -56,7 +56,7 @@
                   [matMenuTriggerData]="{board: node.board}"
                   matTooltip="Board Actions" matTooltipPosition="right"
                   (click)="$event.stopPropagation()"
-                  (mousedown)="$event.stopPropagation()"
+                  appStopPropagation
           >
             <mat-icon>more_vert</mat-icon>
           </button>
@@ -64,7 +64,7 @@
 
 
 <!--        <button mat-icon-button matTreeNodeToggle-->
-<!--                (mousedown)="$event.stopPropagation()"-->
+<!--                appStopPropagation-->
 <!--                [attr.aria-label]="'toggle ' + node.name">-->
 <!--          <mat-icon class="mat-icon-rtl-mirror">-->
 <!--            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}-->

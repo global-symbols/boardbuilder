@@ -1,0 +1,24 @@
+{
+  "name": "GlobalSymbols Board Builder",
+  "short_name": "Board Builder",
+  "start_url": "https://app.globalsymbols.com",
+  "display": "standalone",
+  "background_color": "#006aba",
+  "description": "Create boards to aid communication with thousands of free images.",
+  "icons": [{
+    "src": "assets/images/apple-touch-icon.png",
+    "sizes": "180x180",
+    "type": "image/png"
+  }],
+  "theme_color": "#006aba",
+  "shortcuts" : [
+    {
+      "name": "Board Sets",
+      "url": "/boardsets"
+    },
+    {
+      "name": "Media",
+      "url": "/media"
+    }
+  ]
+}

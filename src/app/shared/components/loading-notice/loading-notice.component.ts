@@ -7,6 +7,9 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class LoadingNoticeComponent implements OnInit {
 
+  @Input() diameter = 100;
+  @Input() layout: 'column' | 'row' = 'column';
+
   @Input() action: string;
   @Input() subject: string;
 

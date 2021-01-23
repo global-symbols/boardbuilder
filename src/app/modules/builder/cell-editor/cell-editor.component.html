@@ -6,7 +6,7 @@
       <input #cellCaptionInput matInput [(ngModel)]="cell.caption" placeholder="Caption" i18n-placeholder autocomplete="off">
     </mat-form-field>
 
-    <button mat-icon-button aria-label="Save and close the cell editor" matTooltip="Save and Close" i18n-aria-label (click)="closeEditor()" style="margin-left: 1rem; margin-top: 8px"
+    <button mat-icon-button aria-label="Save and close the cell editor" matTooltip="Save and Close" matTooltipPosition="left" i18n-aria-label (click)="closeEditor()" style="margin-left: 1rem; margin-top: 8px"
             gaEvent="click" gaLabel="SaveAndClose"
     >
       <mat-icon>check</mat-icon>
@@ -31,34 +31,37 @@
         <h3 i18n>Linking</h3>
         <mat-card *ngIf="cell.linked_board_id" fxLayout="row" fxLayoutAlign="space-between center">
           <ng-container i18n>Linked to</ng-container> {{linkedBoard ? linkedBoard.name : cell.linked_board_id}}
-          <button mat-icon-button aria-label="Unlink" i18n-aria-label matTooltip="Unlink" i18n-matTooltip (click)="unlinkCellFromBoard()">
+          <button mat-icon-button aria-label="Unlink" i18n-aria-label matTooltip="Unlink" matTooltipPosition="left" i18n-matTooltip (click)="unlinkCellFromBoard()">
             <mat-icon>close</mat-icon>
           </button>
         </mat-card>
 
         <div *ngIf="!cell.linked_board_id">
-          <div *ngIf="linkableBoards.length > 0">
-            <mat-form-field class="w-100" appearance="outline">
-              <mat-label i18n>Link to a Board</mat-label>
-              <mat-select (selectionChange)="linkCellToBoard($event)">
-                <mat-option *ngFor="let board of linkableBoards" [value]="board.id">{{board.name}}</mat-option>
-              </mat-select>
-            </mat-form-field>
+          <div *ngIf="linkableBoards$ | async as linkableBoards; else loadingLinkableBoards">
 
-            <div fxLayout="row" fxLayoutAlign="start center">
-              <mat-icon style="margin-right: 1rem;">info</mat-icon>
-              <ng-container i18n>This list shows only unlinked Boards.</ng-container>
+            <div *ngIf="linkableBoards.length > 0">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label i18n>Link to a Board</mat-label>
+                <mat-select (selectionChange)="linkCellToBoard($event)">
+                  <mat-option *ngFor="let board of linkableBoards" [value]="board.id">{{board.name}}</mat-option>
+                </mat-select>
+                <mat-hint>This list shows only unlinked Boards.</mat-hint>
+              </mat-form-field>
+            </div>
+
+            <div *ngIf="linkableBoards.length === 0">
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <mat-icon style="margin-right: 1rem;">info</mat-icon>
+                <ng-container i18n>No Boards are available for linking.</ng-container>
+                <br/>
+                <ng-container i18n>Unlink an existing Board, or create a new one.</ng-container>
+              </div>
             </div>
           </div>
 
-          <div *ngIf="linkableBoards.length === 0">
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-              <mat-icon style="margin-right: 1rem;">info</mat-icon>
-              <ng-container i18n>No Boards are available for linking.</ng-container>
-              <br/>
-              <ng-container i18n>Unlink an existing Board, or create a new one.</ng-container>
-            </div>
-          </div>
+          <ng-template #loadingLinkableBoards>
+            <app-loading-notice diameter="49" layout="row" subject="Linkable Boards" [style.padding]="'20px 0'"></app-loading-notice>
+          </ng-template>
         </div>
 
         <h3>Move Cell</h3>

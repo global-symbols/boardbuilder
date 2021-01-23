@@ -5,7 +5,7 @@
 
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
     <h1 mat-dialog-title i18n class="mb-0">Board Set Properties</h1>
-    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false" (mousedown)="$event.stopPropagation()">
+    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false" appStopPropagation>
       <mat-icon>close</mat-icon>
     </button>
   </header>
@@ -15,12 +15,12 @@
       <mat-label i18n>Title</mat-label>
       <input matInput required placeholder="Title"
              [(ngModel)]="data.boardSet.title"
-             (mousedown)="$event.stopPropagation()">
+             appStopPropagation>
     </mat-form-field>
 
     <mat-form-field class="w-100 mb-3">
       <mat-label>Visibility</mat-label>
-      <mat-select [(value)]="data.boardSet.public" (mousedown)="$event.stopPropagation()">
+      <mat-select [(value)]="data.boardSet.public" appStopPropagation>
         <mat-option [value]="false">Private</mat-option>
         <mat-option [value]="true">Public</mat-option>
       </mat-select>
@@ -31,6 +31,6 @@
   </div>
   <div mat-dialog-actions>
     <span class="spacer"></span>
-    <button mat-raised-button [mat-dialog-close]="data.boardSet" color="primary" (mousedown)="$event.stopPropagation()" cdkFocusInitial i18n>Done</button>
+    <button mat-raised-button [mat-dialog-close]="data.boardSet" color="primary" appStopPropagation cdkFocusInitial i18n>Done</button>
   </div>
 </div>
