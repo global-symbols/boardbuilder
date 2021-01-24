@@ -16,16 +16,17 @@ mat-grid-tile {
     outline-style: solid;
   }
 
-  transition: box-shadow 0.05s ease-in;
+  transition: box-shadow 0.2s ease-in;
 
   &:hover {
-    transition-duration: 0.2s;
+    transition-duration: 0.05s;
     box-shadow: 0 0 8px 3px rgba($light-blue, 0.8);
     cursor: pointer;
   }
 
   &.selected,
   &.selected:focus {
+    transition-duration: 0.2s;
     //outline: rgba(0, 103, 244, 0.247) auto 5px;
     //box-shadow: 0 0 5px 3px $blue;
     box-shadow: 0 0 8px 4px $blue;

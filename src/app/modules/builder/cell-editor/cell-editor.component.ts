@@ -46,9 +46,7 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
 
   // Save the Cell to the API when the component is destroyed
   ngOnDestroy() {
-    if (this.cell) {
-      this.cellService.update(this.cell).subscribe();
-    }
+    if (this.cell) { this.cellService.update(this.cell).subscribe(); }
   }
 
   // When an @Input is changed...
@@ -65,20 +63,24 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     }
   }
 
-  linkToBoardsList(): Array<Board> {
-    return this.boardSet.boards.filter(b => b.id !== this.board.id && b.childBoards().length === 0);
-  }
-
   loadLinkableBoards(): void {
     this.linkableBoards$ = this.cellService.get(this.cell.id, 'linkable_boards').pipe(map(cell => cell.linkable_boards));
-    // this.cellService.get(this.cell.id, 'linkable_boards').subscribe(lb => this.linkableBoards = lb.linkable_boards);
   }
 
-  linkCellToBoard(event: MatSelectChange) {
-    this.cell.linked_board_id = event.value;
+  afterCellLinkedToBoard() {
     this.cellService.update(this.cell).subscribe(success => {
       this.cellLinkedToBoard.emit(true);
       this.loadLinkedBoard();
+    });
+  }
+
+  unlinkCellFromBoard() {
+    this.cell.linked_board_id = null;
+    this.linkedBoard = null;
+
+    this.cellService.update(this.cell).subscribe(success => {
+      this.cellLinkedToBoard.emit(true);
+      this.loadLinkableBoards();
     });
   }
 
@@ -99,16 +101,8 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     this.cell.media_id = null;
     this.cell.image_url = result.imageUrl;
     this.cell.picto_id = result.pictoId;
-  }
 
-  unlinkCellFromBoard() {
-    this.cell.linked_board_id = null;
-    this.linkedBoard = null;
-
-    this.cellService.update(this.cell).subscribe(success => {
-      this.cellLinkedToBoard.emit(true);
-      this.loadLinkableBoards();
-    });
+    this.cellService.update(this.cell).subscribe();
   }
 
   // Fires an automatic search when the Search tab is opened.
@@ -127,6 +121,8 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     if (subject === 'symbol') {
       this.cell.image_url = null;
     }
+
+    this.cellService.update(this.cell).subscribe();
   }
 
   moveCell(to: number) {
@@ -144,5 +140,7 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     this.cell.media = media;
     this.cell.media_id = media.id;
     this.cell.image_url = media.public_url;
+
+    this.cellService.update(this.cell).subscribe();
   }
 }

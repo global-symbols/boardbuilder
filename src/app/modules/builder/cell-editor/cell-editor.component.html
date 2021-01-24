@@ -31,12 +31,15 @@
       </mat-accordion>
 
       <h3 i18n>Linking</h3>
-      <mat-card *ngIf="cell.linked_board_id" fxLayout="row" fxLayoutAlign="space-between center">
-        <ng-container i18n>Linked to</ng-container> {{linkedBoard ? linkedBoard.name : cell.linked_board_id}}
-        <button mat-icon-button aria-label="Unlink" i18n-aria-label matTooltip="Unlink" matTooltipPosition="left" i18n-matTooltip (click)="unlinkCellFromBoard()">
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-card>
+
+      <div class="cell-linked-notice-wrapper" *ngIf="cell.linked_board_id">
+        <mat-card fxLayout="row" fxLayoutAlign="space-between center">
+          <ng-container i18n>Linked to</ng-container> {{linkedBoard ? linkedBoard.name : cell.linked_board_id}}
+          <button mat-icon-button aria-label="Unlink" i18n-aria-label matTooltip="Unlink" matTooltipPosition="left" i18n-matTooltip (click)="unlinkCellFromBoard()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-card>
+      </div>
 
       <div *ngIf="!cell.linked_board_id">
         <div *ngIf="linkableBoards$ | async as linkableBoards; else loadingLinkableBoards">
@@ -44,7 +47,7 @@
           <div *ngIf="linkableBoards.length > 0">
             <mat-form-field class="w-100" appearance="outline">
               <mat-label i18n>Link to a Board</mat-label>
-              <mat-select (selectionChange)="linkCellToBoard($event)">
+              <mat-select (selectionChange)="afterCellLinkedToBoard()" [(ngModel)]="cell.linked_board_id">
                 <mat-option *ngFor="let board of linkableBoards" [value]="board.id">{{board.name}}</mat-option>
               </mat-select>
               <mat-hint>This list shows only unlinked Boards.</mat-hint>

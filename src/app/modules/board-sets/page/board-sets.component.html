@@ -1,10 +1,10 @@
 <div class="container mt-3">
 
+  <h2>My Board Sets</h2>
+
   <app-loading-notice *ngIf="loading" subject="Board Sets"></app-loading-notice>
 
   <ng-container *ngIf="!loading">
-
-    <h2>My Board Sets</h2>
     <div fxLayout="row wrap" fxLayoutGap="1rem grid">
       <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container">
         <mat-card fxFlexFill class="add-boardset">
