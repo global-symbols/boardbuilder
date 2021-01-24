@@ -1,4 +1,4 @@
-import { BypassSanitiserPipe } from './bypass-sanitiser.pipe';
+import {BypassSanitiserPipe} from './bypass-sanitiser.pipe';
 
 describe('BypassSanitiserPipe', () => {
   it('create an instance', () => {

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { MediaComponent } from './media.component';
+import {MediaComponent} from './media.component';
 
 describe('MediaComponent', () => {
   let component: MediaComponent;

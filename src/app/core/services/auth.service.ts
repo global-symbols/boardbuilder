@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { OAuthErrorEvent, OAuthService } from 'angular-oauth2-oidc';
-import { BehaviorSubject, combineLatest, Observable, ReplaySubject } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {OAuthErrorEvent, OAuthService} from 'angular-oauth2-oidc';
+import {BehaviorSubject, combineLatest, Observable, ReplaySubject} from 'rxjs';
+import {filter, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { WebFontsService } from './web-fonts.service';
+import {WebFontsService} from './web-fonts.service';
 
 describe('WebFontsService', () => {
   let service: WebFontsService;

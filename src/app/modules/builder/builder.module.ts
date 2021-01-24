@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {BuilderComponent} from '@modules/builder/builder/builder.component';
 import {CellEditorComponent} from '@modules/builder/cell-editor/cell-editor.component';
 import {MatExpansionModule} from '@angular/material/expansion';

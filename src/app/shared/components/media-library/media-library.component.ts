@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, Output, ViewChild, EventEmitter, Input} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Media} from '@data/models/media.model';
 import {MediaService} from '@data/services/media.service';
 import {DialogService} from '@app/services/dialog.service';

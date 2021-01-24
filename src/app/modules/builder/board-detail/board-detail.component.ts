@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {Board} from '@data/models/board.model';
 import {Cell} from '@data/models/cell.model';
 import {DialogService} from '@app/services/dialog.service';

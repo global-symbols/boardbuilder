@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SymbolCreatorComponent } from './symbol-creator.component';
+import {SymbolCreatorComponent} from './symbol-creator.component';
 
 describe('SymbolCreatorComponent', () => {
   let component: SymbolCreatorComponent;

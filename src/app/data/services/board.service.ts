@@ -1,4 +1,4 @@
-import {Injectable, SecurityContext} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from '@env';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';

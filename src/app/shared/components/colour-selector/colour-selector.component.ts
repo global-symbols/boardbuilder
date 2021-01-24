@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {COLOURS} from '../../../colour-palette';
 import {colourPickerColours} from '@data/colour-picker-colours';
 

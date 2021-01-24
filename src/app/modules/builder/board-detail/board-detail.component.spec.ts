@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { BoardDetailComponent } from './board-detail.component';
+import {BoardDetailComponent} from './board-detail.component';
 
 describe('BoardDetailComponent', () => {
   let component: BoardDetailComponent;

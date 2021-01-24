@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BoardPreviewSvgComponent } from './board-preview-svg.component';
+import {BoardPreviewSvgComponent} from './board-preview-svg.component';
 
 describe('BoardPreviewSvgComponent', () => {
   let component: BoardPreviewSvgComponent;

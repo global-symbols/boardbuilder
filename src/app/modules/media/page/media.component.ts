@@ -1,10 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Media} from '@data/models/media.model';
 import {MediaService} from '@data/services/media.service';
-import {MatDialog} from '@angular/material/dialog';
-import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
-import {ToolbarService} from '@app/services/toolbar.service';
-import {Router} from '@angular/router';
 import {saveAs} from 'file-saver';
 import {DialogService} from '@app/services/dialog.service';
 

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { LoadingNoticeComponent } from './loading-notice.component';
+import {LoadingNoticeComponent} from './loading-notice.component';
 
 describe('LoadingNoticeComponent', () => {
   let component: LoadingNoticeComponent;

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BoardSetTileComponent } from './board-set-tile.component';
+import {BoardSetTileComponent} from './board-set-tile.component';
 
 describe('BoardSetTileComponent', () => {
   let component: BoardSetTileComponent;

@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaderResponse} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
+
 // import * as xml2js from 'xml2js';
 
 @Injectable({

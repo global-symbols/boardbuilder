@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import {Board} from '@data/models/board.model';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {Observable} from 'rxjs';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {BoardTemplate} from '@data/models/board-template.model';
 import {BoardService} from '@data/services/board.service';
 

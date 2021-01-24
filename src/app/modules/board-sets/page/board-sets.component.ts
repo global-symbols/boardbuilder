@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BoardSetService} from '@data/services/board-set.service';
 import {BoardSet} from '@data/models/boardset.model';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {NewBoardSetDialogComponent} from '@modules/board-sets/new-board-set-dialog/new-board-set-dialog.component';
-import {ObzUploadDialogComponent} from '../../../obz-upload-dialog/obz-upload-dialog.component';
 import {DialogService} from '@app/services/dialog.service';
 
 @Component({

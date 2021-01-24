@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { ObfObzService } from './obf-obz.service';
+import {ObfObzService} from './obf-obz.service';
 
 describe('ObfObzService', () => {
   let service: ObfObzService;

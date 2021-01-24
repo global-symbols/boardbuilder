@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, TemplateRef} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-home-panel',

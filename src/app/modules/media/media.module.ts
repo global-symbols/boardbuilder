@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MediaComponent } from './page/media.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MediaComponent} from './page/media.component';
 import {SharedModule} from '../../shared/shared.module';
 import {RouterModule, Routes} from '@angular/router';
 import {MatMenuModule} from '@angular/material/menu';

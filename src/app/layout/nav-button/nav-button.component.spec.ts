@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { NavButtonComponent } from './nav-button.component';
+import {NavButtonComponent} from './nav-button.component';
 
 describe('NavButtonComponent', () => {
   let component: NavButtonComponent;

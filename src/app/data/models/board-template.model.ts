@@ -1,6 +1,5 @@
 import {Deserialisable} from './deserialisable.model';
 import {Board} from './board.model';
-import {Cell} from '@data/models/cell.model';
 
 export class BoardTemplate implements Deserialisable {
 

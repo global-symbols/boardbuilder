@@ -1,4 +1,4 @@
-import { StopPropagationDirective } from './stop-propagation.directive';
+import {StopPropagationDirective} from './stop-propagation.directive';
 
 describe('StopPropagationDirective', () => {
   it('should create an instance', () => {

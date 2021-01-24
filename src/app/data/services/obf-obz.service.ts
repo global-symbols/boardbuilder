@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Board} from '@data/models/board.model';
 import * as JSZip from 'jszip';
 import {BoardSet} from '@data/models/boardset.model';
 import {MediaService} from '@data/services/media.service';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {BoardSetService} from '@data/services/board-set.service';
 import {BoardService} from '@data/services/board.service';
 import {Obf} from '@data/models/obf.interface';

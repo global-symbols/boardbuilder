@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { GlobalSymbolsService } from './global-symbols.service';
+import {GlobalSymbolsService} from './global-symbols.service';
 
 describe('GlobalSymbolsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

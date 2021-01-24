@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, Sanitizer, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BoardService} from '@data/services/board.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
@@ -9,7 +9,7 @@ import {saveAs} from 'file-saver';
 import {TemplateService} from '@data/services/template.service';
 import {PageSize} from '@data/models/page-size.model';
 import {Template} from '@data/models/template.model';
-import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pdf-preview',

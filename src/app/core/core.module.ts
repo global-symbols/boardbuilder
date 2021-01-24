@@ -4,7 +4,7 @@ import {authConfig} from '@app/auth.config';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from '@app/services/auth.service';
 import {authModuleConfig} from '@app/auth.module.config';
-import { ShouldLoginComponent } from './components/should-login/should-login.component';
+import {ShouldLoginComponent} from './components/should-login/should-login.component';
 import {CommonModule} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';

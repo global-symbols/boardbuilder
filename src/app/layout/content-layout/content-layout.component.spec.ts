@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ContentLayoutComponent } from './content-layout.component';
+import {ContentLayoutComponent} from './content-layout.component';
 
 describe('ContentLayoutComponent', () => {
   let component: ContentLayoutComponent;

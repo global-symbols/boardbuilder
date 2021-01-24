@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { BoardSetEditorDialogComponent } from './board-set-editor-dialog.component';
+import {BoardSetEditorDialogComponent} from './board-set-editor-dialog.component';
 
 describe('BoardsetEditorDialogComponent', () => {
   let component: BoardSetEditorDialogComponent;

@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {APP_INITIALIZER, ErrorHandler, Injectable, LOCALE_ID, NgModule} from '@angular/core';
+import {APP_INITIALIZER, ErrorHandler, LOCALE_ID, NgModule} from '@angular/core';
 
-import { CommonModule } from '@angular/common';
+import {CommonModule, registerLocaleData} from '@angular/common';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
@@ -30,18 +30,16 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatMenuModule} from '@angular/material/menu';
 import {ObfUploadDialogComponent} from './obf-upload-dialog/obf-upload-dialog.component';
 import {ObzUploadDialogComponent} from './obz-upload-dialog/obz-upload-dialog.component';
-import {registerLocaleData} from '@angular/common';
 import localeEnGb from '@angular/common/locales/en-GB';
 import {CoreModule} from '@app/core.module';
-import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
-import { NavComponent } from './layout/nav/nav.component';
+import {ContentLayoutComponent} from './layout/content-layout/content-layout.component';
+import {NavComponent} from './layout/nav/nav.component';
 import {SharedModule} from '@shared/shared.module';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AuthGuard} from '@app/auth.guard';
-import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
-import { NavButtonComponent } from './layout/nav-button/nav-button.component';
+import {AuthLayoutComponent} from './layout/auth-layout/auth-layout.component';
+import {NavButtonComponent} from './layout/nav-button/nav-button.component';
 import * as Sentry from '@sentry/angular';
-import {environment} from '@env';
 import {NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule} from 'ngx-google-analytics';
 
 // Set en-GB as the default locale

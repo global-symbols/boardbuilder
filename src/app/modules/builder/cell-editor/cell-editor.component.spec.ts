@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { CellEditorComponent } from './cell-editor.component';
+import {CellEditorComponent} from './cell-editor.component';
 
 describe('CellEditorComponent', () => {
   let component: CellEditorComponent;

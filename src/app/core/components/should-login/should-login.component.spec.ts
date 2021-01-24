@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ShouldLoginComponent } from './should-login.component';
+import {ShouldLoginComponent} from './should-login.component';
 
 describe('ShouldLoginComponent', () => {
   let component: ShouldLoginComponent;

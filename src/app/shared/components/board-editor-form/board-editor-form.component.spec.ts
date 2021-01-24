@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BoardEditorFormComponent } from './board-editor-form.component';
+import {BoardEditorFormComponent} from './board-editor-form.component';
 
 describe('BoardEditorFormComponent', () => {
   let component: BoardEditorFormComponent;

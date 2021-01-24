@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {BoardSet} from '@data/models/boardset.model';
 import {ObfObzService} from '@data/services/obf-obz.service';
 

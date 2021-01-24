@@ -2,9 +2,9 @@ import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angul
 import {MediaMatcher} from '@angular/cdk/layout';
 import {Board} from '@data/models/board.model';
 import {Hotkey, HotkeysService} from 'angular2-hotkeys';
-import { MatDialog } from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import {BoardSet} from '@data/models/boardset.model';
-import { saveAs } from 'file-saver';
+import {saveAs} from 'file-saver';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
 import {ObfUploadDialogComponent} from '../../../obf-upload-dialog/obf-upload-dialog.component';
@@ -19,7 +19,6 @@ import {catchError, map} from 'rxjs/operators';
 import {CopyBoardSetDialogComponent} from '@shared/components/copy-board-set-dialog/copy-board-set-dialog.component';
 import {DialogService} from '@app/services/dialog.service';
 import {Cell} from '@data/models/cell.model';
-import {CellEditorComponent} from '@modules/builder/cell-editor/cell-editor.component';
 import {BoardTreeComponent} from '@modules/builder/board-tree/board-tree.component';
 
 @Component({

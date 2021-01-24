@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SymbolCreatorDialogComponent } from './symbol-creator-dialog.component';
+import {SymbolCreatorDialogComponent} from './symbol-creator-dialog.component';
 
 describe('SymbolCreatorDialogComponent', () => {
   let component: SymbolCreatorDialogComponent;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '@app/services/auth.service';
 import {Observable} from 'rxjs';
 import {ToolbarButton, ToolbarService} from '@app/services/toolbar.service';

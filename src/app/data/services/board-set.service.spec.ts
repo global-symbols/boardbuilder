@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { BoardSetService } from './board-set.service';
+import {BoardSetService} from './board-set.service';
 
 describe('BoardSetService', () => {
   let service: BoardSetService;

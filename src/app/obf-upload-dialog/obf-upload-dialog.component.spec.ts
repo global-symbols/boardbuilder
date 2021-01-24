@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ObfUploadDialogComponent } from './obf-upload-dialog.component';
+import {ObfUploadDialogComponent} from './obf-upload-dialog.component';
 
 describe('ObfUploadDialogComponent', () => {
   let component: ObfUploadDialogComponent;

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { BuilderComponent } from './builder.component';
+import {BuilderComponent} from './builder.component';
 
 describe('BuilderComponent', () => {
   let component: BuilderComponent;

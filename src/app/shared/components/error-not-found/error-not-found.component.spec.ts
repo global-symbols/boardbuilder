@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ErrorNotFoundComponent } from './error-not-found.component';
+import {ErrorNotFoundComponent} from './error-not-found.component';
 
 describe('ErrorNotFoundComponent', () => {
   let component: ErrorNotFoundComponent;

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {SymbolSearchResult} from '@data/models/symbol-search-result';
 import {map} from 'rxjs/operators';

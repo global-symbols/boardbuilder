@@ -1,7 +1,6 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {Cell} from '@data/models/cell.model';
 import {MatDialog} from '@angular/material/dialog';
-import {MatSelectChange} from '@angular/material/select';
 import {BoardSet} from '@data/models/boardset.model';
 import {Board} from '@data/models/board.model';
 import {MatTabChangeEvent} from '@angular/material/tabs';
@@ -13,7 +12,7 @@ import {SearchPanelComponent} from '@shared/components/search-panel/search-panel
 import {SymbolSearchResult} from '@data/models/symbol-search-result';
 import {colourPickerColours} from '@data/colour-picker-colours';
 import {Observable} from 'rxjs';
-import {delay, map} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-cell-editor',

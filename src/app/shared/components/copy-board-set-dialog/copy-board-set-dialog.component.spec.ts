@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { CopyBoardSetDialogComponent } from './copy-board-set-dialog.component';
+import {CopyBoardSetDialogComponent} from './copy-board-set-dialog.component';
 
 describe('CopyBoardSetDialogComponent', () => {
   let component: CopyBoardSetDialogComponent;

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ColourSelectorComponent } from './colour-selector.component';
+import {ColourSelectorComponent} from './colour-selector.component';
 
 describe('ColourSelectorComponent', () => {
   let component: ColourSelectorComponent;
