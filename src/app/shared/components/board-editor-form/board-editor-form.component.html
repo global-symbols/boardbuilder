@@ -5,7 +5,7 @@
       <ng-container *ngIf="!board.board_set_id">First Board </ng-container>
       Title
     </mat-label>
-    <input matInput required #titleField
+    <input matInput required #titleField maxlength="250"
            [(ngModel)]="board.title"
            appStopPropagation>
     <mat-hint *ngIf="!board.board_set_id">Choose a name for the first Board in your new Board Set.</mat-hint>

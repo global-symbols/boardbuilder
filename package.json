@@ -5,6 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
+
+    "build:stats": "ng build --stats-json",
+    "analyse": "ng build --stats-json && webpack-bundle-analyzer dist/boardbuilder/stats.json",
+
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -62,6 +66,7 @@
     "protractor": "~7.0.0",
     "ts-node": "~9.0.0",
     "tslint": "^6.1.3",
-    "typescript": "<4.1.0"
+    "typescript": "<4.1.0",
+    "webpack-bundle-analyzer": "^4.4.0"
   }
 }

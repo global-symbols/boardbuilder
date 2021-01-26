@@ -3,7 +3,7 @@
   <div fxLayout="row" fxLayoutAlign="space-between start" class="p-1">
 
     <mat-form-field appearance="outline" [floatLabel]="'never'" class="w-100 no-label cell-caption-form-field">
-      <input #cellCaptionInput matInput [(ngModel)]="cell.caption" placeholder="Caption" i18n-placeholder autocomplete="off">
+      <input #cellCaptionInput matInput [(ngModel)]="cell.caption" placeholder="Caption" i18n-placeholder autocomplete="off" maxlength="250">
     </mat-form-field>
 
     <button mat-icon-button aria-label="Save and close the cell editor" matTooltip="Save and Close" matTooltipPosition="left" i18n-aria-label (click)="closeEditor()" style="margin-left: 1rem; margin-top: 8px"
