@@ -1,11 +1,11 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  [attr.width]="svgWidth"
-  [attr.height]="svgHeight"
-  [attr.viewBox]="viewBox"
   shape-rendering="geometricPrecision"
   image-rendering="optimizeQuality"
   fill-rule="evenodd"
+  [attr.viewBox]="viewBox"
+  [style.width]="svgWidth"
+  [style.height]="svgHeight"
   [style.maxHeight]="maxHeight"
   [style.maxWidth]="maxWidth"
   [class.selected]="selected"
@@ -22,6 +22,10 @@
 
     .page {
       fill: none;
+    }
+
+    svg:not(.selected):hover .page {
+      fill: #BEE0FC;
     }
 
     .selected .text {
@@ -65,7 +69,7 @@
     <line x1="28" y1="12" x2="52" y2="12" class="text"></line>
   </symbol>
 
-  <g >
+  <g>
     <rect class="page"
           [attr.x]="pageOutlineWidth"
           [attr.y]="pageOutlineWidth"
