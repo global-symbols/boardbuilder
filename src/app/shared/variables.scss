@@ -20,3 +20,10 @@ $scrollbar-width: 5px;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+}

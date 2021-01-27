@@ -1,4 +1,9 @@
+@import "~app/shared/variables";
+
 mat-list-item {
+  span {
+    @include line-clamp(1);
+  }
 
   user-select: none;
 

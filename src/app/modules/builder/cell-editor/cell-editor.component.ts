@@ -45,7 +45,7 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
 
   // Save the Cell to the API when the component is destroyed
   ngOnDestroy() {
-    if (this.cell) { this.cellService.update(this.cell).subscribe(); }
+    if (this.cell) { this.saveCell(); }
   }
 
   // When an @Input is changed...
@@ -67,7 +67,7 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
   }
 
   afterCellLinkedToBoard() {
-    this.cellService.update(this.cell).subscribe(success => {
+    this.saveCell(success => {
       this.cellLinkedToBoard.emit(true);
       this.loadLinkedBoard();
     });
@@ -77,7 +77,7 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     this.cell.linked_board_id = null;
     this.linkedBoard = null;
 
-    this.cellService.update(this.cell).subscribe(success => {
+    this.saveCell(success => {
       this.cellLinkedToBoard.emit(true);
       this.loadLinkableBoards();
     });
@@ -101,7 +101,7 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     this.cell.image_url = result.imageUrl;
     this.cell.picto_id = result.pictoId;
 
-    this.cellService.update(this.cell).subscribe();
+    this.saveCell();
   }
 
   // Fires an automatic search when the Search tab is opened.
@@ -121,7 +121,7 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
       this.cell.image_url = null;
     }
 
-    this.cellService.update(this.cell).subscribe();
+    this.saveCell();
   }
 
   moveCell(to: number) {
@@ -140,6 +140,10 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     this.cell.media_id = media.id;
     this.cell.image_url = media.public_url;
 
-    this.cellService.update(this.cell).subscribe();
+    this.saveCell();
+  }
+
+  saveCell(next?): void {
+    this.cellService.update(this.cell).subscribe(next);
   }
 }

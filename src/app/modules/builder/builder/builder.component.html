@@ -5,7 +5,7 @@
   <mat-sidenav-container class="example-sidenav-container" [autosize]="true">
     <mat-sidenav #sideNav [mode]="boardTreeMobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="boardTreeMobileQuery.matches" fixedTopGap="56"
-                 [opened]="!boardTreeMobileQuery.matches"
+                 [opened]="!boardTreeMobileQuery.matches" id="leftSidebar"
 
     >
       <div fxLayout="column" fxFlex>
@@ -49,14 +49,16 @@
         </app-board-tree>
 
         <div id="leftSidebarBottomPanel">
-          <button mat-mini-fab
-                  (click)="addBoard()"
-                  [disabled]="boardSet?.readonly"
-                  matTooltip="Add Board" matTooltipPosition="right" i18n-matTooltip
-                  aria-label="Add Board" i18n-aria-label
-                  color="primary" >
-            <mat-icon>add</mat-icon>
-          </button>
+          <div>
+            <button mat-mini-fab
+                    (click)="addBoard()"
+                    [disabled]="boardSet?.readonly"
+                    matTooltip="Add Board" matTooltipPosition="right" i18n-matTooltip
+                    aria-label="Add Board" i18n-aria-label
+                    color="primary" >
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
         </div>
       </div>
 

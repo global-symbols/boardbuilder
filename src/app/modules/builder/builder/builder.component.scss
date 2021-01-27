@@ -32,6 +32,10 @@ h1.example-app-name {
   flex: 1 0 auto;
 }
 
+mat-sidenav#leftSidebar {
+  max-width: 250px;
+  box-sizing: content-box;
+}
 
 mat-sidenav#cellEditor {
   width: 355px;
@@ -65,11 +69,25 @@ mat-sidenav-content {
 }
 #leftSidebarHeaderPanel, #leftSidebarBottomPanel {
   background-color: $light-blue;
-  padding: $leftSidebarBasePadding ($leftSidebarBasePadding + $leftSidebarScrollbarWidth) $leftSidebarBasePadding $leftSidebarBasePadding;
+  //max-width: 250px;
+
+  div {
+    margin: $leftSidebarBasePadding ($leftSidebarBasePadding + $leftSidebarScrollbarWidth) $leftSidebarBasePadding $leftSidebarBasePadding;
+  }
+}
+
+#leftSidebarBottomPanel {
+  //padding: $leftSidebarBasePadding ($leftSidebarBasePadding + $leftSidebarScrollbarWidth) $leftSidebarBasePadding $leftSidebarBasePadding;
+  max-width: 249px;
 }
 
 #leftSidebarHeaderPanel {
   user-select: none;
+  max-width: 250px;
+
+  div {
+    //margin: $leftSidebarBasePadding ($leftSidebarBasePadding + $leftSidebarScrollbarWidth) $leftSidebarBasePadding $leftSidebarBasePadding;
+  }
   h3 {
     margin: 0;
     padding-right: $leftSidebarBasePadding;

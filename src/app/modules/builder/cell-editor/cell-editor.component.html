@@ -22,11 +22,11 @@
       <h3 class="mt-0">Colours</h3>
 
       <mat-accordion>
-        <app-colour-selector i18n-label width="302" label="Background" [(value)]="cell.background_colour" icon="format_color_fill">
+        <app-colour-selector i18n-label width="302" label="Background" [(value)]="cell.background_colour" (valueChange)="saveCell()" icon="format_color_fill">
         </app-colour-selector>
-        <app-colour-selector i18n-label width="302" label="Border" [(value)]="cell.border_colour" icon="border_color">
+        <app-colour-selector i18n-label width="302" label="Border" [(value)]="cell.border_colour" (valueChange)="saveCell()" icon="border_color">
         </app-colour-selector>
-        <app-colour-selector i18n-label width="302" label="Text" [(value)]="cell.text_colour" icon="format_color_text">
+        <app-colour-selector i18n-label width="302" label="Text" [(value)]="cell.text_colour" (valueChange)="saveCell()" icon="format_color_text">
         </app-colour-selector>
       </mat-accordion>
 
