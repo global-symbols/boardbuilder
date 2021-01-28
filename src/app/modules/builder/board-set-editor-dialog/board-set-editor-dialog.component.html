@@ -16,6 +16,7 @@
       <input matInput required placeholder="Title" maxlength="250"
              [(ngModel)]="data.boardSet.title"
              appStopPropagation>
+      <mat-hint align="end">{{data.boardSet.title?.length || 0}}&nbsp;/&nbsp;250</mat-hint>
     </mat-form-field>
 
     <mat-form-field class="w-100 mb-3">

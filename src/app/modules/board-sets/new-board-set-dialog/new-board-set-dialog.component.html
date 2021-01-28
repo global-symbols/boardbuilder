@@ -23,6 +23,7 @@
             <mat-label>Board Set Title</mat-label>
             <input matInput formControlName="name" required cdkFocusInitial>
             <mat-hint>Choose a name for the new Board Set.</mat-hint>
+            <mat-hint align="end">{{boardSetForm.value.name.length || 0}}&nbsp;/&nbsp;250</mat-hint>
           </mat-form-field>
 
           <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutGap="20px">
