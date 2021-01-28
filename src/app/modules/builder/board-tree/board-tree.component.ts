@@ -124,6 +124,7 @@ export class BoardTreeComponent implements OnChanges {
 
   edit(board: Board) {
     if (this.currentDialogRef !== undefined) { return; }
+    if (this.boardSet.readonly) { return; }
 
     this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
       width: '700px',
