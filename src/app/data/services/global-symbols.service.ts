@@ -41,6 +41,7 @@ export class GlobalSymbolsService {
     return results.map(result => new SymbolSearchResult().deserialise({
       id: result.id,
       label: result.text,
+      tooltip: `${result.text} in ${result.picto.symbolset?.name}`,
       imageUrl: result.picto.image_url,
       pictoId: result.picto.id
     }));

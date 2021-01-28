@@ -4,6 +4,7 @@ export class SymbolSearchResult implements Deserialisable {
 
   id: string;
   label: string;
+  tooltip: string;
   imageUrl: string;
   pictoId: number = null;
 

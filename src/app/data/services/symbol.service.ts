@@ -25,6 +25,7 @@ export class SymbolService {
         .pipe(map(arr => arr.map(result => new SymbolSearchResult().deserialise({
           id: result.id,
           label: result.name,
+          tooltip: result.name,
           imageUrl: result.image_url
         }))));
 

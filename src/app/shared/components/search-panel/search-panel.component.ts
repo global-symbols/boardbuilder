@@ -117,7 +117,8 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
         language: this.gsParams.language.value,
         language_iso_format: '639-3',
         symbolset: this.gsParams.symbolset.value,
-        limit: 36
+        limit: 36,
+        expand: 'picto.symbolset'
       };
 
       // Remove the symbolset param, if it's blank
