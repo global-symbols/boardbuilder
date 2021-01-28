@@ -37,7 +37,7 @@
 <div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loading$ | async)">
   <div fxFlex="25" *ngFor="let result of results$ | async">
     <button mat-stroked-button color="primary" (click)="selectImage(result)" class="image-button">
-      <img mat-card-image [src]="result.imageUrl" crossorigin="anonymous"/>
+      <img mat-card-image [src]="result.imageUrl"/>
     </button>
   </div>
 </div>

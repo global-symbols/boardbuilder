@@ -56,7 +56,7 @@
       <div *ngIf="board.cellLayout === 'row'" fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex id="cellBoxRow" class="tile-body">
 
         <div fxFlex="50" fxFlexOrder="2">
-          <img      *ngIf="c.image_url" [src]="c.image_url" crossorigin="anonymous" style="max-width: 100%;"/>
+          <img      *ngIf="c.image_url" [src]="c.image_url" style="max-width: 100%;"/>
           <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
         </div>
 

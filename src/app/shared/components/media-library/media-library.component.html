@@ -57,7 +57,7 @@
     <div fxFlex="25" *ngFor="let mediaItem of media">
       <button fxFlex mat-stroked-button color="primary" (click)="mediaSelect.emit(mediaItem)" class="image-button" appStopPropagation
       >
-        <img mat-card-image [src]="mediaItem.public_url" crossorigin="anonymous"/>
+        <img mat-card-image [src]="mediaItem.public_url"/>
       </button>
     </div>
   </div>

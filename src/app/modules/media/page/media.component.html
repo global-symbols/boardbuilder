@@ -25,7 +25,7 @@
       <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="20"
            *ngFor="let mediaItem of media">
         <mat-card>
-          <img mat-card-image [src]="mediaItem.public_url" alt="Media Item" crossorigin="anonymous"/>
+          <img mat-card-image [src]="mediaItem.public_url" alt="Media Item"/>
           <mat-card-actions fxLayoutAlign="space-between center" >
             <span>{{mediaItem.filesize | filesize: {round: 0} }}</span>
             <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{mediaItem: mediaItem}">
