@@ -48,15 +48,9 @@
 
     </mat-card>
 
-    <app-loading-notice *ngIf="status === 'loading'" action="Generating" subject="PDF"></app-loading-notice>
+    <app-loading-notice *ngIf="status === 'loading' || status === 'error'" action="Generating" subject="PDF" [error]="!!failureReason"></app-loading-notice>
 
 <!--    <object [data]="compiledPdf | bypassSanitiser: 'resourceUrl'" type="application/pdf" #pdfObject style="height: 600px; max-width: 1000px; width: 100%"></object>-->
     <embed [style.visibility]="status === 'success' ? 'visible' : 'hidden'" [hidden]="status != 'success'" type="application/pdf" [src]="compiledPdf | bypassSanitiser: 'resourceUrl'" #pdfFrame style="max-width: 1000px; width: 100%" [height]="pdfEmbedHeight"/>
-  </div>
-
-
-  <div *ngIf="failureReason">
-    <h2>Something went wrong</h2>
-    <p>{{failureReason | json}}</p>
   </div>
 </div>

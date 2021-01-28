@@ -13,6 +13,8 @@ export class LoadingNoticeComponent implements OnInit {
   @Input() action: string;
   @Input() subject: string;
 
+  @Input() error: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
