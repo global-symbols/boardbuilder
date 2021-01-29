@@ -240,16 +240,10 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (this.boardSet.readonly) { return; }
     if (this.currentDialogRef !== undefined) { return; }
 
-    this.currentDialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '400px',
-      data: {
-        heading: `Delete '${board.name}'?`,
-        content: 'This cannot be undone.',
-        icon: 'delete'
-      }
-    });
-
-    this.currentDialogRef.afterClosed().subscribe(result => {
+    this.dialogService.delete({
+      heading: `Delete '${board.name}'?`,
+      content: 'This cannot be undone.'
+    }).afterClosed().subscribe(result => {
 
       if (result) {
         this.selectBoard(null);
@@ -279,7 +273,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.dialogService.deleteBoardSet(boardSet, {
       heading: `Delete '${boardSet.name}'? (contains ${boardSet.boards.length} Board${boardSet.boards.length !== 1 ? 's' : ''})`,
       content: `The Board Set and ${boardSet.boards.length} Board${boardSet.boards.length !== 1 ? 's' : ''} will be deleted. This cannot be undone.`,
-      icon: 'delete'
     }).afterClosed().subscribe(result => {
       if (result) {
         this.boardSetService.delete(boardSet).subscribe(r => this.router.navigate(['/', 'boardsets']));

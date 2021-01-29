@@ -7,21 +7,39 @@ import {
   AddSymbolDialogData,
   addSymbolDialogDataDefault
 } from '@shared/components/add-symbol-dialog/add-symbol-dialog.component';
-import {ConfirmDialogComponent, DialogData} from '@shared/components/confirm-dialog/confirm-dialog.component';
+import {ConfirmDialogComponent, ConfirmDialogData} from '@shared/components/confirm-dialog/confirm-dialog.component';
 import {ObzUploadDialogComponent} from '../../obz-upload-dialog/obz-upload-dialog.component';
 import {BoardSet} from '@data/models/boardset.model';
+
+interface BasicDialogData {
+  heading: string;
+  content: string;
+}
+
+interface ErrorDialogData {
+  heading?: string;
+  content: string;
+  detail?: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class DialogService {
 
-
   currentDialog: MatDialogRef<any>;
 
   constructor(
     private dialog: MatDialog
   ) { }
+
+  messageBox(data: ConfirmDialogData): MatDialogRef<ConfirmDialogComponent> {
+    this.currentDialog = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data
+    });
+    return this.currentDialog;
+  }
 
   openSymbolCreator(media?: Media): MatDialogRef<SymbolCreatorDialogComponent> {
     this.currentDialog = this.dialog.open(SymbolCreatorDialogComponent, {
@@ -41,7 +59,13 @@ export class DialogService {
     return this.currentDialog;
   }
 
-  delete(data: DialogData): MatDialogRef<ConfirmDialogComponent> {
+  error(errorData: ErrorDialogData): MatDialogRef<ConfirmDialogComponent> {
+    const data: ConfirmDialogData = {
+      heading: 'Something went wrong',
+      ...errorData,
+      icon: 'error',
+      confirm: 'Continue',
+    };
     this.currentDialog = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',
       data
@@ -49,7 +73,21 @@ export class DialogService {
     return this.currentDialog;
   }
 
-  deleteBoardSet(boardSet: BoardSet, data: DialogData): MatDialogRef<ConfirmDialogComponent> {
+  delete(deleteData: BasicDialogData): MatDialogRef<ConfirmDialogComponent> {
+    const data: ConfirmDialogData = {
+      ...deleteData,
+      icon: 'delete',
+      confirm: 'Delete',
+      showCancel: true
+    };
+    this.currentDialog = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data
+    });
+    return this.currentDialog;
+  }
+
+  deleteBoardSet(boardSet: BoardSet, data: BasicDialogData): MatDialogRef<ConfirmDialogComponent> {
     if (boardSet.readonly) { return; }
     return this.delete(data);
   }

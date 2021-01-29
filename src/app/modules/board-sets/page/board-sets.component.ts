@@ -78,7 +78,6 @@ export class BoardSetsComponent implements OnInit {
     this.dialogService.deleteBoardSet(boardSet, {
       heading: `Delete '${boardSet.name}'?`,
       content: `The Board Set and all its Boards will be deleted. This cannot be undone.`,
-      icon: 'delete'
     }).afterClosed().subscribe(result => {
       if (result) {
         this.service.delete(boardSet).subscribe(r => this.loadBoardSets());

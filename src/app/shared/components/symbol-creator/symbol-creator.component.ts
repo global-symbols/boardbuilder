@@ -10,6 +10,7 @@ import {MediaService} from '@data/services/media.service';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {DialogService} from '@app/services/dialog.service';
+import {colourPickerColours} from '@data/colour-picker-colours';
 
 export enum SymbolCreatorState {
   Loading = 'Loading',
@@ -25,9 +26,7 @@ export enum SymbolCreatorState {
 })
 export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
-  pickerColours =
-    ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#555555', '#000000',
-     '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB', '#AAAAAA', '#FFFFFF'];
+  pickerColours = colourPickerColours;
 
   private defaultColour = 'black';
 
@@ -189,6 +188,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       this.selectedElement = null;
     }
     this.selectedElements = event.selected;
+    console.log(this.selectedElement);
   }
 
   setProperty(prop, value): void {
@@ -230,9 +230,28 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
     this.imageService.getMimeType(imageUrl).subscribe(mimeType => {
       if (mimeType === 'image/svg+xml') {
-        // Load SVGs as a collection of objects in the canvas
+        // Load the SVG as a collection of objects in the canvas
         fabric.loadSVGFromURL(imageUrl, (objects, options) => {
-          this.addShape(fabric.util.groupSVGElements(objects, {...options, ...{top: 0, left: 0}}));
+          const shape = fabric.util.groupSVGElements(objects, {...options});
+
+          // Set the shape size to fit the canvas.
+          let scaleFactor = 1;
+          if (shape.height >= shape.width) {
+            // Height is longest edge
+            scaleFactor = (this.height / 2) / shape.height;
+          } else {
+            // Width is longest edge
+            scaleFactor = (this.width / 2) / shape.width;
+          }
+
+          shape.set('scaleX', scaleFactor);
+          shape.set('scaleY', scaleFactor);
+
+          // Set the shape's position to the centre of the canvas.
+          shape.set('top',  (this.height / 2) - ((shape.height * scaleFactor) / 2));
+          shape.set('left', (this.width / 2) - ((shape.width * scaleFactor) / 2));
+
+          this.addShape(shape);
         });
 
       } else {
@@ -262,8 +281,15 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
             this.addShape(new fabric.Image(image, options));
           };
           image.src = base64.toString();
-        });
+        }, error => this.errorLoadingImage('Failure loading image.'));
       }
+    }, error => this.errorLoadingImage('Failure detecting image type.'));
+  }
+
+  errorLoadingImage(reason: string): void {
+    this.dialogService.error({
+      content: 'We could not load the image.',
+      detail: reason
     });
   }
 

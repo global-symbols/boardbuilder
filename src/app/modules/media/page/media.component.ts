@@ -36,8 +36,7 @@ export class MediaComponent implements OnInit {
 
     this.dialogService.delete({
       heading: `Delete this Symbol?`,
-      content: `The Symbol will be permanently removed from any Boards it\'s used in.`,
-      icon: 'delete'
+      content: `The Symbol will be permanently removed from any Boards it\'s used in.`
     }).afterClosed().subscribe(result => {
 
       if (result) {
