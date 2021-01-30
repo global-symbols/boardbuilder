@@ -99,6 +99,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
     this.workingCanvas.on('object:moving', (event) => {
       const object = event.target;
       // console.log(event);
+
       const top = object.top;
       const bottom = (top + object.height) * object.scaleY;
       const height = object.height * object.scaleY;
@@ -116,19 +117,35 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       object.set('top', Math.min(Math.max(top, topBound), bottomBound - height));
     });
 
-    // this.workingCanvas.on('object:scaling', (event) => {
-    //   const object = event.target;
-    //   console.log(event);
-    //
-    //   if (object.top + (object.height * object.scaleY) > this.height) {
-    //     object.set('scaleY', (450 - object.top) / object.height);
-    //   }
-    //
-    //   if (object.left + (object.width * object.scaleX) > this.width) {
-    //     object.set('scaleX', (450 - object.left) / object.width);
-    //   }
-    //
-    // });
+    this.workingCanvas.on('object:scaling', (event) => {
+      return;
+      const object = event.target;
+
+      console.log(event);
+
+      // If the object is being scaled off the bottom of the canvas...
+      if (object.top + (object.height * object.scaleY) > this.height) {
+        object.set('scaleX', (this.height - object.top) / object.height);
+        object.set('scaleY', (this.height - object.top) / object.height);
+      }
+
+      // If the object is being scaled off the right of the canvas...
+      if (object.left + (object.width * object.scaleX) > this.width) {
+        object.set('scaleX', (this.width - object.left) / object.width);
+        object.set('scaleY', (this.width - object.left) / object.width);
+      }
+
+      // If the object is being scaled off the left of the canvas...
+      if (object.left < 0) {
+        console.log('left is less than 0');
+        // object.set('left', 0);
+        // object.set('top', 0);
+        // object.set('scaleX', (this.width - object.left) / object.width);
+        // object.set('scaleX', (this.height - object.left) / object.width);
+        // object.set('scaleY', (this.height - object.left) / object.width);
+      }
+
+    });
 
     if (this.media) {
       this.loadCanvasFromMedia();
