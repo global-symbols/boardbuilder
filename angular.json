@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "boardbuilder-angular": {
+    "boardbuilder": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,18 +13,20 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/boardbuilder-angular",
+            "outputPath": "dist/boardbuilder",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/silent-refresh.html"
             ],
             "styles": [
-              "src/styles.css"
+              "src/app/boardbuilder-light-app-theme.scss",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -36,12 +38,11 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "localize": false,
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -57,24 +58,32 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "fr": {
+              "localize": [
+                "fr"
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "boardbuilder-angular:build"
+            "browserTarget": "boardbuilder:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "boardbuilder-angular:build:production"
+              "browserTarget": "boardbuilder:build:production"
+            },
+            "fr": {
+              "browserTarget": "boardbuilder:build:fr"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "boardbuilder-angular:build"
+            "browserTarget": "boardbuilder:build"
           }
         },
         "test": {
@@ -86,10 +95,12 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/silent-refresh.html"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -111,15 +122,32 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "boardbuilder-angular:serve"
+            "devServerTarget": "boardbuilder:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "boardbuilder-angular:serve:production"
+              "devServerTarget": "boardbuilder:serve:production"
             }
+          }
+        },
+        "azureLogout": {
+          "builder": "@azure/ng-deploy:logout"
+        },
+        "deploy": {
+          "builder": "@azure/ng-deploy:deploy",
+          "options": {
+            "host": "Azure",
+            "type": "static",
+            "config": "azure.json"
           }
         }
       }
-    }},
-  "defaultProject": "boardbuilder-angular"
+    }
+  },
+  "defaultProject": "boardbuilder",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  }
 }

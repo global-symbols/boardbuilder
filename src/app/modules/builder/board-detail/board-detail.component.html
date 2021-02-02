@@ -1,0 +1,89 @@
+<div *ngIf="board">
+
+  <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center" class="mb-3 board-header">
+    <div fxFlex="33" fxLayout="row">
+
+      <div [ngSwitch]="readonly">
+        <button *ngSwitchCase="false" mat-button mat-stroked-button (click)="selectHeaderImage()" [class.p-0]="board.header_media">
+          <img [src]="board.header_media?.public_url" *ngIf="board.header_media" />
+          <ng-container *ngIf="!board.header_media">
+            Add Header Image
+          </ng-container>
+        </button>
+        <ng-container *ngSwitchCase="true">
+          <img [src]="board.header_media?.public_url" *ngIf="board.header_media" />
+        </ng-container>
+      </div>
+
+    </div>
+    <h1 fxFlex="33" class="text-center board-title">{{board.title}}</h1>
+    <span fxFlex="33" class="text-right">{{board.description}}</span>
+  </div>
+
+  <mat-grid-list [cols]="board.columns" rowHeight="11.85rem" gutterSize="1rem">
+    <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows)"
+                   tabindex="0" (click)="selectCell(c)" (keyup.enter)="selectCell(c)"
+                   [style.background-color]="c.background_colour"
+                   [style.outline-color]="c.border_colour"
+                   [class.selected]="cell === c"
+                   [class.outlined]="c.border_colour"
+                   gaCategory="CellEditor" gaEvent="open"
+    >
+
+      <div *ngIf="board.cellLayout === 'column'" fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex id="cellBox" class="tile-body">
+
+        <div fxFlexOrder="2">
+          <img      *ngIf="c.image_url" [src]="c.image_url"/>
+          <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
+        </div>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between center"
+             [fxFlexOrder]="board.captions_position === 'above' ? 1 : 3"
+
+        >
+
+          <button mat-icon-button *ngIf="c.linked_board_id"
+                  [style.visibility]="'hidden'">
+            <mat-icon>link</mat-icon>
+          </button>
+
+          <span fxFlex="grow" [style.color]="c.text_colour" *ngIf="board.captions_position != 'hidden'">{{c.caption}}</span>
+
+          <button mat-icon-button *ngIf="c.linked_board_id"
+                  [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
+                  (click)="showBoard(c.linked_board_id)"
+                  matTooltip="Go to Linked Board">
+            <mat-icon>link</mat-icon>
+          </button>
+        </div>
+      </div>
+
+
+      <div *ngIf="board.cellLayout === 'row'" fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex id="cellBoxRow" class="tile-body">
+
+        <div fxFlex="50" fxFlexOrder="2">
+          <img      *ngIf="c.image_url" [src]="c.image_url" style="max-width: 100%;"/>
+          <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
+        </div>
+
+        <div fxFlex="50" fxLayout="column" fxLayoutAlign="space-between center"
+             [fxFlexOrder]="board.captions_position === 'right' ? 3 : 1">
+
+          <button mat-icon-button [style.visibility]="'hidden'">
+            <mat-icon>link</mat-icon>
+          </button>
+
+          <div [style.color]="c.text_colour">{{c.caption}}</div>
+
+
+          <button mat-icon-button [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
+                  (click)="showBoard(c.linked_board_id)"
+                  matTooltip="Go to Linked Board">
+            <mat-icon>link</mat-icon>
+          </button>
+        </div>
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

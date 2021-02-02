@@ -1,0 +1,15 @@
+$button-bottom-padding: 2px;
+$icon-button-side-padding: 7px;
+
+:host {
+  margin-right: 0.5rem;
+}
+
+button {
+  padding-left: $icon-button-side-padding;
+
+  mat-icon {
+    padding-bottom: $button-bottom-padding;
+    padding-right: 4px;
+  }
+}

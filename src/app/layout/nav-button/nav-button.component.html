@@ -1,0 +1,14 @@
+<button *ngIf="button.text" mat-button
+        (click)="click()"
+        [matTooltip]="button.tooltip"
+>
+  <mat-icon *ngIf="button.icon">{{button.icon}}</mat-icon>
+  <ng-container>{{button.text}}</ng-container>
+</button>
+
+<button *ngIf="!button.text" mat-button mat-icon-button
+        (click)="click()"
+        [matTooltip]="button.tooltip"
+>
+  <mat-icon *ngIf="button.icon">{{button.icon}}</mat-icon>
+</button>

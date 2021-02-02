@@ -1,0 +1,69 @@
+<div class="dropzone text-center" fxLayout="column" [class.dropzone-active]="dropzoneActive"
+    (drop)="dropFile($event); dropzoneActive = false"
+    (dragenter)="allowDragDrop($event); dropzoneActive = true"
+    (dragover)="allowDragDrop($event); dropzoneActive = true"
+    (dragleave)="allowDragDrop($event); dropzoneActive = false"
+>
+
+  <ng-container *ngIf="uploadStatus != 'Uploading'">
+    Drop an image file here
+    <small class="py-1">
+      <em>SVG &middot; PNG &middot; JPG &middot; <{{this.maxSize / 1000000}}MB</em>
+    </small>
+  </ng-container>
+
+  <ng-container *ngIf="uploadStatus === 'Uploading'">
+    <mat-spinner diameter="24" style="margin: 0 auto"></mat-spinner>
+    <em class="py-1">Uploading&hellip;</em>
+  </ng-container>
+
+  <button mat-flat-button color="primary" appStopPropagation
+          (click)="openFileSelector()"
+          [disabled]="uploadStatus === 'Uploading'">
+    Upload from Device&hellip;
+  </button>
+</div>
+
+<div *ngIf="uploadError" class="text-center py-2">
+  <ng-container *ngIf="uploadError === 'WrongType'">
+    We don't accept files of this type.
+  </ng-container>
+  <ng-container *ngIf="uploadError === 'TooLarge'">
+    Your file is too large.
+  </ng-container>
+  <ng-container *ngIf="uploadError === 'Unknown'">
+    We couldn't upload your file. Please try again, or use a different file.
+  </ng-container>
+</div>
+
+<div *ngIf="loadingMediaError" class="text-center py-2">
+  We couldn't load your images because of a technical issue.
+</div>
+
+<div class="mt-2">
+  <div fxLayoutGap="10px grid" fxLayout="row wrap" *ngIf="!(loadingMedia)">
+
+    <div fxFlex="25" *ngIf="showCreate">
+      <button fxFlex mat-flat-button color="primary" (click)="openSymbolCreator()" class="p-1 create-symbol-button"
+              matTooltip="Create Symbol" matTooltipPosition="left"
+              aria-label="Create Symbol"
+      >
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <mat-icon inline>construction</mat-icon>
+        </div>
+      </button>
+    </div>
+
+    <div fxFlex="25" *ngFor="let mediaItem of media">
+      <button fxFlex mat-stroked-button color="primary" (click)="mediaSelect.emit(mediaItem)" class="image-button" appStopPropagation
+      >
+        <img mat-card-image [src]="mediaItem.public_url"/>
+      </button>
+    </div>
+  </div>
+
+  <app-loading-notice *ngIf="loadingMedia" action="Loading" subject="Images"></app-loading-notice>
+</div>
+
+<input type="file" #fileUpload name="fileUpload" accept=".svg,.png,.jpg,.jpeg,.gif" style="display:none;"
+       (change)="selectFile()"/>

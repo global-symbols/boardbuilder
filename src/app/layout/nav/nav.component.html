@@ -1,0 +1,51 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+  <div fxFlex="38" fxFlex.xs="33">
+    <app-nav-button *ngFor="let button of leftButtons$ | async" [button]="button"></app-nav-button>
+  </div>
+
+  <a fxFlex="24" fxFlex.xs="34" routerLink="/" style="line-height: 1rem;" id="homeLink" class="text-center">
+    <img src="assets/navbar-logo.svg" alt="Board Builder">
+  </a>
+
+  <div fxFlex="38" fxFlex.xs="33" style="text-align: right">
+
+    <app-nav-button *ngFor="let button of rightButtons$ | async" [button]="button"></app-nav-button>
+
+    <a mat-button mat-icon-button href="https://training.globalsymbols.com/course/view.php?id=56#section-1" target="_blank" matTooltip="Help and Resources" class="mr-1">
+      <mat-icon>help_outline</mat-icon>
+    </a>
+
+    <a mat-button mat-stroked-button (click)="login()" *ngIf="!(canActivateProtectedRoutes | async)">
+      Sign In
+    </a>
+
+    <ng-container *ngIf="canActivateProtectedRoutes | async">
+      <button fxShow.xs fxHide mat-button mat-icon-button [matMenuTriggerFor]="userMenu" matTooltip="Global Symbols Account">
+        <mat-icon>person</mat-icon>
+      </button>
+      <button fxHide.xs mat-stroked-button [matMenuTriggerFor]="userMenu" matTooltip="Global Symbols Account" class="user-controls-button">
+        {{identityClaims.name}}
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #userMenu="matMenu" xPosition="before">
+        <a mat-menu-item [routerLink]="['/', 'boardsets']">
+          <mat-icon>view_comfy</mat-icon>
+          Board Sets
+        </a>
+        <a mat-menu-item [routerLink]="['/', 'media']">
+          <mat-icon>perm_media</mat-icon>
+          Symbols
+        </a>
+        <a mat-menu-item href="https://globalsymbols.com/users/edit" target="_blank">
+          <mat-icon>person</mat-icon>
+          Manage Account
+        </a>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          Sign Out
+        </button>
+      </mat-menu>
+    </ng-container>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,7 @@
+img {
+  max-height: 8rem;
+}
+
+::ng-deep .mat-horizontal-stepper-header-container {
+  display: none !important;
+}

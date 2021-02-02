@@ -1,0 +1,30 @@
+<mat-card fxFlexFill fxLayout="column">
+
+  <mat-card-header fxFlex="grow">
+    <div class="w-100" fxLayout="row" fxLayoutAlign="space-between start">
+      <mat-card-title class="mt-1" fxFlex>
+        <a [routerLink]="['/', 'boardsets', boardSet.id]" fxFlex>{{boardSet.name}}</a>
+      </mat-card-title>
+      <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{boardSet: boardSet}" *ngIf="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content class="mb-0 text-muted">
+    <div fxLayout="column" fxLayoutAlign="space-between none" class="mt-2">
+      <div fxLayout="row" fxLayoutGap="1rem grid">
+        <div fxFlex="20" fxLayoutAlign="center center" *ngFor="let cell of boardSet.preview_cells">
+          <img [src]="cell.image_url" class="preview-image" [matTooltip]="cell.caption"/>
+        </div>
+      </div>
+      <div class="mt-2" *ngIf="boardSet.owner">
+        By {{boardSet.owner.prename}} {{boardSet.owner.surname}}
+      </div>
+      <div class="mt-2" *ngIf="!boardSet.readonly">
+        <ng-container *ngIf="boardSet.opened_at">Opened {{boardSet.opened_at.toString() | amTimeAgo}}</ng-container>
+        <ng-container *ngIf="!boardSet.opened_at">Never Opened</ng-container>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

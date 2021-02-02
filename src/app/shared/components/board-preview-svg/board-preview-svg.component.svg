@@ -1,0 +1,93 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  shape-rendering="geometricPrecision"
+  image-rendering="optimizeQuality"
+  fill-rule="evenodd"
+  [attr.viewBox]="viewBox"
+  [style.width]="svgWidth"
+  [style.height]="svgHeight"
+  [style.maxHeight]="maxHeight"
+  [style.maxWidth]="maxWidth"
+  [class.selected]="selected"
+>
+  <style>
+    .thumbnail {
+      fill: #006aba;
+    }
+
+    .text {
+      stroke-width: 2;
+      stroke: #006aba;
+    }
+
+    .page {
+      fill: none;
+    }
+
+    svg:not(.selected):hover .page {
+      fill: #BEE0FC;
+    }
+
+    .selected .text {
+      stroke: white;
+    }
+    .selected use.thumbnail {
+      fill: white;
+    }
+
+    .selected .page {
+      fill: #006aba;
+    }
+
+  </style>
+
+  <defs>
+    <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z" [id]="randomId + 'thumbnail'"/>
+  </defs>
+
+  <symbol [id]="randomId + 'caption-hidden'" viewBox="0 0 24 24">
+    <use [attr.href]="'#' + randomId + 'thumbnail'" class="thumbnail"/>
+  </symbol>
+
+  <symbol [id]="randomId + 'caption-above'" viewBox="0 0 24 24">
+    <use [attr.href]="'#' + randomId + 'thumbnail'" class="thumbnail" transform="translate(0, 4)"/>
+    <line x1="1" y1="4" x2="23" y2="4" class="text"></line>
+  </symbol>
+
+  <symbol [id]="randomId + 'caption-below'" viewBox="0 0 24 24">
+    <use [attr.href]="'#' + randomId + 'thumbnail'" class="thumbnail" transform="translate(0, -4)"/>
+    <line x1="1" y1="20" x2="23" y2="20" class="text"></line>
+  </symbol>
+
+  <symbol [id]="randomId + 'caption-left'" viewBox="0 0 52 24">
+    <use [attr.href]="'#' + randomId + 'thumbnail'" transform="translate(28, 0)" class="thumbnail"/>
+    <line x1="0" y1="12" x2="24" y2="12" class="text"></line>
+  </symbol>
+
+  <symbol [id]="randomId + 'caption-right'" viewBox="0 0 52 24">
+    <use [attr.href]="'#' + randomId + 'thumbnail'" class="thumbnail"/>
+    <line x1="28" y1="12" x2="52" y2="12" class="text"></line>
+  </symbol>
+
+  <g>
+    <rect class="page"
+          [attr.x]="pageOutlineWidth"
+          [attr.y]="pageOutlineWidth"
+          [attr.width]="width - pageOutlineWidth * 2"
+          [attr.height]="height - pageOutlineWidth * 2"
+          [attr.stroke]="pageOutlineColour"
+          [attr.stroke-width]="pageOutlineWidth"
+    />
+
+    <g [attr.transform]="innerPageTranslate">
+      <use *ngFor="let thumb of thumbnails"
+           [attr.x]="thumb.x"
+           [attr.y]="thumb.y"
+           [attr.height]="thumb.height"
+           [attr.width]="thumb.width"
+           [attr.href]="'#' + randomId + 'caption-'+board.captions_position"
+           class="cell"
+      />
+    </g>
+  </g>
+</svg>

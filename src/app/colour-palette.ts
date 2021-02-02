@@ -1,0 +1,18 @@
+export const COLOURS = [
+  { hex: '#CE93D8', name: '' },
+  { hex: '#EF9A9A', name: '' },
+  { hex: '#90CAF9', name: '' },
+  { hex: '#000000', name: '' },
+  { hex: '#A5D6A7', name: '' },
+  { hex: '#FFE082', name: '' },
+  { hex: '#FFFFFF', name: '' },
+  { hex: '#80CBC4', name: '' },
+  { hex: '#F48FB1', name: '' },
+  { hex: '#9fa8da', name: '' },
+  { hex: '#81D4FA', name: '' },
+  { hex: '#e6ee9c', name: '' },
+  { hex: '#CDDC39', name: '' },
+  { hex: '#FFF59D', name: '' },
+  { hex: '#FFCC80', name: '' },
+  { hex: '#EEEEEE', name: '' },
+];

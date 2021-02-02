@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  globalSymbolsBase: 'http://localhost:3000',
+
+  globalSymbolsApiBase: 'http://localhost:3000/api/v1',
+  // globalSymbolsApiBase: 'https://globalsymbols.com/api/v1',
+  boardBuilderApiBase: 'http://localhost:3000/api/boardbuilder/v1',
+
+  globalSymbolsOauthClientId: 'Msd0ocExMmwsloYOox-CQrg-e767OR_akzUEYoNstgc',
 };
 
 /*

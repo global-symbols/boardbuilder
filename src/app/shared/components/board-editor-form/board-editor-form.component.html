@@ -1,0 +1,103 @@
+<div fxLayoutGap="20px grid">
+
+  <mat-form-field class="w-100" fxFlex="50">
+    <mat-label i18n>
+      <ng-container *ngIf="!board.board_set_id">First Board </ng-container>
+      Title
+    </mat-label>
+    <input matInput required #titleField maxlength="250"
+           [(ngModel)]="board.title"
+           appStopPropagation>
+    <mat-hint *ngIf="!board.board_set_id || true">Choose a name for the first Board in your new Board Set.</mat-hint>
+    <mat-hint align="end">{{board.title?.length || 0}}&nbsp;/&nbsp;250</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="w-100 mb-2" fxFlex="50">
+    <mat-label i18n>
+      <ng-container *ngIf="!board.board_set_id">First Board </ng-container>
+      Description
+    </mat-label>
+    <input matInput maxlength="250"
+           [(ngModel)]="board.description"
+           appStopPropagation>
+    <mat-hint>Optional. Shown in PDFs made from this Board.</mat-hint>
+    <mat-hint align="end">{{board.description?.length || 0}}&nbsp;/&nbsp;250</mat-hint>
+  </mat-form-field>
+</div>
+
+<div>
+  <h2>Layout</h2>
+  <mat-tab-group mat-stretch-tabs dynamicHeight [(selectedIndex)]="selectedTab">
+
+    <mat-tab label="Generic Templates">
+      <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="space-around center" class="w-100 p-1">
+        <div *ngFor="let template of templates" fxFlex="0 1 calc(25% - 20px)" class="template">
+          <button mat-button color="primary"
+                  (click)="selectTemplate(template)"
+                  [matTooltip]="template.description"
+                  appStopPropagation disableRipple>
+            <app-board-preview-svg [board]="template.board" [selected]="board.matchesTemplate(template)" size="90" maxHeight="90" maxWidth="90"></app-board-preview-svg>
+          </button>
+
+        </div>
+      </div>
+    </mat-tab>
+
+<!--    <mat-tab label="Device Templates">-->
+<!--      <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="space-around center" class="w-100 p-1">-->
+<!--        Coming Soon!-->
+<!--      </div>-->
+<!--    </mat-tab>-->
+
+    <mat-tab label="Custom Settings">
+
+      <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="20px" class="mt-2">
+        <div fxFlex="50">
+          <mat-label i18n>Columns: {{board.columns}}</mat-label>
+          <mat-slider
+            class="example-margin w-100"
+            [max]="12"
+            [min]="1"
+            [step]="1"
+            [thumbLabel]="true"
+            [tickInterval]="1"
+            [(ngModel)]="board.columns"
+            (change)="board.populateCells()"
+            appStopPropagation>
+          </mat-slider>
+
+          <mat-label i18n>Rows: {{board.rows}}</mat-label>
+          <mat-slider
+            class="example-margin w-100"
+            [max]="12"
+            [min]="1"
+            [step]="1"
+            [thumbLabel]="true"
+            [tickInterval]="1"
+            [(ngModel)]="board.rows"
+            (change)="board.populateCells()"
+            appStopPropagation>
+          </mat-slider>
+        </div>
+
+        <mat-form-field fxFlex="50">
+          <mat-label i18n>Label Position</mat-label>
+          <mat-select [(ngModel)]="board.captions_position" appStopPropagation>
+            <mat-option value="above" i18n>Top</mat-option>
+            <mat-option value="below" i18n>Bottom</mat-option>
+            <mat-option value="left" i18n>Left</mat-option>
+            <mat-option value="right" i18n>Right</mat-option>
+            <mat-option value="hidden" i18n>Hidden</mat-option>
+          </mat-select>
+          <mat-hint>Sets where text appears in each cell, relative to the image.</mat-hint>
+        </mat-form-field>
+      </div>
+
+
+
+
+    </mat-tab>
+
+  </mat-tab-group>
+
+</div>

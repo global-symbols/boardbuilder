@@ -1,0 +1,19 @@
+<mat-expansion-panel hideToggle class="colour-selector">
+  <mat-expansion-panel-header fxLayoutAlign="space-between center">
+    <mat-panel-title>
+      <mat-icon class="mr-2">{{icon}}</mat-icon>
+      {{label}}
+    </mat-panel-title>
+    <div fxLayoutAlign="end center">
+      <mat-icon [style.color]="value" *ngIf="value">lens</mat-icon>
+      <button mat-icon-button *ngIf="value !== 'transparent'"
+              [matTooltip]="'Remove ' + label + ' Colour'" matTooltipPosition="left"
+              (click)="selectColour(null); $event.stopPropagation()">
+        <mat-icon color="primary">format_color_reset</mat-icon>
+      </button>
+    </div>
+  </mat-expansion-panel-header>
+
+  <color-github [color]="value" [colors]="newColours" [width]="width" triangle="hide" (onChange)="selectColour($event.color.hex)"></color-github>
+
+</mat-expansion-panel>

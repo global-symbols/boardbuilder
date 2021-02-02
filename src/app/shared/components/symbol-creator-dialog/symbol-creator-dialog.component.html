@@ -1,0 +1,29 @@
+<div cdkDrag
+     cdkDragRootElement=".cdk-overlay-pane"
+     cdkDragBoundary="body"
+>
+
+  <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-1">
+    <h1 mat-dialog-title i18n class="mb-0">Symbol Creator</h1>
+
+    <div>
+      <button mat-icon-button aria-label="Discard" (click)="dialogRef.close()"
+              appStopPropagation [matTooltip]="media?.persisted() ? 'Discard Changes' : 'Cancel'"
+              gaCategory="SymbolCreator" gaEvent="click" gaLabel="DiscardChanges"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+
+      <button mat-icon-button aria-label="Save and Close" (click)="saveAndClose()"
+              appStopPropagation matTooltip="Save and Close"
+              gaCategory="SymbolCreator" gaEvent="click" gaLabel="SaveAndClose"
+      >
+        <mat-icon>check</mat-icon>
+      </button>
+    </div>
+  </header>
+
+  <div mat-dialog-content class="pb-3">
+    <app-symbol-creator appStopPropagation [media]="media"></app-symbol-creator>
+  </div>
+</div>

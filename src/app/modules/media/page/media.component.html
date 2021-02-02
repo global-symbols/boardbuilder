@@ -1,0 +1,59 @@
+<div class="container mt-3">
+
+  <app-loading-notice *ngIf="loading" subject="Symbols"></app-loading-notice>
+
+  <ng-container *ngIf="!loading">
+    <h2>My Symbols</h2>
+    <p>You have used {{spaceUsed | filesize: {round: 0} }}.</p>
+
+    <p *ngIf="media.length === 0" class="text-center mt-3">You have not uploaded any images yet.</p>
+
+    <div fxLayout="row wrap" fxLayoutGap="1rem grid">
+
+      <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="20"
+           class="add-symbol-button text-center">
+        <button mat-flat-button color="primary" fxFlex (click)="openSymbolCreator()"
+                gaCategory="SymbolCreator" gaEvent="open"
+        >
+          <div fxLayout="column" fxLayoutAlign="space-between center">
+            <mat-icon fxFlex="grow">construction</mat-icon>
+            <div class="mt-3">Create Symbol</div>
+          </div>
+        </button>
+      </div>
+
+      <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="20"
+           *ngFor="let mediaItem of media">
+        <mat-card>
+          <img mat-card-image [src]="mediaItem.public_url" alt="Media Item"/>
+          <mat-card-actions fxLayoutAlign="space-between center" >
+            <span>{{mediaItem.filesize | filesize: {round: 0} }}</span>
+            <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{mediaItem: mediaItem}">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+
+<mat-menu #menu="matMenu" xPosition="before">
+  <ng-template matMenuContent let-mediaItem="mediaItem">
+    <button mat-menu-item (click)="openSymbolCreator(mediaItem)" [disabled]="!mediaItem.canvas_url">
+      <mat-icon>construction</mat-icon>
+      <span>Edit Symbol</span>
+    </button>
+    <button mat-menu-item (click)="download(mediaItem)">
+      <mat-icon>save_alt</mat-icon>
+      <span>Save to Device</span>
+    </button>
+    <button mat-menu-item (click)="delete(mediaItem)">
+      <mat-icon>delete</mat-icon>
+      <span>Delete Symbol</span>
+    </button>
+  </ng-template>
+</mat-menu>
+

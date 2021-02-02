@@ -1,0 +1,102 @@
+<!--<mat-nav-list *ngIf="boards">-->
+<!--  <app-board-tree-item *ngFor="let board of boards" [selectedBoard]="selectedBoard" (selectChange)="selectBoard($event)" [board]="board"></app-board-tree-item>-->
+<!--</mat-nav-list>-->
+
+<mat-nav-list>
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" #matTree>
+
+    <!-- This is the tree node template for leaf nodes -->
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePaddingIndent]="treeNodePadding">
+
+        <mat-list-item (click)="selectBoard(node.board)"
+                       (dblclick)="edit(node.board)"
+                       (keyup.enter)="selectBoard(node.board)"
+                       [class.selected]="selectedBoard === node.board"
+                       tabindex="0">
+          <!-- use a disabled button to provide padding for tree leaf -->
+<!--          <button mat-icon-button disabled></button>-->
+
+          <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100" style="padding-left: 40px">
+            <span>{{node.board.name}}</span>
+            <button mat-button mat-icon-button
+                    [matMenuTriggerFor]="boardMenu"
+                    [matMenuTriggerData]="{board: node.board}"
+                    matTooltip="Board Actions" matTooltipPosition="right"
+                    (click)="$event.stopPropagation()"
+                    appStopPropagation
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </div>
+
+        </mat-list-item>
+
+    </mat-tree-node>
+
+    <!-- This is the tree node template for expandable nodes -->
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding [matTreeNodePaddingIndent]="treeNodePadding" (click)="selectBoard(node.board)">
+      <mat-list-item (click)="selectBoard(node.board)"
+                     (dblclick)="edit(node.board)"
+                     (keyup.enter)="selectBoard(node.board)"
+                     [attr.aria-label]="'select ' + node.board.name"
+                     [class.selected]="selectedBoard === node.board"
+                     tabindex="0">
+
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
+          <button mat-icon-button matTreeNodeToggle
+                  appStopPropagation
+                  [attr.aria-label]="'expand ' + node.board.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          <span fxFlex="grow">{{node.board.name}}</span>
+          <button mat-button mat-icon-button
+                  [matMenuTriggerFor]="boardMenu"
+                  [matMenuTriggerData]="{board: node.board}"
+                  matTooltip="Board Actions" matTooltipPosition="right"
+                  (click)="$event.stopPropagation()"
+                  appStopPropagation
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </div>
+
+
+<!--        <button mat-icon-button matTreeNodeToggle-->
+<!--                appStopPropagation-->
+<!--                [attr.aria-label]="'toggle ' + node.name">-->
+<!--          <mat-icon class="mat-icon-rtl-mirror">-->
+<!--            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}-->
+<!--          </mat-icon>-->
+<!--        </button>-->
+<!--        {{node.board.name}}-->
+      </mat-list-item>
+    </mat-tree-node>
+
+  </mat-tree>
+</mat-nav-list>
+
+
+<mat-menu #boardMenu="matMenu">
+  <ng-template matMenuContent let-board="board">
+
+    <button mat-menu-item (click)="download(board)">
+      <mat-icon>save_alt</mat-icon> Download as OBF
+    </button>
+
+    <button mat-menu-item (click)="pdf(board)">
+      <mat-icon>picture_as_pdf</mat-icon> Download/Print PDF
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-menu-item (click)="delete(board)" [disabled]="boardSet.readonly">
+      <mat-icon>delete</mat-icon> Delete
+    </button>
+
+    <button mat-menu-item (click)="edit(board)" [disabled]="boardSet.readonly">
+      <mat-icon>edit</mat-icon> Properties
+    </button>
+  </ng-template>
+</mat-menu>

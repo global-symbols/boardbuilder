@@ -1,0 +1,28 @@
+@import "../../variables";
+
+mat-card {
+  max-width: 430px;
+  border: 2px solid rgba($blue, 0.25);
+  padding: 0 !important;
+}
+
+$editor-width: 200px;
+
+
+
+color-github {
+  width: $editor-width !important;
+}
+
+::ng-deep color-github-swatch {
+  height: calc(100% / 10) !important;
+  width: calc(100% / 10) !important;
+}
+
+::ng-deep .github-swatch {
+  width: 100% !important;
+  height: ($editor-width/10) !important;
+  //width: ($editor-width/10) !important;
+  //height: calc(100% / 10) !important;
+  //width: calc(100% / 10) !important;
+}

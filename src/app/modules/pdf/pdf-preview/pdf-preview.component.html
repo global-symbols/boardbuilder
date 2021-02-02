@@ -1,0 +1,56 @@
+<div class="section">
+
+  <div fxLayout="column" fxLayoutAlign="center center">
+
+    <mat-card style="max-width: 750px; width: 100%" class="mb-2">
+
+      <mat-card-header>
+        <mat-card-title>PDF Settings</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+
+        <div fxLayout="row" fxLayoutGap="20px">
+          <mat-form-field appearance="outline" fxFlex="33">
+            <mat-label>Paper Size</mat-label>
+            <mat-select [(value)]="template.pageSize" (valueChange)="loadPdf()">
+              <mat-option *ngFor="let size of pageSizes" [value]="size">{{size.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" fxFlex="33">
+            <mat-label>Orientation</mat-label>
+            <mat-select [(value)]="template.orientation" (valueChange)="loadPdf()">
+              <mat-option value="portrait">Portrait</mat-option>
+              <mat-option value="landscape">Landscape</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" fxFlex="33">
+            <mat-label>Text Size (Maximum)</mat-label>
+            <mat-select [(value)]="template.fontSize" (valueChange)="loadPdf()">
+              <mat-option *ngFor="let size of fontSizes" [value]="size">{{size}}</mat-option>
+            </mat-select>
+            <mat-hint>Text may shrink to fit available space</mat-hint>
+          </mat-form-field>
+        </div>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button [disabled]="status != 'success'" (click)="downloadPdf()" color="primary" class="mr-2">
+          Download
+        </button>
+        <button mat-icon-button aria-label="Reload" [disabled]="status == 'loading'" matTooltip="Refresh PDF" (click)="loadPdf()" matTooltipPosition="right">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </mat-card-actions>
+
+    </mat-card>
+
+    <app-loading-notice *ngIf="status === 'loading' || status === 'error'" action="Generating" subject="PDF" [error]="!!failureReason"></app-loading-notice>
+
+<!--    <object [data]="compiledPdf | bypassSanitiser: 'resourceUrl'" type="application/pdf" #pdfObject style="height: 600px; max-width: 1000px; width: 100%"></object>-->
+    <embed [style.visibility]="status === 'success' ? 'visible' : 'hidden'" [hidden]="status != 'success'" type="application/pdf" [src]="compiledPdf | bypassSanitiser: 'resourceUrl'" #pdfFrame style="max-width: 1000px; width: 100%" [height]="pdfEmbedHeight"/>
+  </div>
+</div>

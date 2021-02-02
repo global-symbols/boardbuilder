@@ -1,0 +1,36 @@
+<div cdkDrag
+     cdkDragRootElement=".cdk-overlay-pane"
+     cdkDragBoundary="body"
+>
+
+  <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
+    <h1 mat-dialog-title i18n class="mb-0">Create Board Set from OBZ File</h1>
+    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false" appStopPropagation>
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <div mat-dialog-content>
+    <p i18n>This will create a Board Set from an Open Board Format Collection (OBZ) file that you upload.</p>
+    <p i18n>Select an OBZ file to begin.</p>
+    <div fxLayout="row" fxLayoutAlign="center none" >
+      <button mat-stroked-button color="primary" (click)="uploadInput.click()" appStopPropagation>
+        {{filename}}
+        <ng-container *ngIf="!filename">Select OBZ&hellip;</ng-container>
+      </button>
+    </div>
+
+    <input type="file" accept=".obz" style="display: none" #uploadInput (change)="fileChanged($event.target)">
+
+    <p *ngIf="boardSet && !fileInvalidReason" role="alert" i18n>
+      We found {{boardSet.boards.length}} {boardSet.boards.length, plural, =1 {board} other {boards}} in your OBZ file.
+    </p>
+
+    <p *ngIf="fileInvalidReason" role="alert" i18n>The OBZ file could not be read because {{fileInvalidReason}}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-stroked-button [mat-dialog-close]="false" color="primary" i18n appStopPropagation>Cancel</button>
+    <span class="spacer"></span>
+    <button mat-raised-button [mat-dialog-close]="boardSet" color="primary" [disabled]="!boardSet || !!fileInvalidReason" appStopPropagation i18n>Add Board Set</button>
+  </div>
+</div>

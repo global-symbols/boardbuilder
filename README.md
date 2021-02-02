@@ -2,9 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
+
+## Loading Cell Images
+Images must be loaded with the 'origin' header, to ensure responses cached in the browser contain CORS headers.
+
+To do this, ensure <img> tags have the crossorigin="" attribute. 
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Deploy to app.globalsymbols.com
+`firebase deploy`
+
+## Deploy to app-dev.globalsymbols.com
+`ng deploy`
 
 ## Code scaffolding
 
@@ -13,6 +26,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+### Build for Deployment to GS
+
+```ng build --prod --base-href /boardbuilder/```
 
 ## Running unit tests
 

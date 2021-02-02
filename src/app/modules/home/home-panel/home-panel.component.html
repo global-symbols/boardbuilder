@@ -1,0 +1,12 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px" fxLayoutAlign="space-between center" class="panel">
+  <div fxFlex="45" fxFlex.sm="50" fxFlex.xs>
+    <ng-container [ngSwitch]="headingType">
+      <h1 *ngSwitchCase="'h1'">{{heading}}</h1>
+      <h2 *ngSwitchCase="'h2'">{{heading}}</h2>
+    </ng-container>
+    <ng-content></ng-content>
+  </div>
+  <div fxFlex="55" fxFlex.sm="50" fxFlex.xs [fxFlexOrder.gt-sm]="even ? -1 : 0">
+    <img [src]="imageUrl" [alt]="heading" />
+  </div>
+</div>

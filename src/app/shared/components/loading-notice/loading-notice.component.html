@@ -1,0 +1,15 @@
+<div [fxLayout]="layout" fxLayoutAlign="start center" fxLayoutGap="20px">
+
+  <mat-spinner [diameter]="diameter" *ngIf="!error"></mat-spinner>
+
+  <div *ngIf="error" [ngStyle]="{height: diameter+'px', lineHeight: diameter+'px'}" fxLayout="row"  fxLayoutAlign="center center">
+    <mat-icon [inline]="true" color="warn">warning</mat-icon>
+  </div>
+
+  <div>
+    <ng-container *ngIf="error">Error </ng-container>
+    <ng-container *ngIf="action">{{action}}</ng-container>
+    <ng-container *ngIf="!action">Loading</ng-container>
+    {{subject}}<ng-container *ngIf="!error">&hellip;</ng-container>
+  </div>
+</div>

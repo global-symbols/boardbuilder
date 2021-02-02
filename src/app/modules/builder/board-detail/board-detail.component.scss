@@ -1,0 +1,81 @@
+@import "~app/shared/variables";
+
+mat-grid-tile {
+  position: absolute;
+  text-align: center;
+  box-shadow:
+    0 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  color: black;
+  background: rgba(255,255,255,0.1);
+
+  &.outlined {
+    outline-offset: -4px;
+    outline-width: 4px;
+    outline-style: solid;
+  }
+
+  transition: box-shadow 0.2s ease-in;
+
+  &:hover {
+    transition-duration: 0.05s;
+    box-shadow: 0 0 8px 3px rgba($light-blue, 0.8);
+    cursor: pointer;
+  }
+
+  &.selected,
+  &.selected:focus {
+    transition-duration: 0.2s;
+    //outline: rgba(0, 103, 244, 0.247) auto 5px;
+    //box-shadow: 0 0 5px 3px $blue;
+    box-shadow: 0 0 8px 4px $blue;
+  }
+
+  // When a tile is focussed, show a glow around it.
+  // Also, disguise the default user agent outline, but retain user-applied outlines.
+  &:focus {
+    transition-duration: 0.2s;
+    box-shadow: 0 0 5px 3px $light-blue;
+    outline-style: solid;
+    outline-color: transparent;
+  }
+
+  div.tile-body {
+    //  height: 100%;
+    padding: 0.5rem 1rem;
+  }
+
+  img, object {
+    //margin-bottom: 1rem;
+
+    height: 8rem;
+    //height: 3rem;
+  }
+
+  mat-icon.placeholder {
+    font-size: 7rem;
+    height: auto;
+    width: auto;
+    opacity: 0.1;
+  }
+}
+
+mat-grid-tile span {
+  /*height: 25%;*/
+}
+
+.board-header {
+
+  button {
+    height: 48px;
+  }
+  img {
+    max-height: 46px;
+  }
+
+  h1.board-title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

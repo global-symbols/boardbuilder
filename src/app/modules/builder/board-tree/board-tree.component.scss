@@ -1,0 +1,24 @@
+@import "~app/shared/variables";
+
+mat-list-item {
+  span {
+    @include line-clamp(1);
+  }
+
+  user-select: none;
+
+  mat-icon {
+    opacity: 0.4;
+  }
+
+  &:hover mat-icon, button[aria-expanded='true'] mat-icon {
+    opacity: 1;
+  }
+
+  &.selected,
+  &.selected:hover,
+  &.selected:focus {
+    background: rgba(0,0,0,0.2) !important;
+  }
+}
+

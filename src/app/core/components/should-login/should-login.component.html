@@ -1,0 +1,36 @@
+<div class="example-container" fxLayout="column" fxLayoutAlign="center center">
+  <div class="container" style="width: 400px">
+
+    <mat-card class="mt-3">
+      <div mat-card-image class="bg-primary text-center py-2">
+        <img src="assets/navbar-logo.svg" alt="Global Symbols Board Builder">
+      </div>
+
+      <mat-card-content *ngIf="!(isDoneLoading | async)" class="py-2 text-center">
+        <mat-spinner style="margin: 0 auto"></mat-spinner>
+        <p class="mt-3">Checking your Account&hellip;</p>
+      </mat-card-content>
+
+      <ng-container *ngIf="(isDoneLoading | async)">
+        <mat-card-content class="mt-3">
+          <p>Use Board Builder to create communication boards.</p>
+          <p>Everything is saved to your Global Symbols account.</p>
+        </mat-card-content>
+
+        <mat-card-actions class="mt-3">
+          <ng-container *ngIf="!(canActivateProtectedRoutes | async)">
+            <button fxFlex mat-flat-button color="primary" (click)="login()">Sign in with Global Symbols</button>
+          </ng-container>
+
+          <ng-container *ngIf="canActivateProtectedRoutes | async">
+            <button fxFlex mat-flat-button color="primary" routerLink="boardsets">Continue</button>
+          </ng-container>
+        </mat-card-actions>
+
+      </ng-container>
+
+
+    </mat-card>
+
+  </div>
+</div>

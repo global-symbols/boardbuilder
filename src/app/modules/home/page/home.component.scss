@@ -1,0 +1,26 @@
+@import "~app/shared/variables";
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 40rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.container {
+  font-size: 1.2rem;
+  padding: 0 2rem;
+}
+
+p {
+  line-height: 1.8rem;
+}
+
+.button-lg {
+  font-size:    1.2rem;
+  line-height:  3rem;
+  padding:      0 32px;
+}

@@ -1,0 +1,48 @@
+mat-panel-title {
+  align-items: center;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.colour-grid {
+  flex-flow: row wrap;
+}
+
+
+$editor-width: 274px;
+
+
+::ng-deep .colour-selector .mat-expansion-panel-body {
+  padding: 0 10px 10px !important;
+}
+
+color-github {
+  width: $editor-width !important;
+}
+
+::ng-deep .colour-selector .github-picker {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+::ng-deep .colour-selector color-github-swatch {
+  height: calc(100% / 10) !important;
+  width: calc(100% / 10) !important;
+}
+
+::ng-deep .colour-selector .github-swatch {
+  width: 100% !important;
+  height: ($editor-width/10) !important;
+  //width: ($editor-width/10) !important;
+  //height: calc(100% / 10) !important;
+  //width: calc(100% / 10) !important;
+}
