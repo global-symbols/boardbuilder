@@ -5,10 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-
     "build:stats": "ng build --stats-json",
     "analyse": "ng build --stats-json && webpack-bundle-analyzer dist/boardbuilder/stats.json",
-
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -52,6 +50,7 @@
     "@angular/cli": "^11.0.7",
     "@angular/compiler-cli": "^11.0.9",
     "@angular/language-service": "^11.0.9",
+    "@types/fabric": "^4.2.2",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^14.14.21",

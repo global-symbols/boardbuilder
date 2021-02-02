@@ -45,11 +45,12 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
   colours = ['black', 'red', 'blue'];
 
-  selectedElement;
-  selectedElements = [];
+  selectedElement: fabric.Object | any; // fabric.Object does not contain all properties used in Fabric, notably i-text props.
+  selectedElements: Array<fabric.Object | any> = [];
 
   width = 400;
   height = 400;
+
   private hotkeys: Array<Hotkey | Hotkey[]>;
 
   constructor(
@@ -95,26 +96,28 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       this.selectedElements = [];
     });
 
-    // Prevent objects from being moved outside the canvas area
+    // Prevent objects from moving outside the canvas area.
+    // Uses getBoundingRect and setPositionByOrigin to cope with object rotation.
     this.workingCanvas.on('object:moving', (event) => {
-      const object = event.target;
-      // console.log(event);
 
-      const top = object.top;
-      const bottom = (top + object.height) * object.scaleY;
-      const height = object.height * object.scaleY;
-      const left = object.left;
-      const right = (left + object.width) * object.scaleX;
-      const width = object.width * object.scaleY;
+      const bBox = event.target.getBoundingRect(false, true);
+      const canvas = {
+        top: 0,
+        left: 0,
+        height: this.height,
+        width: this.width
+      };
 
-      const topBound = 0;
-      const bottomBound = this.height;
-      const leftBound = 0;
-      const rightBound = this.width;
+      // Calculate co-ordinates for left and top that prevent them exceeding min/max limits.
+      const newLeft = Math.min( Math.max(bBox.left, canvas.left), canvas.width  - bBox.width);
+      const newTop  = Math.min( Math.max(bBox.top,  canvas.top ), canvas.height - bBox.height);
 
-      // capping logic here
-      object.set('left', Math.min(Math.max(left, leftBound), rightBound - width));
-      object.set('top', Math.min(Math.max(top, topBound), bottomBound - height));
+      // Apply the new co-ordinates to the object, relative to its origin.
+      event.target.setPositionByOrigin(new fabric.Point(
+        newLeft + bBox.width  / 2,
+        newTop  + bBox.height / 2
+      ), 'center', 'center');
+      event.target.setCoords();
     });
 
     this.workingCanvas.on('object:scaling', (event) => {
@@ -146,6 +149,23 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       }
 
     });
+
+    // Displays the bounding box around each element.
+    // this.workingCanvas.on('after:render', () => {
+    //   this.workingCanvas.contextContainer.strokeStyle = '#555';
+    //
+    //   this.workingCanvas.forEachObject((obj) => {
+    //     const bound = obj.getBoundingRect();
+    //     console.log(bound);
+    //
+    //     this.workingCanvas.contextContainer.strokeRect(
+    //       bound.left + 0.5,
+    //       bound.top + 0.5,
+    //       bound.width,
+    //       bound.height
+    //     );
+    //   });
+    // });
 
     if (this.media) {
       this.loadCanvasFromMedia();
@@ -238,7 +258,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
   addObjectsFromMedia(media: Media): void {
     this.mediaService.getCanvas(media).subscribe(canvas => {
       if (canvas.objects) {
-        fabric.util.enlivenObjects(canvas.objects, (objects) => this.addShape(new fabric.Group(objects)));
+        fabric.util.enlivenObjects(canvas.objects, (objects) => this.addShape(new fabric.Group(objects)), null);
       }
     });
   }
@@ -261,12 +281,13 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
             scaleFactor = (this.width / 2) / shape.width;
           }
 
-          shape.set('scaleX', scaleFactor);
-          shape.set('scaleY', scaleFactor);
-
-          // Set the shape's position to the centre of the canvas.
-          shape.set('top',  (this.height / 2) - ((shape.height * scaleFactor) / 2));
-          shape.set('left', (this.width / 2) - ((shape.width * scaleFactor) / 2));
+          // Scale the shape and move it to the centre of the canvas.
+          shape.set({
+            scaleX: scaleFactor,
+            scaleY: scaleFactor,
+            top:  (this.height / 2) - ((shape.height * scaleFactor) / 2),
+            left: (this.width / 2) - ((shape.width * scaleFactor) / 2)
+          });
 
           this.addShape(shape);
         });
