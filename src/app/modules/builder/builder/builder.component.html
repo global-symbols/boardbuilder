@@ -84,7 +84,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <app-board-detail [board]="board" [(cell)]="selectedCell" (boardChange)="selectBoard($event)"></app-board-detail>
+      <app-board-detail [board]="board" [(cell)]="selectedCell" [readonly]="boardSet.readonly" (boardChange)="selectBoard($event)"></app-board-detail>
     </mat-sidenav-content>
   </mat-sidenav-container>
 

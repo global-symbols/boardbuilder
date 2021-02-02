@@ -14,6 +14,7 @@ export class BoardDetailComponent implements OnChanges {
 
   @Input() board: Board;
   @Input() cell: Cell;
+  @Input() readonly = false;
   @Output() cellChange = new EventEmitter<Cell>();
   @Output() boardChange = new EventEmitter<number>();
 
