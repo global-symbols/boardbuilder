@@ -1,14 +1,23 @@
-#homeLink {
+#homeLink, #gsLink {
   opacity: 0.75;
+  line-height: 1rem;
+  vertical-align: bottom;
 
   &:hover {
     opacity: 1;
   }
+
+  img {
+    max-width: 100%;
+  }
 }
 
-img {
-  max-height: 2.5rem;
-  max-width: 100%;
+#homeLink img {
+  max-height: 1.2rem;
+}
+
+#gsLink img {
+  max-height: 2rem;
 }
 
 $button-bottom-padding: 2px;

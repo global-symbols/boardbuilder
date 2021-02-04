@@ -13,6 +13,7 @@ export class NavComponent implements OnInit {
   canActivateProtectedRoutes: Observable<boolean>;
   leftButtons$: Observable<ToolbarButton[]>;
   rightButtons$: Observable<ToolbarButton[]>;
+  showGlobalNav$: Observable<boolean>;
 
   constructor(
     private authService: AuthService,
@@ -24,6 +25,7 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.leftButtons$ = this.toolbarService.leftButtons$;
     this.rightButtons$ = this.toolbarService.rightButtons$;
+    this.showGlobalNav$ = this.toolbarService.showGlobalNav$;
   }
 
   login() { this.authService.login(); }

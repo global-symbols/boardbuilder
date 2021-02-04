@@ -1,17 +1,20 @@
 <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
   <div fxFlex="38" fxFlex.xs="33">
+    <a href="https://globalsymbols.com" target="_blank" *ngIf="showGlobalNav$ | async" id="gsLink">
+      <img src="/assets/images/gs-globe.svg" alt="Global Symbols"  matTooltip="Global Symbols" matTooltipPosition="right"/>
+    </a>
     <app-nav-button *ngFor="let button of leftButtons$ | async" [button]="button"></app-nav-button>
   </div>
 
-  <a fxFlex="24" fxFlex.xs="34" routerLink="/" style="line-height: 1rem;" id="homeLink" class="text-center">
-    <img src="assets/navbar-logo.svg" alt="Board Builder">
+  <a fxFlex="24" fxFlex.xs="34" routerLink="/" id="homeLink" class="text-center">
+    <img src="assets/images/navbar-logo.svg" alt="Board Builder">
   </a>
 
   <div fxFlex="38" fxFlex.xs="33" style="text-align: right">
 
     <app-nav-button *ngFor="let button of rightButtons$ | async" [button]="button"></app-nav-button>
 
-    <a mat-button mat-icon-button href="https://training.globalsymbols.com/course/view.php?id=56#section-1" target="_blank" matTooltip="Help and Resources" class="mr-1">
+    <a mat-button mat-icon-button href="https://globalsymbols.com/about/board-builder-and-symbol-creator-instructions" target="_blank" matTooltip="Help and Resources" class="mr-1">
       <mat-icon>help_outline</mat-icon>
     </a>
 
