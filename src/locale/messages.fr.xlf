@@ -28,7 +28,7 @@
       </trans-unit>
       <trans-unit id="1f50de60c93b24522701a635aae641fce24e2bc1" datatype="html" approved="no">
         <source>Edit <x id="INTERPOLATION" equiv-text="{{data.board.title}}"/></source>
-        <target state="translated">Modifier</target>
+        <target state="translated">Modifier <x id="INTERPOLATION" equiv-text="{{data.board.title}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">2</context>
@@ -120,7 +120,7 @@
       </trans-unit>
       <trans-unit id="6981db74a4a7300a95451e36be94132090cecd89" datatype="html" approved="no">
         <source>Generating your PDF…</source>
-        <target state="translated">Générer votre PDF...</target>
+        <target state="translated">Générer votre PDF…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-dialog/pdf-dialog.component.html</context>
           <context context-type="linenumber">15</context>
@@ -176,17 +176,15 @@
       </trans-unit>
       <trans-unit id="753a9ddb22a64ee8f082a604c0e63832ddd62f70" datatype="html" approved="no">
         <source>Select OBF…</source>
-        <target state="translated">Sélectionnez OBF...</target>
+        <target state="translated">Sélectionnez OBF…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="582a20a9cc38750cc8694f547146ea8932d93031" datatype="html" approved="no">
-        <source>
-    We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> in your OBF file.
-  </source>
-        <target state="translated">On a trouvé dans ton dossier OBF.</target>
+        <source>We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> in your OBF file. </source>
+        <target state="translated">Nous avons trouvé <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, pluriel, =1 {...} autre {...}}"/> dans votre fichier OBF. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">21</context>
@@ -338,7 +336,7 @@
       </trans-unit>
       <trans-unit id="c15db5c4e79abe1151b19e07a4c98cc9595a6285" datatype="html" approved="no">
         <source>Searching…</source>
-        <target state="translated">Recherche...</target>
+        <target state="translated">Recherche…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">53</context>
@@ -453,10 +451,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="c35534f4eda29ccaecf31b70df533ca7dbd14be0" datatype="html" approved="no">
-        <source>
-    Created: <x id="INTERPOLATION" equiv-text="{{data.boardSet.createdAt | date}}"/>
-  </source>
-        <target state="translated">Créé:</target>
+        <source>Created: <x id="INTERPOLATION" equiv-text="{{data.boardSet.createdAt | date}}"/> </source>
+        <target state="translated">Créé : <x id="INTERPOLATION" equiv-text="{{data.boardSet.createdAt | date}}"/> </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-editor-dialog/boardset-editor-dialog.component.html</context>
           <context context-type="linenumber">13</context>
@@ -487,10 +483,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="38fc26f995d9eff8206f7366d3ef6b6112876b40" datatype="html" approved="no">
-        <source>
-    We found <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {...} other {...}}"/> in your OBZ file.
-  </source>
-        <target state="translated">On a trouvé dans ton dossier OBZ.</target>
+        <source>We found <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {...} other {...}}"/> in your OBZ file. </source>
+        <target state="translated">Nous avons trouvé <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}}"/> <x id="ICU" equiv-text="{boardSet.boards.length, pluriel, =1 {...} autre {...}}"/> dans votre fichier OBZ. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">20</context>
@@ -506,7 +500,7 @@
       </trans-unit>
       <trans-unit id="cdd4854b8c1339874afe84196303f21e889a97a3" datatype="html" approved="no">
         <source>The OBZ file could not be read because <x id="INTERPOLATION" equiv-text="{{fileInvalidReason}}"/></source>
-        <target state="translated">Le fichier OBZ n’a pas pu être lu parce que</target>
+        <target state="translated">Le fichier OBZ n’a pas pu être lu parce que <x id="INTERPOLATION" equiv-text="{{fileInvalidReason}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">24</context>
@@ -546,7 +540,7 @@
       </trans-unit>
       <trans-unit id="8b676710093a32a1c59fef8f84d7a05882194f47" datatype="html" approved="no">
         <source>Create Board Set <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></source>
-        <target state="translated">Créer l’ensemble de conseil ajouter</target>
+        <target state="translated">Créer Board Set <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">8</context>
@@ -554,7 +548,7 @@
       </trans-unit>
       <trans-unit id="44a24a395329c17e92fd64ff7bfc4250fefa740b" datatype="html" approved="no">
         <source>Add OBZ File <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></source>
-        <target state="translated">Ajouter l’ajout de fichiers OBZ</target>
+        <target state="translated">Ajouter OBZ File <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">10</context>
