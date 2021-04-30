@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="d7b35c384aecd25a516200d6921836374613dfe7" datatype="html">
         <source>Cancel</source>
-        <target></target>
+        <target>Anulo</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/confirm-dialog/confirm-dialog.component.html</context>
           <context context-type="linenumber">6</context>
@@ -20,7 +20,7 @@
       </trans-unit>
       <trans-unit id="826b25211922a1b46436589233cb6f1a163d89b7" datatype="html">
         <source>Delete</source>
-        <target></target>
+        <target>Elemino</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/confirm-dialog/confirm-dialog.component.html</context>
           <context context-type="linenumber">8</context>
@@ -28,7 +28,7 @@
       </trans-unit>
       <trans-unit id="1f50de60c93b24522701a635aae641fce24e2bc1" datatype="html">
         <source>Edit <x id="INTERPOLATION" equiv-text="{{data.board.title}}"/></source>
-        <target></target>
+        <target>Ndrysho <x id="INTERPOLATION" equiv-text="{{data.board.title}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">2</context>
@@ -36,7 +36,7 @@
       </trans-unit>
       <trans-unit id="fdf7cbdc140d0aab0f0b6c06065a0fd448ed6a2e" datatype="html">
         <source>Title</source>
-        <target></target>
+        <target>Titulli</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">11</context>
@@ -48,7 +48,7 @@
       </trans-unit>
       <trans-unit id="e47fbf619d9b88927751bd1fc556db6d284093aa" datatype="html">
         <source>Label Position</source>
-        <target></target>
+        <target>Pozicioni i etiketës</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">16</context>
@@ -56,7 +56,7 @@
       </trans-unit>
       <trans-unit id="b1191372861ccaf1deb37451a3b58ce62f228257" datatype="html">
         <source>Above Image</source>
-        <target></target>
+        <target>Sipër figurës</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">18</context>
@@ -64,7 +64,7 @@
       </trans-unit>
       <trans-unit id="d3cb659aafd576acedb70f8b874af3047facb9d6" datatype="html">
         <source>Below Image</source>
-        <target></target>
+        <target>Poshtë figurës</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">19</context>
@@ -72,7 +72,7 @@
       </trans-unit>
       <trans-unit id="c09a68321f26f058b547021e6e2c167ae22c6e24" datatype="html">
         <source>Hidden</source>
-        <target></target>
+        <target>E fshehur</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">20</context>
@@ -80,7 +80,7 @@
       </trans-unit>
       <trans-unit id="b169576ab898458aa823e09c1e7f3397f8f011a0" datatype="html">
         <source>Columns</source>
-        <target></target>
+        <target>Kolonat</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">24</context>
@@ -88,7 +88,7 @@
       </trans-unit>
       <trans-unit id="79765b4b2ed87b05e0fd5d6937cec32d1995645f" datatype="html">
         <source>Rows</source>
-        <target></target>
+        <target>Rreshtat</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">36</context>
@@ -96,7 +96,7 @@
       </trans-unit>
       <trans-unit id="8dd413cee2228118c536f503709329a4d1a395e2" datatype="html">
         <source>Done</source>
-        <target></target>
+        <target>U bë</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">51</context>
@@ -112,7 +112,7 @@
       </trans-unit>
       <trans-unit id="3e2646604f7159e9058a400e789fe161db2e034e" datatype="html">
         <source>PDF Preview</source>
-        <target></target>
+        <target>Shikim PDF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-dialog/pdf-dialog.component.html</context>
           <context context-type="linenumber">2</context>
@@ -120,7 +120,7 @@
       </trans-unit>
       <trans-unit id="6981db74a4a7300a95451e36be94132090cecd89" datatype="html">
         <source>Generating your PDF…</source>
-        <target></target>
+        <target>Duke gjeneruar PDF-në tuaj…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-dialog/pdf-dialog.component.html</context>
           <context context-type="linenumber">15</context>
@@ -128,7 +128,7 @@
       </trans-unit>
       <trans-unit id="dc75033a5238fdc4f462212c847a45ba8018a3fd" datatype="html">
         <source>Download</source>
-        <target></target>
+        <target>Shkarko</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-dialog/pdf-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -136,7 +136,7 @@
       </trans-unit>
       <trans-unit id="3f6f4b8552b4d78ad67f583ff6d1a95e91e2f5b1" datatype="html">
         <source>Add Board from OBF</source>
-        <target></target>
+        <target>Shto Tabelën nga OBF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">2</context>
@@ -148,7 +148,7 @@
       </trans-unit>
       <trans-unit id="2a968810107da839fecd1210e4ddf5cfd84210a5" datatype="html">
         <source>Close the cell editor</source>
-        <target></target>
+        <target>Mbylle editorin e celularit</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">3</context>
@@ -160,7 +160,7 @@
       </trans-unit>
       <trans-unit id="530ca9fb63b8bf1bc911f957d4f3d7b0151362cb" datatype="html">
         <source>Add a new Board from an Open Board Format (OBF) file.</source>
-        <target></target>
+        <target>Shto një tabelë të re nga një file Open Board Format (OBF).</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">10</context>
@@ -168,7 +168,7 @@
       </trans-unit>
       <trans-unit id="e7b9adab46cb1ff8c122f883b0ec555fa81a3340" datatype="html">
         <source>Select an OBF file to begin.</source>
-        <target></target>
+        <target>Zgjidh një file OBF për të filluar.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">11</context>
@@ -176,17 +176,15 @@
       </trans-unit>
       <trans-unit id="753a9ddb22a64ee8f082a604c0e63832ddd62f70" datatype="html">
         <source>Select OBF…</source>
-        <target></target>
+        <target>Zgjidh OBF…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="582a20a9cc38750cc8694f547146ea8932d93031" datatype="html">
-        <source>
-    We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> in your OBF file.
-  </source>
-        <target></target>
+        <source>We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> in your OBF file. </source>
+        <target>Kemi gjetur <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> in your OBF file. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">21</context>
@@ -194,7 +192,7 @@
       </trans-unit>
       <trans-unit id="2ecbad233207cc105cd12aef214c176262a49bd0" datatype="html">
         <source>{VAR_PLURAL, plural, =1 {tile} other {tiles} }</source>
-        <target></target>
+        <target>{VAR_PLURAL, shumës, =1 {tile} të tjera {tjegulla} }</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">22</context>
@@ -202,7 +200,7 @@
       </trans-unit>
       <trans-unit id="795adf327e8a51d19ccf00402a4c4bb7a51e20f3" datatype="html">
         <source>The file you provided is not a valid OBF file.</source>
-        <target></target>
+        <target>File që keni dhënë nuk është një skedar i vlefshëm OBF.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -210,7 +208,7 @@
       </trans-unit>
       <trans-unit id="fa9b71008d369ff945cd1e89d720d724aa6f1f24" datatype="html">
         <source>Add Board</source>
-        <target></target>
+        <target>Shto Tabelën</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">30</context>
@@ -226,7 +224,7 @@
       </trans-unit>
       <trans-unit id="681d0d8af12f8bebce882805c5dd105f0032f525" datatype="html">
         <source>Board Sets</source>
-        <target></target>
+        <target>Vendos tabelën</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">7</context>
@@ -234,7 +232,7 @@
       </trans-unit>
       <trans-unit id="f0b5dc0da9da47d21f0fb72bb1d1f34fe3f80c5d" datatype="html">
         <source>Global Symbols BoardBuilder</source>
-        <target></target>
+        <target>Global Symbols BoardBuilder</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">12</context>
@@ -242,7 +240,7 @@
       </trans-unit>
       <trans-unit id="48d46d596fd3949815594e802f62da3406bc40f5" datatype="html">
         <source>Change Board Properties</source>
-        <target></target>
+        <target>Ndrysho pronësitë e bordit</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">15</context>
@@ -254,7 +252,7 @@
       </trans-unit>
       <trans-unit id="aa25ed7635b15d4812ce1fbe888a3b82c7aef7b4" datatype="html">
         <source>Import/Export</source>
-        <target></target>
+        <target>Importo/Eksporto</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">19</context>
@@ -262,7 +260,7 @@
       </trans-unit>
       <trans-unit id="ac593b8a4309774b793ce5c99b9452df3de11aa1" datatype="html">
         <source>Upload/Download</source>
-        <target></target>
+        <target>Ngarko/Shkarko</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">19</context>
@@ -270,7 +268,7 @@
       </trans-unit>
       <trans-unit id="a83e58919c81ab386256c8bfa7c778757e17ff46" datatype="html">
         <source>Delete this Board</source>
-        <target></target>
+        <target>Elemino këtë tabelë</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">22</context>
@@ -282,7 +280,7 @@
       </trans-unit>
       <trans-unit id="3ca40fafe55592b865c3e37a505a5ffdb2f80cee" datatype="html">
         <source>Download Board as OBF</source>
-        <target></target>
+        <target>Shkarko Bordin si OBF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">61</context>
@@ -290,7 +288,7 @@
       </trans-unit>
       <trans-unit id="9243d79a62fbeaf6c3e1b6e09c41bfc8f7a76e3e" datatype="html">
         <source>Print or Download Board as PDF</source>
-        <target></target>
+        <target>Printo ose Shkarko Bordin si PDF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">64</context>
@@ -298,7 +296,7 @@
       </trans-unit>
       <trans-unit id="03a37983d8f0bed08318fe82e245dd864ea0c485" datatype="html">
         <source>Download Board Set as OBZ</source>
-        <target></target>
+        <target>Shkarko Tabelën e Vendosur si OBZ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">71</context>
@@ -306,7 +304,7 @@
       </trans-unit>
       <trans-unit id="4626023bf37ec20cc1d07c870a581d3ca543fafb" datatype="html">
         <source>Search in</source>
-        <target></target>
+        <target>Kërko në</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">2</context>
@@ -314,7 +312,7 @@
       </trans-unit>
       <trans-unit id="f3e40eb4eb1d2d752654ce152c5700f547ca12ec" datatype="html">
         <source>Search For</source>
-        <target></target>
+        <target>Kërko për</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">12</context>
@@ -322,7 +320,7 @@
       </trans-unit>
       <trans-unit id="1369b5a28b0215ef5b46c4eccb69868faa6188ec" datatype="html">
         <source>We couldn't find any symbols.</source>
-        <target></target>
+        <target>Ne nuk mund të gjenim asnjë simbol.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">44</context>
@@ -330,7 +328,7 @@
       </trans-unit>
       <trans-unit id="0b0e7337a9a451975d00d67084084b4558fa3614" datatype="html">
         <source>Try broadening your search.</source>
-        <target></target>
+        <target>Përpiqu të zgjerosh kërkimin.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">45</context>
@@ -338,7 +336,7 @@
       </trans-unit>
       <trans-unit id="c15db5c4e79abe1151b19e07a4c98cc9595a6285" datatype="html">
         <source>Searching…</source>
-        <target></target>
+        <target>Duke kërkuar…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">53</context>
@@ -346,7 +344,7 @@
       </trans-unit>
       <trans-unit id="3c593788d43568a2f0fe7b3949ff6c31470f6c50" datatype="html">
         <source>Caption</source>
-        <target></target>
+        <target>Titull</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">6</context>
@@ -354,7 +352,7 @@
       </trans-unit>
       <trans-unit id="fa3e504ded41e28e2e47dab2b9c74e48bc4cd733" datatype="html">
         <source>Background colour</source>
-        <target></target>
+        <target>Ngjyra e sfondit</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">20</context>
@@ -362,7 +360,7 @@
       </trans-unit>
       <trans-unit id="bb3bb3e2bcd8e8605fecfece358d0601569a6b19" datatype="html">
         <source>Border colour</source>
-        <target></target>
+        <target>Ngjyra e kufirit</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">22</context>
@@ -370,7 +368,7 @@
       </trans-unit>
       <trans-unit id="0a5a03015269d57edcd993e5a076775f00575cad" datatype="html">
         <source>Text colour</source>
-        <target></target>
+        <target>Ngjyra e tekstit</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">24</context>
@@ -378,7 +376,7 @@
       </trans-unit>
       <trans-unit id="0ab5810721ddaa86e714bfec9ce3787fe698ce45" datatype="html">
         <source>Linking</source>
-        <target></target>
+        <target>Lidhja</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">28</context>
@@ -386,7 +384,7 @@
       </trans-unit>
       <trans-unit id="49b709a8302d98bd3fc369968a6311681e4e5e06" datatype="html">
         <source>Linked to</source>
-        <target></target>
+        <target>I lidhur me</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">30</context>
@@ -394,7 +392,7 @@
       </trans-unit>
       <trans-unit id="b4c7b8ed9a734473143ebde10fb034c29ec483fd" datatype="html">
         <source>Unlink</source>
-        <target></target>
+        <target>shkëputje</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">31</context>
@@ -406,7 +404,7 @@
       </trans-unit>
       <trans-unit id="1ac1acf0cbd2071a1de0641966cec17f35016cbf" datatype="html">
         <source>Link to a Board</source>
-        <target></target>
+        <target>Lidhje me një bord</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">39</context>
@@ -414,7 +412,7 @@
       </trans-unit>
       <trans-unit id="f7e12bf20756a6a287b4e25f193ccdcba567ef60" datatype="html">
         <source>This list shows only unlinked Boards.</source>
-        <target></target>
+        <target>Kjo listë tregon vetëm borde jo të lidhura.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">47</context>
@@ -422,7 +420,7 @@
       </trans-unit>
       <trans-unit id="faaa3e25b7ac64b43751e23883a9115c8dd9328d" datatype="html">
         <source>No Boards are available for linking.</source>
-        <target></target>
+        <target>Nuk ka borde për lidhje.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">54</context>
@@ -430,7 +428,7 @@
       </trans-unit>
       <trans-unit id="9b7c06ea2793398cfa1bf6c5ac5f47a12672eef2" datatype="html">
         <source>Unlink an existing Board, or create a new one.</source>
-        <target></target>
+        <target>Shkëputni një Bord ekzistues ose krijoni një Bord të ri.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">56</context>
@@ -438,7 +436,7 @@
       </trans-unit>
       <trans-unit id="6f1d7ee33c065fdbd6aaeb2bc3f396b62041eb25" datatype="html">
         <source>Cell</source>
-        <target></target>
+        <target>Qeli</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">15</context>
@@ -446,17 +444,15 @@
       </trans-unit>
       <trans-unit id="7cd2168068d1fd50772c493d493f83e4e412ebc8" datatype="html">
         <source>Symbol</source>
-        <target></target>
+        <target>Simboli</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c35534f4eda29ccaecf31b70df533ca7dbd14be0" datatype="html">
-        <source>
-    Created: <x id="INTERPOLATION" equiv-text="{{data.boardSet.createdAt | date}}"/>
-  </source>
-        <target></target>
+        <source>Created: <x id="INTERPOLATION" equiv-text="{{data.boardSet.createdAt | date}}"/> </source>
+        <target>Krijuar: <x id="INTERPOLATION" equiv-text="{{data.boardSet.createdAt | date}}}"/> </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-editor-dialog/boardset-editor-dialog.component.html</context>
           <context context-type="linenumber">13</context>
@@ -464,7 +460,7 @@
       </trans-unit>
       <trans-unit id="2567caa29d58e8554552266d1ea133f48ef3fbf8" datatype="html">
         <source>Add Board Set from OBZ</source>
-        <target></target>
+        <target>Shto Tabelën e Vendosur nga OBZ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">2</context>
@@ -472,7 +468,7 @@
       </trans-unit>
       <trans-unit id="6b028eb5cf922fb1ad7ac401d3bae82bd2856713" datatype="html">
         <source>Add a new Board Set from an Open Board Format Collection (OBZ) file.</source>
-        <target></target>
+        <target>Shto një set të ri bordi nga një skedar i Open Board Format Collection (OBZ).</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">9</context>
@@ -480,17 +476,15 @@
       </trans-unit>
       <trans-unit id="e0858fb3843454e2a94dbaa69b864a52c98e5a1b" datatype="html">
         <source>Select an OBZ file to begin.</source>
-        <target></target>
+        <target>Zgjidh një skedar OBZ për të filluar.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="38fc26f995d9eff8206f7366d3ef6b6112876b40" datatype="html">
-        <source>
-    We found <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {...} other {...}}"/> in your OBZ file.
-  </source>
-        <target></target>
+        <source>We found <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {...} other {...}}"/> in your OBZ file. </source>
+        <target>Ne gjetëm <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {...} të tjerë {...}}"/> në dosjen tuaj OBZ. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">20</context>
@@ -498,7 +492,7 @@
       </trans-unit>
       <trans-unit id="c4be93926edb355475a70ca1e8b63b299dbc5783" datatype="html">
         <source>{VAR_PLURAL, plural, =1 {board} other {boards} }</source>
-        <target></target>
+        <target>{VAR_PLURAL, shumës, =1 {board} të tjerë {boards} }</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">21</context>
@@ -506,7 +500,7 @@
       </trans-unit>
       <trans-unit id="cdd4854b8c1339874afe84196303f21e889a97a3" datatype="html">
         <source>The OBZ file could not be read because <x id="INTERPOLATION" equiv-text="{{fileInvalidReason}}"/></source>
-        <target></target>
+        <target>File OBZ nuk mund të lexohet sepse <x id="INTERPOLATION" equiv-text="{{fileInvalidReason}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">24</context>
@@ -514,7 +508,7 @@
       </trans-unit>
       <trans-unit id="dcf3b5983ac9ca0d6da473c2a783bdd79d99ea49" datatype="html">
         <source>Add Board Set</source>
-        <target></target>
+        <target>Shto tabelën</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">29</context>
@@ -522,7 +516,7 @@
       </trans-unit>
       <trans-unit id="dff54cc9115c256dd3f3bfdfe6cbc11230ec7e1e" datatype="html">
         <source>GlobalSymbols BoardBuilder</source>
-        <target></target>
+        <target>GlobalSymbols BoardBuilder</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">2</context>
@@ -530,7 +524,7 @@
       </trans-unit>
       <trans-unit id="9165f983b8c69763f7ed67885ebeb95b33b431e8" datatype="html">
         <source>My Board Sets</source>
-        <target></target>
+        <target>Bordet e mia</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">5</context>
@@ -538,7 +532,7 @@
       </trans-unit>
       <trans-unit id="52dc6be1c8ef8cddd1d7103d9f670788ffb01668" datatype="html">
         <source>Board Sets are saved in your browser. To return to your Board Sets, use BoardBuilder in the same browser.</source>
-        <target></target>
+        <target>Board Sets janë ruajtur në shfletuesin tuaj. Për t'u kthyer në Bordin tuaj Sets, përdorni BoardBuilder në të njëjtin shfletues.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">6</context>
@@ -546,7 +540,7 @@
       </trans-unit>
       <trans-unit id="8b676710093a32a1c59fef8f84d7a05882194f47" datatype="html">
         <source>Create Board Set <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></source>
-        <target></target>
+        <target>Krijo Board Set <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">8</context>
@@ -554,7 +548,7 @@
       </trans-unit>
       <trans-unit id="44a24a395329c17e92fd64ff7bfc4250fefa740b" datatype="html">
         <source>Add OBZ File <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></source>
-        <target></target>
+        <target>Shto skedarin OBZ <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">10</context>
@@ -562,7 +556,7 @@
       </trans-unit>
       <trans-unit id="4bded43e9a01d6293d29c8d0309fb759246ae29b" datatype="html">
         <source>Delete this Board Set</source>
-        <target></target>
+        <target>Elemino këtë set bordi</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">23</context>
@@ -574,7 +568,7 @@
       </trans-unit>
       <trans-unit id="557a3959fefb53ecaeb20f9c383c2f5b86904a43" datatype="html">
         <source>Edit this Board Set</source>
-        <target></target>
+        <target>Ndrysho këtë set bordi</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">26</context>
@@ -586,7 +580,7 @@
       </trans-unit>
       <trans-unit id="c9039b1b13b3ef165b66b3c5d79f810ab1ebb050" datatype="html">
         <source>Open</source>
-        <target></target>
+        <target>Hap</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">30</context>
