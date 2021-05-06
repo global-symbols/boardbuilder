@@ -20,7 +20,7 @@
       </trans-unit>
       <trans-unit id="826b25211922a1b46436589233cb6f1a163d89b7" datatype="html">
         <source>Delete</source>
-        <target>Изтрий</target>
+        <target>Изтрийте</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/confirm-dialog/confirm-dialog.component.html</context>
           <context context-type="linenumber">8</context>
@@ -28,7 +28,7 @@
       </trans-unit>
       <trans-unit id="1f50de60c93b24522701a635aae641fce24e2bc1" datatype="html">
         <source>Edit <x id="INTERPOLATION" equiv-text="{{data.board.title}}"/></source>
-        <target>Редактирай <x id="INTERPOLATION" equiv-text="{{data.board.title}}"/></target>
+        <target>Редактирайте <x id="INTERPOLATION" equiv-text="{{data.board.title}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">2</context>
@@ -120,7 +120,7 @@
       </trans-unit>
       <trans-unit id="6981db74a4a7300a95451e36be94132090cecd89" datatype="html">
         <source>Generating your PDF…</source>
-        <target>Създай свои PDF файл…</target>
+        <target>Създайте свои PDF файл…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-dialog/pdf-dialog.component.html</context>
           <context context-type="linenumber">15</context>
@@ -128,7 +128,7 @@
       </trans-unit>
       <trans-unit id="dc75033a5238fdc4f462212c847a45ba8018a3fd" datatype="html">
         <source>Download</source>
-        <target>Свали</target>
+        <target>Изтеглете</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-dialog/pdf-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -136,7 +136,7 @@
       </trans-unit>
       <trans-unit id="3f6f4b8552b4d78ad67f583ff6d1a95e91e2f5b1" datatype="html">
         <source>Add Board from OBF</source>
-        <target>Добави табло от OBF</target>
+        <target>Добавете табло от OBF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">2</context>
@@ -148,7 +148,7 @@
       </trans-unit>
       <trans-unit id="2a968810107da839fecd1210e4ddf5cfd84210a5" datatype="html">
         <source>Close the cell editor</source>
-        <target>Затвори редакторът на клетки</target>
+        <target>Затворете редактора на клетки</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">3</context>
@@ -160,7 +160,7 @@
       </trans-unit>
       <trans-unit id="530ca9fb63b8bf1bc911f957d4f3d7b0151362cb" datatype="html">
         <source>Add a new Board from an Open Board Format (OBF) file.</source>
-        <target>Добави ново табло от файла за Табла във Формат Свободен Достъп (ТФСД/OBF).</target>
+        <target>Добавете ново табло от файла за Табла във Формат Свободен Достъп (ТФСД/OBF).</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">10</context>
@@ -168,7 +168,7 @@
       </trans-unit>
       <trans-unit id="e7b9adab46cb1ff8c122f883b0ec555fa81a3340" datatype="html">
         <source>Select an OBF file to begin.</source>
-        <target>Избери ТФСД (OBF), за да започнеш.</target>
+        <target>Изберете ТФСД (OBF), за да започнеш.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">11</context>
@@ -176,7 +176,7 @@
       </trans-unit>
       <trans-unit id="753a9ddb22a64ee8f082a604c0e63832ddd62f70" datatype="html">
         <source>Select OBF…</source>
-        <target>Избери ТФСД (OBF)…</target>
+        <target>Изберете ТФСД (OBF)…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">15</context>
@@ -184,7 +184,7 @@
       </trans-unit>
       <trans-unit id="582a20a9cc38750cc8694f547146ea8932d93031" datatype="html">
         <source>We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> in your OBF file. </source>
-        <target>Намерихме <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> в твоя ТФСД (OBF) файл. </target>
+        <target>Намерихме <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> във вашия ТФСД (OBF) файл. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">21</context>
@@ -208,7 +208,7 @@
       </trans-unit>
       <trans-unit id="fa9b71008d369ff945cd1e89d720d724aa6f1f24" datatype="html">
         <source>Add Board</source>
-        <target>Добави Табло</target>
+        <target>Добавете Табло</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">30</context>
@@ -240,7 +240,7 @@
       </trans-unit>
       <trans-unit id="48d46d596fd3949815594e802f62da3406bc40f5" datatype="html">
         <source>Change Board Properties</source>
-        <target>Промени характеристиките на Таблото</target>
+        <target>Променете характеристиките на Таблото</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">15</context>
@@ -252,7 +252,7 @@
       </trans-unit>
       <trans-unit id="aa25ed7635b15d4812ce1fbe888a3b82c7aef7b4" datatype="html">
         <source>Import/Export</source>
-        <target>Импортирай/ експортирай ( въведи/изведи данни)</target>
+        <target>Импортирайте/ експортирайте ( въведете/изведете данни)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">19</context>
@@ -260,7 +260,7 @@
       </trans-unit>
       <trans-unit id="ac593b8a4309774b793ce5c99b9452df3de11aa1" datatype="html">
         <source>Upload/Download</source>
-        <target>Качи/Свали</target>
+        <target>Качете/Изтеглете</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">19</context>
@@ -268,7 +268,7 @@
       </trans-unit>
       <trans-unit id="a83e58919c81ab386256c8bfa7c778757e17ff46" datatype="html">
         <source>Delete this Board</source>
-        <target>Изтрий това Табло</target>
+        <target>Изтрийте това Табло</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">22</context>
@@ -280,7 +280,7 @@
       </trans-unit>
       <trans-unit id="3ca40fafe55592b865c3e37a505a5ffdb2f80cee" datatype="html">
         <source>Download Board as OBF</source>
-        <target>Свали таблото като ТФСД (OBF)</target>
+        <target>Изтеглете таблото като ТФСД (OBF)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">61</context>
@@ -288,7 +288,7 @@
       </trans-unit>
       <trans-unit id="9243d79a62fbeaf6c3e1b6e09c41bfc8f7a76e3e" datatype="html">
         <source>Print or Download Board as PDF</source>
-        <target>Принтирай или Свали Таблото като PDF</target>
+        <target>Принтирайте или Изтеглете Таблото като PDF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">64</context>
@@ -296,7 +296,7 @@
       </trans-unit>
       <trans-unit id="03a37983d8f0bed08318fe82e245dd864ea0c485" datatype="html">
         <source>Download Board Set as OBZ</source>
-        <target>Свали Табло-набор като OBZ</target>
+        <target>Изтеглете Табло-набор като OBZ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">71</context>
@@ -304,7 +304,7 @@
       </trans-unit>
       <trans-unit id="4626023bf37ec20cc1d07c870a581d3ca543fafb" datatype="html">
         <source>Search in</source>
-        <target>Търси в</target>
+        <target>Търсете в</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">2</context>
@@ -312,7 +312,7 @@
       </trans-unit>
       <trans-unit id="f3e40eb4eb1d2d752654ce152c5700f547ca12ec" datatype="html">
         <source>Search For</source>
-        <target>Търси за</target>
+        <target>Търсете за</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">12</context>
@@ -328,7 +328,7 @@
       </trans-unit>
       <trans-unit id="0b0e7337a9a451975d00d67084084b4558fa3614" datatype="html">
         <source>Try broadening your search.</source>
-        <target>Опитай да разшириш търсенето си.</target>
+        <target>Опитайте да разширите търсенето си.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">45</context>
@@ -392,7 +392,7 @@
       </trans-unit>
       <trans-unit id="b4c7b8ed9a734473143ebde10fb034c29ec483fd" datatype="html">
         <source>Unlink</source>
-        <target>Премахни свързването</target>
+        <target>Премахнете свързването</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">31</context>
@@ -404,7 +404,7 @@
       </trans-unit>
       <trans-unit id="1ac1acf0cbd2071a1de0641966cec17f35016cbf" datatype="html">
         <source>Link to a Board</source>
-        <target>Свържи с Табло</target>
+        <target>Свържете с Табло</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">39</context>
@@ -428,7 +428,7 @@
       </trans-unit>
       <trans-unit id="9b7c06ea2793398cfa1bf6c5ac5f47a12672eef2" datatype="html">
         <source>Unlink an existing Board, or create a new one.</source>
-        <target>Премахни свързването на съществуващо Табло или създай ново.</target>
+        <target>Премахнете свързването на съществуващо Табло или създайте ново.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">56</context>
@@ -460,7 +460,7 @@
       </trans-unit>
       <trans-unit id="2567caa29d58e8554552266d1ea133f48ef3fbf8" datatype="html">
         <source>Add Board Set from OBZ</source>
-        <target>Добави Табло-набор от OBZ</target>
+        <target>Добавете Табло-набор от OBZ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">2</context>
@@ -468,7 +468,7 @@
       </trans-unit>
       <trans-unit id="6b028eb5cf922fb1ad7ac401d3bae82bd2856713" datatype="html">
         <source>Add a new Board Set from an Open Board Format Collection (OBZ) file.</source>
-        <target>Добави ново Табло-набор от файла Колекция на Формат табла със свободен достъп.</target>
+        <target>Добавете ново Табло-набор от файла Колекция на Формат табла със свободен достъп.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">9</context>
@@ -476,7 +476,7 @@
       </trans-unit>
       <trans-unit id="e0858fb3843454e2a94dbaa69b864a52c98e5a1b" datatype="html">
         <source>Select an OBZ file to begin.</source>
-        <target>Избери OBZ файл, за да започнеш.</target>
+        <target>Изберете OBZ файл, за да започнете.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">10</context>
@@ -508,7 +508,7 @@
       </trans-unit>
       <trans-unit id="dcf3b5983ac9ca0d6da473c2a783bdd79d99ea49" datatype="html">
         <source>Add Board Set</source>
-        <target>Добави Табло-набор</target>
+        <target>Добавете Табло-набор</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">29</context>
@@ -540,7 +540,7 @@
       </trans-unit>
       <trans-unit id="8b676710093a32a1c59fef8f84d7a05882194f47" datatype="html">
         <source>Create Board Set <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></source>
-        <target>Създай Табло-набор <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></target>
+        <target>Създайте Табло-набор <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">8</context>
@@ -548,7 +548,7 @@
       </trans-unit>
       <trans-unit id="44a24a395329c17e92fd64ff7bfc4250fefa740b" datatype="html">
         <source>Add OBZ File <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></source>
-        <target>Добави OBZ файл <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></target>
+        <target>Добавете OBZ файл <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">10</context>
@@ -556,7 +556,7 @@
       </trans-unit>
       <trans-unit id="4bded43e9a01d6293d29c8d0309fb759246ae29b" datatype="html">
         <source>Delete this Board Set</source>
-        <target>Изтрий това Табло-набор</target>
+        <target>Изтрийте това Табло-набор</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">23</context>
@@ -568,7 +568,7 @@
       </trans-unit>
       <trans-unit id="557a3959fefb53ecaeb20f9c383c2f5b86904a43" datatype="html">
         <source>Edit this Board Set</source>
-        <target>Радактирай това Табло-набор</target>
+        <target>Радактирайте това Табло-набор</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">26</context>
