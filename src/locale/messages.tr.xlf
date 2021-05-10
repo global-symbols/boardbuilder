@@ -80,7 +80,7 @@
       </trans-unit>
       <trans-unit id="b169576ab898458aa823e09c1e7f3397f8f011a0" datatype="html">
         <source>Columns</source>
-        <target>Sütun</target>
+        <target>Sütunlar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">24</context>
@@ -88,7 +88,7 @@
       </trans-unit>
       <trans-unit id="79765b4b2ed87b05e0fd5d6937cec32d1995645f" datatype="html">
         <source>Rows</source>
-        <target>Satır</target>
+        <target>Satırlar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">36</context>
@@ -96,7 +96,7 @@
       </trans-unit>
       <trans-unit id="8dd413cee2228118c536f503709329a4d1a395e2" datatype="html">
         <source>Done</source>
-        <target>Yapılır</target>
+        <target>Tamamlandı</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">51</context>
@@ -128,7 +128,7 @@
       </trans-unit>
       <trans-unit id="dc75033a5238fdc4f462212c847a45ba8018a3fd" datatype="html">
         <source>Download</source>
-        <target>Indir</target>
+        <target>İndir</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-dialog/pdf-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -148,7 +148,7 @@
       </trans-unit>
       <trans-unit id="2a968810107da839fecd1210e4ddf5cfd84210a5" datatype="html">
         <source>Close the cell editor</source>
-        <target>Hücre düzenleyicisini kapatma</target>
+        <target>Hücre düzenleyicisini kapat</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">3</context>
@@ -232,7 +232,7 @@
       </trans-unit>
       <trans-unit id="f0b5dc0da9da47d21f0fb72bb1d1f34fe3f80c5d" datatype="html">
         <source>Global Symbols BoardBuilder</source>
-        <target>Global Symbols Board Builder</target>
+        <target>Global Symbols Pano Oluşturucu</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">12</context>
@@ -336,7 +336,7 @@
       </trans-unit>
       <trans-unit id="c15db5c4e79abe1151b19e07a4c98cc9595a6285" datatype="html">
         <source>Searching…</source>
-        <target>Arama…</target>
+        <target>Arıyor…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">53</context>
@@ -376,7 +376,7 @@
       </trans-unit>
       <trans-unit id="0ab5810721ddaa86e714bfec9ce3787fe698ce45" datatype="html">
         <source>Linking</source>
-        <target>Bağlama</target>
+        <target>Bağlantı ekle</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">28</context>
@@ -384,7 +384,7 @@
       </trans-unit>
       <trans-unit id="49b709a8302d98bd3fc369968a6311681e4e5e06" datatype="html">
         <source>Linked to</source>
-        <target>Bağlanacak yer</target>
+        <target>Şuraya bağla</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">30</context>
@@ -392,7 +392,7 @@
       </trans-unit>
       <trans-unit id="b4c7b8ed9a734473143ebde10fb034c29ec483fd" datatype="html">
         <source>Unlink</source>
-        <target>Bağlantısını</target>
+        <target>Bağlantıyı kaldır</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">31</context>
@@ -404,7 +404,7 @@
       </trans-unit>
       <trans-unit id="1ac1acf0cbd2071a1de0641966cec17f35016cbf" datatype="html">
         <source>Link to a Board</source>
-        <target>Pano bağlantısı</target>
+        <target>Panoya bağlantı</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">39</context>
@@ -428,7 +428,7 @@
       </trans-unit>
       <trans-unit id="9b7c06ea2793398cfa1bf6c5ac5f47a12672eef2" datatype="html">
         <source>Unlink an existing Board, or create a new one.</source>
-        <target>Varolan bir Pano'nun bağlantısını çözün veya yeni bir pano oluşturun.</target>
+        <target>Varolan bir Pano'nun bağlantısını kaldırın veya yeni bir pano oluşturun.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">56</context>
@@ -444,7 +444,7 @@
       </trans-unit>
       <trans-unit id="7cd2168068d1fd50772c493d493f83e4e412ebc8" datatype="html">
         <source>Symbol</source>
-        <target>Sembolü</target>
+        <target>Sembol</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">63</context>
