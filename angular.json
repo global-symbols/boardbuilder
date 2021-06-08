@@ -63,13 +63,14 @@
               "localize": [
                 "fr"
               ]
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "boardbuilder:build"
           },
           "configurations": {
             "production": {
@@ -77,8 +78,12 @@
             },
             "fr": {
               "browserTarget": "boardbuilder:build:fr"
+            },
+            "development": {
+              "browserTarget": "boardbuilder:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -121,14 +126,17 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "boardbuilder:serve"
+            "protractorConfig": "e2e/protractor.conf.js"
           },
           "configurations": {
             "production": {
               "devServerTarget": "boardbuilder:serve:production"
+            },
+            "development": {
+              "devServerTarget": "boardbuilder:serve:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "azureLogout": {
           "builder": "@azure/ng-deploy:logout"
