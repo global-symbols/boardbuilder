@@ -7,12 +7,34 @@ import {Symbolset} from '@data/models/symbolset';
 import {Observable} from 'rxjs';
 import {Language} from '@data/models/language';
 
+export interface SearchSource {
+  key: 'gs' | 'open-symbols' | 'the-noun-project';
+  name: string;
+  fixCors: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalSymbolsService {
 
   private apiBase = null;
+
+  public readonly sources: SearchSource[]  = [
+    {
+      key: 'gs',
+      name: 'Global Symbols',
+      fixCors: false
+    }, {
+      key: 'open-symbols',
+      name: 'Open Symbols',
+      fixCors: true
+    }, {
+      key: 'the-noun-project',
+      name: 'The Noun Project',
+      fixCors: true
+    },
+  ];
 
   constructor(public http: HttpClient) {
     this.apiBase = environment.globalSymbolsApiBase;

@@ -58,7 +58,7 @@ export class BoardService {
       .pipe(map(data => new Board().deserialise(data)));
   }
 
-  pdf(id: number|string, template?: Template): Promise<string | ArrayBuffer> {
+  pdf(id: number|string, template?: Template): Promise<string> {
     // return this.base64Service.getFromURL(`${this.apiEndpoint}/${id}/pdf`, template);
 
     return this.http.post(`${this.apiEndpoint}/${id}/pdf`, template, {
@@ -68,7 +68,7 @@ export class BoardService {
         const reader = new FileReader();
         reader.onerror = reject;
         reader.onload = () => {
-          resolve(reader.result);
+          resolve(reader.result.toString());
         };
         return reader.readAsDataURL(blob);
       });

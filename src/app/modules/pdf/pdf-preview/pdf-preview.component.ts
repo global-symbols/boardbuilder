@@ -47,14 +47,14 @@ export class PdfPreviewComponent implements OnInit {
   template: Template;
 
   board: Board;
-  compiledPdf;
+  compiledPdf = 'about:blank';
   failureReason: string;
 
   pdfEmbedWidth = 1000;
   pdfEmbedHeight = 600;
 
-  @ViewChild('pdfFrame') pdfFrame: ElementRef;
-  @ViewChild('pdfObject') pdfObject: ElementRef;
+  // @ViewChild('pdfFrame') pdfFrame: ElementRef;
+  // @ViewChild('pdfObject') pdfObject: ElementRef;
 
   ngOnInit() {
 
@@ -93,6 +93,7 @@ export class PdfPreviewComponent implements OnInit {
 
     this.boardService.pdf(this.route.snapshot.paramMap.get('board_id'), this.template)
       .then(pdfData => {
+
         this.compiledPdf = pdfData;
 
         // const clone = this.pdfFrame.nativeElement.cloneNode(true);

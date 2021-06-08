@@ -248,7 +248,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       if (media?.canvas_url) {
         this.addObjectsFromMedia(media);
       } else if (media?.public_url) {
-        this.addImage(media.public_url);
+        this.addImage(this.bustCorsCache(media.public_url));
       }
     });
   }
@@ -636,5 +636,14 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       this.setProperty('top', (this.workingCanvas.height / 2) - (((object.height + object.strokeWidth) * object.scaleY) / 2));
     }
 
+  }
+
+
+
+  // Appends a random parameter to a URL, as a way to bust caches that cache the wrong CORS state for an image.
+  bustCorsCache(inputUrl: string) {
+    const url = new URL(inputUrl);
+    url.searchParams.append('bustCorsCache', Math.random().toString(36).substring(7));
+    return url.toString();
   }
 }

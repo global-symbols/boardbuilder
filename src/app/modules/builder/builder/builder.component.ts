@@ -20,6 +20,7 @@ import {CopyBoardSetDialogComponent} from '@shared/components/copy-board-set-dia
 import {DialogService} from '@app/services/dialog.service';
 import {Cell} from '@data/models/cell.model';
 import {BoardTreeComponent} from '@modules/builder/board-tree/board-tree.component';
+import {CellEditorComponent} from '@modules/builder/cell-editor/cell-editor.component';
 
 @Component({
   selector: 'app-builder',
@@ -42,6 +43,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   private readonly mobileQueryListener: () => void;
 
   @ViewChild(BoardTreeComponent) boardTree: BoardTreeComponent;
+  @ViewChild(CellEditorComponent) cellEditor: CellEditorComponent;
 
   private currentDialogRef;
   private hotkeys: Array<Hotkey | Hotkey[]> = [];
@@ -132,12 +134,22 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     // Keyboard shortcut - delete Board
     this.hotkeys.push(
-      this.hotkeysService.add(new Hotkey(['del'], (event: KeyboardEvent): boolean => {
+      this.hotkeysService.add(new Hotkey(['ctrl+del', 'command+del'], (event: KeyboardEvent): boolean => {
         if (this.board) {
           this.deleteBoard(this.board);
         }
         return false; // Prevent bubbling
       }, undefined, 'Delete Current Board'))
+    );
+
+    // Keyboard shortcut - clear Cell
+    this.hotkeys.push(
+      this.hotkeysService.add(new Hotkey(['del'], (event: KeyboardEvent): boolean => {
+        if (this.selectedCell) {
+          this.cellEditor.clearCell();
+        }
+        return false; // Prevent bubbling
+      }, undefined, 'Clear Selected Cell'))
     );
   }
 

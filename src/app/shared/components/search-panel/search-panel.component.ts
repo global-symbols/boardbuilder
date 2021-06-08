@@ -14,18 +14,7 @@ import {Language} from '@data/models/language';
 })
 export class SearchPanelComponent implements AfterViewInit, OnInit {
 
-  sources = [
-    {
-      key: 'gs',
-      name: 'Global Symbols'
-    }, {
-      key: 'open-symbols',
-      name: 'Open Symbols'
-    }, {
-      key: 'the-noun-project',
-      name: 'The Noun Project'
-    },
-  ];
+  sources = [];
 
   query: string;
   source: any;
@@ -50,6 +39,8 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
 
   constructor(private globalSymbolsService: GlobalSymbolsService,
               private symbolService: SymbolService) {
+
+    this.sources = this.globalSymbolsService.sources;
     this.source = this.sources[0];
 
     this.gsParams = {
@@ -117,7 +108,7 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
         language: this.gsParams.language.value,
         language_iso_format: '639-3',
         symbolset: this.gsParams.symbolset.value,
-        limit: 36,
+        limit: 48,
         expand: 'picto.symbolset'
       };
 
@@ -129,7 +120,7 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
       }));
 
     } else {
-      return from(this.symbolService.search(this.query, this.source.key)).pipe(finalize(() => {
+      return from(this.symbolService.search(this.query, this.source)).pipe(finalize(() => {
         this.loadingSubject.next(false);
       }));
     }

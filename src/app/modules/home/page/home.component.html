@@ -12,6 +12,9 @@
       <ng-container *ngSwitchCase="true">My Board Sets</ng-container>
       <ng-container *ngSwitchCase="false">Get Started</ng-container>
     </button>
+    <button mat-flat-button color="primary" [routerLink]="['/', 'media']" class="button-lg mx-2" *ngIf="signedIn">
+      My Symbols
+    </button>
   </app-home-panel>
 
 
@@ -70,6 +73,9 @@
     <button mat-flat-button color="primary" (click)="getStarted()" class="button-lg" [ngSwitch]="signedIn">
       <ng-container *ngSwitchCase="true">My Board Sets</ng-container>
       <ng-container *ngSwitchCase="false">Get Started</ng-container>
+    </button>
+    <button mat-flat-button color="primary" [routerLink]="['/', 'media']" class="button-lg mx-2" *ngIf="signedIn">
+      My Symbols
     </button>
   </app-home-panel>
 </div>

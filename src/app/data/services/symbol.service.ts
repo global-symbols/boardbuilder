@@ -4,6 +4,7 @@ import {SymbolSearchResult} from '@data/models/symbol-search-result';
 import {map} from 'rxjs/operators';
 import {environment} from '@env';
 import {Observable} from 'rxjs';
+import {SearchSource} from '@data/services/global-symbols.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,11 @@ export class SymbolService {
     this.apiBase = environment.boardBuilderApiBase;
   }
 
-  search(query, source = 'globalsymbols'): Observable<SymbolSearchResult[]> {
+  search(query, source: SearchSource): Observable<SymbolSearchResult[]> {
 
-    if (source === 'open-symbols') {
+    if (source.key === 'open-symbols') {
 
-      // Peform OpenSymbols searches directly.
+      // Perform OpenSymbols searches directly.
       return this.http.get<any[]>('https://www.opensymbols.org/api/v1/symbols/search', { params: { q: query } })
         .pipe(map(arr => arr.map(result => new SymbolSearchResult().deserialise({
           id: result.id,
@@ -32,7 +33,7 @@ export class SymbolService {
     } else {
 
       // Perform all other searches through the BB API.
-      return this.http.get<SymbolSearchResult[]>(this.apiBase + '/symbols/search', { params: { query, source } })
+      return this.http.get<SymbolSearchResult[]>(this.apiBase + '/symbols/search', { params: { query, source: source.key } })
         .pipe(map(arr => arr.map(sr => new SymbolSearchResult().deserialise(sr))));
     }
   }

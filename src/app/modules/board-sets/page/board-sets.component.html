@@ -24,7 +24,7 @@
 
     <h2>Featured Board Sets</h2>
     <div fxLayout="row wrap" fxLayoutGap="1rem grid">
-      <app-board-set-tile *ngFor="let boardSet of featuredBoardSets" [boardSet]="boardSet" fxFlex="25">
+      <app-board-set-tile *ngFor="let boardSet of featuredBoardSets" [boardSet]="boardSet" fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
       </app-board-set-tile>
     </div>
 

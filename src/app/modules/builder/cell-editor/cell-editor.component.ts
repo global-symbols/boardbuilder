@@ -110,15 +110,19 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     if ($event.index === 1 && this.cell.caption) { this.searchPanel.search(); }
   }
 
-  clearCell(subject: string) {
-    if (subject === 'colours') {
+  clearCell(subject?: 'colours' | 'symbol' | 'caption') {
+    if (!subject || subject === 'colours') {
       this.cell.background_colour = null;
       this.cell.border_colour = null;
       this.cell.text_colour = null;
     }
 
-    if (subject === 'symbol') {
+    if (!subject || subject === 'symbol') {
       this.cell.image_url = null;
+    }
+
+    if (!subject || subject === 'caption') {
+      this.cell.caption = null;
     }
 
     this.saveCell();

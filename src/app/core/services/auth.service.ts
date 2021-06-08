@@ -33,7 +33,7 @@ export class AuthService {
   private navigateToLoginPage() {
     // console.warn('navigateToLoginPage was called');
     // TODO: Remember current URL
-    this.router.navigateByUrl('/auth/login');
+    this.router.navigateByUrl('/');
   }
 
   constructor(
