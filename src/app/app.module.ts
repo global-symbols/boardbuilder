@@ -22,7 +22,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {PreloadAllModules, Router, RouterModule, Routes} from '@angular/router';
-import {HotkeyModule} from 'angular2-hotkeys';
 import {FormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
@@ -41,6 +40,7 @@ import {AuthLayoutComponent} from './layout/auth-layout/auth-layout.component';
 import {NavButtonComponent} from './layout/nav-button/nav-button.component';
 import * as Sentry from '@sentry/angular';
 import {NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule} from 'ngx-google-analytics';
+import {HotkeyModule} from '@conflito/angular2-hotkeys';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
