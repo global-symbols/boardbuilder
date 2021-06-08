@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {Board} from '@data/models/board.model';
-import {Hotkey, HotkeysService} from 'angular2-hotkeys';
+import {Hotkey, HotkeysService} from '@conflito/angular2-hotkeys';
 import {MatDialog} from '@angular/material/dialog';
 import {BoardSet} from '@data/models/boardset.model';
 import {saveAs} from 'file-saver';

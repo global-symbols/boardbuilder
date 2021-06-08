@@ -32,9 +32,9 @@ import {BoardSetEditorDialogComponent} from './board-set-editor-dialog/board-set
 import {MatTreeModule} from '@angular/material/tree';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {HotkeyModule} from 'angular2-hotkeys';
 import {ColorGithubModule} from 'ngx-color/github';
 import {NgxGoogleAnalyticsModule} from 'ngx-google-analytics';
+import {HotkeyModule} from '@conflito/angular2-hotkeys';
 
 export const routes: Routes = [
   {

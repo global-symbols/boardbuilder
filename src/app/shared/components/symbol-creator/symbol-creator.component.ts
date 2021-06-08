@@ -3,7 +3,7 @@ import {fabric} from 'fabric';
 import {ImageBase64Service} from '@data/services/image-base64.service';
 import {WebFontsService} from '@data/services/web-fonts.service';
 import {FontGroup} from '@data/web-safe-fonts';
-import {Hotkey, HotkeysService} from 'angular2-hotkeys';
+import {Hotkey, HotkeysService} from '@conflito/angular2-hotkeys';
 import {saveAs} from 'file-saver';
 import {Media} from '@data/models/media.model';
 import {MediaService} from '@data/services/media.service';

@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BoardService} from '@data/services/board.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
-import {Hotkey, HotkeysService} from 'angular2-hotkeys';
+import {Hotkey, HotkeysService} from '@conflito/angular2-hotkeys';
 import {ToolbarService} from '@app/services/toolbar.service';
 import {Board} from '@data/models/board.model';
 import {saveAs} from 'file-saver';
