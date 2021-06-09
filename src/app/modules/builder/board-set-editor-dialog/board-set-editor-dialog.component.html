@@ -5,14 +5,14 @@
 
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
     <h1 mat-dialog-title i18n class="mb-0">Board Set Properties</h1>
-    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false" appStopPropagation>
+    <button mat-icon-button aria-label="Close" i18n-aria-label="close|Close" [mat-dialog-close]="false" appStopPropagation>
       <mat-icon>close</mat-icon>
     </button>
   </header>
 
   <div mat-dialog-content>
     <mat-form-field class="w-100">
-      <mat-label i18n>Title</mat-label>
+      <mat-label i18n="board.title label|Board Title field label">Title</mat-label>
       <input matInput required placeholder="Title" maxlength="250"
              [(ngModel)]="data.boardSet.title"
              appStopPropagation>
@@ -20,18 +20,18 @@
     </mat-form-field>
 
     <mat-form-field class="w-100 mb-3">
-      <mat-label>Visibility</mat-label>
+      <mat-label i18n="board.public label|Board Visibility field label">Visibility</mat-label>
       <mat-select [(value)]="data.boardSet.public" appStopPropagation>
-        <mat-option [value]="false">Private</mat-option>
-        <mat-option [value]="true">Public</mat-option>
+        <mat-option [value]="false" i18n="private|Private">Private</mat-option>
+        <mat-option [value]="true" i18n="public|Public">Public</mat-option>
       </mat-select>
-      <mat-hint>Public Board Sets can be found and viewed by anyone.</mat-hint>
+      <mat-hint i18n="board.public hint|Board Visibility field hint">Public Board Sets can be found and viewed by anyone.</mat-hint>
     </mat-form-field>
 
 
   </div>
   <div mat-dialog-actions>
     <span class="spacer"></span>
-    <button mat-raised-button [mat-dialog-close]="data.boardSet" color="primary" appStopPropagation cdkFocusInitial i18n>Done</button>
+    <button mat-raised-button [mat-dialog-close]="data.boardSet" color="primary" appStopPropagation cdkFocusInitial i18n="done|Done button">Done</button>
   </div>
 </div>

@@ -1,10 +1,10 @@
-<app-loading-notice action="Loading" subject="Symbol" *ngIf="status === 'Loading'"></app-loading-notice>
-<app-loading-notice action="Saving" subject="Symbol" *ngIf="status === 'Saving'"></app-loading-notice>
+<app-loading-notice action="Loading" subject="Symbol" i18n-action="loading|Loading" i18n-subject="symbol|Symbol" *ngIf="status === 'Loading'"></app-loading-notice>
+<app-loading-notice action="Saving" subject="Symbol" i18n-action="saving|Saving" i18n-subject="symbol|Symbol" *ngIf="status === 'Saving'"></app-loading-notice>
 
 <div *ngIf="status === 'SavingError'">
-  <h2>There was a problem saving your symbol</h2>
+  <h2 i18n="Symbol Creator error saving heading">There was a problem saving your symbol</h2>
   <p>{{lastError}}</p>
-  <button mat-flat-button color="primary" (click)="editMode()" class="mt-3">Continue Editing</button>
+  <button mat-flat-button color="primary" (click)="editMode()" class="mt-3" i18n="Symbol Creator error continue button">Continue Editing</button>
 </div>
 
 <div fxLayout="row" fxLayoutAlign="center none" [class.d-none]="status != 'Editing'" gaCategory="SymbolCreator">
@@ -13,7 +13,9 @@
     <!-- Top buttons-->
     <div fxLayout="row" fxLayoutAlign="space-between none">
       <div fxFlexOffset="4rem">
-        <button mat-icon-button aria-label="Save Symbol to Device" matTooltip="Save Symbol to Device" color="primary" [matMenuTriggerFor]="downloadMenu">
+        <button mat-icon-button color="primary" [matMenuTriggerFor]="downloadMenu"
+                aria-label="Save Symbol to Device" matTooltip="Save Symbol to Device"
+                i18n-aria-label="save to device|Save to Device" i18n-matTooltip="save to device|Save to Device">
           <mat-icon>save_alt</mat-icon>
         </button>
       </div>
@@ -21,42 +23,51 @@
 
       <div style="margin-right: 1rem;">
 
-        <button mat-icon-button aria-label="Align to Horizontal Centre" matTooltip="Align to Horizontal Centre" (click)="align('horizontal')" color="primary" [disabled]="selectedElements.length != 1"
+        <button mat-icon-button (click)="align('horizontal')" color="primary" [disabled]="selectedElements.length != 1"
+                aria-label="align horizontal centre|Align to Horizontal Centre" matTooltip="align horizontal centre|Align to Horizontal Centre"
+                i18n-aria-label="align horizontal centre|Align Horizontal Centre button" i18n-matTooltip="align horizontal centre|Align Horizontal Centre button"
                 gaEvent="click" gaLabel="AlignHorizontalCentre">
           <mat-icon>align_horizontal_center</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Align to Vertical Centre" matTooltip="Align to Vertical Centre" (click)="align('vertical')" color="primary" [disabled]="selectedElements.length != 1" class="mr-2"
+        <button mat-icon-button (click)="align('vertical')" color="primary" [disabled]="selectedElements.length != 1" class="mr-2"
+                aria-label="Align to Vertical Centre" matTooltip="Align to Vertical Centre"
+                i18n-aria-label="align vertical centre|Align to Vertical Centre" i18n-matTooltip="align vertical centre|Align to Vertical Centre"
                 gaEvent="click" gaLabel="AlignVerticalCentre">
           <mat-icon>align_vertical_center</mat-icon>
         </button>
 
-
-
-        <button mat-icon-button aria-label="Flip Horizontal" matTooltip="Flip Horizontal"
-                (click)="flip('horizontal')" color="primary" [disabled]="selectedElements.length != 1"
+        <button mat-icon-button
+                aria-label="Flip Horizontal" matTooltip="Flip Horizontal"
+                i18n-aria-label="flip horizontal|Flip Horizontal" i18n-matTooltip="flip horizontal|Flip Horizontal"
                 gaEvent="click" gaLabel="FlipHorizontal">
           <mat-icon>flip</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Flip Vertical" matTooltip="Flip Vertical"
-                (click)="flip('vertical')" color="primary" [disabled]="selectedElements.length != 1" class="mr-2"
+        <button mat-icon-button (click)="flip('vertical')" color="primary" [disabled]="selectedElements.length != 1" class="mr-2"
+                aria-label="Flip Vertical" matTooltip="Flip Vertical"
+                i18n-aria-label="flip vertical|Flip Vertical" i18n-matTooltip="flip vertical|Flip Vertical"
                 gaEvent="click" gaLabel="FlipVertical">
           <mat-icon class="rot-90-cw">flip</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Send Behind other Items" matTooltip="Send Behind other Items"
-                (click)="sendToBack()" color="primary" [disabled]="selectedElements.length === 0" class="mr-2"
+        <button mat-icon-button (click)="sendToBack()" color="primary" [disabled]="selectedElements.length === 0" class="mr-2"
+                aria-label="Send Behind other Items" matTooltip="Send Behind other Items"
+                i18n-aria-label="send behind|Send Behind other Items" i18n-matTooltip="send behind|Send Behind other Items"
                 gaEvent="click" gaLabel="SendBehind">
           <mat-icon>flip_to_back</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Duplicate Object" [matTooltip]="selectedElements.length === 1 ? 'Duplicate Selected Item' : 'Duplicate Selected Items'" (click)="duplicate()" color="primary" [disabled]="selectedElements.length === 0" class="mr-2"
+        <button mat-icon-button (click)="duplicate()" color="primary" [disabled]="selectedElements.length === 0" class="mr-2"
+                aria-label="Duplicate Selected" matTooltip="Duplicate Selected"
+                i18n-aria-label="duplicate selected|Duplicate Selected" i18n-matTooltip="duplicate selected|Duplicate Selected"
                 gaEvent="click" gaLabel="Duplicate">
           <mat-icon>content_copy</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Delete Selected Items" (click)="deleteSelectedItems()" color="primary" [matTooltip]="selectedElements.length === 1 ? 'Delete Selected Item' : 'Delete Selected Items'" [disabled]="selectedElements.length === 0"
+        <button mat-icon-button (click)="deleteSelectedItems()" color="primary" [disabled]="selectedElements.length === 0"
+                aria-label="Delete Selected" matTooltip="Delete Selected"
+                i18n-aria-label="delete selected|Delete Selected" i18n-matTooltip="delete selected|Delete Selected"
                 gaEvent="click" gaLabel="Delete">
           <mat-icon>delete</mat-icon>
         </button>
@@ -70,47 +81,65 @@
     <div fxLayout="row" fxLayoutGap="1rem grid">
       <!-- Side Buttons -->
       <div fxLayout="column" fxLayoutAlign="start center">
-        <button mat-icon-button aria-label="Add Image" (click)="showImageSelectDialog()" color="primary" matTooltipPosition="right" matTooltip="Add Image" fxFlexOffset="2rem"
+        <button mat-icon-button (click)="showImageSelectDialog()" color="primary" fxFlexOffset="2rem"
+                aria-label="Add Image" matTooltip="Add Image" matTooltipPosition="right"
+                i18n-aria-label="add image|Add Image" i18n-matTooltip="add image|Add Image"
                 gaEvent="click" gaLabel="AddImage">
           <mat-icon>insert_photo</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Text" (click)="addText()" color="primary" matTooltipPosition="right" matTooltip="Add Text Box"
+        <button mat-icon-button (click)="addText()" color="primary"
+                aria-label="Add Text Box" matTooltip="Add Text Box" matTooltipPosition="right"
+                i18n-aria-label="add text box|Add Text Box" i18n-matTooltip="add text box|Add Text Box"
                 gaEvent="click" gaLabel="AddText">
           <mat-icon>format_shapes</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Circle" (click)="addCircle()" color="primary" matTooltipPosition="right" matTooltip="Add Circle"
+        <button mat-icon-button (click)="addCircle()" color="primary"
+                aria-label="Add Circle" matTooltip="Add Circle" matTooltipPosition="right"
+                i18n-aria-label="add circle|Add Circle" i18n-matTooltip="add circle|Add Circle"
                 gaEvent="click" gaLabel="AddCircle">
           <mat-icon>panorama_fish_eye</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Line" (click)="addLine()" color="primary" matTooltipPosition="right" matTooltip="Add Line"
+        <button mat-icon-button (click)="addLine()" color="primary"
+                aria-label="Add Line" matTooltip="Add Line" matTooltipPosition="right"
+                i18n-aria-label="add line|Add Line" i18n-matTooltip="add line|Add Line"
                 gaEvent="click" gaLabel="AddLine">
           <mat-icon>remove</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Triangle" (click)="addTriangle()" color="primary" matTooltipPosition="right" matTooltip="Add Triangle"
+        <button mat-icon-button (click)="addTriangle()" color="primary"
+                aria-label="Add Triangle" matTooltip="Add Triangle" matTooltipPosition="right"
+                i18n-aria-label="add triangle|Add Triangle" i18n-matTooltip="add triangle|Add Triangle"
                 gaEvent="click" gaLabel="AddTriangle">
           <mat-icon>change_history</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Square" (click)="addSquare()" color="primary" matTooltipPosition="right" matTooltip="Add Square"
+        <button mat-icon-button (click)="addSquare()" color="primary"
+                aria-label="Add Square" matTooltip="Add Square" matTooltipPosition="right"
+                i18n-aria-label="add square|Add Square" i18n-matTooltip="add square|Add Square"
                 gaEvent="click" gaLabel="AddSquare">
           <mat-icon>crop_din</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Plus" (click)="addPlus()" color="primary" matTooltipPosition="right" matTooltip="Add Plus"
+        <button mat-icon-button (click)="addPlus()" color="primary"
+                aria-label="Add Plus" matTooltip="Add Plus" matTooltipPosition="right"
+                i18n-aria-label="add plus|Add Plus" i18n-matTooltip="add plus|Add Plus"
                 gaEvent="click" gaLabel="AddPlus">
           <mat-icon>add</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Cross" (click)="addCross()" color="primary" matTooltipPosition="right" matTooltip="Add Cross"
+        <button mat-icon-button (click)="addCross()" color="primary"
+                aria-label="Add Cross" matTooltip="Add Cross" matTooltipPosition="right"
+                i18n-aria-label="add cross|Add Cross" i18n-matTooltip="add cross|Add Cross"
                 gaEvent="click" gaLabel="AddCross">
           <mat-icon>close</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Add Arrow" (click)="addArrow()" color="primary" matTooltipPosition="right" matTooltip="Add Arrow"
+        <button mat-icon-button (click)="addArrow()" color="primary"
+                aria-label="Add Arrow" matTooltip="Add Arrow" matTooltipPosition="right"
+                i18n-aria-label="add arrow|Add Arrow" i18n-matTooltip="add arrow|Add Arrow"
                 gaEvent="click" gaLabel="AddArrow">
           <mat-icon>arrow_right_alt</mat-icon>
         </button>
@@ -129,7 +158,8 @@
           <div fxLayout="row" fxLayoutAlign="space-between center">
             <h2>Fill</h2>
             <button mat-icon-button *ngIf="selectedElement?.fill !== 'transparent'"
-                    matTooltip="Clear Fill" matTooltipPosition="left"
+                    aria-label="Clear Fill" matTooltip="Clear Fill" matTooltipPosition="left"
+                    i18n-aria-label="clear fill|Clear Fill" i18n-matTooltip="clear fill|Clear Fill"
                     (click)="setProperty('fill', 'transparent')">
               <mat-icon color="primary" [style.color]="selectedElement?.fill" *ngIf="selectedElement && selectedElement?.fill">format_color_reset</mat-icon>
             </button>
@@ -146,7 +176,8 @@
         <div fxLayout="row" fxLayoutAlign="space-between center">
           <h2>Outline</h2>
           <button mat-icon-button *ngIf="selectedElement?.stroke !== 'transparent'"
-                  matTooltip="Clear Outline" matTooltipPosition="left"
+                  aria-label="Clear Outline" matTooltip="Clear Outline" matTooltipPosition="left"
+                  i18n-aria-label="clear outline|Clear Outline" i18n-matTooltip="clear outline|Clear Outline"
                   (click)="setProperty('stroke', 'transparent')">
             <mat-icon color="primary" [style.color]="selectedElement?.stroke" *ngIf="selectedElement && selectedElement?.stroke">format_color_reset</mat-icon>
           </button>
@@ -158,7 +189,7 @@
                       (onChange)="setProperty('stroke', $event.color.hex)"></color-github>
 
         <div fxLayout="row" fxLayoutAlign="space-between center">
-          <mat-label  fxFlex="30" i18n>Thickness</mat-label>
+          <mat-label  fxFlex="30" i18n="thickness|Thickness">Thickness</mat-label>
           <mat-slider fxFlex="70"  [(ngModel)]="selectedElement.strokeWidth" min="0" max="10"
                     [step]="1"
                     [thumbLabel]="true"
@@ -168,17 +199,17 @@
       </div>
       <div *ngIf="selectedElement?.type === 'i-text'">
         <div fxLayout="row" fxLayoutAlign="space-between center">
-        <h2>Text</h2>
+        <h2 i18n="text|Text">Text</h2>
           <div>
-            <button mat-icon-button aria-label="Bold"
+            <button mat-icon-button aria-label="Bold" i18n-aria-label="bold|Bold"
                     [color]="selectedElement?.fontWeight === 'bold' ? 'primary' : null" (click)="toggleFontWeight()">
               <mat-icon>format_bold</mat-icon>
             </button>
-            <button mat-icon-button aria-label="Italic"
+            <button mat-icon-button aria-label="Italic" i18n-aria-label="italic|Italic"
                     [color]="selectedElement?.fontStyle === 'italic' ? 'primary' : null" (click)="toggleFontStyle()">
               <mat-icon>format_italic</mat-icon>
             </button>
-            <button mat-icon-button aria-label="Underline"
+            <button mat-icon-button aria-label="Underline" i18n-aria-label="underline|Underline"
                     [color]="selectedElement?.underline ? 'primary' : null" (click)="setProperty('underline', !selectedElement.underline)">
               <mat-icon>format_underline</mat-icon>
             </button>
@@ -186,7 +217,7 @@
         </div>
 
         <mat-form-field appearance="fill" *ngIf="selectedElement?.fontFamily" class="w-100">
-          <mat-label>Font</mat-label>
+          <mat-label i18n="font|Font">Font</mat-label>
           <mat-select [(ngModel)]="selectedElement.fontFamily" (selectionChange)="setProperty('fontFamily', $event.value)">
             <mat-optgroup *ngFor="let group of fonts" [label]="group.name">
               <mat-option *ngFor="let font of group.fonts" [value]="font" [ngStyle]="{fontFamily: font}">
@@ -204,10 +235,10 @@
 <mat-menu #downloadMenu="matMenu" gaCategory="SymbolCreator">
   <button mat-menu-item (click)="savePNG()"
           gaEvent="click" gaLabel="SaveAsPNG">
-    <span>Save to Device (PNG)</span>
+    <span i18n="Save to Device (PNG)">Save to Device (PNG)</span>
   </button>
   <button mat-menu-item (click)="saveSVG()"
           gaEvent="click" gaLabel="SaveAsSVG">
-    <span>Save to Device (SVG, Advanced)</span>
+    <span i18n="Save to Device (SVG)">Save to Device (SVG, Advanced)</span>
   </button>
 </mat-menu>

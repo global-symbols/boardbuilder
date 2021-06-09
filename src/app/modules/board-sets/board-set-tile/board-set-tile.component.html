@@ -19,11 +19,14 @@
         </div>
       </div>
       <div class="mt-2" *ngIf="boardSet.owner">
-        By {{boardSet.owner.prename}} {{boardSet.owner.surname}}
+        <ng-container i18n="by author|Board Set tile author prefix (e.g. 'By E.A. Draffan')">By</ng-container>
+        {{boardSet.owner.prename}} {{boardSet.owner.surname}}
       </div>
       <div class="mt-2" *ngIf="!boardSet.readonly">
-        <ng-container *ngIf="boardSet.opened_at">Opened {{boardSet.opened_at.toString() | amTimeAgo}}</ng-container>
-        <ng-container *ngIf="!boardSet.opened_at">Never Opened</ng-container>
+        <ng-container *ngIf="boardSet.opened_at">
+          <ng-container i18n="Board Set tile opened prefix (e.g. 'Opened 5 minutes ago')">Opened</ng-container>
+          {{boardSet.opened_at.toString() | amTimeAgo}}</ng-container>
+        <ng-container *ngIf="!boardSet.opened_at" i18n="Board Set tile never opened">Never Opened</ng-container>
       </div>
     </div>
   </mat-card-content>

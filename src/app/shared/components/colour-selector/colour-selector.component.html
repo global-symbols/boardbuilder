@@ -7,7 +7,7 @@
     <div fxLayoutAlign="end center">
       <mat-icon [style.color]="value" *ngIf="value">lens</mat-icon>
       <button mat-icon-button *ngIf="value !== 'transparent'"
-              [matTooltip]="'Remove ' + label + ' Colour'" matTooltipPosition="left"
+              matTooltip="Remove {{label}} Colour" i18n-matTooltip="Colour Selector remove colour tooltip" matTooltipPosition="left"
               (click)="selectColour(null); $event.stopPropagation()">
         <mat-icon color="primary">format_color_reset</mat-icon>
       </button>

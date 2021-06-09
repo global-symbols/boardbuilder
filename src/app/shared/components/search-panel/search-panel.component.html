@@ -1,11 +1,11 @@
 <mat-form-field class="w-100" appearance="outline">
-  <mat-label i18n>Search For</mat-label>
+  <mat-label i18n="Symbol Search query input label">Search For</mat-label>
   <input matInput [(ngModel)]="query" #queryInput>
   <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 
 <mat-form-field class="w-100">
-  <mat-label>Search In</mat-label>
+  <mat-label i18n="Symbol Search location input label">Search In</mat-label>
   <mat-select [(value)]="source" (selectionChange)="search()">
     <mat-option *ngFor="let source of sources" [value]="source">{{source.name}}</mat-option>
   </mat-select>
@@ -14,9 +14,9 @@
 <ng-container *ngIf="source.key === 'gs'">
 
   <mat-form-field class="w-100">
-    <mat-label>Symbol Set</mat-label>
+    <mat-label i18n="Symbol Search symbol set input">Symbol Set</mat-label>
     <mat-select [(value)]="gsParams.symbolset.value" (selectionChange)="search()">
-      <mat-option value="all">All Symbol Sets</mat-option>
+      <mat-option value="all" i18n="Symbol Search symbol set 'all' option">All Symbol Sets</mat-option>
       <mat-optgroup *ngFor="let group of gsParams.symbolset.groups" [label]="group.name">
         <mat-option *ngFor="let symbolset of group.options" [value]="symbolset.slug">
           {{symbolset.name}}
@@ -26,7 +26,7 @@
   </mat-form-field>
 
   <mat-form-field class="w-100">
-    <mat-label>Language</mat-label>
+    <mat-label i18n="Symbol Search language input label">Language</mat-label>
     <mat-select [(value)]="gsParams.language.value" (selectionChange)="search()">
       <mat-option *ngFor="let language of gsParams.language.options" [value]="language.iso639_3">{{language.name}}</mat-option>
     </mat-select>
@@ -48,8 +48,8 @@
     <mat-icon [inline]="true">category</mat-icon>
   </div>
 
-  <p i18n>We couldn't find any symbols.</p>
-  <p i18n>Try broadening your search.</p>
+  <p i18n="Symbol Search no results found 1">We couldn't find any symbols.</p>
+  <p i18n="Symbol Search no results found 2">Try broadening your search.</p>
 </div>
 
 <div *ngIf="loading$ | async" class="searching-notification">
@@ -57,5 +57,5 @@
     class="example-margin"
     mode="indeterminate">
   </mat-progress-spinner>
-  <ng-container i18n>Searching&hellip;</ng-container>
+  <ng-container i18n="searching ellipsis|Searching ellipsis">Searching&hellip;</ng-container>
 </div>

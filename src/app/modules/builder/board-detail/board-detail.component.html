@@ -6,7 +6,7 @@
       <div [ngSwitch]="readonly">
         <button *ngSwitchCase="false" mat-button mat-stroked-button (click)="selectHeaderImage()" [class.p-0]="board.header_media">
           <img [src]="board.header_media?.public_url" *ngIf="board.header_media" />
-          <ng-container *ngIf="!board.header_media">
+          <ng-container *ngIf="!board.header_media" i18n="add header image|Board Detail Add Header Image button">
             Add Header Image
           </ng-container>
         </button>
@@ -52,7 +52,7 @@
           <button mat-icon-button *ngIf="c.linked_board_id"
                   [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
                   (click)="showBoard(c.linked_board_id)"
-                  matTooltip="Go to Linked Board">
+                  matTooltip="Go to Linked Board" i18n-matTooltip="go to linked board|Board Cell Go to Linked Board button">
             <mat-icon>link</mat-icon>
           </button>
         </div>
@@ -78,7 +78,7 @@
 
           <button mat-icon-button [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
                   (click)="showBoard(c.linked_board_id)"
-                  matTooltip="Go to Linked Board">
+                  matTooltip="Go to Linked Board" i18n-matTooltip="go to linked board|Board Cell Go to Linked Board button">
             <mat-icon>link</mat-icon>
           </button>
         </div>

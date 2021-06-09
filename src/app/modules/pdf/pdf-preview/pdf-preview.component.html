@@ -5,50 +5,53 @@
     <mat-card style="max-width: 750px; width: 100%" class="mb-2">
 
       <mat-card-header>
-        <mat-card-title>PDF Settings</mat-card-title>
+        <mat-card-title i18n>PDF Settings</mat-card-title>
       </mat-card-header>
 
       <mat-card-content>
 
         <div fxLayout="row" fxLayoutGap="20px">
           <mat-form-field appearance="outline" fxFlex="33">
-            <mat-label>Paper Size</mat-label>
+            <mat-label i18n="paper size|PDF Paper Size">Paper Size</mat-label>
             <mat-select [(value)]="template.pageSize" (valueChange)="loadPdf()">
               <mat-option *ngFor="let size of pageSizes" [value]="size">{{size.name}}</mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field appearance="outline" fxFlex="33">
-            <mat-label>Orientation</mat-label>
+            <mat-label i18n="orientation|PDF Paper Orientation">Orientation</mat-label>
             <mat-select [(value)]="template.orientation" (valueChange)="loadPdf()">
-              <mat-option value="portrait">Portrait</mat-option>
-              <mat-option value="landscape">Landscape</mat-option>
+              <mat-option value="portrait" i18n="portrait|Portrait orientation">Portrait</mat-option>
+              <mat-option value="landscape" i18n="landscape|Landscape orientation">Landscape</mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field appearance="outline" fxFlex="33">
-            <mat-label>Text Size (Maximum)</mat-label>
+            <mat-label i18n="text size max|PDF Maximum Text Size">Text Size (Maximum)</mat-label>
             <mat-select [(value)]="template.fontSize" (valueChange)="loadPdf()">
               <mat-option *ngFor="let size of fontSizes" [value]="size">{{size}}</mat-option>
             </mat-select>
-            <mat-hint>Text may shrink to fit available space</mat-hint>
+            <mat-hint i18n="text size max hint|PDF Maximum Text Size hint">Text may shrink to fit available space</mat-hint>
           </mat-form-field>
         </div>
 
       </mat-card-content>
 
       <mat-card-actions>
-        <button mat-raised-button [disabled]="status != 'success'" (click)="downloadPdf()" color="primary" class="mr-2">
+        <button mat-raised-button [disabled]="status != 'success'" (click)="downloadPdf()" color="primary" class="mr-2" i18n="download|Download">
           Download
         </button>
-        <button mat-icon-button aria-label="Reload" [disabled]="status == 'loading'" matTooltip="Refresh PDF" (click)="loadPdf()" matTooltipPosition="right">
+        <button mat-icon-button [disabled]="status == 'loading'"
+                aria-label="Refresh PDF" i18n-aria-label="refresh pdf|Refresh PDF"
+                matTooltip="Refresh PDF" i18n-matTooltip="refresh pdf|Refresh PDF"
+                (click)="loadPdf()" matTooltipPosition="right">
           <mat-icon>refresh</mat-icon>
         </button>
       </mat-card-actions>
 
     </mat-card>
 
-    <app-loading-notice *ngIf="status === 'loading' || status === 'error'" action="Generating" subject="PDF" [error]="!!failureReason"></app-loading-notice>
+    <app-loading-notice *ngIf="status === 'loading' || status === 'error'" action="Generating" i18n-subject="generating|Generating (working/building)" subject="PDF" [error]="!!failureReason"></app-loading-notice>
 
     <object [style.visibility]="status === 'success' ? 'visible' : 'hidden'"
             [data]="compiledPdf | bypassSanitiser: 'resourceUrl'" style="max-width: 1000px; width: 100%" [height]="pdfEmbedHeight"></object>

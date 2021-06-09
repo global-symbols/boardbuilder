@@ -1,80 +1,80 @@
 <div class="container" style="max-width: 1000px">
 
   <app-home-panel
-    heading="Communication boards the easy way"
+    heading="Communication boards the easy way" i18n-heading="Home panel 1 heading"
     imageUrl="assets/images/home/main.svg"
     [even]="false"
     headingType="h1"
   >
-    <p>Create boards to aid communication with thousands of free images.</p>
-    <p>Everything is stored safely in your Global Symbols account.</p>
+    <p i18n="Home panel 1 text 1">Create boards to aid communication with thousands of free images.</p>
+    <p i18n="Home panel 1 text 2">Everything is stored safely in your Global Symbols account.</p>
     <button mat-flat-button color="primary" (click)="getStarted()" class="button-lg" [ngSwitch]="signedIn">
-      <ng-container *ngSwitchCase="true">My Board Sets</ng-container>
-      <ng-container *ngSwitchCase="false">Get Started</ng-container>
+      <ng-container *ngSwitchCase="true" i18n="my board sets|My Board Sets">My Board Sets</ng-container>
+      <ng-container *ngSwitchCase="false" i18n="get started|Get Started">Get Started</ng-container>
     </button>
-    <button mat-flat-button color="primary" [routerLink]="['/', 'media']" class="button-lg mx-2" *ngIf="signedIn">
+    <button mat-flat-button color="primary" [routerLink]="['/', 'media']" class="button-lg mx-2" *ngIf="signedIn" i18n="my symbols|My Symbols">
       My Symbols
     </button>
   </app-home-panel>
 
 
   <app-home-panel
-    heading="Start with a template or make your own layout"
+    heading="Start with a template or make your own layout" i18n-heading="Home panel 2 heading"
     imageUrl="assets/images/home/templates.svg"
     [even]="true"
   >
-    <p>Get started quickly with our collection of handy templates.</p>
-    <p>You always have control to customise the layout beyond our templates.</p>
+    <p i18n="Home panel 2 text 1">Get started quickly with our collection of handy templates.</p>
+    <p i18n="Home panel 2 text 2">You always have control to customise the layout beyond our templates.</p>
   </app-home-panel>
 
   <app-home-panel
-    heading="Search thousands of free images and use your own"
+    heading="Search thousands of free images and use your own" i18n-heading="Home panel 3 heading"
     imageUrl="assets/images/home/search-images.svg"
     [even]="false"
   >
-    <p>Quickly find the symbols you need by searching thousands of free images from popular symbol sets on GlobalSymbols.</p>
-    <p>Store your own photos and images in BoardBuilder and use them throughout your boards.</p>
+    <p i18n="Home panel 3 text 1">Quickly find the symbols you need by searching thousands of free images from popular symbol sets on GlobalSymbols.</p>
+    <p i18n="Home panel 3 text 2">Store your own photos and images in BoardBuilder and use them throughout your boards.</p>
   </app-home-panel>
 
   <app-home-panel
-    heading="Communicate with colour and more"
+    heading="Communicate with colour and more" i18n-heading="Home panel 4 heading"
     imageUrl="assets/images/home/colour.svg"
     [even]="true"
   >
-    <p>Tailor boards with your favourite colours and preferred fonts.</p>
-    <p>Easily re-arrange boards and link between boards to create communication books.</p>
+    <p i18n="Home panel 4 text 1">Tailor boards with your favourite colours and preferred fonts.</p>
+    <p i18n="Home panel 4 text 2">Easily re-arrange boards and link between boards to create communication books.</p>
   </app-home-panel>
 
   <app-home-panel
-    heading="Create your own Symbols"
+    heading="Create your own Symbols" i18n-heading="Home panel 5 heading"
     imageUrl="assets/images/home/symbol-creator.svg"
     [even]="false"
   >
-    <p>Create your own symbols in seconds by combining shapes, text, symbols and even your own pictures.</p>
-    <p>Perfect for those times when you need something a little different.</p>
+    <p i18n="Home panel 5 text 1">Create your own symbols in seconds by combining shapes, text, symbols and even your own pictures.</p>
+    <p i18n="Home panel 5 text 2">Perfect for those times when you need something a little different.</p>
   </app-home-panel>
 
   <app-home-panel
-    heading="Download, Print and Share"
+    heading="Download, Print and Share" i18n-heading="Home panel 6 heading"
     imageUrl="assets/images/home/pdf-and-print.svg"
     [even]="true"
   >
-    <p>Quickly convert boards to PDF so they can be easily shared with anyone.</p>
-    <p>Print boards to your preferred paper size, import and export boards in OBF and OBZ formats.</p>
+    <p i18n="Home panel 6 text 1">Quickly convert boards to PDF so they can be easily shared with anyone.</p>
+    <p i18n="Home panel 6 text 2">Print boards to your preferred paper size, import and export boards in OBF and OBZ formats.</p>
   </app-home-panel>
 
   <app-home-panel
-    heading="Get Started"
+    heading="Get Started" i18n-heading="Home panel 7 heading"
     imageUrl="assets/images/home/get-started.svg"
     [even]="false"
   >
-    <p>BoardBuilder stores everything in your Global Symbols account.</p>
-    <p>Create an account if you don't already have one.</p>
+    <p i18n="Home panel 7 text 1">BoardBuilder stores everything in your Global Symbols account.</p>
+    <p i18n="Home panel 7 text 2">Create an account if you don't already have one.</p>
     <button mat-flat-button color="primary" (click)="getStarted()" class="button-lg" [ngSwitch]="signedIn">
-      <ng-container *ngSwitchCase="true">My Board Sets</ng-container>
-      <ng-container *ngSwitchCase="false">Get Started</ng-container>
+      <ng-container *ngSwitchCase="true" i18n="my board sets|My Board Sets">My Board Sets</ng-container>
+      <ng-container *ngSwitchCase="false" i18n="get started|Get Started">Get Started</ng-container>
     </button>
-    <button mat-flat-button color="primary" [routerLink]="['/', 'media']" class="button-lg mx-2" *ngIf="signedIn">
+    <button mat-flat-button color="primary" [routerLink]="['/', 'media']" class="button-lg mx-2" *ngIf="signedIn" i18n="my symbols|My Symbols">
       My Symbols
     </button>
   </app-home-panel>

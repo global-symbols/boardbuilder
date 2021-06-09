@@ -4,18 +4,20 @@
 >
 
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-1">
-    <h1 mat-dialog-title i18n class="mb-0">Symbol Creator</h1>
+    <h1 mat-dialog-title class="mb-0">Symbol Creator</h1>
 
     <div>
-      <button mat-icon-button aria-label="Discard" (click)="dialogRef.close()"
-              appStopPropagation [matTooltip]="media?.persisted() ? 'Discard Changes' : 'Cancel'"
+      <button mat-icon-button (click)="dialogRef.close()" appStopPropagation
+              aria-label="Discard"  matTooltip="{{media?.persisted() ? 'Discard Changes' : 'Cancel'}}"
+              i18n-aria-label="discard|Discard (throw away, cancel)" i18n-matTooltip="Discard changes (if editing) or cancel (if creating new)"
               gaCategory="SymbolCreator" gaEvent="click" gaLabel="DiscardChanges"
       >
         <mat-icon>close</mat-icon>
       </button>
 
-      <button mat-icon-button aria-label="Save and Close" (click)="saveAndClose()"
-              appStopPropagation matTooltip="Save and Close"
+      <button mat-icon-button (click)="saveAndClose()" appStopPropagation
+              aria-label="Save and Close" matTooltip="Save and Close"
+              i18n-aria-label="save and close|Save and Close" i18n-matTooltip="save and close|Save and Close"
               gaCategory="SymbolCreator" gaEvent="click" gaLabel="SaveAndClose"
       >
         <mat-icon>check</mat-icon>

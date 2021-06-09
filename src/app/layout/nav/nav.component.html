@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
   <div fxFlex="38" fxFlex.xs="33">
     <a href="https://globalsymbols.com" target="_blank" *ngIf="showGlobalNav$ | async" id="gsLink">
-      <img src="/assets/images/gs-globe.svg" alt="Global Symbols"  matTooltip="Global Symbols" matTooltipPosition="right"/>
+      <img src="assets/images/gs-globe.svg" alt="Global Symbols"  matTooltip="Global Symbols" matTooltipPosition="right"/>
     </a>
     <app-nav-button *ngFor="let button of leftButtons$ | async" [button]="button"></app-nav-button>
   </div>
@@ -14,39 +14,42 @@
 
     <app-nav-button *ngFor="let button of rightButtons$ | async" [button]="button"></app-nav-button>
 
-    <a mat-button mat-icon-button href="https://globalsymbols.com/about/board-builder-and-symbol-creator-instructions" target="_blank" matTooltip="Help and Resources" class="mr-1">
+    <a mat-button mat-icon-button href="https://globalsymbols.com/about/board-builder-and-symbol-creator-instructions" target="_blank"
+       matTooltip="Help and Resources" i18n-matTooltip="Navbar help button" class="mr-1">
       <mat-icon>help_outline</mat-icon>
     </a>
 
-    <a mat-button mat-stroked-button (click)="login()" *ngIf="!(canActivateProtectedRoutes | async)">
+    <a mat-button mat-stroked-button (click)="login()" *ngIf="!(canActivateProtectedRoutes | async)" i18n="sign in|Navbar sign in button">
       Sign In
     </a>
 
     <ng-container *ngIf="canActivateProtectedRoutes | async">
-      <button fxShow.xs fxHide mat-button mat-icon-button [matMenuTriggerFor]="userMenu" matTooltip="Global Symbols Account">
+      <button fxShow.xs fxHide mat-button mat-icon-button [matMenuTriggerFor]="userMenu"
+              matTooltip="Global Symbols Account" i18n-matTooltip="gs account|Navbar GS account button">
         <mat-icon>person</mat-icon>
       </button>
-      <button fxHide.xs mat-stroked-button [matMenuTriggerFor]="userMenu" matTooltip="Global Symbols Account" class="user-controls-button">
+      <button fxHide.xs mat-stroked-button [matMenuTriggerFor]="userMenu"
+              matTooltip="Global Symbols Account" i18n-matTooltip="gs account|Navbar GS account button" class="user-controls-button">
         {{identityClaims.name}}
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
       <mat-menu #userMenu="matMenu" xPosition="before">
         <a mat-menu-item [routerLink]="['/', 'boardsets']">
           <mat-icon>view_comfy</mat-icon>
-          Board Sets
+          <ng-container i18n="Navbar dropdown Board Sets button">Board Sets</ng-container>
         </a>
         <a mat-menu-item [routerLink]="['/', 'media']">
           <mat-icon>perm_media</mat-icon>
-          Symbols
+          <ng-container i18n="Navbar dropdown Symbols button">Symbols</ng-container>
         </a>
         <a mat-menu-item href="https://globalsymbols.com/users/edit" target="_blank">
           <mat-icon>person</mat-icon>
-          Manage Account
+          <ng-container i18n="manage account|Navbar dropdown Manage Account button">Manage Account</ng-container>
         </a>
         <mat-divider></mat-divider>
         <button mat-menu-item (click)="logout()">
           <mat-icon>exit_to_app</mat-icon>
-          Sign Out
+          <ng-container i18n="sign out|Navbar dropdown Sign Out button">Sign Out</ng-container>
         </button>
       </mat-menu>
     </ng-container>

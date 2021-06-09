@@ -9,6 +9,15 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": {
+          "code": "en-GB",
+          "baseHref": "en"
+        },
+        "locales": {
+          "fr": "src/locale/messages.fr.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -38,7 +47,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "localize": false,
+              "localize": true,
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
