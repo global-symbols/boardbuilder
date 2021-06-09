@@ -1,9 +1,9 @@
 <div fxLayoutGap="20px grid">
 
   <mat-form-field class="w-100" fxFlex="50">
-    <mat-label i18n="Board Editor Form board title field label">
-      <ng-container *ngIf="!board.board_set_id">First Board </ng-container>
-      Title
+    <mat-label>
+      <ng-container i18n="first board|Board Editor Form first board prefix" *ngIf="!board.board_set_id">First Board </ng-container>
+      <ng-container i18n="Board Editor Form board title field label">Title</ng-container>
     </mat-label>
     <input matInput required #titleField maxlength="250"
            [(ngModel)]="board.title"
@@ -13,14 +13,14 @@
   </mat-form-field>
 
   <mat-form-field class="w-100 mb-2" fxFlex="50">
-    <mat-label i18n="Board Editor Form board description field label">
-      <ng-container *ngIf="!board.board_set_id">First Board </ng-container>
-      Description
+    <mat-label>
+      <ng-container i18n="Board Editor Form board description if first board" *ngIf="!board.board_set_id">First Board </ng-container>
+      <ng-container i18n="Board Editor Form board description field label">Description</ng-container>
     </mat-label>
     <input matInput maxlength="250"
            [(ngModel)]="board.description"
            appStopPropagation>
-    <mat-hint i18n="Board Editor Form board description hint">Optional. Shown in PDFs made from this Board.</mat-hint>
+    <mat-hint i18n="first board|Board Editor Form first board prefix">Optional. Shown in PDFs made from this Board.</mat-hint>
     <mat-hint align="end">{{board.description?.length || 0}}&nbsp;/&nbsp;250</mat-hint>
   </mat-form-field>
 </div>

@@ -8,8 +8,8 @@
 
     <div>
       <button mat-icon-button (click)="dialogRef.close()" appStopPropagation
-              aria-label="Discard"  matTooltip="{{media?.persisted() ? 'Discard Changes' : 'Cancel'}}"
-              i18n-aria-label="discard|Discard (throw away, cancel)" i18n-matTooltip="Discard changes (if editing) or cancel (if creating new)"
+              aria-label="Discard"  matTooltip="Discard"
+              i18n-aria-label="discard|Discard (throw away, cancel)" i18n-matTooltip="Discard changes (same button used for editing and creating symbols)"
               gaCategory="SymbolCreator" gaEvent="click" gaLabel="DiscardChanges"
       >
         <mat-icon>close</mat-icon>

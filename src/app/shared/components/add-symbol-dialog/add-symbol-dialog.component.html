@@ -22,13 +22,13 @@
 
   <div mat-dialog-content>
     <mat-tab-group dynamicHeight mat-stretch-tabs [(selectedIndex)]="selectedTab">
-      <mat-tab label="Search" i18n="search|Search" [disabled]="!showSymbols">
+      <mat-tab label="Search" i18n-label="search|Search" [disabled]="!showSymbols">
         <div class="p-1">
           <app-search-panel (selectionChange)="selectSymbol($event)"></app-search-panel>
         </div>
       </mat-tab>
 
-      <mat-tab label="My Images" i18n="my images|My Images" [disabled]="!showMedia">
+      <mat-tab label="My Images" i18n-label="my images|My Images" [disabled]="!showMedia">
         <div class="p-1">
           <app-media-library (mediaSelect)="selectMedia($event)"></app-media-library>
         </div>
