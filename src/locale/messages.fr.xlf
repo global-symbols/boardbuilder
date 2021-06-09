@@ -2684,6 +2684,63 @@
         </context-group>
         <note priority="1" from="description">Board Layout Selector rows input label</note>
       </trans-unit>
+      <trans-unit id="c3980af8d141ce449570c02616b61c8cb55a6765" datatype="html">
+        <source>Search</source>
+        <target>rechercher</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Search</note>
+        <note priority="1" from="meaning">search</note>
+      </trans-unit>
+      <trans-unit id="5cb171ddb22793f7497094daa9d53ba3e78a39d6" datatype="html">
+        <source>First Board</source>
+        <target>Premier conseil d’administration</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form first board prefix</note>
+        <note priority="1" from="meaning">first board</note>
+      </trans-unit>
+      <trans-unit id="751d545c485a7b14ce9b4afaf2644c6ec48b3d2e" datatype="html">
+        <source>First Board</source>
+        <target>Premier conseil d’administration</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form board description if first board</note>
+      </trans-unit>
+      <trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html">
+        <source>Description</source>
+        <target>description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form board description field label</note>
+      </trans-unit>
+      <trans-unit id="7a3111a61eca14f3b284d2a2d1a2b65d278445f6" datatype="html">
+        <source>Optional. Shown in PDFs made from this Board.</source>
+        <target>optionnel. Illustré dans les fichiers PDF réalisés à partir de cette carte.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form first board prefix</note>
+        <note priority="1" from="meaning">first board</note>
+      </trans-unit>
+      <trans-unit id="3f5a652a1f473f4e243e3c6805ef1b383e270bb7" datatype="html">
+        <source>Discard</source>
+        <target>jeter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Discard changes (same button used for editing and creating symbols)</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
