@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+  <file source-language="en-GB" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="4a5dd67fea75d684f53861b3b6fa41ee5895c8e4" datatype="html">
         <source>Help and Resources</source>
@@ -748,6 +748,10 @@
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">124</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
         <note priority="1" from="description">My Images</note>
         <note priority="1" from="meaning">my images</note>
       </trans-unit>
@@ -1284,29 +1288,29 @@
         </context-group>
         <note priority="1" from="description">Add Symbol Dialog clear image button</note>
       </trans-unit>
-      <trans-unit id="4be414f3bc27f24b0b076542c441fcebd665229b" datatype="html">
-        <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;p-1&quot;&gt;"/><x id="START_TAG_APP_SEARCH_PANEL" ctype="x-app_search_panel" equiv-text="&lt;app-search-panel (selectionChange)=&quot;selectSymbol($event)&quot;&gt;"/><x id="CLOSE_TAG_APP_SEARCH_PANEL" ctype="x-app_search_panel" equiv-text="&lt;/app-search-panel&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
+      <trans-unit id="c3980af8d141ce449570c02616b61c8cb55a6765" datatype="html">
+        <source>Search</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
-          <context context-type="linenumber">26,28</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <note priority="1" from="description">Search</note>
         <note priority="1" from="meaning">search</note>
       </trans-unit>
-      <trans-unit id="1ea7b60b330753493e24a923f5c995f05f19cf39" datatype="html">
-        <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;p-1&quot;&gt;"/><x id="START_TAG_APP_MEDIA_LIBRARY" ctype="x-app_media_library" equiv-text="&lt;app-media-library (mediaSelect)=&quot;selectMedia($event)&quot;&gt;"/><x id="CLOSE_TAG_APP_MEDIA_LIBRARY" ctype="x-app_media_library" equiv-text="&lt;/app-media-library&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
-          <context context-type="linenumber">32,34</context>
-        </context-group>
-        <note priority="1" from="description">My Images</note>
-        <note priority="1" from="meaning">my images</note>
-      </trans-unit>
-      <trans-unit id="47eab93108d2f2636b9897e59875a88644829c0e" datatype="html">
-        <source><x id="START_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;ng-container *ngIf=&quot;!board.board_set_id&quot;&gt;"/>First Board <x id="CLOSE_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;/ng-container&gt;"/> Title </source>
+      <trans-unit id="5cb171ddb22793f7497094daa9d53ba3e78a39d6" datatype="html">
+        <source>First Board </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
-          <context context-type="linenumber">5,7</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form first board prefix</note>
+        <note priority="1" from="meaning">first board</note>
+      </trans-unit>
+      <trans-unit id="fdf7cbdc140d0aab0f0b6c06065a0fd448ed6a2e" datatype="html">
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">6</context>
         </context-group>
         <note priority="1" from="description">Board Editor Form board title field label</note>
       </trans-unit>
@@ -1318,21 +1322,30 @@
         </context-group>
         <note priority="1" from="description">Board Editor Form board title field hint (new Board Sets only)</note>
       </trans-unit>
-      <trans-unit id="47fe2be387e2edd81e389c06f710fe1de875a965" datatype="html">
-        <source><x id="START_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;ng-container *ngIf=&quot;!board.board_set_id&quot;&gt;"/>First Board <x id="CLOSE_TAG_NG_CONTAINER" ctype="x-ng_container" equiv-text="&lt;/ng-container&gt;"/> Description </source>
+      <trans-unit id="751d545c485a7b14ce9b4afaf2644c6ec48b3d2e" datatype="html">
+        <source>First Board </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
-          <context context-type="linenumber">17,19</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form board description if first board</note>
+      </trans-unit>
+      <trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">18</context>
         </context-group>
         <note priority="1" from="description">Board Editor Form board description field label</note>
       </trans-unit>
-      <trans-unit id="53adceba67a2458b3015f3585376c463c522f555" datatype="html">
+      <trans-unit id="7a3111a61eca14f3b284d2a2d1a2b65d278445f6" datatype="html">
         <source>Optional. Shown in PDFs made from this Board.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">23</context>
         </context-group>
-        <note priority="1" from="description">Board Editor Form board description hint</note>
+        <note priority="1" from="description">Board Editor Form first board prefix</note>
+        <note priority="1" from="meaning">first board</note>
       </trans-unit>
       <trans-unit id="785fb65be4f15d2392d38d08255a18ba3688f153" datatype="html">
         <source>Layout</source>
@@ -1691,13 +1704,13 @@
         <note priority="1" from="description">Discard (throw away, cancel)</note>
         <note priority="1" from="meaning">discard</note>
       </trans-unit>
-      <trans-unit id="b313cfd419d948947953f6cd6199c099aa62f625" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{media?.persisted() ? &apos;Discard Changes&apos; : &apos;Cancel&apos;}}"/></source>
+      <trans-unit id="3f5a652a1f473f4e243e3c6805ef1b383e270bb7" datatype="html">
+        <source>Discard</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
-        <note priority="1" from="description">Discard changes (if editing) or cancel (if creating new)</note>
+        <note priority="1" from="description">Discard changes (same button used for editing and creating symbols)</note>
       </trans-unit>
       <trans-unit id="601d570d1dff9928b512d9e27c00bd9caeb892c9" datatype="html">
         <source>Saving</source>
