@@ -19,6 +19,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Deploy to app-dev.globalsymbols.com
 `ng deploy`
 
+## Deploy preview to Firebase
+`firebase hosting:channel:deploy preview_name`
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

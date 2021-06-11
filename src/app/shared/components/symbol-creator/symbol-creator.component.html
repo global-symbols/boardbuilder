@@ -156,7 +156,7 @@
   <div fxFlex="33">
       <div *ngIf="selectedElement?.fill">
           <div fxLayout="row" fxLayoutAlign="space-between center">
-            <h2>Fill</h2>
+            <h2 i18n="fill|Fill">Fill</h2>
             <button mat-icon-button *ngIf="selectedElement?.fill !== 'transparent'"
                     aria-label="Clear Fill" matTooltip="Clear Fill" matTooltipPosition="left"
                     i18n-aria-label="clear fill|Clear Fill" i18n-matTooltip="clear fill|Clear Fill"
@@ -174,7 +174,7 @@
       <div *ngIf="selectedElement?.stroke">
 
         <div fxLayout="row" fxLayoutAlign="space-between center">
-          <h2>Outline</h2>
+          <h2 i18n="outline|Outline">Outline</h2>
           <button mat-icon-button *ngIf="selectedElement?.stroke !== 'transparent'"
                   aria-label="Clear Outline" matTooltip="Clear Outline" matTooltipPosition="left"
                   i18n-aria-label="clear outline|Clear Outline" i18n-matTooltip="clear outline|Clear Outline"
