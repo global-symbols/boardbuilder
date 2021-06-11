@@ -11,8 +11,7 @@
       "prefix": "app",
       "i18n": {
         "sourceLocale": {
-          "code": "en-GB",
-          "baseHref": "en"
+          "code": "en"
         },
         "locales": {
           "fr": "src/locale/messages.fr.xlf"
