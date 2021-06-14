@@ -8,11 +8,11 @@
   >
     <p i18n="Home panel 1 text 1">Create boards to aid communication with thousands of free images.</p>
     <p i18n="Home panel 1 text 2">Everything is stored safely in your Global Symbols account.</p>
-    <button mat-flat-button color="primary" (click)="getStarted()" class="button-lg" [ngSwitch]="signedIn">
+    <button mat-flat-button color="primary" (click)="getStarted()" class="button-lg mb-1 mr-1" [ngSwitch]="signedIn">
       <ng-container *ngSwitchCase="true" i18n="my board sets|My Board Sets">My Board Sets</ng-container>
       <ng-container *ngSwitchCase="false" i18n="get started|Get Started">Get Started</ng-container>
     </button>
-    <button mat-flat-button color="primary" [routerLink]="['/', 'media']" class="button-lg mx-2" *ngIf="signedIn" i18n="my symbols|My Symbols">
+    <button mat-flat-button color="primary" [routerLink]="['/', 'media']" class="button-lg mb-1" *ngIf="signedIn" i18n="my symbols|My Symbols">
       My Symbols
     </button>
   </app-home-panel>
@@ -70,11 +70,11 @@
   >
     <p i18n="Home panel 7 text 1">BoardBuilder stores everything in your Global Symbols account.</p>
     <p i18n="Home panel 7 text 2">Create an account if you don't already have one.</p>
-    <button mat-flat-button color="primary" (click)="getStarted()" class="button-lg" [ngSwitch]="signedIn">
+    <button mat-flat-button color="primary" (click)="getStarted()" class="button-lg mb-1 mr-1" [ngSwitch]="signedIn">
       <ng-container *ngSwitchCase="true" i18n="my board sets|My Board Sets">My Board Sets</ng-container>
       <ng-container *ngSwitchCase="false" i18n="get started|Get Started">Get Started</ng-container>
     </button>
-    <button mat-flat-button color="primary" [routerLink]="['/', 'media']" class="button-lg mx-2" *ngIf="signedIn" i18n="my symbols|My Symbols">
+    <button mat-flat-button color="primary" [routerLink]="['/', 'media']" class="button-lg mb-1" *ngIf="signedIn" i18n="my symbols|My Symbols">
       My Symbols
     </button>
   </app-home-panel>
