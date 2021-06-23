@@ -11,6 +11,8 @@ import {MatCardModule} from '@angular/material/card';
 import {SharedModule} from '../../shared/shared.module';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 export const routes: Routes = [
@@ -35,6 +37,8 @@ export const routes: Routes = [
     SharedModule,
     MatIconModule,
     MatTooltipModule,
+    MatCheckboxModule,
+    MatExpansionModule,
   ]
 })
 export class PdfModule { }

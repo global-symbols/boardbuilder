@@ -37,12 +37,15 @@ export class PdfPreviewComponent implements OnInit {
     this.template = new Template();
 
     this.fontSizes = Array.from(Array(108).keys());
+    // 0, 5, 10, 15 ... 50
+    this.cellSpacingValues = Array.from(Array(51).keys()).filter(v => v % 5 === 0);
   }
 
   status: 'loading' | 'success' | 'error' = 'loading';
 
   pageSizes: PageSize[];
   fontSizes: Array<number>;
+  cellSpacingValues: Array<number>;
 
   template: Template;
 
@@ -52,6 +55,8 @@ export class PdfPreviewComponent implements OnInit {
 
   pdfEmbedWidth = 1000;
   pdfEmbedHeight = 600;
+
+  showReset = false;
 
   // @ViewChild('pdfFrame') pdfFrame: ElementRef;
   // @ViewChild('pdfObject') pdfObject: ElementRef;
@@ -64,18 +69,7 @@ export class PdfPreviewComponent implements OnInit {
       .subscribe(board => {
         this.board = board;
 
-        this.template.orientation = (this.board.rows > this.board.logicalColumns) ? 'portrait' : 'landscape';
-
-        this.templateService.pageSizes().subscribe(
-          sizes => {
-            this.pageSizes = sizes;
-            this.template.pageSize = sizes.find(s => s.name === 'A4');
-
-            this.template.fontSize = Math.round((this.template.pageSize.y / this.board.rows) * 0.1);
-
-            this.loadPdf();
-          }
-        );
+        this.setTemplateDefaults();
       });
 
     this.toolbarService.setButtons([{
@@ -83,6 +77,33 @@ export class PdfPreviewComponent implements OnInit {
       icon: 'arrow_back',
       action: () => this.router.navigate(['/', 'boardsets', this.route.snapshot.paramMap.get('id')])
     }]);
+  }
+
+  // Configures some default template settings.
+  // Run this after populating this.board.
+  setTemplateDefaults() {
+    this.showReset = false;
+    this.template.orientation = (this.board.rows > this.board.logicalColumns) ? 'portrait' : 'landscape';
+
+    this.templateService.pageSizes().subscribe(
+      sizes => {
+        this.pageSizes = sizes;
+        this.template.pageSize = sizes.find(s => s.name === 'A4');
+
+        this.template.fontSize = Math.round((this.template.pageSize.y / this.board.rows) * 0.1);
+        this.template.cellPadding = 10;
+        this.template.cellSpacing = 10;
+        this.template.drawCellBorders = true;
+        this.template.imageTextSpacing = -1;
+
+        this.loadPdf();
+      }
+    );
+  }
+
+  onSettingChanged() {
+    this.showReset = true;
+    this.loadPdf();
   }
 
   loadPdf() {
