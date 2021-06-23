@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output, ViewChild} from '@angular/core';
 import {GlobalSymbolsService} from '@data/services/global-symbols.service';
 import {BehaviorSubject, from, fromEvent, Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, finalize, map} from 'rxjs/operators';
@@ -37,8 +37,11 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
   @Input() initialQuery: string;
   @Output() readonly selectionChange = new EventEmitter<SymbolSearchResult>();
 
-  constructor(private globalSymbolsService: GlobalSymbolsService,
-              private symbolService: SymbolService) {
+  constructor(
+    private globalSymbolsService: GlobalSymbolsService,
+    private symbolService: SymbolService,
+    @Inject(LOCALE_ID) public locale: string
+  ) {
 
     this.sources = this.globalSymbolsService.sources;
     this.source = this.sources[0];
@@ -55,7 +58,11 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
       languages => {
         const param = this.gsParams.language;
         param.options = languages;
-        param.value = languages[0].iso639_3;
+
+        // Default the language param to the current locale.
+        // First, get the main locale (e.g. 'en' for 'en-gb', or 'fr' for 'fr').
+        const currentLocaleBase = this.locale.match(/^(\w+)/)[1];
+        param.value = languages.find(l => l.iso639_1 === currentLocaleBase)?.iso639_3 || languages[0].iso639_3;
       }
     );
     this.globalSymbolsService.getSymbolSets().subscribe(

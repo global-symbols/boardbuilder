@@ -136,7 +136,7 @@
       </trans-unit>
       <trans-unit id="3f6f4b8552b4d78ad67f583ff6d1a95e91e2f5b1" datatype="html" approved="no">
         <source>Add Board from OBF</source>
-        <target state="translated">Ajouter le conseil d’administration de L’OBF</target>
+        <target state="translated">Ajouter le planche de L’OBF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">2</context>
@@ -224,7 +224,7 @@
       </trans-unit>
       <trans-unit id="681d0d8af12f8bebce882805c5dd105f0032f525" datatype="html" approved="no">
         <source>Board Sets</source>
-        <target state="translated">Ensembles de conseils</target>
+        <target state="translated">Ensembles de planches</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">7</context>
@@ -404,7 +404,7 @@
       </trans-unit>
       <trans-unit id="1ac1acf0cbd2071a1de0641966cec17f35016cbf" datatype="html" approved="no">
         <source>Link to a Board</source>
-        <target state="translated">Lien vers un conseil d’administration</target>
+        <target state="translated">Lien vers un planche</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">39</context>
@@ -412,7 +412,7 @@
       </trans-unit>
       <trans-unit id="f7e12bf20756a6a287b4e25f193ccdcba567ef60" datatype="html" approved="no">
         <source>This list shows only unlinked Boards.</source>
-        <target state="translated">Cette liste ne montre que des conseils non reliés.</target>
+        <target state="translated">Cette liste ne montre que des planches non reliés.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">47</context>
@@ -428,7 +428,7 @@
       </trans-unit>
       <trans-unit id="9b7c06ea2793398cfa1bf6c5ac5f47a12672eef2" datatype="html" approved="no">
         <source>Unlink an existing Board, or create a new one.</source>
-        <target state="translated">Déconnecter un conseil d’administration existant ou en créer un nouveau.</target>
+        <target state="translated">Déconnecter un planche existant ou en créer un nouveau.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">56</context>
@@ -491,8 +491,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="c4be93926edb355475a70ca1e8b63b299dbc5783" datatype="html" approved="no">
-        <source>{VAR_PLURAL, plural, =1 {board} other {boards} }</source>
-        <target state="translated">«VAR_PLURAL, pluriel, '1 'board' autres «conseils»</target>
+        <source>{VAR_PLURAL, plural, =1 {board} other {boards}}</source>
+        <target state="needs-translation">«VAR_PLURAL, pluriel, '1 'board' autres «planches»</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">21</context>
@@ -524,7 +524,7 @@
       </trans-unit>
       <trans-unit id="9165f983b8c69763f7ed67885ebeb95b33b431e8" datatype="html" approved="no">
         <source>My Board Sets</source>
-        <target state="translated">Mon conseil d’administration définit</target>
+        <target state="translated">Mon ensembles de planches</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">5</context>
@@ -652,7 +652,7 @@
       </trans-unit>
       <trans-unit id="b64665e9b2a89ffee81361d1aa3090ea8f26a4fa" datatype="html">
         <source>Create Board Set</source>
-        <target>Créer un ensemble de conseils d’administration</target>
+        <target>Créer un ensemble de planches</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -719,7 +719,7 @@
       </trans-unit>
       <trans-unit id="e2cf06970e1897822b378b48d12b1b5114935273" datatype="html">
         <source>Choose a name for the new Board Set.</source>
-        <target>Choisissez un nom pour le nouvel ensemble de conseils.</target>
+        <target>Choisissez un nom pour le nouvel ensemble de planches.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -810,7 +810,7 @@
       </trans-unit>
       <trans-unit id="cf8051b04631b14b2f7a4091861064734aa8a10c" datatype="html">
         <source>Board Properties</source>
-        <target>Propriétés du conseil d’administration</target>
+        <target>Propriétés du planche</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -860,7 +860,7 @@
       </trans-unit>
       <trans-unit id="78a7c8bfb59c3e5a6e0db7cec0c206774c679407" datatype="html">
         <source>Board Set Properties</source>
-        <target>Propriétés de l’ensemble de conseils d’administration</target>
+        <target>Propriétés de l’ensemble de planches</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -878,7 +878,7 @@
       </trans-unit>
       <trans-unit id="d17421976444259311fd0add79195c2953afcee5" datatype="html">
         <source>Public Board Sets can be found and viewed by anyone.</source>
-        <target>Les ensembles de conseils publics peuvent être trouvés et consultés par n’importe qui.</target>
+        <target>Les ensembles de planches publics peuvent être trouvés et consultés par n’importe qui.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">28</context>
@@ -1643,7 +1643,7 @@
       </trans-unit>
       <trans-unit id="a8c9058c85bdcce58a801cfc207c6094d29e6343" datatype="html">
         <source>Create Board Set</source>
-        <target>Créer un ensemble de conseils d’administration</target>
+        <target>Créer un ensemble de planches</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">14</context>
@@ -2696,7 +2696,7 @@
       </trans-unit>
       <trans-unit id="5cb171ddb22793f7497094daa9d53ba3e78a39d6" datatype="html">
         <source>First Board</source>
-        <target>Premier conseil d’administration</target>
+        <target>Premier planche</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">5</context>
@@ -2706,7 +2706,7 @@
       </trans-unit>
       <trans-unit id="751d545c485a7b14ce9b4afaf2644c6ec48b3d2e" datatype="html">
         <source>First Board</source>
-        <target>Premier conseil d’administration</target>
+        <target>Premier planche</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">17</context>

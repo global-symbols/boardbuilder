@@ -143,8 +143,6 @@ const appRoutes: Routes = [
     NgxGoogleAnalyticsRouterModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'en-GB'},
-
     {
       provide: ErrorHandler,
       useValue: Sentry.createErrorHandler({
