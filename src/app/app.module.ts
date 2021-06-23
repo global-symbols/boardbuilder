@@ -41,6 +41,7 @@ import {NavButtonComponent} from './layout/nav-button/nav-button.component';
 import * as Sentry from '@sentry/angular';
 import {NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule} from 'ngx-google-analytics';
 import {HotkeyModule} from '@conflito/angular2-hotkeys';
+import {environment} from '@env';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -146,7 +147,7 @@ const appRoutes: Routes = [
     {
       provide: ErrorHandler,
       useValue: Sentry.createErrorHandler({
-        logErrors: true,
+        logErrors: environment.production,
         showDialog: true,
         dialogOptions: {
           title: 'We ran into a problem',

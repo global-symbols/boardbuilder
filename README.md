@@ -22,6 +22,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Deploy preview to Firebase
 `firebase hosting:channel:deploy preview_name`
 
+## Deploy i18n to Ionos
+`scp -r dist/boardbuilder/* u97814378@access789453002.webspace-data.io:~/app.globalsymbols.com`
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
