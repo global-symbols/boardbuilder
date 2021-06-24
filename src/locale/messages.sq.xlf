@@ -586,6 +586,728 @@
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="f230f376eadc3023676cdd998a4a7e1e5dd02071" datatype="html">
+        <source>Never Opened</source>
+        <target>Kurrë nuk u hap</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">Board Set tile never opened</note>
+      </trans-unit>
+      <trans-unit id="6a91d8aef5a44d59d06eadd4e26f2f1a5971feeb" datatype="html">
+        <source>Sign In</source>
+        <target>Hyr</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+        <note priority="1" from="description">Navbar sign in button</note>
+        <note priority="1" from="meaning">sign in</note>
+      </trans-unit>
+      <trans-unit id="eaa79962a697893e9d0102705e9897db246a02b5" datatype="html">
+        <source>Global Symbols Account</source>
+        <target>Llogaria e simboleve globale</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description">Navbar GS account button</note>
+        <note priority="1" from="meaning">gs account</note>
+      </trans-unit>
+      <trans-unit id="93148e66a8c53db228d9ba7df5edc169d694cd03" datatype="html">
+        <source>Symbols</source>
+        <target>Simbolet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">Navbar dropdown Symbols button</note>
+      </trans-unit>
+      <trans-unit id="6375a78209ace58d332d6265d92ddc9543487856" datatype="html">
+        <source>Close</source>
+        <target>Mbylle</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Close</note>
+        <note priority="1" from="meaning">close</note>
+      </trans-unit>
+      <trans-unit id="965e361fd0f605b37b7ee812e21f8d374ed9baee" datatype="html">
+        <source>Board Set</source>
+        <target>Set bordi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">Board Set</note>
+        <note priority="1" from="meaning">board set</note>
+      </trans-unit>
+      <trans-unit id="68276bf9cf8c00d7a827b799f0bb3b85fb278c39" datatype="html">
+        <source>Manage Account</source>
+        <target>Menaxho llogarinë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <note priority="1" from="description">Navbar dropdown Manage Account button</note>
+        <note priority="1" from="meaning">manage account</note>
+      </trans-unit>
+      <trans-unit id="d2ddf086bf957aeeb268cc9ee98ab4de8fd6f33f" datatype="html">
+        <source>Sign Out</source>
+        <target>Firmos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <note priority="1" from="description">Navbar dropdown Sign Out button</note>
+        <note priority="1" from="meaning">sign out</note>
+      </trans-unit>
+      <trans-unit id="eecae6134c76bac58a620e2fdeb9beaeec4b5d5e" datatype="html">
+        <source>Checking your Account…</source>
+        <target>Kontrollo llogarinë tënde…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Login page checking text</note>
+      </trans-unit>
+      <trans-unit id="3db241ca031e29b4d0c0c1cc58eb06fc59f64940" datatype="html">
+        <source>Use Board Builder to create communication boards.</source>
+        <target>Përdor Board Builder për të krijuar borde komunikimi.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">Login page text 1</note>
+      </trans-unit>
+      <trans-unit id="b0e76336a7e1630113bfd7f965816e427b572c75" datatype="html">
+        <source>Everything is saved to your Global Symbols account.</source>
+        <target>Çdo gjë është ruajtur në llogarinë tuaj Global Symbols.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Login page text 2</note>
+      </trans-unit>
+      <trans-unit id="3fec73120d33e57208775c79b5fd1ef0cb1c6856" datatype="html">
+        <source>Sign in with Global Symbols</source>
+        <target>Regjistroni me Global Symbols</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Login page sign in button</note>
+      </trans-unit>
+      <trans-unit id="ac10a3d9b59575640797c1a8e6aea642cf5d5e77" datatype="html">
+        <source>Continue</source>
+        <target>Vazhdo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Login page continue button</note>
+      </trans-unit>
+      <trans-unit id="4a20d5e146b4019d629fdc75efd46afceba48f46" datatype="html">
+        <source>By</source>
+        <target>Nga</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">Board Set tile author prefix (e.g. 'By E.A. Draffan')</note>
+        <note priority="1" from="meaning">by author</note>
+      </trans-unit>
+      <trans-unit id="4039ec01f83d07d47ee7eb8e9d2c88bdde88e0f5" datatype="html">
+        <source>Board Set Title</source>
+        <target>Titulli i tabelës</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Board Set Title field label</note>
+        <note priority="1" from="meaning">boardset.title label</note>
+      </trans-unit>
+      <trans-unit id="e2cf06970e1897822b378b48d12b1b5114935273" datatype="html">
+        <source>Choose a name for the new Board Set.</source>
+        <target>Zgjidh një emër për setin e ri të bordit.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Board Set Title field hint</note>
+        <note priority="1" from="meaning">boardset.title hint</note>
+      </trans-unit>
+      <trans-unit id="2841eb6463280f988dce85afc00d9280b1b527ba" datatype="html">
+        <source>On the next page, we'll set up the first Board.</source>
+        <target>Në faqen tjetër, do të vendosim bordin e parë.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <note priority="1" from="description">Create Board Set text 2</note>
+      </trans-unit>
+      <trans-unit id="cec3310213f077e642de988423dce09ed6a70665" datatype="html">
+        <source>Next</source>
+        <target>Në vazhdim</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <note priority="1" from="description">Next</note>
+        <note priority="1" from="meaning">next</note>
+      </trans-unit>
+      <trans-unit id="d4297aa2ef70bbc7ae46e9c6e1f06a1180a73efc" datatype="html">
+        <source>Back</source>
+        <target>Mbrapa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <note priority="1" from="description">Back</note>
+        <note priority="1" from="meaning">back</note>
+      </trans-unit>
+      <trans-unit id="1a307a7c2cf5bed90339c0b673fb2578af04b646" datatype="html">
+        <source>Create</source>
+        <target>Krijo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">Create</note>
+        <note priority="1" from="meaning">create</note>
+      </trans-unit>
+      <trans-unit id="c28c9d5c688ca402257bc59666648ed833488d62" datatype="html">
+        <source>Board Sets</source>
+        <target>Vendos tabelën</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Board Sets</note>
+        <note priority="1" from="meaning">board sets</note>
+      </trans-unit>
+      <trans-unit id="d4af7ce487191b081c2f0a1db79f9e67c89b9f15" datatype="html">
+        <source>Import OBZ</source>
+        <target>Importo OBZ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Import OBZ button</note>
+        <note priority="1" from="meaning">import obz</note>
+      </trans-unit>
+      <trans-unit id="a0f7000988baf87bd71c60939750d0d7eccf3957" datatype="html">
+        <source>Open</source>
+        <target>Hap</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <note priority="1" from="description">Open</note>
+        <note priority="1" from="meaning">open</note>
+      </trans-unit>
+      <trans-unit id="55c6b64cbfab1c2b0cbf0313c5bb1690d7fa7239" datatype="html">
+        <source>Delete</source>
+        <target>Elemino</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <note priority="1" from="description">Delete</note>
+        <note priority="1" from="meaning">delete</note>
+      </trans-unit>
+      <trans-unit id="54f7aa60fb965b59e282c98f0068881fe5f1c848" datatype="html">
+        <source>Go to Linked Board</source>
+        <target>Shko tek Bordi i Lidhur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <note priority="1" from="description">Board Cell Go to Linked Board button</note>
+        <note priority="1" from="meaning">go to linked board</note>
+      </trans-unit>
+      <trans-unit id="cf8051b04631b14b2f7a4091861064734aa8a10c" datatype="html">
+        <source>Board Properties</source>
+        <target>Pronësitë e bordit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Board Properties button</note>
+        <note priority="1" from="meaning">board properties</note>
+      </trans-unit>
+      <trans-unit id="89a8b9b9ea63e78337a552e9b0b8f589f6404831" datatype="html">
+        <source>Done</source>
+        <target>U bë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">Done button</note>
+        <note priority="1" from="meaning">done</note>
+      </trans-unit>
+      <trans-unit id="78a7c8bfb59c3e5a6e0db7cec0c206774c679407" datatype="html">
+        <source>Board Set Properties</source>
+        <target>Vendos pronësitë e bordit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="50dee86eefe159244d2cdef11beb12213eeaf3fa" datatype="html">
+        <source>Title</source>
+        <target>Titulli</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Board Title field label</note>
+        <note priority="1" from="meaning">board.title label</note>
+      </trans-unit>
+      <trans-unit id="12247cda06051f3cee800724e6923bdc1ab6b8a1" datatype="html">
+        <source>Visibility</source>
+        <target>Dukshmëria</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Board Visibility field label</note>
+        <note priority="1" from="meaning">board.public label</note>
+      </trans-unit>
+      <trans-unit id="7cf3690e3936d8460b9f195c8f0d0f3379acbf53" datatype="html">
+        <source>Private</source>
+        <target>Private</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Private</note>
+        <note priority="1" from="meaning">private</note>
+      </trans-unit>
+      <trans-unit id="f644e7e5728ed86be99607700a7965382b7c2f47" datatype="html">
+        <source>Public</source>
+        <target>Publik</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Public</note>
+        <note priority="1" from="meaning">public</note>
+      </trans-unit>
+      <trans-unit id="aaa7688f6dcc49cdb3c9a4287249d7ee8ad21abf" datatype="html">
+        <source>Board Actions</source>
+        <target>Veprimet e bordit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <note priority="1" from="description">Board Actions button</note>
+        <note priority="1" from="meaning">board actions</note>
+      </trans-unit>
+      <trans-unit id="41c4c68e3231527a92a54b266f6f0f4b781caa92" datatype="html">
+        <source>Download as OBF</source>
+        <target>Shkarko si OBF</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <note priority="1" from="description">Download Board as OBF button</note>
+        <note priority="1" from="meaning">download obf</note>
+      </trans-unit>
+      <trans-unit id="1c1639e7c836a2cf347ad2bd01639afd7ce215db" datatype="html">
+        <source>Download/Print PDF</source>
+        <target>Shkarko/Printo PDF</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+        <note priority="1" from="description">Download or Print Board as PDF button</note>
+        <note priority="1" from="meaning">download print pdf</note>
+      </trans-unit>
+      <trans-unit id="7cd5de13d1bad5d77c6583f5ff063c426c37e4ef" datatype="html">
+        <source>Properties</source>
+        <target>Pronësitë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+        <note priority="1" from="description">Properties button</note>
+        <note priority="1" from="meaning">properties</note>
+      </trans-unit>
+      <trans-unit id="af177a988b6331f2930e6e6cad60e83f37483cf6" datatype="html">
+        <source>Board Set Actions</source>
+        <target>Bordi vendos veprimet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Board Set Actions button</note>
+        <note priority="1" from="meaning">board set actions</note>
+      </trans-unit>
+      <trans-unit id="1f41ab34a76082858fdf7d4d5da8cd6d6c29402b" datatype="html">
+        <source>Create Editable Copy</source>
+        <target>Krijo kopje të ndryshueshme</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Board Set Create Editable Copy button</note>
+      </trans-unit>
+      <trans-unit id="8d93b57f02fdb08c6d81aa24a1f51bb2f8346eed" datatype="html">
+        <source>Read Only</source>
+        <target>Lexo vetëm</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">Read Only indicator</note>
+        <note priority="1" from="meaning">read only</note>
+      </trans-unit>
+      <trans-unit id="3d531446d7d60fcf40fac5aed1ffd5666b3b2cb4" datatype="html">
+        <source>Download Board Set as OBZ</source>
+        <target>Shkarko Bordin si OBF</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <note priority="1" from="description">Download Board Set as OBZ</note>
+        <note priority="1" from="meaning">download obz</note>
+      </trans-unit>
+      <trans-unit id="5047656acb358048cad9221dc10628a86b2a9903" datatype="html">
+        <source>Keyboard Shortcuts</source>
+        <target>Shkurtesë tastierash</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+        <note priority="1" from="description">Keyboard Shortcuts</note>
+        <note priority="1" from="meaning">keyboard shortcuts</note>
+      </trans-unit>
+      <trans-unit id="5d90eb237eb6a9a1dc41adc3189698a2b5451a3f" datatype="html">
+        <source>Label</source>
+        <target>Etiketa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Cell caption field label</note>
+        <note priority="1" from="meaning">cell.caption label</note>
+      </trans-unit>
+      <trans-unit id="8e02bde1590a1338757de4be451c644807e04639" datatype="html">
+        <source>Save and close the cell editor</source>
+        <target>Ruaj dhe mbylle editorin e celularit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Cell editor Save and Close button ARIA description</note>
+      </trans-unit>
+      <trans-unit id="0edb7d06bd26808ec04e53d5d5782dcf55c15219" datatype="html">
+        <source>Save and Close</source>
+        <target>Ruaj dhe mbyll</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Save and Close</note>
+        <note priority="1" from="meaning">save and close</note>
+      </trans-unit>
+      <trans-unit id="fe3670c0204f89b0e5ab9103457de0f1913c60d7" datatype="html">
+        <source>Cell</source>
+        <target>Qeli</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Cell</note>
+        <note priority="1" from="meaning">cell</note>
+      </trans-unit>
+      <trans-unit id="a3ce348e37acec3d99af836af4208b7a0cc7dd71" datatype="html">
+        <source>Colours</source>
+        <target>Ngjyrat</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Cell editor colours heading</note>
+        <note priority="1" from="meaning">colours</note>
+      </trans-unit>
+      <trans-unit id="0d2d3212b37bdcb905e658c9925bf26a8db47800" datatype="html">
+        <source>Border</source>
+        <target>Kufiri</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="96959b5a7035287ae015f17590f6fa10b455817b" datatype="html">
+        <source>Linking</source>
+        <target>Lidhja</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor linking heading</note>
+        <note priority="1" from="meaning">linking</note>
+      </trans-unit>
+      <trans-unit id="9366b83fca02533036127e8772ea2a5dc12c4b20" datatype="html">
+        <source>Unlink</source>
+        <target>shkëputje</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <note priority="1" from="description">Unlink</note>
+        <note priority="1" from="meaning">unlink</note>
+      </trans-unit>
+      <trans-unit id="aeeb351d37bc354a1005ec9076308ec0ebecb641" datatype="html">
+        <source>Linkable Boards</source>
+        <target>Borde të lidhura</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <note priority="1" from="description">Linkable boards</note>
+        <note priority="1" from="meaning">linkable boards</note>
+      </trans-unit>
+      <trans-unit id="68e2f7a8d086f691a6a1f618deba859b7833c826" datatype="html">
+        <source>Move Earlier</source>
+        <target>Lëviz më parë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Move Earlier button</note>
+      </trans-unit>
+      <trans-unit id="71df040c8c999a3512f026dfb298780d636c0370" datatype="html">
+        <source>Move Later</source>
+        <target>Lëviz më vonë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Move Later button</note>
+      </trans-unit>
+      <trans-unit id="ff287e2498413437062bcefc20e24904d903a239" datatype="html">
+        <source>Reset Cell Contents</source>
+        <target>Rivendos përmbajtjen e qelizave</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Reset Cell button</note>
+      </trans-unit>
+      <trans-unit id="9061ab1e76d40d95e9af8bac1a62a2df209a57bd" datatype="html">
+        <source>Clear Symbol</source>
+        <target>Simboli i qartë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Clear Symbol button</note>
+      </trans-unit>
+      <trans-unit id="4a5dd67fea75d684f53861b3b6fa41ee5895c8e4" datatype="html">
+        <source>Help and Resources</source>
+        <target>Ndihmë dhe burime</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Navbar help button</note>
+      </trans-unit>
+      <trans-unit id="b64665e9b2a89ffee81361d1aa3090ea8f26a4fa" datatype="html">
+        <source>Create Board Set</source>
+        <target>Krijoni një tabelë komunikimi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Create Board Set dialog title</note>
+      </trans-unit>
+      <trans-unit id="f34f28751184cc459b810500bc00edfcc9cfe31d" datatype="html">
+        <source>Add Board</source>
+        <target>Shto Tabelën</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <note priority="1" from="description">Add Board button</note>
+        <note priority="1" from="meaning">add board</note>
+      </trans-unit>
+      <trans-unit id="0fbc41e0f42a75a58ea34ffd7c89b54cdc569ea3" datatype="html">
+        <source>Background</source>
+        <target>Sfondi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8ba143716c2da6e4120c0c1a804f0bdd9a7e5f5b" datatype="html">
+        <source>Text</source>
+        <target>Teksti</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9411a0618323428b13be9823db5bf65b6c606e3f" datatype="html">
+        <source>Opened</source>
+        <target>U hap</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description">Board Set tile opened prefix (e.g. 'Opened 5 minutes ago')</note>
+      </trans-unit>
+      <trans-unit id="fd47e4e36556a7c6e0973b689f83079ca2d5129d" datatype="html">
+        <source>A Board Set is a collection of communication Boards - as many or as few as you like.</source>
+        <target>Një Bord Set është një koleksion i Bordeve të Komunikimit - sa më shumë ose sa pak që ju pëlqen.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description">Create Board Set text 1</note>
+      </trans-unit>
+      <trans-unit id="6a1e5aed1ec6dbcff344930625ae7e60ea4181e1" datatype="html">
+        <source>Choose Template</source>
+        <target>Zgjidh Template</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <note priority="1" from="description">Create Board Set choose template step header</note>
+      </trans-unit>
+      <trans-unit id="a8c9058c85bdcce58a801cfc207c6094d29e6343" datatype="html">
+        <source>Create Board Set</source>
+        <target>Krijoni një tabelë komunikimi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Create Board Set button</note>
+        <note priority="1" from="meaning">create board set</note>
+      </trans-unit>
+      <trans-unit id="6e0680e639dd496ac9b27fb7d17dfa663199bc0e" datatype="html">
+        <source>Featured Board Sets</source>
+        <target>Grupet e bordit të shfaqur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Board Sets Featured heading</note>
+      </trans-unit>
+      <trans-unit id="d8bd1f48c370934707e4cafc31bcf0a83d1c990e" datatype="html">
+        <source>Add Header Image</source>
+        <target>Shto figurë header</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+        <note priority="1" from="description">Board Detail Add Header Image button</note>
+        <note priority="1" from="meaning">add header image</note>
+      </trans-unit>
+      <trans-unit id="d17421976444259311fd0add79195c2953afcee5" datatype="html">
+        <source>Public Board Sets can be found and viewed by anyone.</source>
+        <target>Grupet e Bordeve Publike mund të gjenden dhe të shihen nga kushdo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">Board Visibility field hint</note>
+        <note priority="1" from="meaning">board.public hint</note>
+      </trans-unit>
+      <trans-unit id="6cc5aa389c7034c4e7a0fda799f0d82703826215" datatype="html">
+        <source>Linked to</source>
+        <target>I lidhur me</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Board linked to header</note>
+        <note priority="1" from="meaning">linked to</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
