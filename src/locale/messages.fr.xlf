@@ -224,7 +224,7 @@
       </trans-unit>
       <trans-unit id="681d0d8af12f8bebce882805c5dd105f0032f525" datatype="html" approved="no">
         <source>Board Sets</source>
-        <target state="translated">Ensembles de planches</target>
+        <target state="translated">Ensembles de cartes de communication</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">7</context>
@@ -492,7 +492,7 @@
       </trans-unit>
       <trans-unit id="c4be93926edb355475a70ca1e8b63b299dbc5783" datatype="html" approved="no">
         <source>{VAR_PLURAL, plural, =1 {board} other {boards}}</source>
-        <target state="needs-translation">«VAR_PLURAL, pluriel, '1 'board' autres «planches»</target>
+        <target state="translated">{VAR_PLURAL, pluriel, =1 {board} autres {boards}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">21</context>
@@ -524,7 +524,7 @@
       </trans-unit>
       <trans-unit id="9165f983b8c69763f7ed67885ebeb95b33b431e8" datatype="html" approved="no">
         <source>My Board Sets</source>
-        <target state="translated">Mon ensembles de planches</target>
+        <target state="translated">Mon ensembles de cartes de communication</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">5</context>
@@ -878,7 +878,7 @@
       </trans-unit>
       <trans-unit id="d17421976444259311fd0add79195c2953afcee5" datatype="html">
         <source>Public Board Sets can be found and viewed by anyone.</source>
-        <target>Les ensembles de planches publics peuvent être trouvés et consultés par n’importe qui.</target>
+        <target>Ensembles de cartes de communication publics peuvent être trouvés et consultés par n’importe qui.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">28</context>
@@ -1188,7 +1188,7 @@
       </trans-unit>
       <trans-unit id="06bdcf55e3b8187fec88bfbf3dd3d672d9871ed2" datatype="html">
         <source>My Board Sets</source>
-        <target>Mes ensembles de planches</target>
+        <target>Mon ensembles de cartes de communication</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">12</context>
@@ -1633,7 +1633,7 @@
       </trans-unit>
       <trans-unit id="c28c9d5c688ca402257bc59666648ed833488d62" datatype="html">
         <source>Board Sets</source>
-        <target>Ensembles de planches</target>
+        <target>Ensembles de cartes de communication</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">5</context>
@@ -1663,7 +1663,7 @@
       </trans-unit>
       <trans-unit id="6e0680e639dd496ac9b27fb7d17dfa663199bc0e" datatype="html">
         <source>Featured Board Sets</source>
-        <target>Ensembles de planches en vedette</target>
+        <target>Ensembles de cartes de communication en vedette</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">25</context>
