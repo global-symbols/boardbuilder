@@ -592,6 +592,46 @@
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="55c6b64cbfab1c2b0cbf0313c5bb1690d7fa7239" datatype="html">
+        <source>Delete</source>
+        <target>избриши</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <note priority="1" from="description">Delete</note>
+        <note priority="1" from="meaning">delete</note>
+      </trans-unit>
+      <trans-unit id="3054e0afeeddfec20baf90b28904521b55957239" datatype="html">
+        <source>Cancel</source>
+        <target>Откажи</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/confirm-dialog/confirm-dialog.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Cancel</note>
+        <note priority="1" from="meaning">cancel</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
