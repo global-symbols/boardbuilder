@@ -10,6 +10,8 @@ import {TemplateService} from '@data/services/template.service';
 import {PageSize} from '@data/models/page-size.model';
 import {Template} from '@data/models/template.model';
 import {DomSanitizer} from '@angular/platform-browser';
+import {HttpErrorResponse} from '@angular/common/http';
+import {ApiError} from '@data/interfaces/api-error.interface';
 
 @Component({
   selector: 'app-pdf-preview',
@@ -51,7 +53,7 @@ export class PdfPreviewComponent implements OnInit {
 
   board: Board;
   compiledPdf = 'about:blank';
-  failureReason: string;
+  apiError: ApiError;
 
   pdfEmbedWidth = 1000;
   pdfEmbedHeight = 600;
@@ -108,7 +110,7 @@ export class PdfPreviewComponent implements OnInit {
 
   loadPdf() {
     this.status = 'loading';
-    this.failureReason = null;
+    this.apiError = null;
 
     this.setEmbedHeight();
 
@@ -124,8 +126,11 @@ export class PdfPreviewComponent implements OnInit {
         // this.pdfFrame.nativeElement.removeAttribute('src');
         // setTimeout(() => this.pdfFrame.nativeElement.src = this.compiledPdf);
         this.status = 'success';
-      }, error => {
-        this.failureReason = error;
+
+      }, (error: HttpErrorResponse) => {
+        error.error.text().then(text => {
+          this.apiError = JSON.parse(text).error;
+        });
         return this.status = 'error';
       });
   }

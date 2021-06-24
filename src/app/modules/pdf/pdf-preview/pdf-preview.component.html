@@ -2,92 +2,84 @@
 
   <div fxLayout="column" fxLayoutAlign="center center">
 
-    <mat-card style="max-width: 750px; width: 100%" class="mb-2">
+    <div style="max-width: 750px; width: 100%" class="mb-2">
 
-      <mat-card-header>
-        <mat-card-title i18n>PDF Settings</mat-card-title>
-      </mat-card-header>
+      <h2 class="mb-3" i18n>PDF Settings</h2>
 
-      <mat-card-content>
+      <div fxLayout="row" fxLayoutGap="20px">
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label i18n="paper size|PDF Paper Size">Paper Size</mat-label>
+          <mat-select [(value)]="template.pageSize" (valueChange)="onSettingChanged()">
+            <mat-option *ngFor="let size of pageSizes" [value]="size">{{size.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-        <div fxLayout="row" fxLayoutGap="20px">
-          <mat-form-field appearance="outline" fxFlex="33">
-            <mat-label i18n="paper size|PDF Paper Size">Paper Size</mat-label>
-            <mat-select [(value)]="template.pageSize" (valueChange)="onSettingChanged()">
-              <mat-option *ngFor="let size of pageSizes" [value]="size">{{size.name}}</mat-option>
-            </mat-select>
-          </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label i18n="orientation|PDF Paper Orientation">Orientation</mat-label>
+          <mat-select [(value)]="template.orientation" (valueChange)="onSettingChanged()">
+            <mat-option value="portrait" i18n="portrait|Portrait orientation">Portrait</mat-option>
+            <mat-option value="landscape" i18n="landscape|Landscape orientation">Landscape</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-          <mat-form-field appearance="outline" fxFlex="33">
-            <mat-label i18n="orientation|PDF Paper Orientation">Orientation</mat-label>
-            <mat-select [(value)]="template.orientation" (valueChange)="onSettingChanged()">
-              <mat-option value="portrait" i18n="portrait|Portrait orientation">Portrait</mat-option>
-              <mat-option value="landscape" i18n="landscape|Landscape orientation">Landscape</mat-option>
-            </mat-select>
-          </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label i18n="text size max|PDF Maximum Text Size">Text Size (Maximum)</mat-label>
+          <mat-select [(value)]="template.fontSize" (valueChange)="onSettingChanged()">
+            <mat-option *ngFor="let size of fontSizes" [value]="size">{{size}} pt</mat-option>
+          </mat-select>
+          <mat-hint i18n="text size max hint|PDF Maximum Text Size hint">Text may shrink to fit available space</mat-hint>
+        </mat-form-field>
+      </div>
 
-          <mat-form-field appearance="outline" fxFlex="33">
-            <mat-label i18n="text size max|PDF Maximum Text Size">Text Size (Maximum)</mat-label>
-            <mat-select [(value)]="template.fontSize" (valueChange)="onSettingChanged()">
-              <mat-option *ngFor="let size of fontSizes" [value]="size">{{size}}</mat-option>
-            </mat-select>
-            <mat-hint i18n="text size max hint|PDF Maximum Text Size hint">Text may shrink to fit available space</mat-hint>
-          </mat-form-field>
-        </div>
-
-        <mat-accordion>
-          <mat-expansion-panel [expanded]="true">
-            <mat-expansion-panel-header>
-              <mat-panel-title i18n="advanced|Advanced settings indicator">
-                Advanced
-              </mat-panel-title>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title i18n="advanced|Advanced settings indicator">
+              Advanced Settings
+            </mat-panel-title>
 <!--              <mat-panel-description fxLayoutAlign="end center">-->
 <!--                <mat-icon>tune</mat-icon>-->
 <!--              </mat-panel-description>-->
-            </mat-expansion-panel-header>
+          </mat-expansion-panel-header>
 
-            <div fxLayout="row" fxLayoutGap="20px">
-              <mat-form-field appearance="outline" fxFlex="33">
-                <mat-label i18n="cell spacing|PDF Cell Spacing">Cell Spacing</mat-label>
-                <mat-select [(value)]="template.cellSpacing" (valueChange)="onSettingChanged()">
-                  <mat-option *ngFor="let size of cellSpacingValues" [value]="size">{{size}}</mat-option>
-                </mat-select>
-                <mat-hint i18n="cell spacing hint|PDF Cell Spacing hint">Adjusts spacing between each box</mat-hint>
-              </mat-form-field>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field appearance="outline" fxFlex="33">
+              <mat-label i18n="cell spacing|PDF Cell Spacing">Cell Spacing</mat-label>
+              <mat-select [(value)]="template.cellSpacing" (valueChange)="onSettingChanged()">
+                <mat-option *ngFor="let size of cellSpacingValues" [value]="size">{{size}} pt</mat-option>
+              </mat-select>
+              <mat-hint i18n="cell spacing hint|PDF Cell Spacing hint">Adjusts spacing between each box</mat-hint>
+            </mat-form-field>
 
-              <mat-form-field appearance="outline" fxFlex="33">
-                <mat-label i18n="cell padding|PDF Cell Padding">Cell Padding</mat-label>
-                <mat-select [(value)]="template.cellPadding" (valueChange)="onSettingChanged()">
-                  <mat-option *ngFor="let size of cellSpacingValues" [value]="size">{{size}}</mat-option>
-                </mat-select>
-                <mat-hint i18n="cell padding hint|PDF Cell Padding hint">Adjusts spacing inside each box</mat-hint>
-              </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="33">
+              <mat-label i18n="cell padding|PDF Cell Padding">Cell Padding</mat-label>
+              <mat-select [(value)]="template.cellPadding" (valueChange)="onSettingChanged()">
+                <mat-option *ngFor="let size of cellSpacingValues" [value]="size">{{size}} pt</mat-option>
+              </mat-select>
+              <mat-hint i18n="cell padding hint|PDF Cell Padding hint">Adjusts spacing inside each box</mat-hint>
+            </mat-form-field>
 
-              <mat-form-field appearance="outline" fxFlex="33">
-                <mat-label i18n="cell image text spacing|PDF Cell Image/Text Spacing">Image/Text Spacing</mat-label>
-                <mat-select [(value)]="template.imageTextSpacing" (valueChange)="onSettingChanged()">
-                  <mat-option [value]="-1">Automatic</mat-option>
-                  <mat-option *ngFor="let size of cellSpacingValues" [value]="size">{{size}}</mat-option>
-                </mat-select>
-                <mat-hint i18n="cell image text spacing hint|PDF Cell Image/Text Spacing hint">Adjusts spacing between the image and text</mat-hint>
-              </mat-form-field>
-            </div>
+            <mat-form-field appearance="outline" fxFlex="33">
+              <mat-label i18n="cell image label spacing|PDF Cell Image/Label Spacing">Image/Label Spacing</mat-label>
+              <mat-select [(value)]="template.imageTextSpacing" (valueChange)="onSettingChanged()">
+                <mat-option [value]="-1">Automatic</mat-option>
+                <mat-option *ngFor="let size of cellSpacingValues" [value]="size">{{size}} pt</mat-option>
+              </mat-select>
+              <mat-hint i18n="cell image label spacing hint|PDF Cell Image/Label Spacing hint">Adjusts spacing between the image and label</mat-hint>
+            </mat-form-field>
+          </div>
 
-            <div class="mt-2">
-              <mat-checkbox [(ngModel)]="template.drawCellBorders" (change)="onSettingChanged()" i18n="cell draw outlines|PDF Cell Draw Borders">
-                Cell Borders
-              </mat-checkbox>
-            </div>
+          <div class="mt-2">
+            <mat-checkbox [(ngModel)]="template.drawCellBorders" (change)="onSettingChanged()" i18n="cell draw outlines|PDF Cell Draw Borders">
+              Cell Borders
+            </mat-checkbox>
+          </div>
 
-          </mat-expansion-panel>
-        </mat-accordion>
+        </mat-expansion-panel>
+      </mat-accordion>
 
-
-
-      </mat-card-content>
-
-      <mat-card-actions fxLayoutAlign="space-between center">
-        <div class="mx-1 mb-1">
+      <div fxLayoutAlign="space-between center" class="mt-2">
+        <div class="mb-1">
           <button mat-raised-button [disabled]="status != 'success'" (click)="downloadPdf()" color="primary" class="mr-2" i18n="download|Download">
             Download
           </button>
@@ -101,11 +93,23 @@
 
         <button mat-button color="primary" mat-stroked-button (click)="setTemplateDefaults()" *ngIf="showReset"
           i18n="pdf reset settings|PDF Reset Settings button">Reset Settings</button>
-      </mat-card-actions>
+      </div>
 
-    </mat-card>
+    </div>
 
-    <app-loading-notice *ngIf="status === 'loading' || status === 'error'" action="Generating" i18n-subject="generating|Generating (working/building)" subject="PDF" [error]="!!failureReason"></app-loading-notice>
+    <app-loading-notice *ngIf="status === 'loading' || status === 'error'" action="Generating" i18n-subject="generating|Generating (working/building)" subject="PDF" [error]="!!apiError"></app-loading-notice>
+
+    <div class="mt-3" *ngIf="apiError?.category === 'insufficient_cell_height'">
+      <span i18n="pdf error fit help|PDF Generator fit error">We can't fit everything on the page with your chosen settings. You can fix this by&hellip;</span>
+      <ul>
+        <li i18n="PDF Generator error suggestion 1">Reducing Cell Spacing or Cell Padding by at least {{apiError.overflow / 2}} pt.</li>
+        <li i18n="PDF Generator error suggestion 2">Reducing Image/Label Spacing by at least {{apiError.overflow}} pt.</li>
+        <li i18n="PDF Generator error suggestion 3" *ngIf="['above', 'below'].includes(board.captions_position)">
+          Reducing Text Size by at least {{apiError.overflow}} pt.
+        </li>
+        <li i18n="PDF Generator error suggestion 4">Using a larger Paper Size.</li>
+      </ul>
+    </div>
 
     <object [style.visibility]="status === 'success' ? 'visible' : 'hidden'"
             [data]="compiledPdf | bypassSanitiser: 'resourceUrl'" style="max-width: 1000px; width: 100%" [height]="pdfEmbedHeight"></object>
