@@ -491,7 +491,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="c4be93926edb355475a70ca1e8b63b299dbc5783" datatype="html">
-        <source>{VAR_PLURAL, plural, =1 {board} other {boards} }</source>
+        <source>{VAR_PLURAL, plural, =1 {board} other {boards}}</source>
         <target>{VAR_PLURAL, shumës, =1 {board} të tjerë {boards} }</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
@@ -1019,7 +1019,7 @@
       </trans-unit>
       <trans-unit id="3d531446d7d60fcf40fac5aed1ffd5666b3b2cb4" datatype="html">
         <source>Download Board Set as OBZ</source>
-        <target>Shkarko Bordin si OBF</target>
+        <target>Shkarko Tabelën e Vendosur si OBZ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
           <context context-type="linenumber">103</context>
@@ -1307,6 +1307,1387 @@
         </context-group>
         <note priority="1" from="description">Cell Editor Board linked to header</note>
         <note priority="1" from="meaning">linked to</note>
+      </trans-unit>
+      <trans-unit id="92c7d26fe11cea39408d674a9f25cb48f69341b6" datatype="html">
+        <source>Columns: <x id="INTERPOLATION" equiv-text="{{board.columns}}"/></source>
+        <target>Kolonat: <x id="INTERPOLATION" equiv-text="{{board.columns}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <note priority="1" from="description">Board Layout Selector columns input label</note>
+      </trans-unit>
+      <trans-unit id="72db182751c2255ca6d1b68e3bfd526a0982c926" datatype="html">
+        <source>Rows: <x id="INTERPOLATION" equiv-text="{{board.rows}}"/></source>
+        <target>Rreshtat: <x id="INTERPOLATION" equiv-text="{{board.rows}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <note priority="1" from="description">Board Layout Selector rows input label</note>
+      </trans-unit>
+      <trans-unit id="d2f50fea8132ce64ece09a00e5e1519371026276" datatype="html">
+        <source>Top</source>
+        <target>Sipër</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <note priority="1" from="description">Top</note>
+        <note priority="1" from="meaning">top</note>
+      </trans-unit>
+      <trans-unit id="35dbf9218f688f2c3641914191e698da1da53e2a" datatype="html">
+        <source>Bottom</source>
+        <target>Poshtë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+        <note priority="1" from="description">Bottom</note>
+        <note priority="1" from="meaning">bottom</note>
+      </trans-unit>
+      <trans-unit id="bb5deecdc9836fe245380847aa44f611681c8723" datatype="html">
+        <source>Right</source>
+        <target>Djathtas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+        <note priority="1" from="description">Right</note>
+        <note priority="1" from="meaning">right</note>
+      </trans-unit>
+      <trans-unit id="e6c96078b64f9e5de847f56ef46ab39e120c3ec6" datatype="html">
+        <source>Upload from Device…</source>
+        <target>Ngarko nga pajisja…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+        <note priority="1" from="description">Media Uploader from device button</note>
+      </trans-unit>
+      <trans-unit id="601d570d1dff9928b512d9e27c00bd9caeb892c9" datatype="html">
+        <source>Saving</source>
+        <target>Kursimi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Saving</note>
+        <note priority="1" from="meaning">saving</note>
+      </trans-unit>
+      <trans-unit id="3f13b6f84545e37961b9cd937be53c7fcd7de8c2" datatype="html">
+        <source>Clear Colours</source>
+        <target>Ngjyra të qarta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Clear Colours button</note>
+      </trans-unit>
+      <trans-unit id="25e2bf3ae065ac21a2b7b33dfecc80b3a622c94d" datatype="html">
+        <source>My Images</source>
+        <target>Imazhet e mia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">My Images</note>
+        <note priority="1" from="meaning">my images</note>
+      </trans-unit>
+      <trans-unit id="6bcb275cf56b894d668e25c812683cf3e2059999" datatype="html">
+        <source>Communication boards the easy way</source>
+        <target>Bordet e komunikimit në mënyrën e lehtë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 1 heading</note>
+      </trans-unit>
+      <trans-unit id="949ef93de86678f9cea0bdb143c9929a3efaf472" datatype="html">
+        <source>You always have control to customise the layout beyond our templates.</source>
+        <target>Ju gjithmonë keni kontroll për të personalizuar faqosje përtej modelëve tanë.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 2 text 2</note>
+      </trans-unit>
+      <trans-unit id="dc132f932e776ceac791876d90d2c85998a2d691" datatype="html">
+        <source>Store your own photos and images in BoardBuilder and use them throughout your boards.</source>
+        <target>Ruajini fotot dhe imazhet tuaja në BoardBuilder dhe përdorni ato në të gjithë bordet tuaja.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 3 text 2</note>
+      </trans-unit>
+      <trans-unit id="802222cb4754d74846b18f651b1f94e21576185d" datatype="html">
+        <source>Get Started</source>
+        <target>Fillo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 7 heading</note>
+      </trans-unit>
+      <trans-unit id="961b5cace3a8eb60ee77def7f30bef5a5a3ea0b4" datatype="html">
+        <source>BoardBuilder stores everything in your Global Symbols account.</source>
+        <target>BoardBuilder ruan gjithçka në llogarinë tuaj Global Symbols.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 7 text 1</note>
+      </trans-unit>
+      <trans-unit id="50f14f70020fccfe6bda292ffb8e8ebdad82a92c" datatype="html">
+        <source>Save to Device</source>
+        <target>Ruaj tek pajisja</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">Save to Device</note>
+        <note priority="1" from="meaning">save to device</note>
+      </trans-unit>
+      <trans-unit id="d349af48bb7154cce302afd42d1e6f60388cdb1b" datatype="html">
+        <source>PDF Settings</source>
+        <target>Rregullimet PDF</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6132c55d66521696f2ce9139aeb4ba78f90c333a" datatype="html">
+        <source>Paper Size</source>
+        <target>Madhësia e letrës</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">PDF Paper Size</note>
+        <note priority="1" from="meaning">paper size</note>
+      </trans-unit>
+      <trans-unit id="b12577537c5870ec34cf98de106eb03f6cf7ef5b" datatype="html">
+        <source>Orientation</source>
+        <target>Orientimi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">PDF Paper Orientation</note>
+        <note priority="1" from="meaning">orientation</note>
+      </trans-unit>
+      <trans-unit id="0b246cbac4c31d0d58833ecf4395f3d74bfc45f7" datatype="html">
+        <source>Portrait</source>
+        <target>Portret</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">Portrait orientation</note>
+        <note priority="1" from="meaning">portrait</note>
+      </trans-unit>
+      <trans-unit id="e2a2eb671dd79f8b7b14f51550636edd01bead6e" datatype="html">
+        <source>Text Size (Maximum)</source>
+        <target>Madhësia e tekstit (Maksimumi)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">PDF Maximum Text Size</note>
+        <note priority="1" from="meaning">text size max</note>
+      </trans-unit>
+      <trans-unit id="3bbe4dff805ae04b7115dda73e5b357e2e4ee891" datatype="html">
+        <source>Text may shrink to fit available space</source>
+        <target>Teksti mund të tkurret për t'u përshtatur me hapësirën në dispozicion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <note priority="1" from="description">PDF Maximum Text Size hint</note>
+        <note priority="1" from="meaning">text size max hint</note>
+      </trans-unit>
+      <trans-unit id="dd21d3aaeb51dec9a0c5ab7a35944f0bf6a40bdb" datatype="html">
+        <source>Refresh PDF</source>
+        <target>Rifresko PDF</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <note priority="1" from="description">Refresh PDF</note>
+        <note priority="1" from="meaning">refresh pdf</note>
+      </trans-unit>
+      <trans-unit id="f2bab03d1b99998c3c361a1f432e5642e23977d6" datatype="html">
+        <source>PDF</source>
+        <target>PDF</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+        <note priority="1" from="description">Generating (working/building)</note>
+        <note priority="1" from="meaning">generating</note>
+      </trans-unit>
+      <trans-unit id="a0cf7197e807c169dd0cc9f7445fd48d02a711c2" datatype="html">
+        <source>Add a new Board by importing an Open Board Format (OBF) file.</source>
+        <target>Shto një bord të ri duke importuar një skedar Open Board Format (OBF).</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">OBF Upload Dialog intro</note>
+      </trans-unit>
+      <trans-unit id="31e4bb50eea08f31c1cd6a746cd1fa7f6fab6d55" datatype="html">
+        <source>Uploading…</source>
+        <target>Ngarkimi…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">OBF Upload Dialog uploading</note>
+      </trans-unit>
+      <trans-unit id="3054e0afeeddfec20baf90b28904521b55957239" datatype="html">
+        <source>Cancel</source>
+        <target>Anulo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/confirm-dialog/confirm-dialog.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Cancel</note>
+        <note priority="1" from="meaning">cancel</note>
+      </trans-unit>
+      <trans-unit id="e8b15f4bd5c47083e17a1f529c0230fe8db4a29f" datatype="html">
+        <source>This will create a Board Set from an Open Board Format Collection (OBZ) file that you upload.</source>
+        <target>Kjo do të krijojë një Set Bordi nga një skedar i Open Board Format Collection (OBZ) që ju ngarkoni.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">OBZ Upload Dialog intro 1</note>
+      </trans-unit>
+      <trans-unit id="32f5154830bb644ec1aff3410fb0353bcc324786" datatype="html">
+        <source>Select OBZ…</source>
+        <target>Zgjidh OBF…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">OBZ Upload Dialog select OBZ button</note>
+      </trans-unit>
+      <trans-unit id="f4aa5f08d3d1742455524efde60c55b06236b479" datatype="html">
+        <source>Add Board Set</source>
+        <target>Shto tabelën</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <note priority="1" from="description">Add Board Set</note>
+        <note priority="1" from="meaning">add board set</note>
+      </trans-unit>
+      <trans-unit id="104145858fd98b81923ca67d102a80be5c750074" datatype="html">
+        <source>Select Image</source>
+        <target>Zgjidh figurën</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Add Symbol Dialog heading</note>
+      </trans-unit>
+      <trans-unit id="7a174c266fd0587eb20f5fed9087a1e3e165b096" datatype="html">
+        <source>Clear Image</source>
+        <target>Figurë e qartë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <note priority="1" from="description">Add Symbol Dialog clear image button</note>
+      </trans-unit>
+      <trans-unit id="785fb65be4f15d2392d38d08255a18ba3688f153" datatype="html">
+        <source>Layout</source>
+        <target>Faqosje</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form layout tab</note>
+      </trans-unit>
+      <trans-unit id="94d9d1f2a07f7532dbcdd759a293c40f23670067" datatype="html">
+        <source>Choose a name for the first Board in your new Board Set.</source>
+        <target>Zgjidhni një emër për Bordin e parë në Tabelën tuaj të re.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form board title field hint (new Board Sets only)</note>
+      </trans-unit>
+      <trans-unit id="2b3b69b12a50c7db271449343593018fa55aef2a" datatype="html">
+        <source>Add Arrow</source>
+        <target>Shto Shigjetë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+        <note priority="1" from="description">Add Arrow</note>
+        <note priority="1" from="meaning">add arrow</note>
+      </trans-unit>
+      <trans-unit id="baff4ff5348fe614a658b631e63378c4d6bcd4c5" datatype="html">
+        <source>Save to Device (PNG)</source>
+        <target>Ruaj tek pajisja (PNG)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">238</context>
+        </context-group>
+        <note priority="1" from="description">Save to Device (PNG)</note>
+      </trans-unit>
+      <trans-unit id="db80c29a86e3bc282a3a3d81744a24b4a81cbce2" datatype="html">
+        <source>Save to Device (SVG, Advanced)</source>
+        <target>Ruaj tek pajisja (SVG, Advanced)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">242</context>
+        </context-group>
+        <note priority="1" from="description">Save to Device (SVG)</note>
+      </trans-unit>
+      <trans-unit id="c3980af8d141ce449570c02616b61c8cb55a6765" datatype="html">
+        <source>Search</source>
+        <target>Kërko</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Search</note>
+        <note priority="1" from="meaning">search</note>
+      </trans-unit>
+      <trans-unit id="5cb171ddb22793f7497094daa9d53ba3e78a39d6" datatype="html">
+        <source>First Board</source>
+        <target>Bordi i parë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form first board prefix</note>
+        <note priority="1" from="meaning">first board</note>
+      </trans-unit>
+      <trans-unit id="751d545c485a7b14ce9b4afaf2644c6ec48b3d2e" datatype="html">
+        <source>First Board</source>
+        <target>Bordi i parë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form board description if first board</note>
+      </trans-unit>
+      <trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html">
+        <source>Description</source>
+        <target>Përshkrimi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form board description field label</note>
+      </trans-unit>
+      <trans-unit id="7c2786a6561850ba650193c4567a9febcb6c36e2" datatype="html">
+        <source>Left</source>
+        <target>Majtas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <note priority="1" from="description">Left</note>
+        <note priority="1" from="meaning">left</note>
+      </trans-unit>
+      <trans-unit id="be96de1c6a272d7be04581f1f329f4837376cd1b" datatype="html">
+        <source>Discard</source>
+        <target>Hidh</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Discard (throw away, cancel)</note>
+        <note priority="1" from="meaning">discard</note>
+      </trans-unit>
+      <trans-unit id="ae875a90e1ecf011e22c81abb1f4c8dd3e1887f5" datatype="html">
+        <source>Hidden</source>
+        <target>E fshehur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+        <note priority="1" from="description">Hidden</note>
+        <note priority="1" from="meaning">hidden</note>
+      </trans-unit>
+      <trans-unit id="001f8430a95b26e1ffd9131221367e6edcc3d953" datatype="html">
+        <source>Sets where text appears in each cell, relative to the image.</source>
+        <target>Përcakton se ku shfaqet teksti në çdo qelizë, në raport me figurën.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <note priority="1" from="description">Board Layout Selector label position input hint</note>
+      </trans-unit>
+      <trans-unit id="bf35cb4d4e25c8364d0601637844bf25f1d01f11" datatype="html">
+        <source>Remove <x id="INTERPOLATION" equiv-text="{{label}}"/> Colour</source>
+        <target>Hiq <x id="INTERPOLATION" equiv-text="{{label}}"/> Ngjyrën</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/colour-selector/colour-selector.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Colour Selector remove colour tooltip</note>
+      </trans-unit>
+      <trans-unit id="8ec336f10fd8d3981f925e716bfcb7766793d3cf" datatype="html">
+        <source>Copy <x id="INTERPOLATION" equiv-text="{{boardSet.name}}"/></source>
+        <target>Kopjo <x id="INTERPOLATION" equiv-text="{{boardSet.name}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Copy Board Set dialog heading</note>
+      </trans-unit>
+      <trans-unit id="7fa36bfe1fd472ba07a1313fd7bdb59663418bca" datatype="html">
+        <source>Copy this Board Set?</source>
+        <target>E kopjon këtë set bordi?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Copy Board Set dialog prompt</note>
+      </trans-unit>
+      <trans-unit id="2d7f206670350d642f8279c34bbd218fbaf1a9a3" datatype="html">
+        <source>You will be able to edit the copy.</source>
+        <target>Ju do të jeni në gjendje të redaktoni kopjen.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Copy Board Set dialog readonly notice</note>
+      </trans-unit>
+      <trans-unit id="f165a6c4f51f1a10324bbc6b8ecf9fd2b649c7f2" datatype="html">
+        <source>Copying</source>
+        <target>Kopjimi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">Copying (duplicating)</note>
+        <note priority="1" from="meaning">copying</note>
+      </trans-unit>
+      <trans-unit id="8157e70cc42ff36eb15eb0012cc768b0e083bbba" datatype="html">
+        <source>Copy complete!</source>
+        <target>Kopja u kompletua!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Copy Board Set dialog complete notice</note>
+      </trans-unit>
+      <trans-unit id="72f64b494d2318e06524ac69f042723472aeb7c4" datatype="html">
+        <source>Copy</source>
+        <target>Kopjo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Copy</note>
+        <note priority="1" from="meaning">copy</note>
+      </trans-unit>
+      <trans-unit id="71a74a3452dd57b914ead8940cd7716e6a82add1" datatype="html">
+        <source>Go To Copy</source>
+        <target>Shko të kopjosh</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <note priority="1" from="description">Go to Copy button</note>
+      </trans-unit>
+      <trans-unit id="89e5ca5f6198585bdc9e2145b78adfd34f9fe419" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{subject}}"/> Not Found</source>
+        <target><x id="INTERPOLATION" equiv-text="{{subject}}"/> Nuk u gjet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/error-not-found/error-not-found.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Item Not Found heading</note>
+      </trans-unit>
+      <trans-unit id="3f612928c7d6b70d2029b03abe09cec728761fa5" datatype="html">
+        <source>We couldn't find a <x id="INTERPOLATION" equiv-text="{{subject}}"/> at this address</source>
+        <target>Ne nuk mund të gjenim një <x id="INTERPOLATION" equiv-text="{{subject}}"/> në këtë adresë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/error-not-found/error-not-found.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Item Not Found text</note>
+      </trans-unit>
+      <trans-unit id="3891d4efe737a9d065c6cf94bfc1d824305826fa" datatype="html">
+        <source>Compass</source>
+        <target>Busullë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/error-not-found/error-not-found.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ef2b821469d83bb712aef799837a1a1d430558a8" datatype="html">
+        <source>Error</source>
+        <target>Gabim</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/loading-notice/loading-notice.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Error</note>
+        <note priority="1" from="meaning">error</note>
+      </trans-unit>
+      <trans-unit id="a28e59ede9e61da68525795b0873c34b07d71a19" datatype="html">
+        <source>Loading</source>
+        <target>Ngarkimi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/loading-notice/loading-notice.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Loading</note>
+        <note priority="1" from="meaning">loading</note>
+      </trans-unit>
+      <trans-unit id="21166f9d873cc51afa1a82a9f15304b94a4a1b59" datatype="html">
+        <source>Drop an image file here</source>
+        <target>Hidh një skedar imazhi këtu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Media Uploader dropzone prompt</note>
+      </trans-unit>
+      <trans-unit id="a5afdad9feec860196a06b935f73074c31c9d75b" datatype="html">
+        <source>Uploading…</source>
+        <target>Ngarkimi…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Uploading with ellipsis</note>
+        <note priority="1" from="meaning">uploading ellipsis</note>
+      </trans-unit>
+      <trans-unit id="c9595794b16b76b5d577d0938a7ad61dcce89b54" datatype="html">
+        <source>We don't accept files of this type.</source>
+        <target>Ne nuk pranojmë dosje të këtij lloji.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+        <note priority="1" from="description">Media Uploader error wrong file type</note>
+      </trans-unit>
+      <trans-unit id="7f378e8f0cf469c7191628747a9c03425b525421" datatype="html">
+        <source>Your file is too large.</source>
+        <target>Dosja jote është shumë e madhe.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+        <note priority="1" from="description">Media Uploader error file too large</note>
+      </trans-unit>
+      <trans-unit id="590b2ff136cd94da28cd9e85908a578897090b6d" datatype="html">
+        <source>We couldn't upload your file. Please try again, or use a different file.</source>
+        <target>Nuk mund të ngarkonim dosjen tënde. Ju lutem provoni përsëri, ose përdorni një skedar tjetër.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+        <note priority="1" from="description">Media Uploader general error</note>
+      </trans-unit>
+      <trans-unit id="f776a9c64fe5aed9b719f5d65db61d22b213b1ef" datatype="html">
+        <source>We couldn't load your images because of a technical issue.</source>
+        <target>Ne nuk mund të ngarkojmë imazhet tuaja për shkak të një problemi teknik.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+        <note priority="1" from="description">Media Library loading error</note>
+      </trans-unit>
+      <trans-unit id="5d31849ab7f426a83e3696a88b7ccc51c409a078" datatype="html">
+        <source>Images</source>
+        <target>Imazhet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <note priority="1" from="description">Images</note>
+        <note priority="1" from="meaning">images</note>
+      </trans-unit>
+      <trans-unit id="f39db9a38ff38a5b01f9bd5008e77d7ee82b86b5" datatype="html">
+        <source>Search In</source>
+        <target>Kërko brenda</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Search location input label</note>
+      </trans-unit>
+      <trans-unit id="b60810a36a2e077267c01933f5009224109bc023" datatype="html">
+        <source>Symbol Set</source>
+        <target>Set simboli</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Search symbol set input</note>
+      </trans-unit>
+      <trans-unit id="0194d33c070e8d957a16480c67c3c1d2445fa380" datatype="html">
+        <source>All Symbol Sets</source>
+        <target>Të gjitha grupet e simboleve</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Search symbol set 'all' option</note>
+      </trans-unit>
+      <trans-unit id="fe46ccaae902ce974e2441abe752399288298619" datatype="html">
+        <source>Language</source>
+        <target>Gjuha</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Search language input label</note>
+      </trans-unit>
+      <trans-unit id="1c7a27379df6ee328b86ae3e03bc66e9f7f126ed" datatype="html">
+        <source>Searching…</source>
+        <target>Duke kërkuar…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+        <note priority="1" from="description">Searching ellipsis</note>
+        <note priority="1" from="meaning">searching ellipsis</note>
+      </trans-unit>
+      <trans-unit id="b030fd8ff780ba07cf46f1d917c5461bd22b3088" datatype="html">
+        <source>Symbol</source>
+        <target>Simboli</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Symbol</note>
+        <note priority="1" from="meaning">symbol</note>
+      </trans-unit>
+      <trans-unit id="a36dccfd1cefd123a47885cacc8d2465716fc954" datatype="html">
+        <source>Create boards to aid communication with thousands of free images.</source>
+        <target>Krijoni borde për të ndihmuar komunikimin me mijëra imazhe falas.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 1 text 1</note>
+      </trans-unit>
+      <trans-unit id="d052b858625a3ddffbb91917b7264d61803baf8b" datatype="html">
+        <source>Everything is stored safely in your Global Symbols account.</source>
+        <target>Çdo gjë ruhet në mënyrë të sigurt në llogarinë tuaj Global Symbols.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 1 text 2</note>
+      </trans-unit>
+      <trans-unit id="06bdcf55e3b8187fec88bfbf3dd3d672d9871ed2" datatype="html">
+        <source>My Board Sets</source>
+        <target>Bordet e mia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <note priority="1" from="description">My Board Sets</note>
+        <note priority="1" from="meaning">my board sets</note>
+      </trans-unit>
+      <trans-unit id="ec5444842f9d13fe5070b6a626836ccf1d0d3424" datatype="html">
+        <source>Get Started</source>
+        <target>Fillo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+        <note priority="1" from="description">Get Started</note>
+        <note priority="1" from="meaning">get started</note>
+      </trans-unit>
+      <trans-unit id="2f4eb93a91cf44fc2722874e8138a23f10925af5" datatype="html">
+        <source>My Symbols</source>
+        <target>Simbolet e mia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">78,79</context>
+        </context-group>
+        <note priority="1" from="description">My Symbols</note>
+        <note priority="1" from="meaning">my symbols</note>
+      </trans-unit>
+      <trans-unit id="90cf22198d376b255fbab36748c38d869dcd0535" datatype="html">
+        <source>Start with a template or make your own layout</source>
+        <target>Fillo me një model ose bëj planin tënd</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 2 heading</note>
+      </trans-unit>
+      <trans-unit id="e99d6e3fb798355edb8f87e32122bb4f0a17f679" datatype="html">
+        <source>Get started quickly with our collection of handy templates.</source>
+        <target>Filloni shpejt me koleksionin tonë të templates handy.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 2 text 1</note>
+      </trans-unit>
+      <trans-unit id="ee34309cbccb76db11799f7e68d5b98776a70b72" datatype="html">
+        <source>Search thousands of free images and use your own</source>
+        <target>Kërko mijëra imazhe falas dhe përdor tënden</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 3 heading</note>
+      </trans-unit>
+      <trans-unit id="51cb28ff8390b109810139e8524bb802da106fab" datatype="html">
+        <source>Quickly find the symbols you need by searching thousands of free images from popular symbol sets on GlobalSymbols.</source>
+        <target>Shpejt gjeni simbolet që ju nevojiten duke kërkuar mijëra imazhe falas nga setet popullore të simboleve në GlobalSymbols.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 3 text 1</note>
+      </trans-unit>
+      <trans-unit id="0b950b44a712127e5221c071eefe0804b81992fa" datatype="html">
+        <source>Communicate with colour and more</source>
+        <target>Komunikoni me ngjyra dhe më shumë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 4 heading</note>
+      </trans-unit>
+      <trans-unit id="a143122a48bce11086a94c909d7c0bc428022472" datatype="html">
+        <source>Tailor boards with your favourite colours and preferred fonts.</source>
+        <target>Bordet e rrobaqepësit me ngjyrat tuaja të preferuara dhe fontet e preferuara.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 4 text 1</note>
+      </trans-unit>
+      <trans-unit id="86f716bec915207ba82e50b4fd9b01acc56b0682" datatype="html">
+        <source>Easily re-arrange boards and link between boards to create communication books.</source>
+        <target>Lehtë ri-organizoni bordet dhe lidhni midis bordeve për të krijuar libra komunikimi.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 4 text 2</note>
+      </trans-unit>
+      <trans-unit id="bafcc104d8c1ca4a371fb99f537f8cd7bf8fce97" datatype="html">
+        <source>Create your own Symbols</source>
+        <target>Krijo simbolet e tua</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 5 heading</note>
+      </trans-unit>
+      <trans-unit id="3765519c937e4b9c0109cb1fc4838ec922f45dc2" datatype="html">
+        <source>Create your own symbols in seconds by combining shapes, text, symbols and even your own pictures.</source>
+        <target>Krijo simbolet e tua në sekonda duke kombinuar format, tekstin, simbolet dhe madje edhe fotografitë e tua.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 5 text 1</note>
+      </trans-unit>
+      <trans-unit id="16cc45679f38cd45f998da8dc51c3127e7e6b040" datatype="html">
+        <source>Perfect for those times when you need something a little different.</source>
+        <target>Perfekte për ato kohë kur të duhet diçka pak më ndryshe.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 5 text 2</note>
+      </trans-unit>
+      <trans-unit id="f490c7cacf3e1fa529bb8f99fab1255954dbb45e" datatype="html">
+        <source>Download, Print and Share</source>
+        <target>Shkarko, Printo dhe Ndaje</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 6 heading</note>
+      </trans-unit>
+      <trans-unit id="10aa2cb50b9c13a52f198005845b2e096da4b6ce" datatype="html">
+        <source>Quickly convert boards to PDF so they can be easily shared with anyone.</source>
+        <target>Shpejt konvertoni bordet në PDF në mënyrë që ato të mund të ndahet lehtë me këdo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 6 text 1</note>
+      </trans-unit>
+      <trans-unit id="8a97049f5dbd670dff63c3ef14e37ab5d6f4f3c6" datatype="html">
+        <source>Print boards to your preferred paper size, import and export boards in OBF and OBZ formats.</source>
+        <target>Printo bordet në madhësinë tuaj të preferuar të letrës, importin dhe eksportin e bordeve në formatet OBF dhe OBZ.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 6 text 2</note>
+      </trans-unit>
+      <trans-unit id="1b888e9aad9b88aed9013bf0a726f94b16b78f9b" datatype="html">
+        <source>Create an account if you don't already have one.</source>
+        <target>Krijo një llogari nëse nuk e ke një të tillë.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 7 text 2</note>
+      </trans-unit>
+      <trans-unit id="d85939744060b14face42c9f8ef1baf690b7fafd" datatype="html">
+        <source>Symbols</source>
+        <target>Simbolet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Symbols</note>
+        <note priority="1" from="meaning">symbols</note>
+      </trans-unit>
+      <trans-unit id="4f836ecb8b48cbd0f18f7f0ed459489599372204" datatype="html">
+        <source>My Symbols</source>
+        <target>Simbolet e mia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">My Symbols</note>
+        <note priority="1" from="meaning">my symbols</note>
+      </trans-unit>
+      <trans-unit id="ce2a8428f4f9edec308784591a24234828698f56" datatype="html">
+        <source>You have used <x id="INTERPOLATION" equiv-text="{{spaceUsed | filesize: {round: 0} }}"/>.</source>
+        <target>Ju keni përdorur <x id="INTERPOLATION" equiv-text="{{spaceUsed | filesize: {round: 0} }}"/>.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Media page quota usage</note>
+      </trans-unit>
+      <trans-unit id="207eee6f5c3dcef68b3f8a63551ddfc3a8fd2d87" datatype="html">
+        <source>You have not uploaded any images yet.</source>
+        <target>Ju nuk keni ngarkuar ndonjë imazhe ende.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Media page no images uploaded</note>
+      </trans-unit>
+      <trans-unit id="68abeead4917cefa422fc79a1c8b8c3c4a3f63f8" datatype="html">
+        <source>Create Symbol</source>
+        <target>Krijo simbolin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <note priority="1" from="description">Create Symbol</note>
+        <note priority="1" from="meaning">create symbol</note>
+      </trans-unit>
+      <trans-unit id="5828a2e612748b670d4b3588116a0a5480623133" datatype="html">
+        <source>Edit Symbol</source>
+        <target>Ndrysho simbolin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <note priority="1" from="description">Edit Symbol</note>
+        <note priority="1" from="meaning">edit symbol</note>
+      </trans-unit>
+      <trans-unit id="bf54c4e5a1dc7f5c997ea6cff4675b97af6cf7c9" datatype="html">
+        <source>Delete Symbol</source>
+        <target>Elemino simbolin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">Delete Symbol</note>
+        <note priority="1" from="meaning">delete symbol</note>
+      </trans-unit>
+      <trans-unit id="f7256aeb69fb71137ff4ae242c10fc4bb1ede629" datatype="html">
+        <source>Landscape</source>
+        <target>Peizazh</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Landscape orientation</note>
+        <note priority="1" from="meaning">landscape</note>
+      </trans-unit>
+      <trans-unit id="a35ca8aec9119e132f71ccf80d08decd8b795985" datatype="html">
+        <source>Download</source>
+        <target>Shkarko</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+        <note priority="1" from="description">Download</note>
+        <note priority="1" from="meaning">download</note>
+      </trans-unit>
+      <trans-unit id="f3e09b1fcc5e166aa05679da732ab57339c953bb" datatype="html">
+        <source>We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {cell} other {cells}}"/> in your OBF file. </source>
+        <target>Kemi gjetur <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> in your OBF file. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">29,31</context>
+        </context-group>
+        <note priority="1" from="description">OBF Upload Dialog scan results</note>
+      </trans-unit>
+      <trans-unit id="fce681e9cb6340189b8501130cc46987c2c84808" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {cell} other {cells}}</source>
+        <target>{VAR_PLURAL, shumës, =1 {qelizë} të tjera {qeliza}}</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3eed83da952c43b967917087d8dfa141305e10ce" datatype="html">
+        <source>Create Board Set from OBZ File</source>
+        <target>Krijo tabelën e vendosur nga file OBZ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">OBZ Upload Dialog heading</note>
+      </trans-unit>
+      <trans-unit id="b361b030af06f3245c0c96c3ed97815265772480" datatype="html">
+        <source>We found <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {board} other {boards}}"/> in your OBZ file. </source>
+        <target>Ne gjetëm <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {...} të tjerë {...}}"/> në dosjen tuaj OBZ. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+        <note priority="1" from="description">OBZ Upload Dialog scan results</note>
+      </trans-unit>
+      <trans-unit id="7a3111a61eca14f3b284d2a2d1a2b65d278445f6" datatype="html">
+        <source>Optional. Shown in PDFs made from this Board.</source>
+        <target>Opsional. E paraqitur në PDF-të e bëra nga ky Bord.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form first board prefix</note>
+        <note priority="1" from="meaning">first board</note>
+      </trans-unit>
+      <trans-unit id="2e24e22d22570663b7e019c5c2fb11d9821590a1" datatype="html">
+        <source>Generic Templates</source>
+        <target>Templates gjenerik</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description">Board Layout Selector tab generic</note>
+      </trans-unit>
+      <trans-unit id="b4e4539a8e3c38130e55f0a2eaf7b347dfec236c" datatype="html">
+        <source>Custom Settings</source>
+        <target>Rregullimet e personalizuar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <note priority="1" from="description">Board Layout Selector tab custom</note>
+      </trans-unit>
+      <trans-unit id="3f5a652a1f473f4e243e3c6805ef1b383e270bb7" datatype="html">
+        <source>Discard</source>
+        <target>Hidh</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Discard changes (same button used for editing and creating symbols)</note>
+      </trans-unit>
+      <trans-unit id="4fa96cbe8aae4f2b5b430bb18dd6efe76a70a342" datatype="html">
+        <source>Continue Editing</source>
+        <target>Vazhdo editim</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Creator error continue button</note>
+      </trans-unit>
+      <trans-unit id="c889f6fdcba885f3d7302542962196be7a9d015c" datatype="html">
+        <source>Save Symbol to Device</source>
+        <target>Ruaj simbolin në pajisje</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Save to Device</note>
+        <note priority="1" from="meaning">save to device</note>
+      </trans-unit>
+      <trans-unit id="c0981a10cabc8e33facd2280c3598196156b9ce1" datatype="html">
+        <source>align horizontal centre|Align to Horizontal Centre</source>
+        <target>rreshto qendrën horizontale| Rreshto në qendrën horizontale</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description">Align Horizontal Centre button</note>
+        <note priority="1" from="meaning">align horizontal centre</note>
+      </trans-unit>
+      <trans-unit id="fb26eef7b92ed07635820989e45268528e0fd092" datatype="html">
+        <source>Align to Vertical Centre</source>
+        <target>Rreshto në qendër vertikale</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <note priority="1" from="description">Align to Vertical Centre</note>
+        <note priority="1" from="meaning">align vertical centre</note>
+      </trans-unit>
+      <trans-unit id="224f1bb5060a477f9feef9daa6a98f490a601d28" datatype="html">
+        <source>Flip Vertical</source>
+        <target>Rrotullo vertikalisht</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <note priority="1" from="description">Flip Vertical</note>
+        <note priority="1" from="meaning">flip vertical</note>
+      </trans-unit>
+      <trans-unit id="729557c22cbde29b4b2e1a6a547390996e11df74" datatype="html">
+        <source>Send Behind other Items</source>
+        <target>Dërgo prapa sendeve të tjera</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">Send Behind other Items</note>
+        <note priority="1" from="meaning">send behind</note>
+      </trans-unit>
+      <trans-unit id="82623cc63666119b0c881a9329d26e2c8f3ab6d0" datatype="html">
+        <source>Duplicate Selected</source>
+        <target>E dyfishuar e zgjedhur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <note priority="1" from="description">Duplicate Selected</note>
+        <note priority="1" from="meaning">duplicate selected</note>
+      </trans-unit>
+      <trans-unit id="595361b065fc7a26fb217833a6737f99f711e4e4" datatype="html">
+        <source>Delete Selected</source>
+        <target>Elemino e zgjedhur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <note priority="1" from="description">Delete Selected</note>
+        <note priority="1" from="meaning">delete selected</note>
+      </trans-unit>
+      <trans-unit id="ccef2647e0c3cc3f168a160b01d51bb6640ea950" datatype="html">
+        <source>Add Image</source>
+        <target>Shto figurë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+        <note priority="1" from="description">Add Image</note>
+        <note priority="1" from="meaning">add image</note>
+      </trans-unit>
+      <trans-unit id="d9b8fc8a6382900840697db235bfe0934240b9e5" datatype="html">
+        <source>Add Text Box</source>
+        <target>Shto Kutinë e Tekstit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <note priority="1" from="description">Add Text Box</note>
+        <note priority="1" from="meaning">add text box</note>
+      </trans-unit>
+      <trans-unit id="0d24f6f1a191c00fa9e313756f7c2ddfa41551e4" datatype="html">
+        <source>Add Circle</source>
+        <target>Shto Rreth</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+        <note priority="1" from="description">Add Circle</note>
+        <note priority="1" from="meaning">add circle</note>
+      </trans-unit>
+      <trans-unit id="1347ef1ba7da166fb0a2b1a21b78a506ac9a0e6b" datatype="html">
+        <source>Add Line</source>
+        <target>Shto rreshtin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <note priority="1" from="description">Add Line</note>
+        <note priority="1" from="meaning">add line</note>
+      </trans-unit>
+      <trans-unit id="1f17b051e6a7071342d6ed7ffa538d8a11e85715" datatype="html">
+        <source>Add Triangle</source>
+        <target>Shto Trekëndëshin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+        <note priority="1" from="description">Add Triangle</note>
+        <note priority="1" from="meaning">add triangle</note>
+      </trans-unit>
+      <trans-unit id="d82a8418071a20b23581b49c7bcff8ac048f992e" datatype="html">
+        <source>Add Square</source>
+        <target>Shto Katrorin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+        <note priority="1" from="description">Add Square</note>
+        <note priority="1" from="meaning">add square</note>
+      </trans-unit>
+      <trans-unit id="bc0017b8f9e609ea4da58a92d1699377ad60ad2d" datatype="html">
+        <source>Add Plus</source>
+        <target>Shto Plus</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+        <note priority="1" from="description">Add Plus</note>
+        <note priority="1" from="meaning">add plus</note>
+      </trans-unit>
+      <trans-unit id="55181c2052e8323beaa2a1da866f1753eeeb408e" datatype="html">
+        <source>Add Cross</source>
+        <target>Shto Kros</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+        <note priority="1" from="description">Add Cross</note>
+        <note priority="1" from="meaning">add cross</note>
+      </trans-unit>
+      <trans-unit id="568b891a3af873cc48fa48114013d1a69c15d259" datatype="html">
+        <source>Clear Fill</source>
+        <target>Mbushja e qartë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+        <note priority="1" from="description">Clear Fill</note>
+        <note priority="1" from="meaning">clear fill</note>
+      </trans-unit>
+      <trans-unit id="7c8be2b6dd54cc82bb0174657e0941b190d85e31" datatype="html">
+        <source>Clear Outline</source>
+        <target>Skemë e qartë</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">179</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">179</context>
+        </context-group>
+        <note priority="1" from="description">Clear Outline</note>
+        <note priority="1" from="meaning">clear outline</note>
+      </trans-unit>
+      <trans-unit id="e7f45dd3c95799635d343eded2a71b7cc42a0ab7" datatype="html">
+        <source>Thickness</source>
+        <target>Trashësia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">192</context>
+        </context-group>
+        <note priority="1" from="description">Thickness</note>
+        <note priority="1" from="meaning">thickness</note>
+      </trans-unit>
+      <trans-unit id="51a9ef96c683b8588880b4dafb9b630c43b30b30" datatype="html">
+        <source>Text</source>
+        <target>Teksti</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">202</context>
+        </context-group>
+        <note priority="1" from="description">Text</note>
+        <note priority="1" from="meaning">text</note>
+      </trans-unit>
+      <trans-unit id="4b166edba60b5b41e31c8afbc426faa798cde621" datatype="html">
+        <source>Bold</source>
+        <target>E guximshme</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">204</context>
+        </context-group>
+        <note priority="1" from="description">Bold</note>
+        <note priority="1" from="meaning">bold</note>
+      </trans-unit>
+      <trans-unit id="79e721fcd6bd98124348d6187f2e9f719dcdebd3" datatype="html">
+        <source>Italic</source>
+        <target>Italik</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">208</context>
+        </context-group>
+        <note priority="1" from="description">Italic</note>
+        <note priority="1" from="meaning">italic</note>
+      </trans-unit>
+      <trans-unit id="9f6b7aa9503c7434539118079b91faec36c00e7b" datatype="html">
+        <source>Underline</source>
+        <target>Nënvlerës</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">212</context>
+        </context-group>
+        <note priority="1" from="description">Underline</note>
+        <note priority="1" from="meaning">underline</note>
+      </trans-unit>
+      <trans-unit id="d71e65dd8e3f51d63eb2e4221ce71b9596703add" datatype="html">
+        <source>Font</source>
+        <target>Gërmat</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">220</context>
+        </context-group>
+        <note priority="1" from="description">Font</note>
+        <note priority="1" from="meaning">font</note>
+      </trans-unit>
+      <trans-unit id="db1c1a27cd80c4154e13571df787ec8046e5080b" datatype="html">
+        <source>Flip Horizontal</source>
+        <target>Rrokullisje horizontale</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">Flip Horizontal</note>
+        <note priority="1" from="meaning">flip horizontal</note>
+      </trans-unit>
+      <trans-unit id="3ccd80ac2bcdda24655222d1ee56a83048185ded" datatype="html">
+        <source>There was a problem saving your symbol</source>
+        <target>Kishte një problem për të shpëtuar simbolin tënd</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Creator error saving heading</note>
       </trans-unit>
     </body>
   </file>
