@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="d7b35c384aecd25a516200d6921836374613dfe7" datatype="html">
         <source>Cancel</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/confirm-dialog/confirm-dialog.component.html</context>
           <context context-type="linenumber">6</context>
@@ -20,7 +20,7 @@
       </trans-unit>
       <trans-unit id="826b25211922a1b46436589233cb6f1a163d89b7" datatype="html">
         <source>Delete</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/confirm-dialog/confirm-dialog.component.html</context>
           <context context-type="linenumber">8</context>
@@ -28,7 +28,7 @@
       </trans-unit>
       <trans-unit id="1f50de60c93b24522701a635aae641fce24e2bc1" datatype="html">
         <source>Edit <x id="INTERPOLATION" equiv-text="{{data.board.title}}"/></source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">2</context>
@@ -36,7 +36,7 @@
       </trans-unit>
       <trans-unit id="fdf7cbdc140d0aab0f0b6c06065a0fd448ed6a2e" datatype="html">
         <source>Title</source>
-        <target></target>
+        <target>τίτλος</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">11</context>
@@ -48,7 +48,7 @@
       </trans-unit>
       <trans-unit id="e47fbf619d9b88927751bd1fc556db6d284093aa" datatype="html">
         <source>Label Position</source>
-        <target></target>
+        <target>Θέση ετικέτας</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">16</context>
@@ -56,7 +56,7 @@
       </trans-unit>
       <trans-unit id="b1191372861ccaf1deb37451a3b58ce62f228257" datatype="html">
         <source>Above Image</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">18</context>
@@ -64,7 +64,7 @@
       </trans-unit>
       <trans-unit id="d3cb659aafd576acedb70f8b874af3047facb9d6" datatype="html">
         <source>Below Image</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">19</context>
@@ -72,7 +72,7 @@
       </trans-unit>
       <trans-unit id="c09a68321f26f058b547021e6e2c167ae22c6e24" datatype="html">
         <source>Hidden</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">20</context>
@@ -80,7 +80,7 @@
       </trans-unit>
       <trans-unit id="b169576ab898458aa823e09c1e7f3397f8f011a0" datatype="html">
         <source>Columns</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">24</context>
@@ -88,7 +88,7 @@
       </trans-unit>
       <trans-unit id="79765b4b2ed87b05e0fd5d6937cec32d1995645f" datatype="html">
         <source>Rows</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">36</context>
@@ -96,7 +96,7 @@
       </trans-unit>
       <trans-unit id="8dd413cee2228118c536f503709329a4d1a395e2" datatype="html">
         <source>Done</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/board-editor/board-editor.component.html</context>
           <context context-type="linenumber">51</context>
@@ -112,7 +112,7 @@
       </trans-unit>
       <trans-unit id="3e2646604f7159e9058a400e789fe161db2e034e" datatype="html">
         <source>PDF Preview</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-dialog/pdf-dialog.component.html</context>
           <context context-type="linenumber">2</context>
@@ -120,7 +120,7 @@
       </trans-unit>
       <trans-unit id="6981db74a4a7300a95451e36be94132090cecd89" datatype="html">
         <source>Generating your PDF…</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-dialog/pdf-dialog.component.html</context>
           <context context-type="linenumber">15</context>
@@ -128,7 +128,7 @@
       </trans-unit>
       <trans-unit id="dc75033a5238fdc4f462212c847a45ba8018a3fd" datatype="html">
         <source>Download</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-dialog/pdf-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -136,7 +136,7 @@
       </trans-unit>
       <trans-unit id="3f6f4b8552b4d78ad67f583ff6d1a95e91e2f5b1" datatype="html">
         <source>Add Board from OBF</source>
-        <target></target>
+        <target>Προσθήκη πίνακα από το OBF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">2</context>
@@ -148,7 +148,7 @@
       </trans-unit>
       <trans-unit id="2a968810107da839fecd1210e4ddf5cfd84210a5" datatype="html">
         <source>Close the cell editor</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">3</context>
@@ -160,7 +160,7 @@
       </trans-unit>
       <trans-unit id="530ca9fb63b8bf1bc911f957d4f3d7b0151362cb" datatype="html">
         <source>Add a new Board from an Open Board Format (OBF) file.</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">10</context>
@@ -168,7 +168,7 @@
       </trans-unit>
       <trans-unit id="e7b9adab46cb1ff8c122f883b0ec555fa81a3340" datatype="html">
         <source>Select an OBF file to begin.</source>
-        <target></target>
+        <target>Επιλέξτε ένα αρχείο OBF για να ξεκινήσετε.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">11</context>
@@ -176,7 +176,7 @@
       </trans-unit>
       <trans-unit id="753a9ddb22a64ee8f082a604c0e63832ddd62f70" datatype="html">
         <source>Select OBF…</source>
-        <target></target>
+        <target>Επιλέξτε OBF…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">15</context>
@@ -186,7 +186,7 @@
         <source>
     We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> in your OBF file.
   </source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">21</context>
@@ -194,7 +194,7 @@
       </trans-unit>
       <trans-unit id="2ecbad233207cc105cd12aef214c176262a49bd0" datatype="html">
         <source>{VAR_PLURAL, plural, =1 {tile} other {tiles} }</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">22</context>
@@ -202,7 +202,7 @@
       </trans-unit>
       <trans-unit id="795adf327e8a51d19ccf00402a4c4bb7a51e20f3" datatype="html">
         <source>The file you provided is not a valid OBF file.</source>
-        <target></target>
+        <target>Το αρχείο που δώσατε δεν είναι έγκυρο αρχείο OBF.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -210,7 +210,7 @@
       </trans-unit>
       <trans-unit id="fa9b71008d369ff945cd1e89d720d724aa6f1f24" datatype="html">
         <source>Add Board</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">30</context>
@@ -226,7 +226,7 @@
       </trans-unit>
       <trans-unit id="681d0d8af12f8bebce882805c5dd105f0032f525" datatype="html">
         <source>Board Sets</source>
-        <target></target>
+        <target>Σύνολα πινάκων</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">7</context>
@@ -234,7 +234,7 @@
       </trans-unit>
       <trans-unit id="f0b5dc0da9da47d21f0fb72bb1d1f34fe3f80c5d" datatype="html">
         <source>Global Symbols BoardBuilder</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">12</context>
@@ -242,7 +242,7 @@
       </trans-unit>
       <trans-unit id="48d46d596fd3949815594e802f62da3406bc40f5" datatype="html">
         <source>Change Board Properties</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">15</context>
@@ -254,7 +254,7 @@
       </trans-unit>
       <trans-unit id="aa25ed7635b15d4812ce1fbe888a3b82c7aef7b4" datatype="html">
         <source>Import/Export</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">19</context>
@@ -262,7 +262,7 @@
       </trans-unit>
       <trans-unit id="ac593b8a4309774b793ce5c99b9452df3de11aa1" datatype="html">
         <source>Upload/Download</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">19</context>
@@ -270,7 +270,7 @@
       </trans-unit>
       <trans-unit id="a83e58919c81ab386256c8bfa7c778757e17ff46" datatype="html">
         <source>Delete this Board</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">22</context>
@@ -282,7 +282,7 @@
       </trans-unit>
       <trans-unit id="3ca40fafe55592b865c3e37a505a5ffdb2f80cee" datatype="html">
         <source>Download Board as OBF</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">61</context>
@@ -290,7 +290,7 @@
       </trans-unit>
       <trans-unit id="9243d79a62fbeaf6c3e1b6e09c41bfc8f7a76e3e" datatype="html">
         <source>Print or Download Board as PDF</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">64</context>
@@ -298,7 +298,7 @@
       </trans-unit>
       <trans-unit id="03a37983d8f0bed08318fe82e245dd864ea0c485" datatype="html">
         <source>Download Board Set as OBZ</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/builder/builder.component.html</context>
           <context context-type="linenumber">71</context>
@@ -306,7 +306,7 @@
       </trans-unit>
       <trans-unit id="4626023bf37ec20cc1d07c870a581d3ca543fafb" datatype="html">
         <source>Search in</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">2</context>
@@ -314,7 +314,7 @@
       </trans-unit>
       <trans-unit id="f3e40eb4eb1d2d752654ce152c5700f547ca12ec" datatype="html">
         <source>Search For</source>
-        <target></target>
+        <target>Αναζήτηση για</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">12</context>
@@ -322,7 +322,7 @@
       </trans-unit>
       <trans-unit id="1369b5a28b0215ef5b46c4eccb69868faa6188ec" datatype="html">
         <source>We couldn't find any symbols.</source>
-        <target></target>
+        <target>Δεν μπορέσαμε να βρούμε σύμβολα.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">44</context>
@@ -330,7 +330,7 @@
       </trans-unit>
       <trans-unit id="0b0e7337a9a451975d00d67084084b4558fa3614" datatype="html">
         <source>Try broadening your search.</source>
-        <target></target>
+        <target>Δοκιμάστε να διευρύνετε την αναζήτησή σας.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">45</context>
@@ -338,7 +338,7 @@
       </trans-unit>
       <trans-unit id="c15db5c4e79abe1151b19e07a4c98cc9595a6285" datatype="html">
         <source>Searching…</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/symbol-search-panel/symbol-search-panel.component.html</context>
           <context context-type="linenumber">53</context>
@@ -346,7 +346,7 @@
       </trans-unit>
       <trans-unit id="3c593788d43568a2f0fe7b3949ff6c31470f6c50" datatype="html">
         <source>Caption</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">6</context>
@@ -354,7 +354,7 @@
       </trans-unit>
       <trans-unit id="fa3e504ded41e28e2e47dab2b9c74e48bc4cd733" datatype="html">
         <source>Background colour</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">20</context>
@@ -362,7 +362,7 @@
       </trans-unit>
       <trans-unit id="bb3bb3e2bcd8e8605fecfece358d0601569a6b19" datatype="html">
         <source>Border colour</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">22</context>
@@ -370,7 +370,7 @@
       </trans-unit>
       <trans-unit id="0a5a03015269d57edcd993e5a076775f00575cad" datatype="html">
         <source>Text colour</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">24</context>
@@ -378,7 +378,7 @@
       </trans-unit>
       <trans-unit id="0ab5810721ddaa86e714bfec9ce3787fe698ce45" datatype="html">
         <source>Linking</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">28</context>
@@ -386,7 +386,7 @@
       </trans-unit>
       <trans-unit id="49b709a8302d98bd3fc369968a6311681e4e5e06" datatype="html">
         <source>Linked to</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">30</context>
@@ -394,7 +394,7 @@
       </trans-unit>
       <trans-unit id="b4c7b8ed9a734473143ebde10fb034c29ec483fd" datatype="html">
         <source>Unlink</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">31</context>
@@ -406,7 +406,7 @@
       </trans-unit>
       <trans-unit id="1ac1acf0cbd2071a1de0641966cec17f35016cbf" datatype="html">
         <source>Link to a Board</source>
-        <target></target>
+        <target>Σύνδεσμος προς πίνακα</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">39</context>
@@ -414,7 +414,7 @@
       </trans-unit>
       <trans-unit id="f7e12bf20756a6a287b4e25f193ccdcba567ef60" datatype="html">
         <source>This list shows only unlinked Boards.</source>
-        <target></target>
+        <target>Αυτή η λίστα εμφανίζει μόνο μη συνδεδεμένους πίνακες.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">47</context>
@@ -422,7 +422,7 @@
       </trans-unit>
       <trans-unit id="faaa3e25b7ac64b43751e23883a9115c8dd9328d" datatype="html">
         <source>No Boards are available for linking.</source>
-        <target></target>
+        <target>Δεν διατίθενται σανίδες για σύνδεση.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">54</context>
@@ -430,7 +430,7 @@
       </trans-unit>
       <trans-unit id="9b7c06ea2793398cfa1bf6c5ac5f47a12672eef2" datatype="html">
         <source>Unlink an existing Board, or create a new one.</source>
-        <target></target>
+        <target>Αποσυνδέστε ένα υπάρχον Διοικητικό Συμβούλιο ή δημιουργήστε ένα νέο.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">56</context>
@@ -438,7 +438,7 @@
       </trans-unit>
       <trans-unit id="6f1d7ee33c065fdbd6aaeb2bc3f396b62041eb25" datatype="html">
         <source>Cell</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">15</context>
@@ -446,7 +446,7 @@
       </trans-unit>
       <trans-unit id="7cd2168068d1fd50772c493d493f83e4e412ebc8" datatype="html">
         <source>Symbol</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">63</context>
@@ -456,7 +456,7 @@
         <source>
     Created: <x id="INTERPOLATION" equiv-text="{{data.boardSet.createdAt | date}}"/>
   </source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-editor-dialog/boardset-editor-dialog.component.html</context>
           <context context-type="linenumber">13</context>
@@ -464,7 +464,7 @@
       </trans-unit>
       <trans-unit id="2567caa29d58e8554552266d1ea133f48ef3fbf8" datatype="html">
         <source>Add Board Set from OBZ</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">2</context>
@@ -472,7 +472,7 @@
       </trans-unit>
       <trans-unit id="6b028eb5cf922fb1ad7ac401d3bae82bd2856713" datatype="html">
         <source>Add a new Board Set from an Open Board Format Collection (OBZ) file.</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">9</context>
@@ -480,7 +480,7 @@
       </trans-unit>
       <trans-unit id="e0858fb3843454e2a94dbaa69b864a52c98e5a1b" datatype="html">
         <source>Select an OBZ file to begin.</source>
-        <target></target>
+        <target>Επιλέξτε ένα αρχείο OBZ για να ξεκινήσετε.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">10</context>
@@ -490,15 +490,15 @@
         <source>
     We found <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {...} other {...}}"/> in your OBZ file.
   </source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c4be93926edb355475a70ca1e8b63b299dbc5783" datatype="html">
-        <source>{VAR_PLURAL, plural, =1 {board} other {boards} }</source>
-        <target></target>
+        <source>{VAR_PLURAL, plural, =1 {board} other {boards}}</source>
+        <target>{VAR_PLURAL, πληθυντικός, =1 {πίνακας} άλλοι {πίνακες}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">21</context>
@@ -506,7 +506,7 @@
       </trans-unit>
       <trans-unit id="cdd4854b8c1339874afe84196303f21e889a97a3" datatype="html">
         <source>The OBZ file could not be read because <x id="INTERPOLATION" equiv-text="{{fileInvalidReason}}"/></source>
-        <target></target>
+        <target>Δεν ήταν δυνατή η ανάγνωση του αρχείου OBZ επειδή <x id="INTERPOLATION" equiv-text="{{fileInvalidReason}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">24</context>
@@ -514,7 +514,7 @@
       </trans-unit>
       <trans-unit id="dcf3b5983ac9ca0d6da473c2a783bdd79d99ea49" datatype="html">
         <source>Add Board Set</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">29</context>
@@ -522,7 +522,7 @@
       </trans-unit>
       <trans-unit id="dff54cc9115c256dd3f3bfdfe6cbc11230ec7e1e" datatype="html">
         <source>GlobalSymbols BoardBuilder</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">2</context>
@@ -530,7 +530,7 @@
       </trans-unit>
       <trans-unit id="9165f983b8c69763f7ed67885ebeb95b33b431e8" datatype="html">
         <source>My Board Sets</source>
-        <target></target>
+        <target>Τα σύνολα πινάκων μου</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">5</context>
@@ -538,7 +538,7 @@
       </trans-unit>
       <trans-unit id="52dc6be1c8ef8cddd1d7103d9f670788ffb01668" datatype="html">
         <source>Board Sets are saved in your browser. To return to your Board Sets, use BoardBuilder in the same browser.</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">6</context>
@@ -546,7 +546,7 @@
       </trans-unit>
       <trans-unit id="8b676710093a32a1c59fef8f84d7a05882194f47" datatype="html">
         <source>Create Board Set <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">8</context>
@@ -554,7 +554,7 @@
       </trans-unit>
       <trans-unit id="44a24a395329c17e92fd64ff7bfc4250fefa740b" datatype="html">
         <source>Add OBZ File <x id="START_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT-ICON" ctype="x-mat-icon" equiv-text="&lt;/mat-icon&gt;"/></source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">10</context>
@@ -562,7 +562,7 @@
       </trans-unit>
       <trans-unit id="4bded43e9a01d6293d29c8d0309fb759246ae29b" datatype="html">
         <source>Delete this Board Set</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">23</context>
@@ -574,7 +574,7 @@
       </trans-unit>
       <trans-unit id="557a3959fefb53ecaeb20f9c383c2f5b86904a43" datatype="html">
         <source>Edit this Board Set</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">26</context>
@@ -586,11 +586,2270 @@
       </trans-unit>
       <trans-unit id="c9039b1b13b3ef165b66b3c5d79f810ab1ebb050" datatype="html">
         <source>Open</source>
-        <target></target>
+        <target/>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/boardset-list/boardset-list.component.html</context>
           <context context-type="linenumber">30</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="d2ddf086bf957aeeb268cc9ee98ab4de8fd6f33f" datatype="html">
+        <source>Sign Out</source>
+        <target>Αποσύνδεση</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <note priority="1" from="description">Navbar dropdown Sign Out button</note>
+        <note priority="1" from="meaning">sign out</note>
+      </trans-unit>
+      <trans-unit id="3db241ca031e29b4d0c0c1cc58eb06fc59f64940" datatype="html">
+        <source>Use Board Builder to create communication boards.</source>
+        <target>Χρησιμοποιήστε το Board Builder για να δημιουργήσετε πίνακες επικοινωνίας.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">Login page text 1</note>
+      </trans-unit>
+      <trans-unit id="b0e76336a7e1630113bfd7f965816e427b572c75" datatype="html">
+        <source>Everything is saved to your Global Symbols account.</source>
+        <target>Όλα αποθηκεύονται στον λογαριασμό σας Global Symbols.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Login page text 2</note>
+      </trans-unit>
+      <trans-unit id="6375a78209ace58d332d6265d92ddc9543487856" datatype="html">
+        <source>Close</source>
+        <target>κλείνω</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Close</note>
+        <note priority="1" from="meaning">close</note>
+      </trans-unit>
+      <trans-unit id="965e361fd0f605b37b7ee812e21f8d374ed9baee" datatype="html">
+        <source>Board Set</source>
+        <target>Σύνολο πινάκων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">Board Set</note>
+        <note priority="1" from="meaning">board set</note>
+      </trans-unit>
+      <trans-unit id="4039ec01f83d07d47ee7eb8e9d2c88bdde88e0f5" datatype="html">
+        <source>Board Set Title</source>
+        <target>Τίτλος συνόλου πινάκων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Board Set Title field label</note>
+        <note priority="1" from="meaning">boardset.title label</note>
+      </trans-unit>
+      <trans-unit id="c28c9d5c688ca402257bc59666648ed833488d62" datatype="html">
+        <source>Board Sets</source>
+        <target>Σύνολα πινάκων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Board Sets</note>
+        <note priority="1" from="meaning">board sets</note>
+      </trans-unit>
+      <trans-unit id="6e0680e639dd496ac9b27fb7d17dfa663199bc0e" datatype="html">
+        <source>Featured Board Sets</source>
+        <target>Προτεινόμενα σύνολα πινάκων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Board Sets Featured heading</note>
+      </trans-unit>
+      <trans-unit id="a0f7000988baf87bd71c60939750d0d7eccf3957" datatype="html">
+        <source>Open</source>
+        <target>ανοίγω</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <note priority="1" from="description">Open</note>
+        <note priority="1" from="meaning">open</note>
+      </trans-unit>
+      <trans-unit id="d8bd1f48c370934707e4cafc31bcf0a83d1c990e" datatype="html">
+        <source>Add Header Image</source>
+        <target>Προσθήκη εικόνας κεφαλίδας</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+        <note priority="1" from="description">Board Detail Add Header Image button</note>
+        <note priority="1" from="meaning">add header image</note>
+      </trans-unit>
+      <trans-unit id="50dee86eefe159244d2cdef11beb12213eeaf3fa" datatype="html">
+        <source>Title</source>
+        <target>τίτλος</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Board Title field label</note>
+        <note priority="1" from="meaning">board.title label</note>
+      </trans-unit>
+      <trans-unit id="12247cda06051f3cee800724e6923bdc1ab6b8a1" datatype="html">
+        <source>Visibility</source>
+        <target>θέα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Board Visibility field label</note>
+        <note priority="1" from="meaning">board.public label</note>
+      </trans-unit>
+      <trans-unit id="d17421976444259311fd0add79195c2953afcee5" datatype="html">
+        <source>Public Board Sets can be found and viewed by anyone.</source>
+        <target>Τα Δημόσια Σύνολα Πινάκων μπορούν να βρεθούν και να προβληθούν από οποιονδήποτε.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">Board Visibility field hint</note>
+        <note priority="1" from="meaning">board.public hint</note>
+      </trans-unit>
+      <trans-unit id="aaa7688f6dcc49cdb3c9a4287249d7ee8ad21abf" datatype="html">
+        <source>Board Actions</source>
+        <target>Ενέργειες Διοικητικού Συμβουλίου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <note priority="1" from="description">Board Actions button</note>
+        <note priority="1" from="meaning">board actions</note>
+      </trans-unit>
+      <trans-unit id="41c4c68e3231527a92a54b266f6f0f4b781caa92" datatype="html">
+        <source>Download as OBF</source>
+        <target>Κατεβάστε ως OBF</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <note priority="1" from="description">Download Board as OBF button</note>
+        <note priority="1" from="meaning">download obf</note>
+      </trans-unit>
+      <trans-unit id="1c1639e7c836a2cf347ad2bd01639afd7ce215db" datatype="html">
+        <source>Download/Print PDF</source>
+        <target>Λήψη/εκτύπωση PDF</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+        <note priority="1" from="description">Download or Print Board as PDF button</note>
+        <note priority="1" from="meaning">download print pdf</note>
+      </trans-unit>
+      <trans-unit id="7cd5de13d1bad5d77c6583f5ff063c426c37e4ef" datatype="html">
+        <source>Properties</source>
+        <target>Καταλύματα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+        <note priority="1" from="description">Properties button</note>
+        <note priority="1" from="meaning">properties</note>
+      </trans-unit>
+      <trans-unit id="af177a988b6331f2930e6e6cad60e83f37483cf6" datatype="html">
+        <source>Board Set Actions</source>
+        <target>Ενέργειες συνόλου πινάκων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Board Set Actions button</note>
+        <note priority="1" from="meaning">board set actions</note>
+      </trans-unit>
+      <trans-unit id="8d93b57f02fdb08c6d81aa24a1f51bb2f8346eed" datatype="html">
+        <source>Read Only</source>
+        <target>Διαβάστε μόνο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">Read Only indicator</note>
+        <note priority="1" from="meaning">read only</note>
+      </trans-unit>
+      <trans-unit id="1f41ab34a76082858fdf7d4d5da8cd6d6c29402b" datatype="html">
+        <source>Create Editable Copy</source>
+        <target>Δημιουργία επεξεργάσιμου αντιγράφου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Board Set Create Editable Copy button</note>
+      </trans-unit>
+      <trans-unit id="3d531446d7d60fcf40fac5aed1ffd5666b3b2cb4" datatype="html">
+        <source>Download Board Set as OBZ</source>
+        <target>Κατεβάστε τον πίνακα που έχει οριστεί ως OBZ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <note priority="1" from="description">Download Board Set as OBZ</note>
+        <note priority="1" from="meaning">download obz</note>
+      </trans-unit>
+      <trans-unit id="5047656acb358048cad9221dc10628a86b2a9903" datatype="html">
+        <source>Keyboard Shortcuts</source>
+        <target>Συντομεύσεις πληκτρολογίου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+        <note priority="1" from="description">Keyboard Shortcuts</note>
+        <note priority="1" from="meaning">keyboard shortcuts</note>
+      </trans-unit>
+      <trans-unit id="8e02bde1590a1338757de4be451c644807e04639" datatype="html">
+        <source>Save and close the cell editor</source>
+        <target>Αποθήκευση και κλείσιμο του προγράμματος επεξεργασίας κελιών</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Cell editor Save and Close button ARIA description</note>
+      </trans-unit>
+      <trans-unit id="0edb7d06bd26808ec04e53d5d5782dcf55c15219" datatype="html">
+        <source>Save and Close</source>
+        <target>Αποθήκευση και κλείσιμο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Save and Close</note>
+        <note priority="1" from="meaning">save and close</note>
+      </trans-unit>
+      <trans-unit id="fe3670c0204f89b0e5ab9103457de0f1913c60d7" datatype="html">
+        <source>Cell</source>
+        <target>κύτταρο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Cell</note>
+        <note priority="1" from="meaning">cell</note>
+      </trans-unit>
+      <trans-unit id="0fbc41e0f42a75a58ea34ffd7c89b54cdc569ea3" datatype="html">
+        <source>Background</source>
+        <target>φόντο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0d2d3212b37bdcb905e658c9925bf26a8db47800" datatype="html">
+        <source>Border</source>
+        <target>σύνορο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8ba143716c2da6e4120c0c1a804f0bdd9a7e5f5b" datatype="html">
+        <source>Text</source>
+        <target>Κείμενο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="96959b5a7035287ae015f17590f6fa10b455817b" datatype="html">
+        <source>Linking</source>
+        <target>Σύνδεση</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor linking heading</note>
+        <note priority="1" from="meaning">linking</note>
+      </trans-unit>
+      <trans-unit id="9366b83fca02533036127e8772ea2a5dc12c4b20" datatype="html">
+        <source>Unlink</source>
+        <target>αποσυνδέω</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <note priority="1" from="description">Unlink</note>
+        <note priority="1" from="meaning">unlink</note>
+      </trans-unit>
+      <trans-unit id="71df040c8c999a3512f026dfb298780d636c0370" datatype="html">
+        <source>Move Later</source>
+        <target>Μετακίνηση αργότερα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Move Later button</note>
+      </trans-unit>
+      <trans-unit id="3f13b6f84545e37961b9cd937be53c7fcd7de8c2" datatype="html">
+        <source>Clear Colours</source>
+        <target>Καθαρά χρώματα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Clear Colours button</note>
+      </trans-unit>
+      <trans-unit id="d052b858625a3ddffbb91917b7264d61803baf8b" datatype="html">
+        <source>Everything is stored safely in your Global Symbols account.</source>
+        <target>Όλα αποθηκεύονται με ασφάλεια στον λογαριασμό σας Global Symbols.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 1 text 2</note>
+      </trans-unit>
+      <trans-unit id="06bdcf55e3b8187fec88bfbf3dd3d672d9871ed2" datatype="html">
+        <source>My Board Sets</source>
+        <target>Τα σύνολα πινάκων μου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <note priority="1" from="description">My Board Sets</note>
+        <note priority="1" from="meaning">my board sets</note>
+      </trans-unit>
+      <trans-unit id="dc132f932e776ceac791876d90d2c85998a2d691" datatype="html">
+        <source>Store your own photos and images in BoardBuilder and use them throughout your boards.</source>
+        <target>Αποθηκεύστε τις δικές σας φωτογραφίες και εικόνες στο BoardBuilder και χρησιμοποιήστε τις σε όλους τους πίνακες σας.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 3 text 2</note>
+      </trans-unit>
+      <trans-unit id="2841eb6463280f988dce85afc00d9280b1b527ba" datatype="html">
+        <source>On the next page, we'll set up the first Board.</source>
+        <target>Στην επόμενη σελίδα, θα στήσουμε το πρώτο Συμβούλιο.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <note priority="1" from="description">Create Board Set text 2</note>
+      </trans-unit>
+      <trans-unit id="54f7aa60fb965b59e282c98f0068881fe5f1c848" datatype="html">
+        <source>Go to Linked Board</source>
+        <target>Μεταβείτε στον Συνδεδεμένο Πίνακα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <note priority="1" from="description">Board Cell Go to Linked Board button</note>
+        <note priority="1" from="meaning">go to linked board</note>
+      </trans-unit>
+      <trans-unit id="cf8051b04631b14b2f7a4091861064734aa8a10c" datatype="html">
+        <source>Board Properties</source>
+        <target>Ιδιότητες πίνακα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Board Properties button</note>
+        <note priority="1" from="meaning">board properties</note>
+      </trans-unit>
+      <trans-unit id="aeeb351d37bc354a1005ec9076308ec0ebecb641" datatype="html">
+        <source>Linkable Boards</source>
+        <target>Συνδέσιμοι πίνακες</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <note priority="1" from="description">Linkable boards</note>
+        <note priority="1" from="meaning">linkable boards</note>
+      </trans-unit>
+      <trans-unit id="ff287e2498413437062bcefc20e24904d903a239" datatype="html">
+        <source>Reset Cell Contents</source>
+        <target>Επαναφορά περιεχομένων κελιού</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Reset Cell button</note>
+      </trans-unit>
+      <trans-unit id="9061ab1e76d40d95e9af8bac1a62a2df209a57bd" datatype="html">
+        <source>Clear Symbol</source>
+        <target>Απαλοιφή συμβόλου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Clear Symbol button</note>
+      </trans-unit>
+      <trans-unit id="25e2bf3ae065ac21a2b7b33dfecc80b3a622c94d" datatype="html">
+        <source>My Images</source>
+        <target>Οι εικόνες μου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">My Images</note>
+        <note priority="1" from="meaning">my images</note>
+      </trans-unit>
+      <trans-unit id="b030fd8ff780ba07cf46f1d917c5461bd22b3088" datatype="html">
+        <source>Symbol</source>
+        <target>σύμβολο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Symbol</note>
+        <note priority="1" from="meaning">symbol</note>
+      </trans-unit>
+      <trans-unit id="6bcb275cf56b894d668e25c812683cf3e2059999" datatype="html">
+        <source>Communication boards the easy way</source>
+        <target>Πίνακες Επικοινωνίας με τον εύκολο τρόπο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 1 heading</note>
+      </trans-unit>
+      <trans-unit id="bafcc104d8c1ca4a371fb99f537f8cd7bf8fce97" datatype="html">
+        <source>Create your own Symbols</source>
+        <target>Δημιουργήστε τα δικά σας σύμβολα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 5 heading</note>
+      </trans-unit>
+      <trans-unit id="a36dccfd1cefd123a47885cacc8d2465716fc954" datatype="html">
+        <source>Create boards to aid communication with thousands of free images.</source>
+        <target>Δημιουργήστε πίνακες για να βοηθήσετε στην επικοινωνία με χιλιάδες δωρεάν εικόνες.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 1 text 1</note>
+      </trans-unit>
+      <trans-unit id="2f4eb93a91cf44fc2722874e8138a23f10925af5" datatype="html">
+        <source>My Symbols</source>
+        <target>Τα σύμβολά μου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">78,79</context>
+        </context-group>
+        <note priority="1" from="description">My Symbols</note>
+        <note priority="1" from="meaning">my symbols</note>
+      </trans-unit>
+      <trans-unit id="ec5444842f9d13fe5070b6a626836ccf1d0d3424" datatype="html">
+        <source>Get Started</source>
+        <target>Ξεκινήσετε</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+        <note priority="1" from="description">Get Started</note>
+        <note priority="1" from="meaning">get started</note>
+      </trans-unit>
+      <trans-unit id="90cf22198d376b255fbab36748c38d869dcd0535" datatype="html">
+        <source>Start with a template or make your own layout</source>
+        <target>Ξεκινήστε με ένα πρότυπο ή κάντε τη δική σας διάταξη</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 2 heading</note>
+      </trans-unit>
+      <trans-unit id="e99d6e3fb798355edb8f87e32122bb4f0a17f679" datatype="html">
+        <source>Get started quickly with our collection of handy templates.</source>
+        <target>Ξεκινήστε γρήγορα με τη συλλογή εύχρηστων προτύπων.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 2 text 1</note>
+      </trans-unit>
+      <trans-unit id="949ef93de86678f9cea0bdb143c9929a3efaf472" datatype="html">
+        <source>You always have control to customise the layout beyond our templates.</source>
+        <target>Έχετε πάντα τον έλεγχο για να προσαρμόσετε τη διάταξη πέρα από τα πρότυπά μας.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 2 text 2</note>
+      </trans-unit>
+      <trans-unit id="ee34309cbccb76db11799f7e68d5b98776a70b72" datatype="html">
+        <source>Search thousands of free images and use your own</source>
+        <target>Αναζητήστε χιλιάδες δωρεάν εικόνες και χρησιμοποιήστε τις δικές σας</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 3 heading</note>
+      </trans-unit>
+      <trans-unit id="51cb28ff8390b109810139e8524bb802da106fab" datatype="html">
+        <source>Quickly find the symbols you need by searching thousands of free images from popular symbol sets on GlobalSymbols.</source>
+        <target>Βρείτε γρήγορα τα σύμβολα που χρειάζεστε αναζητώντας χιλιάδες δωρεάν εικόνες από δημοφιλή σύνολα συμβόλων στο GlobalSymbols.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 3 text 1</note>
+      </trans-unit>
+      <trans-unit id="0b950b44a712127e5221c071eefe0804b81992fa" datatype="html">
+        <source>Communicate with colour and more</source>
+        <target>Επικοινωνία με το χρώμα και πολλά άλλα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 4 heading</note>
+      </trans-unit>
+      <trans-unit id="a143122a48bce11086a94c909d7c0bc428022472" datatype="html">
+        <source>Tailor boards with your favourite colours and preferred fonts.</source>
+        <target>Προσαρμόστε πίνακες με τα αγαπημένα σας χρώματα και τις προτιμώμενες γραμματοσειρές.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 4 text 1</note>
+      </trans-unit>
+      <trans-unit id="86f716bec915207ba82e50b4fd9b01acc56b0682" datatype="html">
+        <source>Easily re-arrange boards and link between boards to create communication books.</source>
+        <target>Τακτοποιήστε εύκολα πίνακες και συνδέστε τους πίνακες για να δημιουργήσετε βιβλία επικοινωνίας.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 4 text 2</note>
+      </trans-unit>
+      <trans-unit id="3765519c937e4b9c0109cb1fc4838ec922f45dc2" datatype="html">
+        <source>Create your own symbols in seconds by combining shapes, text, symbols and even your own pictures.</source>
+        <target>Δημιουργήστε τα δικά σας σύμβολα σε δευτερόλεπτα συνδυάζοντας σχήματα, κείμενο, σύμβολα, ακόμη και τις δικές σας εικόνες.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 5 text 1</note>
+      </trans-unit>
+      <trans-unit id="6a91d8aef5a44d59d06eadd4e26f2f1a5971feeb" datatype="html">
+        <source>Sign In</source>
+        <target>Είσοδος</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+        <note priority="1" from="description">Navbar sign in button</note>
+        <note priority="1" from="meaning">sign in</note>
+      </trans-unit>
+      <trans-unit id="93148e66a8c53db228d9ba7df5edc169d694cd03" datatype="html">
+        <source>Symbols</source>
+        <target>Σύμβολα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">Navbar dropdown Symbols button</note>
+      </trans-unit>
+      <trans-unit id="68276bf9cf8c00d7a827b799f0bb3b85fb278c39" datatype="html">
+        <source>Manage Account</source>
+        <target>Διαχείριση λογαριασμού</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <note priority="1" from="description">Navbar dropdown Manage Account button</note>
+        <note priority="1" from="meaning">manage account</note>
+      </trans-unit>
+      <trans-unit id="b361b030af06f3245c0c96c3ed97815265772480" datatype="html">
+        <source>We found <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {board} other {boards}}"/> in your OBZ file. </source>
+        <target>Βρήκαμε <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {board} other {boards}}"/> στο αρχείο OBZ σας. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+        <note priority="1" from="description">OBZ Upload Dialog scan results</note>
+      </trans-unit>
+      <trans-unit id="785fb65be4f15d2392d38d08255a18ba3688f153" datatype="html">
+        <source>Layout</source>
+        <target>διάταξη</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form layout tab</note>
+      </trans-unit>
+      <trans-unit id="2e24e22d22570663b7e019c5c2fb11d9821590a1" datatype="html">
+        <source>Generic Templates</source>
+        <target>Γενικά πρότυπα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description">Board Layout Selector tab generic</note>
+      </trans-unit>
+      <trans-unit id="b4e4539a8e3c38130e55f0a2eaf7b347dfec236c" datatype="html">
+        <source>Custom Settings</source>
+        <target>Προσαρμοσμένες ρυθμίσεις</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <note priority="1" from="description">Board Layout Selector tab custom</note>
+      </trans-unit>
+      <trans-unit id="7a3111a61eca14f3b284d2a2d1a2b65d278445f6" datatype="html">
+        <source>Optional. Shown in PDFs made from this Board.</source>
+        <target>προαιρετικός. Εμφανίζεται σε PDF κατασκευασμένα από αυτό το Διοικητικό Συμβούλιο.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form first board prefix</note>
+        <note priority="1" from="meaning">first board</note>
+      </trans-unit>
+      <trans-unit id="ef2b821469d83bb712aef799837a1a1d430558a8" datatype="html">
+        <source>Error</source>
+        <target>λάθος</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/loading-notice/loading-notice.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Error</note>
+        <note priority="1" from="meaning">error</note>
+      </trans-unit>
+      <trans-unit id="c889f6fdcba885f3d7302542962196be7a9d015c" datatype="html">
+        <source>Save Symbol to Device</source>
+        <target>Αποθήκευση συμβόλου στη συσκευή</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Save to Device</note>
+        <note priority="1" from="meaning">save to device</note>
+      </trans-unit>
+      <trans-unit id="82623cc63666119b0c881a9329d26e2c8f3ab6d0" datatype="html">
+        <source>Duplicate Selected</source>
+        <target>Διπλότυπο επιλεγμένο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <note priority="1" from="description">Duplicate Selected</note>
+        <note priority="1" from="meaning">duplicate selected</note>
+      </trans-unit>
+      <trans-unit id="eecae6134c76bac58a620e2fdeb9beaeec4b5d5e" datatype="html">
+        <source>Checking your Account…</source>
+        <target>Έλεγχος του λογαριασμού σας…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Login page checking text</note>
+      </trans-unit>
+      <trans-unit id="3fec73120d33e57208775c79b5fd1ef0cb1c6856" datatype="html">
+        <source>Sign in with Global Symbols</source>
+        <target>Συνδεθείτε με καθολικά σύμβολα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Login page sign in button</note>
+      </trans-unit>
+      <trans-unit id="ac10a3d9b59575640797c1a8e6aea642cf5d5e77" datatype="html">
+        <source>Continue</source>
+        <target>συνεχίζω</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Login page continue button</note>
+      </trans-unit>
+      <trans-unit id="4a20d5e146b4019d629fdc75efd46afceba48f46" datatype="html">
+        <source>By</source>
+        <target>διά</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">Board Set tile author prefix (e.g. 'By E.A. Draffan')</note>
+        <note priority="1" from="meaning">by author</note>
+      </trans-unit>
+      <trans-unit id="9411a0618323428b13be9823db5bf65b6c606e3f" datatype="html">
+        <source>Opened</source>
+        <target>ανοιγμένος</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description">Board Set tile opened prefix (e.g. 'Opened 5 minutes ago')</note>
+      </trans-unit>
+      <trans-unit id="f230f376eadc3023676cdd998a4a7e1e5dd02071" datatype="html">
+        <source>Never Opened</source>
+        <target>Δεν άνοιξε ποτέ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">Board Set tile never opened</note>
+      </trans-unit>
+      <trans-unit id="b64665e9b2a89ffee81361d1aa3090ea8f26a4fa" datatype="html">
+        <source>Create Board Set</source>
+        <target>Δημιουργία συνόλου πινάκων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Create Board Set dialog title</note>
+      </trans-unit>
+      <trans-unit id="e2cf06970e1897822b378b48d12b1b5114935273" datatype="html">
+        <source>Choose a name for the new Board Set.</source>
+        <target>Επιλέξτε ένα όνομα για το νέο σύνολο πινάκων.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Board Set Title field hint</note>
+        <note priority="1" from="meaning">boardset.title hint</note>
+      </trans-unit>
+      <trans-unit id="fd47e4e36556a7c6e0973b689f83079ca2d5129d" datatype="html">
+        <source>A Board Set is a collection of communication Boards - as many or as few as you like.</source>
+        <target>Ένα σύνολο πινάκων είναι μια συλλογή πινάκων επικοινωνίας - όσες ή όσες θέλετε.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description">Create Board Set text 1</note>
+      </trans-unit>
+      <trans-unit id="cec3310213f077e642de988423dce09ed6a70665" datatype="html">
+        <source>Next</source>
+        <target>επόμενος</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <note priority="1" from="description">Next</note>
+        <note priority="1" from="meaning">next</note>
+      </trans-unit>
+      <trans-unit id="6a1e5aed1ec6dbcff344930625ae7e60ea4181e1" datatype="html">
+        <source>Choose Template</source>
+        <target>Επιλογή προτύπου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <note priority="1" from="description">Create Board Set choose template step header</note>
+      </trans-unit>
+      <trans-unit id="d4297aa2ef70bbc7ae46e9c6e1f06a1180a73efc" datatype="html">
+        <source>Back</source>
+        <target>πλάτη</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <note priority="1" from="description">Back</note>
+        <note priority="1" from="meaning">back</note>
+      </trans-unit>
+      <trans-unit id="1a307a7c2cf5bed90339c0b673fb2578af04b646" datatype="html">
+        <source>Create</source>
+        <target>δημιουργώ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">Create</note>
+        <note priority="1" from="meaning">create</note>
+      </trans-unit>
+      <trans-unit id="8a97049f5dbd670dff63c3ef14e37ab5d6f4f3c6" datatype="html">
+        <source>Print boards to your preferred paper size, import and export boards in OBF and OBZ formats.</source>
+        <target>Εκτυπώστε πίνακες στο προτιμώμενο μέγεθος χαρτιού, τους πίνακες εισαγωγής και εξαγωγής σε μορφές OBF και OBZ.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 6 text 2</note>
+      </trans-unit>
+      <trans-unit id="a8c9058c85bdcce58a801cfc207c6094d29e6343" datatype="html">
+        <source>Create Board Set</source>
+        <target>Δημιουργία συνόλου πινάκων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Create Board Set button</note>
+        <note priority="1" from="meaning">create board set</note>
+      </trans-unit>
+      <trans-unit id="d4af7ce487191b081c2f0a1db79f9e67c89b9f15" datatype="html">
+        <source>Import OBZ</source>
+        <target>Εισαγωγή OBZ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Import OBZ button</note>
+        <note priority="1" from="meaning">import obz</note>
+      </trans-unit>
+      <trans-unit id="55c6b64cbfab1c2b0cbf0313c5bb1690d7fa7239" datatype="html">
+        <source>Delete</source>
+        <target>διαγράφω</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <note priority="1" from="description">Delete</note>
+        <note priority="1" from="meaning">delete</note>
+      </trans-unit>
+      <trans-unit id="f34f28751184cc459b810500bc00edfcc9cfe31d" datatype="html">
+        <source>Add Board</source>
+        <target>Προσθήκη πίνακα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <note priority="1" from="description">Add Board button</note>
+        <note priority="1" from="meaning">add board</note>
+      </trans-unit>
+      <trans-unit id="961b5cace3a8eb60ee77def7f30bef5a5a3ea0b4" datatype="html">
+        <source>BoardBuilder stores everything in your Global Symbols account.</source>
+        <target>Το BoardBuilder αποθηκεύει τα πάντα στον λογαριασμό σας Global Symbols.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 7 text 1</note>
+      </trans-unit>
+      <trans-unit id="89a8b9b9ea63e78337a552e9b0b8f589f6404831" datatype="html">
+        <source>Done</source>
+        <target>Έγινε</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">Done button</note>
+        <note priority="1" from="meaning">done</note>
+      </trans-unit>
+      <trans-unit id="1b888e9aad9b88aed9013bf0a726f94b16b78f9b" datatype="html">
+        <source>Create an account if you don't already have one.</source>
+        <target>Δημιουργήστε έναν λογαριασμό αν δεν έχετε ήδη έναν.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 7 text 2</note>
+      </trans-unit>
+      <trans-unit id="d85939744060b14face42c9f8ef1baf690b7fafd" datatype="html">
+        <source>Symbols</source>
+        <target>Σύμβολα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Symbols</note>
+        <note priority="1" from="meaning">symbols</note>
+      </trans-unit>
+      <trans-unit id="4f836ecb8b48cbd0f18f7f0ed459489599372204" datatype="html">
+        <source>My Symbols</source>
+        <target>Τα σύμβολά μου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">My Symbols</note>
+        <note priority="1" from="meaning">my symbols</note>
+      </trans-unit>
+      <trans-unit id="5d90eb237eb6a9a1dc41adc3189698a2b5451a3f" datatype="html">
+        <source>Label</source>
+        <target>ετικέτα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Cell caption field label</note>
+        <note priority="1" from="meaning">cell.caption label</note>
+      </trans-unit>
+      <trans-unit id="207eee6f5c3dcef68b3f8a63551ddfc3a8fd2d87" datatype="html">
+        <source>You have not uploaded any images yet.</source>
+        <target>Δεν έχετε ανεβάσει εικόνες ακόμα.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Media page no images uploaded</note>
+      </trans-unit>
+      <trans-unit id="68abeead4917cefa422fc79a1c8b8c3c4a3f63f8" datatype="html">
+        <source>Create Symbol</source>
+        <target>Δημιουργία συμβόλου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <note priority="1" from="description">Create Symbol</note>
+        <note priority="1" from="meaning">create symbol</note>
+      </trans-unit>
+      <trans-unit id="5828a2e612748b670d4b3588116a0a5480623133" datatype="html">
+        <source>Edit Symbol</source>
+        <target>Επεξεργασία συμβόλου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <note priority="1" from="description">Edit Symbol</note>
+        <note priority="1" from="meaning">edit symbol</note>
+      </trans-unit>
+      <trans-unit id="6cc5aa389c7034c4e7a0fda799f0d82703826215" datatype="html">
+        <source>Linked to</source>
+        <target>Συνδέεται με</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Board linked to header</note>
+        <note priority="1" from="meaning">linked to</note>
+      </trans-unit>
+      <trans-unit id="50f14f70020fccfe6bda292ffb8e8ebdad82a92c" datatype="html">
+        <source>Save to Device</source>
+        <target>Αποθήκευση στη συσκευή</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">Save to Device</note>
+        <note priority="1" from="meaning">save to device</note>
+      </trans-unit>
+      <trans-unit id="bf54c4e5a1dc7f5c997ea6cff4675b97af6cf7c9" datatype="html">
+        <source>Delete Symbol</source>
+        <target>Διαγραφή συμβόλου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">Delete Symbol</note>
+        <note priority="1" from="meaning">delete symbol</note>
+      </trans-unit>
+      <trans-unit id="68e2f7a8d086f691a6a1f618deba859b7833c826" datatype="html">
+        <source>Move Earlier</source>
+        <target>Μετακίνηση νωρίτερα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <note priority="1" from="description">Cell Editor Move Earlier button</note>
+      </trans-unit>
+      <trans-unit id="16cc45679f38cd45f998da8dc51c3127e7e6b040" datatype="html">
+        <source>Perfect for those times when you need something a little different.</source>
+        <target>Ιδανικό για εκείνες τις στιγμές που χρειάζεσαι κάτι λίγο διαφορετικό.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 5 text 2</note>
+      </trans-unit>
+      <trans-unit id="10aa2cb50b9c13a52f198005845b2e096da4b6ce" datatype="html">
+        <source>Quickly convert boards to PDF so they can be easily shared with anyone.</source>
+        <target>Μετατρέψτε γρήγορα τους πίνακες σε PDF, ώστε να μπορούν εύκολα να μοιραστούν με οποιονδήποτε.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 6 text 1</note>
+      </trans-unit>
+      <trans-unit id="802222cb4754d74846b18f651b1f94e21576185d" datatype="html">
+        <source>Get Started</source>
+        <target>Ξεκινήσετε</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 7 heading</note>
+      </trans-unit>
+      <trans-unit id="ce2a8428f4f9edec308784591a24234828698f56" datatype="html">
+        <source>You have used <x id="INTERPOLATION" equiv-text="{{spaceUsed | filesize: {round: 0} }}"/>.</source>
+        <target>Έχετε χρησιμοποιήσει <x id="INTERPOLATION" equiv-text="{{spaceUsed | filesize: {round: 0} }}"/>.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Media page quota usage</note>
+      </trans-unit>
+      <trans-unit id="6132c55d66521696f2ce9139aeb4ba78f90c333a" datatype="html">
+        <source>Paper Size</source>
+        <target>Μέγεθος χαρτιού</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">PDF Paper Size</note>
+        <note priority="1" from="meaning">paper size</note>
+      </trans-unit>
+      <trans-unit id="d349af48bb7154cce302afd42d1e6f60388cdb1b" datatype="html">
+        <source>PDF Settings</source>
+        <target>Ρυθμίσεις PDF</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b12577537c5870ec34cf98de106eb03f6cf7ef5b" datatype="html">
+        <source>Orientation</source>
+        <target>προσανατολισμός</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">PDF Paper Orientation</note>
+        <note priority="1" from="meaning">orientation</note>
+      </trans-unit>
+      <trans-unit id="78fc391f864d3152cf50b5d9503ed6cb15f0c9cc" datatype="html">
+        <source>Advanced Settings</source>
+        <target>Ρυθμίσεις για προχωρημένους</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+        <note priority="1" from="description">Advanced settings indicator</note>
+        <note priority="1" from="meaning">advanced</note>
+      </trans-unit>
+      <trans-unit id="42ad9d8dde56feba181f04c0e60cbe63a745b5f0" datatype="html">
+        <source>Cell Spacing</source>
+        <target>Απόσταση κελιών</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Spacing</note>
+        <note priority="1" from="meaning">cell spacing</note>
+      </trans-unit>
+      <trans-unit id="f14a895c0dd586c474d2fcf5229eb738d861a03a" datatype="html">
+        <source>Adjusts spacing between each box</source>
+        <target>Ρυθμίζει την απόσταση μεταξύ κάθε κουτιού</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Spacing hint</note>
+        <note priority="1" from="meaning">cell spacing hint</note>
+      </trans-unit>
+      <trans-unit id="e73326a1968f1d07238b7edcba05a6c5578edfed" datatype="html">
+        <source>Cell Padding</source>
+        <target>Γέμισμα κελιών</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Padding</note>
+        <note priority="1" from="meaning">cell padding</note>
+      </trans-unit>
+      <trans-unit id="a0cd510186602b3e9824bcef0f3aeec9954d1d84" datatype="html">
+        <source>Adjusts spacing inside each box</source>
+        <target>Ρυθμίζει το διάστιχο μέσα σε κάθε κουτί</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Padding hint</note>
+        <note priority="1" from="meaning">cell padding hint</note>
+      </trans-unit>
+      <trans-unit id="0fc9a5e20b777def79ca6e44c0da65b34d4d99b6" datatype="html">
+        <source>Image/Label Spacing</source>
+        <target>Απόσταση εικόνας/ετικέτας</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Image/Label Spacing</note>
+        <note priority="1" from="meaning">cell image label spacing</note>
+      </trans-unit>
+      <trans-unit id="688f82a4945580aac59f2befecad264a09699d19" datatype="html">
+        <source>Adjusts spacing between the image and label</source>
+        <target>Ρυθμίζει την απόσταση μεταξύ της εικόνας και της ετικέτας</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Image/Label Spacing hint</note>
+        <note priority="1" from="meaning">cell image label spacing hint</note>
+      </trans-unit>
+      <trans-unit id="55d865cea95e40ca4a11aab3a8768e189129f573" datatype="html">
+        <source>Cell Borders</source>
+        <target>Περιγράμματα κελιών</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">74,75</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Draw Borders</note>
+        <note priority="1" from="meaning">cell draw outlines</note>
+      </trans-unit>
+      <trans-unit id="cdb2a3b9b2b717a49b18d822b6903b3622dfe886" datatype="html">
+        <source>Download</source>
+        <target>καταφόρτωση</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">84,85</context>
+        </context-group>
+        <note priority="1" from="description">Download</note>
+        <note priority="1" from="meaning">download</note>
+      </trans-unit>
+      <trans-unit id="aa7ad66f30bf033cd8447e9473b70176d7ba9181" datatype="html">
+        <source>Reset Settings</source>
+        <target>Επαναφορά ρυθμίσεων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+        <note priority="1" from="description">PDF Reset Settings button</note>
+        <note priority="1" from="meaning">pdf reset settings</note>
+      </trans-unit>
+      <trans-unit id="f2bab03d1b99998c3c361a1f432e5642e23977d6" datatype="html">
+        <source>PDF</source>
+        <target>PDF</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+        <note priority="1" from="description">Generating (working/building)</note>
+        <note priority="1" from="meaning">generating</note>
+      </trans-unit>
+      <trans-unit id="a4b8cd94deac52d22a5f62383198d0cf6003f168" datatype="html">
+        <source>We can't fit everything on the page with your chosen settings. You can fix this by…</source>
+        <target>Δεν μπορούμε να προσαρμόσουμε τα πάντα στη σελίδα με τις ρυθμίσεις που έχετε επιλέξει. Μπορείς να το διορθώσεις αυτό με…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator fit error</note>
+        <note priority="1" from="meaning">pdf error fit help</note>
+      </trans-unit>
+      <trans-unit id="5ef32beb7c848fe5391dd7de9e44b455cb0a7937" datatype="html">
+        <source>Reducing Cell Spacing or Cell Padding by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow / 2}}"/> pt.</source>
+        <target>Μείωση της απόστασης των κυττάρων ή της επένδυσης κυττάρων κατά τουλάχιστον <x id="INTERPOLATION" equiv-text="{{apiError.overflow / 2}}"/> pt.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 1</note>
+      </trans-unit>
+      <trans-unit id="034422a819dc3d4f3fe15107046b750614e07c9a" datatype="html">
+        <source>Reducing Image/Label Spacing by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow}}"/> pt.</source>
+        <target>Μείωση απόστασης εικόνας/ετικέτας κατά τουλάχιστον <x id="INTERPOLATION" equiv-text="{{apiError.overflow}}"/> pt.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 2</note>
+      </trans-unit>
+      <trans-unit id="6d2300a6dd19811e715ab8975dab499bdf7f07ac" datatype="html">
+        <source>Reducing Text Size by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow}"/> pt. </source>
+        <target>Μείωση μεγέθους κειμένου κατά τουλάχιστον <x id="INTERPOLATION" equiv-text="{{apiError.overflow}"/> pt. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">107,109</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 3</note>
+      </trans-unit>
+      <trans-unit id="a0cf7197e807c169dd0cc9f7445fd48d02a711c2" datatype="html">
+        <source>Add a new Board by importing an Open Board Format (OBF) file.</source>
+        <target>Προσθέστε ένα νέο διοικητικό συμβούλιο εισάγοντας ένα αρχείο μορφής ανοιχτού πίνακα (OBF).</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">OBF Upload Dialog intro</note>
+      </trans-unit>
+      <trans-unit id="3eed83da952c43b967917087d8dfa141305e10ce" datatype="html">
+        <source>Create Board Set from OBZ File</source>
+        <target>Δημιουργία συνόλου πινάκων από το αρχείο OBZ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">OBZ Upload Dialog heading</note>
+      </trans-unit>
+      <trans-unit id="f39db9a38ff38a5b01f9bd5008e77d7ee82b86b5" datatype="html">
+        <source>Search In</source>
+        <target>Αναζήτηση σε</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Search location input label</note>
+      </trans-unit>
+      <trans-unit id="0b246cbac4c31d0d58833ecf4395f3d74bfc45f7" datatype="html">
+        <source>Portrait</source>
+        <target>προσωπογραφία</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Portrait orientation</note>
+        <note priority="1" from="meaning">portrait</note>
+      </trans-unit>
+      <trans-unit id="f7256aeb69fb71137ff4ae242c10fc4bb1ede629" datatype="html">
+        <source>Landscape</source>
+        <target>τοπίο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <note priority="1" from="description">Landscape orientation</note>
+        <note priority="1" from="meaning">landscape</note>
+      </trans-unit>
+      <trans-unit id="e2a2eb671dd79f8b7b14f51550636edd01bead6e" datatype="html">
+        <source>Text Size (Maximum)</source>
+        <target>Μέγεθος κειμένου (Μέγιστο)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">PDF Maximum Text Size</note>
+        <note priority="1" from="meaning">text size max</note>
+      </trans-unit>
+      <trans-unit id="3bbe4dff805ae04b7115dda73e5b357e2e4ee891" datatype="html">
+        <source>Text may shrink to fit available space</source>
+        <target>Το κείμενο ενδέχεται να συρρικνωθεί για να χωρέσει διαθέσιμο χώρο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">PDF Maximum Text Size hint</note>
+        <note priority="1" from="meaning">text size max hint</note>
+      </trans-unit>
+      <trans-unit id="dd21d3aaeb51dec9a0c5ab7a35944f0bf6a40bdb" datatype="html">
+        <source>Refresh PDF</source>
+        <target>Ανανέωση PDF</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <note priority="1" from="description">Refresh PDF</note>
+        <note priority="1" from="meaning">refresh pdf</note>
+      </trans-unit>
+      <trans-unit id="bb515aa1a7b7564b6ceec742dc04d4acd5075ee0" datatype="html">
+        <source>Fill</source>
+        <target>γεμίζω</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">159</context>
+        </context-group>
+        <note priority="1" from="description">Fill</note>
+        <note priority="1" from="meaning">fill</note>
+      </trans-unit>
+      <trans-unit id="568b891a3af873cc48fa48114013d1a69c15d259" datatype="html">
+        <source>Clear Fill</source>
+        <target>Απαλοιφή γεμίσματος</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+        <note priority="1" from="description">Clear Fill</note>
+        <note priority="1" from="meaning">clear fill</note>
+      </trans-unit>
+      <trans-unit id="bb081b336f4284131447da1748f0129e619cf051" datatype="html">
+        <source>Outline</source>
+        <target>περιγραφή</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">177</context>
+        </context-group>
+        <note priority="1" from="description">Outline</note>
+        <note priority="1" from="meaning">outline</note>
+      </trans-unit>
+      <trans-unit id="eaa79962a697893e9d0102705e9897db246a02b5" datatype="html">
+        <source>Global Symbols Account</source>
+        <target>Καθολικός λογαριασμός συμβόλων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description">Navbar GS account button</note>
+        <note priority="1" from="meaning">gs account</note>
+      </trans-unit>
+      <trans-unit id="4a5dd67fea75d684f53861b3b6fa41ee5895c8e4" datatype="html">
+        <source>Help and Resources</source>
+        <target>Βοήθεια και πόροι</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Navbar help button</note>
+      </trans-unit>
+      <trans-unit id="78a7c8bfb59c3e5a6e0db7cec0c206774c679407" datatype="html">
+        <source>Board Set Properties</source>
+        <target>Ιδιότητες συνόλου πινάκων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7cf3690e3936d8460b9f195c8f0d0f3379acbf53" datatype="html">
+        <source>Private</source>
+        <target>ιδιωτικός</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Private</note>
+        <note priority="1" from="meaning">private</note>
+      </trans-unit>
+      <trans-unit id="f644e7e5728ed86be99607700a7965382b7c2f47" datatype="html">
+        <source>Public</source>
+        <target>δημόσιος</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Public</note>
+        <note priority="1" from="meaning">public</note>
+      </trans-unit>
+      <trans-unit id="a3ce348e37acec3d99af836af4208b7a0cc7dd71" datatype="html">
+        <source>Colours</source>
+        <target>Χρώματα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Cell editor colours heading</note>
+        <note priority="1" from="meaning">colours</note>
+      </trans-unit>
+      <trans-unit id="f490c7cacf3e1fa529bb8f99fab1255954dbb45e" datatype="html">
+        <source>Download, Print and Share</source>
+        <target>Λήψη, εκτύπωση και κοινή χρήση</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <note priority="1" from="description">Home panel 6 heading</note>
+      </trans-unit>
+      <trans-unit id="31e4bb50eea08f31c1cd6a746cd1fa7f6fab6d55" datatype="html">
+        <source>Uploading…</source>
+        <target>Φόρτωμα…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">OBF Upload Dialog uploading</note>
+      </trans-unit>
+      <trans-unit id="fce681e9cb6340189b8501130cc46987c2c84808" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {cell} other {cells}}</source>
+        <target>{VAR_PLURAL, πληθυντικός, =1 {κελί} άλλα {κελιά}}</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f3e09b1fcc5e166aa05679da732ab57339c953bb" datatype="html">
+        <source>We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {cell} other {cells}}"/> in your OBF file. </source>
+        <target>Βρήκαμε <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {cell} other {cells}}"/> στο αρχείο OBF σας. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">29,31</context>
+        </context-group>
+        <note priority="1" from="description">OBF Upload Dialog scan results</note>
+      </trans-unit>
+      <trans-unit id="3054e0afeeddfec20baf90b28904521b55957239" datatype="html">
+        <source>Cancel</source>
+        <target>ακυρώνω</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/confirm-dialog/confirm-dialog.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Cancel</note>
+        <note priority="1" from="meaning">cancel</note>
+      </trans-unit>
+      <trans-unit id="e8b15f4bd5c47083e17a1f529c0230fe8db4a29f" datatype="html">
+        <source>This will create a Board Set from an Open Board Format Collection (OBZ) file that you upload.</source>
+        <target>Αυτό θα δημιουργήσει ένα σύνολο πινάκων από ένα αρχείο συλλογής μορφής ανοιχτού πίνακα (OBZ) που ανεβάζετε.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">OBZ Upload Dialog intro 1</note>
+      </trans-unit>
+      <trans-unit id="32f5154830bb644ec1aff3410fb0353bcc324786" datatype="html">
+        <source>Select OBZ…</source>
+        <target>Επιλέξτε OBZ…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">OBZ Upload Dialog select OBZ button</note>
+      </trans-unit>
+      <trans-unit id="f4aa5f08d3d1742455524efde60c55b06236b479" datatype="html">
+        <source>Add Board Set</source>
+        <target>Προσθήκη συνόλου πινάκων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <note priority="1" from="description">Add Board Set</note>
+        <note priority="1" from="meaning">add board set</note>
+      </trans-unit>
+      <trans-unit id="104145858fd98b81923ca67d102a80be5c750074" datatype="html">
+        <source>Select Image</source>
+        <target>Επιλογή εικόνας</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Add Symbol Dialog heading</note>
+      </trans-unit>
+      <trans-unit id="7a174c266fd0587eb20f5fed9087a1e3e165b096" datatype="html">
+        <source>Clear Image</source>
+        <target>Απαλοιφή εικόνας</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <note priority="1" from="description">Add Symbol Dialog clear image button</note>
+      </trans-unit>
+      <trans-unit id="94d9d1f2a07f7532dbcdd759a293c40f23670067" datatype="html">
+        <source>Choose a name for the first Board in your new Board Set.</source>
+        <target>Επιλέξτε ένα όνομα για τον πρώτο Πίνακα στο νέο σύνολο πινάκων.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form board title field hint (new Board Sets only)</note>
+      </trans-unit>
+      <trans-unit id="db80c29a86e3bc282a3a3d81744a24b4a81cbce2" datatype="html">
+        <source>Save to Device (SVG, Advanced)</source>
+        <target>Αποθήκευση στη συσκευή (SVG, Για προχωρημένους)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">242</context>
+        </context-group>
+        <note priority="1" from="description">Save to Device (SVG)</note>
+      </trans-unit>
+      <trans-unit id="baff4ff5348fe614a658b631e63378c4d6bcd4c5" datatype="html">
+        <source>Save to Device (PNG)</source>
+        <target>Αποθήκευση στη συσκευή (PNG)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">238</context>
+        </context-group>
+        <note priority="1" from="description">Save to Device (PNG)</note>
+      </trans-unit>
+      <trans-unit id="c3980af8d141ce449570c02616b61c8cb55a6765" datatype="html">
+        <source>Search</source>
+        <target>αναζήτηση</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Search</note>
+        <note priority="1" from="meaning">search</note>
+      </trans-unit>
+      <trans-unit id="5cb171ddb22793f7497094daa9d53ba3e78a39d6" datatype="html">
+        <source>First Board</source>
+        <target>Πρώτο Διοικητικό Συμβούλιο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form first board prefix</note>
+        <note priority="1" from="meaning">first board</note>
+      </trans-unit>
+      <trans-unit id="751d545c485a7b14ce9b4afaf2644c6ec48b3d2e" datatype="html">
+        <source>First Board</source>
+        <target>Πρώτο Διοικητικό Συμβούλιο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form board description if first board</note>
+      </trans-unit>
+      <trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html">
+        <source>Description</source>
+        <target>περιγραφή</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form board description field label</note>
+      </trans-unit>
+      <trans-unit id="92c7d26fe11cea39408d674a9f25cb48f69341b6" datatype="html">
+        <source>Columns: <x id="INTERPOLATION" equiv-text="{{board.columns}}"/></source>
+        <target>Στήλες: <x id="INTERPOLATION" equiv-text="{{board.columns}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <note priority="1" from="description">Board Layout Selector columns input label</note>
+      </trans-unit>
+      <trans-unit id="72db182751c2255ca6d1b68e3bfd526a0982c926" datatype="html">
+        <source>Rows: <x id="INTERPOLATION" equiv-text="{{board.rows}}"/></source>
+        <target>Σειρές: <x id="INTERPOLATION" equiv-text="{{board.rows}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <note priority="1" from="description">Board Layout Selector rows input label</note>
+      </trans-unit>
+      <trans-unit id="d2f50fea8132ce64ece09a00e5e1519371026276" datatype="html">
+        <source>Top</source>
+        <target>κορυφή</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <note priority="1" from="description">Top</note>
+        <note priority="1" from="meaning">top</note>
+      </trans-unit>
+      <trans-unit id="35dbf9218f688f2c3641914191e698da1da53e2a" datatype="html">
+        <source>Bottom</source>
+        <target>πυθμένας</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+        <note priority="1" from="description">Bottom</note>
+        <note priority="1" from="meaning">bottom</note>
+      </trans-unit>
+      <trans-unit id="7c2786a6561850ba650193c4567a9febcb6c36e2" datatype="html">
+        <source>Left</source>
+        <target>Αριστερά</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <note priority="1" from="description">Left</note>
+        <note priority="1" from="meaning">left</note>
+      </trans-unit>
+      <trans-unit id="bb5deecdc9836fe245380847aa44f611681c8723" datatype="html">
+        <source>Right</source>
+        <target>Δεξιά</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+        <note priority="1" from="description">Right</note>
+        <note priority="1" from="meaning">right</note>
+      </trans-unit>
+      <trans-unit id="ae875a90e1ecf011e22c81abb1f4c8dd3e1887f5" datatype="html">
+        <source>Hidden</source>
+        <target>κρυμμένος</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+        <note priority="1" from="description">Hidden</note>
+        <note priority="1" from="meaning">hidden</note>
+      </trans-unit>
+      <trans-unit id="001f8430a95b26e1ffd9131221367e6edcc3d953" datatype="html">
+        <source>Sets where text appears in each cell, relative to the image.</source>
+        <target>Ορίζει το πού εμφανίζεται το κείμενο σε κάθε κελί, σε σχέση με την εικόνα.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <note priority="1" from="description">Board Layout Selector label position input hint</note>
+      </trans-unit>
+      <trans-unit id="bf35cb4d4e25c8364d0601637844bf25f1d01f11" datatype="html">
+        <source>Remove <x id="INTERPOLATION" equiv-text="{{label}}"/> Colour</source>
+        <target>Αφαίρεση <x id="INTERPOLATION" equiv-text="{{label}}"/> Χρώμα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/colour-selector/colour-selector.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Colour Selector remove colour tooltip</note>
+      </trans-unit>
+      <trans-unit id="8ec336f10fd8d3981f925e716bfcb7766793d3cf" datatype="html">
+        <source>Copy <x id="INTERPOLATION" equiv-text="{{boardSet.name}}"/></source>
+        <target>Αντιγραφή <x id="INTERPOLATION" equiv-text="{{boardSet.name}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Copy Board Set dialog heading</note>
+      </trans-unit>
+      <trans-unit id="7fa36bfe1fd472ba07a1313fd7bdb59663418bca" datatype="html">
+        <source>Copy this Board Set?</source>
+        <target>Αντιγράψτε αυτό το σύνολο πινάκων;</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Copy Board Set dialog prompt</note>
+      </trans-unit>
+      <trans-unit id="f165a6c4f51f1a10324bbc6b8ecf9fd2b649c7f2" datatype="html">
+        <source>Copying</source>
+        <target>αντιγραφή</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">Copying (duplicating)</note>
+        <note priority="1" from="meaning">copying</note>
+      </trans-unit>
+      <trans-unit id="8157e70cc42ff36eb15eb0012cc768b0e083bbba" datatype="html">
+        <source>Copy complete!</source>
+        <target>Αντιγραφή ολοκληρώθηκε!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Copy Board Set dialog complete notice</note>
+      </trans-unit>
+      <trans-unit id="71a74a3452dd57b914ead8940cd7716e6a82add1" datatype="html">
+        <source>Go To Copy</source>
+        <target>Μεταβείτε στην επιλογή Αντιγραφή</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <note priority="1" from="description">Go to Copy button</note>
+      </trans-unit>
+      <trans-unit id="3891d4efe737a9d065c6cf94bfc1d824305826fa" datatype="html">
+        <source>Compass</source>
+        <target>πυξίδα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/error-not-found/error-not-found.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="89e5ca5f6198585bdc9e2145b78adfd34f9fe419" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{subject}}"/> Not Found</source>
+        <target><x id="INTERPOLATION" equiv-text="{{subject}}"/> Δεν βρέθηκε</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/error-not-found/error-not-found.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Item Not Found heading</note>
+      </trans-unit>
+      <trans-unit id="3f612928c7d6b70d2029b03abe09cec728761fa5" datatype="html">
+        <source>We couldn't find a <x id="INTERPOLATION" equiv-text="{{subject}}"/> at this address</source>
+        <target>Δεν μπορούσαμε να βρούμε ένα <x id="INTERPOLATION" equiv-text="{{subject}}"/> σε αυτή τη διεύθυνση</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/error-not-found/error-not-found.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Item Not Found text</note>
+      </trans-unit>
+      <trans-unit id="a28e59ede9e61da68525795b0873c34b07d71a19" datatype="html">
+        <source>Loading</source>
+        <target>φόρτωση</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/loading-notice/loading-notice.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Loading</note>
+        <note priority="1" from="meaning">loading</note>
+      </trans-unit>
+      <trans-unit id="21166f9d873cc51afa1a82a9f15304b94a4a1b59" datatype="html">
+        <source>Drop an image file here</source>
+        <target>Απόθεση αρχείου εικόνας εδώ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Media Uploader dropzone prompt</note>
+      </trans-unit>
+      <trans-unit id="a5afdad9feec860196a06b935f73074c31c9d75b" datatype="html">
+        <source>Uploading…</source>
+        <target>Φόρτωμα…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Uploading with ellipsis</note>
+        <note priority="1" from="meaning">uploading ellipsis</note>
+      </trans-unit>
+      <trans-unit id="590b2ff136cd94da28cd9e85908a578897090b6d" datatype="html">
+        <source>We couldn't upload your file. Please try again, or use a different file.</source>
+        <target>Δεν μπορέσαμε να ανεβάσουμε τον φάκελό σου. Δοκιμάστε ξανά ή χρησιμοποιήστε διαφορετικό αρχείο.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+        <note priority="1" from="description">Media Uploader general error</note>
+      </trans-unit>
+      <trans-unit id="f776a9c64fe5aed9b719f5d65db61d22b213b1ef" datatype="html">
+        <source>We couldn't load your images because of a technical issue.</source>
+        <target>Δεν μπορούσαμε να φορτώσουμε τις εικόνες σας λόγω τεχνικού προβλήματος.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+        <note priority="1" from="description">Media Library loading error</note>
+      </trans-unit>
+      <trans-unit id="5d31849ab7f426a83e3696a88b7ccc51c409a078" datatype="html">
+        <source>Images</source>
+        <target>Εικόνες</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <note priority="1" from="description">Images</note>
+        <note priority="1" from="meaning">images</note>
+      </trans-unit>
+      <trans-unit id="2d7f206670350d642f8279c34bbd218fbaf1a9a3" datatype="html">
+        <source>You will be able to edit the copy.</source>
+        <target>Θα μπορείτε να επεξεργαστείτε το αντίγραφο.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Copy Board Set dialog readonly notice</note>
+      </trans-unit>
+      <trans-unit id="72f64b494d2318e06524ac69f042723472aeb7c4" datatype="html">
+        <source>Copy</source>
+        <target>αντίγραφο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Copy</note>
+        <note priority="1" from="meaning">copy</note>
+      </trans-unit>
+      <trans-unit id="e6c96078b64f9e5de847f56ef46ab39e120c3ec6" datatype="html">
+        <source>Upload from Device…</source>
+        <target>Αποστολή από τη συσκευή…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+        <note priority="1" from="description">Media Uploader from device button</note>
+      </trans-unit>
+      <trans-unit id="c9595794b16b76b5d577d0938a7ad61dcce89b54" datatype="html">
+        <source>We don't accept files of this type.</source>
+        <target>Δεν δεχόμαστε αρχεία αυτού του τύπου.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+        <note priority="1" from="description">Media Uploader error wrong file type</note>
+      </trans-unit>
+      <trans-unit id="7f378e8f0cf469c7191628747a9c03425b525421" datatype="html">
+        <source>Your file is too large.</source>
+        <target>Ο φάκελός σου είναι πολύ μεγάλος.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+        <note priority="1" from="description">Media Uploader error file too large</note>
+      </trans-unit>
+      <trans-unit id="b60810a36a2e077267c01933f5009224109bc023" datatype="html">
+        <source>Symbol Set</source>
+        <target>Σύνολο συμβόλων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Search symbol set input</note>
+      </trans-unit>
+      <trans-unit id="0194d33c070e8d957a16480c67c3c1d2445fa380" datatype="html">
+        <source>All Symbol Sets</source>
+        <target>Όλα τα σύνολα συμβόλων</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Search symbol set 'all' option</note>
+      </trans-unit>
+      <trans-unit id="fe46ccaae902ce974e2441abe752399288298619" datatype="html">
+        <source>Language</source>
+        <target>Γλώσσα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Search language input label</note>
+      </trans-unit>
+      <trans-unit id="2b3b69b12a50c7db271449343593018fa55aef2a" datatype="html">
+        <source>Add Arrow</source>
+        <target>Προσθήκη βέλους</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+        <note priority="1" from="description">Add Arrow</note>
+        <note priority="1" from="meaning">add arrow</note>
+      </trans-unit>
+      <trans-unit id="1c7a27379df6ee328b86ae3e03bc66e9f7f126ed" datatype="html">
+        <source>Searching…</source>
+        <target>Αναζήτηση…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+        <note priority="1" from="description">Searching ellipsis</note>
+        <note priority="1" from="meaning">searching ellipsis</note>
+      </trans-unit>
+      <trans-unit id="be96de1c6a272d7be04581f1f329f4837376cd1b" datatype="html">
+        <source>Discard</source>
+        <target>απορρίπτω</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Discard (throw away, cancel)</note>
+        <note priority="1" from="meaning">discard</note>
+      </trans-unit>
+      <trans-unit id="3f5a652a1f473f4e243e3c6805ef1b383e270bb7" datatype="html">
+        <source>Discard</source>
+        <target>απορρίπτω</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Discard changes (same button used for editing and creating symbols)</note>
+      </trans-unit>
+      <trans-unit id="601d570d1dff9928b512d9e27c00bd9caeb892c9" datatype="html">
+        <source>Saving</source>
+        <target>αποταμίευση</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Saving</note>
+        <note priority="1" from="meaning">saving</note>
+      </trans-unit>
+      <trans-unit id="3ccd80ac2bcdda24655222d1ee56a83048185ded" datatype="html">
+        <source>There was a problem saving your symbol</source>
+        <target>Παρουσιάστηκε πρόβλημα με τη διάσωση του συμβόλου σας</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Creator error saving heading</note>
+      </trans-unit>
+      <trans-unit id="4fa96cbe8aae4f2b5b430bb18dd6efe76a70a342" datatype="html">
+        <source>Continue Editing</source>
+        <target>Συνέχιση επεξεργασίας</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Symbol Creator error continue button</note>
+      </trans-unit>
+      <trans-unit id="c0981a10cabc8e33facd2280c3598196156b9ce1" datatype="html">
+        <source>align horizontal centre|Align to Horizontal Centre</source>
+        <target>στοίχιση οριζόντιου κέντρου| Στοίχιση στο οριζόντιο κέντρο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description">Align Horizontal Centre button</note>
+        <note priority="1" from="meaning">align horizontal centre</note>
+      </trans-unit>
+      <trans-unit id="fb26eef7b92ed07635820989e45268528e0fd092" datatype="html">
+        <source>Align to Vertical Centre</source>
+        <target>Στοίχιση στο κατακόρυφο κέντρο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <note priority="1" from="description">Align to Vertical Centre</note>
+        <note priority="1" from="meaning">align vertical centre</note>
+      </trans-unit>
+      <trans-unit id="db1c1a27cd80c4154e13571df787ec8046e5080b" datatype="html">
+        <source>Flip Horizontal</source>
+        <target>Οριζόντια αναστροφή</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">Flip Horizontal</note>
+        <note priority="1" from="meaning">flip horizontal</note>
+      </trans-unit>
+      <trans-unit id="224f1bb5060a477f9feef9daa6a98f490a601d28" datatype="html">
+        <source>Flip Vertical</source>
+        <target>Κατακόρυφη αναστροφή</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <note priority="1" from="description">Flip Vertical</note>
+        <note priority="1" from="meaning">flip vertical</note>
+      </trans-unit>
+      <trans-unit id="729557c22cbde29b4b2e1a6a547390996e11df74" datatype="html">
+        <source>Send Behind other Items</source>
+        <target>Αποστολή πίσω από άλλα στοιχεία</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">Send Behind other Items</note>
+        <note priority="1" from="meaning">send behind</note>
+      </trans-unit>
+      <trans-unit id="595361b065fc7a26fb217833a6737f99f711e4e4" datatype="html">
+        <source>Delete Selected</source>
+        <target>Διαγραφή επιλεγμένου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <note priority="1" from="description">Delete Selected</note>
+        <note priority="1" from="meaning">delete selected</note>
+      </trans-unit>
+      <trans-unit id="ccef2647e0c3cc3f168a160b01d51bb6640ea950" datatype="html">
+        <source>Add Image</source>
+        <target>Προσθήκη εικόνας</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+        <note priority="1" from="description">Add Image</note>
+        <note priority="1" from="meaning">add image</note>
+      </trans-unit>
+      <trans-unit id="d9b8fc8a6382900840697db235bfe0934240b9e5" datatype="html">
+        <source>Add Text Box</source>
+        <target>Πλαίσιο "Προσθήκη κειμένου"</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <note priority="1" from="description">Add Text Box</note>
+        <note priority="1" from="meaning">add text box</note>
+      </trans-unit>
+      <trans-unit id="0d24f6f1a191c00fa9e313756f7c2ddfa41551e4" datatype="html">
+        <source>Add Circle</source>
+        <target>Προσθήκη κύκλου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+        <note priority="1" from="description">Add Circle</note>
+        <note priority="1" from="meaning">add circle</note>
+      </trans-unit>
+      <trans-unit id="1347ef1ba7da166fb0a2b1a21b78a506ac9a0e6b" datatype="html">
+        <source>Add Line</source>
+        <target>Προσθήκη γραμμής</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <note priority="1" from="description">Add Line</note>
+        <note priority="1" from="meaning">add line</note>
+      </trans-unit>
+      <trans-unit id="1f17b051e6a7071342d6ed7ffa538d8a11e85715" datatype="html">
+        <source>Add Triangle</source>
+        <target>Προσθήκη τριγώνου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+        <note priority="1" from="description">Add Triangle</note>
+        <note priority="1" from="meaning">add triangle</note>
+      </trans-unit>
+      <trans-unit id="d82a8418071a20b23581b49c7bcff8ac048f992e" datatype="html">
+        <source>Add Square</source>
+        <target>Προσθήκη τετραγώνου</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+        <note priority="1" from="description">Add Square</note>
+        <note priority="1" from="meaning">add square</note>
+      </trans-unit>
+      <trans-unit id="bc0017b8f9e609ea4da58a92d1699377ad60ad2d" datatype="html">
+        <source>Add Plus</source>
+        <target>Προσθήκη συν</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+        <note priority="1" from="description">Add Plus</note>
+        <note priority="1" from="meaning">add plus</note>
+      </trans-unit>
+      <trans-unit id="55181c2052e8323beaa2a1da866f1753eeeb408e" datatype="html">
+        <source>Add Cross</source>
+        <target>Προσθήκη σταυρού</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+        <note priority="1" from="description">Add Cross</note>
+        <note priority="1" from="meaning">add cross</note>
+      </trans-unit>
+      <trans-unit id="7c8be2b6dd54cc82bb0174657e0941b190d85e31" datatype="html">
+        <source>Clear Outline</source>
+        <target>Απαλοιφή διάρθρωσης</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">179</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">179</context>
+        </context-group>
+        <note priority="1" from="description">Clear Outline</note>
+        <note priority="1" from="meaning">clear outline</note>
+      </trans-unit>
+      <trans-unit id="e7f45dd3c95799635d343eded2a71b7cc42a0ab7" datatype="html">
+        <source>Thickness</source>
+        <target>πάχος</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">192</context>
+        </context-group>
+        <note priority="1" from="description">Thickness</note>
+        <note priority="1" from="meaning">thickness</note>
+      </trans-unit>
+      <trans-unit id="51a9ef96c683b8588880b4dafb9b630c43b30b30" datatype="html">
+        <source>Text</source>
+        <target>Κείμενο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">202</context>
+        </context-group>
+        <note priority="1" from="description">Text</note>
+        <note priority="1" from="meaning">text</note>
+      </trans-unit>
+      <trans-unit id="4b166edba60b5b41e31c8afbc426faa798cde621" datatype="html">
+        <source>Bold</source>
+        <target>τολμηρός</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">204</context>
+        </context-group>
+        <note priority="1" from="description">Bold</note>
+        <note priority="1" from="meaning">bold</note>
+      </trans-unit>
+      <trans-unit id="79e721fcd6bd98124348d6187f2e9f719dcdebd3" datatype="html">
+        <source>Italic</source>
+        <target>Πλάγια γραφή</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">208</context>
+        </context-group>
+        <note priority="1" from="description">Italic</note>
+        <note priority="1" from="meaning">italic</note>
+      </trans-unit>
+      <trans-unit id="9f6b7aa9503c7434539118079b91faec36c00e7b" datatype="html">
+        <source>Underline</source>
+        <target>υπογραμμίζω</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">212</context>
+        </context-group>
+        <note priority="1" from="description">Underline</note>
+        <note priority="1" from="meaning">underline</note>
+      </trans-unit>
+      <trans-unit id="d71e65dd8e3f51d63eb2e4221ce71b9596703add" datatype="html">
+        <source>Font</source>
+        <target>κολυμβήθρα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">220</context>
+        </context-group>
+        <note priority="1" from="description">Font</note>
+        <note priority="1" from="meaning">font</note>
+      </trans-unit>
+      <trans-unit id="70cdece93077a48164f650627d97ea14d0369b59" datatype="html">
+        <source>Using a larger Paper Size.</source>
+        <target>Χρησιμοποιώντας μεγαλύτερο μέγεθος χαρτιού.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 4</note>
       </trans-unit>
     </body>
   </file>
