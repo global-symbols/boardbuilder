@@ -205,7 +205,7 @@
       </trans-unit>
       <trans-unit id="4039ec01f83d07d47ee7eb8e9d2c88bdde88e0f5" datatype="html">
         <source>Board Set Title</source>
-        <target>Board Set Title</target>
+        <target>Kommunikationstafeln Title</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">23</context>
@@ -697,7 +697,7 @@
       </trans-unit>
       <trans-unit id="9366b83fca02533036127e8772ea2a5dc12c4b20" datatype="html">
         <source>Unlink</source>
-        <target>Unlink</target>
+        <target>Entlinke</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">43</context>
@@ -747,7 +747,7 @@
       </trans-unit>
       <trans-unit id="aeeb351d37bc354a1005ec9076308ec0ebecb641" datatype="html">
         <source>Linkable Boards</source>
-        <target>Linkable Boards</target>
+        <target>Verknüpfbar Kommunikationstafeln</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">74</context>
@@ -766,7 +766,7 @@
       </trans-unit>
       <trans-unit id="71df040c8c999a3512f026dfb298780d636c0370" datatype="html">
         <source>Move Later</source>
-        <target>Move Later</target>
+        <target>Später Umziehen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">97</context>
@@ -1437,7 +1437,7 @@
       </trans-unit>
       <trans-unit id="5cb171ddb22793f7497094daa9d53ba3e78a39d6" datatype="html">
         <source>First Board</source>
-        <target>First Board</target>
+        <target>Erstes Kommunikationstafel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">5</context>
@@ -1465,7 +1465,7 @@
       </trans-unit>
       <trans-unit id="751d545c485a7b14ce9b4afaf2644c6ec48b3d2e" datatype="html">
         <source>First Board</source>
-        <target>First Board</target>
+        <target>Erstes Kommunikationstafel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">17</context>
@@ -1910,7 +1910,7 @@
       </trans-unit>
       <trans-unit id="3ccd80ac2bcdda24655222d1ee56a83048185ded" datatype="html">
         <source>There was a problem saving your symbol</source>
-        <target>Es ist ein Problem beim Speichern Ihres Symbols vorliegt.</target>
+        <target>Es ist ein Problem beim Speichern Ihres Symbols vorliegt</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">5</context>
@@ -1970,7 +1970,7 @@
       </trans-unit>
       <trans-unit id="db1c1a27cd80c4154e13571df787ec8046e5080b" datatype="html">
         <source>Flip Horizontal</source>
-        <target>Flip Horizontal</target>
+        <target>Horizontal spiegeln</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">41</context>
@@ -2166,7 +2166,7 @@
       </trans-unit>
       <trans-unit id="568b891a3af873cc48fa48114013d1a69c15d259" datatype="html">
         <source>Clear Fill</source>
-        <target>Clear Fill</target>
+        <target>Füllung löschen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">161</context>
@@ -2269,6 +2269,172 @@
           <context context-type="linenumber">242</context>
         </context-group>
         <note priority="1" from="description">Save to Device (SVG)</note>
+      </trans-unit>
+      <trans-unit id="78fc391f864d3152cf50b5d9503ed6cb15f0c9cc" datatype="html">
+        <source>Advanced Settings</source>
+        <target>Erweiterte Einstellungen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+        <note priority="1" from="description">Advanced settings indicator</note>
+        <note priority="1" from="meaning">advanced</note>
+      </trans-unit>
+      <trans-unit id="f14a895c0dd586c474d2fcf5229eb738d861a03a" datatype="html">
+        <source>Adjusts spacing between each box</source>
+        <target>Passt den Abstand zwischen den einzelnen Boxen an</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Spacing hint</note>
+        <note priority="1" from="meaning">cell spacing hint</note>
+      </trans-unit>
+      <trans-unit id="a4b8cd94deac52d22a5f62383198d0cf6003f168" datatype="html">
+        <source>We can't fit everything on the page with your chosen settings. You can fix this by…</source>
+        <target>Wir können nicht alles auf der Seite mit Den gewählten Einstellungen anpassen. Sie können dies beheben, indem Sie…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator fit error</note>
+        <note priority="1" from="meaning">pdf error fit help</note>
+      </trans-unit>
+      <trans-unit id="034422a819dc3d4f3fe15107046b750614e07c9a" datatype="html">
+        <source>Reducing Image/Label Spacing by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow}}"/> pt.</source>
+        <target>Reduzierung des Bild-/Etikettenabstands um mindestens <x id="INTERPOLATION" equiv-text="{{apiError.overflow}}"/> pt.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 2</note>
+      </trans-unit>
+      <trans-unit id="42ad9d8dde56feba181f04c0e60cbe63a745b5f0" datatype="html">
+        <source>Cell Spacing</source>
+        <target>Zellabstand</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Spacing</note>
+        <note priority="1" from="meaning">cell spacing</note>
+      </trans-unit>
+      <trans-unit id="e73326a1968f1d07238b7edcba05a6c5578edfed" datatype="html">
+        <source>Cell Padding</source>
+        <target>Zellpolsterung</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Padding</note>
+        <note priority="1" from="meaning">cell padding</note>
+      </trans-unit>
+      <trans-unit id="a0cd510186602b3e9824bcef0f3aeec9954d1d84" datatype="html">
+        <source>Adjusts spacing inside each box</source>
+        <target>Passt den Abstand innerhalb der einzelnen Boxen an</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Padding hint</note>
+        <note priority="1" from="meaning">cell padding hint</note>
+      </trans-unit>
+      <trans-unit id="0fc9a5e20b777def79ca6e44c0da65b34d4d99b6" datatype="html">
+        <source>Image/Label Spacing</source>
+        <target>Bild-/Etikettenabstand</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Image/Label Spacing</note>
+        <note priority="1" from="meaning">cell image label spacing</note>
+      </trans-unit>
+      <trans-unit id="688f82a4945580aac59f2befecad264a09699d19" datatype="html">
+        <source>Adjusts spacing between the image and label</source>
+        <target>Passt den Abstand zwischen Bild und Beschriftung an</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Image/Label Spacing hint</note>
+        <note priority="1" from="meaning">cell image label spacing hint</note>
+      </trans-unit>
+      <trans-unit id="55d865cea95e40ca4a11aab3a8768e189129f573" datatype="html">
+        <source>Cell Borders</source>
+        <target>Zellgrenzen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">74,75</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Draw Borders</note>
+        <note priority="1" from="meaning">cell draw outlines</note>
+      </trans-unit>
+      <trans-unit id="cdb2a3b9b2b717a49b18d822b6903b3622dfe886" datatype="html">
+        <source>Download</source>
+        <target>Herunterladen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">84,85</context>
+        </context-group>
+        <note priority="1" from="description">Download</note>
+        <note priority="1" from="meaning">download</note>
+      </trans-unit>
+      <trans-unit id="aa7ad66f30bf033cd8447e9473b70176d7ba9181" datatype="html">
+        <source>Reset Settings</source>
+        <target>Zurücksetzen von Einstellungen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+        <note priority="1" from="description">PDF Reset Settings button</note>
+        <note priority="1" from="meaning">pdf reset settings</note>
+      </trans-unit>
+      <trans-unit id="5ef32beb7c848fe5391dd7de9e44b455cb0a7937" datatype="html">
+        <source>Reducing Cell Spacing or Cell Padding by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow / 2}}"/> pt.</source>
+        <target>Reduzierung des Zellabstands oder der Zellauffüllung um mindestens <x id="INTERPOLATION" equiv-text="{{apiError.overflow / 2}}"/> pt.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 1</note>
+      </trans-unit>
+      <trans-unit id="6d2300a6dd19811e715ab8975dab499bdf7f07ac" datatype="html">
+        <source>Reducing Text Size by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow}"/> pt. </source>
+        <target>Reduzieren der Textgröße um mindestens <x id="INTERPOLATION" equiv-text="{{apiError.overflow}"/> pt. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">107,109</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 3</note>
+      </trans-unit>
+      <trans-unit id="70cdece93077a48164f650627d97ea14d0369b59" datatype="html">
+        <source>Using a larger Paper Size.</source>
+        <target>Verwenden eines größeren Papierumfangs.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 4</note>
+      </trans-unit>
+      <trans-unit id="bb515aa1a7b7564b6ceec742dc04d4acd5075ee0" datatype="html">
+        <source>Fill</source>
+        <target>Füllen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">159</context>
+        </context-group>
+        <note priority="1" from="description">Fill</note>
+        <note priority="1" from="meaning">fill</note>
+      </trans-unit>
+      <trans-unit id="bb081b336f4284131447da1748f0129e619cf051" datatype="html">
+        <source>Outline</source>
+        <target>Umriss</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">177</context>
+        </context-group>
+        <note priority="1" from="description">Outline</note>
+        <note priority="1" from="meaning">outline</note>
       </trans-unit>
     </body>
   </file>

@@ -2270,6 +2270,172 @@
         </context-group>
         <note priority="1" from="description">Save to Device (SVG)</note>
       </trans-unit>
+      <trans-unit id="f14a895c0dd586c474d2fcf5229eb738d861a03a" datatype="html">
+        <source>Adjusts spacing between each box</source>
+        <target>Ajusta l'espaiat entre cada quadre</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Spacing hint</note>
+        <note priority="1" from="meaning">cell spacing hint</note>
+      </trans-unit>
+      <trans-unit id="e73326a1968f1d07238b7edcba05a6c5578edfed" datatype="html">
+        <source>Cell Padding</source>
+        <target>Farciment de cel·les</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Padding</note>
+        <note priority="1" from="meaning">cell padding</note>
+      </trans-unit>
+      <trans-unit id="a0cd510186602b3e9824bcef0f3aeec9954d1d84" datatype="html">
+        <source>Adjusts spacing inside each box</source>
+        <target>Ajusta l'espaiat dins de cada quadre</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Padding hint</note>
+        <note priority="1" from="meaning">cell padding hint</note>
+      </trans-unit>
+      <trans-unit id="0fc9a5e20b777def79ca6e44c0da65b34d4d99b6" datatype="html">
+        <source>Image/Label Spacing</source>
+        <target>Espaiat imatge/etiqueta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Image/Label Spacing</note>
+        <note priority="1" from="meaning">cell image label spacing</note>
+      </trans-unit>
+      <trans-unit id="688f82a4945580aac59f2befecad264a09699d19" datatype="html">
+        <source>Adjusts spacing between the image and label</source>
+        <target>Ajusta l'espaiat entre la imatge i l'etiqueta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Image/Label Spacing hint</note>
+        <note priority="1" from="meaning">cell image label spacing hint</note>
+      </trans-unit>
+      <trans-unit id="55d865cea95e40ca4a11aab3a8768e189129f573" datatype="html">
+        <source>Cell Borders</source>
+        <target>Vores de cel·la</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">74,75</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Draw Borders</note>
+        <note priority="1" from="meaning">cell draw outlines</note>
+      </trans-unit>
+      <trans-unit id="cdb2a3b9b2b717a49b18d822b6903b3622dfe886" datatype="html">
+        <source>Download</source>
+        <target>Descarregar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">84,85</context>
+        </context-group>
+        <note priority="1" from="description">Download</note>
+        <note priority="1" from="meaning">download</note>
+      </trans-unit>
+      <trans-unit id="aa7ad66f30bf033cd8447e9473b70176d7ba9181" datatype="html">
+        <source>Reset Settings</source>
+        <target>Reinicialitza la configuració</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+        <note priority="1" from="description">PDF Reset Settings button</note>
+        <note priority="1" from="meaning">pdf reset settings</note>
+      </trans-unit>
+      <trans-unit id="a4b8cd94deac52d22a5f62383198d0cf6003f168" datatype="html">
+        <source>We can't fit everything on the page with your chosen settings. You can fix this by…</source>
+        <target>No podem encaixar tot el que hi ha a la pàgina amb la configuració que hàgiu triat. Podeu arreglar-ho…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator fit error</note>
+        <note priority="1" from="meaning">pdf error fit help</note>
+      </trans-unit>
+      <trans-unit id="5ef32beb7c848fe5391dd7de9e44b455cb0a7937" datatype="html">
+        <source>Reducing Cell Spacing or Cell Padding by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow / 2}}"/> pt.</source>
+        <target>Reduir l'espaiat de les cel·les o el farciment cel·lular com a mínim <x id="INTERPOLATION" equiv-text="{{apiError.overflow / 2}}"/> pt.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 1</note>
+      </trans-unit>
+      <trans-unit id="034422a819dc3d4f3fe15107046b750614e07c9a" datatype="html">
+        <source>Reducing Image/Label Spacing by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow}}"/> pt.</source>
+        <target>Reduir l'espaiat entre imatges i etiquetes com a mínim <x id="INTERPOLATION" equiv-text="{{apiError.overflow}}"/> pt.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 2</note>
+      </trans-unit>
+      <trans-unit id="6d2300a6dd19811e715ab8975dab499bdf7f07ac" datatype="html">
+        <source>Reducing Text Size by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow}"/> pt. </source>
+        <target>Reduir la mida del text com a mínim <x id="INTERPOLATION" equiv-text="{{apiError.overflow}"/> pt. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">107,109</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 3</note>
+      </trans-unit>
+      <trans-unit id="bb515aa1a7b7564b6ceec742dc04d4acd5075ee0" datatype="html">
+        <source>Fill</source>
+        <target>omplir</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">159</context>
+        </context-group>
+        <note priority="1" from="description">Fill</note>
+        <note priority="1" from="meaning">fill</note>
+      </trans-unit>
+      <trans-unit id="bb081b336f4284131447da1748f0129e619cf051" datatype="html">
+        <source>Outline</source>
+        <target>contorn</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">177</context>
+        </context-group>
+        <note priority="1" from="description">Outline</note>
+        <note priority="1" from="meaning">outline</note>
+      </trans-unit>
+      <trans-unit id="78fc391f864d3152cf50b5d9503ed6cb15f0c9cc" datatype="html">
+        <source>Advanced Settings</source>
+        <target>Configuració avançada</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+        <note priority="1" from="description">Advanced settings indicator</note>
+        <note priority="1" from="meaning">advanced</note>
+      </trans-unit>
+      <trans-unit id="42ad9d8dde56feba181f04c0e60cbe63a745b5f0" datatype="html">
+        <source>Cell Spacing</source>
+        <target>Espaiat entre cel·les</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Spacing</note>
+        <note priority="1" from="meaning">cell spacing</note>
+      </trans-unit>
+      <trans-unit id="70cdece93077a48164f650627d97ea14d0369b59" datatype="html">
+        <source>Using a larger Paper Size.</source>
+        <target>Utilitzar una mida de paper més gran.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 4</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

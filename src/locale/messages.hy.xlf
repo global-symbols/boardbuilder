@@ -13,7 +13,7 @@
       </trans-unit>
       <trans-unit id="6a91d8aef5a44d59d06eadd4e26f2f1a5971feeb" datatype="html">
         <source>Sign In</source>
-        <target>Գրանցել</target>
+        <target>Մուտք գործել</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">23,24</context>
@@ -23,7 +23,7 @@
       </trans-unit>
       <trans-unit id="eaa79962a697893e9d0102705e9897db246a02b5" datatype="html">
         <source>Global Symbols Account</source>
-        <target>Ընդհանուր հոմանիշների հաշիվ</target>
+        <target>Գլոբալ սիմվոլների հաշիվ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">28</context>
@@ -37,7 +37,7 @@
       </trans-unit>
       <trans-unit id="681d0d8af12f8bebce882805c5dd105f0032f525" datatype="html">
         <source>Board Sets</source>
-        <target>Board Սեթեր</target>
+        <target>Նկարների հավաքածու</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">39</context>
@@ -46,7 +46,7 @@
       </trans-unit>
       <trans-unit id="93148e66a8c53db228d9ba7df5edc169d694cd03" datatype="html">
         <source>Symbols</source>
-        <target>Հոմանիշներ</target>
+        <target>սիմվոլներ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">43</context>
@@ -65,7 +65,7 @@
       </trans-unit>
       <trans-unit id="d2ddf086bf957aeeb268cc9ee98ab4de8fd6f33f" datatype="html">
         <source>Sign Out</source>
-        <target>Նշեք դուրս</target>
+        <target>Ելք</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">52</context>
@@ -75,7 +75,7 @@
       </trans-unit>
       <trans-unit id="eecae6134c76bac58a620e2fdeb9beaeec4b5d5e" datatype="html">
         <source>Checking your Account…</source>
-        <target>Ստուգելով ձեր հաշիվը…</target>
+        <target>Հաշվի ստուգում…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">8</context>
@@ -84,7 +84,7 @@
       </trans-unit>
       <trans-unit id="3db241ca031e29b4d0c0c1cc58eb06fc59f64940" datatype="html">
         <source>Use Board Builder to create communication boards.</source>
-        <target>Օգտագործեք Board Builder- ը' հաղորդակցման տախտակներ ստեղծելու համար:</target>
+        <target>Օգտագործեք Նկարների ստեղծում-ը' հաղորդակցման նկարների համալիր ստեղծելու համար:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">13</context>
@@ -93,7 +93,7 @@
       </trans-unit>
       <trans-unit id="b0e76336a7e1630113bfd7f965816e427b572c75" datatype="html">
         <source>Everything is saved to your Global Symbols account.</source>
-        <target>Ամեն ինչ խնայվում է ձեր Global Symbols հաշվի համար:</target>
+        <target>Ամեն ինչ պահպանվում է ձեր գլոբալ սիմվոլների հաշվի համար:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">14</context>
@@ -102,7 +102,7 @@
       </trans-unit>
       <trans-unit id="3fec73120d33e57208775c79b5fd1ef0cb1c6856" datatype="html">
         <source>Sign in with Global Symbols</source>
-        <target>Մուտք գործեք Global Symbols- ով</target>
+        <target>Մուտք գործել Գլոբալ սիմվոլներով</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">19</context>
@@ -120,7 +120,7 @@
       </trans-unit>
       <trans-unit id="4a20d5e146b4019d629fdc75efd46afceba48f46" datatype="html">
         <source>By</source>
-        <target>կողմից</target>
+        <target>մոտ, միջոցով</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
           <context context-type="linenumber">22</context>
@@ -139,7 +139,7 @@
       </trans-unit>
       <trans-unit id="f230f376eadc3023676cdd998a4a7e1e5dd02071" datatype="html">
         <source>Never Opened</source>
-        <target>Երբեք չբացվեց</target>
+        <target>Երբեք չբացված</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
           <context context-type="linenumber">29</context>
@@ -148,7 +148,7 @@
       </trans-unit>
       <trans-unit id="b64665e9b2a89ffee81361d1aa3090ea8f26a4fa" datatype="html">
         <source>Create Board Set</source>
-        <target>Ստեղծել Board Set</target>
+        <target>Ստեղծել նկարների տախտակ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -179,7 +179,7 @@
       </trans-unit>
       <trans-unit id="965e361fd0f605b37b7ee812e21f8d374ed9baee" datatype="html">
         <source>Board Set</source>
-        <target>Board Սեթ</target>
+        <target>Նկարների տախտակ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">19</context>
@@ -205,7 +205,7 @@
       </trans-unit>
       <trans-unit id="4039ec01f83d07d47ee7eb8e9d2c88bdde88e0f5" datatype="html">
         <source>Board Set Title</source>
-        <target>Titulli i Board Set</target>
+        <target>Նկարների տախտակի տիտղոսաթերթը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">23</context>
@@ -215,7 +215,7 @@
       </trans-unit>
       <trans-unit id="e2cf06970e1897822b378b48d12b1b5114935273" datatype="html">
         <source>Choose a name for the new Board Set.</source>
-        <target>Ընտրեք նոր Board Set-ի անունը:</target>
+        <target>Ընտրեք նոր նկարների տախտակ-ի անունը:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -225,7 +225,7 @@
       </trans-unit>
       <trans-unit id="fd47e4e36556a7c6e0973b689f83079ca2d5129d" datatype="html">
         <source>A Board Set is a collection of communication Boards - as many or as few as you like.</source>
-        <target>A Board Set- ը հաղորդակցման տախտակների հավաքածու է- այնքան շատ կամ այնքան քիչ, որքան դուք ցանկանում եք:</target>
+        <target state="needs-translation">Նկարների տախտակն հաղորդակցման նկարների ձեր նախընտրած ծավալի համալիր է</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">32</context>
@@ -234,7 +234,7 @@
       </trans-unit>
       <trans-unit id="2841eb6463280f988dce85afc00d9280b1b527ba" datatype="html">
         <source>On the next page, we'll set up the first Board.</source>
-        <target>Հաջորդ էջում կհաստատենք առաջին Բուհը:</target>
+        <target state="needs-translation">Հաջորդ էջում կհաստատենք նկարների առաջին համալիրը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">33</context>
@@ -253,7 +253,7 @@
       </trans-unit>
       <trans-unit id="6a1e5aed1ec6dbcff344930625ae7e60ea4181e1" datatype="html">
         <source>Choose Template</source>
-        <target>Ընտրեք Template</target>
+        <target>Ընտրեք ձևաթուղթը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">45</context>
@@ -262,7 +262,7 @@
       </trans-unit>
       <trans-unit id="d4297aa2ef70bbc7ae46e9c6e1f06a1180a73efc" datatype="html">
         <source>Back</source>
-        <target>Հետույք</target>
+        <target>Հետ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">49</context>
@@ -272,7 +272,7 @@
       </trans-unit>
       <trans-unit id="1a307a7c2cf5bed90339c0b673fb2578af04b646" datatype="html">
         <source>Create</source>
-        <target>Ստեղծագործել</target>
+        <target>Ստեղծել</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">51</context>
@@ -282,7 +282,7 @@
       </trans-unit>
       <trans-unit id="9165f983b8c69763f7ed67885ebeb95b33b431e8" datatype="html">
         <source>My Board Sets</source>
-        <target>Իմ գրատախտակը սեթում է</target>
+        <target>Իմ նկարների տախտակները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">3</context>
@@ -291,7 +291,7 @@
       </trans-unit>
       <trans-unit id="c28c9d5c688ca402257bc59666648ed833488d62" datatype="html">
         <source>Board Sets</source>
-        <target>Board Սեթեր</target>
+        <target>նկարների տախտակներ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">5</context>
@@ -301,7 +301,7 @@
       </trans-unit>
       <trans-unit id="a8c9058c85bdcce58a801cfc207c6094d29e6343" datatype="html">
         <source>Create Board Set</source>
-        <target>Ստեղծել Board Set</target>
+        <target>Ստեղծել նկարների տախտակ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">14</context>
@@ -311,7 +311,7 @@
       </trans-unit>
       <trans-unit id="d4af7ce487191b081c2f0a1db79f9e67c89b9f15" datatype="html">
         <source>Import OBZ</source>
-        <target>Արտադրություն OBZ</target>
+        <target>Ներմուծել OBZ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">16</context>
@@ -321,7 +321,7 @@
       </trans-unit>
       <trans-unit id="6e0680e639dd496ac9b27fb7d17dfa663199bc0e" datatype="html">
         <source>Featured Board Sets</source>
-        <target>Featured Board Սեթեր</target>
+        <target>Առաջարկվող նկարների տախտակ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">25</context>
@@ -330,7 +330,7 @@
       </trans-unit>
       <trans-unit id="a0f7000988baf87bd71c60939750d0d7eccf3957" datatype="html">
         <source>Open</source>
-        <target>Բաց</target>
+        <target>Բացել</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">39</context>
@@ -358,7 +358,7 @@
       </trans-unit>
       <trans-unit id="d8bd1f48c370934707e4cafc31bcf0a83d1c990e" datatype="html">
         <source>Add Header Image</source>
-        <target>Ավելացնել Գլխի պատկերը</target>
+        <target>Ավելացնել գլխավոր նկար</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
           <context context-type="linenumber">10,11</context>
@@ -368,7 +368,7 @@
       </trans-unit>
       <trans-unit id="54f7aa60fb965b59e282c98f0068881fe5f1c848" datatype="html">
         <source>Go to Linked Board</source>
-        <target>Գնացեք Linked Board</target>
+        <target>Անցնել Linked Board</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
           <context context-type="linenumber">55</context>
@@ -382,7 +382,7 @@
       </trans-unit>
       <trans-unit id="cf8051b04631b14b2f7a4091861064734aa8a10c" datatype="html">
         <source>Board Properties</source>
-        <target>Board Properties</target>
+        <target>Նկարների համալիրի հատկանիշները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -392,7 +392,7 @@
       </trans-unit>
       <trans-unit id="f34f28751184cc459b810500bc00edfcc9cfe31d" datatype="html">
         <source>Add Board</source>
-        <target>Ավելացնել Board</target>
+        <target>Ավելացնել նկարների համալիր</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
           <context context-type="linenumber">8</context>
@@ -418,7 +418,7 @@
       </trans-unit>
       <trans-unit id="89a8b9b9ea63e78337a552e9b0b8f589f6404831" datatype="html">
         <source>Done</source>
-        <target>Արված է</target>
+        <target>Կատարված է</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
           <context context-type="linenumber">23</context>
@@ -432,7 +432,7 @@
       </trans-unit>
       <trans-unit id="78a7c8bfb59c3e5a6e0db7cec0c206774c679407" datatype="html">
         <source>Board Set Properties</source>
-        <target>Board Set Properties</target>
+        <target>Նկարների տախտակի հատկանիշները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -440,7 +440,7 @@
       </trans-unit>
       <trans-unit id="50dee86eefe159244d2cdef11beb12213eeaf3fa" datatype="html">
         <source>Title</source>
-        <target>Տիտղոս</target>
+        <target>Տիտղոսաթերթ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">15</context>
@@ -480,7 +480,7 @@
       </trans-unit>
       <trans-unit id="d17421976444259311fd0add79195c2953afcee5" datatype="html">
         <source>Public Board Sets can be found and viewed by anyone.</source>
-        <target>Հանրային խորհրդի հավաքածուները կարելի է գտնել եւ դիտել ցանկացած մարդու կողմից:</target>
+        <target state="needs-translation">Հանրային նկարների տախտակները կարող են գտնել և տեսնել բոլորը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">28</context>
@@ -490,7 +490,7 @@
       </trans-unit>
       <trans-unit id="aaa7688f6dcc49cdb3c9a4287249d7ee8ad21abf" datatype="html">
         <source>Board Actions</source>
-        <target>Խորհրդի գործողություններ</target>
+        <target>տախտակի գործողությունները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
           <context context-type="linenumber">57</context>
@@ -563,7 +563,7 @@
       </trans-unit>
       <trans-unit id="3f6f4b8552b4d78ad67f583ff6d1a95e91e2f5b1" datatype="html">
         <source>Add Board from OBF</source>
-        <target>Ավելացնել Board-ը OBF-ից</target>
+        <target>Ավելացնել տախտակ OBF-ից</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
           <context context-type="linenumber">100</context>
@@ -576,7 +576,7 @@
       </trans-unit>
       <trans-unit id="3d531446d7d60fcf40fac5aed1ffd5666b3b2cb4" datatype="html">
         <source>Download Board Set as OBZ</source>
-        <target>Shkarkoni Board Set si OBZ</target>
+        <target>Ներբեռնել նկարների տախտակ որպես OBZ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
           <context context-type="linenumber">103</context>
@@ -586,7 +586,7 @@
       </trans-unit>
       <trans-unit id="5047656acb358048cad9221dc10628a86b2a9903" datatype="html">
         <source>Keyboard Shortcuts</source>
-        <target>Ստեղնաշարի կարճակներ</target>
+        <target>Ստեղնաշարի դյուրանցումներ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
           <context context-type="linenumber">120</context>
@@ -606,7 +606,7 @@
       </trans-unit>
       <trans-unit id="8e02bde1590a1338757de4be451c644807e04639" datatype="html">
         <source>Save and close the cell editor</source>
-        <target>Խնայեք եւ փակեք բջջային խմբագիրը</target>
+        <target>Պահպանել ևփակել բջջային խմբագիրը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">11</context>
@@ -615,7 +615,7 @@
       </trans-unit>
       <trans-unit id="0edb7d06bd26808ec04e53d5d5782dcf55c15219" datatype="html">
         <source>Save and Close</source>
-        <target>Խնայել եւ փակել</target>
+        <target>Պահպանել եւ փակել</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">12</context>
@@ -633,7 +633,7 @@
       </trans-unit>
       <trans-unit id="fe3670c0204f89b0e5ab9103457de0f1913c60d7" datatype="html">
         <source>Cell</source>
-        <target>Ցել</target>
+        <target>Բջիջ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">23</context>
@@ -653,7 +653,7 @@
       </trans-unit>
       <trans-unit id="0fbc41e0f42a75a58ea34ffd7c89b54cdc569ea3" datatype="html">
         <source>Background</source>
-        <target>Հետույք</target>
+        <target>Ետին պլան, նախադրյալ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">29</context>
@@ -697,7 +697,7 @@
       </trans-unit>
       <trans-unit id="9366b83fca02533036127e8772ea2a5dc12c4b20" datatype="html">
         <source>Unlink</source>
-        <target>Ունլինկ</target>
+        <target>կապի խզում</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">43</context>
@@ -711,7 +711,7 @@
       </trans-unit>
       <trans-unit id="1ac1acf0cbd2071a1de0641966cec17f35016cbf" datatype="html">
         <source>Link to a Board</source>
-        <target>Կապը գրատախտակի հետ</target>
+        <target>Կապել տախտակի հետ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">55</context>
@@ -720,7 +720,7 @@
       </trans-unit>
       <trans-unit id="f7e12bf20756a6a287b4e25f193ccdcba567ef60" datatype="html">
         <source>This list shows only unlinked Boards.</source>
-        <target>Այս ցանկը ցույց է տալիս միայն չթեքված Boards.</target>
+        <target state="needs-translation">Այս ցանկը ցույց է տալիս միայն խզված տախտակները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">59</context>
@@ -729,7 +729,7 @@
       </trans-unit>
       <trans-unit id="faaa3e25b7ac64b43751e23883a9115c8dd9328d" datatype="html">
         <source>No Boards are available for linking.</source>
-        <target>Կապելու համար Boards առկա չեն:</target>
+        <target>Կապելու համար տախտակներ առկա չեն:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">66</context>
@@ -738,7 +738,7 @@
       </trans-unit>
       <trans-unit id="9b7c06ea2793398cfa1bf6c5ac5f47a12672eef2" datatype="html">
         <source>Unlink an existing Board, or create a new one.</source>
-        <target>Unlink a existing Board, or create a new one.</target>
+        <target state="needs-translation">Խզել առկա տախտակը կամ ստեղծել նորը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">68</context>
@@ -747,7 +747,7 @@
       </trans-unit>
       <trans-unit id="aeeb351d37bc354a1005ec9076308ec0ebecb641" datatype="html">
         <source>Linkable Boards</source>
-        <target>Կապող տախտակներ</target>
+        <target>Կապելի տախտակներ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">74</context>
@@ -775,7 +775,7 @@
       </trans-unit>
       <trans-unit id="ff287e2498413437062bcefc20e24904d903a239" datatype="html">
         <source>Reset Cell Contents</source>
-        <target>Reset բջջային պարունակությունը</target>
+        <target>Վերակարգավորել բջջային պարունակությունը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">104</context>
@@ -784,7 +784,7 @@
       </trans-unit>
       <trans-unit id="9061ab1e76d40d95e9af8bac1a62a2df209a57bd" datatype="html">
         <source>Clear Symbol</source>
-        <target>Հստակ սիմվոլ</target>
+        <target>Մաքրել սիմվոլները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">107</context>
@@ -793,7 +793,7 @@
       </trans-unit>
       <trans-unit id="3f13b6f84545e37961b9cd937be53c7fcd7de8c2" datatype="html">
         <source>Clear Colours</source>
-        <target>Հստակ գույներ</target>
+        <target>Մաքրել գույները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">112</context>
@@ -802,7 +802,7 @@
       </trans-unit>
       <trans-unit id="b030fd8ff780ba07cf46f1d917c5461bd22b3088" datatype="html">
         <source>Symbol</source>
-        <target>Զինանշան</target>
+        <target>Սիմվոլներ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">118</context>
@@ -843,7 +843,7 @@
       </trans-unit>
       <trans-unit id="a36dccfd1cefd123a47885cacc8d2465716fc954" datatype="html">
         <source>Create boards to aid communication with thousands of free images.</source>
-        <target>Ստեղծեք տախտակներ, որոնք կօգնեն հաղորդակցվել հազարավոր ազատ պատկերների հետ:</target>
+        <target state="needs-translation">Ստեղծեք տախտակներ, որոնք կօգնեն հաղորդակցվել հազարավոր ազատ նկարների միջոցով</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">9</context>
@@ -852,7 +852,7 @@
       </trans-unit>
       <trans-unit id="d052b858625a3ddffbb91917b7264d61803baf8b" datatype="html">
         <source>Everything is stored safely in your Global Symbols account.</source>
-        <target>Ամեն ինչ ապահով պահվում է ձեր Global Symbols հաշվի մեջ:</target>
+        <target>Ամեն ինչ ապահով պահվում է ձեր գլոբալ սիմվոլների հաշվի մեջ:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">10</context>
@@ -861,7 +861,7 @@
       </trans-unit>
       <trans-unit id="06bdcf55e3b8187fec88bfbf3dd3d672d9871ed2" datatype="html">
         <source>My Board Sets</source>
-        <target>Իմ գրատախտակը սեթում է</target>
+        <target>Իմ նկարների տախտակները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">12</context>
@@ -889,7 +889,7 @@
       </trans-unit>
       <trans-unit id="2f4eb93a91cf44fc2722874e8138a23f10925af5" datatype="html">
         <source>My Symbols</source>
-        <target>Իմ խորհրդանիշները</target>
+        <target>Իմ սիմվոլները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">16,17</context>
@@ -903,7 +903,7 @@
       </trans-unit>
       <trans-unit id="90cf22198d376b255fbab36748c38d869dcd0535" datatype="html">
         <source>Start with a template or make your own layout</source>
-        <target>Սկսեք տեմբրից կամ կատարեք ձեր սեփական հատակագիծը</target>
+        <target>Սկսեք ձևանմուշից կամ կազմեք ձեր նախագիծը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">22</context>
@@ -912,7 +912,7 @@
       </trans-unit>
       <trans-unit id="e99d6e3fb798355edb8f87e32122bb4f0a17f679" datatype="html">
         <source>Get started quickly with our collection of handy templates.</source>
-        <target>Արագորեն սկսեք մեր օգտակար մոդելների հավաքածուից:</target>
+        <target>Արագ սկսեք մեր օգտակար մոդելների տախտակից:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">26</context>
@@ -921,7 +921,7 @@
       </trans-unit>
       <trans-unit id="949ef93de86678f9cea0bdb143c9929a3efaf472" datatype="html">
         <source>You always have control to customise the layout beyond our templates.</source>
-        <target>Դուք միշտ ունեք վերահսկողություն, որպեսզի հարմարեցնեք հատակագիծը մեր մոդելներից այն կողմ:</target>
+        <target state="needs-translation">Դուք միշտ ունեք հնարավորություն հարմարեցնելու Ձեր նախագիծը՝ անկախ մեր ձևանմուշներից</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">27</context>
@@ -930,7 +930,7 @@
       </trans-unit>
       <trans-unit id="ee34309cbccb76db11799f7e68d5b98776a70b72" datatype="html">
         <source>Search thousands of free images and use your own</source>
-        <target>Փնտրեք հազարավոր անվճար պատկերներ եւ օգտագործեք ձեր սեփականը</target>
+        <target>Փնտրեք հազարավոր անվճար նկարներ եւ օգտագործեք ձեր սեփականը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">31</context>
@@ -939,7 +939,7 @@
       </trans-unit>
       <trans-unit id="51cb28ff8390b109810139e8524bb802da106fab" datatype="html">
         <source>Quickly find the symbols you need by searching thousands of free images from popular symbol sets on GlobalSymbols.</source>
-        <target>Արագորեն գտնել ձեզ անհրաժեշտ սիմվոլները՝ որոնելով հազարավոր ազատ պատկերներ GlobalSymbols-ի հայտնի սիմվոլիկ հավաքածուներից:</target>
+        <target state="needs-translation">Արագորեն գտեք ձեզ անհրաժեշտ սիմվոլները՝ որոնելով հազարավոր անվճար նկարների գլոբալ սիմվոլների տախտակներում</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">35</context>
@@ -948,7 +948,7 @@
       </trans-unit>
       <trans-unit id="dc132f932e776ceac791876d90d2c85998a2d691" datatype="html">
         <source>Store your own photos and images in BoardBuilder and use them throughout your boards.</source>
-        <target>Պահեք ձեր սեփական նկարներն ու պատկերները BoardBuilder-ում եւ օգտագործեք դրանք ձեր տախտակների ողջ ընթացքում:</target>
+        <target>Պահեք ձեր սեփական նկարներն ու պատկերները BoardBuilder-ում եւ օգտագործեք դրանք ձեր տախտակների ստեղծման ողջ ընթացքում:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">36</context>
@@ -957,7 +957,7 @@
       </trans-unit>
       <trans-unit id="0b950b44a712127e5221c071eefe0804b81992fa" datatype="html">
         <source>Communicate with colour and more</source>
-        <target>Հաղորդակցվեք գույների եւ ավելի</target>
+        <target>Հաղորդակցվեք գույներով եւ ավելի</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">40</context>
@@ -966,7 +966,7 @@
       </trans-unit>
       <trans-unit id="a143122a48bce11086a94c909d7c0bc428022472" datatype="html">
         <source>Tailor boards with your favourite colours and preferred fonts.</source>
-        <target>Tailor տախտակներ ձեր սիրած գույներով եւ նախընտրելի տառատեսակներով:</target>
+        <target>Ընտրեք տախտակներ ձեր սիրած գույներով եւ նախընտրելի տառատեսակներով:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">44</context>
@@ -975,7 +975,7 @@
       </trans-unit>
       <trans-unit id="86f716bec915207ba82e50b4fd9b01acc56b0682" datatype="html">
         <source>Easily re-arrange boards and link between boards to create communication books.</source>
-        <target>Հեշտությամբ վերակազմակերպել տախտակները եւ կապել տախտակների միջեւ՝ ստեղծելու հաղորդակցման գրքեր:</target>
+        <target>Հեշտությամբ վերակազմակերպել տախտակները և կապել միմյանց՝ ստեղծելու հաղորդակցման գրքեր:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">45</context>
@@ -993,7 +993,7 @@
       </trans-unit>
       <trans-unit id="3765519c937e4b9c0109cb1fc4838ec922f45dc2" datatype="html">
         <source>Create your own symbols in seconds by combining shapes, text, symbols and even your own pictures.</source>
-        <target>Ստեղծեք ձեր սեփական սիմվոլները վայրկյանների ընթացքում՝ միավորելով ձեւերը, տեքստը, սիմվոլները եւ նույնիսկ ձեր սեփական նկարները:</target>
+        <target>Ստեղծեք ձեր սեփական սիմվոլները վայրկյանների ընթացքում՝ միավորելով ձևերը, տեքստը, սիմվոլները եւ նույնիսկ ձեր սեփական նկարները:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">53</context>
@@ -1002,7 +1002,7 @@
       </trans-unit>
       <trans-unit id="16cc45679f38cd45f998da8dc51c3127e7e6b040" datatype="html">
         <source>Perfect for those times when you need something a little different.</source>
-        <target>Կատարյալ այն ժամանակների համար, երբ մի փոքր այլ բանի կարիք ունես:</target>
+        <target>Կատարյալ այն դեպքերի համար, երբ մի փոքր այլ բանի կարիք ունես:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">54</context>
@@ -1011,7 +1011,7 @@
       </trans-unit>
       <trans-unit id="f490c7cacf3e1fa529bb8f99fab1255954dbb45e" datatype="html">
         <source>Download, Print and Share</source>
-        <target>Ներբեռնել, տպել եւ կիսել</target>
+        <target>Ներբեռնել, տպել եւ կիսվել</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">58</context>
@@ -1029,7 +1029,7 @@
       </trans-unit>
       <trans-unit id="8a97049f5dbd670dff63c3ef14e37ab5d6f4f3c6" datatype="html">
         <source>Print boards to your preferred paper size, import and export boards in OBF and OBZ formats.</source>
-        <target>Տպել տախտակներ ձեր նախընտրած թղթային չափերին, ներմուծման եւ արտահանման տախտակները OBF եւ OBZ ձեւաչափերով:</target>
+        <target>Տպել տախտակները ձեր նախընտրած թղթային չափերի, ներմուծման եւ արտահանման տախտակներ OBF և OBZ ձեւաչափերով:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">63</context>
@@ -1047,7 +1047,7 @@
       </trans-unit>
       <trans-unit id="961b5cace3a8eb60ee77def7f30bef5a5a3ea0b4" datatype="html">
         <source>BoardBuilder stores everything in your Global Symbols account.</source>
-        <target>BoardBuilder-ը պահում է ամեն ինչ ձեր Global Symbols հաշվի մեջ:</target>
+        <target>BoardBuilder-ը պահում է ամեն ինչ ձեր գլոբալ սիմվոլների հաշվի մեջ:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">71</context>
@@ -1065,7 +1065,7 @@
       </trans-unit>
       <trans-unit id="d85939744060b14face42c9f8ef1baf690b7fafd" datatype="html">
         <source>Symbols</source>
-        <target>Հոմանիշներ</target>
+        <target>Սիմվոլներ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">3</context>
@@ -1075,7 +1075,7 @@
       </trans-unit>
       <trans-unit id="4f836ecb8b48cbd0f18f7f0ed459489599372204" datatype="html">
         <source>My Symbols</source>
-        <target>Իմ խորհրդանիշները</target>
+        <target>Իմ սիմվոլները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">6</context>
@@ -1094,7 +1094,7 @@
       </trans-unit>
       <trans-unit id="207eee6f5c3dcef68b3f8a63551ddfc3a8fd2d87" datatype="html">
         <source>You have not uploaded any images yet.</source>
-        <target>Դուք դեռ ոչ մի պատկեր չեք բեռնել:</target>
+        <target>Դուք դեռ ոչ մի նկար չեք բեռնել:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">9</context>
@@ -1121,7 +1121,7 @@
       </trans-unit>
       <trans-unit id="5828a2e612748b670d4b3588116a0a5480623133" datatype="html">
         <source>Edit Symbol</source>
-        <target>ԶինանշանԽմբագրել</target>
+        <target>Խմբագրել սիմվոլը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">47</context>
@@ -1131,7 +1131,7 @@
       </trans-unit>
       <trans-unit id="50f14f70020fccfe6bda292ffb8e8ebdad82a92c" datatype="html">
         <source>Save to Device</source>
-        <target>Խնայել սարքին</target>
+        <target>Պահել սարքի վար</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">51</context>
@@ -1169,7 +1169,7 @@
       </trans-unit>
       <trans-unit id="b12577537c5870ec34cf98de106eb03f6cf7ef5b" datatype="html">
         <source>Orientation</source>
-        <target>Օրիենտացիա</target>
+        <target>Կողմնորոշում</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">22</context>
@@ -1189,7 +1189,7 @@
       </trans-unit>
       <trans-unit id="f7256aeb69fb71137ff4ae242c10fc4bb1ede629" datatype="html">
         <source>Landscape</source>
-        <target>Լանդշաֆտ</target>
+        <target>Տեսարան</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">25</context>
@@ -1209,7 +1209,7 @@
       </trans-unit>
       <trans-unit id="3bbe4dff805ae04b7115dda73e5b357e2e4ee891" datatype="html">
         <source>Text may shrink to fit available space</source>
-        <target>Տեքստը կարող է փոքրանալ, որպեսզի հարմարվի մատչելի տարածությանը</target>
+        <target>Տեքստը կարող է փոքրանալ, որպեսզի հարմարվի հասանելի տարածությանը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">34</context>
@@ -1253,7 +1253,7 @@
       </trans-unit>
       <trans-unit id="a0cf7197e807c169dd0cc9f7445fd48d02a711c2" datatype="html">
         <source>Add a new Board by importing an Open Board Format (OBF) file.</source>
-        <target>Ավելացնել նոր Board՝ ներմուծելով Open Board Format (OBF) ֆայլը:</target>
+        <target>Ավելացնել նոր տախտակ՝ ներմուծելով Open Board Format (OBF) ֆայլը:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">14</context>
@@ -1337,7 +1337,7 @@
       </trans-unit>
       <trans-unit id="3eed83da952c43b967917087d8dfa141305e10ce" datatype="html">
         <source>Create Board Set from OBZ File</source>
-        <target>Ստեղծեք Board Set-ը OBZ ֆայլից</target>
+        <target>Ստեղծեք նկարների տախտակ OBZ ֆայլից</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -1346,7 +1346,7 @@
       </trans-unit>
       <trans-unit id="e8b15f4bd5c47083e17a1f529c0230fe8db4a29f" datatype="html">
         <source>This will create a Board Set from an Open Board Format Collection (OBZ) file that you upload.</source>
-        <target>Սա կստեղծի Board Set-ը Open Board Format Collection (OBZ) ֆայլից, որը դուք վերբեռնում եք:</target>
+        <target>Սա կստեղծի նկարների տախտակ OBZ ֆայլից, որը դուք վերբեռնում եք:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">14</context>
@@ -1399,7 +1399,7 @@
       </trans-unit>
       <trans-unit id="f4aa5f08d3d1742455524efde60c55b06236b479" datatype="html">
         <source>Add Board Set</source>
-        <target>Ավելացնել Board Set</target>
+        <target>Ավելացնել նկարների տախտակ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">34</context>
@@ -1409,7 +1409,7 @@
       </trans-unit>
       <trans-unit id="104145858fd98b81923ca67d102a80be5c750074" datatype="html">
         <source>Select Image</source>
-        <target>Ընտրեք պատկերը</target>
+        <target>Ընտրեք նկարը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -1418,7 +1418,7 @@
       </trans-unit>
       <trans-unit id="7a174c266fd0587eb20f5fed9087a1e3e165b096" datatype="html">
         <source>Clear Image</source>
-        <target>Հստակ պատկեր</target>
+        <target>Մաքրել նկարը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
           <context context-type="linenumber">12,13</context>
@@ -1437,7 +1437,7 @@
       </trans-unit>
       <trans-unit id="5cb171ddb22793f7497094daa9d53ba3e78a39d6" datatype="html">
         <source>First Board</source>
-        <target>Առաջին բուհ</target>
+        <target>Առաջին տախտակ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">5</context>
@@ -1456,7 +1456,7 @@
       </trans-unit>
       <trans-unit id="94d9d1f2a07f7532dbcdd759a293c40f23670067" datatype="html">
         <source>Choose a name for the first Board in your new Board Set.</source>
-        <target>Ընտրեք անունը առաջին Board-ի համար ձեր նոր Board Set-ում:</target>
+        <target>Ընտրեք անունը առաջին տախտակի համար ձեր նոր նկարների տախտակում:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">11</context>
@@ -1465,7 +1465,7 @@
       </trans-unit>
       <trans-unit id="751d545c485a7b14ce9b4afaf2644c6ec48b3d2e" datatype="html">
         <source>First Board</source>
-        <target>Առաջին բուհ</target>
+        <target>Առաջին տախտակ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">17</context>
@@ -1483,7 +1483,7 @@
       </trans-unit>
       <trans-unit id="7a3111a61eca14f3b284d2a2d1a2b65d278445f6" datatype="html">
         <source>Optional. Shown in PDFs made from this Board.</source>
-        <target>Ընտրանքային: Ներկայացված է այս Board-ից պատրաստված PDF-ներում:</target>
+        <target state="needs-translation">Ընտրանքային: Տախտակների պարունակությունից PDF ֆորմատի ֆայլերի արտածում</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">23</context>
@@ -1493,7 +1493,7 @@
       </trans-unit>
       <trans-unit id="785fb65be4f15d2392d38d08255a18ba3688f153" datatype="html">
         <source>Layout</source>
-        <target>Հատակագիծ</target>
+        <target>դասավորություն</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">29</context>
@@ -1502,7 +1502,7 @@
       </trans-unit>
       <trans-unit id="2e24e22d22570663b7e019c5c2fb11d9821590a1" datatype="html">
         <source>Generic Templates</source>
-        <target>Գեներատոր Տեմպլատներ</target>
+        <target>ընդհանուր ձևաթուղթ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">32</context>
@@ -1511,7 +1511,7 @@
       </trans-unit>
       <trans-unit id="b4e4539a8e3c38130e55f0a2eaf7b347dfec236c" datatype="html">
         <source>Custom Settings</source>
-        <target>Cilësimet e personalizuara</target>
+        <target>Ընտրողական կարգավորումներ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">52</context>
@@ -1547,7 +1547,7 @@
       </trans-unit>
       <trans-unit id="d2f50fea8132ce64ece09a00e5e1519371026276" datatype="html">
         <source>Top</source>
-        <target>Թոփ</target>
+        <target>Վերև</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">86</context>
@@ -1557,7 +1557,7 @@
       </trans-unit>
       <trans-unit id="35dbf9218f688f2c3641914191e698da1da53e2a" datatype="html">
         <source>Bottom</source>
-        <target>Ստորոգություն</target>
+        <target>Ներքև</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">87</context>
@@ -1597,7 +1597,7 @@
       </trans-unit>
       <trans-unit id="001f8430a95b26e1ffd9131221367e6edcc3d953" datatype="html">
         <source>Sets where text appears in each cell, relative to the image.</source>
-        <target>Սահմանում է, թե յուրաքանչյուր բջջում որտեղ է հայտնվում տեքստը՝ պատկերի հետ համեմատած:</target>
+        <target state="needs-translation">Հավաքածուները, որտեղ տեքստը երևում է նկարին համապատասխան յուրաքանչյուր բջջում</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">92</context>
@@ -1624,7 +1624,7 @@
       </trans-unit>
       <trans-unit id="7fa36bfe1fd472ba07a1313fd7bdb59663418bca" datatype="html">
         <source>Copy this Board Set?</source>
-        <target>Պատճենեք այս Board Set?</target>
+        <target state="needs-translation">Պատճենեք այս նկարների հավաքածուն</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
           <context context-type="linenumber">9</context>
@@ -1716,7 +1716,7 @@
       </trans-unit>
       <trans-unit id="a28e59ede9e61da68525795b0873c34b07d71a19" datatype="html">
         <source>Loading</source>
-        <target>Բեռնաթափում</target>
+        <target>Բեռնել</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/loading-notice/loading-notice.component.html</context>
           <context context-type="linenumber">12</context>
@@ -1734,7 +1734,7 @@
       </trans-unit>
       <trans-unit id="21166f9d873cc51afa1a82a9f15304b94a4a1b59" datatype="html">
         <source>Drop an image file here</source>
-        <target>Նետեք պատկերի ֆայլը այստեղ</target>
+        <target>Տեղադրել նկարի ֆայլը այստեղ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
           <context context-type="linenumber">9</context>
@@ -1789,7 +1789,7 @@
       </trans-unit>
       <trans-unit id="f776a9c64fe5aed9b719f5d65db61d22b213b1ef" datatype="html">
         <source>We couldn't load your images because of a technical issue.</source>
-        <target>Տեխնիկական խնդրի պատճառով մենք չէինք կարող բեռնել ձեր պատկերները:</target>
+        <target state="needs-translation">Տեխնիկական խնդրի պատճառով մենք չկարողացանք բեռնել ձեր նկարները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
           <context context-type="linenumber">40,41</context>
@@ -1798,7 +1798,7 @@
       </trans-unit>
       <trans-unit id="5d31849ab7f426a83e3696a88b7ccc51c409a078" datatype="html">
         <source>Images</source>
-        <target>Պատկերներ</target>
+        <target>Նկարներ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
           <context context-type="linenumber">65</context>
@@ -1817,7 +1817,7 @@
       </trans-unit>
       <trans-unit id="f39db9a38ff38a5b01f9bd5008e77d7ee82b86b5" datatype="html">
         <source>Search In</source>
-        <target>Որոնել In</target>
+        <target>Որոնել</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
           <context context-type="linenumber">8</context>
@@ -1826,7 +1826,7 @@
       </trans-unit>
       <trans-unit id="b60810a36a2e077267c01933f5009224109bc023" datatype="html">
         <source>Symbol Set</source>
-        <target>Խորհրդանիշի սեթ</target>
+        <target>սիմվոլների հավաքածու</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
           <context context-type="linenumber">17</context>
@@ -1835,7 +1835,7 @@
       </trans-unit>
       <trans-unit id="0194d33c070e8d957a16480c67c3c1d2445fa380" datatype="html">
         <source>All Symbol Sets</source>
-        <target>Բոլոր սիմվոլները սեթեր</target>
+        <target>Բոլոր սիմվոլների հավաքածուները</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
           <context context-type="linenumber">19</context>
@@ -1853,7 +1853,7 @@
       </trans-unit>
       <trans-unit id="1369b5a28b0215ef5b46c4eccb69868faa6188ec" datatype="html">
         <source>We couldn't find any symbols.</source>
-        <target>Ոչ մի խորհրդանիշ չկարողացանք գտնել:</target>
+        <target>Ոչ մի սիմվոլ չկարողացանք գտնել:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
           <context context-type="linenumber">51</context>
@@ -1881,7 +1881,7 @@
       </trans-unit>
       <trans-unit id="be96de1c6a272d7be04581f1f329f4837376cd1b" datatype="html">
         <source>Discard</source>
-        <target>Դիսքարդ</target>
+        <target>Չեղարկել</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
           <context context-type="linenumber">11</context>
@@ -1891,7 +1891,7 @@
       </trans-unit>
       <trans-unit id="3f5a652a1f473f4e243e3c6805ef1b383e270bb7" datatype="html">
         <source>Discard</source>
-        <target>Դիսքարդ</target>
+        <target>Չեղարկել</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
           <context context-type="linenumber">11</context>
@@ -1900,7 +1900,7 @@
       </trans-unit>
       <trans-unit id="601d570d1dff9928b512d9e27c00bd9caeb892c9" datatype="html">
         <source>Saving</source>
-        <target>Խնայողություն</target>
+        <target>Պահպանել</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">2</context>
@@ -1910,7 +1910,7 @@
       </trans-unit>
       <trans-unit id="3ccd80ac2bcdda24655222d1ee56a83048185ded" datatype="html">
         <source>There was a problem saving your symbol</source>
-        <target>Խնդիր կար ձեր խորհրդանիշը փրկելու համար</target>
+        <target>Ձեր սիմվոլների պահպանման պրոցեսում կա խնդիր</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">5</context>
@@ -1919,7 +1919,7 @@
       </trans-unit>
       <trans-unit id="4fa96cbe8aae4f2b5b430bb18dd6efe76a70a342" datatype="html">
         <source>Continue Editing</source>
-        <target>ՇարունակությունԽմբագրել</target>
+        <target>Շարունակել խմբագրել</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">7</context>
@@ -1928,7 +1928,7 @@
       </trans-unit>
       <trans-unit id="c889f6fdcba885f3d7302542962196be7a9d015c" datatype="html">
         <source>Save Symbol to Device</source>
-        <target>Պահպանել սիմվոլը սարքին</target>
+        <target>Պահպանել սիմվոլը սարքի վրա</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">17</context>
@@ -1942,7 +1942,7 @@
       </trans-unit>
       <trans-unit id="c0981a10cabc8e33facd2280c3598196156b9ce1" datatype="html">
         <source>align horizontal centre|Align to Horizontal Centre</source>
-        <target>դասավորել հորիզոնական կենտրոնը| Align դեպի հորիզոնական կենտրոն</target>
+        <target>Հավասարեցնել հորիզոնական կենտրոնին</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">27</context>
@@ -1956,7 +1956,7 @@
       </trans-unit>
       <trans-unit id="fb26eef7b92ed07635820989e45268528e0fd092" datatype="html">
         <source>Align to Vertical Centre</source>
-        <target>Rreshto në qendrën vertikale</target>
+        <target>Հավասարեցնել ուղղահայաց կենտրոնին</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">34</context>
@@ -1970,7 +1970,7 @@
       </trans-unit>
       <trans-unit id="db1c1a27cd80c4154e13571df787ec8046e5080b" datatype="html">
         <source>Flip Horizontal</source>
-        <target>Ֆլիպ հորիզոնական</target>
+        <target>Արտապատկերել հորիզոնական</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">41</context>
@@ -1984,7 +1984,7 @@
       </trans-unit>
       <trans-unit id="224f1bb5060a477f9feef9daa6a98f490a601d28" datatype="html">
         <source>Flip Vertical</source>
-        <target>Ֆլիպ Ուռենու</target>
+        <target>Արտապատկերել ուղղահայաց</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">48</context>
@@ -2012,7 +2012,7 @@
       </trans-unit>
       <trans-unit id="82623cc63666119b0c881a9329d26e2c8f3ab6d0" datatype="html">
         <source>Duplicate Selected</source>
-        <target>Ընտրված կրկնօրինակ</target>
+        <target>Ընտրածի կրկնօրինակում</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">62</context>
@@ -2026,7 +2026,7 @@
       </trans-unit>
       <trans-unit id="595361b065fc7a26fb217833a6737f99f711e4e4" datatype="html">
         <source>Delete Selected</source>
-        <target>Ջնջել ընտրված</target>
+        <target>Ջնջել ընտրվածը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">69</context>
@@ -2040,7 +2040,7 @@
       </trans-unit>
       <trans-unit id="ccef2647e0c3cc3f168a160b01d51bb6640ea950" datatype="html">
         <source>Add Image</source>
-        <target>Ավելացնել պատկերը</target>
+        <target>Ավելացնել նկար</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">85</context>
@@ -2054,7 +2054,7 @@
       </trans-unit>
       <trans-unit id="d9b8fc8a6382900840697db235bfe0934240b9e5" datatype="html">
         <source>Add Text Box</source>
-        <target>Ավելացնել տեքստային տուփ</target>
+        <target>Ավելացնել տեքստ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">92</context>
@@ -2068,7 +2068,7 @@
       </trans-unit>
       <trans-unit id="0d24f6f1a191c00fa9e313756f7c2ddfa41551e4" datatype="html">
         <source>Add Circle</source>
-        <target>Ավելացնել շրջանագիծը</target>
+        <target>Ավելացնել շրջան</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">99</context>
@@ -2096,7 +2096,7 @@
       </trans-unit>
       <trans-unit id="1f17b051e6a7071342d6ed7ffa538d8a11e85715" datatype="html">
         <source>Add Triangle</source>
-        <target>Ավելացնել եռաժանի</target>
+        <target>Ավելացնել եռանկյունի</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">113</context>
@@ -2124,7 +2124,7 @@
       </trans-unit>
       <trans-unit id="bc0017b8f9e609ea4da58a92d1699377ad60ad2d" datatype="html">
         <source>Add Plus</source>
-        <target>Ավելացնել Plus</target>
+        <target>Ավելացնել գումարած</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">127</context>
@@ -2138,7 +2138,7 @@
       </trans-unit>
       <trans-unit id="55181c2052e8323beaa2a1da866f1753eeeb408e" datatype="html">
         <source>Add Cross</source>
-        <target>Ավելացնել խաչապուրի</target>
+        <target>Ավելացնել խաչ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">134</context>
@@ -2152,7 +2152,7 @@
       </trans-unit>
       <trans-unit id="2b3b69b12a50c7db271449343593018fa55aef2a" datatype="html">
         <source>Add Arrow</source>
-        <target>Ավելացնել arrow</target>
+        <target>Ավելացնել սլաք</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">141</context>
@@ -2166,7 +2166,7 @@
       </trans-unit>
       <trans-unit id="568b891a3af873cc48fa48114013d1a69c15d259" datatype="html">
         <source>Clear Fill</source>
-        <target>Clear Լցոնում</target>
+        <target>Մաքրել ավելացվածը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">161</context>
@@ -2180,7 +2180,7 @@
       </trans-unit>
       <trans-unit id="7c8be2b6dd54cc82bb0174657e0941b190d85e31" datatype="html">
         <source>Clear Outline</source>
-        <target>Հստակ ելակետ</target>
+        <target>Մաքրել ուրվագիծը</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">179</context>
@@ -2214,7 +2214,7 @@
       </trans-unit>
       <trans-unit id="4b166edba60b5b41e31c8afbc426faa798cde621" datatype="html">
         <source>Bold</source>
-        <target>Բոլդ</target>
+        <target>Մուգ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">204</context>
@@ -2224,7 +2224,7 @@
       </trans-unit>
       <trans-unit id="79e721fcd6bd98124348d6187f2e9f719dcdebd3" datatype="html">
         <source>Italic</source>
-        <target>Իտալիկ</target>
+        <target>Շեղ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">208</context>
@@ -2254,7 +2254,7 @@
       </trans-unit>
       <trans-unit id="baff4ff5348fe614a658b631e63378c4d6bcd4c5" datatype="html">
         <source>Save to Device (PNG)</source>
-        <target>Պահել սարքում (PNG)</target>
+        <target>Պահպանել սարքի վրա (PNG)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">238</context>
@@ -2263,12 +2263,178 @@
       </trans-unit>
       <trans-unit id="db80c29a86e3bc282a3a3d81744a24b4a81cbce2" datatype="html">
         <source>Save to Device (SVG, Advanced)</source>
-        <target>Պահել սարքում (SVG, առաջադեմ)</target>
+        <target>Պահպանել սարքի վրա(SVG, Advanced)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">242</context>
         </context-group>
         <note priority="1" from="description">Save to Device (SVG)</note>
+      </trans-unit>
+      <trans-unit id="78fc391f864d3152cf50b5d9503ed6cb15f0c9cc" datatype="html">
+        <source>Advanced Settings</source>
+        <target>Առաջադեմ պարամետրեր</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+        <note priority="1" from="description">Advanced settings indicator</note>
+        <note priority="1" from="meaning">advanced</note>
+      </trans-unit>
+      <trans-unit id="42ad9d8dde56feba181f04c0e60cbe63a745b5f0" datatype="html">
+        <source>Cell Spacing</source>
+        <target>Բջջային սփեյսինգ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Spacing</note>
+        <note priority="1" from="meaning">cell spacing</note>
+      </trans-unit>
+      <trans-unit id="f14a895c0dd586c474d2fcf5229eb738d861a03a" datatype="html">
+        <source>Adjusts spacing between each box</source>
+        <target>Հարմարեցնում է յուրաքանչյուր տուփի միջեւ տարածվող տարածությունը</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Spacing hint</note>
+        <note priority="1" from="meaning">cell spacing hint</note>
+      </trans-unit>
+      <trans-unit id="e73326a1968f1d07238b7edcba05a6c5578edfed" datatype="html">
+        <source>Cell Padding</source>
+        <target>Բջջային պադինգ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Padding</note>
+        <note priority="1" from="meaning">cell padding</note>
+      </trans-unit>
+      <trans-unit id="a0cd510186602b3e9824bcef0f3aeec9954d1d84" datatype="html">
+        <source>Adjusts spacing inside each box</source>
+        <target>Հարմարեցնում է յուրաքանչյուր տուփի ներսում տարածվող տարածությունը</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Padding hint</note>
+        <note priority="1" from="meaning">cell padding hint</note>
+      </trans-unit>
+      <trans-unit id="0fc9a5e20b777def79ca6e44c0da65b34d4d99b6" datatype="html">
+        <source>Image/Label Spacing</source>
+        <target>Պատկերի / պիտակի տարածություն</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Image/Label Spacing</note>
+        <note priority="1" from="meaning">cell image label spacing</note>
+      </trans-unit>
+      <trans-unit id="688f82a4945580aac59f2befecad264a09699d19" datatype="html">
+        <source>Adjusts spacing between the image and label</source>
+        <target>Հարմարեցնում է պատկերի եւ պիտակի միջեւ տարածական կապը</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Image/Label Spacing hint</note>
+        <note priority="1" from="meaning">cell image label spacing hint</note>
+      </trans-unit>
+      <trans-unit id="a4b8cd94deac52d22a5f62383198d0cf6003f168" datatype="html">
+        <source>We can't fit everything on the page with your chosen settings. You can fix this by…</source>
+        <target>Մենք չենք կարող էջի վրա ամեն ինչ տեղավորել Ձեր նախընտրած պարամետրերով: Դուք կարող եք ուղղել սա…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator fit error</note>
+        <note priority="1" from="meaning">pdf error fit help</note>
+      </trans-unit>
+      <trans-unit id="5ef32beb7c848fe5391dd7de9e44b455cb0a7937" datatype="html">
+        <source>Reducing Cell Spacing or Cell Padding by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow / 2}}"/> pt.</source>
+        <target>Բջիջների սպեցիայի կամ բջջային փադինգի նվազեցումը առնվազն <x id="INTERPOLATION" equiv-text="{{apiError.overflow / 2}}"/> pt.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 1</note>
+      </trans-unit>
+      <trans-unit id="bb515aa1a7b7564b6ceec742dc04d4acd5075ee0" datatype="html">
+        <source>Fill</source>
+        <target>Լցոնել</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">159</context>
+        </context-group>
+        <note priority="1" from="description">Fill</note>
+        <note priority="1" from="meaning">fill</note>
+      </trans-unit>
+      <trans-unit id="55d865cea95e40ca4a11aab3a8768e189129f573" datatype="html">
+        <source>Cell Borders</source>
+        <target>Բջջային սահմաններ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">74,75</context>
+        </context-group>
+        <note priority="1" from="description">PDF Cell Draw Borders</note>
+        <note priority="1" from="meaning">cell draw outlines</note>
+      </trans-unit>
+      <trans-unit id="cdb2a3b9b2b717a49b18d822b6903b3622dfe886" datatype="html">
+        <source>Download</source>
+        <target>Ներբեռնել</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">84,85</context>
+        </context-group>
+        <note priority="1" from="description">Download</note>
+        <note priority="1" from="meaning">download</note>
+      </trans-unit>
+      <trans-unit id="aa7ad66f30bf033cd8447e9473b70176d7ba9181" datatype="html">
+        <source>Reset Settings</source>
+        <target>Ռեսեթային պարամետրեր</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+        <note priority="1" from="description">PDF Reset Settings button</note>
+        <note priority="1" from="meaning">pdf reset settings</note>
+      </trans-unit>
+      <trans-unit id="034422a819dc3d4f3fe15107046b750614e07c9a" datatype="html">
+        <source>Reducing Image/Label Spacing by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow}}"/> pt.</source>
+        <target>Պատկերի/Label Spacing-ի նվազեցումը առնվազն <x id="INTERPOLATION" equiv-text="{{apiError.overflow}}"/> pt.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 2</note>
+      </trans-unit>
+      <trans-unit id="6d2300a6dd19811e715ab8975dab499bdf7f07ac" datatype="html">
+        <source>Reducing Text Size by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow}"/> pt. </source>
+        <target>Տեքստի չափի նվազեցում առնվազն <x id="INTERPOLATION" equiv-text="{{apiError.overflow}"/> pt. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">107,109</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 3</note>
+      </trans-unit>
+      <trans-unit id="70cdece93077a48164f650627d97ea14d0369b59" datatype="html">
+        <source>Using a larger Paper Size.</source>
+        <target>Ավելի մեծ թղթե չափի օգտագործում:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <note priority="1" from="description">PDF Generator error suggestion 4</note>
+      </trans-unit>
+      <trans-unit id="bb081b336f4284131447da1748f0129e619cf051" datatype="html">
+        <source>Outline</source>
+        <target>Ելակետ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
+          <context context-type="linenumber">177</context>
+        </context-group>
+        <note priority="1" from="description">Outline</note>
+        <note priority="1" from="meaning">outline</note>
       </trans-unit>
     </body>
   </file>
