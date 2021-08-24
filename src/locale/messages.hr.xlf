@@ -1238,7 +1238,7 @@
       </trans-unit>
       <trans-unit id="f3e09b1fcc5e166aa05679da732ab57339c953bb" datatype="html">
         <source>We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {cell} other {cells}}"/> in your OBF file. </source>
-        <target>Pronašli smo <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> u vašoj OBF datoteci. </target>
+        <target>Pronašli smo <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {cell} other {cells}}"/> u vašoj OBF datoteci. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">29,31</context>

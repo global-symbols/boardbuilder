@@ -184,7 +184,7 @@
       </trans-unit>
       <trans-unit id="582a20a9cc38750cc8694f547146ea8932d93031" datatype="html">
         <source>We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} other {...}}"/> in your OBF file. </source>
-        <target>Am găsit <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ATI" equiv-text="{previewBoard.cells.length, plural, =1 {...} alte {...}}"/> în fișierul OBF. </target>
+        <target>Am găsit <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {...} alte {...}}"/> în fișierul OBF. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">21</context>
@@ -1721,7 +1721,7 @@
       </trans-unit>
       <trans-unit id="f3e09b1fcc5e166aa05679da732ab57339c953bb" datatype="html">
         <source>We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {cell} other {cells}}"/> in your OBF file. </source>
-        <target>Am găsit <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ATI" equiv-text="{previewBoard.cells.length, plural, =1 {...} alte {...}}"/> în fișierul OBF. </target>
+        <target>Am găsit <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {cell} other {cells}}"/> în fișierul OBF. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">29,31</context>
