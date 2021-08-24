@@ -19,7 +19,7 @@ Sentry.init({
 
   // We recommend adjusting this value in production, or using tracesSampler
   // for finer control
-  tracesSampleRate: 1.0,
+  tracesSampleRate: environment.production ? 0.1 : 0,
 
   environment: environment.production ? 'production' : 'development'
 });

@@ -19,17 +19,26 @@
       <mat-icon>help_outline</mat-icon>
     </a>
 
+    <button mat-button mat-icon-button [matMenuTriggerFor]="languageMenu" class="mr-1"
+            matTooltip="Language" i18n-matTooltip="Navbar language button"
+    >
+      <mat-icon>language</mat-icon>
+    </button>
+    <mat-menu #languageMenu="matMenu" xPosition="before">
+      <a mat-menu-item (click)="changeLocale(locale)" *ngFor="let locale of locales">
+        <ng-container>{{locale.name}}</ng-container>
+      </a>
+    </mat-menu>
+
     <a mat-button mat-stroked-button (click)="login()" *ngIf="!(canActivateProtectedRoutes | async)" i18n="sign in|Navbar sign in button">
       Sign In
     </a>
 
     <ng-container *ngIf="canActivateProtectedRoutes | async">
-      <button fxShow.xs fxHide mat-button mat-icon-button [matMenuTriggerFor]="userMenu"
-              matTooltip="Global Symbols Account" i18n-matTooltip="gs account|Navbar GS account button">
+      <button fxShow.xs fxHide mat-button mat-icon-button [matMenuTriggerFor]="userMenu">
         <mat-icon>person</mat-icon>
       </button>
-      <button fxHide.xs mat-stroked-button [matMenuTriggerFor]="userMenu"
-              matTooltip="Global Symbols Account" i18n-matTooltip="gs account|Navbar GS account button" class="user-controls-button">
+      <button fxHide.xs mat-stroked-button [matMenuTriggerFor]="userMenu" class="user-controls-button">
         {{identityClaims.name}}
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
