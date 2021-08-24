@@ -35,6 +35,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {ColorGithubModule} from 'ngx-color/github';
 import {NgxGoogleAnalyticsModule} from 'ngx-google-analytics';
 import {HotkeyModule} from '@conflito/angular2-hotkeys';
+import { AdaptableImageComponent } from './adaptable-image/adaptable-image.component';
 
 export const routes: Routes = [
   {
@@ -55,7 +56,8 @@ export const routes: Routes = [
         BoardTreeComponent,
         BoardDetailComponent,
         BoardEditorDialogComponent,
-        BoardSetEditorDialogComponent
+        BoardSetEditorDialogComponent,
+        AdaptableImageComponent
     ],
   imports: [
     CommonModule,

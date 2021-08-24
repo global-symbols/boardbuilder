@@ -65,7 +65,8 @@ export class GlobalSymbolsService {
       label: result.text,
       tooltip: `${result.text} in ${result.picto.symbolset?.name}`,
       imageUrl: result.picto.image_url,
-      pictoId: result.picto.id
+      pictoId: result.picto.id,
+      picto: result.picto
     }));
   }
 }

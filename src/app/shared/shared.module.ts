@@ -52,19 +52,19 @@ import {NgxGoogleAnalyticsModule} from 'ngx-google-analytics';
     BoardPreviewSvgComponent,
     SymbolCreatorDialogComponent
   ],
-  exports: [
-    ColourSelectorComponent,
-    ConfirmDialogComponent,
-    ErrorNotFoundComponent,
-    LoadingNoticeComponent,
-    MediaLibraryComponent,
-    SearchPanelComponent,
-    SymbolCreatorComponent,
-    BypassSanitiserPipe,
-    BoardEditorFormComponent,
-    StopPropagationDirective,
-    BoardPreviewSvgComponent
-  ],
+    exports: [
+        ColourSelectorComponent,
+        ConfirmDialogComponent,
+        ErrorNotFoundComponent,
+        LoadingNoticeComponent,
+        MediaLibraryComponent,
+        SearchPanelComponent,
+        SymbolCreatorComponent,
+        BypassSanitiserPipe,
+        BoardEditorFormComponent,
+        StopPropagationDirective,
+        BoardPreviewSvgComponent
+    ],
   imports: [
     CommonModule,
     MatExpansionModule,

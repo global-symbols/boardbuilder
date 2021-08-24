@@ -14,6 +14,6 @@
     </div>
   </mat-expansion-panel-header>
 
-  <color-github [color]="value" [colors]="newColours" [width]="width" triangle="hide" (onChange)="selectColour($event.color.hex)"></color-github>
+  <color-github [class]="'github-swatch-'+colours.length/2" [color]="value" [colors]="colours" [width]="width" triangle="hide" (onChange)="selectColour($event.color.hex)"></color-github>
 
 </mat-expansion-panel>

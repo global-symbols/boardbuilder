@@ -32,6 +32,10 @@
         </app-colour-selector>
         <app-colour-selector i18n-label width="302" label="Text" [(value)]="cell.text_colour" (valueChange)="saveCell()" icon="format_color_text">
         </app-colour-selector>
+        <app-colour-selector i18n-label width="302" label="Hair" [(value)]="cell.hair_colour" (valueChange)="saveCell()" icon="face" palette="hair" *ngIf="cell.picto?.adaptable">
+        </app-colour-selector>
+        <app-colour-selector i18n-label width="302" label="Skin" [(value)]="cell.skin_colour" (valueChange)="saveCell()" icon="insert_emoticon" palette="skin" *ngIf="cell.picto?.adaptable">
+        </app-colour-selector>
       </mat-accordion>
 
       <h3 i18n="linking|Cell Editor linking heading">Linking</h3>

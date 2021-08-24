@@ -1,0 +1,16 @@
+::ng-deep {
+  img, svg {
+    height: 8rem;
+  }
+
+  // Directs adaptable SVGs to use CSS variables for hair and skin fills when the .aac-{hair|skin}-fill-active class is set.
+  .aac-hair-fill-active svg .aac-hair-fill {
+    fill: var(--hair-fill) !important;
+  }
+
+  .aac-skin-fill-active svg .aac-skin-fill {
+    fill: var(--skin-fill) !important;
+  }
+}
+
+

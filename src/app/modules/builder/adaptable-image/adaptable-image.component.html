@@ -1,0 +1,9 @@
+<img [src]="imageUrl" *ngIf="!adaptable" />
+
+<div *ngIf="adaptable"
+     [innerHTML]="svgData"
+     [style.--hair-fill]="cell.hair_colour || null"
+     [style.--skin-fill]="cell.skin_colour || null"
+     [class.aac-hair-fill-active]="!!cell.hair_colour"
+     [class.aac-skin-fill-active]="!!cell.skin_colour"
+></div>

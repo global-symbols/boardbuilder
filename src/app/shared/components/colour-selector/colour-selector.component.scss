@@ -34,15 +34,23 @@ color-github {
   box-shadow: none !important;
   padding: 0 !important;
 }
-::ng-deep .colour-selector color-github-swatch {
+
+::ng-deep .colour-selector .github-swatch-10 color-github-swatch {
   height: calc(100% / 10) !important;
   width: calc(100% / 10) !important;
+}
+
+::ng-deep .colour-selector .github-swatch-9 color-github-swatch {
+  height: calc(100% / 9) !important;
+  width: calc(100% / 9) !important;
+}
+
+::ng-deep .colour-selector .github-swatch-6 color-github-swatch {
+  height: calc(100% / 6) !important;
+  width: calc(100% / 6) !important;
 }
 
 ::ng-deep .colour-selector .github-swatch {
   width: 100% !important;
   height: ($editor-width/10) !important;
-  //width: ($editor-width/10) !important;
-  //height: calc(100% / 10) !important;
-  //width: calc(100% / 10) !important;
 }

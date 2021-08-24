@@ -2,6 +2,7 @@ import {Deserialisable} from './deserialisable.model';
 import {Board} from './board.model';
 import {Record} from '@data/models/record';
 import {Media} from '@data/models/media.model';
+import {Picto} from '@data/models/picto';
 
 export class Cell extends Record implements Deserialisable {
     id: number;
@@ -11,6 +12,7 @@ export class Cell extends Record implements Deserialisable {
     picto_id: number;
     board?: Board;
     media?: Media;
+    picto?: Picto;
     linkable_boards?: Board[];
     image_url?: string;
     imageData?: string;
@@ -19,6 +21,10 @@ export class Cell extends Record implements Deserialisable {
     background_colour: string;
     border_colour: string;
     text_colour: string;
+    hair_colour: string;
+    skin_colour: string;
+
+    adaptable: boolean;
 
     constructor(init?: Partial<Cell>) {
       super();

@@ -10,7 +10,7 @@ import {MediaService} from '@data/services/media.service';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {DialogService} from '@app/services/dialog.service';
-import {colourPickerColours} from '@data/colour-picker-colours';
+import {palettes} from '@data/colour-picker-colours';
 
 export enum SymbolCreatorState {
   Loading = 'Loading',
@@ -26,7 +26,7 @@ export enum SymbolCreatorState {
 })
 export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
-  pickerColours = colourPickerColours;
+  pickerColours = palettes.regular;
 
   private defaultColour = 'black';
 

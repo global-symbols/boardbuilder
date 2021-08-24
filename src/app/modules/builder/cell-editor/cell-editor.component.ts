@@ -10,7 +10,7 @@ import {CellService} from '@data/services/cell.service';
 import {Media} from '@data/models/media.model';
 import {SearchPanelComponent} from '@shared/components/search-panel/search-panel.component';
 import {SymbolSearchResult} from '@data/models/symbol-search-result';
-import {colourPickerColours} from '@data/colour-picker-colours';
+import {palettes} from '@data/colour-picker-colours';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -40,7 +40,7 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     private cellService: CellService,
     private boardService: BoardService
   ) {
-    this.colourPickerColours = colourPickerColours;
+    this.colourPickerColours = palettes.regular;
   }
 
   // Save the Cell to the API when the component is destroyed
@@ -100,6 +100,7 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     this.cell.media_id = null;
     this.cell.image_url = result.imageUrl;
     this.cell.picto_id = result.pictoId;
+    this.cell.picto = result.picto;
 
     this.saveCell();
   }
@@ -115,10 +116,18 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
       this.cell.background_colour = null;
       this.cell.border_colour = null;
       this.cell.text_colour = null;
+      this.cell.hair_colour = null;
+      this.cell.skin_colour = null;
     }
 
     if (!subject || subject === 'symbol') {
       this.cell.image_url = null;
+      this.cell.media_id = null;
+      this.cell.picto_id = null;
+      this.cell.media = null;
+      this.cell.picto = null;
+      this.cell.hair_colour = null;
+      this.cell.skin_colour = null;
     }
 
     if (!subject || subject === 'caption') {
