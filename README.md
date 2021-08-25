@@ -13,17 +13,22 @@ To do this, ensure <img> tags have the crossorigin="" attribute.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Deploy to app.globalsymbols.com
+## Deployment 
+### Deploy to app.globalsymbols.com
 `firebase deploy`
 
-## Deploy to app-dev.globalsymbols.com
+### Deploy to app-dev.globalsymbols.com
 `ng deploy`
 
-## Deploy preview to Firebase
+### Deploy preview to Firebase
 `firebase hosting:channel:deploy preview_name`
 
-## Deploy i18n to Ionos
+### Deploy i18n to Ionos
 `scp -r dist/boardbuilder/* u97814378@access789453002.webspace-data.io:~/app.globalsymbols.com`
+
+## Adding a new language
+1. Add the language to availableLocales() in the LocaleService.
+2. Add the language URL to the list of allowed callback URLs in Doorkeeper, at https://globalsymbols.com/oauth/applications/1
 
 ## Code scaffolding
 

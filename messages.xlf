@@ -1,7 +1,126 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-GB" datatype="plaintext" original="ng2.template">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="5866254605255506989" datatype="html">
+        <source>English</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3240286309607544294" datatype="html">
+        <source>Albanian</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6269202464699193298" datatype="html">
+        <source>Arabic</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5291732135518533248" datatype="html">
+        <source>Armenian</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6821856961727142928" datatype="html">
+        <source>Bulgarian</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1001043467371963032" datatype="html">
+        <source>Catalan</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4825433858141848865" datatype="html">
+        <source>Croatian</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3071065188816255493" datatype="html">
+        <source>Dutch</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7633754075223722162" datatype="html">
+        <source>French</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1858110241312746425" datatype="html">
+        <source>German</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7067741492320440272" datatype="html">
+        <source>Greek</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8118856427047826368" datatype="html">
+        <source>Romanian</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2165308594480680011" datatype="html">
+        <source>Serbian (Cyrillic)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8656859020528198426" datatype="html">
+        <source>Serbian (Latin)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5190825892106392539" datatype="html">
+        <source>Spanish</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5682359291233237791" datatype="html">
+        <source>Turkish</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9066302852705897438" datatype="html">
+        <source>Urdu (Pakistan)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="4a5dd67fea75d684f53861b3b6fa41ee5895c8e4" datatype="html">
         <source>Help and Resources</source>
         <context-group purpose="location">
@@ -10,33 +129,32 @@
         </context-group>
         <note priority="1" from="description">Navbar help button</note>
       </trans-unit>
+      <trans-unit id="fe46ccaae902ce974e2441abe752399288298619" datatype="html">
+        <source>Language</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">Navbar language button</note>
+      </trans-unit>
       <trans-unit id="6a91d8aef5a44d59d06eadd4e26f2f1a5971feeb" datatype="html">
         <source> Sign In </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
-          <context context-type="linenumber">23,24</context>
+          <context context-type="linenumber">34,35</context>
         </context-group>
         <note priority="1" from="description">Navbar sign in button</note>
         <note priority="1" from="meaning">sign in</note>
-      </trans-unit>
-      <trans-unit id="eaa79962a697893e9d0102705e9897db246a02b5" datatype="html">
-        <source>Global Symbols Account</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
-          <context context-type="linenumber">28</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-        <note priority="1" from="description">Navbar GS account button</note>
-        <note priority="1" from="meaning">gs account</note>
       </trans-unit>
       <trans-unit id="681d0d8af12f8bebce882805c5dd105f0032f525" datatype="html">
         <source>Board Sets</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">48</context>
         </context-group>
         <note priority="1" from="description">Navbar dropdown Board Sets button</note>
       </trans-unit>
@@ -44,7 +162,7 @@
         <source>Symbols</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">52</context>
         </context-group>
         <note priority="1" from="description">Navbar dropdown Symbols button</note>
       </trans-unit>
@@ -52,7 +170,7 @@
         <source>Manage Account</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">56</context>
         </context-group>
         <note priority="1" from="description">Navbar dropdown Manage Account button</note>
         <note priority="1" from="meaning">manage account</note>
@@ -61,7 +179,7 @@
         <source>Sign Out</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">61</context>
         </context-group>
         <note priority="1" from="description">Navbar dropdown Sign Out button</note>
         <note priority="1" from="meaning">sign out</note>
@@ -336,11 +454,11 @@
         <source>Go to Linked Board</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">56</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">82</context>
         </context-group>
         <note priority="1" from="description">Board Cell Go to Linked Board button</note>
         <note priority="1" from="meaning">go to linked board</note>
@@ -613,11 +731,25 @@
           <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="53143171341853f7dad63f659c9972504eba6b07" datatype="html">
+        <source>Hair</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="32c15c25315b563bcd2f928f954ffb578b3edc0a" datatype="html">
+        <source>Skin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="96959b5a7035287ae015f17590f6fa10b455817b" datatype="html">
         <source>Linking</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">41</context>
         </context-group>
         <note priority="1" from="description">Cell Editor linking heading</note>
         <note priority="1" from="meaning">linking</note>
@@ -626,7 +758,7 @@
         <source>Linked to</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">45</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Board linked to header</note>
         <note priority="1" from="meaning">linked to</note>
@@ -635,11 +767,11 @@
         <source>Unlink</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">47</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">48</context>
         </context-group>
         <note priority="1" from="description">Unlink</note>
         <note priority="1" from="meaning">unlink</note>
@@ -648,7 +780,7 @@
         <source>Link to a Board</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">59</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Link Board button</note>
       </trans-unit>
@@ -656,7 +788,7 @@
         <source>This list shows only unlinked Boards.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">63</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Link Board hint</note>
       </trans-unit>
@@ -664,7 +796,7 @@
         <source>No Boards are available for linking.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">70</context>
         </context-group>
         <note priority="1" from="description">Cell Editor no Board to link 1</note>
       </trans-unit>
@@ -672,7 +804,7 @@
         <source>Unlink an existing Board, or create a new one.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">72</context>
         </context-group>
         <note priority="1" from="description">Cell Editor no Board to link 2</note>
       </trans-unit>
@@ -680,16 +812,24 @@
         <source>Linkable Boards</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">74</context>
+          <context context-type="linenumber">78</context>
         </context-group>
         <note priority="1" from="description">Linkable boards</note>
         <note priority="1" from="meaning">linkable boards</note>
+      </trans-unit>
+      <trans-unit id="c93efeeaaf173761ebfc813c3ceb7250cf72e203" datatype="html">
+        <source>Move Cell</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <note priority="1" from="description">Cell editor Move Cell heading</note>
       </trans-unit>
       <trans-unit id="68e2f7a8d086f691a6a1f618deba859b7833c826" datatype="html">
         <source>Move Earlier</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">88</context>
+          <context context-type="linenumber">92</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Move Earlier button</note>
       </trans-unit>
@@ -697,7 +837,7 @@
         <source>Move Later</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">97</context>
+          <context context-type="linenumber">101</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Move Later button</note>
       </trans-unit>
@@ -705,7 +845,7 @@
         <source>Reset Cell Contents</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">104</context>
+          <context context-type="linenumber">108</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Reset Cell button</note>
       </trans-unit>
@@ -713,7 +853,7 @@
         <source>Clear Symbol</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">107</context>
+          <context context-type="linenumber">111</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Clear Symbol button</note>
       </trans-unit>
@@ -721,7 +861,7 @@
         <source>Clear Colours</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">112</context>
+          <context context-type="linenumber">116</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Clear Colours button</note>
       </trans-unit>
@@ -729,7 +869,7 @@
         <source>Symbol</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">118</context>
+          <context context-type="linenumber">122</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
@@ -746,7 +886,7 @@
         <source>My Images</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">124</context>
+          <context context-type="linenumber">128</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
@@ -1783,14 +1923,6 @@
           <context context-type="linenumber">19</context>
         </context-group>
         <note priority="1" from="description">Symbol Search symbol set &apos;all&apos; option</note>
-      </trans-unit>
-      <trans-unit id="fe46ccaae902ce974e2441abe752399288298619" datatype="html">
-        <source>Language</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-        <note priority="1" from="description">Symbol Search language input label</note>
       </trans-unit>
       <trans-unit id="1369b5a28b0215ef5b46c4eccb69868faa6188ec" datatype="html">
         <source>We couldn&apos;t find any symbols.</source>

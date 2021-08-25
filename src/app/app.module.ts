@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {APP_INITIALIZER, ErrorHandler, LOCALE_ID, NgModule} from '@angular/core';
+import {APP_INITIALIZER, ErrorHandler, NgModule} from '@angular/core';
 
 import {CommonModule, registerLocaleData} from '@angular/common';
 import {AppComponent} from './app.component';

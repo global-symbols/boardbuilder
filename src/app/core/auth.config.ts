@@ -11,7 +11,7 @@ export const authConfig: AuthConfig = {
   // revocationEndpoint: 'http://localhost:3000/oauth/revoke',
 
   // URL of the SPA to redirect the user to after login
-  redirectUri: window.location.origin + '/' + LOCALE_ID,
+  redirectUri: document.baseURI,
 
   // The SPA's id. The SPA is registerd with this id at the auth-server
   // clientId: 'server.code',
@@ -42,7 +42,8 @@ export const authConfig: AuthConfig = {
   // Silently refresh tokens when they are close to expiry.
   // See https://manfredsteyer.github.io/angular-oauth2-oidc/docs/additional-documentation/refreshing-a-token-(silent-refresh).html
   useSilentRefresh: true,
-  silentRefreshRedirectUri: window.location.origin + '/' + LOCALE_ID + '/silent-refresh.html',
+  // silentRefreshRedirectUri: window.location.origin + '/' + LOCALE_ID + '/silent-refresh.html',
+  silentRefreshRedirectUri: document.baseURI + 'silent-refresh.html',
 
   // When a silent refresh fails, the service will wait this many seconds before trying again. Milliseconds. Defaults to 20 seconds.
   // silentRefreshTimeout: 20000,
