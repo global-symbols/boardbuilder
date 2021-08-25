@@ -2855,6 +2855,167 @@
         <note priority="1" from="description">Download</note>
         <note priority="1" from="meaning">download</note>
       </trans-unit>
+      <trans-unit id="5866254605255506989" datatype="html">
+        <source>English</source>
+        <target>Английски</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3240286309607544294" datatype="html">
+        <source>Albanian</source>
+        <target>Албански</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6269202464699193298" datatype="html">
+        <source>Arabic</source>
+        <target>Арабски</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5291732135518533248" datatype="html">
+        <source>Armenian</source>
+        <target>Арменски</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6821856961727142928" datatype="html">
+        <source>Bulgarian</source>
+        <target>Български</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1001043467371963032" datatype="html">
+        <source>Catalan</source>
+        <target>Каталонски</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4825433858141848865" datatype="html">
+        <source>Croatian</source>
+        <target>Хърватски</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3071065188816255493" datatype="html">
+        <source>Dutch</source>
+        <target>Холандски</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7633754075223722162" datatype="html">
+        <source>French</source>
+        <target>Френски</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1858110241312746425" datatype="html">
+        <source>German</source>
+        <target>Немски</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7067741492320440272" datatype="html">
+        <source>Greek</source>
+        <target>Гръцки</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8118856427047826368" datatype="html">
+        <source>Romanian</source>
+        <target>Румънски</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2165308594480680011" datatype="html">
+        <source>Serbian (Cyrillic)</source>
+        <target>Сръбски (кирилица)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8656859020528198426" datatype="html">
+        <source>Serbian (Latin)</source>
+        <target>Сръбски (латиница)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5190825892106392539" datatype="html">
+        <source>Spanish</source>
+        <target>Испански</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5682359291233237791" datatype="html">
+        <source>Turkish</source>
+        <target>Турски</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9066302852705897438" datatype="html">
+        <source>Urdu (Pakistan)</source>
+        <target>Урду (Пакистан)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="53143171341853f7dad63f659c9972504eba6b07" datatype="html">
+        <source>Hair</source>
+        <target>Коса</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="32c15c25315b563bcd2f928f954ffb578b3edc0a" datatype="html">
+        <source>Skin</source>
+        <target>Кожа</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c93efeeaaf173761ebfc813c3ceb7250cf72e203" datatype="html">
+        <source>Move Cell</source>
+        <target>Преместване на клетката</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <note priority="1" from="description">Cell editor Move Cell heading</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
