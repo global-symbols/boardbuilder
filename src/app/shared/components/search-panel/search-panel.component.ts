@@ -67,8 +67,8 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
     );
     this.globalSymbolsService.getSymbolSets().subscribe(
       ss => this.gsParams.symbolset.groups = [
-        { name: 'Core Sets', options: ss.filter(q => q.featured_level)},
-        { name: 'Other Sets', options: ss.filter(q => !q.featured_level)},
+        { name: $localize`Core Sets`, options: ss.filter(q => q.featured_level)},
+        { name: $localize`Other Sets`, options: ss.filter(q => !q.featured_level)},
       ]
     );
 

@@ -29,3 +29,10 @@
     color: #666;
   }
 }
+
+::ng-deep app-search-panel .mat-badge-content {
+  font-family: 'Material Icons';
+  background: white !important;
+  color: #1B6BB5 !important;
+  font-size: 19px;
+}

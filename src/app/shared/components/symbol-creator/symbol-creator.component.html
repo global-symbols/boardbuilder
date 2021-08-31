@@ -38,7 +38,7 @@
         </button>
 
         <button mat-icon-button
-                aria-label="Flip Horizontal" matTooltip="Flip Horizontal"
+                aria-label="Flip Horizontal" matTooltip="Flip Horizontal" color="primary"
                 i18n-aria-label="flip horizontal|Flip Horizontal" i18n-matTooltip="flip horizontal|Flip Horizontal"
                 gaEvent="click" gaLabel="FlipHorizontal">
           <mat-icon>flip</mat-icon>
@@ -154,9 +154,9 @@
 
   <!-- Properties -->
   <div fxFlex="33">
-      <div *ngIf="selectedElement?.fill">
+      <div *ngIf="selectedElement?.fill" class="mb-2">
           <div fxLayout="row" fxLayoutAlign="space-between center">
-            <h2 i18n="fill|Fill">Fill</h2>
+            <strong i18n="fill|Fill">Fill</strong>
             <button mat-icon-button *ngIf="selectedElement?.fill !== 'transparent'"
                     aria-label="Clear Fill" matTooltip="Clear Fill" matTooltipPosition="left"
                     i18n-aria-label="clear fill|Clear Fill" i18n-matTooltip="clear fill|Clear Fill"
@@ -171,10 +171,10 @@
                         (onChange)="setProperty('fill', $event.color.hex)"></color-github>
 
     </div>
-      <div *ngIf="selectedElement?.stroke">
+      <div *ngIf="selectedElement?.stroke" class="mb-2">
 
         <div fxLayout="row" fxLayoutAlign="space-between center">
-          <h2 i18n="outline|Outline">Outline</h2>
+          <strong i18n="outline|Outline">Outline</strong>
           <button mat-icon-button *ngIf="selectedElement?.stroke !== 'transparent'"
                   aria-label="Clear Outline" matTooltip="Clear Outline" matTooltipPosition="left"
                   i18n-aria-label="clear outline|Clear Outline" i18n-matTooltip="clear outline|Clear Outline"
@@ -188,7 +188,7 @@
                       [color]="selectedElement?.stroke" [colors]="pickerColours" [width]="238" triangle="hide"
                       (onChange)="setProperty('stroke', $event.color.hex)"></color-github>
 
-        <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-2">
           <mat-label  fxFlex="30" i18n="thickness|Thickness">Thickness</mat-label>
           <mat-slider fxFlex="70"  [(ngModel)]="selectedElement.strokeWidth" min="0" max="10"
                     [step]="1"
@@ -198,8 +198,8 @@
 
       </div>
       <div *ngIf="selectedElement?.type === 'i-text'">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-        <h2 i18n="text|Text">Text</h2>
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-2">
+        <strong i18n="text|Text">Text</strong>
           <div>
             <button mat-icon-button aria-label="Bold" i18n-aria-label="bold|Bold"
                     [color]="selectedElement?.fontWeight === 'bold' ? 'primary' : null" (click)="toggleFontWeight()">

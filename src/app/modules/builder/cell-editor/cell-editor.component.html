@@ -25,17 +25,23 @@
 
       <h3 class="mt-0" i18n="colours|Cell editor colours heading">Colours</h3>
 
-      <mat-accordion>
-        <app-colour-selector i18n-label width="302" label="Background" [(value)]="cell.background_colour" (valueChange)="saveCell()" icon="format_color_fill">
-        </app-colour-selector>
-        <app-colour-selector i18n-label width="302" label="Border" [(value)]="cell.border_colour" (valueChange)="saveCell()" icon="border_color">
-        </app-colour-selector>
-        <app-colour-selector i18n-label width="302" label="Text" [(value)]="cell.text_colour" (valueChange)="saveCell()" icon="format_color_text">
-        </app-colour-selector>
-        <app-colour-selector i18n-label width="302" label="Hair" [(value)]="cell.hair_colour" (valueChange)="saveCell()" icon="face" palette="hair" *ngIf="cell.picto?.adaptable">
-        </app-colour-selector>
-        <app-colour-selector i18n-label width="302" label="Skin" [(value)]="cell.skin_colour" (valueChange)="saveCell()" icon="insert_emoticon" palette="skin" *ngIf="cell.picto?.adaptable">
-        </app-colour-selector>
+      <mat-accordion class="custom-accordion">
+
+          <app-cell-editor-colour-panel i18n-label width="302" label="Background" [(value)]="cell.background_colour" (valueChange)="saveCell()" icon="format_color_fill">
+          </app-cell-editor-colour-panel>
+
+          <app-cell-editor-colour-panel i18n-label width="302" label="Border" [(value)]="cell.border_colour" (valueChange)="saveCell()" icon="border_color">
+          </app-cell-editor-colour-panel>
+
+          <app-cell-editor-colour-panel i18n-label width="302" label="Text" [(value)]="cell.text_colour" (valueChange)="saveCell()" icon="format_color_text">
+          </app-cell-editor-colour-panel>
+
+          <app-cell-editor-colour-panel i18n-label width="302" label="Hair" [(value)]="cell.hair_colour" (valueChange)="saveCell()" icon="face" palette="hair" *ngIf="cell.picto?.adaptable">
+          </app-cell-editor-colour-panel>
+
+          <app-cell-editor-colour-panel i18n-label width="302" label="Skin" [(value)]="cell.skin_colour" (valueChange)="saveCell()" icon="insert_emoticon" palette="skin" *ngIf="cell.picto?.adaptable">
+          </app-cell-editor-colour-panel>
+
       </mat-accordion>
 
       <h3 i18n="linking|Cell Editor linking heading">Linking</h3>

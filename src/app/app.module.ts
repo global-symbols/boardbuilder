@@ -69,6 +69,10 @@ const appRoutes: Routes = [
         loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule)
       },
       {
+        path: 'settings',
+        loadChildren: () => import('@modules/settings/settings.module').then(m => m.SettingsModule)
+      },
+      {
         path: 'boardsets',
         loadChildren: () => import('@modules/board-sets/board-sets.module').then(m => m.BoardSetsModule)
       },
@@ -147,7 +151,7 @@ const appRoutes: Routes = [
     {
       provide: ErrorHandler,
       useValue: Sentry.createErrorHandler({
-        logErrors: environment.production,
+        logErrors: !environment.production,
         showDialog: true,
         dialogOptions: {
           title: 'We ran into a problem',

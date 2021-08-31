@@ -51,9 +51,14 @@
           <mat-icon>perm_media</mat-icon>
           <ng-container i18n="Navbar dropdown Symbols button">Symbols</ng-container>
         </a>
+        <mat-divider></mat-divider>
         <a mat-menu-item href="https://globalsymbols.com/users/edit" target="_blank">
           <mat-icon>person</mat-icon>
           <ng-container i18n="manage account|Navbar dropdown Manage Account button">Manage Account</ng-container>
+        </a>
+        <a mat-menu-item [routerLink]="['/', 'settings']">
+          <mat-icon>settings</mat-icon>
+          <ng-container i18n="settings|Navbar dropdown Settings button">Settings</ng-container>
         </a>
         <mat-divider></mat-divider>
         <button mat-menu-item (click)="logout()">

@@ -124,7 +124,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       return;
       const object = event.target;
 
-      console.log(event);
+      // console.log(event);
 
       // If the object is being scaled off the bottom of the canvas...
       if (object.top + (object.height * object.scaleY) > this.height) {
@@ -140,7 +140,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
       // If the object is being scaled off the left of the canvas...
       if (object.left < 0) {
-        console.log('left is less than 0');
+        // console.log('left is less than 0');
         // object.set('left', 0);
         // object.set('top', 0);
         // object.set('scaleX', (this.width - object.left) / object.width);
@@ -225,7 +225,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       this.selectedElement = null;
     }
     this.selectedElements = event.selected;
-    console.log(this.selectedElement);
+    // console.log(this.selectedElement);
   }
 
   setProperty(prop, value): void {

@@ -60,10 +60,11 @@ export class GlobalSymbolsService {
   }
 
   parseResult(results): SymbolSearchResult[] {
+    const adaptableTooltip = $localize`:search result custom colour supported|:(supports custom colours)`;
     return results.map(result => new SymbolSearchResult().deserialise({
       id: result.id,
       label: result.text,
-      tooltip: `${result.text} in ${result.picto.symbolset?.name}`,
+      tooltip: $localize`${result.text}:symbolLabel: in ${result.picto.symbolset?.name}:symbolsetName:${result.picto?.adaptable ? ' ' + adaptableTooltip : ''}:adaptableSuffix:`,
       imageUrl: result.picto.image_url,
       pictoId: result.picto.id,
       picto: result.picto

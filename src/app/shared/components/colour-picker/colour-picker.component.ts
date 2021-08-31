@@ -2,22 +2,28 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angula
 import {palettes} from '@data/colour-picker-colours';
 
 @Component({
-  selector: 'app-colour-selector',
-  templateUrl: './colour-selector.component.html',
-  styleUrls: ['./colour-selector.component.scss']
+  selector: 'app-colour-picker',
+  templateUrl: './colour-picker.component.html',
+  styleUrls: ['./colour-picker.component.scss']
 })
-export class ColourSelectorComponent implements OnInit, OnChanges {
+export class ColourPickerComponent implements OnInit, OnChanges {
 
   @Input() palette: 'regular' | 'skin' | 'hair' = 'regular';
-  @Input() icon = 'color_lens';
-  @Input() label;
+
+  // Hides or shows the outline around the inner Github colour picker.
+  @Input() border = false;
 
   @Input() width: number;
 
   @Input() value;
   @Output() valueChange = new EventEmitter<string>();
 
+
+
+
   colours: string[];
+
+  constructor() { }
 
   ngOnInit(): void {
     this.colours = palettes[this.palette];
@@ -31,4 +37,5 @@ export class ColourSelectorComponent implements OnInit, OnChanges {
     // 'Transparent' should never be output as a colour
     if (colour !== 'transparent') { this.valueChange.emit(colour); }
   }
+
 }
