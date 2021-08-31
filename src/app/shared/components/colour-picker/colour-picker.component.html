@@ -1,5 +1,5 @@
 <div class="colour-selector" [class.no-border]="!border">
-<color-github [class]="'github-swatch-'+colours.length/2"
+<color-github [class]="'github-swatch-'+colours?.length/2"
               [color]="value" [colors]="colours" [width]="width"
               triangle="hide" (onChange)="selectColour($event.color.hex)"
 ></color-github>

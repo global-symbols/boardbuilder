@@ -19,6 +19,10 @@ mat-panel-title {
 
 //$editor-width: 274px;
 
+mat-expansion-panel-header {
+  padding: 0 12px;
+}
+
 
 ::ng-deep .colour-selector .mat-expansion-panel-body {
   padding: 0 10px 10px !important;
