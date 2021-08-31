@@ -87,7 +87,9 @@
                 "fr"
               ]
             },
-            "development": {}
+            "development": {
+              "sourceMap": true
+            }
           },
           "defaultConfiguration": "production"
         },
