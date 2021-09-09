@@ -1,10 +1,10 @@
 {
   "name": "boardbuilder",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build",
     "build:stats": "ng build --stats-json",
     "analyse": "ng build --stats-json && webpack-bundle-analyzer dist/boardbuilder/stats.json",
     "test": "ng test",
