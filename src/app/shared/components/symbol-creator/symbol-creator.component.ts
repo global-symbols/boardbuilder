@@ -290,6 +290,14 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
           });
 
           this.addShape(shape);
+
+        }, (element, object) => {
+
+          // The SVG standard states that <path>s should receive a default black fill if no fill is specified.
+          // FabricJS doesn't render this default fill, so we add it here when the element is revived.
+          if (object.id === 'line' && object.fill === 'transparent' && object.stroke === 'transparent') {
+            object.fill = 'black';
+          }
         });
 
       } else {
