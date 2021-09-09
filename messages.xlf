@@ -94,46 +94,53 @@
           <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="5218499397154800528" datatype="html">
+        <source>Pashto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="8118856427047826368" datatype="html">
         <source>Romanian</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2165308594480680011" datatype="html">
         <source>Serbian (Cyrillic)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8656859020528198426" datatype="html">
         <source>Serbian (Latin)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5190825892106392539" datatype="html">
         <source>Spanish</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5682359291233237791" datatype="html">
         <source>Turkish</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9066302852705897438" datatype="html">
         <source>Urdu (Pakistan)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4a5dd67fea75d684f53861b3b6fa41ee5895c8e4" datatype="html">
