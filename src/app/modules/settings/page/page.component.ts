@@ -28,10 +28,10 @@ export class PageComponent implements OnInit, OnDestroy {
     private router: Router
   ) {
     this.malePreview = new Cell({
-      image_url: '/assets/images/previews/happy-man.svg'
+      image_url: 'assets/images/previews/happy-man.svg'
     });
     this.femalePreview = new Cell({
-      image_url: '/assets/images/previews/happy-woman.svg'
+      image_url: 'assets/images/previews/happy-woman.svg'
     });
   }
 

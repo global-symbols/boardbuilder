@@ -12,13 +12,80 @@
         "destination": "/en/index.html"
       },
       {
+        "source": "ar/**",
+        "destination": "/ar/index.html"
+      },
+      {
+        "source": "bg/**",
+        "destination": "/bg/index.html"
+      },
+      {
+        "source": "ca/**",
+        "destination": "/ca/index.html"
+      },
+      {
+        "source": "de/**",
+        "destination": "/de/index.html"
+      },
+      {
+        "source": "el/**",
+        "destination": "/el/index.html"
+      },
+      {
+        "source": "es/**",
+        "destination": "/es/index.html"
+      },
+      {
         "source": "fr/**",
         "destination": "/fr/index.html"
       },
       {
+        "source": "hr/**",
+        "destination": "/hr/index.html"
+      },
+      {
+        "source": "hy/**",
+        "destination": "/hy/index.html"
+      },
+      {
+        "source": "nl/**",
+        "destination": "/nl/index.html"
+      },
+      {
+        "source": "ps/**",
+        "destination": "/ps/index.html"
+      },
+      {
+        "source": "ro/**",
+        "destination": "/ro/index.html"
+      },
+      {
+        "source": "sq/**",
+        "destination": "/sq/index.html"
+      },
+      {
+        "source": "sr-cy/**",
+        "destination": "/sr-cy/index.html"
+      },
+      {
+        "source": "sr-la/**",
+        "destination": "/sr-la/index.html"
+      },
+      {
+        "source": "tr/**",
+        "destination": "/tr/index.html"
+      },
+      {
+        "source": "ur-pk/**",
+        "destination": "/ur-pk/index.html"
+      },
+      {
         "source": "**",
-        "destination": "/index.html"
+        "destination": "/en/index.html"
       }
-    ]
+    ],
+    "i18n": {
+      "root": "/"
+    }
   }
 }

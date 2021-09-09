@@ -21,8 +21,13 @@ export class AdaptableImageComponent implements OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (this.adaptable) {
-      this.symbolService.getFile(this.image).subscribe(svg => this.svgData = svg);
+    if (this.adaptable && this.image) {
+      this.symbolService.getFile(this.image).subscribe(
+        svg => this.svgData = svg,
+        error => {}
+      );
+    } else {
+      this.svgData = null;
     }
   }
 

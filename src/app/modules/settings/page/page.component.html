@@ -39,13 +39,13 @@
 
       <div>
         <div class="mb-1"><strong i18n="User Settings Default Colours 'before' heading">Original Symbols</strong></div>
-        <app-adaptable-image [adaptable]="false" [cell]="malePreview"></app-adaptable-image>
-        <app-adaptable-image [adaptable]="false" [cell]="femalePreview"></app-adaptable-image>
+        <app-adaptable-image [adaptable]="false" [cell]="malePreview" [image]="malePreview.image_url"></app-adaptable-image>
+        <app-adaptable-image [adaptable]="false" [cell]="femalePreview" [image]="femalePreview.image_url"></app-adaptable-image>
 
         <ng-container *ngIf="user.default_hair_colour || user.default_skin_colour">
           <div class="mt-2 mb-1"><strong i18n="User Settings Default Colours 'after' heading">Customised Symbols</strong></div>
-          <app-adaptable-image [adaptable]="true" [cell]="malePreview"></app-adaptable-image>
-          <app-adaptable-image [adaptable]="true" [cell]="femalePreview"></app-adaptable-image>
+          <app-adaptable-image [adaptable]="true" [cell]="malePreview" [image]="malePreview.image_url"></app-adaptable-image>
+          <app-adaptable-image [adaptable]="true" [cell]="femalePreview" [image]="femalePreview.image_url"></app-adaptable-image>
         </ng-container>
       </div>
     </div>

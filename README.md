@@ -26,9 +26,24 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ### Deploy i18n to Ionos
 `scp -r dist/boardbuilder/* u97814378@access789453002.webspace-data.io:~/app.globalsymbols.com`
 
-## Adding a new language
-1. Add the language to availableLocales() in the LocaleService.
-2. Add the language URL to the list of allowed callback URLs in Doorkeeper, at https://globalsymbols.com/oauth/applications/1
+## Adding a new Locale
+Several steps are required to add a new translation.
+
+In this example, we are adding the 'fr' language.
+### 1. In Weblate
+1. Create the new translation and translate some strings.
+2. `git push` the changes to the project repo.
+### 2. In the BoardBuilder app
+1. `git pull` to load the translation file made by Weblate.
+2. Add the `fr` locale to `availableLocales()` in the `LocaleService`.
+3. Add the locale and link the translation file in `angular.json > projects.i18n.locales`.
+4. Add redirects for the locale in `firebase.json`.
+
+### 3. In Doorkeeper configuration on globalsymbols.com
+1. Add two locale-specific URLs to the list of [allowed callback URLs in Doorkeeper](https://globalsymbols.com/oauth/applications/1).
+   * `https://app.globalsymbols.com/fr`
+   * `https://app.globalsymbols.com/fr/silent-refresh.html`
+  
 
 ## Code scaffolding
 
