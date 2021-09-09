@@ -24,6 +24,7 @@
           "fr": "src/locale/messages.fr.xlf",
           "de": "src/locale/messages.de.xlf",
           "el": "src/locale/messages.el.xlf",
+          "ps": "src/locale/messages.ps.xlf",
           "ro": "src/locale/messages.ro.xlf",
           "sr-cy": "src/locale/messages.sr-Cyrl.xlf",
           "sr-la": "src/locale/messages.sr-Latn.xlf",

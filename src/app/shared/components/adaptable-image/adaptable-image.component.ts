@@ -14,8 +14,6 @@ export class AdaptableImageComponent implements OnChanges {
   @Input() image: string;
   @Input() adaptable: boolean;
 
-  imageUrl: string;
-
   svgData: SafeHtml;
 
   constructor(
@@ -23,10 +21,8 @@ export class AdaptableImageComponent implements OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.imageUrl = (this.cell) ? this.cell.image_url : this.image;
-
     if (this.adaptable) {
-      this.symbolService.getFile(this.imageUrl).subscribe(svg => this.svgData = svg);
+      this.symbolService.getFile(this.image).subscribe(svg => this.svgData = svg);
     }
   }
 

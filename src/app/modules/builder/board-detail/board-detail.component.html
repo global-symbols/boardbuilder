@@ -33,7 +33,7 @@
       <div *ngIf="board.cellLayout === 'column'" fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex id="cellBox" class="tile-body">
 
         <div fxFlexOrder="2">
-          <app-adaptable-image *ngIf="c.image_url" [adaptable]="c.picto?.adaptable" [cell]="c"></app-adaptable-image>
+          <app-adaptable-image *ngIf="c.image_url" [adaptable]="c.picto?.adaptable" [cell]="c" [image]="c.image_url"></app-adaptable-image>
 <!--          <img      *ngIf="c.image_url" [src]="c.image_url"/>-->
           <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
         </div>

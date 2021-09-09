@@ -2,6 +2,21 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="6783102443087547980" datatype="html">
+        <source>(supports custom colours)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/global-symbols.service.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <note priority="1" from="meaning">search result custom colour supported</note>
+      </trans-unit>
+      <trans-unit id="1247897756093431882" datatype="html">
+        <source><x id="symbolLabel" equiv-text="result.text"/> in <x id="symbolsetName" equiv-text="result.picto.symbolset?.name"/><x id="adaptableSuffix" equiv-text="result.picto?.adaptable ? &apos; &apos; + adaptableTooltip : &apos;&apos;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/global-symbols.service.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="5866254605255506989" datatype="html">
         <source>English</source>
         <context-group purpose="location">
@@ -170,16 +185,29 @@
         <source>Manage Account</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">57</context>
         </context-group>
         <note priority="1" from="description">Navbar dropdown Manage Account button</note>
         <note priority="1" from="meaning">manage account</note>
+      </trans-unit>
+      <trans-unit id="5114045703118cd703e6a287a0fae4954338e379" datatype="html">
+        <source>Settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Navbar dropdown Settings button</note>
+        <note priority="1" from="meaning">settings</note>
       </trans-unit>
       <trans-unit id="d2ddf086bf957aeeb268cc9ee98ab4de8fd6f33f" datatype="html">
         <source>Sign Out</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">66</context>
         </context-group>
         <note priority="1" from="description">Navbar dropdown Sign Out button</note>
         <note priority="1" from="meaning">sign out</note>
@@ -658,6 +686,14 @@
         <note priority="1" from="description">Keyboard Shortcuts</note>
         <note priority="1" from="meaning">keyboard shortcuts</note>
       </trans-unit>
+      <trans-unit id="bf35cb4d4e25c8364d0601637844bf25f1d01f11" datatype="html">
+        <source>Remove <x id="INTERPOLATION" equiv-text="{{label}}"/> Colour</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/cell-editor-colour-panel/cell-editor-colour-panel.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Colour Selector remove colour tooltip</note>
+      </trans-unit>
       <trans-unit id="5d90eb237eb6a9a1dc41adc3189698a2b5451a3f" datatype="html">
         <source>Label</source>
         <context-group purpose="location">
@@ -714,42 +750,42 @@
         <source>Background</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="0d2d3212b37bdcb905e658c9925bf26a8db47800" datatype="html">
         <source>Border</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8ba143716c2da6e4120c0c1a804f0bdd9a7e5f5b" datatype="html">
         <source>Text</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="53143171341853f7dad63f659c9972504eba6b07" datatype="html">
         <source>Hair</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="32c15c25315b563bcd2f928f954ffb578b3edc0a" datatype="html">
         <source>Skin</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="96959b5a7035287ae015f17590f6fa10b455817b" datatype="html">
         <source>Linking</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">53</context>
         </context-group>
         <note priority="1" from="description">Cell Editor linking heading</note>
         <note priority="1" from="meaning">linking</note>
@@ -758,7 +794,7 @@
         <source>Linked to</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">57</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Board linked to header</note>
         <note priority="1" from="meaning">linked to</note>
@@ -767,11 +803,11 @@
         <source>Unlink</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">59</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <note priority="1" from="description">Unlink</note>
         <note priority="1" from="meaning">unlink</note>
@@ -780,7 +816,7 @@
         <source>Link to a Board</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">71</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Link Board button</note>
       </trans-unit>
@@ -788,7 +824,7 @@
         <source>This list shows only unlinked Boards.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">75</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Link Board hint</note>
       </trans-unit>
@@ -796,7 +832,7 @@
         <source>No Boards are available for linking.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">82</context>
         </context-group>
         <note priority="1" from="description">Cell Editor no Board to link 1</note>
       </trans-unit>
@@ -804,7 +840,7 @@
         <source>Unlink an existing Board, or create a new one.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">72</context>
+          <context context-type="linenumber">84</context>
         </context-group>
         <note priority="1" from="description">Cell Editor no Board to link 2</note>
       </trans-unit>
@@ -812,7 +848,7 @@
         <source>Linkable Boards</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="linenumber">90</context>
         </context-group>
         <note priority="1" from="description">Linkable boards</note>
         <note priority="1" from="meaning">linkable boards</note>
@@ -821,7 +857,7 @@
         <source>Move Cell</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">82</context>
+          <context context-type="linenumber">94</context>
         </context-group>
         <note priority="1" from="description">Cell editor Move Cell heading</note>
       </trans-unit>
@@ -829,7 +865,7 @@
         <source>Move Earlier</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">92</context>
+          <context context-type="linenumber">104</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Move Earlier button</note>
       </trans-unit>
@@ -837,7 +873,7 @@
         <source>Move Later</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">101</context>
+          <context context-type="linenumber">113</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Move Later button</note>
       </trans-unit>
@@ -845,7 +881,7 @@
         <source>Reset Cell Contents</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">108</context>
+          <context context-type="linenumber">120</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Reset Cell button</note>
       </trans-unit>
@@ -853,7 +889,7 @@
         <source>Clear Symbol</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">111</context>
+          <context context-type="linenumber">123</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Clear Symbol button</note>
       </trans-unit>
@@ -861,7 +897,7 @@
         <source>Clear Colours</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">116</context>
+          <context context-type="linenumber">128</context>
         </context-group>
         <note priority="1" from="description">Cell Editor Clear Colours button</note>
       </trans-unit>
@@ -869,7 +905,7 @@
         <source>Symbol</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">122</context>
+          <context context-type="linenumber">134</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
@@ -886,7 +922,7 @@
         <source>My Images</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
-          <context context-type="linenumber">128</context>
+          <context context-type="linenumber">140</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
@@ -1394,6 +1430,109 @@
         </context-group>
         <note priority="1" from="description">PDF Generator error suggestion 4</note>
       </trans-unit>
+      <trans-unit id="121cc5391cd2a5115bc2b3160379ee5b36cd7716" datatype="html">
+        <source>Settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Settings heading</note>
+      </trans-unit>
+      <trans-unit id="e83cd82df5a8116c8144f5d6c7c57fca171f623f" datatype="html">
+        <source>Custom Symbols</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Settings custom symbols heading</note>
+      </trans-unit>
+      <trans-unit id="ca678a76eda54688cd6476699c50cac25b9ca583" datatype="html">
+        <source>Some symbols let you customise hair and skin colours.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Settings custom symbols intro 1</note>
+      </trans-unit>
+      <trans-unit id="817d0c3c4d20c18039b0773a1a3a166ae03aff9b" datatype="html">
+        <source>The colours you choose here will be applied to customisable symbols automatically.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Settings custom symbols intro 2</note>
+      </trans-unit>
+      <trans-unit id="fa3324bf9acc67872150c5fcb55a720299381061" datatype="html">
+        <source>Customisable symbols will show a <x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon [inline]=&quot;true&quot; color=&quot;primary&quot;&gt;"/>emoji_emotions<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> symbol in search results.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Settings custom symbols intro 3</note>
+      </trans-unit>
+      <trans-unit id="bbcbefc71eb223a7095c2a2f99946048bc1053f1" datatype="html">
+        <source>Custom Hair Colour</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours hair colour label</note>
+      </trans-unit>
+      <trans-unit id="c514e90cd865efeeb1fbb4267496858b819f3957" datatype="html">
+        <source>Remove Custom Hair Colour</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours remove hair colour tooltip</note>
+      </trans-unit>
+      <trans-unit id="b645e75de08b0ebe4da6353f5cf091a4c31d5de4" datatype="html">
+        <source>Custom Skin Colour</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours skin colour label</note>
+      </trans-unit>
+      <trans-unit id="ab221de0ef4666e8dc66058b9a723ce95b3f2b91" datatype="html">
+        <source>Remove Custom Skin Colour</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours remove skin colour tooltip</note>
+      </trans-unit>
+      <trans-unit id="d4c396ce44025e136f96492b448064dcec52de0b" datatype="html">
+        <source>Original Symbols</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours &apos;before&apos; heading</note>
+      </trans-unit>
+      <trans-unit id="9db99c2070bd6e0caa250aa5ad2cd0eb8a881561" datatype="html">
+        <source>Customised Symbols</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours &apos;after&apos; heading</note>
+      </trans-unit>
+      <trans-unit id="52c9a103b812f258bcddc3d90a6e3f46871d25fe" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9987be2efd33191ead6c7adffe56b73ee3f478f6" datatype="html">
+        <source>Changes saved <x id="INTERPOLATION" equiv-text="{{savedAt | amTimeAgo}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <note priority="1" from="description">Changes saved x seconds ago</note>
+      </trans-unit>
       <trans-unit id="a0cf7197e807c169dd0cc9f7445fd48d02a711c2" datatype="html">
         <source>Add a new Board by importing an Open Board Format (OBF) file.</source>
         <context-group purpose="location">
@@ -1710,14 +1849,6 @@
         </context-group>
         <note priority="1" from="description">Board Layout Selector label position input hint</note>
       </trans-unit>
-      <trans-unit id="bf35cb4d4e25c8364d0601637844bf25f1d01f11" datatype="html">
-        <source>Remove <x id="INTERPOLATION" equiv-text="{{label}}"/> Colour</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/colour-selector/colour-selector.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-        <note priority="1" from="description">Colour Selector remove colour tooltip</note>
-      </trans-unit>
       <trans-unit id="8ec336f10fd8d3981f925e716bfcb7766793d3cf" datatype="html">
         <source>Copy <x id="INTERPOLATION" equiv-text="{{boardSet.name}}"/></source>
         <context-group purpose="location">
@@ -1928,7 +2059,7 @@
         <source>We couldn&apos;t find any symbols.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">53</context>
         </context-group>
         <note priority="1" from="description">Symbol Search no results found 1</note>
       </trans-unit>
@@ -1936,7 +2067,7 @@
         <source>Try broadening your search.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">54</context>
         </context-group>
         <note priority="1" from="description">Symbol Search no results found 2</note>
       </trans-unit>
@@ -1944,10 +2075,24 @@
         <source>Searching…</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">62</context>
         </context-group>
         <note priority="1" from="description">Searching ellipsis</note>
         <note priority="1" from="meaning">searching ellipsis</note>
+      </trans-unit>
+      <trans-unit id="1194974988988273188" datatype="html">
+        <source>Core Sets</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8342767541551439052" datatype="html">
+        <source>Other Sets</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="be96de1c6a272d7be04581f1f329f4837376cd1b" datatype="html">
         <source>Discard</source>
