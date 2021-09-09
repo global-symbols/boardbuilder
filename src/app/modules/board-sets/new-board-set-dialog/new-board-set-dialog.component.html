@@ -4,8 +4,8 @@
 >
 
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
-    <h1 mat-dialog-title i18n class="mb-0">Create Board Set</h1>
-    <button mat-icon-button aria-label="Close" [mat-dialog-close]="false"
+    <h1 mat-dialog-title i18n="Create Board Set dialog title" class="mb-0">Create Board Set</h1>
+    <button mat-icon-button aria-label="Close" i18n-aria-label="close|Close" [mat-dialog-close]="false"
             appStopPropagation>
       <mat-icon>close</mat-icon>
     </button>
@@ -16,38 +16,38 @@
     <mat-horizontal-stepper linear (selectionChange)="stepperStepChanged($event)">
 
       <mat-step [stepControl]="boardSetForm">
-        <ng-template matStepLabel>Board Set</ng-template>
+        <ng-template matStepLabel i18n="board set|Board Set">Board Set</ng-template>
         <form [formGroup]="boardSetForm">
 
           <mat-form-field class="w-100 mb-3" appStopPropagation>
-            <mat-label>Board Set Title</mat-label>
+            <mat-label i18n="boardset.title label|Board Set Title field label">Board Set Title</mat-label>
             <input matInput formControlName="name" required cdkFocusInitial>
-            <mat-hint>Choose a name for the new Board Set.</mat-hint>
+            <mat-hint i18n="boardset.title hint|Board Set Title field hint">Choose a name for the new Board Set.</mat-hint>
             <mat-hint align="end">{{boardSetForm.value.name.length || 0}}&nbsp;/&nbsp;250</mat-hint>
           </mat-form-field>
 
           <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutGap="20px">
-            <img src="/assets/images/board-set.svg" alt="Board Set" />
+            <img src="assets/images/board-set.svg" alt="Board Set" i18n-alt="board set|Board Set" />
             <div>
-              <p>A Board Set is a collection of communication Boards - as many or as few as you like.</p>
-              <p>On the next page, we'll set up the first Board.</p>
+              <p i18n="Create Board Set text 1">A Board Set is a collection of communication Boards - as many or as few as you like.</p>
+              <p i18n="Create Board Set text 2">On the next page, we'll set up the first Board.</p>
             </div>
           </div>
 
 
           <div fxLayout="row" fxLayoutAlign="end none" class="mt-2">
-            <button mat-raised-button matStepperNext color="primary" appStopPropagation type="submit">Next</button>
+            <button mat-raised-button matStepperNext color="primary" appStopPropagation type="submit" i18n="next|Next">Next</button>
           </div>
         </form>
       </mat-step>
 
       <mat-step>
-        <ng-template matStepLabel>Choose Template</ng-template>
+        <ng-template matStepLabel i18n="Create Board Set choose template step header">Choose Template</ng-template>
         <app-board-editor-form [board]="board"></app-board-editor-form>
 
         <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-2">
-          <button mat-raised-button matStepperPrevious appStopPropagation>Back</button>
-          <button mat-raised-button (click)="create()" color="primary" i18n
+          <button mat-raised-button matStepperPrevious appStopPropagation i18n="back|Back">Back</button>
+          <button mat-raised-button (click)="create()" color="primary" i18n="create|Create"
                   appStopPropagation>Create</button>
         </div>
       </mat-step>

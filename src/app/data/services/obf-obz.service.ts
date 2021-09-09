@@ -7,6 +7,7 @@ import {Observable} from 'rxjs';
 import {BoardSetService} from '@data/services/board-set.service';
 import {BoardService} from '@data/services/board.service';
 import {Obf} from '@data/models/obf.interface';
+import {$localize} from '@angular/localize/init';
 
 interface UploadedImageMap {
   originalId: string;
@@ -40,7 +41,7 @@ export class ObfObzService {
 
       // Check the manifest file exists
       if (!zip.file('manifest.json')) {
-        throw new Error('it does not contain a manifest.json file.');
+        throw new Error($localize`:obz upload error no manifest:it does not contain a manifest.json file.`);
       }
 
       // Try to open the manifest file
@@ -63,7 +64,7 @@ export class ObfObzService {
 
           // Check the OBF file exists within the zip.
           if (!zip.file(obfFilename)) {
-            throw new Error(obfFilename + ' is missing.');
+            throw new Error($localize`:obz upload error file missing:${obfFilename} is missing.`);
           }
 
           // Access the OBF file, unpack it to a Board and save it into the BoardSet.
@@ -73,9 +74,9 @@ export class ObfObzService {
           });
         });
 
-      }, error => {throw new Error('the manifest.json file could not be read.'); });
+      }, error => {throw new Error($localize`:obz upload error bad manifest:the manifest.json file could not be read.`); });
 
-    }, error => {throw new Error('it is corrupted (could not read ZIP).'); });
+    }, error => {throw new Error($localize`:obz upload error corrupt zip:it is corrupted (could not read ZIP).`); });
 
     return boardSet;
   }

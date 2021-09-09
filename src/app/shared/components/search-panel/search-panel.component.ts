@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output, ViewChild} from '@angular/core';
 import {GlobalSymbolsService} from '@data/services/global-symbols.service';
 import {BehaviorSubject, from, fromEvent, Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, finalize, map} from 'rxjs/operators';
@@ -14,18 +14,7 @@ import {Language} from '@data/models/language';
 })
 export class SearchPanelComponent implements AfterViewInit, OnInit {
 
-  sources = [
-    {
-      key: 'gs',
-      name: 'Global Symbols'
-    }, {
-      key: 'open-symbols',
-      name: 'Open Symbols'
-    }, {
-      key: 'the-noun-project',
-      name: 'The Noun Project'
-    },
-  ];
+  sources = [];
 
   query: string;
   source: any;
@@ -48,8 +37,13 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
   @Input() initialQuery: string;
   @Output() readonly selectionChange = new EventEmitter<SymbolSearchResult>();
 
-  constructor(private globalSymbolsService: GlobalSymbolsService,
-              private symbolService: SymbolService) {
+  constructor(
+    private globalSymbolsService: GlobalSymbolsService,
+    private symbolService: SymbolService,
+    @Inject(LOCALE_ID) public locale: string
+  ) {
+
+    this.sources = this.globalSymbolsService.sources;
     this.source = this.sources[0];
 
     this.gsParams = {
@@ -64,13 +58,17 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
       languages => {
         const param = this.gsParams.language;
         param.options = languages;
-        param.value = languages[0].iso639_3;
+
+        // Default the language param to the current locale.
+        // First, get the main locale (e.g. 'en' for 'en-gb', or 'fr' for 'fr').
+        const currentLocaleBase = this.locale.match(/^(\w+)/)[1];
+        param.value = languages.find(l => l.iso639_1 === currentLocaleBase)?.iso639_3 || languages[0].iso639_3;
       }
     );
     this.globalSymbolsService.getSymbolSets().subscribe(
       ss => this.gsParams.symbolset.groups = [
-        { name: 'Core Sets', options: ss.filter(q => q.featured_level)},
-        { name: 'Other Sets', options: ss.filter(q => !q.featured_level)},
+        { name: $localize`Core Sets`, options: ss.filter(q => q.featured_level)},
+        { name: $localize`Other Sets`, options: ss.filter(q => !q.featured_level)},
       ]
     );
 
@@ -117,7 +115,7 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
         language: this.gsParams.language.value,
         language_iso_format: '639-3',
         symbolset: this.gsParams.symbolset.value,
-        limit: 36,
+        limit: 48,
         expand: 'picto.symbolset'
       };
 
@@ -129,7 +127,7 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
       }));
 
     } else {
-      return from(this.symbolService.search(this.query, this.source.key)).pipe(finalize(() => {
+      return from(this.symbolService.search(this.query, this.source)).pipe(finalize(() => {
         this.loadingSubject.next(false);
       }));
     }

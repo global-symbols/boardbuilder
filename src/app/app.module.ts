@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {APP_INITIALIZER, ErrorHandler, LOCALE_ID, NgModule} from '@angular/core';
+import {APP_INITIALIZER, ErrorHandler, NgModule} from '@angular/core';
 
 import {CommonModule, registerLocaleData} from '@angular/common';
 import {AppComponent} from './app.component';
@@ -22,7 +22,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {PreloadAllModules, Router, RouterModule, Routes} from '@angular/router';
-import {HotkeyModule} from 'angular2-hotkeys';
 import {FormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
@@ -41,6 +40,8 @@ import {AuthLayoutComponent} from './layout/auth-layout/auth-layout.component';
 import {NavButtonComponent} from './layout/nav-button/nav-button.component';
 import * as Sentry from '@sentry/angular';
 import {NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule} from 'ngx-google-analytics';
+import {HotkeyModule} from '@conflito/angular2-hotkeys';
+import {environment} from '@env';
 
 // Set en-GB as the default locale
 registerLocaleData(localeEnGb, 'en-GB');
@@ -66,6 +67,10 @@ const appRoutes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('@modules/home/home.module').then(m => m.HomeModule)
+      },
+      {
+        path: 'settings',
+        loadChildren: () => import('@modules/settings/settings.module').then(m => m.SettingsModule)
       },
       {
         path: 'boardsets',
@@ -143,12 +148,10 @@ const appRoutes: Routes = [
     NgxGoogleAnalyticsRouterModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'en-GB'},
-
     {
       provide: ErrorHandler,
       useValue: Sentry.createErrorHandler({
-        logErrors: true,
+        logErrors: !environment.production,
         showDialog: true,
         dialogOptions: {
           title: 'We ran into a problem',

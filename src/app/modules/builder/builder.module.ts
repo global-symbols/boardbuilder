@@ -32,9 +32,10 @@ import {BoardSetEditorDialogComponent} from './board-set-editor-dialog/board-set
 import {MatTreeModule} from '@angular/material/tree';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {HotkeyModule} from 'angular2-hotkeys';
 import {ColorGithubModule} from 'ngx-color/github';
 import {NgxGoogleAnalyticsModule} from 'ngx-google-analytics';
+import {HotkeyModule} from '@conflito/angular2-hotkeys';
+import { CellEditorColourPanelComponent } from './cell-editor-colour-panel/cell-editor-colour-panel.component';
 
 export const routes: Routes = [
   {
@@ -55,40 +56,41 @@ export const routes: Routes = [
         BoardTreeComponent,
         BoardDetailComponent,
         BoardEditorDialogComponent,
-        BoardSetEditorDialogComponent
+        BoardSetEditorDialogComponent,
+        CellEditorColourPanelComponent
     ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatExpansionModule,
-    MatTabsModule,
-    MatIconModule,
-    FlexModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    _MatMenuDirectivesModule,
-    MatSidenavModule,
-    MatMenuModule,
-    MatDividerModule,
-    MatListModule,
-    SharedModule,
-    MatCardModule,
-    MatInputModule,
-    FormsModule,
-    MatProgressSpinnerModule,
-    MatGridListModule,
-    MatDialogModule,
-    DragDropModule,
-    MatSliderModule,
-    MatTreeModule,
-    MatSlideToggleModule,
-    MatCheckboxModule,
-    HotkeyModule,
-    ColorGithubModule,
-    NgxGoogleAnalyticsModule
-  ]
+    imports:      [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatExpansionModule,
+        MatTabsModule,
+        MatIconModule,
+        FlexModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatToolbarModule,
+        MatTooltipModule,
+        _MatMenuDirectivesModule,
+        MatSidenavModule,
+        MatMenuModule,
+        MatDividerModule,
+        MatListModule,
+        SharedModule,
+        MatCardModule,
+        MatInputModule,
+        FormsModule,
+        MatProgressSpinnerModule,
+        MatGridListModule,
+        MatDialogModule,
+        DragDropModule,
+        MatSliderModule,
+        MatTreeModule,
+        MatSlideToggleModule,
+        MatCheckboxModule,
+        HotkeyModule,
+        ColorGithubModule,
+        NgxGoogleAnalyticsModule
+    ]
 })
 export class BuilderModule { }

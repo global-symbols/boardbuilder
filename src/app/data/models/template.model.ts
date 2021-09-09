@@ -9,6 +9,10 @@ export class Template implements Deserialisable {
   orientation: 'portrait' | 'landscape';
 
   fontSize: number;
+  cellPadding: number;
+  cellSpacing: number;
+  drawCellBorders: boolean;
+  imageTextSpacing: number;
 
   deserialise(input: any): this {
     if (input.pageSize) { this.pageSize = new PageSize().deserialise(input.pageSize); }

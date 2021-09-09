@@ -7,12 +7,34 @@ import {Symbolset} from '@data/models/symbolset';
 import {Observable} from 'rxjs';
 import {Language} from '@data/models/language';
 
+export interface SearchSource {
+  key: 'gs' | 'open-symbols' | 'the-noun-project';
+  name: string;
+  fixCors: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalSymbolsService {
 
   private apiBase = null;
+
+  public readonly sources: SearchSource[]  = [
+    {
+      key: 'gs',
+      name: 'Global Symbols',
+      fixCors: false
+    }, {
+      key: 'open-symbols',
+      name: 'Open Symbols',
+      fixCors: true
+    }, {
+      key: 'the-noun-project',
+      name: 'The Noun Project',
+      fixCors: true
+    },
+  ];
 
   constructor(public http: HttpClient) {
     this.apiBase = environment.globalSymbolsApiBase;
@@ -38,12 +60,14 @@ export class GlobalSymbolsService {
   }
 
   parseResult(results): SymbolSearchResult[] {
+    const adaptableTooltip = $localize`:search result custom colour supported|:(supports custom colours)`;
     return results.map(result => new SymbolSearchResult().deserialise({
       id: result.id,
       label: result.text,
-      tooltip: `${result.text} in ${result.picto.symbolset?.name}`,
+      tooltip: $localize`${result.text}:symbolLabel: in ${result.picto.symbolset?.name}:symbolsetName:${result.picto?.adaptable ? ' ' + adaptableTooltip : ''}:adaptableSuffix:`,
       imageUrl: result.picto.image_url,
-      pictoId: result.picto.id
+      pictoId: result.picto.id,
+      picto: result.picto
     }));
   }
 }

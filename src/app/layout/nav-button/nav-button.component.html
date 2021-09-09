@@ -1,8 +1,8 @@
-<button *ngIf="button.text" mat-button
+<button *ngIf="button.text" mat-stroked-button
         (click)="click()"
         [matTooltip]="button.tooltip"
 >
-  <mat-icon *ngIf="button.icon">{{button.icon}}</mat-icon>
+  <mat-icon *ngIf="button.icon" inline>{{button.icon}}</mat-icon>
   <ng-container>{{button.text}}</ng-container>
 </button>
 

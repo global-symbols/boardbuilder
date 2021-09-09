@@ -1,0 +1,61 @@
+<div class="container mt-3">
+
+  <h2 i18n="Settings heading">Settings</h2>
+
+  <app-loading-notice *ngIf="loading" subject="Settings" i18n-subject="settings|Settings"></app-loading-notice>
+
+  <div *ngIf="user">
+    <h3 i18n="Settings custom symbols heading">Custom Symbols</h3>
+    <p i18n="Settings custom symbols intro 1">Some symbols let you customise hair and skin colours.</p>
+    <p i18n="Settings custom symbols intro 2">The colours you choose here will be applied to customisable symbols automatically.</p>
+    <p i18n="Settings custom symbols intro 3">Customisable symbols will show a <mat-icon [inline]="true" color="primary">emoji_emotions</mat-icon> symbol in search results.</p>
+
+    <div fxLayout="row wrap" fxLayoutGap="50px grid" class="mb-2">
+      <div>
+        <div class="mb-1" fxLayout="row" fxLayoutAlign="space-between center">
+          <strong class="mt-2 mb-2" i18n="User Settings Default Colours hair colour label">Custom Hair Colour</strong>
+          <ng-container>
+            <button mat-icon-button *ngIf="user.default_hair_colour"
+                    matTooltip="Remove Custom Hair Colour" i18n-matTooltip="User Settings Default Colours remove hair colour tooltip" matTooltipPosition="left"
+                    (click)="updateHair(null); $event.stopPropagation()">
+              <mat-icon color="primary">format_color_reset</mat-icon>
+            </button>
+          </ng-container>
+        </div>
+        <app-colour-picker [(value)]="user.default_hair_colour" palette="hair" [width]="302" (valueChange)="updateHair($event)" [border]="true"></app-colour-picker>
+
+        <div class="mt-3 mb-1" fxLayout="row" fxLayoutAlign="space-between center">
+          <strong class="mt-2 mb-2" i18n="User Settings Default Colours skin colour label">Custom Skin Colour</strong>
+          <ng-container>
+            <button mat-icon-button *ngIf="user.default_skin_colour"
+                    matTooltip="Remove Custom Skin Colour" i18n-matTooltip="User Settings Default Colours remove skin colour tooltip" matTooltipPosition="left"
+                    (click)="updateSkin(null); $event.stopPropagation()">
+              <mat-icon color="primary">format_color_reset</mat-icon>
+            </button>
+          </ng-container>
+        </div>
+        <app-colour-picker [(value)]="user.default_skin_colour" palette="skin" [width]="302" (valueChange)="updateSkin($event)" [border]="true"></app-colour-picker>
+      </div>
+
+      <div>
+        <div class="mb-1"><strong i18n="User Settings Default Colours 'before' heading">Original Symbols</strong></div>
+        <app-adaptable-image [adaptable]="false" [cell]="malePreview" [image]="malePreview.image_url"></app-adaptable-image>
+        <app-adaptable-image [adaptable]="false" [cell]="femalePreview" [image]="femalePreview.image_url"></app-adaptable-image>
+
+        <ng-container *ngIf="user.default_hair_colour || user.default_skin_colour">
+          <div class="mt-2 mb-1"><strong i18n="User Settings Default Colours 'after' heading">Customised Symbols</strong></div>
+          <app-adaptable-image [adaptable]="true" [cell]="malePreview" [image]="malePreview.image_url"></app-adaptable-image>
+          <app-adaptable-image [adaptable]="true" [cell]="femalePreview" [image]="femalePreview.image_url"></app-adaptable-image>
+        </ng-container>
+      </div>
+    </div>
+
+    <button mat-button mat-raised-button color="primary" (click)="save()" class="mb-2" i18n>Save</button>
+
+    <div *ngIf="savedAt">
+      <small><mat-icon [inline]="true">check</mat-icon> <span i18n="Changes saved x seconds ago">Changes saved {{savedAt | amTimeAgo}}</span></small>
+    </div>
+
+  </div>
+
+</div>

@@ -3,14 +3,14 @@ import {fabric} from 'fabric';
 import {ImageBase64Service} from '@data/services/image-base64.service';
 import {WebFontsService} from '@data/services/web-fonts.service';
 import {FontGroup} from '@data/web-safe-fonts';
-import {Hotkey, HotkeysService} from 'angular2-hotkeys';
+import {Hotkey, HotkeysService} from '@conflito/angular2-hotkeys';
 import {saveAs} from 'file-saver';
 import {Media} from '@data/models/media.model';
 import {MediaService} from '@data/services/media.service';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {DialogService} from '@app/services/dialog.service';
-import {colourPickerColours} from '@data/colour-picker-colours';
+import {palettes} from '@data/colour-picker-colours';
 
 export enum SymbolCreatorState {
   Loading = 'Loading',
@@ -26,7 +26,7 @@ export enum SymbolCreatorState {
 })
 export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
-  pickerColours = colourPickerColours;
+  pickerColours = palettes.regular;
 
   private defaultColour = 'black';
 
@@ -124,7 +124,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       return;
       const object = event.target;
 
-      console.log(event);
+      // console.log(event);
 
       // If the object is being scaled off the bottom of the canvas...
       if (object.top + (object.height * object.scaleY) > this.height) {
@@ -140,7 +140,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
 
       // If the object is being scaled off the left of the canvas...
       if (object.left < 0) {
-        console.log('left is less than 0');
+        // console.log('left is less than 0');
         // object.set('left', 0);
         // object.set('top', 0);
         // object.set('scaleX', (this.width - object.left) / object.width);
@@ -225,7 +225,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       this.selectedElement = null;
     }
     this.selectedElements = event.selected;
-    console.log(this.selectedElement);
+    // console.log(this.selectedElement);
   }
 
   setProperty(prop, value): void {
@@ -248,7 +248,7 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       if (media?.canvas_url) {
         this.addObjectsFromMedia(media);
       } else if (media?.public_url) {
-        this.addImage(media.public_url);
+        this.addImage(this.bustCorsCache(media.public_url));
       }
     });
   }
@@ -636,5 +636,14 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       this.setProperty('top', (this.workingCanvas.height / 2) - (((object.height + object.strokeWidth) * object.scaleY) / 2));
     }
 
+  }
+
+
+
+  // Appends a random parameter to a URL, as a way to bust caches that cache the wrong CORS state for an image.
+  bustCorsCache(inputUrl: string) {
+    const url = new URL(inputUrl);
+    url.searchParams.append('bustCorsCache', Math.random().toString(36).substring(7));
+    return url.toString();
   }
 }

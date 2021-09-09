@@ -1,17 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BoardSetService} from '@data/services/board-set.service';
 import {BoardSet} from '@data/models/boardset.model';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {NewBoardSetDialogComponent} from '@modules/board-sets/new-board-set-dialog/new-board-set-dialog.component';
 import {DialogService} from '@app/services/dialog.service';
+import {ToolbarService} from '@app/services/toolbar.service';
 
 @Component({
   selector: 'app-board-sets',
   templateUrl: './board-sets.component.html',
   styleUrls: ['./board-sets.component.scss']
 })
-export class BoardSetsComponent implements OnInit {
+export class BoardSetsComponent implements OnInit, OnDestroy {
 
   boardSets: BoardSet[];
   featuredBoardSets: BoardSet[];
@@ -23,12 +24,17 @@ export class BoardSetsComponent implements OnInit {
     private service: BoardSetService,
     private router: Router,
     private dialog: MatDialog,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private toolbarService: ToolbarService
   ) { }
 
   ngOnInit(): void {
     this.loadBoardSets();
     this.loadFeaturedBoardSets();
+  }
+
+  ngOnDestroy(): void {
+    this.toolbarService.clearButtons();
   }
 
   loadBoardSets(): void {

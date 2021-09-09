@@ -20,15 +20,25 @@ export class ToolbarService {
   private rightButtonsSubject$ = new BehaviorSubject<ToolbarButton[]>([]);
   public rightButtons$ = this.rightButtonsSubject$.asObservable();
 
+  // The global nav button should show automatically when there are no left buttons.
+  private showGlobalNavSubject$ = new BehaviorSubject<boolean>(true);
+  public showGlobalNav$ = this.showGlobalNavSubject$.asObservable();
+
   constructor() { }
 
   setButtons(left: ToolbarButton[], right?: ToolbarButton[]) {
     this.leftButtonsSubject$.next(left);
     this.rightButtonsSubject$.next(right);
+
+    // If there are any left buttons, hide the global nav button.
+    if (left.length > 0) {
+      this.showGlobalNavSubject$.next(false);
+    }
   }
 
   clearButtons() {
     this.leftButtonsSubject$.next([]);
     this.rightButtonsSubject$.next([]);
+    this.showGlobalNavSubject$.next(true);
   }
 }

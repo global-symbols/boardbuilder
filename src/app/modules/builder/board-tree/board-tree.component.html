@@ -54,7 +54,7 @@
           <button mat-button mat-icon-button
                   [matMenuTriggerFor]="boardMenu"
                   [matMenuTriggerData]="{board: node.board}"
-                  matTooltip="Board Actions" matTooltipPosition="right"
+                  matTooltip="Board Actions" i18n-matTooltip="board actions|Board Actions button" matTooltipPosition="right"
                   (click)="$event.stopPropagation()"
                   appStopPropagation
           >
@@ -82,21 +82,25 @@
   <ng-template matMenuContent let-board="board">
 
     <button mat-menu-item (click)="download(board)">
-      <mat-icon>save_alt</mat-icon> Download as OBF
+      <mat-icon>save_alt</mat-icon>
+      <ng-container i18n="download obf|Download Board as OBF button">Download as OBF</ng-container>
     </button>
 
     <button mat-menu-item (click)="pdf(board)">
-      <mat-icon>picture_as_pdf</mat-icon> Download/Print PDF
+      <mat-icon>picture_as_pdf</mat-icon>
+      <ng-container i18n="download print pdf|Download or Print Board as PDF button">Download/Print PDF</ng-container>
     </button>
 
     <mat-divider></mat-divider>
 
     <button mat-menu-item (click)="delete(board)" [disabled]="boardSet.readonly">
-      <mat-icon>delete</mat-icon> Delete
+      <mat-icon>delete</mat-icon>
+      <ng-container i18n="delete|Delete button">Delete</ng-container>
     </button>
 
     <button mat-menu-item (click)="edit(board)" [disabled]="boardSet.readonly">
-      <mat-icon>edit</mat-icon> Properties
+      <mat-icon>edit</mat-icon>
+      <ng-container i18n="properties|Properties button">Properties</ng-container>
     </button>
   </ng-template>
 </mat-menu>

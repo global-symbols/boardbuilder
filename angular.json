@@ -9,6 +9,30 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "locales": {
+          "ar": "src/locale/messages.ar.xlf",
+          "bg": "src/locale/messages.bg.xlf",
+          "ca": "src/locale/messages.ca.xlf",
+          "de": "src/locale/messages.de.xlf",
+          "el": "src/locale/messages.el.xlf",
+          "es": "src/locale/messages.es.xlf",
+          "fr": "src/locale/messages.fr.xlf",
+          "hr": "src/locale/messages.hr.xlf",
+          "hy": "src/locale/messages.hy.xlf",
+          "nl": "src/locale/messages.nl.xlf",
+          "ps": "src/locale/messages.ps.xlf",
+          "ro": "src/locale/messages.ro.xlf",
+          "sq": "src/locale/messages.sq.xlf",
+          "sr-cy": "src/locale/messages.sr-Cyrl.xlf",
+          "sr-la": "src/locale/messages.sr-Latn.xlf",
+          "tr": "src/locale/messages.tr.xlf",
+          "ur-pk": "src/locale/messages.ur-PK.xlf"
+        },
+        "sourceLocale": {
+          "code": "en"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -38,7 +62,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "localize": false,
+              "localize": true,
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -63,13 +87,16 @@
               "localize": [
                 "fr"
               ]
+            },
+            "development": {
+              "sourceMap": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "boardbuilder:build"
           },
           "configurations": {
             "production": {
@@ -77,8 +104,12 @@
             },
             "fr": {
               "browserTarget": "boardbuilder:build:fr"
+            },
+            "development": {
+              "browserTarget": "boardbuilder:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -121,14 +152,17 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "boardbuilder:serve"
+            "protractorConfig": "e2e/protractor.conf.js"
           },
           "configurations": {
             "production": {
               "devServerTarget": "boardbuilder:serve:production"
+            },
+            "development": {
+              "devServerTarget": "boardbuilder:serve:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "azureLogout": {
           "builder": "@azure/ng-deploy:logout"

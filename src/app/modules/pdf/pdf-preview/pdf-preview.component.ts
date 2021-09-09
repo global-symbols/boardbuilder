@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BoardService} from '@data/services/board.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
-import {Hotkey, HotkeysService} from 'angular2-hotkeys';
+import {Hotkey, HotkeysService} from '@conflito/angular2-hotkeys';
 import {ToolbarService} from '@app/services/toolbar.service';
 import {Board} from '@data/models/board.model';
 import {saveAs} from 'file-saver';
@@ -10,6 +10,8 @@ import {TemplateService} from '@data/services/template.service';
 import {PageSize} from '@data/models/page-size.model';
 import {Template} from '@data/models/template.model';
 import {DomSanitizer} from '@angular/platform-browser';
+import {HttpErrorResponse} from '@angular/common/http';
+import {ApiError} from '@data/interfaces/api-error.interface';
 
 @Component({
   selector: 'app-pdf-preview',
@@ -37,24 +39,29 @@ export class PdfPreviewComponent implements OnInit {
     this.template = new Template();
 
     this.fontSizes = Array.from(Array(108).keys());
+    // 0, 5, 10, 15 ... 50
+    this.cellSpacingValues = Array.from(Array(51).keys()).filter(v => v % 5 === 0);
   }
 
   status: 'loading' | 'success' | 'error' = 'loading';
 
   pageSizes: PageSize[];
   fontSizes: Array<number>;
+  cellSpacingValues: Array<number>;
 
   template: Template;
 
   board: Board;
-  compiledPdf;
-  failureReason: string;
+  compiledPdf = 'about:blank';
+  apiError: ApiError;
 
   pdfEmbedWidth = 1000;
   pdfEmbedHeight = 600;
 
-  @ViewChild('pdfFrame') pdfFrame: ElementRef;
-  @ViewChild('pdfObject') pdfObject: ElementRef;
+  showReset = false;
+
+  // @ViewChild('pdfFrame') pdfFrame: ElementRef;
+  // @ViewChild('pdfObject') pdfObject: ElementRef;
 
   ngOnInit() {
 
@@ -64,18 +71,7 @@ export class PdfPreviewComponent implements OnInit {
       .subscribe(board => {
         this.board = board;
 
-        this.template.orientation = (this.board.rows > this.board.logicalColumns) ? 'portrait' : 'landscape';
-
-        this.templateService.pageSizes().subscribe(
-          sizes => {
-            this.pageSizes = sizes;
-            this.template.pageSize = sizes.find(s => s.name === 'A4');
-
-            this.template.fontSize = Math.round((this.template.pageSize.y / this.board.rows) * 0.1);
-
-            this.loadPdf();
-          }
-        );
+        this.setTemplateDefaults();
       });
 
     this.toolbarService.setButtons([{
@@ -85,14 +81,42 @@ export class PdfPreviewComponent implements OnInit {
     }]);
   }
 
+  // Configures some default template settings.
+  // Run this after populating this.board.
+  setTemplateDefaults() {
+    this.showReset = false;
+    this.template.orientation = (this.board.rows > this.board.logicalColumns) ? 'portrait' : 'landscape';
+
+    this.templateService.pageSizes().subscribe(
+      sizes => {
+        this.pageSizes = sizes;
+        this.template.pageSize = sizes.find(s => s.name === 'A4');
+
+        this.template.fontSize = Math.round((this.template.pageSize.y / this.board.rows) * 0.1);
+        this.template.cellPadding = 10;
+        this.template.cellSpacing = 10;
+        this.template.drawCellBorders = true;
+        this.template.imageTextSpacing = -1;
+
+        this.loadPdf();
+      }
+    );
+  }
+
+  onSettingChanged() {
+    this.showReset = true;
+    this.loadPdf();
+  }
+
   loadPdf() {
     this.status = 'loading';
-    this.failureReason = null;
+    this.apiError = null;
 
     this.setEmbedHeight();
 
     this.boardService.pdf(this.route.snapshot.paramMap.get('board_id'), this.template)
       .then(pdfData => {
+
         this.compiledPdf = pdfData;
 
         // const clone = this.pdfFrame.nativeElement.cloneNode(true);
@@ -102,8 +126,11 @@ export class PdfPreviewComponent implements OnInit {
         // this.pdfFrame.nativeElement.removeAttribute('src');
         // setTimeout(() => this.pdfFrame.nativeElement.src = this.compiledPdf);
         this.status = 'success';
-      }, error => {
-        this.failureReason = error;
+
+      }, (error: HttpErrorResponse) => {
+        error.error.text().then(text => {
+          this.apiError = JSON.parse(text).error;
+        });
         return this.status = 'error';
       });
   }

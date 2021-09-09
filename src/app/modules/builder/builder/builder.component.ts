@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {Board} from '@data/models/board.model';
-import {Hotkey, HotkeysService} from 'angular2-hotkeys';
+import {Hotkey, HotkeysService} from '@conflito/angular2-hotkeys';
 import {MatDialog} from '@angular/material/dialog';
 import {BoardSet} from '@data/models/boardset.model';
 import {saveAs} from 'file-saver';
@@ -20,6 +20,7 @@ import {CopyBoardSetDialogComponent} from '@shared/components/copy-board-set-dia
 import {DialogService} from '@app/services/dialog.service';
 import {Cell} from '@data/models/cell.model';
 import {BoardTreeComponent} from '@modules/builder/board-tree/board-tree.component';
+import {CellEditorComponent} from '@modules/builder/cell-editor/cell-editor.component';
 
 @Component({
   selector: 'app-builder',
@@ -42,6 +43,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   private readonly mobileQueryListener: () => void;
 
   @ViewChild(BoardTreeComponent) boardTree: BoardTreeComponent;
+  @ViewChild(CellEditorComponent) cellEditor: CellEditorComponent;
 
   private currentDialogRef;
   private hotkeys: Array<Hotkey | Hotkey[]> = [];
@@ -132,12 +134,22 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     // Keyboard shortcut - delete Board
     this.hotkeys.push(
-      this.hotkeysService.add(new Hotkey(['del'], (event: KeyboardEvent): boolean => {
+      this.hotkeysService.add(new Hotkey(['ctrl+del', 'command+del'], (event: KeyboardEvent): boolean => {
         if (this.board) {
           this.deleteBoard(this.board);
         }
         return false; // Prevent bubbling
       }, undefined, 'Delete Current Board'))
+    );
+
+    // Keyboard shortcut - clear Cell
+    this.hotkeys.push(
+      this.hotkeysService.add(new Hotkey(['del'], (event: KeyboardEvent): boolean => {
+        if (this.selectedCell) {
+          this.cellEditor.clearCell();
+        }
+        return false; // Prevent bubbling
+      }, undefined, 'Clear Selected Cell'))
     );
   }
 
@@ -155,7 +167,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   private getBoardSet(): Observable<BoardSet> {
     this.loadingError = false;
     this.loading = true;
-    return this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells boards.header_media')
+    return this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media')
       .pipe(
         catchError(e => {
           this.loadingError = true;

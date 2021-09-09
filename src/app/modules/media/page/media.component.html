@@ -1,12 +1,12 @@
 <div class="container mt-3">
 
-  <app-loading-notice *ngIf="loading" subject="Symbols"></app-loading-notice>
+  <app-loading-notice *ngIf="loading" subject="Symbols" i18n-subject="symbols|Symbols"></app-loading-notice>
 
   <ng-container *ngIf="!loading">
-    <h2>My Symbols</h2>
-    <p>You have used {{spaceUsed | filesize: {round: 0} }}.</p>
+    <h2 i18n="my symbols|My Symbols">My Symbols</h2>
+    <p i18n="Media page quota usage">You have used {{spaceUsed | filesize: {round: 0} }}.</p>
 
-    <p *ngIf="media.length === 0" class="text-center mt-3">You have not uploaded any images yet.</p>
+    <p *ngIf="media.length === 0" class="text-center mt-3" i18n="Media page no images uploaded">You have not uploaded any images yet.</p>
 
     <div fxLayout="row wrap" fxLayoutGap="1rem grid">
 
@@ -17,7 +17,7 @@
         >
           <div fxLayout="column" fxLayoutAlign="space-between center">
             <mat-icon fxFlex="grow">construction</mat-icon>
-            <div class="mt-3">Create Symbol</div>
+            <div class="mt-3" i18n="create symbol|Create Symbol">Create Symbol</div>
           </div>
         </button>
       </div>
@@ -44,15 +44,15 @@
   <ng-template matMenuContent let-mediaItem="mediaItem">
     <button mat-menu-item (click)="openSymbolCreator(mediaItem)" [disabled]="!mediaItem.canvas_url">
       <mat-icon>construction</mat-icon>
-      <span>Edit Symbol</span>
+      <span i18n="edit symbol|Edit Symbol">Edit Symbol</span>
     </button>
     <button mat-menu-item (click)="download(mediaItem)">
       <mat-icon>save_alt</mat-icon>
-      <span>Save to Device</span>
+      <span i18n="save to device|Save to Device">Save to Device</span>
     </button>
     <button mat-menu-item (click)="delete(mediaItem)">
       <mat-icon>delete</mat-icon>
-      <span>Delete Symbol</span>
+      <span i18n="delete symbol|Delete Symbol">Delete Symbol</span>
     </button>
   </ng-template>
 </mat-menu>

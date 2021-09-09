@@ -1,19 +1,19 @@
 <div class="container mt-3">
 
-  <h2>My Board Sets</h2>
+  <h2 i18n="Board Sets heading">My Board Sets</h2>
 
-  <app-loading-notice *ngIf="loading" subject="Board Sets"></app-loading-notice>
+  <app-loading-notice *ngIf="loading" subject="Board Sets" i18n-subject="board sets|Board Sets"></app-loading-notice>
 
   <ng-container *ngIf="!loading">
     <div fxLayout="row wrap" fxLayoutGap="1rem grid">
       <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container">
         <mat-card fxFlexFill class="add-boardset">
           <mat-card-actions fxFlex fxLayout="column" class="p-0">
-            <button fxFlex mat-flat-button color="primary" i18n (click)="newBoardSet()">
+            <button fxFlex mat-flat-button color="primary" (click)="newBoardSet()">
               <mat-icon class="mat-icon-2x">add</mat-icon><br/>
-              Create Board Set
+              <ng-container i18n="create board set|Create Board Set button">Create Board Set</ng-container>
             </button>
-            <button mat-flat-button color="primary" i18n class="mt-1" (click)="uploadObz()">Import OBZ</button>
+            <button mat-flat-button color="primary" class="mt-1" (click)="uploadObz()" i18n="import obz|Import OBZ button">Import OBZ</button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -22,9 +22,9 @@
       </app-board-set-tile>
     </div>
 
-    <h2>Featured Board Sets</h2>
+    <h2 i18n="Board Sets Featured heading">Featured Board Sets</h2>
     <div fxLayout="row wrap" fxLayoutGap="1rem grid">
-      <app-board-set-tile *ngFor="let boardSet of featuredBoardSets" [boardSet]="boardSet" fxFlex="25">
+      <app-board-set-tile *ngFor="let boardSet of featuredBoardSets" [boardSet]="boardSet" fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
       </app-board-set-tile>
     </div>
 
@@ -36,11 +36,11 @@
   <ng-template matMenuContent let-boardSet="boardSet">
   <button mat-menu-item (click)="openBoardSet(boardSet)">
     <mat-icon>launch</mat-icon>
-    <span>Open</span>
+    <span i18n="open|Open">Open</span>
   </button>
   <button mat-menu-item (click)="deleteBoardSet(boardSet)" *ngIf="!boardSet.readOnly">
     <mat-icon>delete</mat-icon>
-    <span>Delete</span>
+    <span i18n="delete|Delete">Delete</span>
   </button>
   </ng-template>
 </mat-menu>

@@ -10,9 +10,11 @@ import {CellService} from '@data/services/cell.service';
 import {Media} from '@data/models/media.model';
 import {SearchPanelComponent} from '@shared/components/search-panel/search-panel.component';
 import {SymbolSearchResult} from '@data/models/symbol-search-result';
-import {colourPickerColours} from '@data/colour-picker-colours';
-import {Observable} from 'rxjs';
+import {palettes} from '@data/colour-picker-colours';
+import {Observable, Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {User} from '@data/models/user.model';
+import {UserService} from '@data/services/user.service';
 
 @Component({
   selector: 'app-cell-editor',
@@ -33,19 +35,19 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
   linkableBoards$: Observable<Board[]>;
   linkedBoard: Board;
 
+  user: User;
+  userSubscription: Subscription;
+
   colourPickerColours: Array<string>;
 
   constructor(
     public dialog: MatDialog,
     private cellService: CellService,
-    private boardService: BoardService
+    private boardService: BoardService,
+    private userService: UserService
   ) {
-    this.colourPickerColours = colourPickerColours;
-  }
-
-  // Save the Cell to the API when the component is destroyed
-  ngOnDestroy() {
-    if (this.cell) { this.saveCell(); }
+    this.userSubscription = userService.user$.subscribe(user => this.user = user);
+    this.colourPickerColours = palettes.regular;
   }
 
   // When an @Input is changed...
@@ -60,6 +62,12 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
       this.loadLinkableBoards();
       this.loadLinkedBoard();
     }
+  }
+
+  // Save the Cell to the API when the component is destroyed
+  ngOnDestroy() {
+    if (this.cell) { this.saveCell(); }
+    this.userSubscription.unsubscribe();
   }
 
   loadLinkableBoards(): void {
@@ -100,6 +108,13 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     this.cell.media_id = null;
     this.cell.image_url = result.imageUrl;
     this.cell.picto_id = result.pictoId;
+    this.cell.picto = result.picto;
+
+    // If the user is loaded, the picto is adaptable and preferences are set, load custom hair/skin colours
+    if (this.user && result.picto?.adaptable) {
+      if (this.user.default_hair_colour) { this.cell.hair_colour = this.user.default_hair_colour; }
+      if (this.user.default_skin_colour) { this.cell.skin_colour = this.user.default_skin_colour; }
+    }
 
     this.saveCell();
   }
@@ -110,15 +125,27 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     if ($event.index === 1 && this.cell.caption) { this.searchPanel.search(); }
   }
 
-  clearCell(subject: string) {
-    if (subject === 'colours') {
+  clearCell(subject?: 'colours' | 'symbol' | 'caption') {
+    if (!subject || subject === 'colours') {
       this.cell.background_colour = null;
       this.cell.border_colour = null;
       this.cell.text_colour = null;
+      this.cell.hair_colour = null;
+      this.cell.skin_colour = null;
     }
 
-    if (subject === 'symbol') {
+    if (!subject || subject === 'symbol') {
       this.cell.image_url = null;
+      this.cell.media_id = null;
+      this.cell.picto_id = null;
+      this.cell.media = null;
+      this.cell.picto = null;
+      this.cell.hair_colour = null;
+      this.cell.skin_colour = null;
+    }
+
+    if (!subject || subject === 'caption') {
+      this.cell.caption = null;
     }
 
     this.saveCell();

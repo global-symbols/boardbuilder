@@ -6,7 +6,7 @@
 >
 
   <ng-container *ngIf="uploadStatus != 'Uploading'">
-    Drop an image file here
+    <ng-container i18n="Media Uploader dropzone prompt">Drop an image file here</ng-container>
     <small class="py-1">
       <em>SVG &middot; PNG &middot; JPG &middot; <{{this.maxSize / 1000000}}MB</em>
     </small>
@@ -14,29 +14,29 @@
 
   <ng-container *ngIf="uploadStatus === 'Uploading'">
     <mat-spinner diameter="24" style="margin: 0 auto"></mat-spinner>
-    <em class="py-1">Uploading&hellip;</em>
+    <em class="py-1" i18n="uploading ellipsis|Uploading with ellipsis">Uploading&hellip;</em>
   </ng-container>
 
   <button mat-flat-button color="primary" appStopPropagation
-          (click)="openFileSelector()"
+          (click)="openFileSelector()" i18n="Media Uploader from device button"
           [disabled]="uploadStatus === 'Uploading'">
     Upload from Device&hellip;
   </button>
 </div>
 
 <div *ngIf="uploadError" class="text-center py-2">
-  <ng-container *ngIf="uploadError === 'WrongType'">
+  <ng-container *ngIf="uploadError === 'WrongType'" i18n="Media Uploader error wrong file type">
     We don't accept files of this type.
   </ng-container>
-  <ng-container *ngIf="uploadError === 'TooLarge'">
+  <ng-container *ngIf="uploadError === 'TooLarge'" i18n="Media Uploader error file too large">
     Your file is too large.
   </ng-container>
-  <ng-container *ngIf="uploadError === 'Unknown'">
+  <ng-container *ngIf="uploadError === 'Unknown'" i18n="Media Uploader general error">
     We couldn't upload your file. Please try again, or use a different file.
   </ng-container>
 </div>
 
-<div *ngIf="loadingMediaError" class="text-center py-2">
+<div *ngIf="loadingMediaError" class="text-center py-2" i18n="Media Library loading error">
   We couldn't load your images because of a technical issue.
 </div>
 
@@ -45,8 +45,8 @@
 
     <div fxFlex="25" *ngIf="showCreate">
       <button fxFlex mat-flat-button color="primary" (click)="openSymbolCreator()" class="p-1 create-symbol-button"
-              matTooltip="Create Symbol" matTooltipPosition="left"
-              aria-label="Create Symbol"
+              matTooltip="Create Symbol" i18n-matTooltip="create symbol|Create Symbol" matTooltipPosition="left"
+              aria-label="Create Symbol" i18n-aria-label="create symbol|Create Symbol"
       >
         <div fxLayout="column" fxLayoutAlign="center center">
           <mat-icon inline>construction</mat-icon>
@@ -62,7 +62,9 @@
     </div>
   </div>
 
-  <app-loading-notice *ngIf="loadingMedia" action="Loading" subject="Images"></app-loading-notice>
+  <app-loading-notice *ngIf="loadingMedia" action="Loading" subject="Images"
+                      i18n-action="loading|Loading" i18n-subject="images|Images"
+  ></app-loading-notice>
 </div>
 
 <input type="file" #fileUpload name="fileUpload" accept=".svg,.png,.jpg,.jpeg,.gif" style="display:none;"

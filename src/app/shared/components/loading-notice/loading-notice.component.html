@@ -7,9 +7,9 @@
   </div>
 
   <div>
-    <ng-container *ngIf="error">Error </ng-container>
+    <ng-container *ngIf="error" i18n="error|Error">Error </ng-container>
     <ng-container *ngIf="action">{{action}}</ng-container>
-    <ng-container *ngIf="!action">Loading</ng-container>
+    <ng-container *ngIf="!action" i18n="loading|Loading">Loading</ng-container>
     {{subject}}<ng-container *ngIf="!error">&hellip;</ng-container>
   </div>
 </div>

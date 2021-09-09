@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ColourSelectorComponent} from './components/colour-selector/colour-selector.component';
 import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
@@ -32,11 +31,13 @@ import {StopPropagationDirective} from './directives/stop-propagation.directive'
 import {BoardPreviewSvgComponent} from './components/board-preview-svg/board-preview-svg.component';
 import {SymbolCreatorDialogComponent} from '@shared/components/symbol-creator-dialog/symbol-creator-dialog.component';
 import {NgxGoogleAnalyticsModule} from 'ngx-google-analytics';
+import { AdaptableImageComponent } from './components/adaptable-image/adaptable-image.component';
+import { ColourPickerComponent } from './components/colour-picker/colour-picker.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
   declarations: [
-    ColourSelectorComponent,
     ConfirmDialogComponent,
     ErrorNotFoundComponent,
     LoadingNoticeComponent,
@@ -50,41 +51,45 @@ import {NgxGoogleAnalyticsModule} from 'ngx-google-analytics';
     BoardEditorFormComponent,
     StopPropagationDirective,
     BoardPreviewSvgComponent,
-    SymbolCreatorDialogComponent
+    SymbolCreatorDialogComponent,
+    AdaptableImageComponent,
+    ColourPickerComponent
   ],
-  exports: [
-    ColourSelectorComponent,
-    ConfirmDialogComponent,
-    ErrorNotFoundComponent,
-    LoadingNoticeComponent,
-    MediaLibraryComponent,
-    SearchPanelComponent,
-    SymbolCreatorComponent,
-    BypassSanitiserPipe,
-    BoardEditorFormComponent,
-    StopPropagationDirective,
-    BoardPreviewSvgComponent
-  ],
-  imports: [
-    CommonModule,
-    MatExpansionModule,
-    MatIconModule,
-    MatDialogModule,
-    MatButtonModule,
-    FlexModule,
-    DragDropModule,
-    MatProgressSpinnerModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    FormsModule,
-    MatInputModule,
-    MatCardModule,
-    MatSliderModule,
-    ColorGithubModule,
-    MatMenuModule,
-    MatTooltipModule,
-    MatTabsModule,
-    NgxGoogleAnalyticsModule
-  ]
+    exports: [
+        ConfirmDialogComponent,
+        ErrorNotFoundComponent,
+        LoadingNoticeComponent,
+        MediaLibraryComponent,
+        SearchPanelComponent,
+        SymbolCreatorComponent,
+        BypassSanitiserPipe,
+        BoardEditorFormComponent,
+        StopPropagationDirective,
+        BoardPreviewSvgComponent,
+        AdaptableImageComponent,
+        ColourPickerComponent
+    ],
+    imports: [
+        CommonModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatDialogModule,
+        MatButtonModule,
+        FlexModule,
+        DragDropModule,
+        MatProgressSpinnerModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        FormsModule,
+        MatInputModule,
+        MatCardModule,
+        MatSliderModule,
+        ColorGithubModule,
+        MatMenuModule,
+        MatTooltipModule,
+        MatTabsModule,
+        NgxGoogleAnalyticsModule,
+        MatBadgeModule
+    ]
 })
 export class SharedModule { }

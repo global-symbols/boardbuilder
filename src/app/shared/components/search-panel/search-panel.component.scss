@@ -6,7 +6,8 @@
 
   img {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 55px;
+    width: auto;
     pointer-events: none;
     margin: 0;
   }
@@ -27,4 +28,11 @@
     line-height: 7rem;
     color: #666;
   }
+}
+
+::ng-deep app-search-panel .mat-badge-content {
+  font-family: 'Material Icons';
+  background: white !important;
+  color: #1B6BB5 !important;
+  font-size: 19px;
 }

@@ -12,4 +12,11 @@ button {
     padding-bottom: $button-bottom-padding;
     padding-right: 4px;
   }
+
+  &[mat-stroked-button] {
+    mat-icon {
+      font-size: 1.2rem;
+      vertical-align: top;
+    }
+  }
 }
