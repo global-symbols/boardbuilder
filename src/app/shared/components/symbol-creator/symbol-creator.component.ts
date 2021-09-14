@@ -269,7 +269,8 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
       if (mimeType === 'image/svg+xml') {
         // Load the SVG as a collection of objects in the canvas
         fabric.loadSVGFromURL(imageUrl, (objects, options) => {
-          const shape = fabric.util.groupSVGElements(objects, {...options});
+          // const shape = fabric.util.groupSVGElements(objects, {...options});
+          const shape = new fabric.Group(objects, {...options});
 
           // Set the shape size to fit the canvas.
           let scaleFactor = 1;
@@ -292,10 +293,9 @@ export class SymbolCreatorComponent implements OnInit, OnDestroy {
           this.addShape(shape);
 
         }, (element, object) => {
-
           // The SVG standard states that <path>s should receive a default black fill if no fill is specified.
           // FabricJS doesn't render this default fill, so we add it here when the element is revived.
-          if (object.id === 'line' && object.fill === 'transparent' && object.stroke === 'transparent') {
+          if (object.get('type') === 'path' && object.fill === 'transparent' && object.stroke === 'transparent') {
             object.fill = 'black';
           }
         });
