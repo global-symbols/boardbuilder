@@ -30,7 +30,7 @@
     "@sentry/angular": "^6.5.1",
     "@sentry/tracing": "^6.5.1",
     "angular-oauth2-oidc": "^10.0.3",
-    "fabric": "^4.3.0",
+    "fabric": "^4.6.0",
     "file-saver": "^2.0.5",
     "jszip": "^3.5.0",
     "mime": "^2.4.7",
