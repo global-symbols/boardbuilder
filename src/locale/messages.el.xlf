@@ -3012,6 +3012,177 @@
           <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="5218499397154800528" datatype="html">
+        <source>Pashto</source>
+        <target>Πάστο</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e83cd82df5a8116c8144f5d6c7c57fca171f623f" datatype="html">
+        <source>Custom Symbols</source>
+        <target>Προσαρμοσμένα σύμβολα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Settings custom symbols heading</note>
+      </trans-unit>
+      <trans-unit id="ca678a76eda54688cd6476699c50cac25b9ca583" datatype="html">
+        <source>Some symbols let you customise hair and skin colours.</source>
+        <target>Ορισμένα σύμβολα σας επιτρέπουν να προσαρμόσετε τα χρώματα των μαλλιών και του δέρματος.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Settings custom symbols intro 1</note>
+      </trans-unit>
+      <trans-unit id="fa3324bf9acc67872150c5fcb55a720299381061" datatype="html">
+        <source>Customisable symbols will show a <x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon [inline]=&quot;true&quot; color=&quot;primary&quot;&gt;"/>emoji_emotions<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> symbol in search results.</source>
+        <target>Τα προσαρμόσιμα σύμβολα θα εμφανίζουν ένα σύμβολο <x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon [inline]=&quot;true&quot; color=&quot;primary&quot;&gt;"/>emoji_emotions<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> στα αποτελέσματα αναζήτησης.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Settings custom symbols intro 3</note>
+      </trans-unit>
+      <trans-unit id="1194974988988273188" datatype="html">
+        <source>Core Sets</source>
+        <target>Βασικά σύνολα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6783102443087547980" datatype="html">
+        <source>(supports custom colours)</source>
+        <target>(υποστηρίζει προσαρμοσμένα χρώματα)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/global-symbols.service.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <note priority="1" from="meaning">search result custom colour supported</note>
+      </trans-unit>
+      <trans-unit id="1247897756093431882" datatype="html">
+        <source><x id="symbolLabel" equiv-text="result.text"/> in <x id="symbolsetName" equiv-text="result.picto.symbolset?.name"/><x id="adaptableSuffix" equiv-text="result.picto?.adaptable ? ' ' + adaptableTooltip : ''"/></source>
+        <target><x id="symbolLabel" equiv-text="result.text"/> σε <x id="symbolsetName" equiv-text="result.picto.symbolset?.name"/><x id="adaptableSuffix" equiv-text="result.picto?.adaptable ? ' ' + adaptableTooltip : ''"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/services/global-symbols.service.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5114045703118cd703e6a287a0fae4954338e379" datatype="html">
+        <source>Settings</source>
+        <target>ρυθμίσεις</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Navbar dropdown Settings button</note>
+        <note priority="1" from="meaning">settings</note>
+      </trans-unit>
+      <trans-unit id="121cc5391cd2a5115bc2b3160379ee5b36cd7716" datatype="html">
+        <source>Settings</source>
+        <target>ρυθμίσεις</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Settings heading</note>
+      </trans-unit>
+      <trans-unit id="817d0c3c4d20c18039b0773a1a3a166ae03aff9b" datatype="html">
+        <source>The colours you choose here will be applied to customisable symbols automatically.</source>
+        <target>Τα χρώματα που επιλέγετε εδώ θα εφαρμοστούν αυτόματα σε προσαρμόσιμα σύμβολα.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Settings custom symbols intro 2</note>
+      </trans-unit>
+      <trans-unit id="bbcbefc71eb223a7095c2a2f99946048bc1053f1" datatype="html">
+        <source>Custom Hair Colour</source>
+        <target>Προσαρμοσμένο χρώμα μαλλιών</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours hair colour label</note>
+      </trans-unit>
+      <trans-unit id="c514e90cd865efeeb1fbb4267496858b819f3957" datatype="html">
+        <source>Remove Custom Hair Colour</source>
+        <target>Κατάργηση προσαρμοσμένου χρώματος μαλλιών</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours remove hair colour tooltip</note>
+      </trans-unit>
+      <trans-unit id="b645e75de08b0ebe4da6353f5cf091a4c31d5de4" datatype="html">
+        <source>Custom Skin Colour</source>
+        <target>Προσαρμοσμένο χρώμα δέρματος</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours skin colour label</note>
+      </trans-unit>
+      <trans-unit id="ab221de0ef4666e8dc66058b9a723ce95b3f2b91" datatype="html">
+        <source>Remove Custom Skin Colour</source>
+        <target>Κατάργηση προσαρμοσμένου χρώματος δέρματος</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours remove skin colour tooltip</note>
+      </trans-unit>
+      <trans-unit id="d4c396ce44025e136f96492b448064dcec52de0b" datatype="html">
+        <source>Original Symbols</source>
+        <target>Αρχικά σύμβολα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours 'before' heading</note>
+      </trans-unit>
+      <trans-unit id="9db99c2070bd6e0caa250aa5ad2cd0eb8a881561" datatype="html">
+        <source>Customised Symbols</source>
+        <target>Προσαρμοσμένα σύμβολα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <note priority="1" from="description">User Settings Default Colours 'after' heading</note>
+      </trans-unit>
+      <trans-unit id="52c9a103b812f258bcddc3d90a6e3f46871d25fe" datatype="html">
+        <source>Save</source>
+        <target>Σώζω</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9987be2efd33191ead6c7adffe56b73ee3f478f6" datatype="html">
+        <source>Changes saved <x id="INTERPOLATION" equiv-text="{{savedAt | amTimeAgo}}"/></source>
+        <target>Αποθηκευμένες αλλαγές <x id="INTERPOLATION" equiv-text="{{savedAt | amTimeAgo}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <note priority="1" from="description">Changes saved x seconds ago</note>
+      </trans-unit>
+      <trans-unit id="8342767541551439052" datatype="html">
+        <source>Other Sets</source>
+        <target>Άλλα σύνολα</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
