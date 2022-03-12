@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="6783102443087547980" datatype="html">
         <source>(supports custom colours)</source>
-        <target></target>
+        <target>(підтримує користувацькі кольори)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/global-symbols.service.ts</context>
           <context context-type="linenumber">63</context>
@@ -13,7 +13,7 @@
       </trans-unit>
       <trans-unit id="1247897756093431882" datatype="html">
         <source><x id="symbolLabel" equiv-text="result.text"/> in <x id="symbolsetName" equiv-text="result.picto.symbolset?.name"/><x id="adaptableSuffix" equiv-text="result.picto?.adaptable ? ' ' + adaptableTooltip : ''"/></source>
-        <target></target>
+        <target><x id="symbolLabel" equiv-text="result.text"/> в <x id="symbolsetName" equiv-text="result.picto.symbolset?.name"/><x id="adaptableSuffix" equiv-text="result.picto?.adaptable ? ' ' + adaptableTooltip : ''"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/global-symbols.service.ts</context>
           <context context-type="linenumber">67</context>
@@ -21,7 +21,7 @@
       </trans-unit>
       <trans-unit id="5866254605255506989" datatype="html">
         <source>English</source>
-        <target></target>
+        <target>Англійська</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">26</context>
@@ -29,7 +29,7 @@
       </trans-unit>
       <trans-unit id="3240286309607544294" datatype="html">
         <source>Albanian</source>
-        <target></target>
+        <target>Албанська</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">27</context>
@@ -37,7 +37,7 @@
       </trans-unit>
       <trans-unit id="6269202464699193298" datatype="html">
         <source>Arabic</source>
-        <target></target>
+        <target>Арабська</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">28</context>
@@ -45,7 +45,7 @@
       </trans-unit>
       <trans-unit id="5291732135518533248" datatype="html">
         <source>Armenian</source>
-        <target></target>
+        <target>Вірменська</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">29</context>
@@ -53,7 +53,7 @@
       </trans-unit>
       <trans-unit id="6821856961727142928" datatype="html">
         <source>Bulgarian</source>
-        <target></target>
+        <target>Болгарська</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">30</context>
@@ -61,7 +61,7 @@
       </trans-unit>
       <trans-unit id="1001043467371963032" datatype="html">
         <source>Catalan</source>
-        <target></target>
+        <target>Каталанська</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">31</context>
@@ -69,7 +69,7 @@
       </trans-unit>
       <trans-unit id="4825433858141848865" datatype="html">
         <source>Croatian</source>
-        <target></target>
+        <target>Хорватська</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">32</context>
@@ -77,7 +77,7 @@
       </trans-unit>
       <trans-unit id="3071065188816255493" datatype="html">
         <source>Dutch</source>
-        <target></target>
+        <target>Нідерландська</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">33</context>
@@ -85,7 +85,7 @@
       </trans-unit>
       <trans-unit id="7633754075223722162" datatype="html">
         <source>French</source>
-        <target></target>
+        <target>Французька</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">34</context>
@@ -93,7 +93,7 @@
       </trans-unit>
       <trans-unit id="1858110241312746425" datatype="html">
         <source>German</source>
-        <target></target>
+        <target>Німецька</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">35</context>
@@ -101,7 +101,7 @@
       </trans-unit>
       <trans-unit id="7067741492320440272" datatype="html">
         <source>Greek</source>
-        <target></target>
+        <target>Грецька</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">36</context>
@@ -109,7 +109,7 @@
       </trans-unit>
       <trans-unit id="5218499397154800528" datatype="html">
         <source>Pashto</source>
-        <target></target>
+        <target>Пушту</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">37</context>
@@ -117,7 +117,7 @@
       </trans-unit>
       <trans-unit id="8118856427047826368" datatype="html">
         <source>Romanian</source>
-        <target></target>
+        <target>Румунська</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">38</context>
@@ -125,7 +125,7 @@
       </trans-unit>
       <trans-unit id="2165308594480680011" datatype="html">
         <source>Serbian (Cyrillic)</source>
-        <target></target>
+        <target>Сербська (кирилиця)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">39</context>
@@ -133,7 +133,7 @@
       </trans-unit>
       <trans-unit id="8656859020528198426" datatype="html">
         <source>Serbian (Latin)</source>
-        <target></target>
+        <target>сербська (латиниця)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">40</context>
@@ -141,7 +141,7 @@
       </trans-unit>
       <trans-unit id="5190825892106392539" datatype="html">
         <source>Spanish</source>
-        <target></target>
+        <target>Іспанська</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">41</context>
@@ -149,7 +149,7 @@
       </trans-unit>
       <trans-unit id="5682359291233237791" datatype="html">
         <source>Turkish</source>
-        <target></target>
+        <target>Турецька</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">42</context>
@@ -157,7 +157,7 @@
       </trans-unit>
       <trans-unit id="9066302852705897438" datatype="html">
         <source>Urdu (Pakistan)</source>
-        <target></target>
+        <target>Урду (Пакистан)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/services/locale.service.ts</context>
           <context context-type="linenumber">43</context>
@@ -165,7 +165,7 @@
       </trans-unit>
       <trans-unit id="4a5dd67fea75d684f53861b3b6fa41ee5895c8e4" datatype="html">
         <source>Help and Resources</source>
-        <target></target>
+        <target>Довідка та ресурси</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">18</context>
@@ -174,7 +174,7 @@
       </trans-unit>
       <trans-unit id="fe46ccaae902ce974e2441abe752399288298619" datatype="html">
         <source>Language</source>
-        <target></target>
+        <target>Мова</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">23</context>
@@ -186,8 +186,8 @@
         <note priority="1" from="description">Navbar language button</note>
       </trans-unit>
       <trans-unit id="6a91d8aef5a44d59d06eadd4e26f2f1a5971feeb" datatype="html">
-        <source> Sign In </source>
-        <target></target>
+        <source>Sign In</source>
+        <target>Ввійти</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">34,35</context>
@@ -197,7 +197,7 @@
       </trans-unit>
       <trans-unit id="681d0d8af12f8bebce882805c5dd105f0032f525" datatype="html">
         <source>Board Sets</source>
-        <target></target>
+        <target>Набори дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">48</context>
@@ -206,7 +206,7 @@
       </trans-unit>
       <trans-unit id="93148e66a8c53db228d9ba7df5edc169d694cd03" datatype="html">
         <source>Symbols</source>
-        <target></target>
+        <target>Символи</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">52</context>
@@ -215,7 +215,7 @@
       </trans-unit>
       <trans-unit id="68276bf9cf8c00d7a827b799f0bb3b85fb278c39" datatype="html">
         <source>Manage Account</source>
-        <target></target>
+        <target>Керування обліковим записом</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">57</context>
@@ -225,7 +225,7 @@
       </trans-unit>
       <trans-unit id="5114045703118cd703e6a287a0fae4954338e379" datatype="html">
         <source>Settings</source>
-        <target></target>
+        <target>Параметри</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">61</context>
@@ -239,7 +239,7 @@
       </trans-unit>
       <trans-unit id="d2ddf086bf957aeeb268cc9ee98ab4de8fd6f33f" datatype="html">
         <source>Sign Out</source>
-        <target></target>
+        <target>Вийти</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/nav/nav.component.html</context>
           <context context-type="linenumber">66</context>
@@ -249,7 +249,7 @@
       </trans-unit>
       <trans-unit id="eecae6134c76bac58a620e2fdeb9beaeec4b5d5e" datatype="html">
         <source>Checking your Account…</source>
-        <target></target>
+        <target>Перевірка облікового запису…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">8</context>
@@ -258,7 +258,7 @@
       </trans-unit>
       <trans-unit id="3db241ca031e29b4d0c0c1cc58eb06fc59f64940" datatype="html">
         <source>Use Board Builder to create communication boards.</source>
-        <target></target>
+        <target>Використовуйте конструктор дощок для створення дощок зв'язку.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">13</context>
@@ -267,7 +267,7 @@
       </trans-unit>
       <trans-unit id="b0e76336a7e1630113bfd7f965816e427b572c75" datatype="html">
         <source>Everything is saved to your Global Symbols account.</source>
-        <target></target>
+        <target>Все зберігається у вашому обліковому записі Global Symbols.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">14</context>
@@ -276,7 +276,7 @@
       </trans-unit>
       <trans-unit id="3fec73120d33e57208775c79b5fd1ef0cb1c6856" datatype="html">
         <source>Sign in with Global Symbols</source>
-        <target></target>
+        <target>Вхід за допомогою глобальних символів</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">19</context>
@@ -285,7 +285,7 @@
       </trans-unit>
       <trans-unit id="ac10a3d9b59575640797c1a8e6aea642cf5d5e77" datatype="html">
         <source>Continue</source>
-        <target></target>
+        <target>Продовжити</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">23</context>
@@ -294,7 +294,7 @@
       </trans-unit>
       <trans-unit id="4a20d5e146b4019d629fdc75efd46afceba48f46" datatype="html">
         <source>By</source>
-        <target></target>
+        <target>За</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
           <context context-type="linenumber">22</context>
@@ -304,7 +304,7 @@
       </trans-unit>
       <trans-unit id="9411a0618323428b13be9823db5bf65b6c606e3f" datatype="html">
         <source>Opened</source>
-        <target></target>
+        <target>Відкрив</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
           <context context-type="linenumber">27</context>
@@ -313,7 +313,7 @@
       </trans-unit>
       <trans-unit id="f230f376eadc3023676cdd998a4a7e1e5dd02071" datatype="html">
         <source>Never Opened</source>
-        <target></target>
+        <target>Ніколи не відкривав</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
           <context context-type="linenumber">29</context>
@@ -322,7 +322,7 @@
       </trans-unit>
       <trans-unit id="b64665e9b2a89ffee81361d1aa3090ea8f26a4fa" datatype="html">
         <source>Create Board Set</source>
-        <target></target>
+        <target>Створити набір дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -331,7 +331,7 @@
       </trans-unit>
       <trans-unit id="6375a78209ace58d332d6265d92ddc9543487856" datatype="html">
         <source>Close</source>
-        <target></target>
+        <target>Закрити</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">8</context>
@@ -353,7 +353,7 @@
       </trans-unit>
       <trans-unit id="965e361fd0f605b37b7ee812e21f8d374ed9baee" datatype="html">
         <source>Board Set</source>
-        <target></target>
+        <target>Набір дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">19</context>
@@ -379,7 +379,7 @@
       </trans-unit>
       <trans-unit id="4039ec01f83d07d47ee7eb8e9d2c88bdde88e0f5" datatype="html">
         <source>Board Set Title</source>
-        <target></target>
+        <target>Назва набору дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">23</context>
@@ -389,7 +389,7 @@
       </trans-unit>
       <trans-unit id="e2cf06970e1897822b378b48d12b1b5114935273" datatype="html">
         <source>Choose a name for the new Board Set.</source>
-        <target></target>
+        <target>Виберіть ім'я для нового набору дощок.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -399,7 +399,7 @@
       </trans-unit>
       <trans-unit id="fd47e4e36556a7c6e0973b689f83079ca2d5129d" datatype="html">
         <source>A Board Set is a collection of communication Boards - as many or as few as you like.</source>
-        <target></target>
+        <target>Board Set - це колекція комунікаційних дощок - стільки або менше, скільки вам подобається.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">32</context>
@@ -408,7 +408,7 @@
       </trans-unit>
       <trans-unit id="2841eb6463280f988dce85afc00d9280b1b527ba" datatype="html">
         <source>On the next page, we'll set up the first Board.</source>
-        <target></target>
+        <target>На наступній сторінці ми створимо першу дошку.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">33</context>
@@ -417,7 +417,7 @@
       </trans-unit>
       <trans-unit id="cec3310213f077e642de988423dce09ed6a70665" datatype="html">
         <source>Next</source>
-        <target></target>
+        <target>Наступний</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">39</context>
@@ -427,7 +427,7 @@
       </trans-unit>
       <trans-unit id="6a1e5aed1ec6dbcff344930625ae7e60ea4181e1" datatype="html">
         <source>Choose Template</source>
-        <target></target>
+        <target>Вибрати шаблон</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">45</context>
@@ -436,7 +436,7 @@
       </trans-unit>
       <trans-unit id="d4297aa2ef70bbc7ae46e9c6e1f06a1180a73efc" datatype="html">
         <source>Back</source>
-        <target></target>
+        <target>Задній</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">49</context>
@@ -446,7 +446,7 @@
       </trans-unit>
       <trans-unit id="1a307a7c2cf5bed90339c0b673fb2578af04b646" datatype="html">
         <source>Create</source>
-        <target></target>
+        <target>Творити</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-board-set-dialog/new-board-set-dialog.component.html</context>
           <context context-type="linenumber">51</context>
@@ -456,7 +456,7 @@
       </trans-unit>
       <trans-unit id="9165f983b8c69763f7ed67885ebeb95b33b431e8" datatype="html">
         <source>My Board Sets</source>
-        <target></target>
+        <target>Мої набори дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">3</context>
@@ -465,7 +465,7 @@
       </trans-unit>
       <trans-unit id="c28c9d5c688ca402257bc59666648ed833488d62" datatype="html">
         <source>Board Sets</source>
-        <target></target>
+        <target>Набори дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">5</context>
@@ -475,7 +475,7 @@
       </trans-unit>
       <trans-unit id="a8c9058c85bdcce58a801cfc207c6094d29e6343" datatype="html">
         <source>Create Board Set</source>
-        <target></target>
+        <target>Створити набір дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">14</context>
@@ -485,7 +485,7 @@
       </trans-unit>
       <trans-unit id="d4af7ce487191b081c2f0a1db79f9e67c89b9f15" datatype="html">
         <source>Import OBZ</source>
-        <target></target>
+        <target>Імпорт OBZ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">16</context>
@@ -495,7 +495,7 @@
       </trans-unit>
       <trans-unit id="6e0680e639dd496ac9b27fb7d17dfa663199bc0e" datatype="html">
         <source>Featured Board Sets</source>
-        <target></target>
+        <target>Рекомендовані набори дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">25</context>
@@ -504,7 +504,7 @@
       </trans-unit>
       <trans-unit id="a0f7000988baf87bd71c60939750d0d7eccf3957" datatype="html">
         <source>Open</source>
-        <target></target>
+        <target>Відкривати</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">39</context>
@@ -514,7 +514,7 @@
       </trans-unit>
       <trans-unit id="55c6b64cbfab1c2b0cbf0313c5bb1690d7fa7239" datatype="html">
         <source>Delete</source>
-        <target></target>
+        <target>Видалити</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
           <context context-type="linenumber">43</context>
@@ -531,8 +531,8 @@
         <note priority="1" from="meaning">delete</note>
       </trans-unit>
       <trans-unit id="d8bd1f48c370934707e4cafc31bcf0a83d1c990e" datatype="html">
-        <source> Add Header Image </source>
-        <target></target>
+        <source>Add Header Image</source>
+        <target>Додати зображення заголовка</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
           <context context-type="linenumber">10,11</context>
@@ -542,7 +542,7 @@
       </trans-unit>
       <trans-unit id="54f7aa60fb965b59e282c98f0068881fe5f1c848" datatype="html">
         <source>Go to Linked Board</source>
-        <target></target>
+        <target>Перейти до зв'язаної дошки</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
           <context context-type="linenumber">56</context>
@@ -556,7 +556,7 @@
       </trans-unit>
       <trans-unit id="cf8051b04631b14b2f7a4091861064734aa8a10c" datatype="html">
         <source>Board Properties</source>
-        <target></target>
+        <target>Властивості дошки</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -566,7 +566,7 @@
       </trans-unit>
       <trans-unit id="f34f28751184cc459b810500bc00edfcc9cfe31d" datatype="html">
         <source>Add Board</source>
-        <target></target>
+        <target>Додати дошку</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
           <context context-type="linenumber">8</context>
@@ -592,7 +592,7 @@
       </trans-unit>
       <trans-unit id="89a8b9b9ea63e78337a552e9b0b8f589f6404831" datatype="html">
         <source>Done</source>
-        <target></target>
+        <target>Зробити</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
           <context context-type="linenumber">23</context>
@@ -606,7 +606,7 @@
       </trans-unit>
       <trans-unit id="78a7c8bfb59c3e5a6e0db7cec0c206774c679407" datatype="html">
         <source>Board Set Properties</source>
-        <target></target>
+        <target>Властивості набору дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -614,7 +614,7 @@
       </trans-unit>
       <trans-unit id="50dee86eefe159244d2cdef11beb12213eeaf3fa" datatype="html">
         <source>Title</source>
-        <target></target>
+        <target>Назва</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">15</context>
@@ -624,7 +624,7 @@
       </trans-unit>
       <trans-unit id="12247cda06051f3cee800724e6923bdc1ab6b8a1" datatype="html">
         <source>Visibility</source>
-        <target></target>
+        <target>Видимість</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">23</context>
@@ -634,7 +634,7 @@
       </trans-unit>
       <trans-unit id="7cf3690e3936d8460b9f195c8f0d0f3379acbf53" datatype="html">
         <source>Private</source>
-        <target></target>
+        <target>Приватний</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -644,7 +644,7 @@
       </trans-unit>
       <trans-unit id="f644e7e5728ed86be99607700a7965382b7c2f47" datatype="html">
         <source>Public</source>
-        <target></target>
+        <target>Громадський</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">26</context>
@@ -654,7 +654,7 @@
       </trans-unit>
       <trans-unit id="d17421976444259311fd0add79195c2953afcee5" datatype="html">
         <source>Public Board Sets can be found and viewed by anyone.</source>
-        <target></target>
+        <target>Набори публічних дощок може знайти та переглянути будь-хто.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-set-editor-dialog/board-set-editor-dialog.component.html</context>
           <context context-type="linenumber">28</context>
@@ -664,7 +664,7 @@
       </trans-unit>
       <trans-unit id="aaa7688f6dcc49cdb3c9a4287249d7ee8ad21abf" datatype="html">
         <source>Board Actions</source>
-        <target></target>
+        <target>Дії дошки</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
           <context context-type="linenumber">57</context>
@@ -674,7 +674,7 @@
       </trans-unit>
       <trans-unit id="41c4c68e3231527a92a54b266f6f0f4b781caa92" datatype="html">
         <source>Download as OBF</source>
-        <target></target>
+        <target>Завантажити як OBF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
           <context context-type="linenumber">86</context>
@@ -684,7 +684,7 @@
       </trans-unit>
       <trans-unit id="1c1639e7c836a2cf347ad2bd01639afd7ce215db" datatype="html">
         <source>Download/Print PDF</source>
-        <target></target>
+        <target>Завантажити/надрукувати PDF-файл</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
           <context context-type="linenumber">91</context>
@@ -694,7 +694,7 @@
       </trans-unit>
       <trans-unit id="7cd5de13d1bad5d77c6583f5ff063c426c37e4ef" datatype="html">
         <source>Properties</source>
-        <target></target>
+        <target>Властивості</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
           <context context-type="linenumber">103</context>
@@ -708,7 +708,7 @@
       </trans-unit>
       <trans-unit id="af177a988b6331f2930e6e6cad60e83f37483cf6" datatype="html">
         <source>Board Set Actions</source>
-        <target></target>
+        <target>Дії набору дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
           <context context-type="linenumber">20</context>
@@ -718,7 +718,7 @@
       </trans-unit>
       <trans-unit id="8d93b57f02fdb08c6d81aa24a1f51bb2f8346eed" datatype="html">
         <source>Read Only</source>
-        <target></target>
+        <target>Лише для читання</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
           <context context-type="linenumber">28</context>
@@ -728,7 +728,7 @@
       </trans-unit>
       <trans-unit id="1f41ab34a76082858fdf7d4d5da8cd6d6c29402b" datatype="html">
         <source>Create Editable Copy</source>
-        <target></target>
+        <target>Створення редагованої копії</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
           <context context-type="linenumber">31</context>
@@ -737,7 +737,7 @@
       </trans-unit>
       <trans-unit id="3f6f4b8552b4d78ad67f583ff6d1a95e91e2f5b1" datatype="html">
         <source>Add Board from OBF</source>
-        <target></target>
+        <target>Додати дошку від OBF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
           <context context-type="linenumber">100</context>
@@ -750,7 +750,7 @@
       </trans-unit>
       <trans-unit id="3d531446d7d60fcf40fac5aed1ffd5666b3b2cb4" datatype="html">
         <source>Download Board Set as OBZ</source>
-        <target></target>
+        <target>Завантажити дошку набір як OBZ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
           <context context-type="linenumber">103</context>
@@ -760,7 +760,7 @@
       </trans-unit>
       <trans-unit id="5047656acb358048cad9221dc10628a86b2a9903" datatype="html">
         <source>Keyboard Shortcuts</source>
-        <target></target>
+        <target>Сполучення клавіш</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
           <context context-type="linenumber">120</context>
@@ -770,7 +770,7 @@
       </trans-unit>
       <trans-unit id="bf35cb4d4e25c8364d0601637844bf25f1d01f11" datatype="html">
         <source>Remove <x id="INTERPOLATION" equiv-text="{{label}}"/> Colour</source>
-        <target></target>
+        <target>Видалити <x id="INTERPOLATION" equiv-text="{{label}}"/> Колір</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor-colour-panel/cell-editor-colour-panel.component.html</context>
           <context context-type="linenumber">10</context>
@@ -779,7 +779,7 @@
       </trans-unit>
       <trans-unit id="5d90eb237eb6a9a1dc41adc3189698a2b5451a3f" datatype="html">
         <source>Label</source>
-        <target></target>
+        <target>Мітка</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">6</context>
@@ -789,7 +789,7 @@
       </trans-unit>
       <trans-unit id="8e02bde1590a1338757de4be451c644807e04639" datatype="html">
         <source>Save and close the cell editor</source>
-        <target></target>
+        <target>Збереження та закриття редактора клітинок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">11</context>
@@ -798,7 +798,7 @@
       </trans-unit>
       <trans-unit id="0edb7d06bd26808ec04e53d5d5782dcf55c15219" datatype="html">
         <source>Save and Close</source>
-        <target></target>
+        <target>Збереження та закриття</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">12</context>
@@ -816,7 +816,7 @@
       </trans-unit>
       <trans-unit id="fe3670c0204f89b0e5ab9103457de0f1913c60d7" datatype="html">
         <source>Cell</source>
-        <target></target>
+        <target>Клітина</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">23</context>
@@ -826,7 +826,7 @@
       </trans-unit>
       <trans-unit id="a3ce348e37acec3d99af836af4208b7a0cc7dd71" datatype="html">
         <source>Colours</source>
-        <target></target>
+        <target>Кольори</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">26</context>
@@ -836,7 +836,7 @@
       </trans-unit>
       <trans-unit id="0fbc41e0f42a75a58ea34ffd7c89b54cdc569ea3" datatype="html">
         <source>Background</source>
-        <target></target>
+        <target>Тло</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">30</context>
@@ -844,7 +844,7 @@
       </trans-unit>
       <trans-unit id="0d2d3212b37bdcb905e658c9925bf26a8db47800" datatype="html">
         <source>Border</source>
-        <target></target>
+        <target>Кордон</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">34</context>
@@ -852,7 +852,7 @@
       </trans-unit>
       <trans-unit id="8ba143716c2da6e4120c0c1a804f0bdd9a7e5f5b" datatype="html">
         <source>Text</source>
-        <target></target>
+        <target>Текст</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">38</context>
@@ -860,7 +860,7 @@
       </trans-unit>
       <trans-unit id="53143171341853f7dad63f659c9972504eba6b07" datatype="html">
         <source>Hair</source>
-        <target></target>
+        <target>Волос</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">42</context>
@@ -868,7 +868,7 @@
       </trans-unit>
       <trans-unit id="32c15c25315b563bcd2f928f954ffb578b3edc0a" datatype="html">
         <source>Skin</source>
-        <target></target>
+        <target>Шкіра</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">46</context>
@@ -876,7 +876,7 @@
       </trans-unit>
       <trans-unit id="96959b5a7035287ae015f17590f6fa10b455817b" datatype="html">
         <source>Linking</source>
-        <target></target>
+        <target>Посилання</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">53</context>
@@ -886,7 +886,7 @@
       </trans-unit>
       <trans-unit id="6cc5aa389c7034c4e7a0fda799f0d82703826215" datatype="html">
         <source>Linked to</source>
-        <target></target>
+        <target>Пов'язані з</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">57</context>
@@ -896,7 +896,7 @@
       </trans-unit>
       <trans-unit id="9366b83fca02533036127e8772ea2a5dc12c4b20" datatype="html">
         <source>Unlink</source>
-        <target></target>
+        <target>Від'єднати зв'язок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">59</context>
@@ -910,7 +910,7 @@
       </trans-unit>
       <trans-unit id="1ac1acf0cbd2071a1de0641966cec17f35016cbf" datatype="html">
         <source>Link to a Board</source>
-        <target></target>
+        <target>Посилання на дошку</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">71</context>
@@ -919,7 +919,7 @@
       </trans-unit>
       <trans-unit id="f7e12bf20756a6a287b4e25f193ccdcba567ef60" datatype="html">
         <source>This list shows only unlinked Boards.</source>
-        <target></target>
+        <target>У цьому списку відображаються лише незв'язані дошки.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">75</context>
@@ -928,7 +928,7 @@
       </trans-unit>
       <trans-unit id="faaa3e25b7ac64b43751e23883a9115c8dd9328d" datatype="html">
         <source>No Boards are available for linking.</source>
-        <target></target>
+        <target>Дошки недоступні для зв'язування.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">82</context>
@@ -937,7 +937,7 @@
       </trans-unit>
       <trans-unit id="9b7c06ea2793398cfa1bf6c5ac5f47a12672eef2" datatype="html">
         <source>Unlink an existing Board, or create a new one.</source>
-        <target></target>
+        <target>Від'єднайте наявну дошку або створіть нову.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">84</context>
@@ -946,7 +946,7 @@
       </trans-unit>
       <trans-unit id="aeeb351d37bc354a1005ec9076308ec0ebecb641" datatype="html">
         <source>Linkable Boards</source>
-        <target></target>
+        <target>Зв'язні дошки</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">90</context>
@@ -956,7 +956,7 @@
       </trans-unit>
       <trans-unit id="c93efeeaaf173761ebfc813c3ceb7250cf72e203" datatype="html">
         <source>Move Cell</source>
-        <target></target>
+        <target>Перемістити клітинку</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">94</context>
@@ -965,7 +965,7 @@
       </trans-unit>
       <trans-unit id="68e2f7a8d086f691a6a1f618deba859b7833c826" datatype="html">
         <source>Move Earlier</source>
-        <target></target>
+        <target>Перемістити раніше</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">104</context>
@@ -974,7 +974,7 @@
       </trans-unit>
       <trans-unit id="71df040c8c999a3512f026dfb298780d636c0370" datatype="html">
         <source>Move Later</source>
-        <target></target>
+        <target>Перемістити пізніше</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">113</context>
@@ -983,7 +983,7 @@
       </trans-unit>
       <trans-unit id="ff287e2498413437062bcefc20e24904d903a239" datatype="html">
         <source>Reset Cell Contents</source>
-        <target></target>
+        <target>Скидання вмісту клітинки</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">120</context>
@@ -992,7 +992,7 @@
       </trans-unit>
       <trans-unit id="9061ab1e76d40d95e9af8bac1a62a2df209a57bd" datatype="html">
         <source>Clear Symbol</source>
-        <target></target>
+        <target>Очистити символ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">123</context>
@@ -1001,7 +1001,7 @@
       </trans-unit>
       <trans-unit id="3f13b6f84545e37961b9cd937be53c7fcd7de8c2" datatype="html">
         <source>Clear Colours</source>
-        <target></target>
+        <target>Очистити кольори</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">128</context>
@@ -1010,7 +1010,7 @@
       </trans-unit>
       <trans-unit id="b030fd8ff780ba07cf46f1d917c5461bd22b3088" datatype="html">
         <source>Symbol</source>
-        <target></target>
+        <target>Символ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">134</context>
@@ -1028,7 +1028,7 @@
       </trans-unit>
       <trans-unit id="25e2bf3ae065ac21a2b7b33dfecc80b3a622c94d" datatype="html">
         <source>My Images</source>
-        <target></target>
+        <target>Мої зображення</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
           <context context-type="linenumber">140</context>
@@ -1042,7 +1042,7 @@
       </trans-unit>
       <trans-unit id="6bcb275cf56b894d668e25c812683cf3e2059999" datatype="html">
         <source>Communication boards the easy way</source>
-        <target></target>
+        <target>Комунікаційні дошки простий спосіб</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">4</context>
@@ -1051,7 +1051,7 @@
       </trans-unit>
       <trans-unit id="a36dccfd1cefd123a47885cacc8d2465716fc954" datatype="html">
         <source>Create boards to aid communication with thousands of free images.</source>
-        <target></target>
+        <target>Створюйте дошки, щоб допомогти спілкуванню з тисячами безкоштовних зображень.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">9</context>
@@ -1060,7 +1060,7 @@
       </trans-unit>
       <trans-unit id="d052b858625a3ddffbb91917b7264d61803baf8b" datatype="html">
         <source>Everything is stored safely in your Global Symbols account.</source>
-        <target></target>
+        <target>Все надійно зберігається у вашому обліковому записі Global Symbols.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">10</context>
@@ -1069,7 +1069,7 @@
       </trans-unit>
       <trans-unit id="06bdcf55e3b8187fec88bfbf3dd3d672d9871ed2" datatype="html">
         <source>My Board Sets</source>
-        <target></target>
+        <target>Мої набори дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">12</context>
@@ -1083,7 +1083,7 @@
       </trans-unit>
       <trans-unit id="ec5444842f9d13fe5070b6a626836ccf1d0d3424" datatype="html">
         <source>Get Started</source>
-        <target></target>
+        <target>Початок роботи</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">13</context>
@@ -1096,8 +1096,8 @@
         <note priority="1" from="meaning">get started</note>
       </trans-unit>
       <trans-unit id="2f4eb93a91cf44fc2722874e8138a23f10925af5" datatype="html">
-        <source> My Symbols </source>
-        <target></target>
+        <source>My Symbols</source>
+        <target>Мої символи</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">16,17</context>
@@ -1111,7 +1111,7 @@
       </trans-unit>
       <trans-unit id="90cf22198d376b255fbab36748c38d869dcd0535" datatype="html">
         <source>Start with a template or make your own layout</source>
-        <target></target>
+        <target>Почніть із шаблону або створіть власний макет</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">22</context>
@@ -1120,7 +1120,7 @@
       </trans-unit>
       <trans-unit id="e99d6e3fb798355edb8f87e32122bb4f0a17f679" datatype="html">
         <source>Get started quickly with our collection of handy templates.</source>
-        <target></target>
+        <target>Почніть швидко з нашої колекції зручних шаблонів.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">26</context>
@@ -1129,7 +1129,7 @@
       </trans-unit>
       <trans-unit id="949ef93de86678f9cea0bdb143c9929a3efaf472" datatype="html">
         <source>You always have control to customise the layout beyond our templates.</source>
-        <target></target>
+        <target>У вас завжди є контроль, щоб налаштувати макет за межами наших шаблонів.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">27</context>
@@ -1138,7 +1138,7 @@
       </trans-unit>
       <trans-unit id="ee34309cbccb76db11799f7e68d5b98776a70b72" datatype="html">
         <source>Search thousands of free images and use your own</source>
-        <target></target>
+        <target>Шукайте тисячі безкоштовних зображень і використовуйте свої власні</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">31</context>
@@ -1147,7 +1147,7 @@
       </trans-unit>
       <trans-unit id="51cb28ff8390b109810139e8524bb802da106fab" datatype="html">
         <source>Quickly find the symbols you need by searching thousands of free images from popular symbol sets on GlobalSymbols.</source>
-        <target></target>
+        <target>Швидко знайдіть потрібні символи, шукаючи тисячі безкоштовних зображень з популярних наборів символів на GlobalSymbols.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">35</context>
@@ -1156,7 +1156,7 @@
       </trans-unit>
       <trans-unit id="dc132f932e776ceac791876d90d2c85998a2d691" datatype="html">
         <source>Store your own photos and images in BoardBuilder and use them throughout your boards.</source>
-        <target></target>
+        <target>Зберігайте власні фотографії та зображення в BoardBuilder і використовуйте їх на всіх дошках.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">36</context>
@@ -1165,7 +1165,7 @@
       </trans-unit>
       <trans-unit id="0b950b44a712127e5221c071eefe0804b81992fa" datatype="html">
         <source>Communicate with colour and more</source>
-        <target></target>
+        <target>Спілкуйтеся з кольором і багато іншого</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">40</context>
@@ -1174,7 +1174,7 @@
       </trans-unit>
       <trans-unit id="a143122a48bce11086a94c909d7c0bc428022472" datatype="html">
         <source>Tailor boards with your favourite colours and preferred fonts.</source>
-        <target></target>
+        <target>Кравіть дошки з улюбленими кольорами та улюбленими шрифтами.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">44</context>
@@ -1183,7 +1183,7 @@
       </trans-unit>
       <trans-unit id="86f716bec915207ba82e50b4fd9b01acc56b0682" datatype="html">
         <source>Easily re-arrange boards and link between boards to create communication books.</source>
-        <target></target>
+        <target>Легко переплануйте дошки і зв'яжіться між дошками для створення комунікаційних книг.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">45</context>
@@ -1192,7 +1192,7 @@
       </trans-unit>
       <trans-unit id="bafcc104d8c1ca4a371fb99f537f8cd7bf8fce97" datatype="html">
         <source>Create your own Symbols</source>
-        <target></target>
+        <target>Створіть власні символи</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">49</context>
@@ -1201,7 +1201,7 @@
       </trans-unit>
       <trans-unit id="3765519c937e4b9c0109cb1fc4838ec922f45dc2" datatype="html">
         <source>Create your own symbols in seconds by combining shapes, text, symbols and even your own pictures.</source>
-        <target></target>
+        <target>Створюйте власні символи за лічені секунди, поєднуючи фігури, текст, символи і навіть власні зображення.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">53</context>
@@ -1210,7 +1210,7 @@
       </trans-unit>
       <trans-unit id="16cc45679f38cd45f998da8dc51c3127e7e6b040" datatype="html">
         <source>Perfect for those times when you need something a little different.</source>
-        <target></target>
+        <target>Ідеально підходить для тих часів, коли вам потрібно щось трохи інше.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">54</context>
@@ -1219,7 +1219,7 @@
       </trans-unit>
       <trans-unit id="f490c7cacf3e1fa529bb8f99fab1255954dbb45e" datatype="html">
         <source>Download, Print and Share</source>
-        <target></target>
+        <target>Завантаження, друк і надання спільного доступу</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">58</context>
@@ -1228,7 +1228,7 @@
       </trans-unit>
       <trans-unit id="10aa2cb50b9c13a52f198005845b2e096da4b6ce" datatype="html">
         <source>Quickly convert boards to PDF so they can be easily shared with anyone.</source>
-        <target></target>
+        <target>Швидко конвертуйте дошки в PDF, щоб ними можна було легко поділитися з будь-ким.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">62</context>
@@ -1237,7 +1237,7 @@
       </trans-unit>
       <trans-unit id="8a97049f5dbd670dff63c3ef14e37ab5d6f4f3c6" datatype="html">
         <source>Print boards to your preferred paper size, import and export boards in OBF and OBZ formats.</source>
-        <target></target>
+        <target>Друк дощок до бажаного розміру паперу, імпорт та експорт плат у форматах OBF та OBZ.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">63</context>
@@ -1246,7 +1246,7 @@
       </trans-unit>
       <trans-unit id="802222cb4754d74846b18f651b1f94e21576185d" datatype="html">
         <source>Get Started</source>
-        <target></target>
+        <target>Початок роботи</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">67</context>
@@ -1255,7 +1255,7 @@
       </trans-unit>
       <trans-unit id="961b5cace3a8eb60ee77def7f30bef5a5a3ea0b4" datatype="html">
         <source>BoardBuilder stores everything in your Global Symbols account.</source>
-        <target></target>
+        <target>BoardBuilder зберігає все у вашому обліковому записі Global Symbols.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">71</context>
@@ -1264,7 +1264,7 @@
       </trans-unit>
       <trans-unit id="1b888e9aad9b88aed9013bf0a726f94b16b78f9b" datatype="html">
         <source>Create an account if you don't already have one.</source>
-        <target></target>
+        <target>Створіть обліковий запис, якщо його ще немає.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/page/home.component.html</context>
           <context context-type="linenumber">72</context>
@@ -1273,7 +1273,7 @@
       </trans-unit>
       <trans-unit id="d85939744060b14face42c9f8ef1baf690b7fafd" datatype="html">
         <source>Symbols</source>
-        <target></target>
+        <target>Символи</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">3</context>
@@ -1283,7 +1283,7 @@
       </trans-unit>
       <trans-unit id="4f836ecb8b48cbd0f18f7f0ed459489599372204" datatype="html">
         <source>My Symbols</source>
-        <target></target>
+        <target>Мої символи</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">6</context>
@@ -1293,7 +1293,7 @@
       </trans-unit>
       <trans-unit id="ce2a8428f4f9edec308784591a24234828698f56" datatype="html">
         <source>You have used <x id="INTERPOLATION" equiv-text="{{spaceUsed | filesize: {round: 0} }}"/>.</source>
-        <target></target>
+        <target>Використано <x id="INTERPOLATION" equiv-text="{{spaceUsed | filesize: {round: 0} }}"/>.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">7</context>
@@ -1302,7 +1302,7 @@
       </trans-unit>
       <trans-unit id="207eee6f5c3dcef68b3f8a63551ddfc3a8fd2d87" datatype="html">
         <source>You have not uploaded any images yet.</source>
-        <target></target>
+        <target>Ви ще не завантажили жодних зображень.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">9</context>
@@ -1311,7 +1311,7 @@
       </trans-unit>
       <trans-unit id="68abeead4917cefa422fc79a1c8b8c3c4a3f63f8" datatype="html">
         <source>Create Symbol</source>
-        <target></target>
+        <target>Створити символ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">20</context>
@@ -1329,7 +1329,7 @@
       </trans-unit>
       <trans-unit id="5828a2e612748b670d4b3588116a0a5480623133" datatype="html">
         <source>Edit Symbol</source>
-        <target></target>
+        <target>Змінити символ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">47</context>
@@ -1339,7 +1339,7 @@
       </trans-unit>
       <trans-unit id="50f14f70020fccfe6bda292ffb8e8ebdad82a92c" datatype="html">
         <source>Save to Device</source>
-        <target></target>
+        <target>Зберегти на пристрої</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">51</context>
@@ -1349,7 +1349,7 @@
       </trans-unit>
       <trans-unit id="bf54c4e5a1dc7f5c997ea6cff4675b97af6cf7c9" datatype="html">
         <source>Delete Symbol</source>
-        <target></target>
+        <target>Видалити символ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/media/page/media.component.html</context>
           <context context-type="linenumber">55</context>
@@ -1359,7 +1359,7 @@
       </trans-unit>
       <trans-unit id="d349af48bb7154cce302afd42d1e6f60388cdb1b" datatype="html">
         <source>PDF Settings</source>
-        <target></target>
+        <target>Параметри PDF-файлу</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">7</context>
@@ -1367,7 +1367,7 @@
       </trans-unit>
       <trans-unit id="6132c55d66521696f2ce9139aeb4ba78f90c333a" datatype="html">
         <source>Paper Size</source>
-        <target></target>
+        <target>Розмір паперу</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">11</context>
@@ -1377,7 +1377,7 @@
       </trans-unit>
       <trans-unit id="b12577537c5870ec34cf98de106eb03f6cf7ef5b" datatype="html">
         <source>Orientation</source>
-        <target></target>
+        <target>Орієнтації</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">18</context>
@@ -1387,7 +1387,7 @@
       </trans-unit>
       <trans-unit id="0b246cbac4c31d0d58833ecf4395f3d74bfc45f7" datatype="html">
         <source>Portrait</source>
-        <target></target>
+        <target>Портрет</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">20</context>
@@ -1397,7 +1397,7 @@
       </trans-unit>
       <trans-unit id="f7256aeb69fb71137ff4ae242c10fc4bb1ede629" datatype="html">
         <source>Landscape</source>
-        <target></target>
+        <target>Краєвид</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">21</context>
@@ -1407,7 +1407,7 @@
       </trans-unit>
       <trans-unit id="e2a2eb671dd79f8b7b14f51550636edd01bead6e" datatype="html">
         <source>Text Size (Maximum)</source>
-        <target></target>
+        <target>Розмір тексту (максимальний)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">26</context>
@@ -1417,7 +1417,7 @@
       </trans-unit>
       <trans-unit id="3bbe4dff805ae04b7115dda73e5b357e2e4ee891" datatype="html">
         <source>Text may shrink to fit available space</source>
-        <target></target>
+        <target>Текст може стискатися, щоб відповідати доступному простору</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">30</context>
@@ -1426,8 +1426,8 @@
         <note priority="1" from="meaning">text size max hint</note>
       </trans-unit>
       <trans-unit id="78fc391f864d3152cf50b5d9503ed6cb15f0c9cc" datatype="html">
-        <source> Advanced Settings </source>
-        <target></target>
+        <source>Advanced Settings</source>
+        <target>Додаткові параметри</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">38,39</context>
@@ -1437,7 +1437,7 @@
       </trans-unit>
       <trans-unit id="42ad9d8dde56feba181f04c0e60cbe63a745b5f0" datatype="html">
         <source>Cell Spacing</source>
-        <target></target>
+        <target>Інтервал між клітинками</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">47</context>
@@ -1447,7 +1447,7 @@
       </trans-unit>
       <trans-unit id="f14a895c0dd586c474d2fcf5229eb738d861a03a" datatype="html">
         <source>Adjusts spacing between each box</source>
-        <target></target>
+        <target>Настроювання інтервалу між кожним полем</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">51</context>
@@ -1457,7 +1457,7 @@
       </trans-unit>
       <trans-unit id="e73326a1968f1d07238b7edcba05a6c5578edfed" datatype="html">
         <source>Cell Padding</source>
-        <target></target>
+        <target>Заповнення клітинок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">55</context>
@@ -1467,7 +1467,7 @@
       </trans-unit>
       <trans-unit id="a0cd510186602b3e9824bcef0f3aeec9954d1d84" datatype="html">
         <source>Adjusts spacing inside each box</source>
-        <target></target>
+        <target>Налаштування інтервалу всередині кожної коробки</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">59</context>
@@ -1477,7 +1477,7 @@
       </trans-unit>
       <trans-unit id="0fc9a5e20b777def79ca6e44c0da65b34d4d99b6" datatype="html">
         <source>Image/Label Spacing</source>
-        <target></target>
+        <target>Інтервал між зображеннями/мітками</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">63</context>
@@ -1487,7 +1487,7 @@
       </trans-unit>
       <trans-unit id="688f82a4945580aac59f2befecad264a09699d19" datatype="html">
         <source>Adjusts spacing between the image and label</source>
-        <target></target>
+        <target>Налаштування інтервалу між зображенням і міткою</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">68</context>
@@ -1496,8 +1496,8 @@
         <note priority="1" from="meaning">cell image label spacing hint</note>
       </trans-unit>
       <trans-unit id="55d865cea95e40ca4a11aab3a8768e189129f573" datatype="html">
-        <source> Cell Borders </source>
-        <target></target>
+        <source>Cell Borders</source>
+        <target>Межі клітинок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">74,75</context>
@@ -1506,8 +1506,8 @@
         <note priority="1" from="meaning">cell draw outlines</note>
       </trans-unit>
       <trans-unit id="cdb2a3b9b2b717a49b18d822b6903b3622dfe886" datatype="html">
-        <source> Download </source>
-        <target></target>
+        <source>Download</source>
+        <target>Завантажити</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">84,85</context>
@@ -1517,7 +1517,7 @@
       </trans-unit>
       <trans-unit id="dd21d3aaeb51dec9a0c5ab7a35944f0bf6a40bdb" datatype="html">
         <source>Refresh PDF</source>
-        <target></target>
+        <target>Оновити PDF-файл</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">87</context>
@@ -1531,7 +1531,7 @@
       </trans-unit>
       <trans-unit id="aa7ad66f30bf033cd8447e9473b70176d7ba9181" datatype="html">
         <source>Reset Settings</source>
-        <target></target>
+        <target>Скидання настройок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">95</context>
@@ -1541,7 +1541,7 @@
       </trans-unit>
       <trans-unit id="f2bab03d1b99998c3c361a1f432e5642e23977d6" datatype="html">
         <source>PDF</source>
-        <target></target>
+        <target>PDF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">100</context>
@@ -1551,7 +1551,7 @@
       </trans-unit>
       <trans-unit id="a4b8cd94deac52d22a5f62383198d0cf6003f168" datatype="html">
         <source>We can't fit everything on the page with your chosen settings. You can fix this by…</source>
-        <target></target>
+        <target>Ми не можемо вмістити все на сторінці з вибраними налаштуваннями. Ви можете виправити це за допомогою…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">103</context>
@@ -1561,7 +1561,7 @@
       </trans-unit>
       <trans-unit id="5ef32beb7c848fe5391dd7de9e44b455cb0a7937" datatype="html">
         <source>Reducing Cell Spacing or Cell Padding by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow / 2}}"/> pt.</source>
-        <target></target>
+        <target>Зменшення інтервалу між клітинками або заповнення клітинок принаймні <x id="INTERPOLATION" equiv-text="{{apiError.overflow / 2}}"/> pt.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">105</context>
@@ -1570,7 +1570,7 @@
       </trans-unit>
       <trans-unit id="034422a819dc3d4f3fe15107046b750614e07c9a" datatype="html">
         <source>Reducing Image/Label Spacing by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow}}"/> pt.</source>
-        <target></target>
+        <target>Зменшення інтервалу між зображенням/міткою принаймні <x id="INTERPOLATION" equiv-text="{{apiError.overflow}}"/> pt.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">106</context>
@@ -1578,8 +1578,8 @@
         <note priority="1" from="description">PDF Generator error suggestion 2</note>
       </trans-unit>
       <trans-unit id="6d2300a6dd19811e715ab8975dab499bdf7f07ac" datatype="html">
-        <source> Reducing Text Size by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow}"/> pt. </source>
-        <target></target>
+        <source>Reducing Text Size by at least <x id="INTERPOLATION" equiv-text="{{apiError.overflow}"/> pt. </source>
+        <target>Зменшення розміру тексту принаймні <x id="INTERPOLATION" equiv-text="{{apiError.overflow}"/> pt. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">107,109</context>
@@ -1588,7 +1588,7 @@
       </trans-unit>
       <trans-unit id="70cdece93077a48164f650627d97ea14d0369b59" datatype="html">
         <source>Using a larger Paper Size.</source>
-        <target></target>
+        <target>Використання більшого розміру паперу.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">110</context>
@@ -1597,7 +1597,7 @@
       </trans-unit>
       <trans-unit id="121cc5391cd2a5115bc2b3160379ee5b36cd7716" datatype="html">
         <source>Settings</source>
-        <target></target>
+        <target>Параметри</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">3</context>
@@ -1606,7 +1606,7 @@
       </trans-unit>
       <trans-unit id="e83cd82df5a8116c8144f5d6c7c57fca171f623f" datatype="html">
         <source>Custom Symbols</source>
-        <target></target>
+        <target>Настроювані символи</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">8</context>
@@ -1615,7 +1615,7 @@
       </trans-unit>
       <trans-unit id="ca678a76eda54688cd6476699c50cac25b9ca583" datatype="html">
         <source>Some symbols let you customise hair and skin colours.</source>
-        <target></target>
+        <target>Деякі символи дозволяють налаштувати колір волосся і шкіри.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">9</context>
@@ -1624,7 +1624,7 @@
       </trans-unit>
       <trans-unit id="817d0c3c4d20c18039b0773a1a3a166ae03aff9b" datatype="html">
         <source>The colours you choose here will be applied to customisable symbols automatically.</source>
-        <target></target>
+        <target>Вибрані тут кольори будуть автоматично застосовані до настроюваних символів.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">10</context>
@@ -1633,7 +1633,7 @@
       </trans-unit>
       <trans-unit id="fa3324bf9acc67872150c5fcb55a720299381061" datatype="html">
         <source>Customisable symbols will show a <x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon [inline]=&quot;true&quot; color=&quot;primary&quot;&gt;"/>emoji_emotions<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> symbol in search results.</source>
-        <target></target>
+        <target>Настроювані символи відображатимуть символ <x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon [inline]=&quot;true&quot; color=&quot;primary&quot;&gt;"/>emoji_emotions<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> у результатах пошуку.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">11</context>
@@ -1642,7 +1642,7 @@
       </trans-unit>
       <trans-unit id="bbcbefc71eb223a7095c2a2f99946048bc1053f1" datatype="html">
         <source>Custom Hair Colour</source>
-        <target></target>
+        <target>Власний колір волосся</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">16</context>
@@ -1651,7 +1651,7 @@
       </trans-unit>
       <trans-unit id="c514e90cd865efeeb1fbb4267496858b819f3957" datatype="html">
         <source>Remove Custom Hair Colour</source>
-        <target></target>
+        <target>Видалення власного кольору волосся</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">19</context>
@@ -1660,7 +1660,7 @@
       </trans-unit>
       <trans-unit id="b645e75de08b0ebe4da6353f5cf091a4c31d5de4" datatype="html">
         <source>Custom Skin Colour</source>
-        <target></target>
+        <target>Власний колір шкіри</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">28</context>
@@ -1669,7 +1669,7 @@
       </trans-unit>
       <trans-unit id="ab221de0ef4666e8dc66058b9a723ce95b3f2b91" datatype="html">
         <source>Remove Custom Skin Colour</source>
-        <target></target>
+        <target>Видалення настроюваного кольору обкладинки</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">31</context>
@@ -1678,7 +1678,7 @@
       </trans-unit>
       <trans-unit id="d4c396ce44025e136f96492b448064dcec52de0b" datatype="html">
         <source>Original Symbols</source>
-        <target></target>
+        <target>Оригінальні символи</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">41</context>
@@ -1687,7 +1687,7 @@
       </trans-unit>
       <trans-unit id="9db99c2070bd6e0caa250aa5ad2cd0eb8a881561" datatype="html">
         <source>Customised Symbols</source>
-        <target></target>
+        <target>Настроювані символи</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">46</context>
@@ -1696,7 +1696,7 @@
       </trans-unit>
       <trans-unit id="52c9a103b812f258bcddc3d90a6e3f46871d25fe" datatype="html">
         <source>Save</source>
-        <target></target>
+        <target>Рятувати</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">53</context>
@@ -1704,7 +1704,7 @@
       </trans-unit>
       <trans-unit id="9987be2efd33191ead6c7adffe56b73ee3f478f6" datatype="html">
         <source>Changes saved <x id="INTERPOLATION" equiv-text="{{savedAt | amTimeAgo}}"/></source>
-        <target></target>
+        <target>Збережено зміни <x id="INTERPOLATION" equiv-text="{{savedAt | amTimeAgo}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/settings/page/page.component.html</context>
           <context context-type="linenumber">56</context>
@@ -1713,7 +1713,7 @@
       </trans-unit>
       <trans-unit id="a0cf7197e807c169dd0cc9f7445fd48d02a711c2" datatype="html">
         <source>Add a new Board by importing an Open Board Format (OBF) file.</source>
-        <target></target>
+        <target>Додайте нову дошку, імпортувавши файл формату відкритої дошки (OBF).</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">14</context>
@@ -1722,7 +1722,7 @@
       </trans-unit>
       <trans-unit id="e7b9adab46cb1ff8c122f883b0ec555fa81a3340" datatype="html">
         <source>Select an OBF file to begin.</source>
-        <target></target>
+        <target>Виберіть файл OBF для початку.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">16</context>
@@ -1731,7 +1731,7 @@
       </trans-unit>
       <trans-unit id="31e4bb50eea08f31c1cd6a746cd1fa7f6fab6d55" datatype="html">
         <source>Uploading…</source>
-        <target></target>
+        <target>Завантаження…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">17</context>
@@ -1740,7 +1740,7 @@
       </trans-unit>
       <trans-unit id="753a9ddb22a64ee8f082a604c0e63832ddd62f70" datatype="html">
         <source>Select OBF…</source>
-        <target></target>
+        <target>Виберіть OBF…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -1748,8 +1748,8 @@
         <note priority="1" from="description">OBF Upload Dialog select OBF button</note>
       </trans-unit>
       <trans-unit id="f3e09b1fcc5e166aa05679da732ab57339c953bb" datatype="html">
-        <source> We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {cell} other {cells}}"/> in your OBF file. </source>
-        <target></target>
+        <source>We found <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {cell} other {cells}}"/> in your OBF file. </source>
+        <target>Ми знайшли <x id="INTERPOLATION" equiv-text="{{previewBoard.cells.length}"/> <x id="ICU" equiv-text="{previewBoard.cells.length, plural, =1 {cell} other {cells}}"/> у вашому файлі OBF. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">29,31</context>
@@ -1758,7 +1758,7 @@
       </trans-unit>
       <trans-unit id="fce681e9cb6340189b8501130cc46987c2c84808" datatype="html">
         <source>{VAR_PLURAL, plural, =1 {cell} other {cells}}</source>
-        <target></target>
+        <target>{VAR_PLURAL, множина, =1 {cell} інші {cells}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">30</context>
@@ -1766,7 +1766,7 @@
       </trans-unit>
       <trans-unit id="795adf327e8a51d19ccf00402a4c4bb7a51e20f3" datatype="html">
         <source>The file you provided is not a valid OBF file.</source>
-        <target></target>
+        <target>Наданий вами файл не є припустимим файлом OBF.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">33</context>
@@ -1775,7 +1775,7 @@
       </trans-unit>
       <trans-unit id="3054e0afeeddfec20baf90b28904521b55957239" datatype="html">
         <source>Cancel</source>
-        <target></target>
+        <target>Скасувати</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obf-upload-dialog/obf-upload-dialog.component.html</context>
           <context context-type="linenumber">36</context>
@@ -1797,7 +1797,7 @@
       </trans-unit>
       <trans-unit id="3eed83da952c43b967917087d8dfa141305e10ce" datatype="html">
         <source>Create Board Set from OBZ File</source>
-        <target></target>
+        <target>Створіть набір дощок з файлу OBZ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -1806,7 +1806,7 @@
       </trans-unit>
       <trans-unit id="e8b15f4bd5c47083e17a1f529c0230fe8db4a29f" datatype="html">
         <source>This will create a Board Set from an Open Board Format Collection (OBZ) file that you upload.</source>
-        <target></target>
+        <target>Це створить набір дощок із файлу колекції форматів відкритої дошки (OBZ), який ви завантажуєте.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">14</context>
@@ -1815,7 +1815,7 @@
       </trans-unit>
       <trans-unit id="e0858fb3843454e2a94dbaa69b864a52c98e5a1b" datatype="html">
         <source>Select an OBZ file to begin.</source>
-        <target></target>
+        <target>Виберіть файл OBZ для початку.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">15</context>
@@ -1824,7 +1824,7 @@
       </trans-unit>
       <trans-unit id="32f5154830bb644ec1aff3410fb0353bcc324786" datatype="html">
         <source>Select OBZ…</source>
-        <target></target>
+        <target>Виберіть OBZ…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">19</context>
@@ -1832,8 +1832,8 @@
         <note priority="1" from="description">OBZ Upload Dialog select OBZ button</note>
       </trans-unit>
       <trans-unit id="b361b030af06f3245c0c96c3ed97815265772480" datatype="html">
-        <source> We found <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {board} other {boards}}"/> in your OBZ file. </source>
-        <target></target>
+        <source>We found <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {board} other {boards}}"/> in your OBZ file. </source>
+        <target>Ми знайшли <x id="INTERPOLATION" equiv-text="{{boardSet.boards.length}"/> <x id="ICU" equiv-text="{boardSet.boards.length, plural, =1 {board} other {boards}}"/> у вашому файлі OBZ. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">25,27</context>
@@ -1842,7 +1842,7 @@
       </trans-unit>
       <trans-unit id="c4be93926edb355475a70ca1e8b63b299dbc5783" datatype="html">
         <source>{VAR_PLURAL, plural, =1 {board} other {boards}}</source>
-        <target></target>
+        <target>{VAR_PLURAL, множина, =1 {board} other {boards}}</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">26</context>
@@ -1850,7 +1850,7 @@
       </trans-unit>
       <trans-unit id="cdd4854b8c1339874afe84196303f21e889a97a3" datatype="html">
         <source>The OBZ file could not be read because <x id="INTERPOLATION" equiv-text="{{fileInvalidReason}}"/></source>
-        <target></target>
+        <target>Не вдалося прочитати файл OBZ, оскільки <x id="INTERPOLATION" equiv-text="{{fileInvalidReason}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">29</context>
@@ -1859,7 +1859,7 @@
       </trans-unit>
       <trans-unit id="f4aa5f08d3d1742455524efde60c55b06236b479" datatype="html">
         <source>Add Board Set</source>
-        <target></target>
+        <target>Додати набір дощок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">34</context>
@@ -1869,7 +1869,7 @@
       </trans-unit>
       <trans-unit id="104145858fd98b81923ca67d102a80be5c750074" datatype="html">
         <source>Select Image</source>
-        <target></target>
+        <target>Вибрати зображення</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
           <context context-type="linenumber">7</context>
@@ -1877,8 +1877,8 @@
         <note priority="1" from="description">Add Symbol Dialog heading</note>
       </trans-unit>
       <trans-unit id="7a174c266fd0587eb20f5fed9087a1e3e165b096" datatype="html">
-        <source> Clear Image </source>
-        <target></target>
+        <source>Clear Image</source>
+        <target>Очистити зображення</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
           <context context-type="linenumber">12,13</context>
@@ -1887,7 +1887,7 @@
       </trans-unit>
       <trans-unit id="c3980af8d141ce449570c02616b61c8cb55a6765" datatype="html">
         <source>Search</source>
-        <target></target>
+        <target>Шукати</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/add-symbol-dialog/add-symbol-dialog.component.html</context>
           <context context-type="linenumber">25</context>
@@ -1896,8 +1896,8 @@
         <note priority="1" from="meaning">search</note>
       </trans-unit>
       <trans-unit id="5cb171ddb22793f7497094daa9d53ba3e78a39d6" datatype="html">
-        <source>First Board </source>
-        <target></target>
+        <source>First Board</source>
+        <target>Перша дошка</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">5</context>
@@ -1907,7 +1907,7 @@
       </trans-unit>
       <trans-unit id="fdf7cbdc140d0aab0f0b6c06065a0fd448ed6a2e" datatype="html">
         <source>Title</source>
-        <target></target>
+        <target>Назва</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">6</context>
@@ -1916,7 +1916,7 @@
       </trans-unit>
       <trans-unit id="94d9d1f2a07f7532dbcdd759a293c40f23670067" datatype="html">
         <source>Choose a name for the first Board in your new Board Set.</source>
-        <target></target>
+        <target>Виберіть ім'я першої дошки в новому наборі дощок.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">11</context>
@@ -1924,8 +1924,8 @@
         <note priority="1" from="description">Board Editor Form board title field hint (new Board Sets only)</note>
       </trans-unit>
       <trans-unit id="751d545c485a7b14ce9b4afaf2644c6ec48b3d2e" datatype="html">
-        <source>First Board </source>
-        <target></target>
+        <source>First Board</source>
+        <target>Перша дошка</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">17</context>
@@ -1934,7 +1934,7 @@
       </trans-unit>
       <trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html">
         <source>Description</source>
-        <target></target>
+        <target>Опис</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">18</context>
@@ -1943,7 +1943,7 @@
       </trans-unit>
       <trans-unit id="7a3111a61eca14f3b284d2a2d1a2b65d278445f6" datatype="html">
         <source>Optional. Shown in PDFs made from this Board.</source>
-        <target></target>
+        <target>Необов'язково. Показано в PDF-файлах, створених на цій дошці.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">23</context>
@@ -1953,7 +1953,7 @@
       </trans-unit>
       <trans-unit id="785fb65be4f15d2392d38d08255a18ba3688f153" datatype="html">
         <source>Layout</source>
-        <target></target>
+        <target>Макет</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">29</context>
@@ -1962,7 +1962,7 @@
       </trans-unit>
       <trans-unit id="2e24e22d22570663b7e019c5c2fb11d9821590a1" datatype="html">
         <source>Generic Templates</source>
-        <target></target>
+        <target>Загальні шаблони</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">32</context>
@@ -1971,7 +1971,7 @@
       </trans-unit>
       <trans-unit id="b4e4539a8e3c38130e55f0a2eaf7b347dfec236c" datatype="html">
         <source>Custom Settings</source>
-        <target></target>
+        <target>Настроювані параметри</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">52</context>
@@ -1980,7 +1980,7 @@
       </trans-unit>
       <trans-unit id="92c7d26fe11cea39408d674a9f25cb48f69341b6" datatype="html">
         <source>Columns: <x id="INTERPOLATION" equiv-text="{{board.columns}}"/></source>
-        <target></target>
+        <target>Колонки: <x id="INTERPOLATION" equiv-text="{{board.columns}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">56</context>
@@ -1989,7 +1989,7 @@
       </trans-unit>
       <trans-unit id="72db182751c2255ca6d1b68e3bfd526a0982c926" datatype="html">
         <source>Rows: <x id="INTERPOLATION" equiv-text="{{board.rows}}"/></source>
-        <target></target>
+        <target>Рядки: <x id="INTERPOLATION" equiv-text="{{board.rows}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">69</context>
@@ -1998,7 +1998,7 @@
       </trans-unit>
       <trans-unit id="e47fbf619d9b88927751bd1fc556db6d284093aa" datatype="html">
         <source>Label Position</source>
-        <target></target>
+        <target>Розташування підпису</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">84</context>
@@ -2007,7 +2007,7 @@
       </trans-unit>
       <trans-unit id="d2f50fea8132ce64ece09a00e5e1519371026276" datatype="html">
         <source>Top</source>
-        <target></target>
+        <target>Верх</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">86</context>
@@ -2017,7 +2017,7 @@
       </trans-unit>
       <trans-unit id="35dbf9218f688f2c3641914191e698da1da53e2a" datatype="html">
         <source>Bottom</source>
-        <target></target>
+        <target>Низ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">87</context>
@@ -2027,7 +2027,7 @@
       </trans-unit>
       <trans-unit id="7c2786a6561850ba650193c4567a9febcb6c36e2" datatype="html">
         <source>Left</source>
-        <target></target>
+        <target>Ліворуч</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">88</context>
@@ -2037,7 +2037,7 @@
       </trans-unit>
       <trans-unit id="bb5deecdc9836fe245380847aa44f611681c8723" datatype="html">
         <source>Right</source>
-        <target></target>
+        <target>Праворуч</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">89</context>
@@ -2047,7 +2047,7 @@
       </trans-unit>
       <trans-unit id="ae875a90e1ecf011e22c81abb1f4c8dd3e1887f5" datatype="html">
         <source>Hidden</source>
-        <target></target>
+        <target>Приховані</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">90</context>
@@ -2057,7 +2057,7 @@
       </trans-unit>
       <trans-unit id="001f8430a95b26e1ffd9131221367e6edcc3d953" datatype="html">
         <source>Sets where text appears in each cell, relative to the image.</source>
-        <target></target>
+        <target>Встановлює розташування тексту в кожній клітинці відносно зображення.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
           <context context-type="linenumber">92</context>
@@ -2066,7 +2066,7 @@
       </trans-unit>
       <trans-unit id="8ec336f10fd8d3981f925e716bfcb7766793d3cf" datatype="html">
         <source>Copy <x id="INTERPOLATION" equiv-text="{{boardSet.name}}"/></source>
-        <target></target>
+        <target>Копіювати <x id="INTERPOLATION" equiv-text="{{boardSet.name}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
           <context context-type="linenumber">5</context>
@@ -2075,7 +2075,7 @@
       </trans-unit>
       <trans-unit id="7fa36bfe1fd472ba07a1313fd7bdb59663418bca" datatype="html">
         <source>Copy this Board Set?</source>
-        <target></target>
+        <target>Скопіювати цей набір дощок?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
           <context context-type="linenumber">9</context>
@@ -2084,7 +2084,7 @@
       </trans-unit>
       <trans-unit id="2d7f206670350d642f8279c34bbd218fbaf1a9a3" datatype="html">
         <source>You will be able to edit the copy.</source>
-        <target></target>
+        <target>Ви зможете відредагувати копію.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
           <context context-type="linenumber">10</context>
@@ -2093,7 +2093,7 @@
       </trans-unit>
       <trans-unit id="f165a6c4f51f1a10324bbc6b8ecf9fd2b649c7f2" datatype="html">
         <source>Copying</source>
-        <target></target>
+        <target>Копіювання</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
           <context context-type="linenumber">12</context>
@@ -2103,7 +2103,7 @@
       </trans-unit>
       <trans-unit id="8157e70cc42ff36eb15eb0012cc768b0e083bbba" datatype="html">
         <source>Copy complete!</source>
-        <target></target>
+        <target>Копіювання завершено!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
           <context context-type="linenumber">14</context>
@@ -2112,7 +2112,7 @@
       </trans-unit>
       <trans-unit id="72f64b494d2318e06524ac69f042723472aeb7c4" datatype="html">
         <source>Copy</source>
-        <target></target>
+        <target>Копіювати</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
           <context context-type="linenumber">20</context>
@@ -2122,7 +2122,7 @@
       </trans-unit>
       <trans-unit id="71a74a3452dd57b914ead8940cd7716e6a82add1" datatype="html">
         <source>Go To Copy</source>
-        <target></target>
+        <target>Перейти до копіювання</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/copy-board-set-dialog/copy-board-set-dialog.component.html</context>
           <context context-type="linenumber">21</context>
@@ -2131,7 +2131,7 @@
       </trans-unit>
       <trans-unit id="89e5ca5f6198585bdc9e2145b78adfd34f9fe419" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{subject}}"/> Not Found</source>
-        <target></target>
+        <target><x id="INTERPOLATION" equiv-text="{{subject}}"/> Не знайдено</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/error-not-found/error-not-found.component.html</context>
           <context context-type="linenumber">2</context>
@@ -2140,7 +2140,7 @@
       </trans-unit>
       <trans-unit id="3f612928c7d6b70d2029b03abe09cec728761fa5" datatype="html">
         <source>We couldn't find a <x id="INTERPOLATION" equiv-text="{{subject}}"/> at this address</source>
-        <target></target>
+        <target>Ми не змогли знайти <x id="INTERPOLATION" equiv-text="{{subject}}"/> за цією адресою</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/error-not-found/error-not-found.component.html</context>
           <context context-type="linenumber">3</context>
@@ -2149,15 +2149,15 @@
       </trans-unit>
       <trans-unit id="3891d4efe737a9d065c6cf94bfc1d824305826fa" datatype="html">
         <source>Compass</source>
-        <target></target>
+        <target>Компас</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/error-not-found/error-not-found.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ef2b821469d83bb712aef799837a1a1d430558a8" datatype="html">
-        <source>Error </source>
-        <target></target>
+        <source>Error</source>
+        <target>Помилка</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/loading-notice/loading-notice.component.html</context>
           <context context-type="linenumber">10</context>
@@ -2167,7 +2167,7 @@
       </trans-unit>
       <trans-unit id="a28e59ede9e61da68525795b0873c34b07d71a19" datatype="html">
         <source>Loading</source>
-        <target></target>
+        <target>Завантаження</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/loading-notice/loading-notice.component.html</context>
           <context context-type="linenumber">12</context>
@@ -2185,7 +2185,7 @@
       </trans-unit>
       <trans-unit id="21166f9d873cc51afa1a82a9f15304b94a4a1b59" datatype="html">
         <source>Drop an image file here</source>
-        <target></target>
+        <target>Перетягніть файл зображення сюди</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
           <context context-type="linenumber">9</context>
@@ -2194,7 +2194,7 @@
       </trans-unit>
       <trans-unit id="a5afdad9feec860196a06b935f73074c31c9d75b" datatype="html">
         <source>Uploading…</source>
-        <target></target>
+        <target>Завантаження…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
           <context context-type="linenumber">17</context>
@@ -2203,8 +2203,8 @@
         <note priority="1" from="meaning">uploading ellipsis</note>
       </trans-unit>
       <trans-unit id="e6c96078b64f9e5de847f56ef46ab39e120c3ec6" datatype="html">
-        <source> Upload from Device… </source>
-        <target></target>
+        <source>Upload from Device…</source>
+        <target>Завантажити з пристрою…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
           <context context-type="linenumber">23,24</context>
@@ -2212,8 +2212,8 @@
         <note priority="1" from="description">Media Uploader from device button</note>
       </trans-unit>
       <trans-unit id="c9595794b16b76b5d577d0938a7ad61dcce89b54" datatype="html">
-        <source> We don't accept files of this type. </source>
-        <target></target>
+        <source>We don't accept files of this type.</source>
+        <target>Ми не приймаємо файли такого типу.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
           <context context-type="linenumber">29,30</context>
@@ -2221,8 +2221,8 @@
         <note priority="1" from="description">Media Uploader error wrong file type</note>
       </trans-unit>
       <trans-unit id="7f378e8f0cf469c7191628747a9c03425b525421" datatype="html">
-        <source> Your file is too large. </source>
-        <target></target>
+        <source>Your file is too large.</source>
+        <target>Файл завеликий.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
           <context context-type="linenumber">32,33</context>
@@ -2230,8 +2230,8 @@
         <note priority="1" from="description">Media Uploader error file too large</note>
       </trans-unit>
       <trans-unit id="590b2ff136cd94da28cd9e85908a578897090b6d" datatype="html">
-        <source> We couldn't upload your file. Please try again, or use a different file. </source>
-        <target></target>
+        <source>We couldn't upload your file. Please try again, or use a different file.</source>
+        <target>Ми не змогли завантажити ваш файл. Повторіть спробу або скористайтеся іншим файлом.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
           <context context-type="linenumber">35,36</context>
@@ -2239,9 +2239,8 @@
         <note priority="1" from="description">Media Uploader general error</note>
       </trans-unit>
       <trans-unit id="f776a9c64fe5aed9b719f5d65db61d22b213b1ef" datatype="html">
-        <source> We couldn't load your images because of a technical issue.
-</source>
-        <target></target>
+        <source>We couldn't load your images because of a technical issue.</source>
+        <target>Ми не змогли завантажити ваші зображення через технічну проблему.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
           <context context-type="linenumber">40,41</context>
@@ -2250,7 +2249,7 @@
       </trans-unit>
       <trans-unit id="5d31849ab7f426a83e3696a88b7ccc51c409a078" datatype="html">
         <source>Images</source>
-        <target></target>
+        <target>Зображення</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/media-library/media-library.component.html</context>
           <context context-type="linenumber">65</context>
@@ -2260,7 +2259,7 @@
       </trans-unit>
       <trans-unit id="f3e40eb4eb1d2d752654ce152c5700f547ca12ec" datatype="html">
         <source>Search For</source>
-        <target></target>
+        <target>Пошук</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
           <context context-type="linenumber">2</context>
@@ -2269,7 +2268,7 @@
       </trans-unit>
       <trans-unit id="f39db9a38ff38a5b01f9bd5008e77d7ee82b86b5" datatype="html">
         <source>Search In</source>
-        <target></target>
+        <target>Пошук у</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
           <context context-type="linenumber">8</context>
@@ -2278,7 +2277,7 @@
       </trans-unit>
       <trans-unit id="b60810a36a2e077267c01933f5009224109bc023" datatype="html">
         <source>Symbol Set</source>
-        <target></target>
+        <target>Набір символів</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
           <context context-type="linenumber">17</context>
@@ -2287,7 +2286,7 @@
       </trans-unit>
       <trans-unit id="0194d33c070e8d957a16480c67c3c1d2445fa380" datatype="html">
         <source>All Symbol Sets</source>
-        <target></target>
+        <target>Усі набори символів</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
           <context context-type="linenumber">19</context>
@@ -2296,7 +2295,7 @@
       </trans-unit>
       <trans-unit id="1369b5a28b0215ef5b46c4eccb69868faa6188ec" datatype="html">
         <source>We couldn't find any symbols.</source>
-        <target></target>
+        <target>Ми не змогли знайти жодних символів.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
           <context context-type="linenumber">53</context>
@@ -2305,7 +2304,7 @@
       </trans-unit>
       <trans-unit id="0b0e7337a9a451975d00d67084084b4558fa3614" datatype="html">
         <source>Try broadening your search.</source>
-        <target></target>
+        <target>Спробуйте розширити пошук.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
           <context context-type="linenumber">54</context>
@@ -2314,7 +2313,7 @@
       </trans-unit>
       <trans-unit id="1c7a27379df6ee328b86ae3e03bc66e9f7f126ed" datatype="html">
         <source>Searching…</source>
-        <target></target>
+        <target>Пошук…</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.html</context>
           <context context-type="linenumber">62</context>
@@ -2324,7 +2323,7 @@
       </trans-unit>
       <trans-unit id="1194974988988273188" datatype="html">
         <source>Core Sets</source>
-        <target></target>
+        <target>Основні набори</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.ts</context>
           <context context-type="linenumber">70</context>
@@ -2332,7 +2331,7 @@
       </trans-unit>
       <trans-unit id="8342767541551439052" datatype="html">
         <source>Other Sets</source>
-        <target></target>
+        <target>Інші набори</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/search-panel/search-panel.component.ts</context>
           <context context-type="linenumber">71</context>
@@ -2340,7 +2339,7 @@
       </trans-unit>
       <trans-unit id="be96de1c6a272d7be04581f1f329f4837376cd1b" datatype="html">
         <source>Discard</source>
-        <target></target>
+        <target>Скасувати</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
           <context context-type="linenumber">11</context>
@@ -2350,7 +2349,7 @@
       </trans-unit>
       <trans-unit id="3f5a652a1f473f4e243e3c6805ef1b383e270bb7" datatype="html">
         <source>Discard</source>
-        <target></target>
+        <target>Скасувати</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator-dialog/symbol-creator-dialog.component.html</context>
           <context context-type="linenumber">11</context>
@@ -2359,7 +2358,7 @@
       </trans-unit>
       <trans-unit id="601d570d1dff9928b512d9e27c00bd9caeb892c9" datatype="html">
         <source>Saving</source>
-        <target></target>
+        <target>Збереження</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">2</context>
@@ -2369,7 +2368,7 @@
       </trans-unit>
       <trans-unit id="3ccd80ac2bcdda24655222d1ee56a83048185ded" datatype="html">
         <source>There was a problem saving your symbol</source>
-        <target></target>
+        <target>Сталася помилка під час збереження символу</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">5</context>
@@ -2378,7 +2377,7 @@
       </trans-unit>
       <trans-unit id="4fa96cbe8aae4f2b5b430bb18dd6efe76a70a342" datatype="html">
         <source>Continue Editing</source>
-        <target></target>
+        <target>Продовжити редагування</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">7</context>
@@ -2387,7 +2386,7 @@
       </trans-unit>
       <trans-unit id="c889f6fdcba885f3d7302542962196be7a9d015c" datatype="html">
         <source>Save Symbol to Device</source>
-        <target></target>
+        <target>Зберегти символ на пристрої</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">17</context>
@@ -2401,7 +2400,7 @@
       </trans-unit>
       <trans-unit id="c0981a10cabc8e33facd2280c3598196156b9ce1" datatype="html">
         <source>align horizontal centre|Align to Horizontal Centre</source>
-        <target></target>
+        <target>вирівняти горизонтальний центр| Вирівняти за горизонтальним центром</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">27</context>
@@ -2415,7 +2414,7 @@
       </trans-unit>
       <trans-unit id="fb26eef7b92ed07635820989e45268528e0fd092" datatype="html">
         <source>Align to Vertical Centre</source>
-        <target></target>
+        <target>Вирівняти за вертикальним центром</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">34</context>
@@ -2429,7 +2428,7 @@
       </trans-unit>
       <trans-unit id="db1c1a27cd80c4154e13571df787ec8046e5080b" datatype="html">
         <source>Flip Horizontal</source>
-        <target></target>
+        <target>Віддзеркалити горизонтально</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">41</context>
@@ -2443,7 +2442,7 @@
       </trans-unit>
       <trans-unit id="224f1bb5060a477f9feef9daa6a98f490a601d28" datatype="html">
         <source>Flip Vertical</source>
-        <target></target>
+        <target>Віддзеркалити вертикально</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">48</context>
@@ -2457,7 +2456,7 @@
       </trans-unit>
       <trans-unit id="729557c22cbde29b4b2e1a6a547390996e11df74" datatype="html">
         <source>Send Behind other Items</source>
-        <target></target>
+        <target>Надіслати за іншими елементами</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">55</context>
@@ -2471,7 +2470,7 @@
       </trans-unit>
       <trans-unit id="82623cc63666119b0c881a9329d26e2c8f3ab6d0" datatype="html">
         <source>Duplicate Selected</source>
-        <target></target>
+        <target>Вибраний дублікат</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">62</context>
@@ -2485,7 +2484,7 @@
       </trans-unit>
       <trans-unit id="595361b065fc7a26fb217833a6737f99f711e4e4" datatype="html">
         <source>Delete Selected</source>
-        <target></target>
+        <target>Видалити вибране</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">69</context>
@@ -2499,7 +2498,7 @@
       </trans-unit>
       <trans-unit id="ccef2647e0c3cc3f168a160b01d51bb6640ea950" datatype="html">
         <source>Add Image</source>
-        <target></target>
+        <target>Додати зображення</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">85</context>
@@ -2513,7 +2512,7 @@
       </trans-unit>
       <trans-unit id="d9b8fc8a6382900840697db235bfe0934240b9e5" datatype="html">
         <source>Add Text Box</source>
-        <target></target>
+        <target>Додати текстове поле</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">92</context>
@@ -2527,7 +2526,7 @@
       </trans-unit>
       <trans-unit id="0d24f6f1a191c00fa9e313756f7c2ddfa41551e4" datatype="html">
         <source>Add Circle</source>
-        <target></target>
+        <target>Додати коло</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">99</context>
@@ -2541,7 +2540,7 @@
       </trans-unit>
       <trans-unit id="1347ef1ba7da166fb0a2b1a21b78a506ac9a0e6b" datatype="html">
         <source>Add Line</source>
-        <target></target>
+        <target>Додати рядок</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">106</context>
@@ -2555,7 +2554,7 @@
       </trans-unit>
       <trans-unit id="1f17b051e6a7071342d6ed7ffa538d8a11e85715" datatype="html">
         <source>Add Triangle</source>
-        <target></target>
+        <target>Додати трикутник</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">113</context>
@@ -2569,7 +2568,7 @@
       </trans-unit>
       <trans-unit id="d82a8418071a20b23581b49c7bcff8ac048f992e" datatype="html">
         <source>Add Square</source>
-        <target></target>
+        <target>Додати квадрат</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">120</context>
@@ -2583,7 +2582,7 @@
       </trans-unit>
       <trans-unit id="bc0017b8f9e609ea4da58a92d1699377ad60ad2d" datatype="html">
         <source>Add Plus</source>
-        <target></target>
+        <target>Додати плюс</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">127</context>
@@ -2597,7 +2596,7 @@
       </trans-unit>
       <trans-unit id="55181c2052e8323beaa2a1da866f1753eeeb408e" datatype="html">
         <source>Add Cross</source>
-        <target></target>
+        <target>Додати хрестик</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">134</context>
@@ -2611,7 +2610,7 @@
       </trans-unit>
       <trans-unit id="2b3b69b12a50c7db271449343593018fa55aef2a" datatype="html">
         <source>Add Arrow</source>
-        <target></target>
+        <target>Додати стрілку</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">141</context>
@@ -2625,7 +2624,7 @@
       </trans-unit>
       <trans-unit id="bb515aa1a7b7564b6ceec742dc04d4acd5075ee0" datatype="html">
         <source>Fill</source>
-        <target></target>
+        <target>Заповнити</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">159</context>
@@ -2635,7 +2634,7 @@
       </trans-unit>
       <trans-unit id="568b891a3af873cc48fa48114013d1a69c15d259" datatype="html">
         <source>Clear Fill</source>
-        <target></target>
+        <target>Очистити заливку</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">161</context>
@@ -2649,7 +2648,7 @@
       </trans-unit>
       <trans-unit id="bb081b336f4284131447da1748f0129e619cf051" datatype="html">
         <source>Outline</source>
-        <target></target>
+        <target>Схема</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">177</context>
@@ -2659,7 +2658,7 @@
       </trans-unit>
       <trans-unit id="7c8be2b6dd54cc82bb0174657e0941b190d85e31" datatype="html">
         <source>Clear Outline</source>
-        <target></target>
+        <target>Очистити структуру</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">179</context>
@@ -2673,7 +2672,7 @@
       </trans-unit>
       <trans-unit id="e7f45dd3c95799635d343eded2a71b7cc42a0ab7" datatype="html">
         <source>Thickness</source>
-        <target></target>
+        <target>Товщина</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">192</context>
@@ -2683,7 +2682,7 @@
       </trans-unit>
       <trans-unit id="51a9ef96c683b8588880b4dafb9b630c43b30b30" datatype="html">
         <source>Text</source>
-        <target></target>
+        <target>Текст</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">202</context>
@@ -2693,7 +2692,7 @@
       </trans-unit>
       <trans-unit id="4b166edba60b5b41e31c8afbc426faa798cde621" datatype="html">
         <source>Bold</source>
-        <target></target>
+        <target>Жирний</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">204</context>
@@ -2703,7 +2702,7 @@
       </trans-unit>
       <trans-unit id="79e721fcd6bd98124348d6187f2e9f719dcdebd3" datatype="html">
         <source>Italic</source>
-        <target></target>
+        <target>Курсив</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">208</context>
@@ -2713,7 +2712,7 @@
       </trans-unit>
       <trans-unit id="9f6b7aa9503c7434539118079b91faec36c00e7b" datatype="html">
         <source>Underline</source>
-        <target></target>
+        <target>Підкреслювати</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">212</context>
@@ -2723,7 +2722,7 @@
       </trans-unit>
       <trans-unit id="d71e65dd8e3f51d63eb2e4221ce71b9596703add" datatype="html">
         <source>Font</source>
-        <target></target>
+        <target>Шрифт</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">220</context>
@@ -2733,7 +2732,7 @@
       </trans-unit>
       <trans-unit id="baff4ff5348fe614a658b631e63378c4d6bcd4c5" datatype="html">
         <source>Save to Device (PNG)</source>
-        <target></target>
+        <target>Зберегти на пристрої (PNG)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">238</context>
@@ -2742,7 +2741,7 @@
       </trans-unit>
       <trans-unit id="db80c29a86e3bc282a3a3d81744a24b4a81cbce2" datatype="html">
         <source>Save to Device (SVG, Advanced)</source>
-        <target></target>
+        <target>Зберегти на пристрої (SVG, Додатково)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/symbol-creator/symbol-creator.component.html</context>
           <context context-type="linenumber">242</context>
