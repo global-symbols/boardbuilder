@@ -20,6 +20,7 @@
           "fr": "src/locale/messages.fr.xlf",
           "hr": "src/locale/messages.hr.xlf",
           "hy": "src/locale/messages.hy.xlf",
+          "it": "src/locale/messages.it.xlf",
           "nl": "src/locale/messages.nl.xlf",
           "ps": "src/locale/messages.ps.xlf",
           "ro": "src/locale/messages.ro.xlf",

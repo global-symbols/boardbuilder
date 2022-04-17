@@ -30,6 +30,7 @@ export class LocaleService {
       { iso639_1: 'bg', code: 'bg',     name: $localize`Bulgarian` },
       { iso639_1: 'ca', code: 'ca',     name: $localize`Catalan` },
       { iso639_1: 'hr', code: 'hr',     name: $localize`Croatian` },
+      { iso639_1: 'it', code: 'it',     name: $localize`Italian` },
       { iso639_1: 'nl', code: 'nl',     name: $localize`Dutch` },
       { iso639_1: 'fr', code: 'fr',     name: $localize`French` },
       { iso639_1: 'de', code: 'de',     name: $localize`German` },
