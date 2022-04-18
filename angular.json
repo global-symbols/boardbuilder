@@ -28,6 +28,7 @@
           "sr-cy": "src/locale/messages.sr-Cyrl.xlf",
           "sr-la": "src/locale/messages.sr-Latn.xlf",
           "tr": "src/locale/messages.tr.xlf",
+          "uk": "src/locale/messages.uk.xlf",
           "ur-pk": "src/locale/messages.ur-PK.xlf"
         },
         "sourceLocale": {

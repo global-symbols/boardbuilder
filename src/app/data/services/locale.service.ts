@@ -35,12 +35,14 @@ export class LocaleService {
       { iso639_1: 'fr', code: 'fr',     name: $localize`French` },
       { iso639_1: 'de', code: 'de',     name: $localize`German` },
       { iso639_1: 'el', code: 'el',     name: $localize`Greek` },
+      { iso639_1: 'mk', code: 'mk',     name: $localize`Macedonian` },
       { iso639_1: 'ps', code: 'ps',     name: $localize`Pashto` },
       { iso639_1: 'ro', code: 'ro',     name: $localize`Romanian` },
       { iso639_1: 'sr', code: 'sr-cy',  name: $localize`Serbian (Cyrillic)` },
       { iso639_1: 'sr', code: 'sr-la',  name: $localize`Serbian (Latin)` },
       { iso639_1: 'es', code: 'es',     name: $localize`Spanish` },
       { iso639_1: 'tr', code: 'tr',     name: $localize`Turkish` },
+      { iso639_1: 'uk', code: 'uk',     name: $localize`Ukrainian` },
       { iso639_1: 'ur', code: 'ur-pk',  name: $localize`Urdu (Pakistan)` },
     ].sort((a, b) => a.name < b.name ? -1 : 1);
   }
