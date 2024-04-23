@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
+# Install
+* clone the repository
+* install the correct version of node and npm, [matching to the used version of Angular](https://angular.io/guide/versions)
+   * it's easy to install and switch node versions [using nvm](https://github.com/nvm-sh/nvm)
+   * e.g. `nvm install 14.15.0` or `nvm use 14.15.0`
+* run `npm install`
+* run `npm run start` (always do `nvm use 14.15.0` before in a new terminal session)
 
 ## Loading Cell Images
 Images must be loaded with the 'origin' header, to ensure responses cached in the browser contain CORS headers.
