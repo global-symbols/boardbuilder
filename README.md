@@ -10,6 +10,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * run `npm install`
 * run `npm run start` (always do `nvm use 14.15.0` before in a new terminal session)
 
+# Authentication (connect with globalsymbols account)
+* run the globalsymbols page locally, see [install instructions](https://github.com/global-symbols/globalsymbols-repo), it acts as Authorization Server.
+* login with an auto-generated demo admin account at the local globalsymbols page e.g. `admin1@test.com` and `password`.
+* go to `http://localhost:3000/oauth/applications`
+* click on `New Application` to add the BoardBuilder app and use these properties:
+   * Name: `BoardBuilder`
+   * Redirect URI: `http://localhost:4200/`
+   * Confidential: `no` (untick)
+   * Scopes: `openid profile email boardset:read boardset:write offline_access`
+* note the shown `UID` after adding the application
+* edit file `environment.ts` in this repo and set property `globalSymbolsOauthClientId` to the `UID` shown before.
+* Click `Sign In` at Board Builder, browser should redirect to globalsymbols (`http://localhost:3000/`) and ask for permissions to use the account.
+* Click `Allow`
+
 ## Loading Cell Images
 Images must be loaded with the 'origin' header, to ensure responses cached in the browser contain CORS headers.
 
