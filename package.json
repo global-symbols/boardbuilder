@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-for-pages": "ng build --base-href=/boardbuilder-pages-test/dist/boardbuilder/",
     "build:stats": "ng build --stats-json",
     "analyse": "ng build --stats-json && webpack-bundle-analyzer dist/boardbuilder/stats.json",
     "test": "ng test",
