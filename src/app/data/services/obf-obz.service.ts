@@ -68,7 +68,7 @@ export class ObfObzService {
           }
 
           // Access the OBF file, unpack it to a Board and save it into the BoardSet.
-          zip.file(obfFilename).async('string').then(obf => {
+          zip.file(obfFilename).async('binarystring').then(obf => {
             // Prepare a new Board, build it from the OBF and push it to the BoardSet.
             boardSet.boards.push(this.parseObf(JSON.parse(obf)));
           });
