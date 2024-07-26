@@ -21,6 +21,7 @@ import {SharedModule} from '@shared/shared.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {BoardDetailComponent} from '@modules/builder/board-detail/board-detail.component';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -35,6 +36,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {ColorGithubModule} from 'ngx-color/github';
 import {NgxGoogleAnalyticsModule} from 'ngx-google-analytics';
 import {HotkeyModule} from '@conflito/angular2-hotkeys';
+import { MaterialExtensionsModule, MaterialExtensionsExperimentalModule } from '@ng-matero/extensions';
+import { MtxSelectModule } from '@ng-matero/extensions/select';
 import { CellEditorColourPanelComponent } from './cell-editor-colour-panel/cell-editor-colour-panel.component';
 
 export const routes: Routes = [
@@ -80,6 +83,10 @@ export const routes: Routes = [
         MatCardModule,
         MatInputModule,
         FormsModule,
+        ReactiveFormsModule,
+        MaterialExtensionsModule,
+        MaterialExtensionsExperimentalModule,
+        MtxSelectModule,
         MatProgressSpinnerModule,
         MatGridListModule,
         MatDialogModule,

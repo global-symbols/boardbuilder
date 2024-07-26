@@ -7,6 +7,12 @@ import {User} from '@data/models/user.model';
 export class BoardSet extends Record implements Deserialisable {
     public localId: number;
     public name: string;
+    public description: string;
+    public tags: string[];
+    public lang: string;
+    public author: string;
+    public author_url: string;
+    public self_contained: boolean;
     public public: boolean;
     public readonly: boolean;
     public boards = Array<Board>();

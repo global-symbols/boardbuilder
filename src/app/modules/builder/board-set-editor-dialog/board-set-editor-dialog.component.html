@@ -19,6 +19,56 @@
       <mat-hint align="end">{{data.boardSet.title?.length || 0}}&nbsp;/&nbsp;250</mat-hint>
     </mat-form-field>
 
+    <mat-form-field class="w-100 mb-2">
+      <mat-label i18n="board.title label|Board Title field label">Description</mat-label> <!--TODO fix i18n -->
+      <textarea matInput placeholder="Description" maxlength="400"
+             [(ngModel)]="data.boardSet.description"
+                appStopPropagation></textarea>
+      <mat-hint align="end">{{data.boardSet.description?.length || 0}}&nbsp;/&nbsp;250</mat-hint>
+    </mat-form-field>
+
+    <div fxLayoutGap="20px grid">
+      <mat-form-field class="w-50" fxFlex="50">
+        <mat-label i18n="board.title label|Board Title field label">Author</mat-label> <!--TODO fix i18n -->
+        <input matInput placeholder="Author" maxlength="250"
+               [(ngModel)]="data.boardSet.author"
+               appStopPropagation>
+        <mat-hint align="end">{{data.boardSet.author?.length || 0}}&nbsp;/&nbsp;250</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field class="w-50" fxFlex="50">
+        <mat-label i18n="board.title label|Board Title field label">Author URL</mat-label> <!--TODO fix i18n -->
+        <input matInput placeholder="Author" maxlength="250" [formControl]="urlControl" appStopPropagation>
+        <mat-error *ngIf="urlControl.hasError('pattern')">Url Pattern Invalid</mat-error>
+        <mat-hint align="end">{{data.boardSet.author_url?.length || 0}}&nbsp;/&nbsp;250</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="mt-3">
+      <div fxLayoutGap="20px grid">
+        <mat-form-field class="w-50" fxFlex="50">
+          <mat-label i18n="board.title label|Board Title field label">Language</mat-label> <!--TODO fix i18n -->
+          <mtx-select placeholder="Language" [items]="languages" bindLabel="en" bindValue="code" [(ngModel)]="data.boardSet.lang">
+          </mtx-select>
+        </mat-form-field>
+
+        <mat-form-field class="w-50" fxFlex="50">
+          <mat-label i18n="board.title label|Board Title field label">Self-contained</mat-label> <!--TODO fix i18n -->
+          <mat-select [(value)]="data.boardSet.self_contained" appStopPropagation>
+            <mat-option [value]="false" i18n="private|Private">False</mat-option>
+            <mat-option [value]="true" i18n="public|Public">True</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field class="w-100 mb-2">
+      <mat-label i18n="board.title label|Board Title field label">Tags</mat-label> <!--TODO fix i18n -->
+      <mtx-select placeholder="Tags" [items]="possibleTags" [addTag]="addTagFn" [hideSelected]="true" multiple="true" bindLabel="name" [(ngModel)]="data.boardSet.tags">
+      </mtx-select>
+      <mat-hint i18n="board.public hint|Board Visibility field hint">Feel free to use new tags</mat-hint>
+    </mat-form-field>
+
     <mat-form-field class="w-100 mb-3">
       <mat-label i18n="board.public label|Board Visibility field label">Visibility</mat-label>
       <mat-select [(value)]="data.boardSet.public" appStopPropagation>
@@ -32,6 +82,6 @@
   </div>
   <div mat-dialog-actions>
     <span class="spacer"></span>
-    <button mat-raised-button [mat-dialog-close]="data.boardSet" color="primary" appStopPropagation cdkFocusInitial i18n="done|Done button">Done</button>
+    <button mat-raised-button [disabled]="urlControl.invalid || !data.boardSet.title" [mat-dialog-close]="data.boardSet" color="primary" appStopPropagation cdkFocusInitial i18n="done|Done button">Done</button>
   </div>
 </div>

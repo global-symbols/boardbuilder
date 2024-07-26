@@ -317,7 +317,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (this.currentDialogRef !== undefined) { return; }
 
     this.currentDialogRef = this.dialog.open(BoardSetEditorDialogComponent, {
-      width: '300px',
+      width: '500px',
       data: { boardSet: this.boardSet }
     });
 
