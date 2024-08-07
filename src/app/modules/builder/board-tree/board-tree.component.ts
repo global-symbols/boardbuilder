@@ -19,6 +19,12 @@ interface BoardTreeMenuFlatNode {
 interface BoardTreeMenuItem {
   board: Board;
   children: BoardTreeMenuItem[];
+  shortestPath: BoardTreeMenuItem[];
+  isRoot: boolean
+}
+
+interface BoardTreeMenuMap {
+  [key: string]: BoardTreeMenuItem;
 }
 
 @Component({
@@ -50,8 +56,10 @@ export class BoardTreeComponent implements OnChanges {
   treeFlattener = new MatTreeFlattener(
     (node: BoardTreeMenuItem, level: number) => {
       const children = node.children;
+      // don't expand if all children are not accessed through the fastest path to this child
+      const expandable = node.isRoot || (!!children && children.length > 0 && !children.every(child => child.shortestPath[child.shortestPath.length - 1] !== node));
       return {
-        expandable: !!children && children.length > 0,
+        expandable: expandable,
         board: node.board,
         level,
       };
@@ -79,7 +87,7 @@ export class BoardTreeComponent implements OnChanges {
 
   private flatToHierarchy(): BoardTreeMenuItem[] {
 
-    const allMenuItems = {};
+    const allMenuItems: BoardTreeMenuMap = {};
     const menuItemsTree = new Array<BoardTreeMenuItem>();
 
     const childBoardIds = [];
@@ -91,7 +99,9 @@ export class BoardTreeComponent implements OnChanges {
       // Populate a list of menu items
       allMenuItems[board.id] = {
         board,
-        children: []
+        children: [],
+        shortestPath: [],
+        isRoot: false
       };
     });
 
@@ -109,6 +119,17 @@ export class BoardTreeComponent implements OnChanges {
       }
     });
 
+    if (menuItemsTree.length === 0) {
+      let allItems = Object.values(allMenuItems);
+      allItems.sort((a, b) => b.children.length - a.children.length);
+      menuItemsTree.push(allItems[0]);
+      menuItemsTree[0].isRoot = true;
+    }
+
+    // fill shortestPath properties
+    for (let menuItem of menuItemsTree) {
+      this.setShortestPaths(menuItem);
+    }
     return menuItemsTree;
   }
 
@@ -146,5 +167,32 @@ export class BoardTreeComponent implements OnChanges {
 
   pdf(board: any) {
     this.router.navigate(['boardsets', board.board_set_id, 'pdf', board.id]);
+  }
+
+  /**
+   * Recursive function to set all shortest paths to the items within a given tree.
+   * After calling this method all items have a property "shortestPath" which is an
+   * array representing the shortest path from the initial item to this item.
+   * @param menuItem item to start
+   * @param currentParents only for recursion, current path
+   * @private
+   */
+  private setShortestPaths(menuItem, currentParents = []) {
+    if (menuItem.shortestPath.length === 0) {
+      menuItem.shortestPath = currentParents;
+    }
+    let changedSomething = false;
+    for (let child of menuItem.children) {
+      if (child.shortestPath.length === 0 && !child.isRoot) {
+        child.shortestPath = currentParents.concat([menuItem]);
+        changedSomething = true;
+      }
+    }
+    if (!changedSomething) {
+      return;
+    }
+    for (let child of menuItem.children) {
+      this.setShortestPaths(child, currentParents.concat([menuItem]));
+    }
   }
 }
