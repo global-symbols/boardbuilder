@@ -136,6 +136,7 @@ export class BoardTreeComponent implements OnChanges {
     for (let menuItem of menuItemsTree) {
       this.setShortestPaths(menuItem);
     }
+    menuItemsTree.sort((a, b) => b.children.length - a.children.length);
     return menuItemsTree;
   }
 
