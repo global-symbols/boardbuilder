@@ -49,6 +49,7 @@ export class BoardTreeComponent implements OnChanges {
 
   // Padding for child tree elements, in pixels
   treeNodePadding = 20;
+  initState = true;
 
   treeControl = new FlatTreeControl<BoardTreeMenuFlatNode>(
     node => node.level, node => node.expandable);
@@ -81,6 +82,11 @@ export class BoardTreeComponent implements OnChanges {
   // Generates the tree and then expands all nodes
   rebuildTree(expandNodes = true): void {
     this.dataSource.data = this.flatToHierarchy();
+    if (this.initState) {
+      this.initState = false;
+      let treeArray = this.dataSource.data || {};
+      this.selectionChange.emit(treeArray[0].board);
+    }
     // Expand all parts of the tree after the viewInit and after every onChanges
     if (expandNodes) { this.treeControl.expandAll(); }
   }
