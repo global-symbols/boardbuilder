@@ -20,7 +20,8 @@ interface BoardTreeMenuItem {
   board: Board;
   children: BoardTreeMenuItem[];
   shortestPath: BoardTreeMenuItem[];
-  isRoot: boolean
+  isRoot: boolean,
+  visited: boolean
 }
 
 interface BoardTreeMenuMap {
@@ -57,8 +58,16 @@ export class BoardTreeComponent implements OnChanges {
   treeFlattener = new MatTreeFlattener(
     (node: BoardTreeMenuItem, level: number) => {
       const children = node.children;
-      // don't expand if all children are not accessed through the fastest path to this child
-      const expandable = node.isRoot || (!!children && children.length > 0 && !children.every(child => child.shortestPath[child.shortestPath.length - 1] !== node));
+      // only expand if at least one of the children is accessed via the shortest path
+      // and not every child was already visited
+      const expandable = node.isRoot || (
+        !!children && children.length > 0 &&
+        children.some(child => child.shortestPath[child.shortestPath.length - 1] === node) &&
+        !children.every(child => child.visited)
+      );
+      if (expandable) {
+        children.every(child => child.visited = true);
+      }
       return {
         expandable: expandable,
         board: node.board,
@@ -107,7 +116,8 @@ export class BoardTreeComponent implements OnChanges {
         board,
         children: [],
         shortestPath: [],
-        isRoot: false
+        isRoot: false,
+        visited: false
       };
     });
 
