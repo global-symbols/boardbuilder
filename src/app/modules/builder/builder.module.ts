@@ -27,6 +27,7 @@ import {BoardDetailComponent} from '@modules/builder/board-detail/board-detail.c
 import {MatGridListModule} from '@angular/material/grid-list';
 import {BoardEditorDialogComponent} from './board-editor-dialog/board-editor-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatSliderModule} from '@angular/material/slider';
 import {BoardSetEditorDialogComponent} from './board-set-editor-dialog/board-set-editor-dialog.component';
@@ -90,6 +91,7 @@ export const routes: Routes = [
         MatProgressSpinnerModule,
         MatGridListModule,
         MatDialogModule,
+        MatSnackBarModule,
         DragDropModule,
         MatSliderModule,
         MatTreeModule,

@@ -105,6 +105,13 @@
 
   <mat-divider></mat-divider>
 
+  <button mat-menu-item [matMenuTriggerFor]="copyLink">
+    <mat-icon>link</mat-icon>
+    <ng-container>Copy link...</ng-container>
+  </button>
+
+  <mat-divider></mat-divider>
+
   <button mat-menu-item (click)="deleteBoardSet(boardSet)" [disabled]="boardSet?.readonly">
     <mat-icon>delete</mat-icon>
     <ng-container i18n="delete|Delete">Delete</ng-container>
@@ -115,6 +122,16 @@
     <ng-container i18n="properties|Properties">Properties</ng-container>
   </button>
 </mat-menu>
+
+<mat-menu #copyLink="matMenu">
+  <button mat-menu-item (click)="copyLinkAG(false)">
+    <mat-icon>link</mat-icon> <ng-container>open in AsTeRICS Grid</ng-container>
+  </button>
+  <button mat-menu-item (click)="copyLinkAG(true)">
+    <mat-icon>link</mat-icon> <ng-container>import to AsTeRICS Grid</ng-container>
+  </button>
+</mat-menu>
+
 
 
 <hotkeys-cheatsheet title="Keyboard Shortcuts" i18n-title="keyboard shortcuts|Keyboard Shortcuts" ></hotkeys-cheatsheet>

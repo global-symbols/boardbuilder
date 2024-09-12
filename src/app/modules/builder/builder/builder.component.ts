@@ -1,8 +1,11 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {environment} from '@env';
 import {MediaMatcher} from '@angular/cdk/layout';
+import {Clipboard} from '@angular/cdk/clipboard';
 import {Board} from '@data/models/board.model';
 import {Hotkey, HotkeysService} from '@conflito/angular2-hotkeys';
 import {MatDialog} from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {BoardSet} from '@data/models/boardset.model';
 import {saveAs} from 'file-saver';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -58,7 +61,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
               private dialogService: DialogService,
               public dialog: MatDialog,
               private route: ActivatedRoute,
-              private router: Router
+              private router: Router,
+              private clipboard: Clipboard,
+              private snackBar: MatSnackBar
   ) {
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
 
@@ -376,6 +381,16 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
       this.currentDialogRef = undefined;
     });
+  }
+
+  copyLinkAG(singleBoards: boolean) {
+    if (!this.boardSet.public) {
+      this.snackBar.open('Board set must be public to generate link!', 'Close', { duration: 10000 });
+      return;
+    }
+    let link = `${environment.astericsGridBase}/?gridset_provider=Global Symbols&gridset_id=${this.boardSet.id}&single_boards=${singleBoards}`;
+    this.clipboard.copy(link);
+    this.snackBar.open('Link copied to clipboard!', 'Close', { duration: 10000 });
   }
 
   refreshTree() {
