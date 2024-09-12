@@ -34,6 +34,13 @@ export class Board extends Record implements Deserialisable {
     for (let i = this.cells.length; i < (this.rows * this.columns); i++) {
       this.cells.push(new Cell());
     }
+    this.cells = this.cells.slice(0, this.rows * this.columns);
+  }
+
+  setDimensions(rows: number, columns: number) {
+    this.rows = rows;
+    this.columns = columns;
+    this.populateCells();
   }
 
   childBoards(): Array<Board> {

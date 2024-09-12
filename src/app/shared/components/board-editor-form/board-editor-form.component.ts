@@ -35,10 +35,8 @@ export class BoardEditorFormComponent implements OnInit {
   }
 
   selectTemplate(template: BoardTemplate) {
-    this.board.rows = template.board.rows;
-    this.board.columns = template.board.columns;
+    this.board.setDimensions(template.board.rows, template.board.columns);
     this.board.captions_position = template.board.captions_position;
-    this.board.populateCells();
   }
 
   focusTitleField(): void {
