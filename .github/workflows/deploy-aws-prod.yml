@@ -1,0 +1,32 @@
+name: Deploy Prod to aws-prod
+
+on:
+  push:
+    branches:
+      - prod  # Triggers the action on pushes to the prod branch.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Ensure this matches your Angular setup
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build the Angular app
+      run: npm run build -- --prod --output-path=dist/boardbuilder
+
+    - name: Deploy Prod to aws-prod
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist/boardbuilder  # The directory where the Angular build is output
+        publish_branch: aws-prod  # Use aws-prod for production deployment
