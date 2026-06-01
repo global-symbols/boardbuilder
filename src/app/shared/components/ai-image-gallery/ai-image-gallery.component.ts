@@ -98,15 +98,15 @@ export class AiImageGalleryComponent implements OnInit, OnDestroy {
     // Clear any existing progress subscriptions
     this.clearProgressSubscriptions();
 
-    // Start each progress bar with a 2 second delay, then 5 second duration
-    // Image 1: starts at 2s, completes at 7s
-    // Image 2: starts at 3s, completes at 8s
-    // Image 3: starts at 4s, completes at 9s
-    // Image 4: starts at 5s, completes at 10s
+    // Cosmetic progress timers (staggered start + fill duration)
+    // Image 1: starts at ~1.1s, completes at ~6.1s
+    // Image 2: starts at ~2.2s, completes at ~7.2s
+    // Image 3: starts at ~3.3s, completes at ~8.2s
+    // Image 4: starts at ~4.4s, completes at ~9.3s
 
     for (let i = 0; i < 4; i++) {
-      const startDelay = 2500 + (i * 2400); // 2s, 3s, 4s, 5s
-      const duration = 11000; // 5 seconds
+      const startDelay = 1125 + (i * 1080);
+      const duration = 4950;
 
       // Use setTimeout to start after delay, then setInterval for updates
       const timeoutId = this.ngZone.runOutsideAngular(() => {

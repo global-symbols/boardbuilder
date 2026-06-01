@@ -10,6 +10,7 @@ export interface StyleConfig {
     defaultValue: string;
   };
   loraAdapter?: string;
+  loraTrigger?: string;
   prompt?: string;
 }
 

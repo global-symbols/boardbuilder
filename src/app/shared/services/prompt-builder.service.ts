@@ -63,7 +63,12 @@ export class PromptBuilderService {
   processedPrompt = processedPrompt.replace(/outline\.\s*\./g, 'outline.');
 
   // Combine userPrompt with processed prompt
-  const fullPrompt = `${userPrompt.trim()}. ${processedPrompt.trim()}`.trim();
+  let fullPrompt = `${userPrompt.trim()}. ${processedPrompt.trim()}`.trim();
+
+  const loraTrigger = styleConfig.loraTrigger?.trim();
+  if (loraTrigger) {
+    fullPrompt = `${loraTrigger}, ${fullPrompt}`;
+  }
 
   return fullPrompt;
 
