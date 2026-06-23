@@ -13,32 +13,9 @@
       "enabled": true,
       "defaultValue": ""
     },
-    "loraAdapter": "arasaac_v4",
-    "prompt": "(avoid realistic images)<culture-placeholder></culture-placeholder>"
-  },
-  "Tawasol": {
-    "culture": {
-      "enabled": true,
-      "defaultValue": ""
-    },
-    "loraAdapter": "tawasol_v4",
-    "prompt": "(avoid realistic images)<culture-placeholder></culture-placeholder>"
-  },
-  "Jellow": {
-    "culture": {
-      "enabled": true,
-      "defaultValue": ""
-    },
-    "loraAdapter": "jellow_v4",
-    "prompt": "(avoid realistic images)<culture-placeholder></culture-placeholder>"
-  },
-  "Dyvogra": {
-    "culture": {
-      "enabled": true,
-      "defaultValue": ""
-    },
-    "loraAdapter": "DYVOGRA_v4",
-    "prompt": "(avoid realistic images)<culture-placeholder></culture-placeholder>"
+    "loraAdapter": "arasaac_v1",
+    "loraTrigger": "gs_arasaac",
+    "prompt": "<culture-placeholder></culture-placeholder>"
   },
   "PiCom Cartoon": {
     "culture": {
