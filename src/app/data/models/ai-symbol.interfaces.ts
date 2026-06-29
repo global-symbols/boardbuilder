@@ -5,6 +5,7 @@ export interface AiGenerationParams {
   num_images: number;
   steps: number;
   loraAdapter?: string;
+  loraStrength?: number;
 }
 
 export interface AiGenerationResponse {
@@ -21,6 +22,7 @@ export interface AiImageToImageParams {
   num_images: number;
   steps: number;
   loraAdapter?: string;
+  loraStrength?: number;
 }
 
 export interface PromptOptions {

@@ -131,7 +131,8 @@ export class ImageModeComponent extends BaseAiSymbolGeneratorComponent implement
       prompt: this.fullPrompt, // Use the built prompt
       num_images: 4,
       steps: 4,
-      loraAdapter: styleConfig?.loraAdapter
+      loraAdapter: styleConfig?.loraAdapter,
+      loraStrength: styleConfig?.loraStrength
     };
 
     // Call the service to generate image variations

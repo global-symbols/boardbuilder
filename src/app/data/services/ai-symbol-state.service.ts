@@ -11,6 +11,7 @@ export interface StyleConfig {
   };
   loraAdapter?: string;
   loraTrigger?: string;
+  loraStrength?: number;
   prompt?: string;
 }
 

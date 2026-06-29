@@ -27,6 +27,9 @@ export class AiSymbolHttpService {
     // Only include adapter_name if loraAdapter has a non-empty value
     if (params.loraAdapter && params.loraAdapter.trim() !== '') {
       body.adapter_name = params.loraAdapter;
+      if (params.loraStrength != null) {
+        body.adapter_weight = params.loraStrength;
+      }
     }
 
     return this.http.post<AiGenerationResponse>(
@@ -51,6 +54,9 @@ export class AiSymbolHttpService {
     // Only include adapter_name if loraAdapter has a non-empty value
     if (params.loraAdapter && params.loraAdapter.trim() !== '') {
       body.adapter_name = params.loraAdapter;
+      if (params.loraStrength != null) {
+        body.adapter_weight = params.loraStrength;
+      }
     }
 
     return this.http.post<AiGenerationResponse>(

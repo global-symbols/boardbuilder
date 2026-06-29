@@ -107,7 +107,8 @@ export class TextModeComponent extends BaseAiSymbolGeneratorComponent implements
       prompt: this.fullPrompt,
       num_images: 4,
       steps: 4,
-      loraAdapter: styleConfig?.loraAdapter
+      loraAdapter: styleConfig?.loraAdapter,
+      loraStrength: styleConfig?.loraStrength
     };
 
     // Start both prompt logging and image generation in parallel for minimal delay
