@@ -20,10 +20,21 @@
 
   </div>
 
-  <mat-form-field appearance="outline" class="control-item">
-    <mat-label>Culture</mat-label>
-    <input matInput [value]="styleState.cultureText" (input)="onCultureTextChanged($event)" [disabled]="!styleState.cultureEnabled">
-  </mat-form-field>
+  <div class="culture-field-wrapper control-item"
+       (click)="onCultureClick()"
+       matTooltip="Coming soon"
+       matTooltipPosition="above"
+       #cultureTooltip="matTooltip"
+       [matTooltipDisabled]="cultureTooltipDisabled">
+    <mat-form-field appearance="outline">
+      <mat-label>Culture</mat-label>
+      <input matInput
+             [value]="styleState.cultureText"
+             disabled
+             readonly
+             tabindex="-1">
+    </mat-form-field>
+  </div>
 
 </div>
 

@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { MatTooltip } from '@angular/material/tooltip';
 import { Observable } from 'rxjs';
 import { AiSymbolStateService, StyleUiState, GalleryState } from '@data/services/ai-symbol-state.service';
 
@@ -16,6 +17,10 @@ export class AiControlsComponent {
   @Output() generateClicked = new EventEmitter<void>();
   @Output() examplesClicked = new EventEmitter<void>();
 
+  @ViewChild('cultureTooltip') cultureTooltip: MatTooltip;
+
+  cultureTooltipDisabled = true;
+
   // Access style state from service
   styleState$: Observable<StyleUiState> = this.stateService.styleState$;
   galleryState$: Observable<GalleryState> = this.stateService.galleryState$;
@@ -27,9 +32,18 @@ export class AiControlsComponent {
     this.stateService.setSelectedStyle(newStyle);
   }
 
-  onCultureTextChanged(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    this.stateService.setCultureText(target.value);
+  onCultureClick(): void {
+    if (!this.cultureTooltip) {
+      return;
+    }
+
+    this.cultureTooltipDisabled = false;
+    this.cultureTooltip.show();
+
+    setTimeout(() => {
+      this.cultureTooltip.hide();
+      this.cultureTooltipDisabled = true;
+    }, 2000);
   }
 
   openExamplesModal(): void {
