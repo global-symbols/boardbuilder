@@ -6,7 +6,7 @@
     },
     "loraAdapter": "mulberry_v1",
     "loraTrigger": "gs_mulberry",
-    "loraStrength": 1.0,
+    "loraStrength": 1.185,
     "prompt": "<culture-placeholder></culture-placeholder>"
   },
   "ARASAAC": {
