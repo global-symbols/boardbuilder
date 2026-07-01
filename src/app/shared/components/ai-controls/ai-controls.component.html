@@ -21,12 +21,9 @@
   </div>
 
   <div class="culture-field-wrapper control-item"
-       (click)="onCultureClick()"
        matTooltip="Coming soon"
-       matTooltipPosition="above"
-       #cultureTooltip="matTooltip"
-       [matTooltipDisabled]="cultureTooltipDisabled">
-    <mat-form-field appearance="outline">
+       matTooltipPosition="above">
+    <mat-form-field appearance="outline" class="culture-field">
       <mat-label>Culture</mat-label>
       <input matInput
              [value]="styleState.cultureText"
