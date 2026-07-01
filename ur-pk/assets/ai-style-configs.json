@@ -1,55 +1,35 @@
 {
   "Mulberry": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
-    "loraAdapter": "mulberry_v4",
+    "loraAdapter": "mulberry_v1",
+    "loraTrigger": "gs_mulberry",
+    "loraStrength": 1.185,
     "prompt": "<culture-placeholder></culture-placeholder>"
   },
   "ARASAAC": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
-    "loraAdapter": "arasaac_v4",
-    "prompt": "(avoid realistic images)<culture-placeholder></culture-placeholder>"
-  },
-  "Tawasol": {
-    "culture": {
-      "enabled": true,
-      "defaultValue": ""
-    },
-    "loraAdapter": "tawasol_v4",
-    "prompt": "(avoid realistic images)<culture-placeholder></culture-placeholder>"
-  },
-  "Jellow": {
-    "culture": {
-      "enabled": true,
-      "defaultValue": ""
-    },
-    "loraAdapter": "jellow_v4",
-    "prompt": "(avoid realistic images)<culture-placeholder></culture-placeholder>"
-  },
-  "Dyvogra": {
-    "culture": {
-      "enabled": true,
-      "defaultValue": ""
-    },
-    "loraAdapter": "DYVOGRA_v4",
-    "prompt": "(avoid realistic images)<culture-placeholder></culture-placeholder>"
+    "loraAdapter": "arasaac_v1",
+    "loraTrigger": "gs_arasaac",
+    "loraStrength": 1.0,
+    "prompt": "<culture-placeholder></culture-placeholder>"
   },
   "PiCom Cartoon": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
     "loraAdapter": "",
-    "prompt": "Minimalist cartoon style with maximum 3 colors and thick black stroke outline<culture-placeholder></culture-placeholder>. No shadow, no highlight. on plain white background. simple details, simple color blocks, illustrations with simple strokes. Minimalist Picture. Image should be 400 pixels wide. Do not show any text labels."
+    "prompt": "<culture-placeholder></culture-placeholder>. Minimalist cartoon style with maximum 3 colors and thick black stroke outline. No shadow, no highlight. on plain bright white background. simple details, simple color blocks, illustrations with simple strokes. Minimalist Picture. Do not show any text labels."
   },
   "PiCom Cute": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
     "loraAdapter": "",
@@ -57,7 +37,7 @@
   },
   "Realistic": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
     "loraAdapter": "",
@@ -65,7 +45,7 @@
   },
   "Generic": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
     "loraAdapter": "",
