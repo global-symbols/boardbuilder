@@ -19,6 +19,16 @@
     "loraStrength": 1.0,
     "prompt": "<culture-placeholder></culture-placeholder>"
   },
+  "Jellow": {
+    "culture": {
+      "enabled": false,
+      "defaultValue": ""
+    },
+    "loraAdapter": "jellow_v1",
+    "loraTrigger": "gs_jellow",
+    "loraStrength": 1.175,
+    "prompt": "<culture-placeholder></culture-placeholder>"
+  },
   "PiCom Cartoon": {
     "culture": {
       "enabled": false,
