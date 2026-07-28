@@ -26,7 +26,7 @@
     },
     "loraAdapter": "jellow_v1",
     "loraTrigger": "gs_jellow",
-    "loraStrength": 1.175,
+    "loraStrength": 1.15,
     "prompt": "<culture-placeholder></culture-placeholder>"
   },
   "PiCom Cartoon": {
