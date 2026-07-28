@@ -13,6 +13,15 @@ export interface SearchSource {
   fixCors: boolean;
 }
 
+/**
+ * Global Symbols catalogue calls for Board Builder.
+ *
+ * Languages, symbolsets, and label search go through the Board Builder API
+ * proxy (`/api/boardbuilder/v1/global_symbols/...`), which holds the GS API v2
+ * key server-side. OAuth bearer is attached via boardBuilderApiBase allowedUrls.
+ *
+ * Do not use this base for /user — that remains on globalSymbolsApiBase (GS v1 OAuth).
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -37,7 +46,8 @@ export class GlobalSymbolsService {
   ];
 
   constructor(public http: HttpClient) {
-    this.apiBase = environment.globalSymbolsApiBase;
+    // Full cutover: BB proxy → GS /api/v2 (not direct public /api/v1).
+    this.apiBase = `${environment.boardBuilderApiBase}/global_symbols`;
   }
 
   getLanguages(): Observable<Language[]> {
