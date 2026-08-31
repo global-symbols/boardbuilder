@@ -66,7 +66,7 @@ export class BoardSetService {
     // Prepare the bare OBZ Manifest data
     const manifest: ObzManifest = {
       format: 'open-board-0.1',
-      root: 'boards/' + boardSet.boards[0].id + '.obf',
+      root: 'boards/' + boardSet.boards[0].id.toString() + '.obf',
       paths: {
         boards: { },
         images: { },

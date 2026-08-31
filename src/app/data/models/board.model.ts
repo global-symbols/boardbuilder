@@ -82,7 +82,13 @@ export class Board extends Record implements Deserialisable {
         image_id: cellId(cell),
         label: cell.caption,
         border_color: cell.border_colour,
-        background_color: cell.background_colour
+        background_color: cell.background_colour,
+        ...(cell.linked_board_id && {
+          load_board: {
+            id: cell.linked_board_id.toString(),
+            path: "boards/" + cell.linked_board_id.toString() + ".obf"
+          }
+        })
       })),
       grid: {
         rows: this.rows,
