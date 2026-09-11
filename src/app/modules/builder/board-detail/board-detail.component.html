@@ -21,7 +21,8 @@
   </div>
 
   <mat-grid-list [cols]="board.columns" rowHeight="11.85rem" gutterSize="1rem">
-    <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows)"
+    <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows); let i = index"
+                   [attr.data-cell-index]="i"
                    tabindex="0" (keyup.enter)="selectCell(c)"
                    [style.background-color]="c.background_colour"
                    [style.outline-color]="c.border_colour"

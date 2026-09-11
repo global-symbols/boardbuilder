@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, Output, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, HostListener, Input, OnChanges, Output, ViewChild} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {CdkDragDrop} from '@angular/cdk/drag-drop';
 import {MatMenuTrigger} from '@angular/material/menu';
@@ -85,6 +85,19 @@ export class BoardDetailComponent implements OnChanges {
     this.selectCell(cell);
   }
 
+  // The menu backdrop swallows the click that closes it, so the cell underneath
+  // never receives click. Select from the pointer position instead.
+  @HostListener('document:pointerdown', ['$event'])
+  onDocumentPointerDown(event: PointerEvent) {
+    if (!this.menuOpen || event.button > 0) { return; }
+    const target = event.target as HTMLElement;
+    if (target?.closest('.mat-menu-panel')) { return; }
+    const cell = this.cellFromPoint(event.clientX, event.clientY);
+    if (cell) {
+      this.selectCell(cell);
+    }
+  }
+
   onDragStarted() {
     this.didDrag = true;
     this.clearLongPressTimer();
@@ -138,6 +151,7 @@ export class BoardDetailComponent implements OnChanges {
 
   onMenuClosed() {
     this.menuOpen = false;
+    this.longPressFired = false;
   }
 
   copyContextCell() {
@@ -207,5 +221,22 @@ export class BoardDetailComponent implements OnChanges {
       clearTimeout(this.longPressTimer);
       this.longPressTimer = null;
     }
+  }
+
+  private cellFromPoint(x: number, y: number): Cell | null {
+    if (!this.board?.cells) { return null; }
+    const stack = document.elementsFromPoint(x, y);
+    for (const el of stack) {
+      if (!(el instanceof Element)) { continue; }
+      if (el.classList.contains('cdk-overlay-backdrop') || el.closest('.mat-menu-panel')) {
+        continue;
+      }
+      const host = el.closest('[data-cell-index]') as HTMLElement | null;
+      if (!host) { continue; }
+      const index = Number(host.getAttribute('data-cell-index'));
+      if (Number.isNaN(index)) { return null; }
+      return this.board.cells[index] || null;
+    }
+    return null;
   }
 }
