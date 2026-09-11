@@ -4,9 +4,9 @@ import {MatDialog} from '@angular/material/dialog';
 import {BoardSet} from '@data/models/boardset.model';
 import {Board} from '@data/models/board.model';
 import {MatTabChangeEvent} from '@angular/material/tabs';
-import {moveItemInArray} from '@angular/cdk/drag-drop';
 import {BoardService} from '@data/services/board.service';
 import {CellService} from '@data/services/cell.service';
+import {CellActionsService} from '@data/services/cell-actions.service';
 import {Media} from '@data/models/media.model';
 import {MediaUpdateService} from '@data/services/media-update.service';
 import {SearchPanelComponent} from '@shared/components/search-panel/search-panel.component';
@@ -47,13 +47,22 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     private cellService: CellService,
     private boardService: BoardService,
     private userService: UserService,
-    private mediaUpdateService: MediaUpdateService
+    private mediaUpdateService: MediaUpdateService,
+    public cellActions: CellActionsService
   ) {
     this.userSubscription = userService.user$.subscribe(user => this.user = user);
     this.mediaUpdateSubscription = this.mediaUpdateService.mediaUpdated$.subscribe(media => {
       this.selectMedia(media);
     });
     this.colourPickerColours = palettes.regular;
+    this.userSubscription.add(
+      this.cellActions.mutated$.subscribe(cell => {
+        if (this.cell && cell && this.cell.id === cell.id) {
+          this.loadLinkedBoard();
+          this.loadLinkableBoards();
+        }
+      })
+    );
   }
 
   // When an @Input is changed...
@@ -191,10 +200,24 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     this.saveCell();
   }
 
-  moveCell(to: number) {
-    moveItemInArray(this.board.cells, this.board.cells.indexOf(this.cell), to);
-    // TODO: Debounce for chained cell movements.
-    this.boardService.reorderCells(this.board).subscribe();
+  copyCell() {
+    this.cellActions.copy(this.cell);
+  }
+
+  cutCell() {
+    this.cellActions.cut(this.cell, this.board).subscribe();
+  }
+
+  pasteCell() {
+    this.cellActions.paste(this.cell, this.board).subscribe();
+  }
+
+  deleteCell() {
+    this.cellActions.delete(this.cell, this.board).subscribe();
+  }
+
+  undoAction() {
+    this.cellActions.undo().subscribe();
   }
 
   // Sets the Cell's image URL for an image from the User's page library.

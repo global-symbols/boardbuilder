@@ -24,6 +24,7 @@ import {DialogService} from '@app/services/dialog.service';
 import {Cell} from '@data/models/cell.model';
 import {BoardTreeComponent} from '@modules/builder/board-tree/board-tree.component';
 import {CellEditorComponent} from '@modules/builder/cell-editor/cell-editor.component';
+import {CellActionsService} from '@data/services/cell-actions.service';
 
 @Component({
   selector: 'app-builder',
@@ -51,6 +52,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   private currentDialogRef;
   private hotkeys: Array<Hotkey | Hotkey[]> = [];
   private routeSubscription: Subscription;
+  private actionsSubscription: Subscription;
 
   constructor(changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
@@ -64,7 +66,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               private router: Router,
               private clipboard: Clipboard,
-              private snackBar: MatSnackBar
+              private snackBar: MatSnackBar,
+              private cellActions: CellActionsService
   ) {
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
 
@@ -94,6 +97,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
           );
       })
     ).subscribe(bs => {
+      this.cellActions.resetUndo();
+
       // Update the opened_at date, unless this is a readonly boardset
       if (!this.boardSet.readonly) {
         this.boardSetService.touch(this.boardSet).subscribe();
@@ -179,12 +184,49 @@ export class BuilderComponent implements OnInit, OnDestroy {
     // Keyboard shortcut - clear Cell
     this.hotkeys.push(
       this.hotkeysService.add(new Hotkey(['del'], (event: KeyboardEvent): boolean => {
+        if (this.isTyping(event) || this.boardSet?.readonly) { return true; }
         if (this.selectedCell) {
-          this.cellEditor.clearCell();
+          this.cellActions.delete(this.selectedCell, this.board).subscribe();
         }
-        return false; // Prevent bubbling
-      }, undefined, 'Clear Selected Cell'))
+        return false;
+      }, undefined, 'Delete Selected Cell'))
     );
+
+    this.hotkeys.push(
+      this.hotkeysService.add(new Hotkey(['ctrl+c', 'command+c'], (event: KeyboardEvent): boolean => {
+        if (this.isTyping(event) || this.boardSet?.readonly || !this.selectedCell) { return true; }
+        this.cellActions.copy(this.selectedCell);
+        return false;
+      }, undefined, 'Copy Cell'))
+    );
+
+    this.hotkeys.push(
+      this.hotkeysService.add(new Hotkey(['ctrl+x', 'command+x'], (event: KeyboardEvent): boolean => {
+        if (this.isTyping(event) || this.boardSet?.readonly || !this.selectedCell) { return true; }
+        this.cellActions.cut(this.selectedCell, this.board).subscribe();
+        return false;
+      }, undefined, 'Cut Cell'))
+    );
+
+    this.hotkeys.push(
+      this.hotkeysService.add(new Hotkey(['ctrl+v', 'command+v'], (event: KeyboardEvent): boolean => {
+        if (this.isTyping(event) || this.boardSet?.readonly || !this.selectedCell) { return true; }
+        this.cellActions.paste(this.selectedCell, this.board).subscribe();
+        return false;
+      }, undefined, 'Paste Cell'))
+    );
+
+    this.hotkeys.push(
+      this.hotkeysService.add(new Hotkey(['ctrl+z', 'command+z'], (event: KeyboardEvent): boolean => {
+        if (this.isTyping(event) || this.boardSet?.readonly) { return true; }
+        this.cellActions.undo().subscribe();
+        return false;
+      }, undefined, 'Undo Cell Action'))
+    );
+
+    this.actionsSubscription = this.cellActions.linksChanged$.subscribe(() => {
+      if (this.boardTree) { this.boardTree.rebuildTree(); }
+    });
   }
 
   ngOnDestroy(): void {
@@ -200,6 +242,16 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (this.routeSubscription) {
       this.routeSubscription.unsubscribe();
     }
+    if (this.actionsSubscription) {
+      this.actionsSubscription.unsubscribe();
+    }
+  }
+
+  private isTyping(event: KeyboardEvent): boolean {
+    const el = event.target as HTMLElement;
+    if (!el) { return false; }
+    const tag = el.tagName;
+    return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || el.isContentEditable;
   }
 
   // Gets the BoardSet and loads it into this.boardSet.

@@ -1,4 +1,4 @@
-<div *ngIf="board">
+<div *ngIf="board" cdkDropListGroup>
 
   <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center" class="mb-3 board-header">
     <div fxFlex="33" fxLayout="row">
@@ -22,7 +22,7 @@
 
   <mat-grid-list [cols]="board.columns" rowHeight="11.85rem" gutterSize="1rem">
     <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows)"
-                   tabindex="0" (click)="selectCell(c)" (keyup.enter)="selectCell(c)"
+                   tabindex="0" (keyup.enter)="selectCell(c)"
                    [style.background-color]="c.background_colour"
                    [style.outline-color]="c.border_colour"
                    [class.selected]="cell === c"
@@ -30,80 +30,133 @@
                    gaCategory="CellEditor" gaEvent="open"
     >
 
-      <div *ngIf="board.cellLayout === 'column'"
-           fxLayout="column"
-           [fxLayoutAlign]="c.image_url ? 'space-between stretch' : 'center stretch'"
-           fxFlex
-           id="cellBox"
-           class="tile-body"
-           [class.has-image]="!!c.image_url"
-           [class.no-image]="!c.image_url"
-      >
+      <div class="cell-drop-host"
+           cdkDropList
+           [cdkDropListData]="c"
+           [cdkDropListSortingDisabled]="true"
+           (cdkDropListDropped)="dropOnCell($event, c)">
 
-        <div fxFlexOrder="2"
-             class="cell-media"
-             *ngIf="c.image_url || (!c.image_url && !c.caption)"
-             [@mediaCollapse]="isInitialLoad ? 'initial' : 'animate'"
-        >
-          <app-adaptable-image *ngIf="c.image_url"
-                               [adaptable]="c.picto?.adaptable"
-                               [cell]="c"
-                               [image]="c.image_url"
-          ></app-adaptable-image>
-          <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
-        </div>
+        <div class="cell-drag"
+             cdkDrag
+             [cdkDragData]="c"
+             [cdkDragDisabled]="readonly || menuOpen"
+             (cdkDragStarted)="onDragStarted()"
+             (click)="onCellClick(c)"
+             (contextmenu)="onContextMenu($event, c)"
+             (touchstart)="onTouchStart($event, c)"
+             (touchmove)="onTouchMove($event)"
+             (touchend)="onTouchEnd($event)"
+             (touchcancel)="onTouchEnd($event)">
 
-        <div fxFlex
-             fxLayout="row"
-             fxLayoutAlign="space-between center"
-             [fxFlexOrder]="board.captions_position === 'above' ? 1 : 3"
-             class="cell-caption-row"
-             [@captionTransition]="c.image_url ? 'withImage' : 'noImage'"
+          <div *cdkDragPlaceholder class="cell-drag-placeholder"></div>
 
-        >
+          <div *ngIf="board.cellLayout === 'column'"
+               fxLayout="column"
+               [fxLayoutAlign]="c.image_url ? 'space-between stretch' : 'center stretch'"
+               fxFlex
+               id="cellBox"
+               class="tile-body"
+               [class.has-image]="!!c.image_url"
+               [class.no-image]="!c.image_url"
+          >
 
-          <button mat-icon-button *ngIf="c.linked_board_id"
-                  [style.visibility]="'hidden'">
-            <mat-icon>link</mat-icon>
-          </button>
+            <div fxFlexOrder="2"
+                 class="cell-media"
+                 *ngIf="c.image_url || (!c.image_url && !c.caption)"
+                 [@mediaCollapse]="isInitialLoad ? 'initial' : 'animate'"
+            >
+              <app-adaptable-image *ngIf="c.image_url"
+                                   [adaptable]="c.picto?.adaptable"
+                                   [cell]="c"
+                                   [image]="c.image_url"
+              ></app-adaptable-image>
+              <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
+            </div>
 
-          <span fxFlex="grow" [style.color]="c.text_colour" *ngIf="board.captions_position != 'hidden'">{{c.caption}}</span>
+            <div fxFlex
+                 fxLayout="row"
+                 fxLayoutAlign="space-between center"
+                 [fxFlexOrder]="board.captions_position === 'above' ? 1 : 3"
+                 class="cell-caption-row"
+                 [@captionTransition]="c.image_url ? 'withImage' : 'noImage'"
 
-          <button mat-icon-button *ngIf="c.linked_board_id"
-                  [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
-                  (click)="showBoard(c.linked_board_id)"
-                  matTooltip="Go to Linked Board" i18n-matTooltip="go to linked board|Board Cell Go to Linked Board button">
-            <mat-icon>link</mat-icon>
-          </button>
-        </div>
-      </div>
+            >
 
+              <button mat-icon-button *ngIf="c.linked_board_id"
+                      [style.visibility]="'hidden'">
+                <mat-icon>link</mat-icon>
+              </button>
 
-      <div *ngIf="board.cellLayout === 'row'" fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex id="cellBoxRow" class="tile-body">
+              <span fxFlex="grow" [style.color]="c.text_colour" *ngIf="board.captions_position != 'hidden'">{{c.caption}}</span>
 
-        <div fxFlex="50" fxFlexOrder="2">
-          <img      *ngIf="c.image_url" [src]="c.image_url" style="max-width: 100%;"/>
-          <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
-        </div>
-
-        <div fxFlex="50" fxLayout="column" fxLayoutAlign="space-between center"
-             [fxFlexOrder]="board.captions_position === 'right' ? 3 : 1">
-
-          <button mat-icon-button [style.visibility]="'hidden'">
-            <mat-icon>link</mat-icon>
-          </button>
-
-          <div [style.color]="c.text_colour">{{c.caption}}</div>
+              <button mat-icon-button *ngIf="c.linked_board_id"
+                      [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
+                      (click)="showBoard(c.linked_board_id)"
+                      matTooltip="Go to Linked Board" i18n-matTooltip="go to linked board|Board Cell Go to Linked Board button">
+                <mat-icon>link</mat-icon>
+              </button>
+            </div>
+          </div>
 
 
-          <button mat-icon-button [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
-                  (click)="showBoard(c.linked_board_id)"
-                  matTooltip="Go to Linked Board" i18n-matTooltip="go to linked board|Board Cell Go to Linked Board button">
-            <mat-icon>link</mat-icon>
-          </button>
+          <div *ngIf="board.cellLayout === 'row'" fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex id="cellBoxRow" class="tile-body">
+
+            <div fxFlex="50" fxFlexOrder="2">
+              <img      *ngIf="c.image_url" [src]="c.image_url" style="max-width: 100%;"/>
+              <mat-icon *ngIf="!c.image_url" class="placeholder">landscape</mat-icon>
+            </div>
+
+            <div fxFlex="50" fxLayout="column" fxLayoutAlign="space-between center"
+                 [fxFlexOrder]="board.captions_position === 'right' ? 3 : 1">
+
+              <button mat-icon-button [style.visibility]="'hidden'">
+                <mat-icon>link</mat-icon>
+              </button>
+
+              <div [style.color]="c.text_colour">{{c.caption}}</div>
+
+
+              <button mat-icon-button [style.visibility]="c.linked_board_id ? 'visible' : 'hidden'"
+                      (click)="showBoard(c.linked_board_id)"
+                      matTooltip="Go to Linked Board" i18n-matTooltip="go to linked board|Board Cell Go to Linked Board button">
+                <mat-icon>link</mat-icon>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
     </mat-grid-tile>
   </mat-grid-list>
+
+  <div class="cell-context-menu-trigger"
+       [style.left.px]="menuPosition.x"
+       [style.top.px]="menuPosition.y"
+       [matMenuTriggerFor]="cellContextMenu"
+       (menuClosed)="onMenuClosed()">
+  </div>
+
+  <mat-menu #cellContextMenu="matMenu">
+    <button mat-menu-item (click)="cutContextCell()" [disabled]="!contextCell?.id">
+      <mat-icon>content_cut</mat-icon>
+      <ng-container i18n="cut cell|Cut cell">Cut</ng-container>
+    </button>
+    <button mat-menu-item (click)="copyContextCell()" [disabled]="!contextCell?.id">
+      <mat-icon>content_copy</mat-icon>
+      <ng-container i18n="copy cell|Copy cell">Copy</ng-container>
+    </button>
+    <button mat-menu-item (click)="pasteContextCell()" [disabled]="!(cellActions.canPaste$ | async)">
+      <mat-icon>content_paste</mat-icon>
+      <ng-container i18n="paste cell|Paste cell">Paste</ng-container>
+    </button>
+    <button mat-menu-item (click)="deleteContextCell()" [disabled]="!contextCell?.id">
+      <mat-icon>delete</mat-icon>
+      <ng-container i18n="delete cell|Delete cell">Delete</ng-container>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="undoAction()" [disabled]="!(cellActions.canUndo$ | async)">
+      <mat-icon>undo</mat-icon>
+      <ng-container i18n="undo cell action|Undo cell action">Undo</ng-container>
+    </button>
+  </mat-menu>
 </div>

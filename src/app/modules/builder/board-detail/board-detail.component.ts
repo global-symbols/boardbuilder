@@ -1,10 +1,16 @@
-import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, Output, ViewChild} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {CdkDragDrop} from '@angular/cdk/drag-drop';
+import {MatMenuTrigger} from '@angular/material/menu';
 import {Board} from '@data/models/board.model';
 import {Cell} from '@data/models/cell.model';
 import {DialogService} from '@app/services/dialog.service';
 import {Media} from '@data/models/media.model';
 import {BoardService} from '@data/services/board.service';
+import {CellActionsService} from '@data/services/cell-actions.service';
+
+const LONG_PRESS_MS = 550;
+const LONG_PRESS_MOVE_PX = 12;
 
 @Component({
   selector: 'app-board-detail',
@@ -41,15 +47,26 @@ export class BoardDetailComponent implements OnChanges {
   @Output() cellChange = new EventEmitter<Cell>();
   @Output() boardChange = new EventEmitter<number>();
 
+  @ViewChild(MatMenuTrigger) cellMenuTrigger: MatMenuTrigger;
+
   isInitialLoad = true;
+  contextCell: Cell;
+  menuPosition = {x: 0, y: 0};
+  menuOpen = false;
+
+  private didDrag = false;
+  private longPressFired = false;
+  private longPressTimer: ReturnType<typeof setTimeout> | null = null;
+  private touchOrigin: {x: number, y: number} | null = null;
 
   constructor(
     private dialogService: DialogService,
-    private boardService: BoardService
+    private boardService: BoardService,
+    public cellActions: CellActionsService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnChanges() {
-    // Mark initial load as complete after first change
     if (this.isInitialLoad && this.board) {
       setTimeout(() => this.isInitialLoad = false, 100);
     }
@@ -57,6 +74,96 @@ export class BoardDetailComponent implements OnChanges {
 
   selectCell(cell: Cell) {
     this.cellChange.emit(cell);
+  }
+
+  onCellClick(cell: Cell) {
+    if (this.didDrag || this.longPressFired) {
+      this.didDrag = false;
+      this.longPressFired = false;
+      return;
+    }
+    this.selectCell(cell);
+  }
+
+  onDragStarted() {
+    this.didDrag = true;
+    this.clearLongPressTimer();
+  }
+
+  dropOnCell(event: CdkDragDrop<Cell>, target: Cell) {
+    if (this.readonly) { return; }
+    const source = event.item.data as Cell;
+    if (!source || source === target) { return; }
+    this.cellActions.swap(this.board, source, target).subscribe();
+  }
+
+  onContextMenu(event: MouseEvent, cell: Cell) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (this.readonly) { return; }
+    this.openCellMenu(event.clientX, event.clientY, cell);
+  }
+
+  onTouchStart(event: TouchEvent, cell: Cell) {
+    if (this.readonly) { return; }
+    const touch = event.touches[0];
+    if (!touch) { return; }
+    this.longPressFired = false;
+    this.touchOrigin = {x: touch.clientX, y: touch.clientY};
+    this.clearLongPressTimer();
+    this.longPressTimer = setTimeout(() => {
+      this.longPressFired = true;
+      this.openCellMenu(touch.clientX, touch.clientY, cell);
+    }, LONG_PRESS_MS);
+  }
+
+  onTouchMove(event: TouchEvent) {
+    if (!this.touchOrigin || !this.longPressTimer) { return; }
+    const touch = event.touches[0];
+    if (!touch) { return; }
+    const dx = touch.clientX - this.touchOrigin.x;
+    const dy = touch.clientY - this.touchOrigin.y;
+    if (Math.hypot(dx, dy) > LONG_PRESS_MOVE_PX) {
+      this.clearLongPressTimer();
+    }
+  }
+
+  onTouchEnd(event: TouchEvent) {
+    if (this.longPressFired) {
+      event.preventDefault();
+    }
+    this.clearLongPressTimer();
+    this.touchOrigin = null;
+  }
+
+  onMenuClosed() {
+    this.menuOpen = false;
+  }
+
+  copyContextCell() {
+    if (this.contextCell) { this.cellActions.copy(this.contextCell); }
+  }
+
+  cutContextCell() {
+    if (this.contextCell) {
+      this.cellActions.cut(this.contextCell, this.board).subscribe();
+    }
+  }
+
+  pasteContextCell() {
+    if (this.contextCell) {
+      this.cellActions.paste(this.contextCell, this.board).subscribe();
+    }
+  }
+
+  deleteContextCell() {
+    if (this.contextCell) {
+      this.cellActions.delete(this.contextCell, this.board).subscribe();
+    }
+  }
+
+  undoAction() {
+    this.cellActions.undo().subscribe();
   }
 
   showBoard(linkedBoardId: number) {
@@ -84,5 +191,21 @@ export class BoardDetailComponent implements OnChanges {
     this.board.header_media = null;
     this.board.header_media_id = null;
     this.boardService.update(this.board).subscribe();
+  }
+
+  private openCellMenu(x: number, y: number, cell: Cell) {
+    this.contextCell = cell;
+    this.menuPosition = {x, y};
+    this.selectCell(cell);
+    this.menuOpen = true;
+    this.cdr.detectChanges();
+    this.cellMenuTrigger.openMenu();
+  }
+
+  private clearLongPressTimer() {
+    if (this.longPressTimer) {
+      clearTimeout(this.longPressTimer);
+      this.longPressTimer = null;
+    }
   }
 }

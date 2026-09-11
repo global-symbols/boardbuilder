@@ -2,6 +2,10 @@ mat-panel-description {
   flex-direction: row-reverse;
 }
 
+.cell-actions-button mat-icon {
+  margin-right: 0.5rem;
+}
+
 .cell-linked-notice-wrapper {
   min-height: 89px;
 }

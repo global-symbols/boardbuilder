@@ -91,31 +91,49 @@
         </ng-template>
       </div>
 
-      <h3 i18n="Cell editor Move Cell heading">Move Cell</h3>
-      <div fxLayout="row" fxLayoutAlign="space-between start">
-        <button mat-stroked-button color="primary"
-                (click)="moveCell(board.cells.indexOf(cell) - 1)"
-                [disabled]="board.cells.indexOf(cell) === 0"
-                fxFlex="50"
-                gaEvent="click" gaLabel="MoveCellEarlier"
-        >
+      <h3 i18n="Cell editor Actions heading">Actions</h3>
+      <div fxLayout="column" fxLayoutGap="8px" class="mb-2">
+        <button mat-stroked-button color="primary" class="cell-actions-button" (click)="cutCell()"
+                [disabled]="!cell?.id"
+                gaEvent="click" gaLabel="CutCell">
           <div fxLayoutAlign="start center">
-            <mat-icon>arrow_left</mat-icon>
-            <ng-container i18n="Cell Editor Move Earlier button">Move Earlier</ng-container>
-          </div></button>&nbsp;
-        <button mat-stroked-button color="primary"
-                (click)="moveCell(board.cells.indexOf(cell) + 1)"
-                [disabled]="board.cells.indexOf(cell) === (board.cells.length - 1)"
-                fxFlex="50"
-                gaEvent="click" gaLabel="MoveCellLater"
-        >
-          <div fxLayoutAlign="end center">
-            <ng-container i18n="Cell Editor Move Later button">Move Later</ng-container>
-            <mat-icon>arrow_right</mat-icon>
+            <mat-icon>content_cut</mat-icon>
+            <ng-container i18n="cut cell|Cut cell">Cut</ng-container>
+          </div>
+        </button>
+        <button mat-stroked-button color="primary" class="cell-actions-button" (click)="copyCell()"
+                [disabled]="!cell?.id"
+                gaEvent="click" gaLabel="CopyCell">
+          <div fxLayoutAlign="start center">
+            <mat-icon>content_copy</mat-icon>
+            <ng-container i18n="copy cell|Copy cell">Copy</ng-container>
+          </div>
+        </button>
+        <button mat-stroked-button color="primary" class="cell-actions-button" (click)="pasteCell()"
+                [disabled]="!(cellActions.canPaste$ | async)"
+                gaEvent="click" gaLabel="PasteCell">
+          <div fxLayoutAlign="start center">
+            <mat-icon>content_paste</mat-icon>
+            <ng-container i18n="paste cell|Paste cell">Paste</ng-container>
+          </div>
+        </button>
+        <button mat-stroked-button color="primary" class="cell-actions-button" (click)="deleteCell()"
+                [disabled]="!cell?.id"
+                gaEvent="click" gaLabel="DeleteCell">
+          <div fxLayoutAlign="start center">
+            <mat-icon>delete</mat-icon>
+            <ng-container i18n="delete cell|Delete cell">Delete</ng-container>
+          </div>
+        </button>
+        <button mat-stroked-button color="primary" class="cell-actions-button" (click)="undoAction()"
+                [disabled]="!(cellActions.canUndo$ | async)"
+                gaEvent="click" gaLabel="UndoCell">
+          <div fxLayoutAlign="start center">
+            <mat-icon>undo</mat-icon>
+            <ng-container i18n="undo cell action|Undo cell action">Undo</ng-container>
           </div>
         </button>
       </div>
-
 
       <h3 i18n="Cell Editor Reset Cell button">Reset Cell Contents</h3>
       <button mat-stroked-button color="primary" (click)="clearCell('symbol')"
