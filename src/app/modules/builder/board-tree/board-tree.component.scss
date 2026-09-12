@@ -1,5 +1,22 @@
 @import "~app/shared/variables";
 
+.drag-handle {
+  cursor: grab;
+  opacity: 0.4;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+
+.board-drag-placeholder {
+  min-height: 48px;
+  background: rgba($light-blue, 0.12);
+}
+
+.cdk-drop-list-receiving {
+  outline: 2px dashed $light-blue;
+  outline-offset: -2px;
+}
+
 mat-list-item {
   span {
     @include line-clamp(1);

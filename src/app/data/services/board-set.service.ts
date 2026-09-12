@@ -55,6 +55,11 @@ export class BoardSetService {
       .pipe(map(data => new BoardSet().deserialise(data)));
   }
 
+  reorderBoards(boardSet: BoardSet, boardIds: number[]): Observable<BoardSet> {
+    return this.http.patch<BoardSet>(`${this.apiEndpoint}/${boardSet.id}/reorder_boards`, { board_ids: boardIds })
+      .pipe(map(data => new BoardSet().deserialise(data)));
+  }
+
   moveToFolder(boardSet: BoardSet, folderId: number | null): Observable<BoardSet> {
     return this.http.patch<BoardSet>(`${this.apiEndpoint}/${boardSet.id}`, { folder_id: folderId || 0 })
       .pipe(map(data => new BoardSet().deserialise(data)));

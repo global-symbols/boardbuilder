@@ -9,6 +9,7 @@ import {Media} from '@data/models/media.model';
 export class Board extends Record implements Deserialisable {
   board_set_id: number;
   header_media_id: number;
+  index: number;
   name: string;
   description: string;
   rows: number;

@@ -1,23 +1,25 @@
-<!--<mat-nav-list *ngIf="boards">-->
-<!--  <app-board-tree-item *ngFor="let board of boards" [selectedBoard]="selectedBoard" (selectChange)="selectBoard($event)" [board]="board"></app-board-tree-item>-->
-<!--</mat-nav-list>-->
-
-<mat-nav-list>
+<mat-nav-list cdkDropListGroup>
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" #matTree>
 
     <!-- This is the tree node template for leaf nodes -->
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePaddingIndent]="treeNodePadding">
 
-        <mat-list-item (click)="selectBoard(node.board)"
+      <div cdkDropList
+           [cdkDropListData]="node.board"
+           [cdkDropListSortingDisabled]="true"
+           (cdkDropListDropped)="dropOnBoard($event, node.board)">
+        <mat-list-item (click)="onBoardClick(node.board)"
                        (dblclick)="edit(node.board)"
                        (keyup.enter)="selectBoard(node.board)"
                        [class.selected]="selectedBoard === node.board"
-                       tabindex="0">
-          <!-- use a disabled button to provide padding for tree leaf -->
-<!--          <button mat-icon-button disabled></button>-->
-
+                       tabindex="0"
+                       cdkDrag
+                       [cdkDragData]="node.board"
+                       [cdkDragDisabled]="boardSet?.readonly"
+                       (cdkDragStarted)="onDragStarted()">
           <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100" style="padding-left: 40px">
-            <span>{{node.board.name}}</span>
+            <mat-icon *ngIf="!boardSet?.readonly" class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+            <span fxFlex="grow">{{node.board.name}}</span>
             <button mat-button mat-icon-button
                     [matMenuTriggerFor]="boardMenu"
                     [matMenuTriggerData]="{board: node.board}"
@@ -28,50 +30,52 @@
               <mat-icon>more_vert</mat-icon>
             </button>
           </div>
-
+          <div *cdkDragPlaceholder class="board-drag-placeholder"></div>
         </mat-list-item>
+      </div>
 
     </mat-tree-node>
 
     <!-- This is the tree node template for expandable nodes -->
-    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding [matTreeNodePaddingIndent]="treeNodePadding" (click)="selectBoard(node.board)">
-      <mat-list-item (click)="selectBoard(node.board)"
-                     (dblclick)="edit(node.board)"
-                     (keyup.enter)="selectBoard(node.board)"
-                     [attr.aria-label]="'select ' + node.board.name"
-                     [class.selected]="selectedBoard === node.board"
-                     tabindex="0">
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding [matTreeNodePaddingIndent]="treeNodePadding">
+      <div cdkDropList
+           [cdkDropListData]="node.board"
+           [cdkDropListSortingDisabled]="true"
+           (cdkDropListDropped)="dropOnBoard($event, node.board)">
+        <mat-list-item (click)="onBoardClick(node.board)"
+                       (dblclick)="edit(node.board)"
+                       (keyup.enter)="selectBoard(node.board)"
+                       [attr.aria-label]="'select ' + node.board.name"
+                       [class.selected]="selectedBoard === node.board"
+                       tabindex="0"
+                       cdkDrag
+                       [cdkDragData]="node.board"
+                       [cdkDragDisabled]="boardSet?.readonly"
+                       (cdkDragStarted)="onDragStarted()">
 
-        <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
-          <button mat-icon-button matTreeNodeToggle
-                  appStopPropagation
-                  [attr.aria-label]="'expand ' + node.board.name">
-            <mat-icon class="mat-icon-rtl-mirror">
-              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-            </mat-icon>
-          </button>
-          <span fxFlex="grow">{{node.board.name}}</span>
-          <button mat-button mat-icon-button
-                  [matMenuTriggerFor]="boardMenu"
-                  [matMenuTriggerData]="{board: node.board}"
-                  matTooltip="Board Actions" i18n-matTooltip="board actions|Board Actions button" matTooltipPosition="right"
-                  (click)="$event.stopPropagation()"
-                  appStopPropagation
-          >
-            <mat-icon>more_vert</mat-icon>
-          </button>
-        </div>
-
-
-<!--        <button mat-icon-button matTreeNodeToggle-->
-<!--                appStopPropagation-->
-<!--                [attr.aria-label]="'toggle ' + node.name">-->
-<!--          <mat-icon class="mat-icon-rtl-mirror">-->
-<!--            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}-->
-<!--          </mat-icon>-->
-<!--        </button>-->
-<!--        {{node.board.name}}-->
-      </mat-list-item>
+          <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
+            <mat-icon *ngIf="!boardSet?.readonly" class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+            <button mat-icon-button matTreeNodeToggle
+                    appStopPropagation
+                    [attr.aria-label]="'expand ' + node.board.name">
+              <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+              </mat-icon>
+            </button>
+            <span fxFlex="grow">{{node.board.name}}</span>
+            <button mat-button mat-icon-button
+                    [matMenuTriggerFor]="boardMenu"
+                    [matMenuTriggerData]="{board: node.board}"
+                    matTooltip="Board Actions" i18n-matTooltip="board actions|Board Actions button" matTooltipPosition="right"
+                    (click)="$event.stopPropagation()"
+                    appStopPropagation
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </div>
+          <div *cdkDragPlaceholder class="board-drag-placeholder"></div>
+        </mat-list-item>
+      </div>
     </mat-tree-node>
 
   </mat-tree>

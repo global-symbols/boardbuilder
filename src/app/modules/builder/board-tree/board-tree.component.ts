@@ -2,9 +2,11 @@ import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewCh
 import {Board} from '@data/models/board.model';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import {FlatTreeControl} from '@angular/cdk/tree';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {BoardEditorDialogComponent} from '@modules/builder/board-editor-dialog/board-editor-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {BoardService} from '@data/services/board.service';
+import {BoardSetService} from '@data/services/board-set.service';
 import {saveAs} from 'file-saver';
 import {Router} from '@angular/router';
 import {BoardSet} from '@data/models/boardset.model';
@@ -51,6 +53,7 @@ export class BoardTreeComponent implements OnChanges {
   // Padding for child tree elements, in pixels
   treeNodePadding = 20;
   initState = true;
+  private didDrag = false;
 
   treeControl = new FlatTreeControl<BoardTreeMenuFlatNode>(
     node => node.level, node => node.expandable);
@@ -80,6 +83,7 @@ export class BoardTreeComponent implements OnChanges {
   constructor(
     public dialog: MatDialog,
     private boardService: BoardService,
+    private boardSetService: BoardSetService,
     private router: Router
   ) { }
 
@@ -146,12 +150,48 @@ export class BoardTreeComponent implements OnChanges {
     for (let menuItem of menuItemsTree) {
       this.setShortestPaths(menuItem);
     }
-    menuItemsTree.sort((a, b) => b.children.length - a.children.length);
+    this.sortMenuItems(menuItemsTree);
     return menuItemsTree;
+  }
+
+  private sortMenuItems(items: BoardTreeMenuItem[]): void {
+    items.sort((a, b) => (a.board.index || 0) - (b.board.index || 0) || a.board.id - b.board.id);
+    items.forEach(item => {
+      if (item.children?.length) { this.sortMenuItems(item.children); }
+    });
   }
 
   selectBoard(board: Board) {
     this.selectionChange.emit(board);
+  }
+
+  onBoardClick(board: Board) {
+    if (this.didDrag) {
+      this.didDrag = false;
+      return;
+    }
+    this.selectBoard(board);
+  }
+
+  onDragStarted() {
+    this.didDrag = true;
+  }
+
+  dropOnBoard(event: CdkDragDrop<Board>, target: Board) {
+    if (this.boardSet?.readonly) { return; }
+    const source = event.item.data as Board;
+    if (!source || !target || source.id === target.id) { return; }
+
+    const ordered = this.boards.slice().sort((a, b) => (a.index || 0) - (b.index || 0) || a.id - b.id);
+    const from = ordered.findIndex(b => b.id === source.id);
+    const to = ordered.findIndex(b => b.id === target.id);
+    if (from < 0 || to < 0) { return; }
+
+    moveItemInArray(ordered, from, to);
+    ordered.forEach((board, i) => board.index = i);
+    this.boardSetService.reorderBoards(this.boardSet, ordered.map(b => b.id)).subscribe(() => {
+      this.rebuildTree();
+    });
   }
 
   hasChild = (_: number, node: BoardTreeMenuFlatNode) => node.expandable;
