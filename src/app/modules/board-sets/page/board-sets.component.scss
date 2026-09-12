@@ -1,3 +1,12 @@
+.folder-row,
+.board-row {
+  overflow: hidden;
+}
+
+.folder-row {
+  margin-bottom: 1.5rem;
+}
+
 .card-container {
   min-height: 165px;
   display: flex;

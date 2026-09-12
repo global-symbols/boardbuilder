@@ -20,6 +20,7 @@ export class NewBoardSetDialogComponent implements OnInit {
   boardSetForm: FormGroup;
 
   board: Board;
+  catalogueTabs = false;
 
   @ViewChild(BoardEditorFormComponent) boardEditorForm: BoardEditorFormComponent;
 
@@ -43,8 +44,10 @@ export class NewBoardSetDialogComponent implements OnInit {
   }
 
   create(): void {
+    this.board.tab_enabled = this.catalogueTabs;
     const boardSet = new BoardSet({
       name: this.boardSetForm.value.name,
+      catalogue_tabs: this.catalogueTabs,
       boards: [this.board]
     });
 

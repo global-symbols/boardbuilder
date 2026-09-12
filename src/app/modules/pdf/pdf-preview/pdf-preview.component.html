@@ -69,11 +69,18 @@
             </mat-form-field>
           </div>
 
-          <div class="mt-2">
+          <div class="mt-2" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
             <mat-checkbox [(ngModel)]="template.drawCellBorders" (change)="onSettingChanged()" i18n="cell draw outlines|PDF Cell Draw Borders">
               Cell Borders
             </mat-checkbox>
-            <mat-checkbox [(ngModel)]="template.showHeader" (change)="onSettingChanged()" i18n="show header|PDF Show Header" class="ml-3">
+            <mat-form-field appearance="outline" fxFlex="120px">
+              <mat-label i18n="cell border width|PDF Cell Border Width">Border width (px)</mat-label>
+              <mat-select [(value)]="template.cellBorderWidth" (valueChange)="onSettingChanged()"
+                          [disabled]="!template.drawCellBorders">
+                <mat-option *ngFor="let w of [1,2,3,4,5,6,7,8,9,10]" [value]="w">{{w}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-checkbox [(ngModel)]="template.showHeader" (change)="onSettingChanged()" i18n="show header|PDF Show Header">
               Show Header
             </mat-checkbox>
           </div>

@@ -110,6 +110,7 @@ export class PdfPreviewComponent implements OnInit, OnDestroy {
         this.template.cellPadding = 10;
         this.template.cellSpacing = 10;
         this.template.drawCellBorders = true;
+        this.template.cellBorderWidth = 1;
         this.template.showHeader = false;
         this.template.imageTextSpacing = -1;
 

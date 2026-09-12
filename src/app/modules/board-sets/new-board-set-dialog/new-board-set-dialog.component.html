@@ -31,6 +31,9 @@
             <div>
               <p i18n="Create Board Set text 1">A Board Set is a collection of communication Boards - as many or as few as you like.</p>
               <p i18n="Create Board Set text 2">On the next page, we'll set up the first Board.</p>
+              <mat-checkbox [(ngModel)]="catalogueTabs" class="mt-2" appStopPropagation i18n="add catalogue tabs">
+                Add catalogue tabs (printed page-edge tabs, like a catalogue)
+              </mat-checkbox>
             </div>
           </div>
 
@@ -43,7 +46,7 @@
 
       <mat-step>
         <ng-template matStepLabel i18n="Create Board Set choose template step header">Choose Template</ng-template>
-        <app-board-editor-form [board]="board"></app-board-editor-form>
+        <app-board-editor-form [board]="board" [catalogueTabs]="catalogueTabs"></app-board-editor-form>
 
         <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-2">
           <button mat-raised-button matStepperPrevious appStopPropagation i18n="back|Back">Back</button>

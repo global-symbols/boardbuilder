@@ -101,3 +101,23 @@
   </mat-tab-group>
 
 </div>
+
+<div *ngIf="showTabSettings" class="mt-3">
+  <h2 i18n="catalogue tab heading">Catalogue tab</h2>
+  <mat-slide-toggle [(ngModel)]="board.tab_enabled" appStopPropagation i18n="show tab|Show tab">
+    Show tab on printed pages
+  </mat-slide-toggle>
+  <div *ngIf="board.tab_enabled !== false" class="mt-2">
+    <mat-form-field class="w-100">
+      <mat-label i18n="tab label|Tab label">Tab label</mat-label>
+      <input matInput maxlength="50" [(ngModel)]="board.tab_label"
+             [placeholder]="board.title" appStopPropagation>
+      <mat-hint i18n="tab label hint">Defaults to the board title. Keep it short (e.g. Sports).</mat-hint>
+    </mat-form-field>
+    <div class="mt-2">
+      <div class="mb-1" i18n="tab colour|Tab colour">Tab colour</div>
+      <app-colour-picker [border]="true" [width]="280" [value]="board.tab_colour"
+                         (valueChange)="board.tab_colour = $event"></app-colour-picker>
+    </div>
+  </div>
+</div>

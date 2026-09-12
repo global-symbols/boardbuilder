@@ -164,6 +164,7 @@ export class BoardTreeComponent implements OnChanges {
     if (this.currentDialogRef !== undefined) { return; }
     if (this.boardSet.readonly) { return; }
 
+    board.catalogue_tabs = !!this.boardSet.catalogue_tabs;
     this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
       width: '700px',
       data: { board }

@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 export const routes: Routes = [
@@ -39,6 +40,7 @@ export const routes: Routes = [
     MatTooltipModule,
     MatCheckboxModule,
     MatExpansionModule,
+    MatFormFieldModule,
   ]
 })
 export class PdfModule { }

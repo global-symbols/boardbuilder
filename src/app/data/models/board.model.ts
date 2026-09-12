@@ -16,6 +16,10 @@ export class Board extends Record implements Deserialisable {
   cells: Array<Cell>;
   captions_position: 'hidden' | 'above' | 'below' | 'left' | 'right';
   header_media: Media;
+  catalogue_tabs: boolean;
+  tab_enabled: boolean;
+  tab_label: string;
+  tab_colour: string;
 
   constructor(init?: Partial<Board>) {
       super();

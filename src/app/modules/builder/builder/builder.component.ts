@@ -293,7 +293,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
       board_set_id: this.boardSet.id,
       rows: this.board?.rows,
       columns: this.board?.columns,
-      captions_position: this.board?.captions_position
+      captions_position: this.board?.captions_position,
+      catalogue_tabs: !!this.boardSet.catalogue_tabs,
+      tab_enabled: true
     });
 
     this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
@@ -396,6 +398,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (this.boardSet.readonly) { return; }
     if (this.currentDialogRef !== undefined) { return; }
 
+    board.catalogue_tabs = !!this.boardSet.catalogue_tabs;
     this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
       width: '700px',
       data: { board: this.board }

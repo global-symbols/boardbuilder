@@ -23,6 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {FolderNameDialogComponent} from './folder-name-dialog/folder-name-dialog.component';
 import {MoveToFolderDialogComponent} from './move-to-folder-dialog/move-to-folder-dialog.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 export const routes: Routes = [
   {
@@ -60,7 +61,8 @@ export const routes: Routes = [
     MatStepperModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ]
 })
 export class BoardSetsModule { }

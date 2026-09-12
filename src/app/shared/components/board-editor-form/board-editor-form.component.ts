@@ -16,6 +16,11 @@ export class BoardEditorFormComponent implements OnInit {
 
   @Input() board: Board;
   @Input() media: Media[];
+  @Input() catalogueTabs = false;
+
+  get showTabSettings(): boolean {
+    return !!(this.catalogueTabs || this.board?.catalogue_tabs);
+  }
 
   @ViewChild('titleField') titleField: ElementRef;
 

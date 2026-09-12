@@ -69,6 +69,12 @@
       <mat-hint i18n="board.public hint|Board Visibility field hint">Feel free to use new tags</mat-hint>
     </mat-form-field>
 
+    <div class="mb-3">
+      <mat-checkbox [(ngModel)]="data.boardSet.catalogue_tabs" appStopPropagation i18n="catalogue tabs|Catalogue tabs">
+        Catalogue tabs on printed pages
+      </mat-checkbox>
+    </div>
+
     <mat-form-field class="w-100 mb-3">
       <mat-label i18n="board.public label|Board Visibility field label">Visibility</mat-label>
       <mat-select [(value)]="data.boardSet.public" appStopPropagation>
