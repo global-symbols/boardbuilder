@@ -26,8 +26,10 @@
       <h3 class="mb-0 mt-0">{{activeFolder.name}}</h3>
     </div>
 
-    <div fxLayout="row wrap" fxLayoutGap="1rem grid" *ngIf="!searching && !activeFolder && folders.length">
-      <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngFor="let folder of folders">
+    <div fxLayout="row wrap" fxLayoutGap="1rem grid">
+      <ng-container *ngIf="!searching && !activeFolder">
+      <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container"
+           *ngFor="let folder of folders">
         <mat-card fxFlexFill class="folder-card" (click)="openFolder(folder)">
           <mat-card-header>
             <div class="w-100" fxLayout="row" fxLayoutAlign="space-between start">
@@ -46,9 +48,8 @@
           </mat-card-content>
         </mat-card>
       </div>
-    </div>
+      </ng-container>
 
-    <div fxLayout="row wrap" fxLayoutGap="1rem grid">
       <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngIf="!searching">
         <mat-card fxFlexFill class="add-boardset">
           <mat-card-actions fxFlex fxLayout="column" class="p-0">

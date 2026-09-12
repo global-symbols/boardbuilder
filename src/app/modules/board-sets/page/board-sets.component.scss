@@ -1,13 +1,16 @@
 .card-container {
   min-height: 165px;
-}
-
-.search-field {
-  margin-bottom: -1.25em;
+  display: flex;
 }
 
 .folder-card {
   cursor: pointer;
+  width: 100%;
+  min-height: 165px;
+}
+
+.search-field {
+  margin-bottom: -1.25em;
 }
 
 .folder-icon {
