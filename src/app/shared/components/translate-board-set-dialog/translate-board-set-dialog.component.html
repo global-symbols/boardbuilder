@@ -1,0 +1,44 @@
+<div cdkDrag
+     cdkDragRootElement=".cdk-overlay-pane"
+     cdkDragBoundary="body"
+>
+  <h1 mat-dialog-title i18n="Translate Board Set dialog heading">Translate {{boardSet.name}}</h1>
+
+  <div mat-dialog-content>
+    <ng-container *ngIf="!result">
+      <p i18n="Translate Board Set dialog prompt">Create a translated copy of this Board Set. The original will not be changed.</p>
+
+      <app-loading-notice *ngIf="loadingLanguages" subject="Languages" i18n-subject="languages|Languages"></app-loading-notice>
+
+      <mat-form-field class="w-100" appearance="outline" *ngIf="!loadingLanguages">
+        <mat-label i18n="language|Language">Language</mat-label>
+        <mat-select [(ngModel)]="language" [disabled]="translating">
+          <mat-option *ngFor="let lang of languages" [value]="lang.code">{{lang.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <app-loading-notice *ngIf="translating" action="Translating" subject="Board Set"
+                          i18n-action="translating|Translating" i18n-subject="board set|Board Set"></app-loading-notice>
+
+      <p class="text-muted" *ngIf="error">{{error}}</p>
+    </ng-container>
+
+    <ng-container *ngIf="result">
+      <p i18n="Translate Board Set complete">Translation complete.</p>
+      <p>
+        <ng-container i18n="Translate Board Set counts">Translated {{result.translated}} labels. {{result.skipped}} skipped.</ng-container>
+      </p>
+    </ng-container>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-stroked-button [mat-dialog-close]="false" color="primary"
+            [disabled]="translating" appStopPropagation *ngIf="!result" i18n="cancel|Cancel">Cancel</button>
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" (click)="translate()"
+            [disabled]="!language || translating || loadingLanguages" appStopPropagation *ngIf="!result"
+            i18n="translate|Translate">Translate</button>
+    <button mat-raised-button color="primary" (click)="openResult()" appStopPropagation *ngIf="result"
+            i18n="open translated copy|Open translated copy">Open Copy</button>
+  </div>
+</div>

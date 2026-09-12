@@ -18,6 +18,10 @@
           <img [src]="cell.image_url" class="preview-image" [matTooltip]="cell.caption"/>
         </div>
       </div>
+      <div class="mt-2 text-muted" *ngIf="folderName">
+        <mat-icon class="folder-chip-icon">folder</mat-icon>
+        {{folderName}}
+      </div>
       <div class="mt-2" *ngIf="boardSet.owner">
         <ng-container i18n="by author|Board Set tile author prefix (e.g. 'By E.A. Draffan')">By</ng-container>
         {{boardSet.owner.prename}} {{boardSet.owner.surname}}

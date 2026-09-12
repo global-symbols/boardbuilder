@@ -15,6 +15,9 @@ export class BoardSet extends Record implements Deserialisable {
     public self_contained: boolean;
     public public: boolean;
     public readonly: boolean;
+    public folder_id: number;
+    public translated?: number;
+    public skipped?: number;
     public boards = Array<Board>();
     opened_at: Date;
     preview_cells: Array<Cell>;

@@ -46,6 +46,20 @@ export class BoardSetService {
       .pipe(map(arr => arr.map(item => new BoardSet().deserialise(item))));
   }
 
+  translateLanguages(): Observable<Array<{code: string, name: string}>> {
+    return this.http.get<Array<{code: string, name: string}>>(`${this.apiEndpoint}/translate_languages`);
+  }
+
+  translate(boardSet: BoardSet, language: string): Observable<BoardSet> {
+    return this.http.post<BoardSet>(`${this.apiEndpoint}/${boardSet.id}/translate`, { language })
+      .pipe(map(data => new BoardSet().deserialise(data)));
+  }
+
+  moveToFolder(boardSet: BoardSet, folderId: number | null): Observable<BoardSet> {
+    return this.http.patch<BoardSet>(`${this.apiEndpoint}/${boardSet.id}`, { folder_id: folderId || 0 })
+      .pipe(map(data => new BoardSet().deserialise(data)));
+  }
+
   // Update opened_at date
   touch(record: BoardSet): Observable<BoardSet> {
 

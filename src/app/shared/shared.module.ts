@@ -49,6 +49,7 @@ import { AiSelectedImageComponent } from './components/ai-selected-image/ai-sele
 import { AiControlsComponent } from './components/ai-controls/ai-controls.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ImageActionDialogComponent } from './components/image-action-dialog/image-action-dialog.component';
+import { TranslateBoardSetDialogComponent } from './components/translate-board-set-dialog/translate-board-set-dialog.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 
@@ -77,7 +78,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AiImageGalleryComponent,
     AiSelectedImageComponent,
     AiControlsComponent,
-    ImageActionDialogComponent
+    ImageActionDialogComponent,
+    TranslateBoardSetDialogComponent
   ],
     exports: [
         ConfirmDialogComponent,

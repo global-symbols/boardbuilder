@@ -20,6 +20,7 @@ import {ToolbarService} from '@app/services/toolbar.service';
 import {Observable, throwError, Subscription} from 'rxjs';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {CopyBoardSetDialogComponent} from '@shared/components/copy-board-set-dialog/copy-board-set-dialog.component';
+import {TranslateBoardSetDialogComponent} from '@shared/components/translate-board-set-dialog/translate-board-set-dialog.component';
 import {DialogService} from '@app/services/dialog.service';
 import {Cell} from '@data/models/cell.model';
 import {BoardTreeComponent} from '@modules/builder/board-tree/board-tree.component';
@@ -457,6 +458,17 @@ export class BuilderComponent implements OnInit, OnDestroy {
   generatePdf() {
     this.updateBoardSet()
       .subscribe(r => this.router.navigate(['/', 'boardsets', this.boardSet.id, this.board.id, 'pdf']));
+  }
+
+  translateBoardSet() {
+    if (!this.boardSet || this.currentDialogRef !== undefined) { return; }
+    this.currentDialogRef = this.dialog.open(TranslateBoardSetDialogComponent, {
+      width: '480px',
+      data: this.boardSet
+    });
+    this.currentDialogRef.afterClosed().subscribe(() => {
+      this.currentDialogRef = undefined;
+    });
   }
 
   copyBoardSet() {

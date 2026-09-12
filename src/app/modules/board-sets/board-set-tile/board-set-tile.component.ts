@@ -11,6 +11,7 @@ export class BoardSetTileComponent implements OnInit {
 
   @Input() boardSet: BoardSet;
   @Input() menu: MatMenu;
+  @Input() folderName: string;
 
   constructor() { }
 

@@ -1,0 +1,14 @@
+<div cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragBoundary="body">
+  <h1 mat-dialog-title>{{data.heading}}</h1>
+  <div mat-dialog-content>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label i18n="folder name|Folder name">Folder name</mat-label>
+      <input matInput [(ngModel)]="name" maxlength="100" cdkFocusInitial appStopPropagation>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-stroked-button [mat-dialog-close]="false" color="primary" appStopPropagation i18n="cancel|Cancel">Cancel</button>
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" [mat-dialog-close]="name.trim()" [disabled]="!name.trim()" appStopPropagation i18n="save|Save">Save</button>
+  </div>
+</div>

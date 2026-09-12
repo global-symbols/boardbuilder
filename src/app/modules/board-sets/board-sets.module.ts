@@ -19,6 +19,10 @@ import {SharedModule} from '../../shared/shared.module';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatMenuModule} from '@angular/material/menu';
 import {BoardSetTileComponent} from './board-set-tile/board-set-tile.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {FolderNameDialogComponent} from './folder-name-dialog/folder-name-dialog.component';
+import {MoveToFolderDialogComponent} from './move-to-folder-dialog/move-to-folder-dialog.component';
 
 export const routes: Routes = [
   {
@@ -33,6 +37,8 @@ export const routes: Routes = [
     BoardSetsComponent,
     NewBoardSetDialogComponent,
     BoardSetTileComponent,
+    FolderNameDialogComponent,
+    MoveToFolderDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -52,7 +58,9 @@ export const routes: Routes = [
     MatSliderModule,
     SharedModule,
     MatStepperModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule,
+    MatSelectModule
   ]
 })
 export class BoardSetsModule { }

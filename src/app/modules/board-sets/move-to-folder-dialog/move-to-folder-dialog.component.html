@@ -1,0 +1,17 @@
+<div cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragBoundary="body">
+  <h1 mat-dialog-title i18n="Move to folder heading">Move {{data.boardSet.name}}</h1>
+  <div mat-dialog-content>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label i18n="folder|Folder">Folder</mat-label>
+      <mat-select [(ngModel)]="folderId">
+        <mat-option [value]="null" i18n="unfiled|Unfiled">Unfiled</mat-option>
+        <mat-option *ngFor="let folder of data.folders" [value]="folder.id">{{folder.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-stroked-button [mat-dialog-close]="false" color="primary" appStopPropagation i18n="cancel|Cancel">Cancel</button>
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" [mat-dialog-close]="folderId === undefined ? false : { folderId: folderId }" appStopPropagation i18n="move|Move">Move</button>
+  </div>
+</div>

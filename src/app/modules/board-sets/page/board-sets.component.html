@@ -2,11 +2,54 @@
 
   <h2 i18n="Board Sets heading">My Board Sets</h2>
 
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1rem" class="mb-3" *ngIf="!loading">
+    <mat-form-field appearance="outline" fxFlex class="search-field">
+      <mat-label i18n="search board sets|Search board sets">Search board sets</mat-label>
+      <input matInput [(ngModel)]="searchQuery" autocomplete="off">
+      <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+    <button mat-stroked-button color="primary" (click)="newFolder()" *ngIf="!searching">
+      <mat-icon>create_new_folder</mat-icon>
+      <ng-container i18n="new folder|New folder">New folder</ng-container>
+    </button>
+  </div>
+
   <app-loading-notice *ngIf="loading" subject="Board Sets" i18n-subject="board sets|Board Sets"></app-loading-notice>
 
   <ng-container *ngIf="!loading">
+
+    <div *ngIf="activeFolder && !searching" class="mb-3" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+      <button mat-button (click)="clearFolder()">
+        <mat-icon>arrow_back</mat-icon>
+        <ng-container i18n="all board sets|All board sets">All board sets</ng-container>
+      </button>
+      <h3 class="mb-0 mt-0">{{activeFolder.name}}</h3>
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutGap="1rem grid" *ngIf="!searching && !activeFolder && folders.length">
+      <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngFor="let folder of folders">
+        <mat-card fxFlexFill class="folder-card" (click)="openFolder(folder)">
+          <mat-card-header>
+            <div class="w-100" fxLayout="row" fxLayoutAlign="space-between start">
+              <mat-card-title class="mt-1" fxFlex>
+                <mat-icon class="folder-icon">folder</mat-icon>
+                {{folder.name}}
+              </mat-card-title>
+              <button mat-icon-button [matMenuTriggerFor]="folderMenu" [matMenuTriggerData]="{folder: folder}" (click)="$event.stopPropagation()">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            </div>
+          </mat-card-header>
+          <mat-card-content class="text-muted">
+            {{folder.board_sets_count || 0}}
+            <ng-container i18n="board sets count|board sets">board sets</ng-container>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
     <div fxLayout="row wrap" fxLayoutGap="1rem grid">
-      <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container">
+      <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngIf="!searching">
         <mat-card fxFlexFill class="add-boardset">
           <mat-card-actions fxFlex fxLayout="column" class="p-0">
             <button fxFlex mat-flat-button color="primary" (click)="newBoardSet()">
@@ -18,12 +61,17 @@
         </mat-card>
       </div>
 
-      <app-board-set-tile *ngFor="let boardSet of boardSets" [boardSet]="boardSet" [menu]="menu" fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
+      <app-board-set-tile *ngFor="let boardSet of filteredBoardSets" [boardSet]="boardSet" [menu]="menu"
+                         [folderName]="searching ? folderName(boardSet) : ''"
+                         fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
       </app-board-set-tile>
     </div>
 
-    <h2 i18n="Board Sets Featured heading">Featured Board Sets</h2>
-    <div fxLayout="row wrap" fxLayoutGap="1rem grid">
+    <p class="text-muted" *ngIf="searching && filteredBoardSets.length === 0" i18n="no matching board sets">No matching board sets.</p>
+    <p class="text-muted" *ngIf="activeFolder && !searching && filteredBoardSets.length === 0" i18n="empty folder">This folder is empty.</p>
+
+    <h2 i18n="Board Sets Featured heading" *ngIf="!activeFolder">Featured Board Sets</h2>
+    <div fxLayout="row wrap" fxLayoutGap="1rem grid" *ngIf="!activeFolder">
       <app-board-set-tile *ngFor="let boardSet of featuredBoardSets" [boardSet]="boardSet" fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
       </app-board-set-tile>
     </div>
@@ -38,9 +86,34 @@
     <mat-icon>launch</mat-icon>
     <span i18n="open|Open">Open</span>
   </button>
-  <button mat-menu-item (click)="deleteBoardSet(boardSet)" *ngIf="!boardSet.readOnly">
+  <button mat-menu-item (click)="translateBoardSet(boardSet)">
+    <mat-icon>translate</mat-icon>
+    <span i18n="translate|Translate">Translate</span>
+  </button>
+  <button mat-menu-item (click)="moveToFolder(boardSet)" *ngIf="!boardSet.readonly">
+    <mat-icon>drive_file_move</mat-icon>
+    <span i18n="move to folder|Move to folder">Move to folder</span>
+  </button>
+  <button mat-menu-item (click)="deleteBoardSet(boardSet)" *ngIf="!boardSet.readOnly && !boardSet.readonly">
     <mat-icon>delete</mat-icon>
     <span i18n="delete|Delete">Delete</span>
   </button>
+  </ng-template>
+</mat-menu>
+
+<mat-menu #folderMenu="matMenu">
+  <ng-template matMenuContent let-folder="folder">
+    <button mat-menu-item (click)="openFolder(folder)">
+      <mat-icon>folder_open</mat-icon>
+      <span i18n="open|Open">Open</span>
+    </button>
+    <button mat-menu-item (click)="renameFolder(folder)">
+      <mat-icon>edit</mat-icon>
+      <span i18n="rename|Rename">Rename</span>
+    </button>
+    <button mat-menu-item (click)="deleteFolder(folder)">
+      <mat-icon>delete</mat-icon>
+      <span i18n="delete|Delete">Delete</span>
+    </button>
   </ng-template>
 </mat-menu>
