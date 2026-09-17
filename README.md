@@ -34,18 +34,25 @@ To do this, ensure <img> tags have the crossorigin="" attribute.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Deployment 
-### Deploy to app.globalsymbols.com
-`firebase deploy`
+## Deployment
+
+The app is a static Angular build. GitHub Actions compile it onto a `build` branch; the host serves that checkout over nginx. Pull on the box after the workflow finishes.
+
+### Pre-prod (`app.gs-test.co.uk`)
+
+Push to `master` on `boardbuilder-internal`. Workflow **Deploy Pre-prod to Build Branch** builds `--configuration=preprod` onto `build`. Then on the pre-prod host:
+
+```bash
+cd /var/www/boardbuilder-internal
+git pull
+```
+
+### Production (`app.globalsymbols.com`)
+
+Merge internal `master` into public `global-symbols/boardbuilder`. Workflow **Deploy Production to Build Branch** (public repo only) builds `--configuration=production` onto `build`. Then pull that `build` branch on the production host.
 
 ### Deploy to app-dev.globalsymbols.com
 `ng deploy`
-
-### Deploy preview to Firebase
-`firebase hosting:channel:deploy preview_name`
-
-### Deploy i18n to Ionos
-`scp -r dist/boardbuilder/* u97814378@access789453002.webspace-data.io:~/app.globalsymbols.com`
 
 ## Adding a new Locale
 Several steps are required to add a new translation.
@@ -58,7 +65,7 @@ In this example, we are adding the 'fr' language.
 1. `git pull` to load the translation file made by Weblate.
 2. Add the `fr` locale to `availableLocales()` in the `LocaleService`.
 3. Add the locale and link the translation file in `angular.json > projects.i18n.locales`.
-4. Add redirects for the locale in `firebase.json`.
+4. Rebuild so the locale folder is included in `dist/` (the host serves `/en`, `/fr`, …).
 
 ### 3. In Doorkeeper configuration on globalsymbols.com
 1. Add two locale-specific URLs to the list of [allowed callback URLs in Doorkeeper](https://globalsymbols.com/oauth/applications/1).
