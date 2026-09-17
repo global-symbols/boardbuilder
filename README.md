@@ -51,9 +51,6 @@ git pull
 
 Merge internal `master` into public `global-symbols/boardbuilder`. Workflow **Deploy Production to Build Branch** (public repo only) builds `--configuration=production` onto `build`. Then pull that `build` branch on the production host.
 
-### Deploy to app-dev.globalsymbols.com
-`ng deploy`
-
 ## Adding a new Locale
 Several steps are required to add a new translation.
 
