@@ -55,6 +55,22 @@ export class BoardSetService {
       .pipe(map(data => new BoardSet().deserialise(data)));
   }
 
+  saveTabs(boardSetId: number, payload: {
+    catalogue_tabs: boolean;
+    tab_edge: string;
+    boards: Array<{
+      id: number;
+      tab_enabled: boolean;
+      tab_label: string;
+      tab_colour: string;
+      tab_position: number;
+      tab_image_url: string;
+    }>;
+  }): Observable<BoardSet> {
+    return this.http.patch<BoardSet>(`${this.apiEndpoint}/${boardSetId}/tabs`, payload)
+      .pipe(map(data => new BoardSet().deserialise(data)));
+  }
+
   reorderBoards(boardSet: BoardSet, boardIds: number[]): Observable<BoardSet> {
     return this.http.patch<BoardSet>(`${this.apiEndpoint}/${boardSet.id}/reorder_boards`, { board_ids: boardIds })
       .pipe(map(data => new BoardSet().deserialise(data)));

@@ -21,6 +21,8 @@ export class Board extends Record implements Deserialisable {
   tab_enabled: boolean;
   tab_label: string;
   tab_colour: string;
+  tab_position: number;
+  tab_image_url: string;
 
   constructor(init?: Partial<Board>) {
       super();

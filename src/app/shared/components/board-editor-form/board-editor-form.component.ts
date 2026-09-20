@@ -6,7 +6,6 @@ import { MediaService } from '@data/services/media.service';
 import { Media } from '@data/models/media.model';
 import { MediaUpdateService } from '@data/services/media-update.service'; // Add this
 import { Subscription } from 'rxjs';
-import { features } from '@app/features';
 
 @Component({
   selector: 'app-board-editor-form',
@@ -20,7 +19,7 @@ export class BoardEditorFormComponent implements OnInit {
   @Input() catalogueTabs = false;
 
   get showTabSettings(): boolean {
-    return features.catalogueTabs && !!(this.catalogueTabs || this.board?.catalogue_tabs);
+    return false;
   }
 
   @ViewChild('titleField') titleField: ElementRef;

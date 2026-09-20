@@ -40,6 +40,8 @@ import {HotkeyModule} from '@conflito/angular2-hotkeys';
 import { MaterialExtensionsModule, MaterialExtensionsExperimentalModule } from '@ng-matero/extensions';
 import { MtxSelectModule } from '@ng-matero/extensions/select';
 import { CellEditorColourPanelComponent } from './cell-editor-colour-panel/cell-editor-colour-panel.component';
+import { EnableTabsDialogComponent } from './enable-tabs-dialog/enable-tabs-dialog.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 export const routes: Routes = [
   {
@@ -61,7 +63,8 @@ export const routes: Routes = [
         BoardDetailComponent,
         BoardEditorDialogComponent,
         BoardSetEditorDialogComponent,
-        CellEditorColourPanelComponent
+        CellEditorColourPanelComponent,
+        EnableTabsDialogComponent
     ],
     imports:      [
         CommonModule,
@@ -97,6 +100,7 @@ export const routes: Routes = [
         MatTreeModule,
         MatSlideToggleModule,
         MatCheckboxModule,
+        MatRadioModule,
         HotkeyModule,
         ColorGithubModule,
         NgxGoogleAnalyticsModule

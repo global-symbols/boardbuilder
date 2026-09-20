@@ -26,6 +26,8 @@ import {Cell} from '@data/models/cell.model';
 import {BoardTreeComponent} from '@modules/builder/board-tree/board-tree.component';
 import {CellEditorComponent} from '@modules/builder/cell-editor/cell-editor.component';
 import {CellActionsService} from '@data/services/cell-actions.service';
+import {EnableTabsDialogComponent} from '../enable-tabs-dialog/enable-tabs-dialog.component';
+import {features} from '@app/features';
 
 @Component({
   selector: 'app-builder',
@@ -40,6 +42,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   loading: boolean;
   loadingError = false;
+  readonly catalogueTabsEnabled = features.catalogueTabs;
 
   disableCellEditorAnimations = true;
 
@@ -471,6 +474,32 @@ export class BuilderComponent implements OnInit, OnDestroy {
     });
     this.currentDialogRef.afterClosed().subscribe(() => {
       this.currentDialogRef = undefined;
+    });
+  }
+
+  openTabs() {
+    if (!this.boardSet || this.boardSet.readonly || this.currentDialogRef !== undefined) { return; }
+    this.currentDialogRef = this.dialog.open(EnableTabsDialogComponent, {
+      width: '720px',
+      data: this.boardSet
+    });
+    this.currentDialogRef.afterClosed().subscribe((result: BoardSet) => {
+      this.currentDialogRef = undefined;
+      if (result instanceof BoardSet) {
+        this.boardSet.catalogue_tabs = result.catalogue_tabs;
+        this.boardSet.tab_edge = result.tab_edge;
+        if (result.boards) {
+          result.boards.forEach(updated => {
+            const local = this.boardSet.boards.find(b => b.id === updated.id);
+            if (!local) { return; }
+            local.tab_enabled = updated.tab_enabled;
+            local.tab_label = updated.tab_label;
+            local.tab_colour = updated.tab_colour;
+            local.tab_position = updated.tab_position;
+            local.tab_image_url = updated.tab_image_url;
+          });
+        }
+      }
     });
   }
 

@@ -1,0 +1,54 @@
+.tabs-dialog-content {
+  min-width: 560px;
+  max-height: 70vh;
+}
+
+.tab-rows {
+  margin-top: 12px;
+}
+
+.tab-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.drag-handle {
+  cursor: grab;
+  opacity: 0.45;
+  flex-shrink: 0;
+}
+
+.symbol-btn {
+  min-width: 48px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+}
+
+.tab-symbol {
+  max-width: 40px;
+  max-height: 40px;
+  object-fit: contain;
+}
+
+.label-field {
+  flex: 1;
+  margin-bottom: -1.25em;
+}
+
+.colour-input {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.cdk-drag-preview {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}

@@ -1,0 +1,48 @@
+<div cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragBoundary="body">
+  <h1 mat-dialog-title i18n="enable tabs heading">Tabs</h1>
+
+  <div mat-dialog-content class="tabs-dialog-content">
+    <mat-slide-toggle [(ngModel)]="enabled" appStopPropagation i18n="enable catalogue tabs">
+      Print catalogue tabs
+    </mat-slide-toggle>
+
+    <div *ngIf="enabled" class="mt-3">
+      <div class="mb-1" i18n="tab edge label">Tab edge</div>
+      <mat-radio-group [(ngModel)]="edge" fxLayout="row wrap" fxLayoutGap="12px">
+        <mat-radio-button value="top" i18n="tab edge top">Top</mat-radio-button>
+        <mat-radio-button value="bottom" i18n="tab edge bottom">Bottom</mat-radio-button>
+        <mat-radio-button value="left" i18n="tab edge left">Left</mat-radio-button>
+        <mat-radio-button value="right" i18n="tab edge right">Right</mat-radio-button>
+      </mat-radio-group>
+      <p class="text-muted mt-2" i18n="tab order hint">
+        Drag rows to set tab order. This does not change the board list on the left.
+      </p>
+
+      <div cdkDropList (cdkDropListDropped)="drop($event)" class="tab-rows">
+        <div *ngFor="let row of rows" cdkDrag class="tab-row">
+          <mat-icon class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+          <button mat-stroked-button type="button" (click)="pickSymbol(row)" class="symbol-btn">
+            <img *ngIf="row.tab_image_url" [src]="row.tab_image_url" alt="" class="tab-symbol">
+            <mat-icon *ngIf="!row.tab_image_url">add_photo_alternate</mat-icon>
+          </button>
+          <mat-form-field appearance="outline" class="label-field">
+            <mat-label i18n="tab label|Tab label">Label</mat-label>
+            <input matInput [(ngModel)]="row.tab_label" maxlength="50" [placeholder]="row.name" appStopPropagation>
+          </mat-form-field>
+          <input type="color" [(ngModel)]="row.tab_colour" class="colour-input" [title]="'Tab colour'">
+          <mat-slide-toggle [(ngModel)]="row.tab_enabled" appStopPropagation i18n="show tab|Show tab">
+            On
+          </mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-muted" *ngIf="error">{{error}}</p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-stroked-button [mat-dialog-close]="false" color="primary" [disabled]="saving" appStopPropagation i18n="cancel|Cancel">Cancel</button>
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" (click)="save()" [disabled]="saving" appStopPropagation i18n="save|Save">Save</button>
+  </div>
+</div>

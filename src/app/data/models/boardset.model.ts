@@ -17,6 +17,7 @@ export class BoardSet extends Record implements Deserialisable {
     public readonly: boolean;
     public folder_id: number;
     public catalogue_tabs: boolean;
+    public tab_edge: 'top' | 'bottom' | 'left' | 'right';
     public translated?: number;
     public skipped?: number;
     public boards = Array<Board>();
