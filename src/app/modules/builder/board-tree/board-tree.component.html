@@ -95,6 +95,11 @@
       <ng-container i18n="download print pdf|Download or Print Board as PDF button">Download/Print PDF</ng-container>
     </button>
 
+    <button mat-menu-item (click)="duplicate(board)" [disabled]="boardSet.readonly">
+      <mat-icon>content_copy</mat-icon>
+      <ng-container i18n="duplicate board|Duplicate board">Duplicate</ng-container>
+    </button>
+
     <mat-divider></mat-divider>
 
     <button mat-menu-item (click)="delete(board)" [disabled]="boardSet.readonly">

@@ -95,6 +95,10 @@
     <mat-icon>translate</mat-icon>
     <span i18n="translate|Translate">Translate</span>
   </button>
+  <button mat-menu-item (click)="duplicateBoardSet(boardSet)">
+    <mat-icon>content_copy</mat-icon>
+    <span i18n="duplicate board set|Duplicate board set">Duplicate</span>
+  </button>
   <button mat-menu-item (click)="moveToFolder(boardSet)" *ngIf="!boardSet.readonly">
     <mat-icon>drive_file_move</mat-icon>
     <span i18n="move to folder|Move to folder">Move to folder</span>

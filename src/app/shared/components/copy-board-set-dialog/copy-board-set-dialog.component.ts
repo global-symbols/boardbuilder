@@ -31,7 +31,7 @@ export class CopyBoardSetDialogComponent {
 
   copyBoardSet(): void {
     this.status = BoardSetCopyStatus.Copying;
-    this.service.add(this.boardSet).subscribe(bs => {
+    this.service.duplicate(this.boardSet).subscribe(bs => {
       this.copiedBoardSet = bs;
       this.status = BoardSetCopyStatus.Copied;
     });

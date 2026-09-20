@@ -55,6 +55,11 @@ export class BoardSetService {
       .pipe(map(data => new BoardSet().deserialise(data)));
   }
 
+  duplicate(boardSet: BoardSet): Observable<BoardSet> {
+    return this.http.post<BoardSet>(`${this.apiEndpoint}/${boardSet.id}/duplicate`, {})
+      .pipe(map(data => new BoardSet().deserialise(data)));
+  }
+
   saveTabs(boardSetId: number, payload: {
     catalogue_tabs: boolean;
     tab_edge: string;

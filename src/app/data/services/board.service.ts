@@ -39,6 +39,11 @@ export class BoardService {
       .pipe(map(data => new Board().deserialise(data)));
   }
 
+  duplicate(board: Board): Observable<Board> {
+    return this.http.post<Board>(`${this.apiEndpoint}/${board.id}/duplicate`, {})
+      .pipe(map(data => new Board().deserialise(data)));
+  }
+
   add(record: Board) {
     return this.http.post<Board>(this.apiEndpoint, record)
       .pipe(map(data => new Board().deserialise(data)));

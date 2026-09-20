@@ -12,6 +12,7 @@ import {FolderService} from '@data/services/folder.service';
 import {FolderNameDialogComponent} from '@modules/board-sets/folder-name-dialog/folder-name-dialog.component';
 import {MoveToFolderDialogComponent} from '@modules/board-sets/move-to-folder-dialog/move-to-folder-dialog.component';
 import {TranslateBoardSetDialogComponent} from '@shared/components/translate-board-set-dialog/translate-board-set-dialog.component';
+import {CopyBoardSetDialogComponent} from '@shared/components/copy-board-set-dialog/copy-board-set-dialog.component';
 
 @Component({
   selector: 'app-board-sets',
@@ -160,6 +161,13 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
       width: '480px',
       data: boardSet
     });
+  }
+
+  duplicateBoardSet(boardSet: BoardSet): void {
+    this.dialog.open(CopyBoardSetDialogComponent, {
+      width: '300px',
+      data: boardSet
+    }).afterClosed().subscribe(() => this.loadBoardSets());
   }
 
   newBoardSet(): void {

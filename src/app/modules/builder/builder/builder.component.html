@@ -41,6 +41,7 @@
                         [selectedBoard]="board"
                         (selectionChange)="selectBoard($event)"
                         (deleteBoard)="deleteBoard($event)"
+                        (duplicateBoard)="duplicateBoard($event)"
                         (updateBoard)="loadBoardSet()"
                         fxFlex="grow"
                         style="overflow-y: overlay"
@@ -111,6 +112,10 @@
   <button mat-menu-item (click)="translateBoardSet()">
     <mat-icon>translate</mat-icon>
     <ng-container i18n="translate|Translate">Translate</ng-container>
+  </button>
+  <button mat-menu-item (click)="copyBoardSet()">
+    <mat-icon>content_copy</mat-icon>
+    <ng-container i18n="duplicate board set|Duplicate board set">Duplicate board set</ng-container>
   </button>
   <button mat-menu-item (click)="openTabs()" [disabled]="boardSet?.readonly" *ngIf="catalogueTabsEnabled">
     <mat-icon>tab</mat-icon>

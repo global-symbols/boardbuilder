@@ -353,6 +353,15 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.selectedCell = null;
   }
 
+  duplicateBoard(board: Board) {
+    if (this.boardSet.readonly) { return; }
+    this.boardService.duplicate(board).subscribe(() => {
+      this.getBoardSet().subscribe(() => {
+        this.selectLastBoard();
+      });
+    });
+  }
+
   deleteBoard(board: Board) {
     if (this.boardSet.readonly) { return; }
     if (this.currentDialogRef !== undefined) { return; }
