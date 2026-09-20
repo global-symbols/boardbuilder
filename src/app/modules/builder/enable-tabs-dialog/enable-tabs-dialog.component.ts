@@ -21,7 +21,7 @@ export interface TabRow {
   styleUrls: ['./enable-tabs-dialog.component.scss']
 })
 export class EnableTabsDialogComponent {
-  enabled: boolean;
+  enabled = false;
   edge: 'top' | 'bottom' | 'left' | 'right';
   rows: TabRow[] = [];
   saving = false;
@@ -33,7 +33,7 @@ export class EnableTabsDialogComponent {
     private boardSetService: BoardSetService,
     private dialogService: DialogService
   ) {
-    this.enabled = !!boardSet.catalogue_tabs;
+    this.enabled = boardSet.catalogue_tabs === true;
     this.edge = boardSet.tab_edge || 'right';
     const boards = (boardSet.boards || []).slice().sort((a, b) => {
       const ap = a.tab_position != null ? a.tab_position : (a.index || 0);
