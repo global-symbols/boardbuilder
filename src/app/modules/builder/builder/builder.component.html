@@ -87,6 +87,7 @@
     <mat-sidenav-content>
       <app-board-detail
         [board]="board"
+        [boardSet]="boardSet"
         [cell]="selectedCell"
         [readonly]="boardSet.readonly"
         (boardChange)="selectBoard($event)"
@@ -119,8 +120,7 @@
   </button>
   <button mat-menu-item (click)="openTabs()" [disabled]="boardSet?.readonly" *ngIf="catalogueTabsEnabled">
     <mat-icon>tab</mat-icon>
-    <ng-container *ngIf="!boardSet?.catalogue_tabs" i18n="enable tabs|Enable tabs">Enable tabs</ng-container>
-    <ng-container *ngIf="boardSet?.catalogue_tabs" i18n="tab settings|Tab settings">Tab settings</ng-container>
+    <ng-container i18n="tab settings|Tab settings">Tab settings</ng-container>
   </button>
 
   <mat-divider></mat-divider>

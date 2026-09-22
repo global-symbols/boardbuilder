@@ -20,7 +20,18 @@
     <span fxFlex="33" class="text-right">{{board.description}}</span>
   </div>
 
-  <mat-grid-list [cols]="board.columns" rowHeight="11.85rem" gutterSize="1rem">
+  <div class="board-stage" [class.has-tabs]="showTabs" [attr.data-edge]="showTabs ? tabEdge : null">
+    <aside class="tab-strip" *ngIf="showTabs">
+      <div *ngFor="let tab of tabs"
+           class="tab-chip"
+           [class.current]="isCurrentTab(tab)"
+           [style.background]="tab.colour || '#4472C4'"
+           [style.color]="tabTextColour(tab.colour)">
+        <img *ngIf="tab.image_url" [src]="tab.image_url" alt="">
+        <span class="tab-label">{{ tab.label }}</span>
+      </div>
+    </aside>
+    <mat-grid-list [cols]="board.columns" rowHeight="11.85rem" gutterSize="1rem">
     <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows); let i = index"
                    [attr.data-cell-index]="i"
                    tabindex="0" (keyup.enter)="selectCell(c)"
@@ -129,6 +140,7 @@
 
     </mat-grid-tile>
   </mat-grid-list>
+  </div>
 
   <div class="cell-context-menu-trigger"
        [style.left.px]="menuPosition.x"

@@ -74,24 +74,32 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
     this.globalSymbolsService.getLanguages().subscribe(
       languages => {
         const param = this.gsParams.language;
-        param.options = languages;
+        param.options = languages || [];
+        if (!param.options.length) { return; }
 
         // Default the language param to the current locale.
         // First, get the main locale (e.g. 'en' for 'en-gb', or 'fr' for 'fr').
-        const currentLocaleBase = this.locale.match(/^(\w+)/)[1];
+        const localeMatch = this.locale && this.locale.match(/^(\w+)/);
+        const currentLocaleBase = localeMatch ? localeMatch[1] : 'en';
         const localeDefault =
           languages.find(l => l.iso639_1 === currentLocaleBase)?.iso639_3 || languages[0].iso639_3;
 
         const stored = this.symbolSearchPreferences.getPreferredGsLanguage();
         param.value =
           stored && languages.some(l => l.iso639_3 === stored) ? stored : localeDefault;
+      },
+      () => {
+        this.gsParams.language.options = [];
       }
     );
     this.globalSymbolsService.getSymbolSets().subscribe(
       ss => this.gsParams.symbolset.groups = [
         { name: $localize`Core Sets`, options: ss.filter(q => q.featured_level)},
         { name: $localize`Other Sets`, options: ss.filter(q => !q.featured_level)},
-      ]
+      ],
+      () => {
+        this.gsParams.symbolset.groups = [];
+      }
     );
 
     this.query = this.initialQuery;

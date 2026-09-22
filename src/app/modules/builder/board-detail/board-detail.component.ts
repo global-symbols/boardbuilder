@@ -3,7 +3,10 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {CdkDragDrop} from '@angular/cdk/drag-drop';
 import {MatMenuTrigger} from '@angular/material/menu';
 import {Board} from '@data/models/board.model';
+import {BoardSet} from '@data/models/boardset.model';
+import {CatalogueTab} from '@data/models/catalogue-tab.model';
 import {Cell} from '@data/models/cell.model';
+import {features} from '@app/features';
 import {DialogService} from '@app/services/dialog.service';
 import {Media} from '@data/models/media.model';
 import {BoardService} from '@data/services/board.service';
@@ -42,6 +45,7 @@ const LONG_PRESS_MOVE_PX = 12;
 export class BoardDetailComponent implements OnChanges {
 
   @Input() board: Board;
+  @Input() boardSet: BoardSet;
   @Input() cell: Cell;
   @Input() readonly = false;
   @Output() cellChange = new EventEmitter<Cell>();
@@ -70,6 +74,32 @@ export class BoardDetailComponent implements OnChanges {
     if (this.isInitialLoad && this.board) {
       setTimeout(() => this.isInitialLoad = false, 100);
     }
+  }
+
+  get showTabs(): boolean {
+    return features.catalogueTabs && this.boardSet?.catalogue_tabs === true && this.tabs.length > 0;
+  }
+
+  get tabEdge(): 'top' | 'bottom' | 'left' | 'right' {
+    return this.boardSet?.tab_edge || 'right';
+  }
+
+  get tabs(): CatalogueTab[] {
+    return (this.boardSet?.tabs || []).slice().sort((a, b) => (a.position || 0) - (b.position || 0) || a.id - b.id);
+  }
+
+  isCurrentTab(tab: CatalogueTab): boolean {
+    return !!this.board?.id && (tab.board_ids || []).indexOf(this.board.id) !== -1;
+  }
+
+  tabTextColour(colour: string): string {
+    const hex = (colour || '#4472C4').replace('#', '');
+    const full = hex.length === 3 ? hex.split('').map(c => c + c).join('') : hex;
+    if (full.length !== 6) { return '#ffffff'; }
+    const r = parseInt(full.slice(0, 2), 16);
+    const g = parseInt(full.slice(2, 4), 16);
+    const b = parseInt(full.slice(4, 6), 16);
+    return (0.299 * r + 0.587 * g + 0.114 * b) > 160 ? '#000000' : '#ffffff';
   }
 
   selectCell(cell: Cell) {

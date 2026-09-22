@@ -87,7 +87,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.routeSubscription = this.route.paramMap.pipe(
       switchMap(params => {
         this.loading = true;
-        return this.boardSetService.get(params.get('id'), 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media')
+        return this.boardSetService.get(params.get('id'), 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media tabs')
           .pipe(
             catchError(e => {
               this.loadingError = true;
@@ -262,7 +262,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   private getBoardSet(): Observable<BoardSet> {
     this.loadingError = false;
     this.loading = true;
-    return this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media')
+    return this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media tabs')
       .pipe(
         catchError(e => {
           this.loadingError = true;
@@ -489,7 +489,9 @@ export class BuilderComponent implements OnInit, OnDestroy {
   openTabs() {
     if (!this.boardSet || this.boardSet.readonly || this.currentDialogRef !== undefined) { return; }
     this.currentDialogRef = this.dialog.open(EnableTabsDialogComponent, {
-      width: '720px',
+      width: '980px',
+      maxWidth: '96vw',
+      autoFocus: false,
       data: this.boardSet
     });
     this.currentDialogRef.afterClosed().subscribe((result: BoardSet) => {
@@ -497,17 +499,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
       if (result instanceof BoardSet) {
         this.boardSet.catalogue_tabs = result.catalogue_tabs;
         this.boardSet.tab_edge = result.tab_edge;
-        if (result.boards) {
-          result.boards.forEach(updated => {
-            const local = this.boardSet.boards.find(b => b.id === updated.id);
-            if (!local) { return; }
-            local.tab_enabled = updated.tab_enabled;
-            local.tab_label = updated.tab_label;
-            local.tab_colour = updated.tab_colour;
-            local.tab_position = updated.tab_position;
-            local.tab_image_url = updated.tab_image_url;
-          });
-        }
+        this.boardSet.tabs = result.tabs || [];
       }
     });
   }

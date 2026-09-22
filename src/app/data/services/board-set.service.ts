@@ -63,13 +63,13 @@ export class BoardSetService {
   saveTabs(boardSetId: number, payload: {
     catalogue_tabs: boolean;
     tab_edge: string;
-    boards: Array<{
-      id: number;
-      tab_enabled: boolean;
-      tab_label: string;
-      tab_colour: string;
-      tab_position: number;
-      tab_image_url: string;
+    tabs: Array<{
+      id?: number;
+      label: string;
+      colour: string;
+      image_url: string;
+      position: number;
+      board_ids: number[];
     }>;
   }): Observable<BoardSet> {
     return this.http.patch<BoardSet>(`${this.apiEndpoint}/${boardSetId}/tabs`, payload)
