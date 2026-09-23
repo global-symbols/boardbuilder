@@ -15,10 +15,10 @@ export class PromptBuilderService {
     let subject = this.sentence(userPrompt || '');
     if (!subject && mode === 'image') {
       subject = culture
-        ? `Redraw this symbol in everyday ${culture} surroundings`
+        ? `Redraw this symbol from everyday ${culture} life`
         : 'Redraw this symbol';
     } else if (subject && culture) {
-      subject = `${subject}, in everyday ${culture} surroundings`;
+      subject = `${subject}, from everyday ${culture} life`;
     }
 
     const parts = [subject, styleSentence].filter(part => part.length > 0);

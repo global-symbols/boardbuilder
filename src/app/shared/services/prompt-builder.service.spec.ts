@@ -28,7 +28,7 @@ describe('PromptBuilderService', () => {
       styleConfig: config({ loraTrigger: 'gs_mulberry', prompt: '' })
     });
 
-    expect(prompt).toBe('gs_mulberry, a girl eating an apple, in everyday Indian surroundings.');
+    expect(prompt).toBe('gs_mulberry, a girl eating an apple, from everyday Indian life.');
   });
 
   it('omits the culture clause when the field is empty', () => {
@@ -53,7 +53,7 @@ describe('PromptBuilderService', () => {
     });
 
     expect(prompt).toBe(
-      'a girl eating an apple, in everyday Japanese surroundings. Minimalist cartoon symbol, at most three flat colours, thick black outline, plain white background.'
+      'a girl eating an apple, from everyday Japanese life. Minimalist cartoon symbol, at most three flat colours, thick black outline, plain white background.'
     );
   });
 
@@ -65,7 +65,18 @@ describe('PromptBuilderService', () => {
       styleConfig: config({ loraTrigger: 'gs_mulberry', prompt: '' })
     });
 
-    expect(prompt).toBe('gs_mulberry, Redraw this symbol in everyday Indian surroundings.');
+    expect(prompt).toBe('gs_mulberry, Redraw this symbol from everyday Indian life.');
+  });
+
+  it('attaches culture to an object rather than its setting', () => {
+    const prompt = builder.buildPrompt({
+      mode: 'text',
+      userPrompt: 'a red bus',
+      styleState: state('Indian'),
+      styleConfig: config({ loraTrigger: 'gs_mulberry', prompt: '' })
+    });
+
+    expect(prompt).toBe('gs_mulberry, a red bus, from everyday Indian life.');
   });
 
   it('ignores culture text when the style has culture disabled', () => {
