@@ -334,10 +334,14 @@ export class AiSymbolStateService {
 
     const config = this.styleConfigs[styleName];
     if (config) {
+      const culture = config.culture;
+      const enabled = !!culture?.enabled;
+      const defaultValue = culture?.defaultValue || '';
+      const typed = this._styleState$.value.cultureText;
       this._styleState$.next({
         ...this._styleState$.value,
-        cultureText: config.culture.enabled ? config.culture.defaultValue : '',
-        cultureEnabled: config.culture.enabled
+        cultureText: !enabled ? '' : (defaultValue || typed),
+        cultureEnabled: enabled
       });
     } else {
       console.warn('[AiSymbolStateService] Style configuration not found for:', styleName);

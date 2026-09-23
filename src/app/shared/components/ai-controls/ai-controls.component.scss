@@ -30,11 +30,13 @@
 }
 
 .culture-field-wrapper {
-  cursor: not-allowed;
-
   .culture-field {
     width: 100%;
     display: block;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
   }
 }
 

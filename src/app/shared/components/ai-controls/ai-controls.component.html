@@ -21,15 +21,14 @@
   </div>
 
   <div class="culture-field-wrapper control-item"
-       matTooltip="Coming soon"
-       matTooltipPosition="above">
+       [class.is-disabled]="!styleState.cultureEnabled">
     <mat-form-field appearance="outline" class="culture-field">
       <mat-label>Culture</mat-label>
       <input matInput
+             placeholder="e.g. Indian"
              [value]="styleState.cultureText"
-             disabled
-             readonly
-             tabindex="-1">
+             [disabled]="!styleState.cultureEnabled"
+             (input)="onCultureTextChanged($any($event.target).value)">
     </mat-form-field>
   </div>
 

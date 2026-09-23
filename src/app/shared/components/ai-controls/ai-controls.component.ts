@@ -27,6 +27,10 @@ export class AiControlsComponent {
     this.stateService.setSelectedStyle(newStyle);
   }
 
+  onCultureTextChanged(value: string): void {
+    this.stateService.setCultureText(value);
+  }
+
   openExamplesModal(): void {
     this.examplesClicked.emit();
   }
