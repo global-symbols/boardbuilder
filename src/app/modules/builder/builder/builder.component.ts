@@ -27,6 +27,7 @@ import {BoardTreeComponent} from '@modules/builder/board-tree/board-tree.compone
 import {CellEditorComponent} from '@modules/builder/cell-editor/cell-editor.component';
 import {CellActionsService} from '@data/services/cell-actions.service';
 import {EnableTabsDialogComponent} from '../enable-tabs-dialog/enable-tabs-dialog.component';
+import {PrintableBookDialogComponent} from '../printable-book-dialog/printable-book-dialog.component';
 import {features} from '@app/features';
 
 @Component({
@@ -43,6 +44,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
   loading: boolean;
   loadingError = false;
   readonly catalogueTabsEnabled = features.catalogueTabs;
+  // Tab settings stays in the app so the menu item can be switched back on.
+  readonly showTabSettingsMenu = false;
 
   disableCellEditorAnimations = true;
 
@@ -483,6 +486,24 @@ export class BuilderComponent implements OnInit, OnDestroy {
     });
     this.currentDialogRef.afterClosed().subscribe(() => {
       this.currentDialogRef = undefined;
+    });
+  }
+
+  openPrintableBook() {
+    if (!this.boardSet || this.boardSet.readonly || this.currentDialogRef !== undefined) { return; }
+    this.currentDialogRef = this.dialog.open(PrintableBookDialogComponent, {
+      width: '980px',
+      maxWidth: '96vw',
+      autoFocus: false,
+      data: this.boardSet
+    });
+    this.currentDialogRef.afterClosed().subscribe((result: BoardSet) => {
+      this.currentDialogRef = undefined;
+      if (result instanceof BoardSet) {
+        this.boardSet.catalogue_tabs = result.catalogue_tabs;
+        this.boardSet.tab_edge = result.tab_edge;
+        this.boardSet.tabs = result.tabs || [];
+      }
     });
   }
 

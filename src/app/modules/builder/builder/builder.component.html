@@ -118,7 +118,11 @@
     <mat-icon>content_copy</mat-icon>
     <ng-container i18n="duplicate board set|Duplicate board set">Duplicate board set</ng-container>
   </button>
-  <button mat-menu-item (click)="openTabs()" [disabled]="boardSet?.readonly" *ngIf="catalogueTabsEnabled">
+  <button mat-menu-item (click)="openPrintableBook()" [disabled]="boardSet?.readonly" *ngIf="catalogueTabsEnabled">
+    <mat-icon>menu_book</mat-icon>
+    <ng-container i18n="tab printer settings">Tab Printer Settings</ng-container>
+  </button>
+  <button mat-menu-item (click)="openTabs()" [disabled]="boardSet?.readonly" *ngIf="catalogueTabsEnabled && showTabSettingsMenu">
     <mat-icon>tab</mat-icon>
     <ng-container i18n="tab settings|Tab settings">Tab settings</ng-container>
   </button>

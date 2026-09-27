@@ -6,7 +6,6 @@ import {Board} from '@data/models/board.model';
 import {BoardSet} from '@data/models/boardset.model';
 import {CatalogueTab} from '@data/models/catalogue-tab.model';
 import {Cell} from '@data/models/cell.model';
-import {features} from '@app/features';
 import {DialogService} from '@app/services/dialog.service';
 import {Media} from '@data/models/media.model';
 import {BoardService} from '@data/services/board.service';
@@ -77,7 +76,7 @@ export class BoardDetailComponent implements OnChanges {
   }
 
   get showTabs(): boolean {
-    return features.catalogueTabs && this.boardSet?.catalogue_tabs === true && this.tabs.length > 0;
+    return false;
   }
 
   get tabEdge(): 'top' | 'bottom' | 'left' | 'right' {

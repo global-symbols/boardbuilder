@@ -1,0 +1,142 @@
+<div cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragBoundary="body">
+  <h1 mat-dialog-title class="dialog-heading">
+    <span i18n="tab printer settings heading">Tab Printer Settings</span>
+    <mat-slide-toggle [ngModel]="enabled" (ngModelChange)="onEnabledChange($event)" [disabled]="saving" appStopPropagation i18n="tab printer enabled">
+      {{ enabled ? 'Enabled' : 'Disabled' }}
+    </mat-slide-toggle>
+  </h1>
+
+  <div mat-dialog-content class="book-dialog-content" [class.is-disabled]="!enabled">
+    <fieldset class="dialog-section">
+      <legend i18n="book layout section heading">Layout</legend>
+      <div class="config-row">
+        <div class="config-settings">
+          <div class="layout-section">
+            <div class="layout-summary" *ngIf="!layoutEditing && layoutColumns && layoutRows">
+              <div class="layout-stat">
+                <span class="layout-label" i18n="layout columns">Columns</span>
+                <span class="layout-value">{{ layoutColumns }}</span>
+              </div>
+              <div class="layout-stat">
+                <span class="layout-label" i18n="layout rows">Rows</span>
+                <span class="layout-value">{{ layoutRows }}</span>
+              </div>
+            </div>
+            <div class="layout-summary" *ngIf="layoutEditing">
+              <label class="layout-stat">
+                <span class="layout-label" i18n="layout columns">Columns</span>
+                <input class="layout-input" type="number" min="1" max="50" [(ngModel)]="draftColumns" appStopPropagation>
+              </label>
+              <label class="layout-stat">
+                <span class="layout-label" i18n="layout rows">Rows</span>
+                <input class="layout-input" type="number" min="1" max="50" [(ngModel)]="draftRows" appStopPropagation>
+              </label>
+            </div>
+            <p class="text-muted" *ngIf="!layoutEditing && (!layoutColumns || !layoutRows)" i18n="no layout">This board set has no board layout yet.</p>
+            <button mat-icon-button type="button" class="layout-edit" (click)="layoutEditing ? saveLayout() : startLayoutEdit()" appStopPropagation [attr.aria-label]="layoutEditing ? 'Save layout' : 'Edit layout'">
+              <mat-icon>{{ layoutEditing ? 'save' : 'edit' }}</mat-icon>
+            </button>
+          </div>
+
+          <div class="edge-section">
+            <mat-radio-group class="edge-group" [(ngModel)]="edge" fxLayout="row wrap" fxLayoutGap="12px">
+              <mat-radio-button value="top" i18n="tab edge top">Top</mat-radio-button>
+              <mat-radio-button value="bottom" i18n="tab edge bottom">Bottom</mat-radio-button>
+              <mat-radio-button value="left" i18n="tab edge left">Left</mat-radio-button>
+              <mat-radio-button value="right" i18n="tab edge right">Right</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+
+        <div class="sheet-preview" [attr.data-edge]="edge" *ngIf="previewCells.length" aria-hidden="true">
+          <div class="preview-tab"></div>
+          <div class="preview-board" [style.gridTemplateColumns]="'repeat(' + previewColumns + ', 1fr)'">
+            <span *ngFor="let cell of previewCells"></span>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="dialog-section">
+      <legend i18n="tabs section heading">Tabs</legend>
+      <p class="text-muted section-hint" i18n="tab order hint">
+        Drag boards into the tab order, or tick them and choose Add selected. A board can only be added once. The number is the row its tab prints in.
+      </p>
+
+      <div class="book-workspace">
+        <section>
+          <div class="column-head">
+            <h2 i18n="boards column">Boards</h2>
+            <span class="text-muted" *ngIf="selectedCount > 0">{{ selectedCount }}</span>
+          </div>
+          <div class="board-list"
+               cdkDropList
+               id="book-boards"
+               [cdkDropListData]="boards"
+               [cdkDropListConnectedTo]="['book-pages']"
+               [cdkDropListSortingDisabled]="true"
+               (cdkDropListDropped)="onBoardListDrop($event)">
+            <div *ngFor="let board of boards"
+                 class="board-row"
+                 [class.allocated]="inBook(board.id)"
+                 [class.mismatched]="!matchesLayout(board)"
+                 cdkDrag
+                 [cdkDragDisabled]="!canAdd(board)"
+                 [cdkDragData]="board.id">
+              <mat-checkbox [disabled]="!canAdd(board)"
+                            [checked]="!!selected[board.id] && canAdd(board)"
+                            (change)="toggleSelected(board.id, $event.checked)"
+                            (mousedown)="$event.stopPropagation()"
+                            appStopPropagation></mat-checkbox>
+              <span class="board-name">{{ board.name }}</span>
+              <span class="board-size" *ngIf="!matchesLayout(board)">{{ board.columns }} × {{ board.rows }}</span>
+            </div>
+            <p *ngIf="boards.length === 0" class="text-muted" i18n="no boards">This board set has no boards yet.</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="column-head">
+            <h2 i18n="tab order column">Tab order</h2>
+            <button mat-stroked-button type="button" color="primary" class="add-selected" (click)="addSelected()" [disabled]="selectedCount === 0" appStopPropagation i18n="add selected boards">
+              <mat-icon>add</mat-icon>
+              Add selected
+            </button>
+          </div>
+          <div class="page-list"
+               cdkDropList
+               id="book-pages"
+               [cdkDropListData]="pages"
+               [cdkDropListConnectedTo]="['book-boards']"
+               (cdkDropListDropped)="onBookDrop($event)">
+            <div *ngFor="let page of pages; let row = index" class="page-row" cdkDrag>
+              <span class="row-indicator">{{ row + 1 }}</span>
+              <mat-icon class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+              <button mat-stroked-button type="button" (click)="pickSymbol(page)" class="symbol-btn" appStopPropagation>
+                <img *ngIf="page.image_url" [src]="page.image_url" alt="" class="page-symbol">
+                <mat-icon *ngIf="!page.image_url">add_photo_alternate</mat-icon>
+              </button>
+              <span class="board-name">{{ boardName(page.boardId) }}</span>
+              <label class="colour-picker" [attr.aria-label]="'Tab colour'">
+                <input type="color" [(ngModel)]="page.colour" appStopPropagation>
+                <span class="colour-dot" [style.background]="page.colour"></span>
+              </label>
+              <button mat-icon-button type="button" (click)="removePage(page)" appStopPropagation [attr.aria-label]="'Remove tab'">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+            <p *ngIf="pages.length === 0" class="drop-hint" i18n="empty tab order hint">Drop boards here to add tabs.</p>
+          </div>
+        </section>
+      </div>
+    </fieldset>
+
+    <p class="text-muted" *ngIf="error">{{ error }}</p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-stroked-button [mat-dialog-close]="false" color="primary" [disabled]="saving" appStopPropagation i18n="cancel|Cancel">Cancel</button>
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" (click)="save()" [disabled]="!canSave" appStopPropagation i18n="save|Save">Save</button>
+  </div>
+</div>

@@ -14,6 +14,7 @@ export class Template implements Deserialisable {
   drawCellBorders: boolean;
   cellBorderWidth: number;
   showHeader: boolean;
+  showTabs: boolean;
   imageTextSpacing: number;
 
   deserialise(input: any): this {
