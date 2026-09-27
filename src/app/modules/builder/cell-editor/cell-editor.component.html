@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<mat-tab-group (selectedTabChange)="triggerSearch($event)" mat-align-tabs="center" *ngIf="cell" gaCategory="CellEditor"
+<mat-tab-group mat-align-tabs="center" *ngIf="cell" gaCategory="CellEditor"
                fxFlex="grow">
   <mat-tab label="Cell" i18n-label="cell|Cell">
     <div class="p-1">
@@ -152,8 +152,9 @@
   <mat-tab label="Symbol" i18n-label="symbol|Symbol">
     <div class="p-1">
       <!-- <app-search-panel #searchPanel [initialQuery]="cell.caption" (selectionChange)="selectSearchResult($event)"></app-search-panel> -->
-      <app-search-panel #searchPanel
+      <app-search-panel
                         [initialQuery]="cell.caption"
+                        [sourceCellId]="cell.id"
                         [showCreationButtons]="true"
                         (selectionChange)="selectSearchResult($event)"
                         (cellDataSelected)="handleCellDataSelected($event)">

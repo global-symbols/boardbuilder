@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Inject, Input, LOCALE_ID, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {GlobalSymbolsService} from '@data/services/global-symbols.service';
-import {BehaviorSubject, from, fromEvent, Observable} from 'rxjs';
+import {BehaviorSubject, from, fromEvent, Observable, Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, finalize, map} from 'rxjs/operators';
 import {SymbolSearchResult} from '@data/models/symbol-search-result';
 import {SymbolService} from '@data/services/symbol.service';
@@ -20,7 +20,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './search-panel.component.html',
   styleUrls: ['./search-panel.component.scss']
 })
-export class SearchPanelComponent implements AfterViewInit, OnInit {
+export class SearchPanelComponent implements AfterViewInit, OnChanges, OnInit {
 
   sources = [];
 
@@ -42,7 +42,10 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
 
   @ViewChild('queryInput') queryInput: ElementRef;
 
+  private captionSearch$ = new Subject<string>();
+
   @Input() initialQuery: string;
+  @Input() sourceCellId: number;
   @Input() showCreationButtons: boolean = false;
   @Output() readonly selectionChange = new EventEmitter<SymbolSearchResult>();
   @Output() readonly mediaCreated = new EventEmitter<Media>(); // Add this to notify parent
@@ -102,35 +105,46 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
       }
     );
 
-    this.query = this.initialQuery;
+    this.query = this.initialQuery || '';
+    this.captionSearch$.pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
+      filter(value => !!value && value.trim().length > 0)
+    ).subscribe(() => this.search());
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const cellChanged = changes.sourceCellId
+      && !changes.sourceCellId.firstChange
+      && changes.sourceCellId.previousValue !== changes.sourceCellId.currentValue;
+    if (cellChanged) {
+      this.query = this.initialQuery || '';
+      this.resultsSubject.next(null);
+      this.loadingSubject.next(null);
+      return;
+    }
+    if (!changes.initialQuery || changes.initialQuery.firstChange) { return; }
+    this.query = this.initialQuery || '';
+    if (!this.query.trim()) {
+      this.resultsSubject.next(null);
+      this.loadingSubject.next(null);
+      return;
+    }
+    this.captionSearch$.next(this.query);
   }
 
   ngAfterViewInit() {
     fromEvent(this.queryInput.nativeElement, 'keyup').pipe(
-
-      // get value
-      map((event: any) => event.target.value),
-
-      // if character length greater then 0
-      filter(res => res.length > 0),
-
-      // Time in milliseconds between key events
+      filter((event: KeyboardEvent) => event.key !== 'Enter'),
+      map((event: KeyboardEvent) => (event.target as HTMLInputElement).value),
+      filter(value => value.length > 0),
       debounceTime(500),
-
-      // If previous query is different from current
       distinctUntilChanged()
-
-      // subscription for response
-    ).subscribe((text: string) => {
-      if (this.query !== '') {
-        this.searchCall().subscribe(results => {
-          this.resultsSubject.next(results);
-        });
-      }
-    });
+    ).subscribe(() => this.search());
   }
 
   search() {
+    if (!this.query || !this.query.trim()) { return; }
     this.searchCall().subscribe(results => {
       this.resultsSubject.next(results);
     });
@@ -138,7 +152,6 @@ export class SearchPanelComponent implements AfterViewInit, OnInit {
 
   onGsLanguageChange(): void {
     this.symbolSearchPreferences.setPreferredGsLanguage(this.gsParams.language.value);
-    this.search();
   }
 
   searchCall(): Observable<SymbolSearchResult[]> {

@@ -1,15 +1,13 @@
-import {Component, EventEmitter, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, Output, SimpleChanges} from '@angular/core';
 import {Cell} from '@data/models/cell.model';
 import {MatDialog} from '@angular/material/dialog';
 import {BoardSet} from '@data/models/boardset.model';
 import {Board} from '@data/models/board.model';
-import {MatTabChangeEvent} from '@angular/material/tabs';
 import {BoardService} from '@data/services/board.service';
 import {CellService} from '@data/services/cell.service';
 import {CellActionsService} from '@data/services/cell-actions.service';
 import {Media} from '@data/models/media.model';
 import {MediaUpdateService} from '@data/services/media-update.service';
-import {SearchPanelComponent} from '@shared/components/search-panel/search-panel.component';
 import {SymbolSearchResult} from '@data/models/symbol-search-result';
 import {palettes} from '@data/colour-picker-colours';
 import {Observable, Subscription} from 'rxjs';
@@ -30,8 +28,6 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
 
   @Output() closed = new EventEmitter<boolean>();
   @Output() cellLinkedToBoard = new EventEmitter<boolean>();
-
-  @ViewChild('searchPanel') searchPanel: SearchPanelComponent;
 
   linkableBoards$: Observable<Board[]>;
   linkedBoard: Board;
@@ -166,12 +162,6 @@ export class CellEditorComponent implements OnChanges, OnDestroy {
     this.saveCell(() => {
       this.closed.emit(true);
     });
-  }
-
-  // Fires an automatic search when the Search tab is opened.
-  // Only fires if the cell has a caption we can search for.
-  triggerSearch($event: MatTabChangeEvent) {
-    if ($event.index === 1 && this.cell.caption) { this.searchPanel.search(); }
   }
 
   clearCell(subject?: 'colours' | 'symbol' | 'caption') {
