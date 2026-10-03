@@ -100,6 +100,11 @@
       <ng-container i18n="duplicate board|Duplicate board">Duplicate</ng-container>
     </button>
 
+    <button mat-menu-item (click)="translate(board)" [disabled]="boardSet.readonly">
+      <mat-icon>translate</mat-icon>
+      <ng-container i18n="translate|Translate">Translate</ng-container>
+    </button>
+
     <mat-divider></mat-divider>
 
     <button mat-menu-item (click)="delete(board)" [disabled]="boardSet.readonly">

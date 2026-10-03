@@ -1,0 +1,54 @@
+<div cdkDrag
+     cdkDragRootElement=".cdk-overlay-pane"
+     cdkDragBoundary="body"
+>
+  <h1 mat-dialog-title i18n="Translate Board dialog heading">Translate {{board.name}}</h1>
+
+  <div mat-dialog-content>
+    <ng-container *ngIf="!result">
+      <mat-radio-group class="modes" [(ngModel)]="mode" [disabled]="translating">
+        <mat-radio-button value="in_place" i18n="translate this board|Translate this board">Translate this board</mat-radio-button>
+        <mat-radio-button value="copy" i18n="create a new translated board|Create a new translated board">Create a new translated board</mat-radio-button>
+      </mat-radio-group>
+
+      <p class="text-muted" *ngIf="mode === 'in_place'" i18n="Translate Board in place warning">
+        The labels on this board will be replaced. This cannot be undone.
+      </p>
+      <p class="text-muted" *ngIf="mode === 'copy'" i18n="Translate Board copy note">
+        A translated copy is added to this Board Set. The original will not be changed.
+      </p>
+
+      <app-loading-notice *ngIf="loadingLanguages" subject="Languages" i18n-subject="languages|Languages"></app-loading-notice>
+
+      <mat-form-field class="w-100" appearance="outline" *ngIf="!loadingLanguages">
+        <mat-label i18n="language|Language">Language</mat-label>
+        <mat-select [(ngModel)]="language" [disabled]="translating">
+          <mat-option *ngFor="let lang of languages" [value]="lang.code">{{lang.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <app-loading-notice *ngIf="translating" action="Translating" subject="Board"
+                          i18n-action="translating|Translating" i18n-subject="board|Board"></app-loading-notice>
+
+      <p class="text-muted" *ngIf="error">{{error}}</p>
+    </ng-container>
+
+    <ng-container *ngIf="result">
+      <p i18n="Translate Board complete">Translation complete.</p>
+      <p>
+        <ng-container i18n="Translate Board counts">Translated {{result.translated}} labels. {{result.skipped}} skipped.</ng-container>
+      </p>
+    </ng-container>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-stroked-button [mat-dialog-close]="false" color="primary"
+            [disabled]="translating" appStopPropagation *ngIf="!result" i18n="cancel|Cancel">Cancel</button>
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" (click)="translate()"
+            [disabled]="!language || translating || loadingLanguages" appStopPropagation *ngIf="!result"
+            i18n="translate|Translate">Translate</button>
+    <button mat-raised-button color="primary" (click)="done()" appStopPropagation *ngIf="result"
+            i18n="open board|Open Board">Open Board</button>
+  </div>
+</div>

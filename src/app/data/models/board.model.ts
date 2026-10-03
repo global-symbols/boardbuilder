@@ -23,6 +23,8 @@ export class Board extends Record implements Deserialisable {
   tab_colour: string;
   tab_position: number;
   tab_image_url: string;
+  translated?: number;
+  skipped?: number;
 
   constructor(init?: Partial<Board>) {
       super();

@@ -42,6 +42,7 @@ import { MtxSelectModule } from '@ng-matero/extensions/select';
 import { CellEditorColourPanelComponent } from './cell-editor-colour-panel/cell-editor-colour-panel.component';
 import { EnableTabsDialogComponent, FreeDragDirective } from './enable-tabs-dialog/enable-tabs-dialog.component';
 import { PrintableBookDialogComponent } from './printable-book-dialog/printable-book-dialog.component';
+import { TranslateBoardDialogComponent } from './translate-board-dialog/translate-board-dialog.component';
 import { MatRadioModule } from '@angular/material/radio';
 
 export const routes: Routes = [
@@ -67,7 +68,8 @@ export const routes: Routes = [
         CellEditorColourPanelComponent,
         EnableTabsDialogComponent,
         FreeDragDirective,
-        PrintableBookDialogComponent
+        PrintableBookDialogComponent,
+        TranslateBoardDialogComponent
     ],
     imports:      [
         CommonModule,

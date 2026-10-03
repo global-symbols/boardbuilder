@@ -45,6 +45,7 @@ export class BoardTreeComponent implements OnChanges {
   // Emitted when the user requests to delete a Board, and before the Board has been deleted.
   @Output() readonly deleteBoard = new EventEmitter<Board>();
   @Output() readonly duplicateBoard = new EventEmitter<Board>();
+  @Output() readonly translateBoard = new EventEmitter<Board>();
   @Output() readonly updateBoard = new EventEmitter<Board>();
 
   @ViewChild('matTree') matTree;
@@ -203,6 +204,10 @@ export class BoardTreeComponent implements OnChanges {
 
   duplicate(board: Board) {
     this.duplicateBoard.emit(board);
+  }
+
+  translate(board: Board) {
+    this.translateBoard.emit(board);
   }
 
   edit(board: Board) {

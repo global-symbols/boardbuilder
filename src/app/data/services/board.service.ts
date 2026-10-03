@@ -12,6 +12,8 @@ import {Template} from '@data/models/template.model';
 import {BoardTemplate} from '@data/models/board-template.model';
 import {boardTemplates} from '@data/board-templates';
 
+export type TranslateBoardMode = 'in_place' | 'copy';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -41,6 +43,11 @@ export class BoardService {
 
   duplicate(board: Board): Observable<Board> {
     return this.http.post<Board>(`${this.apiEndpoint}/${board.id}/duplicate`, {})
+      .pipe(map(data => new Board().deserialise(data)));
+  }
+
+  translate(board: Board, language: string, mode: TranslateBoardMode): Observable<Board> {
+    return this.http.post<Board>(`${this.apiEndpoint}/${board.id}/translate`, { language, mode })
       .pipe(map(data => new Board().deserialise(data)));
   }
 
