@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {BoardSet} from '@data/models/boardset.model';
+import {BackPageType, Board} from '@data/models/board.model';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '@env';
 import {map} from 'rxjs/operators';
@@ -74,6 +75,12 @@ export class BoardSetService {
   }): Observable<BoardSet> {
     return this.http.patch<BoardSet>(`${this.apiEndpoint}/${boardSetId}/tabs`, payload)
       .pipe(map(data => new BoardSet().deserialise(data)));
+  }
+
+  // Adds the single back page to a book.
+  addBackPage(boardSet: BoardSet, type: BackPageType): Observable<Board> {
+    return this.http.post<Board>(`${this.apiEndpoint}/${boardSet.id}/back_page`, { type })
+      .pipe(map(data => new Board().deserialise(data)));
   }
 
   reorderBoards(boardSet: BoardSet, boardIds: number[]): Observable<BoardSet> {

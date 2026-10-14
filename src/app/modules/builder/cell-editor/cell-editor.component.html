@@ -50,6 +50,8 @@
 
       </mat-accordion>
 
+      <!-- Books do not link pages (D13). -->
+      <ng-container *ngIf="!boardSet?.isBook">
       <h3 i18n="linking|Cell Editor linking heading">Linking</h3>
 
       <div class="cell-linked-notice-wrapper" *ngIf="cell.linked_board_id">
@@ -90,6 +92,7 @@
           <app-loading-notice diameter="49" layout="row" subject="Linkable Boards" i18n-subject="linkable boards|Linkable boards" [style.padding]="'20px 0'"></app-loading-notice>
         </ng-template>
       </div>
+      </ng-container>
 
       <h3 i18n="Cell editor Actions heading">Actions</h3>
       <div fxLayout="column" fxLayoutGap="8px" class="mb-2">

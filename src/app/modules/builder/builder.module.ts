@@ -1,3 +1,4 @@
+import {BookPageListComponent} from './book-page-list/book-page-list.component';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BuilderComponent} from '@modules/builder/builder/builder.component';
@@ -59,6 +60,7 @@ export const routes: Routes = [
 
 @NgModule({
     declarations: [
+    BookPageListComponent,
         BuilderComponent,
         CellEditorComponent,
         BoardTreeComponent,

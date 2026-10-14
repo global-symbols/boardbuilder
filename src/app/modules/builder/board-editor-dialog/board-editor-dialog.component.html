@@ -4,7 +4,8 @@
 >
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
     <h1 mat-dialog-title class="mb-0">
-      <ng-container *ngIf="data.board?.persisted()" i18n="board properties|Board Properties button">Board Properties</ng-container>
+      <ng-container *ngIf="data.board?.persisted() && !data.bookMode" i18n="board properties|Board Properties button">Board Properties</ng-container>
+      <ng-container *ngIf="data.board?.persisted() && data.bookMode" i18n="page properties|Page Properties dialog title">Page Properties</ng-container>
       <ng-container *ngIf="!data.board?.persisted()" i18n="add board|Add Board button">Add Board</ng-container>
     </h1>
     <button mat-icon-button aria-label="Close" i18n-aria-label="close|Close" [mat-dialog-close]="false" appStopPropagation>
@@ -14,7 +15,7 @@
 
   <div mat-dialog-content *ngIf="data.board">
 
-    <app-board-editor-form [board]="data.board" [catalogueTabs]="!!data.board?.catalogue_tabs"></app-board-editor-form>
+    <app-board-editor-form [board]="data.board" [catalogueTabs]="!!data.board?.catalogue_tabs" [bookMode]="!!data.bookMode"></app-board-editor-form>
 
   </div>
   <div mat-dialog-actions>

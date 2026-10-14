@@ -8,7 +8,7 @@
     <input matInput required #titleField maxlength="250"
            [(ngModel)]="board.title"
            appStopPropagation>
-    <mat-hint *ngIf="!board.board_set_id || true" i18n="Board Editor Form board title field hint (new Board Sets only)">Choose a name for the first Board in your new Board Set.</mat-hint>
+    <mat-hint *ngIf="!bookMode" i18n="Board Editor Form board title field hint (new Board Sets only)">Choose a name for the first Board in your new Board Set.</mat-hint>
     <mat-hint align="end">{{board.title?.length || 0}}&nbsp;/&nbsp;250</mat-hint>
   </mat-form-field>
 
@@ -25,7 +25,21 @@
   </mat-form-field>
 </div>
 
-<div>
+<div *ngIf="bookMode" class="mt-3">
+  <mat-form-field class="w-100">
+    <mat-label i18n="Board Layout Selector label position input label">Label Position</mat-label>
+    <mat-select [(ngModel)]="board.captions_position" appStopPropagation>
+      <mat-option value="above" i18n="top|Top">Top</mat-option>
+      <mat-option value="below" i18n="bottom|Bottom">Bottom</mat-option>
+      <mat-option value="left" i18n="left|Left">Left</mat-option>
+      <mat-option value="right" i18n="right|Right">Right</mat-option>
+      <mat-option value="hidden" i18n="hidden|Hidden">Hidden</mat-option>
+    </mat-select>
+    <mat-hint i18n="Board Layout Selector label position input hint">Sets where text appears in each cell, relative to the image.</mat-hint>
+  </mat-form-field>
+</div>
+
+<div *ngIf="!bookMode">
   <h2 i18n="Board Editor Form layout tab">Layout</h2>
   <mat-tab-group mat-stretch-tabs dynamicHeight [(selectedIndex)]="selectedTab">
 

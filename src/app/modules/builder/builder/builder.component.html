@@ -17,7 +17,7 @@
 
             <button mat-button mat-icon-button
                     [matMenuTriggerFor]="matBoardSetMenu"
-                    matTooltip="Board Set Actions" i18n-matTooltip="board set actions|Board Set Actions button" matTooltipPosition="right"
+                    [matTooltip]="boardSetActionsTooltip" matTooltipPosition="right"
                     (click)="$event.stopPropagation()"
             >
               <mat-icon>more_vert</mat-icon>
@@ -35,7 +35,21 @@
 
         </div>
 
-        <app-board-tree *ngIf="boardSet"
+        <app-book-page-list *ngIf="boardSet.isBook"
+                            [boardSet]="boardSet"
+                            [boards]="boardSet.boards"
+                            [selectedBoard]="board"
+                            (selectionChange)="selectBoard($event)"
+                            (deleteBoard)="deleteBoard($event)"
+                            (duplicateBoard)="duplicateBoard($event)"
+                            (translateBoard)="translateBoard($event)"
+                            (updateBoard)="loadBoardSet()"
+                            (boardAdded)="reloadAndSelect($event)"
+                            fxFlex="grow"
+                            style="overflow-y: overlay"
+        ></app-book-page-list>
+
+        <app-board-tree *ngIf="!boardSet.isBook"
                         [boardSet]="boardSet"
                         [boards]="boardSet.boards"
                         [selectedBoard]="board"
@@ -51,12 +65,22 @@
         </app-board-tree>
 
         <div id="leftSidebarBottomPanel">
-          <div>
+          <div *ngIf="!boardSet.isBook">
             <button mat-mini-fab
                     (click)="addBoard()"
                     [disabled]="boardSet?.readonly"
                     matTooltip="Add Board" i18n-matTooltip="add board|Add Board" matTooltipPosition="right"
                     aria-label="Add Board" i18n-aria-label="add board|Add Board"
+                    color="primary" >
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+          <div *ngIf="boardSet.isBook">
+            <button mat-mini-fab class="add-page"
+                    (click)="addBoard()"
+                    [disabled]="boardSet?.readonly"
+                    matTooltip="Add page" i18n-matTooltip="add page|Add page button in a book" matTooltipPosition="right"
+                    aria-label="Add page" i18n-aria-label="add page|Add page button in a book"
                     color="primary" >
               <mat-icon>add</mat-icon>
             </button>
@@ -79,7 +103,7 @@
                        [board]="board"
                        [cell]="selectedCell"
                        (closed)="cellEditor.close();"
-                       (cellLinkedToBoard)="boardTree.rebuildTree()"
+                       (cellLinkedToBoard)="refreshTree()"
                        [@.disabled]="disableCellEditorAnimations"
                        fxLayout="column" fxFlex
       ></app-cell-editor>
@@ -98,17 +122,30 @@
   </mat-sidenav-container>
 
   <div id="leftSidebarToggler" [class.open]="sideNav.opened">
-    <button mat-mini-fab color="primary" (click)="sideNav.toggle()" [matTooltip]="(sideNav.opened ? 'Hide' : 'Show') + ' Boards Panel'" matTooltipPosition="right" class="mat-elevation-z2">
+    <button mat-mini-fab color="primary" (click)="sideNav.toggle()" [matTooltip]="(sideNav.opened ? 'Hide' : 'Show') + ' ' + ('boards' | term:boardSet) + ' Panel'" matTooltipPosition="right" class="mat-elevation-z2">
       <mat-icon>chevron_right</mat-icon>
     </button>
   </div>
 </div>
 
 <mat-menu #matBoardSetMenu="matMenu">
-  <button mat-menu-item (click)="uploadBoardObf()" [disabled]="boardSet?.readonly">
+  <ng-container *ngIf="boardSet?.isBook">
+    <!-- P6 and P7 enable these. -->
+    <div matTooltip="Coming soon" i18n-matTooltip="coming soon|Coming soon tooltip" matTooltipPosition="right">
+      <button mat-menu-item class="print-book" disabled>
+        <mat-icon>print</mat-icon> <ng-container i18n="print book|Print book">Print book</ng-container>
+      </button>
+    </div>
+    <div matTooltip="Coming soon" i18n-matTooltip="coming soon|Coming soon tooltip" matTooltipPosition="right">
+      <button mat-menu-item class="download-book" disabled>
+        <mat-icon>save_alt</mat-icon> <ng-container i18n="download book|Download book">Download book</ng-container>
+      </button>
+    </div>
+  </ng-container>
+  <button mat-menu-item class="add-board-obf" (click)="uploadBoardObf()" [disabled]="boardSet?.readonly" *ngIf="!boardSet?.isBook">
     <mat-icon>note_add</mat-icon> <ng-container i18n="Add Board from OBF">Add Board from OBF</ng-container>
   </button>
-  <button mat-menu-item (click)="downloadBoardSetObz()">
+  <button mat-menu-item class="download-obz" (click)="downloadBoardSetObz()" *ngIf="!boardSet?.isBook">
     <mat-icon>save_alt</mat-icon> <ng-container i18n="download obz|Download Board Set as OBZ">Download Board Set as OBZ</ng-container>
   </button>
   <button mat-menu-item (click)="translateBoardSet()">
@@ -117,13 +154,14 @@
   </button>
   <button mat-menu-item (click)="copyBoardSet()">
     <mat-icon>content_copy</mat-icon>
-    <ng-container i18n="duplicate board set|Duplicate board set">Duplicate board set</ng-container>
+    <ng-container *ngIf="!boardSet?.isBook" i18n="duplicate board set|Duplicate board set">Duplicate board set</ng-container>
+    <ng-container *ngIf="boardSet?.isBook" i18n="duplicate book|Duplicate book">Duplicate book</ng-container>
   </button>
-  <button mat-menu-item (click)="openPrintableBook()" [disabled]="boardSet?.readonly" *ngIf="catalogueTabsEnabled">
+  <button mat-menu-item class="tab-printer-settings" (click)="openPrintableBook()" [disabled]="boardSet?.readonly" *ngIf="catalogueTabsEnabled && !boardSet?.isBook">
     <mat-icon>menu_book</mat-icon>
     <ng-container i18n="tab printer settings">Tab Printer Settings</ng-container>
   </button>
-  <button mat-menu-item (click)="openTabs()" [disabled]="boardSet?.readonly" *ngIf="catalogueTabsEnabled && showTabSettingsMenu">
+  <button mat-menu-item (click)="openTabs()" [disabled]="boardSet?.readonly" *ngIf="catalogueTabsEnabled && showTabSettingsMenu && !boardSet?.isBook">
     <mat-icon>tab</mat-icon>
     <ng-container i18n="tab settings|Tab settings">Tab settings</ng-container>
   </button>

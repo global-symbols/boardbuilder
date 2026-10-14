@@ -6,6 +6,8 @@ import {BoardService} from '@data/services/board.service';
 
 export interface BoardEditorDialogData {
   board: Board;
+  // Book pages keep the book layout: only name, description and label position are editable.
+  bookMode?: boolean;
 }
 
 @Component({

@@ -1,0 +1,120 @@
+<div class="section-title" i18n="pages|Pages section heading in a book">Pages</div>
+
+<mat-nav-list cdkDropList class="pages" [cdkDropListDisabled]="readonly" (cdkDropListDropped)="drop($event)">
+  <mat-list-item *ngFor="let page of pages; let i = index"
+                 class="page"
+                 (click)="select(page)"
+                 (dblclick)="edit(page)"
+                 (keyup.enter)="select(page)"
+                 [class.selected]="selectedBoard === page"
+                 tabindex="0"
+                 cdkDrag
+                 [cdkDragData]="page">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
+      <mat-icon *ngIf="!readonly" class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+      <span class="page-number">{{i + 1}}</span>
+      <span class="page-name" fxFlex="grow">{{page.name}}</span>
+      <button mat-icon-button
+              [matMenuTriggerFor]="pageMenu"
+              [matMenuTriggerData]="{page: page}"
+              matTooltip="Page Actions" i18n-matTooltip="page actions|Page Actions button" matTooltipPosition="right"
+              (click)="$event.stopPropagation()"
+              appStopPropagation>
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
+    <div *cdkDragPlaceholder class="board-drag-placeholder"></div>
+  </mat-list-item>
+</mat-nav-list>
+
+<mat-divider></mat-divider>
+
+<div class="section-title" i18n="back page|Back Page section heading in a book">Back Page</div>
+
+<mat-nav-list *ngIf="backPage; else noBackPage" class="back-page">
+  <mat-list-item (click)="select(backPage)"
+                 (dblclick)="edit(backPage)"
+                 (keyup.enter)="select(backPage)"
+                 [class.selected]="selectedBoard === backPage"
+                 tabindex="0">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
+      <mat-icon class="back-page-icon">flip</mat-icon>
+      <span class="page-name" fxFlex="grow">{{backPage.name}}</span>
+      <button mat-icon-button
+              [matMenuTriggerFor]="backPageMenu"
+              matTooltip="Back Page Actions" i18n-matTooltip="back page actions|Back Page Actions button" matTooltipPosition="right"
+              (click)="$event.stopPropagation()"
+              appStopPropagation>
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
+  </mat-list-item>
+</mat-nav-list>
+
+<ng-template #noBackPage>
+  <div class="no-back-page" fxLayout="row" fxLayoutAlign="space-between center">
+    <span class="text-muted" i18n="no back page|Shown when a book has no back page">No back page</span>
+    <button mat-button color="primary" class="add-back-page" [matMenuTriggerFor]="addBackPageMenu" [disabled]="readonly">
+      <mat-icon>add</mat-icon>
+      <ng-container i18n="add back page|Add back page button">Add back page</ng-container>
+    </button>
+  </div>
+</ng-template>
+
+<mat-menu #pageMenu="matMenu">
+  <ng-template matMenuContent let-page="page">
+    <button mat-menu-item (click)="edit(page)" [disabled]="readonly">
+      <mat-icon>edit</mat-icon>
+      <ng-container i18n="rename|Rename">Rename</ng-container>
+    </button>
+    <button mat-menu-item (click)="duplicateBoard.emit(page)" [disabled]="readonly">
+      <mat-icon>content_copy</mat-icon>
+      <ng-container i18n="duplicate page|Duplicate page">Duplicate</ng-container>
+    </button>
+    <button mat-menu-item (click)="translateBoard.emit(page)" [disabled]="readonly">
+      <mat-icon>translate</mat-icon>
+      <ng-container i18n="translate|Translate">Translate</ng-container>
+    </button>
+    <!-- P6 adds the tab position popup and the PDF screen. -->
+    <div matTooltip="Coming soon" i18n-matTooltip="coming soon|Coming soon tooltip" matTooltipPosition="right">
+      <button mat-menu-item disabled>
+        <mat-icon>print</mat-icon>
+        <ng-container i18n="print individual page|Print individual page">Print individual page</ng-container>
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+    <div [matTooltip]="isLastPage ? lastPageTooltip : ''" matTooltipPosition="right">
+      <button mat-menu-item class="delete-page" (click)="deleteBoard.emit(page)" [disabled]="readonly || isLastPage">
+        <mat-icon>delete</mat-icon>
+        <ng-container i18n="delete|Delete button">Delete</ng-container>
+      </button>
+    </div>
+  </ng-template>
+</mat-menu>
+
+<mat-menu #addBackPageMenu="matMenu">
+  <button mat-menu-item *ngFor="let option of backPageTypes" class="add-back-page-option" (click)="addBackPage(option.type)">
+    {{option.name}}
+  </button>
+</mat-menu>
+
+<mat-menu #backPageMenu="matMenu">
+  <ng-template matMenuContent>
+    <button mat-menu-item (click)="edit(backPage)" [disabled]="readonly">
+      <mat-icon>edit</mat-icon>
+      <ng-container i18n="properties|Properties button">Properties</ng-container>
+    </button>
+    <ng-container *ngFor="let option of backPageTypes">
+      <button mat-menu-item class="change-back-page-type" *ngIf="option.type !== backPage?.back_page_type"
+              (click)="changeBackPageType(option.type)" [disabled]="readonly">
+        <mat-icon>swap_horiz</mat-icon>
+        <ng-container i18n="change back page to|Change back page to (followed by a type)">Change to</ng-container> {{option.name}}
+      </button>
+    </ng-container>
+    <mat-divider></mat-divider>
+    <button mat-menu-item class="remove-back-page" (click)="deleteBoard.emit(backPage)" [disabled]="readonly">
+      <mat-icon>delete</mat-icon>
+      <ng-container i18n="remove back page|Remove back page">Remove back page</ng-container>
+    </button>
+  </ng-template>
+</mat-menu>

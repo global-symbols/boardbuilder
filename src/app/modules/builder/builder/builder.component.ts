@@ -30,6 +30,7 @@ import {CellActionsService} from '@data/services/cell-actions.service';
 import {EnableTabsDialogComponent} from '../enable-tabs-dialog/enable-tabs-dialog.component';
 import {PrintableBookDialogComponent} from '../printable-book-dialog/printable-book-dialog.component';
 import {features} from '@app/features';
+import {term} from '@shared/pipes/term.pipe';
 
 @Component({
   selector: 'app-builder',
@@ -112,15 +113,18 @@ export class BuilderComponent implements OnInit, OnDestroy {
         this.boardSetService.touch(this.boardSet).subscribe();
       }
 
-      // If there are any Boards, select the first one.
-      if (this.boardSet.boards.length > 0) {
-        this.selectBoard(this.boardSet.boards[0]);
+      this.setToolbar();
+
+      // If there are any Boards, select the first one (in a book, the first page).
+      const first = this.boardSet.isBook ? this.boardSet.pages[0] : this.boardSet.boards[0];
+      if (first) {
+        this.selectBoard(first);
       }
 
       // Check if this is a newly copied boardset and show notification
       const copiedParam = this.route.snapshot.queryParamMap.get('copied');
       if (copiedParam === 'true' && !this.boardSet.readonly) {
-        this.snackBar.open('This board is now editable', 'Dismiss', {
+        this.snackBar.open(this.boardSet.isBook ? 'This book is now editable' : 'This board is now editable', 'Dismiss', {
           duration: 4000,
         });
         // Clear the query parameter to avoid showing the message again
@@ -133,15 +137,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
       err => null,
       () => this.loading = false);
 
-    this.toolbarService.setButtons([{
-      text: 'Board Sets',
-      icon: 'arrow_back',
-      action: () => this.router.navigate(['/', 'boardsets'])
-    }], [{
-      tooltip: 'Keyboard Shortcuts',
-      icon: 'keyboard',
-      action: () => this.hotkeysService.cheatSheetToggle.next()
-    }]);
+    this.setToolbar();
 
     // Keyboard shortcut - main menu
     this.hotkeys.push(
@@ -255,6 +251,25 @@ export class BuilderComponent implements OnInit, OnDestroy {
     }
   }
 
+  // The back button names the landing section this book or board set lives in.
+  private setToolbar(): void {
+    this.toolbarService.setButtons([{
+      text: term('boardSets', this.boardSet),
+      icon: 'arrow_back',
+      action: () => this.router.navigate(['/', 'boardsets'])
+    }], [{
+      tooltip: 'Keyboard Shortcuts',
+      icon: 'keyboard',
+      action: () => this.hotkeysService.cheatSheetToggle.next()
+    }]);
+  }
+
+  get boardSetActionsTooltip(): string {
+    return this.boardSet?.isBook
+      ? $localize`:book actions|Book Actions button:Book Actions`
+      : $localize`:board set actions|Board Set Actions button:Board Set Actions`;
+  }
+
   private isTyping(event: KeyboardEvent): boolean {
     const el = event.target as HTMLElement;
     if (!el) { return false; }
@@ -294,6 +309,19 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (this.boardSet.readonly) { return; }
 
     if (this.currentDialogRef !== undefined) { return; }
+
+    // A book page always has the book layout, so there is nothing to ask: add "Page n" at the end.
+    if (this.boardSet.isBook) {
+      const page = new Board({
+        name: 'Page ' + (this.boardSet.pages.length + 1),
+        board_set_id: this.boardSet.id,
+        rows: this.boardSet.book_rows,
+        columns: this.boardSet.book_columns,
+        captions_position: 'below'
+      });
+      this.boardService.add(page).subscribe(created => this.reloadAndSelect(created));
+      return;
+    }
 
     const newBoard = new Board({
       name: 'Board ' + (this.boardSet.boards.length + 1),
@@ -343,6 +371,11 @@ export class BuilderComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Reloads the book or board set and selects the given board (e.g. one just added).
+  reloadAndSelect(board: Board) {
+    this.getBoardSet().subscribe(() => this.selectBoard(board.id));
+  }
+
   selectLastBoard() {
     if (this.boardSet.boards.length > 0) {
       this.selectBoard(this.boardSet.boards[this.boardSet.boards.length - 1]);
@@ -359,7 +392,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   duplicateBoard(board: Board) {
     if (this.boardSet.readonly) { return; }
-    this.boardService.duplicate(board).subscribe(() => {
+    this.boardService.duplicate(board).subscribe(copy => {
+      if (this.boardSet.isBook) { return this.reloadAndSelect(copy); }
       this.getBoardSet().subscribe(() => {
         this.selectLastBoard();
       });
@@ -384,27 +418,39 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (this.boardSet.readonly) { return; }
     if (this.currentDialogRef !== undefined) { return; }
 
+    // A book keeps at least one page (Rails refuses too).
+    if (this.boardSet.isBook && board.role !== 'back_page' && this.boardSet.pages.length <= 1) { return; }
+
+    const isBackPage = board.role === 'back_page';
     this.dialogService.delete({
-      heading: `Delete '${board.name}'?`,
-      content: 'This cannot be undone.'
+      heading: isBackPage ? `Remove the back page '${board.name}'?` : `Delete '${board.name}'?`,
+      content: isBackPage ? 'The back page and everything on it will be deleted. This cannot be undone.' : 'This cannot be undone.'
     }).afterClosed().subscribe(result => {
 
       if (result) {
         this.selectBoard(null);
 
+        // In a book, the neighbours are the pages in print order.
+        const siblings = this.boardSet.isBook ? this.boardSet.pages : this.boardSet.boards;
+
         this.boardService.delete(board).subscribe(r => {
           // Remove the Board from the array of Boards.
           // Then select a Board adjacent to the one that was deleted.
-          const deletedBoardIndex = this.boardSet.boards.indexOf(board);
+          const deletedBoardIndex = siblings.indexOf(board);
+          const remaining = siblings.filter(b => b !== board);
           this.boardSet.boards = this.boardSet.boards.filter(b => b !== board);
 
           // Try to select the next Board.
-          if (this.boardSet.boards[deletedBoardIndex]) {
-            this.selectBoard(this.boardSet.boards[deletedBoardIndex]);
+          if (remaining[deletedBoardIndex]) {
+            this.selectBoard(remaining[deletedBoardIndex]);
 
           // Try to select the previous Board.
-          } else if (this.boardSet.boards[deletedBoardIndex - 1]) {
-            this.selectBoard(this.boardSet.boards[deletedBoardIndex - 1]);
+          } else if (remaining[deletedBoardIndex - 1]) {
+            this.selectBoard(remaining[deletedBoardIndex - 1]);
+
+          // The back page was removed: go back to the first page.
+          } else if (this.boardSet.isBook && this.boardSet.pages[0]) {
+            this.selectBoard(this.boardSet.pages[0]);
           }
         });
       }
@@ -414,6 +460,18 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   deleteBoardSet(boardSet: BoardSet) {
+    if (boardSet.isBook) {
+      const pages = boardSet.pages.length;
+      this.dialogService.deleteBoardSet(boardSet, {
+        heading: `Delete '${boardSet.name}'? (contains ${pages} page${pages !== 1 ? 's' : ''})`,
+        content: `The book and all its pages will be deleted. This cannot be undone.`,
+      }).afterClosed().subscribe(result => {
+        if (result) {
+          this.boardSetService.delete(boardSet).subscribe(r => this.router.navigate(['/', 'boardsets']));
+        }
+      });
+      return;
+    }
     this.dialogService.deleteBoardSet(boardSet, {
       heading: `Delete '${boardSet.name}'? (contains ${boardSet.boards.length} Board${boardSet.boards.length !== 1 ? 's' : ''})`,
       content: `The Board Set and ${boardSet.boards.length} Board${boardSet.boards.length !== 1 ? 's' : ''} will be deleted. This cannot be undone.`,
@@ -431,7 +489,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     board.catalogue_tabs = !!this.boardSet.catalogue_tabs;
     this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
       width: '700px',
-      data: { board: this.board }
+      data: { board: this.board, bookMode: this.boardSet.isBook }
     });
 
     this.currentDialogRef.afterClosed().subscribe(result => {
@@ -569,6 +627,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
   }
 
   refreshTree() {
-    this.boardTree.rebuildTree();
+    if (this.boardTree) { this.boardTree.rebuildTree(); }
   }
 }

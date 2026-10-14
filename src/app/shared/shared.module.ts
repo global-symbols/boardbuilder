@@ -1,3 +1,4 @@
+import {TermPipe} from './pipes/term.pipe';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
@@ -55,6 +56,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
+    TermPipe,
     ConfirmDialogComponent,
     ErrorNotFoundComponent,
     LoadingNoticeComponent,
@@ -82,6 +84,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     TranslateBoardSetDialogComponent
   ],
     exports: [
+        TermPipe,
         ConfirmDialogComponent,
         ErrorNotFoundComponent,
         LoadingNoticeComponent,

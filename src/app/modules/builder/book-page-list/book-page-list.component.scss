@@ -1,0 +1,63 @@
+@import "~app/shared/variables";
+
+.section-title {
+  padding: 12px 16px 4px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.drag-handle {
+  cursor: grab;
+  opacity: 0.4;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+
+.board-drag-placeholder {
+  min-height: 48px;
+  background: rgba($light-blue, 0.12);
+}
+
+.cdk-drag-animating,
+.pages.cdk-drop-list-dragging mat-list-item:not(.cdk-drag-placeholder) {
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.page-number {
+  min-width: 1.75rem;
+  color: rgba(0, 0, 0, 0.54);
+  font-variant-numeric: tabular-nums;
+}
+
+.page-name {
+  @include line-clamp(1);
+}
+
+.back-page-icon {
+  margin-right: 8px;
+}
+
+.no-back-page {
+  padding: 0 8px 8px 16px;
+}
+
+mat-list-item {
+  user-select: none;
+
+  mat-icon {
+    opacity: 0.4;
+  }
+
+  &:hover mat-icon, button[aria-expanded='true'] mat-icon {
+    opacity: 1;
+  }
+
+  &.selected,
+  &.selected:hover,
+  &.selected:focus {
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+}
