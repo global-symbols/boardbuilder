@@ -223,9 +223,26 @@ mat-grid-tile span {
 
 // --- Book tabs ---
 
-.show-tabs-toggle {
-  display: block;
-  margin-top: 0.25rem;
+// Same columns as the book stage, so the toggle lines up with the tab column.
+.book-tabs-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+
+  .book-tabs-bar-spacer {
+    flex: 1 1 0;
+  }
+
+  .book-tabs-bar-toggle {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  &.back-page .book-tabs-bar-toggle {
+    order: -1;
+  }
 }
 
 .board-stage.book-stage {

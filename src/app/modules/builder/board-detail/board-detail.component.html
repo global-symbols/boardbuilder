@@ -17,10 +17,14 @@
 
     </div>
     <h1 fxFlex="33" class="text-center board-title">{{board.title}}</h1>
-    <div fxFlex="33" class="text-right">
-      <span>{{board.description}}</span>
-      <!-- D17: screen only; printed books always have tabs. -->
-      <mat-slide-toggle *ngIf="isBook" class="show-tabs-toggle" color="primary"
+    <span fxFlex="33" class="text-right">{{board.description}}</span>
+  </div>
+
+  <!-- Show tabs sits above the tab column (left on the back page). D17: screen only; printed books always have tabs. -->
+  <div class="book-tabs-bar" *ngIf="isBook" [class.back-page]="isBackPage">
+    <span class="book-tabs-bar-spacer"></span>
+    <div class="book-tabs-bar-toggle" [style.flex-basis]="tabColumnWidth">
+      <mat-slide-toggle class="show-tabs-toggle" color="primary"
                         [checked]="showBookTabs" (change)="toggleBookTabs($event.checked)"
                         i18n="show tabs|Show tabs toggle in a book">Show tabs</mat-slide-toggle>
     </div>

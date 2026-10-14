@@ -114,6 +114,7 @@ describe('BoardDetailComponent', () => {
     fixture.detectChanges();
 
     expect(el('.book-tabs')).toBeNull();
+    expect(el('.book-tabs-bar .show-tabs-toggle')).toBeTruthy('the toggle stays so tabs can be shown again');
     expect(localStorage.getItem(SHOW_BOOK_TABS_KEY)).toBe('0');
 
     const next = TestBed.createComponent(BoardDetailComponent).componentInstance;
@@ -127,6 +128,7 @@ describe('BoardDetailComponent', () => {
     expect(el('.board-stage').classList).toContain('back-page');
     expect(el('.book-tab')).toBeNull();
     expect(el('.book-tab-placeholder').textContent).toContain('Each page\'s tab is printed here');
+    expect(el('.book-tabs-bar').classList).toContain('back-page');
   });
 
   it('has no book tab column or toggle for board sets', () => {
