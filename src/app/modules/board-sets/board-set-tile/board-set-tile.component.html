@@ -1,8 +1,10 @@
-<mat-card fxFlexFill fxLayout="column">
+<mat-card fxFlexFill fxLayout="column" [class.book]="boardSet.isBook">
 
   <mat-card-header fxFlex="grow">
     <div class="w-100" fxLayout="row" fxLayoutAlign="space-between start">
       <mat-card-title class="mt-1" fxFlex>
+        <mat-icon class="kind-icon" *ngIf="boardSet.isBook" aria-hidden="false"
+                  aria-label="Book" i18n-aria-label="book|Book tile icon label">menu_book</mat-icon>
         <a [routerLink]="['/', 'boardsets', boardSet.id]" fxFlex>{{boardSet.name}}</a>
       </mat-card-title>
       <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{boardSet: boardSet}" *ngIf="menu">
@@ -17,6 +19,9 @@
         <div fxFlex="20" fxLayoutAlign="center center" *ngFor="let cell of boardSet.preview_cells">
           <img [src]="cell.image_url" class="preview-image" [matTooltip]="cell.caption"/>
         </div>
+      </div>
+      <div class="mt-2 book-size" *ngIf="boardSet.isBook">
+        {{boardSet.bookCellCount}} <ng-container i18n="cells|Cells per book page, after a number">cells</ng-container>
       </div>
       <div class="mt-2 text-muted" *ngIf="folderName">
         <mat-icon class="folder-chip-icon">folder</mat-icon>

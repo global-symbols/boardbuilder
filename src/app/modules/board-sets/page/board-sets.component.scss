@@ -1,3 +1,5 @@
+@import "~app/shared/variables";
+
 .folder-row,
 .board-row {
   overflow: hidden;
@@ -27,3 +29,39 @@
   margin-right: 0.25rem;
 }
 
+
+.kind-section {
+  margin-bottom: 2rem;
+}
+
+.section-heading {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid $blue;
+
+  .section-icon {
+    color: $blue;
+  }
+}
+
+.books .section-heading {
+  border-bottom-color: $book-accent;
+
+  .section-icon {
+    color: $book-accent;
+  }
+}
+
+mat-card.add-card {
+  width: 100%;
+
+  mat-card-actions {
+    padding-top: 0;
+    margin-top: -8px;
+  }
+}
+
+mat-card.add-book button {
+  background-color: $book-accent;
+  color: white;
+}

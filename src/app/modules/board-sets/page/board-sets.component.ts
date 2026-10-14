@@ -4,6 +4,7 @@ import {BoardSet} from '@data/models/boardset.model';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {NewBoardSetDialogComponent} from '@modules/board-sets/new-board-set-dialog/new-board-set-dialog.component';
+import {NewBookDialogComponent} from '@modules/board-sets/new-book-dialog/new-book-dialog.component';
 import {DialogService} from '@app/services/dialog.service';
 import {ToolbarService} from '@app/services/toolbar.service';
 import {ObfObzService} from '@data/services/obf-obz.service';
@@ -50,7 +51,8 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
     this.toolbarService.clearButtons();
   }
 
-  get filteredBoardSets(): BoardSet[] {
+  // Books and board sets matching the search, or in the open folder (or unfiled).
+  get visibleItems(): BoardSet[] {
     const query = this.searchQuery.trim().toLowerCase();
     let sets = this.boardSets || [];
 
@@ -66,6 +68,14 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
     }
 
     return sets.filter(bs => !bs.folder_id);
+  }
+
+  get filteredBooks(): BoardSet[] {
+    return this.visibleItems.filter(bs => bs.isBook);
+  }
+
+  get filteredBoardSets(): BoardSet[] {
+    return this.visibleItems.filter(bs => !bs.isBook);
   }
 
   get searching(): boolean {
@@ -130,7 +140,7 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   deleteFolder(folder: Folder): void {
     this.dialogService.delete({
       heading: `Delete '${folder.name}'?`,
-      content: 'Board Sets in this folder will be unfiled. They will not be deleted.'
+      content: 'Books and board sets in this folder will be unfiled. They will not be deleted.'
     }).afterClosed().subscribe(ok => {
       if (ok) {
         this.folderService.delete(folder).subscribe(() => {
@@ -178,18 +188,36 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
     });
 
     this.currentDialogRef.afterClosed().subscribe(newBoardSet => {
-      if (newBoardSet instanceof BoardSet) {
-        if (this.activeFolder) {
-          this.service.moveToFolder(newBoardSet, this.activeFolder.id).subscribe(() => {
-            this.router.navigate(['/', 'boardsets', newBoardSet.id]);
-          });
-        } else {
-          this.router.navigate(['/', 'boardsets', newBoardSet.id]);
-        }
-      }
-
+      if (newBoardSet instanceof BoardSet) { this.openCreated(newBoardSet); }
       this.currentDialogRef = undefined;
     });
+  }
+
+  newBook(): void {
+    if (this.currentDialogRef !== undefined) { return; }
+
+    this.currentDialogRef = this.dialog.open(NewBookDialogComponent, {
+      width: '600px'
+    });
+
+    this.currentDialogRef.afterClosed().subscribe(newBook => {
+      if (newBook instanceof BoardSet) { this.openCreated(newBook); }
+      this.currentDialogRef = undefined;
+    });
+  }
+
+  // Files a new book or board set in the open folder, if any, then opens it in the builder.
+  private openCreated(boardSet: BoardSet): void {
+    if (this.activeFolder) {
+      this.service.moveToFolder(boardSet, this.activeFolder.id).subscribe(() => this.openBoardSet(boardSet));
+    } else {
+      this.openBoardSet(boardSet);
+    }
+  }
+
+  // TODO(P7): make Import book book-aware; for now it is the OBZ import.
+  importBook() {
+    this.uploadObz();
   }
 
   uploadObz() {
@@ -210,7 +238,9 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
 
     this.dialogService.deleteBoardSet(boardSet, {
       heading: `Delete '${boardSet.name}'?`,
-      content: `The Board Set and all its Boards will be deleted. This cannot be undone.`,
+      content: boardSet.isBook
+        ? `The book and all its pages will be deleted. This cannot be undone.`
+        : `The Board Set and all its Boards will be deleted. This cannot be undone.`,
     }).afterClosed().subscribe(result => {
       if (result) {
         this.service.delete(boardSet).subscribe(r => {

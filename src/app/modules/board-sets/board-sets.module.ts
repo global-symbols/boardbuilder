@@ -24,6 +24,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {FolderNameDialogComponent} from './folder-name-dialog/folder-name-dialog.component';
 import {MoveToFolderDialogComponent} from './move-to-folder-dialog/move-to-folder-dialog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {NewBookDialogComponent} from './new-book-dialog/new-book-dialog.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +41,7 @@ export const routes: Routes = [
     BoardSetTileComponent,
     FolderNameDialogComponent,
     MoveToFolderDialogComponent,
+    NewBookDialogComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,57 @@
+<div cdkDrag
+     cdkDragRootElement=".cdk-overlay-pane"
+     cdkDragBoundary="body"
+>
+
+  <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
+    <h1 mat-dialog-title i18n="Create Book dialog title" class="mb-0">Create Book</h1>
+    <button mat-icon-button aria-label="Close" i18n-aria-label="close|Close" [mat-dialog-close]="false"
+            appStopPropagation>
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <form [formGroup]="bookForm" (ngSubmit)="create()">
+    <div mat-dialog-content>
+
+      <mat-form-field class="w-100 mb-3" appStopPropagation>
+        <mat-label i18n="book.title label|Book title field label">Book title</mat-label>
+        <input matInput formControlName="name" required cdkFocusInitial>
+        <mat-hint i18n="book.title hint|Book title field hint">Choose a name for the new book.</mat-hint>
+        <mat-hint align="end">{{bookForm.value.name.length || 0}}&nbsp;/&nbsp;250</mat-hint>
+      </mat-form-field>
+
+      <p class="mb-2" i18n="Create Book layout intro">Every page in a book has the same layout, with a tab on the right edge.</p>
+
+      <div class="layouts" fxLayout="row" fxLayout.xs="column" fxLayoutGap="1rem" role="radiogroup"
+           aria-label="Book layout" i18n-aria-label="book layout|Book layout radio group label">
+        <button type="button" class="layout-card" *ngFor="let layout of layouts"
+                [class.selected]="layout === selectedLayout" (click)="selectLayout(layout)"
+                role="radio" [attr.aria-checked]="layout === selectedLayout" fxFlex appStopPropagation>
+          <div class="preview" aria-hidden="true">
+            <div class="grid" [style.flex]="layout.columns" [style.grid-template-columns]="'repeat(' + layout.columns + ', 1fr)'"
+                 [style.grid-template-rows]="'repeat(' + layout.rows + ', 1fr)'">
+              <span class="cell" *ngFor="let i of range(layout.cells)"></span>
+            </div>
+            <div class="tabs" [style.grid-template-rows]="'repeat(' + layout.rows + ', 1fr)'">
+              <span class="tab" *ngFor="let row of range(layout.rows)" [class.filled]="row === 0"></span>
+            </div>
+          </div>
+          <div class="layout-label">
+            <strong>{{layout.cells}} <ng-container i18n="cells|Cells per book page, after a number">cells</ng-container></strong>
+            <span class="text-muted">{{layout.columns}} <ng-container i18n="columns|Columns, after a number">columns</ng-container>
+              × {{layout.rows}} <ng-container i18n="rows|Rows, after a number">rows</ng-container></span>
+          </div>
+          <mat-icon class="check" *ngIf="layout === selectedLayout">check_circle</mat-icon>
+        </button>
+      </div>
+
+      <p class="text-muted mt-3 mb-0" i18n="Create Book layout fixed note">The layout cannot be changed after the book is created.</p>
+    </div>
+
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center" class="mt-2">
+      <button mat-raised-button color="primary" type="submit" [disabled]="bookForm.invalid || saving"
+              appStopPropagation i18n="create|Create">Create</button>
+    </div>
+  </form>
+</div>

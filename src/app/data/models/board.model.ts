@@ -6,6 +6,9 @@ import {Record} from '@data/models/record';
 import {BoardTemplate} from '@data/models/board-template.model';
 import {Media} from '@data/models/media.model';
 
+export type BoardRole = 'page' | 'back_page';
+export type BackPageType = 'core_words' | 'conversation_support';
+
 export class Board extends Record implements Deserialisable {
   board_set_id: number;
   header_media_id: number;
@@ -23,6 +26,10 @@ export class Board extends Record implements Deserialisable {
   tab_colour: string;
   tab_position: number;
   tab_image_url: string;
+  // Books only: page or the single back page, the back page's type, and the page's tab (a Cell outside the grid).
+  role?: BoardRole;
+  back_page_type?: BackPageType;
+  tab_cell?: Cell;
   translated?: number;
   skipped?: number;
 
@@ -37,6 +44,9 @@ export class Board extends Record implements Deserialisable {
     const object = Object.assign(this, input);
     if (input.cells) {
       this.cells = input.cells.map(cell => new Cell().deserialise(cell));
+    }
+    if (input.tab_cell) {
+      this.tab_cell = new Cell().deserialise(input.tab_cell);
     }
     // Always populate cells after deserialization to ensure we have the right number
     this.populateCells();

@@ -1,6 +1,9 @@
 $blue: #006aba;
 $light-blue: lighten($blue, 50%);
 
+// Books (communication books) use teal to stand apart from board sets.
+$book-accent: #00796b;
+
 $scrollbar-width: 5px;
 
 @mixin word-wrap() {

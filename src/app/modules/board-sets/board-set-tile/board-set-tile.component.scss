@@ -42,3 +42,24 @@ img.preview-image {
 mat-card:hover img.preview-image {
   opacity: 1;
 }
+
+// Books: teal left edge, book icon and cell count.
+mat-card.book {
+  border-left: 4px solid $book-accent;
+}
+
+mat-card-title {
+  display: flex;
+  align-items: flex-start;
+}
+
+.kind-icon {
+  color: $book-accent;
+  margin-right: 0.25rem;
+  flex: none;
+}
+
+.book-size {
+  color: $book-accent;
+  font-weight: 500;
+}

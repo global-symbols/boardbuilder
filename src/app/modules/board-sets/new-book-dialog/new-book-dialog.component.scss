@@ -1,0 +1,79 @@
+@import "~app/shared/variables";
+
+.layout-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+
+  &:hover {
+    border-color: rgba($book-accent, 0.5);
+  }
+
+  &.selected {
+    border-color: $book-accent;
+    background: rgba($book-accent, 0.05);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $book-accent;
+    outline-offset: 2px;
+  }
+}
+
+// Page preview: content grid plus a tab column 2/3 of a cell wide on the right.
+.preview {
+  display: flex;
+  gap: 4px;
+  height: 140px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+// The grid flexes by its column count (set inline), so the tab column is 2/3 of one cell.
+.grid {
+  display: grid;
+  gap: 3px;
+}
+
+.tabs {
+  flex: 0.667;
+  display: grid;
+  gap: 3px;
+}
+
+.cell {
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  background: white;
+}
+
+.tab {
+  border-radius: 0 3px 3px 0;
+
+  &.filled {
+    background: $book-accent;
+  }
+}
+
+.layout-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.check {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: $book-accent;
+}

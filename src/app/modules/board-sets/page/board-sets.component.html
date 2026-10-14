@@ -1,10 +1,10 @@
 <div class="container mt-3">
 
-  <h2 i18n="Board Sets heading">My Board Sets</h2>
+  <h2 i18n="Books and Board Sets heading">My Books &amp; Board Sets</h2>
 
   <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1rem" class="mb-3" *ngIf="!loading">
     <mat-form-field appearance="outline" fxFlex class="search-field">
-      <mat-label i18n="search board sets|Search board sets">Search board sets</mat-label>
+      <mat-label i18n="search books and board sets|Search books and board sets">Search books and board sets</mat-label>
       <input matInput [(ngModel)]="searchQuery" autocomplete="off">
       <mat-icon matPrefix>search</mat-icon>
     </mat-form-field>
@@ -14,14 +14,14 @@
     </button>
   </div>
 
-  <app-loading-notice *ngIf="loading" subject="Board Sets" i18n-subject="board sets|Board Sets"></app-loading-notice>
+  <app-loading-notice *ngIf="loading" subject="Books and Board Sets" i18n-subject="books and board sets|Books and Board Sets"></app-loading-notice>
 
   <ng-container *ngIf="!loading">
 
     <div *ngIf="activeFolder && !searching" class="mb-3" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
       <button mat-button (click)="clearFolder()">
         <mat-icon>arrow_back</mat-icon>
-        <ng-container i18n="all board sets|All board sets">All board sets</ng-container>
+        <ng-container i18n="all books and board sets|All books and board sets">All books and board sets</ng-container>
       </button>
       <h3 class="mb-0 mt-0">{{activeFolder.name}}</h3>
     </div>
@@ -44,36 +44,76 @@
             </mat-card-header>
             <mat-card-content class="text-muted">
               {{folder.board_sets_count || 0}}
-              <ng-container i18n="board sets count|board sets">board sets</ng-container>
+              <ng-container i18n="folder items count|items in a folder (books and board sets)">items</ng-container>
             </mat-card-content>
           </mat-card>
         </div>
       </div>
     </div>
 
-    <div class="board-row">
-    <div fxLayout="row wrap" fxLayoutGap="1rem grid">
-      <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngIf="!searching">
-        <mat-card fxFlexFill class="add-boardset">
-          <mat-card-actions fxFlex fxLayout="column" class="p-0">
-            <button fxFlex mat-flat-button color="primary" (click)="newBoardSet()">
-              <mat-icon class="mat-icon-2x">add</mat-icon><br/>
-              <ng-container i18n="create board set|Create Board Set button">Create Board Set</ng-container>
-            </button>
-            <button mat-flat-button color="primary" class="mt-1" (click)="uploadObz()" i18n="import obz|Import OBZ button">Import OBZ</button>
-          </mat-card-actions>
-        </mat-card>
+    <!-- Books and board sets are created and listed in separate sections so they are not confused. -->
+    <section class="kind-section books" *ngIf="!searching || filteredBooks.length">
+      <div class="section-heading" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
+        <mat-icon class="section-icon">menu_book</mat-icon>
+        <div>
+          <h3 class="mb-0" i18n="Books section heading">Books</h3>
+          <p class="text-muted mb-0" i18n="Books section description">Communication books: same-size pages with a tab on each page, printed back to back.</p>
+        </div>
       </div>
+      <div class="board-row">
+        <div fxLayout="row wrap" fxLayoutGap="1rem grid">
+          <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngIf="!searching">
+            <mat-card fxFlexFill class="add-card add-book">
+              <mat-card-actions fxFlex fxLayout="column" class="p-0">
+                <button fxFlex mat-flat-button class="create-button" (click)="newBook()">
+                  <mat-icon class="mat-icon-2x">menu_book</mat-icon><br/>
+                  <ng-container i18n="create book|Create Book button">Create Book</ng-container>
+                </button>
+                <button mat-flat-button class="mt-1 import-button" (click)="importBook()" i18n="import book|Import Book button">Import Book</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
 
-      <app-board-set-tile *ngFor="let boardSet of filteredBoardSets" [boardSet]="boardSet" [menu]="menu"
-                         [folderName]="searching ? folderName(boardSet) : ''"
-                         fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
-      </app-board-set-tile>
-    </div>
-    </div>
+          <app-board-set-tile *ngFor="let boardSet of filteredBooks" [boardSet]="boardSet" [menu]="menu"
+                              [folderName]="searching ? folderName(boardSet) : ''"
+                              fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
+          </app-board-set-tile>
+        </div>
+      </div>
+    </section>
 
-    <p class="text-muted" *ngIf="searching && filteredBoardSets.length === 0" i18n="no matching board sets">No matching board sets.</p>
-    <p class="text-muted" *ngIf="activeFolder && !searching && filteredBoardSets.length === 0" i18n="empty folder">This folder is empty.</p>
+    <section class="kind-section board-sets" *ngIf="!searching || filteredBoardSets.length">
+      <div class="section-heading" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
+        <mat-icon class="section-icon">dashboard</mat-icon>
+        <div>
+          <h3 class="mb-0" i18n="Board Sets section heading">Board Sets</h3>
+          <p class="text-muted mb-0" i18n="Board Sets section description">Collections of communication boards, in any size and layout.</p>
+        </div>
+      </div>
+      <div class="board-row">
+        <div fxLayout="row wrap" fxLayoutGap="1rem grid">
+          <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngIf="!searching">
+            <mat-card fxFlexFill class="add-card add-boardset">
+              <mat-card-actions fxFlex fxLayout="column" class="p-0">
+                <button fxFlex mat-flat-button color="primary" (click)="newBoardSet()">
+                  <mat-icon class="mat-icon-2x">dashboard</mat-icon><br/>
+                  <ng-container i18n="create board set|Create Board Set button">Create Board Set</ng-container>
+                </button>
+                <button mat-flat-button color="primary" class="mt-1" (click)="uploadObz()" i18n="import obz|Import OBZ button">Import OBZ</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+
+          <app-board-set-tile *ngFor="let boardSet of filteredBoardSets" [boardSet]="boardSet" [menu]="menu"
+                              [folderName]="searching ? folderName(boardSet) : ''"
+                              fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
+          </app-board-set-tile>
+        </div>
+      </div>
+    </section>
+
+    <p class="text-muted" *ngIf="searching && visibleItems.length === 0" i18n="no matching books or board sets">No matching books or board sets.</p>
+    <p class="text-muted" *ngIf="activeFolder && !searching && visibleItems.length === 0" i18n="empty folder">This folder is empty.</p>
 
     <h2 i18n="Board Sets Featured heading" *ngIf="!activeFolder">Featured Board Sets</h2>
     <div fxLayout="row wrap" fxLayoutGap="1rem grid" *ngIf="!activeFolder">
