@@ -94,6 +94,8 @@
       </div>
       </ng-container>
 
+      <!-- A book page's tab is outside the grid: no cut, copy, paste or delete. -->
+      <ng-container *ngIf="!cell?.isTab">
       <h3 i18n="Cell editor Actions heading">Actions</h3>
       <div fxLayout="column" fxLayoutGap="8px" class="mb-2">
         <button mat-stroked-button color="primary" class="cell-actions-button" (click)="cutCell()"
@@ -137,6 +139,7 @@
           </div>
         </button>
       </div>
+      </ng-container>
 
       <h3 i18n="Cell Editor Reset Cell button">Reset Cell Contents</h3>
       <button mat-stroked-button color="primary" (click)="clearCell('symbol')"

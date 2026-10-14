@@ -32,6 +32,10 @@ import {PrintableBookDialogComponent} from '../printable-book-dialog/printable-b
 import {features} from '@app/features';
 import {term} from '@shared/pipes/term.pipe';
 
+// Book page tab cells carry their picto too, for adaptable symbols.
+const BOARD_SET_EXPAND = 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media tabs ' +
+  'boards.tab_cell.picto boards.tab_cell.picto.image';
+
 @Component({
   selector: 'app-builder',
   templateUrl: './builder.component.html',
@@ -92,7 +96,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.routeSubscription = this.route.paramMap.pipe(
       switchMap(params => {
         this.loading = true;
-        return this.boardSetService.get(params.get('id'), 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media tabs')
+        return this.boardSetService.get(params.get('id'), BOARD_SET_EXPAND)
           .pipe(
             catchError(e => {
               this.loadingError = true;
@@ -189,7 +193,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
     this.hotkeys.push(
       this.hotkeysService.add(new Hotkey(['del'], (event: KeyboardEvent): boolean => {
         if (this.isTyping(event) || this.boardSet?.readonly) { return true; }
-        if (this.selectedCell) {
+        if (this.selectedCell && !this.selectedCell.isTab) {
           this.cellActions.delete(this.selectedCell, this.board).subscribe();
         }
         return false;
@@ -198,7 +202,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     this.hotkeys.push(
       this.hotkeysService.add(new Hotkey(['ctrl+c', 'command+c'], (event: KeyboardEvent): boolean => {
-        if (this.isTyping(event) || this.boardSet?.readonly || !this.selectedCell) { return true; }
+        if (this.isTyping(event) || this.boardSet?.readonly || !this.selectedCell || this.selectedCell.isTab) { return true; }
         this.cellActions.copy(this.selectedCell);
         return false;
       }, undefined, 'Copy Cell'))
@@ -206,7 +210,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     this.hotkeys.push(
       this.hotkeysService.add(new Hotkey(['ctrl+x', 'command+x'], (event: KeyboardEvent): boolean => {
-        if (this.isTyping(event) || this.boardSet?.readonly || !this.selectedCell) { return true; }
+        if (this.isTyping(event) || this.boardSet?.readonly || !this.selectedCell || this.selectedCell.isTab) { return true; }
         this.cellActions.cut(this.selectedCell, this.board).subscribe();
         return false;
       }, undefined, 'Cut Cell'))
@@ -214,7 +218,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
     this.hotkeys.push(
       this.hotkeysService.add(new Hotkey(['ctrl+v', 'command+v'], (event: KeyboardEvent): boolean => {
-        if (this.isTyping(event) || this.boardSet?.readonly || !this.selectedCell) { return true; }
+        if (this.isTyping(event) || this.boardSet?.readonly || !this.selectedCell || this.selectedCell.isTab) { return true; }
         this.cellActions.paste(this.selectedCell, this.board).subscribe();
         return false;
       }, undefined, 'Paste Cell'))
@@ -281,7 +285,7 @@ export class BuilderComponent implements OnInit, OnDestroy {
   private getBoardSet(): Observable<BoardSet> {
     this.loadingError = false;
     this.loading = true;
-    return this.boardSetService.get(this.route.snapshot.paramMap.get('id'), 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media tabs')
+    return this.boardSetService.get(this.route.snapshot.paramMap.get('id'), BOARD_SET_EXPAND)
       .pipe(
         catchError(e => {
           this.loadingError = true;

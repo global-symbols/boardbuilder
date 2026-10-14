@@ -220,3 +220,108 @@ mat-grid-tile span {
     margin-bottom: 0;
   }
 }
+
+// --- Book tabs ---
+
+.show-tabs-toggle {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.board-stage.book-stage {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  mat-grid-list {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+.book-tabs {
+  flex: 0 0 auto;
+  display: grid;
+  row-gap: 1rem;
+  min-width: 0;
+}
+
+// The back page mirrors the front: tab column on the left.
+.board-stage.back-page .book-tabs {
+  order: -1;
+}
+
+.book-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  padding: 0.5rem 0.25rem;
+  border-radius: 0 8px 8px 0;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow:
+    0 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s ease-in;
+
+  &.outlined {
+    outline-offset: -4px;
+    outline-width: 4px;
+    outline-style: solid;
+  }
+
+  &.caption-first .book-tab-caption {
+    order: -1;
+  }
+
+  &.no-image {
+    justify-content: center;
+  }
+
+  &:hover {
+    transition-duration: 0.05s;
+    box-shadow: 0 0 8px 3px rgba($light-blue, 0.8);
+  }
+
+  &.selected {
+    box-shadow: 0 0 8px 4px $blue;
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px 3px $light-blue;
+    outline-color: transparent;
+  }
+}
+
+.book-tab-image {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-tab-caption {
+  max-width: 100%;
+  font-weight: 600;
+  text-align: center;
+  overflow-wrap: anywhere;
+  @include line-clamp(3);
+}
+
+.book-tab-placeholder {
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: 2px dashed rgba(0, 0, 0, 0.3);
+  border-radius: 8px 0 0 8px;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+  text-align: center;
+}

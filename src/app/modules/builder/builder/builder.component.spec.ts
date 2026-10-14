@@ -6,7 +6,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {HotkeysService} from '@conflito/angular2-hotkeys';
+import {Hotkey, HotkeysService} from '@conflito/angular2-hotkeys';
 import {of, Subject} from 'rxjs';
 
 import {BuilderComponent} from './builder.component';
@@ -18,6 +18,7 @@ import {DialogService} from '@app/services/dialog.service';
 import {CellActionsService} from '@data/services/cell-actions.service';
 import {BoardSet} from '@data/models/boardset.model';
 import {Board} from '@data/models/board.model';
+import {Cell} from '@data/models/cell.model';
 import {TermPipe} from '@shared/pipes/term.pipe';
 
 describe('BuilderComponent', () => {
@@ -52,7 +53,13 @@ describe('BuilderComponent', () => {
       .map((el: HTMLElement) => el.textContent.replace(/\s+/g, ' ').trim());
   }
 
+  let hotkeys: Hotkey[];
+  let cellActions: jasmine.SpyObj<CellActionsService>;
+
   beforeEach(waitForAsync(() => {
+    hotkeys = [];
+    cellActions = jasmine.createSpyObj('CellActionsService', ['resetUndo', 'delete', 'copy', 'cut', 'paste'],
+                                       { linksChanged$: new Subject() });
     boardSetService = jasmine.createSpyObj('BoardSetService', ['get', 'touch']);
     boardSetService.touch.and.returnValue(of(null));
     boardService = jasmine.createSpyObj('BoardService', ['add', 'duplicate']);
@@ -65,7 +72,9 @@ describe('BuilderComponent', () => {
         { provide: BoardSetService, useValue: boardSetService },
         { provide: BoardService, useValue: boardService },
         { provide: CellService, useValue: {} },
-        { provide: HotkeysService, useValue: { add: (hotkey: any) => hotkey, remove: () => {}, cheatSheetToggle: new Subject() } },
+        { provide: HotkeysService, useValue: {
+            add: (hotkey: any) => { hotkeys.push(hotkey); return hotkey; }, remove: () => {}, cheatSheetToggle: new Subject()
+          } },
         { provide: ToolbarService, useValue: toolbar },
         { provide: DialogService, useValue: {} },
         { provide: MatDialog, useValue: {} },
@@ -76,7 +85,7 @@ describe('BuilderComponent', () => {
         { provide: Router, useValue: jasmine.createSpyObj('Router', ['navigate']) },
         { provide: Clipboard, useValue: {} },
         { provide: MatSnackBar, useValue: {} },
-        { provide: CellActionsService, useValue: { resetUndo: () => {}, linksChanged$: new Subject() } }
+        { provide: CellActionsService, useValue: cellActions }
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
@@ -135,5 +144,19 @@ describe('BuilderComponent', () => {
     expect(sent.name).toBe('Page 3');
     expect([sent.columns, sent.rows]).toEqual([3, 4]);
     expect(sent.board_set_id).toBe(1);
+  });
+
+  it('keyboard delete, cut, copy and paste ignore a selected tab', () => {
+    create(book());
+    component.selectCell(new Cell({ id: 900, kind: 'tab', caption: 'Tab' }));
+    const press = (combo: string) => hotkeys.find(hotkey => hotkey.combo.includes(combo))
+      .callback({ target: document.body } as any, combo);
+
+    ['del', 'ctrl+c', 'ctrl+x', 'ctrl+v'].forEach(press);
+
+    expect(cellActions.delete).not.toHaveBeenCalled();
+    expect(cellActions.copy).not.toHaveBeenCalled();
+    expect(cellActions.cut).not.toHaveBeenCalled();
+    expect(cellActions.paste).not.toHaveBeenCalled();
   });
 });

@@ -10,9 +10,16 @@ import {DialogService} from '@app/services/dialog.service';
 import {Media} from '@data/models/media.model';
 import {BoardService} from '@data/services/board.service';
 import {CellActionsService} from '@data/services/cell-actions.service';
+import {BOOK_TAB_WIDTH_RATIO, defaultTabColour, tabRow, tabTextColour} from '@data/models/book-tabs';
 
 const LONG_PRESS_MS = 550;
 const LONG_PRESS_MOVE_PX = 12;
+// D17: the book Show tabs toggle is remembered per browser.
+export const SHOW_BOOK_TABS_KEY = 'boardbuilder.book.showTabs';
+
+function readShowBookTabs(): boolean {
+  try { return localStorage.getItem(SHOW_BOOK_TABS_KEY) !== '0'; } catch (e) { return true; }
+}
 
 @Component({
   selector: 'app-board-detail',
@@ -53,6 +60,7 @@ export class BoardDetailComponent implements OnChanges {
   @ViewChild(MatMenuTrigger) cellMenuTrigger: MatMenuTrigger;
 
   isInitialLoad = true;
+  showBookTabs = readShowBookTabs();
   contextCell: Cell;
   menuPosition = {x: 0, y: 0};
   menuOpen = false;
@@ -77,6 +85,44 @@ export class BoardDetailComponent implements OnChanges {
 
   get showTabs(): boolean {
     return false;
+  }
+
+  // --- Book tabs (plan §6.4). The tab is the page's tab cell, drawn in a column beside the grid. ---
+
+  get isBook(): boolean { return !!this.boardSet?.isBook; }
+
+  get isBackPage(): boolean { return this.isBook && this.board?.role === 'back_page'; }
+
+  // Position of this page in print order; drives the tab row and default colour.
+  get pageIndex(): number {
+    return this.boardSet ? this.boardSet.pages.findIndex(page => page.id === this.board?.id) : -1;
+  }
+
+  get bookTabRow(): number { return tabRow(this.pageIndex, this.board?.rows); }
+
+  get tabSlots(): number[] { return Array.from({ length: this.board?.rows || 0 }, (_, row) => row); }
+
+  // Tab width = 2/3 of a cell, where the grid and the tab column share the width with 1rem gaps.
+  get tabColumnWidth(): string {
+    const columns = this.board?.columns || 1;
+    return `calc((100% - ${columns}rem) * ${BOOK_TAB_WIDTH_RATIO} / (${columns} + ${BOOK_TAB_WIDTH_RATIO}))`;
+  }
+
+  get tabBackground(): string {
+    return this.board?.tab_cell?.background_colour || defaultTabColour(this.pageIndex);
+  }
+
+  get tabForeground(): string {
+    return this.board?.tab_cell?.text_colour || tabTextColour(this.tabBackground);
+  }
+
+  selectTab(): void {
+    if (this.board?.tab_cell) { this.selectCell(this.board.tab_cell); }
+  }
+
+  toggleBookTabs(show: boolean): void {
+    this.showBookTabs = show;
+    try { localStorage.setItem(SHOW_BOOK_TABS_KEY, show ? '1' : '0'); } catch (e) { /* storage unavailable */ }
   }
 
   get tabEdge(): 'top' | 'bottom' | 'left' | 'right' {

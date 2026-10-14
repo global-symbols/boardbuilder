@@ -17,10 +17,17 @@
 
     </div>
     <h1 fxFlex="33" class="text-center board-title">{{board.title}}</h1>
-    <span fxFlex="33" class="text-right">{{board.description}}</span>
+    <div fxFlex="33" class="text-right">
+      <span>{{board.description}}</span>
+      <!-- D17: screen only; printed books always have tabs. -->
+      <mat-slide-toggle *ngIf="isBook" class="show-tabs-toggle" color="primary"
+                        [checked]="showBookTabs" (change)="toggleBookTabs($event.checked)"
+                        i18n="show tabs|Show tabs toggle in a book">Show tabs</mat-slide-toggle>
+    </div>
   </div>
 
-  <div class="board-stage" [class.has-tabs]="showTabs" [attr.data-edge]="showTabs ? tabEdge : null">
+  <div class="board-stage" [class.has-tabs]="showTabs" [attr.data-edge]="showTabs ? tabEdge : null"
+       [class.book-stage]="isBook && showBookTabs" [class.back-page]="isBackPage">
     <aside class="tab-strip" *ngIf="showTabs">
       <div *ngFor="let tab of tabs"
            class="tab-chip"
@@ -140,6 +147,33 @@
 
     </mat-grid-tile>
   </mat-grid-list>
+
+    <!-- Book tab column: 2/3 of a cell wide, one slot per grid row. Only the page's own row holds its tab. -->
+    <aside class="book-tabs" *ngIf="isBook && showBookTabs"
+           [style.flex-basis]="tabColumnWidth"
+           [style.grid-template-rows]="'repeat(' + board.rows + ', 11.85rem)'">
+      <div *ngIf="!isBackPage && board.tab_cell as tab"
+           class="book-tab"
+           role="button" tabindex="0"
+           [attr.aria-label]="'Page tab: ' + (tab.caption || '')"
+           [style.grid-row]="bookTabRow + 1"
+           [style.background-color]="tabBackground"
+           [style.color]="tabForeground"
+           [style.outline-color]="tab.border_colour"
+           [class.outlined]="tab.border_colour"
+           [class.selected]="cell === tab"
+           [class.caption-first]="board.captions_position === 'above'"
+           [class.no-image]="!tab.image_url"
+           (click)="selectTab()"
+           (keyup.enter)="selectTab()">
+        <app-adaptable-image *ngIf="tab.image_url" class="book-tab-image"
+                             [adaptable]="tab.picto?.adaptable" [cell]="tab" [image]="tab.image_url"></app-adaptable-image>
+        <span class="book-tab-caption">{{tab.caption}}</span>
+      </div>
+      <div *ngIf="isBackPage" class="book-tab-placeholder" i18n="back page tab placeholder|Placeholder for the tab column on a book back page">
+        Each page's tab is printed here
+      </div>
+    </aside>
   </div>
 
   <div class="cell-context-menu-trigger"

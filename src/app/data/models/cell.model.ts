@@ -25,6 +25,8 @@ export class Cell extends Record implements Deserialisable {
     skin_colour: string;
 
     adaptable: boolean;
+    // 'tab' for a book page's tab cell (outside the grid); grid cells omit it.
+    kind?: 'grid' | 'tab';
 
     constructor(init?: Partial<Cell>) {
       super();
@@ -39,6 +41,8 @@ export class Cell extends Record implements Deserialisable {
 
         return this;
     }
+
+    get isTab(): boolean { return this.kind === 'tab'; }
 
     get url(): string { return this.image_url; }
     set url(t) { this.image_url = t; }
