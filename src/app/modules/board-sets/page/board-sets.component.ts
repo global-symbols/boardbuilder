@@ -15,6 +15,11 @@ import {MoveToFolderDialogComponent} from '@modules/board-sets/move-to-folder-di
 import {TranslateBoardSetDialogComponent} from '@shared/components/translate-board-set-dialog/translate-board-set-dialog.component';
 import {CopyBoardSetDialogComponent} from '@shared/components/copy-board-set-dialog/copy-board-set-dialog.component';
 
+// The landing page's Books / Board Sets tab, remembered per browser.
+export const LANDING_TAB_KEY = 'boardbuilder.landing.tab';
+export const BOOKS_TAB = 0;
+export const BOARD_SETS_TAB = 1;
+
 @Component({
   selector: 'app-board-sets',
   templateUrl: './board-sets.component.html',
@@ -27,6 +32,8 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   folders: Folder[] = [];
   searchQuery = '';
   activeFolder: Folder | null = null;
+  selectedTab = BOOKS_TAB;
+  private tabRemembered = false;
 
   loading: boolean;
   private currentDialogRef;
@@ -42,6 +49,7 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.restoreTab();
     this.loadBoardSets();
     this.loadFolders();
     this.loadFeaturedBoardSets();
@@ -78,6 +86,22 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
     return this.visibleItems.filter(bs => !bs.isBook);
   }
 
+  selectTab(index: number): void {
+    this.selectedTab = index;
+    this.tabRemembered = true;
+    try { localStorage.setItem(LANDING_TAB_KEY, String(index)); } catch (e) { /* storage unavailable */ }
+  }
+
+  private restoreTab(): void {
+    try {
+      const stored = localStorage.getItem(LANDING_TAB_KEY);
+      if (stored === String(BOOKS_TAB) || stored === String(BOARD_SETS_TAB)) {
+        this.selectedTab = Number(stored);
+        this.tabRemembered = true;
+      }
+    } catch (e) { /* storage unavailable */ }
+  }
+
   get searching(): boolean {
     return this.searchQuery.trim().length > 0;
   }
@@ -91,7 +115,13 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   loadBoardSets(): void {
     this.loading = true;
     this.service.list('preview_cells').subscribe(
-        bs => this.boardSets = bs,
+        bs => {
+          this.boardSets = bs;
+          // First visit: open the tab the user has items on, Books if they have any.
+          if (!this.tabRemembered) {
+            this.selectedTab = bs.some(item => item.isBook) || !bs.length ? BOOKS_TAB : BOARD_SETS_TAB;
+          }
+        },
         error => null,
         () => this.loading = false
     );
@@ -182,6 +212,7 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
 
   newBoardSet(): void {
     if (this.currentDialogRef !== undefined) { return; }
+    this.selectTab(BOARD_SETS_TAB);
 
     this.currentDialogRef = this.dialog.open(NewBoardSetDialogComponent, {
       width: '600px'
@@ -195,6 +226,7 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
 
   newBook(): void {
     if (this.currentDialogRef !== undefined) { return; }
+    this.selectTab(BOOKS_TAB);
 
     this.currentDialogRef = this.dialog.open(NewBookDialogComponent, {
       width: '600px'

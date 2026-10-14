@@ -30,26 +30,35 @@
 }
 
 
-.kind-section {
+.kind-tabs {
   margin-bottom: 2rem;
-}
 
-.section-heading {
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid $blue;
+  ::ng-deep .mat-tab-label {
+    min-width: 180px;
+    opacity: 0.8;
+  }
 
-  .section-icon {
-    color: $blue;
+  ::ng-deep .mat-tab-label-active {
+    opacity: 1;
   }
 }
 
-.books .section-heading {
-  border-bottom-color: $book-accent;
+.tab-icon {
+  margin-right: 0.5rem;
+  color: $blue;
 
-  .section-icon {
+  &.books-icon {
     color: $book-accent;
   }
+}
+
+.kind-section {
+  padding-top: 1rem;
+  overflow: hidden;
+}
+
+.section-description {
+  margin-bottom: 1rem;
 }
 
 mat-card.add-card {

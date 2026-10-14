@@ -51,15 +51,17 @@
       </div>
     </div>
 
-    <!-- Books and board sets are created and listed in separate sections so they are not confused. -->
-    <section class="kind-section books" *ngIf="!searching || filteredBooks.length">
-      <div class="section-heading" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
-        <mat-icon class="section-icon">menu_book</mat-icon>
-        <div>
-          <h3 class="mb-0" i18n="Books section heading">Books</h3>
-          <p class="text-muted mb-0" i18n="Books section description">Communication books: same-size pages with a tab on each page, printed back to back.</p>
-        </div>
-      </div>
+    <!-- Books and board sets are created and listed on separate tabs so they are not confused. The tab is remembered. -->
+    <mat-tab-group class="kind-tabs" [selectedIndex]="selectedTab" (selectedIndexChange)="selectTab($event)" animationDuration="0ms">
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="tab-icon books-icon">menu_book</mat-icon>
+          <ng-container i18n="Books tab|Books tab on the landing page">Books</ng-container>&nbsp;({{filteredBooks.length}})
+        </ng-template>
+
+        <section class="kind-section books">
+          <p class="text-muted section-description" i18n="Books section description">Communication books: same-size pages with a tab on each page, printed back to back.</p>
       <div class="board-row">
         <div fxLayout="row wrap" fxLayoutGap="1rem grid">
           <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngIf="!searching">
@@ -80,16 +82,18 @@
           </app-board-set-tile>
         </div>
       </div>
-    </section>
+          <p class="text-muted" *ngIf="searching && filteredBooks.length === 0" i18n="no matching books">No matching books.</p>
+        </section>
+      </mat-tab>
 
-    <section class="kind-section board-sets" *ngIf="!searching || filteredBoardSets.length">
-      <div class="section-heading" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
-        <mat-icon class="section-icon">dashboard</mat-icon>
-        <div>
-          <h3 class="mb-0" i18n="Board Sets section heading">Board Sets</h3>
-          <p class="text-muted mb-0" i18n="Board Sets section description">Collections of communication boards, in any size and layout.</p>
-        </div>
-      </div>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="tab-icon">dashboard</mat-icon>
+          <ng-container i18n="Board Sets tab|Board Sets tab on the landing page">Board Sets</ng-container>&nbsp;({{filteredBoardSets.length}})
+        </ng-template>
+
+        <section class="kind-section board-sets">
+          <p class="text-muted section-description" i18n="Board Sets section description">Collections of communication boards, in any size and layout.</p>
       <div class="board-row">
         <div fxLayout="row wrap" fxLayoutGap="1rem grid">
           <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngIf="!searching">
@@ -110,16 +114,19 @@
           </app-board-set-tile>
         </div>
       </div>
-    </section>
+          <p class="text-muted" *ngIf="searching && filteredBoardSets.length === 0" i18n="no matching board sets">No matching board sets.</p>
 
-    <p class="text-muted" *ngIf="searching && visibleItems.length === 0" i18n="no matching books or board sets">No matching books or board sets.</p>
+          <h2 i18n="Board Sets Featured heading" *ngIf="!activeFolder">Featured Board Sets</h2>
+          <div fxLayout="row wrap" fxLayoutGap="1rem grid" *ngIf="!activeFolder">
+            <app-board-set-tile *ngFor="let boardSet of featuredBoardSets" [boardSet]="boardSet" fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
+            </app-board-set-tile>
+          </div>
+
+        </section>
+      </mat-tab>
+    </mat-tab-group>
+
     <p class="text-muted" *ngIf="activeFolder && !searching && visibleItems.length === 0" i18n="empty folder">This folder is empty.</p>
-
-    <h2 i18n="Board Sets Featured heading" *ngIf="!activeFolder">Featured Board Sets</h2>
-    <div fxLayout="row wrap" fxLayoutGap="1rem grid" *ngIf="!activeFolder">
-      <app-board-set-tile *ngFor="let boardSet of featuredBoardSets" [boardSet]="boardSet" fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
-      </app-board-set-tile>
-    </div>
 
   </ng-container>
 
