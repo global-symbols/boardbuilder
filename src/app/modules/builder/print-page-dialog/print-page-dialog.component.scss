@@ -1,0 +1,45 @@
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.book-position {
+  margin-left: 0.25rem;
+}
+
+// Page sketch: grid plus a tab column 2/3 of a cell wide.
+.sketch {
+  display: flex;
+  gap: 3px;
+  width: 160px;
+  height: 180px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.sketch-grid,
+.sketch-tabs {
+  display: grid;
+  gap: 3px;
+}
+
+.sketch-tabs {
+  flex: 0.667;
+}
+
+.sketch-cell {
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  background: white;
+}
+
+.sketch-tab {
+  border-radius: 0 3px 3px 0;
+
+  &.filled {
+    background: #4472c4;
+  }
+}

@@ -17,6 +17,10 @@ export class Template implements Deserialisable {
   showTabs: boolean;
   imageTextSpacing: number;
 
+  // Book pages only, for this print: tab row (1 = top) and whether the back page follows.
+  tabRow?: number;
+  includeBackPage?: boolean;
+
   deserialise(input: any): this {
     if (input.pageSize) { this.pageSize = new PageSize().deserialise(input.pageSize); }
     return Object.assign(this, input);

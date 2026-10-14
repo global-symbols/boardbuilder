@@ -45,6 +45,7 @@
                             (translateBoard)="translateBoard($event)"
                             (updateBoard)="loadBoardSet()"
                             (boardAdded)="reloadAndSelect($event)"
+                            (printPage)="printPage($event)"
                             fxFlex="grow"
                             style="overflow-y: overlay"
         ></app-book-page-list>
@@ -130,12 +131,10 @@
 
 <mat-menu #matBoardSetMenu="matMenu">
   <ng-container *ngIf="boardSet?.isBook">
-    <!-- P6 and P7 enable these. -->
-    <div matTooltip="Coming soon" i18n-matTooltip="coming soon|Coming soon tooltip" matTooltipPosition="right">
-      <button mat-menu-item class="print-book" disabled>
-        <mat-icon>print</mat-icon> <ng-container i18n="print book|Print book">Print book</ng-container>
-      </button>
-    </div>
+    <button mat-menu-item class="print-book" (click)="printBook()">
+      <mat-icon>print</mat-icon> <ng-container i18n="print book|Print book">Print book</ng-container>
+    </button>
+    <!-- P7 enables this. -->
     <div matTooltip="Coming soon" i18n-matTooltip="coming soon|Coming soon tooltip" matTooltipPosition="right">
       <button mat-menu-item class="download-book" disabled>
         <mat-icon>save_alt</mat-icon> <ng-container i18n="download book|Download book">Download book</ng-container>

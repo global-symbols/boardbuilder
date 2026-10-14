@@ -75,13 +75,10 @@
       <mat-icon>translate</mat-icon>
       <ng-container i18n="translate|Translate">Translate</ng-container>
     </button>
-    <!-- P6 adds the tab position popup and the PDF screen. -->
-    <div matTooltip="Coming soon" i18n-matTooltip="coming soon|Coming soon tooltip" matTooltipPosition="right">
-      <button mat-menu-item disabled>
-        <mat-icon>print</mat-icon>
-        <ng-container i18n="print individual page|Print individual page">Print individual page</ng-container>
-      </button>
-    </div>
+    <button mat-menu-item class="print-page" (click)="printPage.emit(page)">
+      <mat-icon>print</mat-icon>
+      <ng-container i18n="print individual page|Print individual page">Print individual page</ng-container>
+    </button>
     <mat-divider></mat-divider>
     <div [matTooltip]="isLastPage ? lastPageTooltip : ''" matTooltipPosition="right">
       <button mat-menu-item class="delete-page" (click)="deleteBoard.emit(page)" [disabled]="readonly || isLastPage">

@@ -1,3 +1,4 @@
+import {PrintPageDialogComponent} from './print-page-dialog/print-page-dialog.component';
 import {BookPageListComponent} from './book-page-list/book-page-list.component';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
@@ -55,11 +56,17 @@ export const routes: Routes = [
   {
     path: 'pdf',
     loadChildren: () => import('@modules/pdf/pdf.module').then(m => m.PdfModule)
+  },
+  {
+    // Books print here, never on the board-set PDF screen (D31).
+    path: 'book-pdf',
+    loadChildren: () => import('@modules/book-pdf/book-pdf.module').then(m => m.BookPdfModule)
   }
 ];
 
 @NgModule({
     declarations: [
+    PrintPageDialogComponent,
     BookPageListComponent,
         BuilderComponent,
         CellEditorComponent,

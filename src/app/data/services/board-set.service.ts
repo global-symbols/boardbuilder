@@ -7,6 +7,14 @@ import {environment} from '@env';
 import {map} from 'rxjs/operators';
 import * as JSZip from 'jszip';
 import {ObzManifest} from '@data/models/obz-manifest.interface';
+import {Template} from '@data/models/template.model';
+
+// A whole-book PDF generated in the background (Rails BookPdfJob).
+export interface BookPdfExport {
+  id: number;
+  status: 'queued' | 'running' | 'done' | 'failed';
+  error?: { message?: string, category?: string, overflow?: number } | null;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -75,6 +83,20 @@ export class BoardSetService {
   }): Observable<BoardSet> {
     return this.http.patch<BoardSet>(`${this.apiEndpoint}/${boardSetId}/tabs`, payload)
       .pipe(map(data => new BoardSet().deserialise(data)));
+  }
+
+  // Starts generating the whole book as one PDF, in the background.
+  startBookPdfExport(book: BoardSet, template: Template): Observable<BookPdfExport> {
+    return this.http.post<BookPdfExport>(`${this.apiEndpoint}/${book.id}/book_pdf_exports`, template);
+  }
+
+  bookPdfExport(book: BoardSet, exportId: number): Observable<BookPdfExport> {
+    return this.http.get<BookPdfExport>(`${this.apiEndpoint}/${book.id}/book_pdf_exports/${exportId}`);
+  }
+
+  // The finished PDF. Rails deletes the export once it has been downloaded.
+  downloadBookPdfExport(book: BoardSet, exportId: number): Observable<Blob> {
+    return this.http.get(`${this.apiEndpoint}/${book.id}/book_pdf_exports/${exportId}/download`, { responseType: 'blob' });
   }
 
   // Adds the single back page to a book.

@@ -31,6 +31,7 @@ import {EnableTabsDialogComponent} from '../enable-tabs-dialog/enable-tabs-dialo
 import {PrintableBookDialogComponent} from '../printable-book-dialog/printable-book-dialog.component';
 import {features} from '@app/features';
 import {term} from '@shared/pipes/term.pipe';
+import {PrintPageChoice, PrintPageDialogComponent} from '../print-page-dialog/print-page-dialog.component';
 
 // Book page tab cells carry their picto too, for adaptable symbols.
 const BOARD_SET_EXPAND = 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media tabs ' +
@@ -553,6 +554,28 @@ export class BuilderComponent implements OnInit, OnDestroy {
   generatePdf() {
     this.updateBoardSet()
       .subscribe(r => this.router.navigate(['/', 'boardsets', this.boardSet.id, this.board.id, 'pdf']));
+  }
+
+  // Books print on their own screen, never the board-set PDF screen (D31).
+  printBook() {
+    this.router.navigate(['/', 'boardsets', this.boardSet.id, 'book-pdf']);
+  }
+
+  // Asks for this print's tab row (and back page), then opens the page on the book PDF screen. Nothing is saved.
+  printPage(page: Board) {
+    if (this.currentDialogRef !== undefined) { return; }
+    this.currentDialogRef = this.dialog.open(PrintPageDialogComponent, {
+      width: '520px',
+      data: { book: this.boardSet, page }
+    });
+    this.currentDialogRef.afterClosed().subscribe((choice: PrintPageChoice) => {
+      this.currentDialogRef = undefined;
+      if (choice) {
+        this.router.navigate(['/', 'boardsets', this.boardSet.id, 'book-pdf', page.id], {
+          queryParams: { tabRow: choice.tabRow, includeBackPage: choice.includeBackPage }
+        });
+      }
+    });
   }
 
   translateBoardSet() {

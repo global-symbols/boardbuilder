@@ -1,0 +1,161 @@
+<div class="section">
+
+  <div fxLayout="column" fxLayoutAlign="center center" *ngIf="board">
+
+    <div style="max-width: 750px; width: 100%" class="mb-2">
+
+      <h2 class="mb-1" *ngIf="mode === 'book'"><ng-container i18n="print book|Print book">Print book</ng-container>: {{book.name}}</h2>
+      <h2 class="mb-1" *ngIf="mode === 'page'"><ng-container i18n="print individual page|Print individual page">Print individual page</ng-container>: {{board.name}}</h2>
+
+      <p class="text-muted mb-3" *ngIf="mode === 'book'" i18n="print book intro|Explains the whole-book PDF">
+        The preview shows the first page. The PDF has every page, each followed by the back page if the book has one.
+      </p>
+      <p class="print-note mb-3" *ngIf="mode === 'page' && tabRow">
+        <ng-container i18n="tab position for this print|Tab row chosen for a single page print, followed by a number">Tab position for this print only: row</ng-container> {{tabRow}}<ng-container *ngIf="includeBackPage">,
+        <ng-container i18n="with back page|Single page print includes the back page">with the back page</ng-container></ng-container>
+      </p>
+
+      <div fxLayout="row" fxLayoutGap="20px">
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label i18n="paper size|PDF Paper Size">Paper Size</mat-label>
+          <mat-select [(value)]="template.pageSize" (valueChange)="onSettingChanged()">
+            <mat-option *ngFor="let size of pageSizes" [value]="size">{{size.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label i18n="orientation|PDF Paper Orientation">Orientation</mat-label>
+          <mat-select [(value)]="template.orientation" (valueChange)="onSettingChanged()">
+            <mat-option value="portrait" i18n="portrait|Portrait orientation">Portrait</mat-option>
+            <mat-option value="landscape" i18n="landscape|Landscape orientation">Landscape</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label i18n="text size max|PDF Maximum Text Size">Text Size (Maximum)</mat-label>
+          <mat-select [(value)]="template.fontSize" (valueChange)="onSettingChanged()">
+            <mat-option *ngFor="let size of fontSizes" [value]="size">{{size}} pt</mat-option>
+          </mat-select>
+          <mat-hint i18n="text size max hint|PDF Maximum Text Size hint">Text may shrink to fit available space</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="false">
+          <mat-expansion-panel-header>
+            <mat-panel-title i18n="advanced|Advanced settings indicator">
+              Advanced Settings
+            </mat-panel-title>
+<!--              <mat-panel-description fxLayoutAlign="end center">-->
+<!--                <mat-icon>tune</mat-icon>-->
+<!--              </mat-panel-description>-->
+          </mat-expansion-panel-header>
+
+          <div fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field appearance="outline" fxFlex="33">
+              <mat-label i18n="cell spacing|PDF Cell Spacing">Cell Spacing</mat-label>
+              <mat-select [(value)]="template.cellSpacing" (valueChange)="onSettingChanged()">
+                <mat-option *ngFor="let size of cellSpacingValues" [value]="size">{{size}} pt</mat-option>
+              </mat-select>
+              <mat-hint i18n="cell spacing hint|PDF Cell Spacing hint">Adjusts spacing between each box</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="33">
+              <mat-label i18n="cell padding|PDF Cell Padding">Cell Padding</mat-label>
+              <mat-select [(value)]="template.cellPadding" (valueChange)="onSettingChanged()">
+                <mat-option *ngFor="let size of cellSpacingValues" [value]="size">{{size}} pt</mat-option>
+              </mat-select>
+              <mat-hint i18n="cell padding hint|PDF Cell Padding hint">Adjusts spacing inside each box</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="33">
+              <mat-label i18n="cell image label spacing|PDF Cell Image/Label Spacing">Image/Label Spacing</mat-label>
+              <mat-select [(value)]="template.imageTextSpacing" (valueChange)="onSettingChanged()">
+                <mat-option [value]="-1">Automatic</mat-option>
+                <mat-option *ngFor="let size of cellSpacingValues" [value]="size">{{size}} pt</mat-option>
+              </mat-select>
+              <mat-hint i18n="cell image label spacing hint|PDF Cell Image/Label Spacing hint">Adjusts spacing between the image and label</mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div class="mt-2" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+            <mat-checkbox [(ngModel)]="template.drawCellBorders" (change)="onSettingChanged()" i18n="cell draw outlines|PDF Cell Draw Borders">
+              Cell Borders
+            </mat-checkbox>
+            <mat-form-field appearance="outline" fxFlex="120px">
+              <mat-label i18n="cell border width|PDF Cell Border Width">Border width (px)</mat-label>
+              <mat-select [(value)]="template.cellBorderWidth" (valueChange)="onSettingChanged()"
+                          [disabled]="!template.drawCellBorders">
+                <mat-option *ngFor="let w of [1,2,3,4,5,6,7,8,9,10]" [value]="w">{{w}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-checkbox [(ngModel)]="template.showHeader" (change)="onSettingChanged()" i18n="show header|PDF Show Header">
+              Show Header
+            </mat-checkbox>
+          </div>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <!-- Symbolset Information -->
+      <div *ngIf="hasPictos" class="symbolset-info mt-2 mb-3">
+        <p i18n="symbolset license notice|Legal notice about symbol licensing">Printing, copying and/or sharing of AAC
+          symbols is permitted only as allowed by their licence. Please respect the intellectual property
+          and rights of symbol creators.</p>
+        <h3 class="symbolset-title" i18n="symbolsets used|Symbolsets Used">Symbolsets Used</h3>
+        <div class="symbolset-list">
+          <div *ngFor="let info of symbolsetInfo" class="symbolset-item">
+            <a [href]="info.symbolset.publisher_url" target="_blank" rel="noopener noreferrer" class="symbolset-link">
+              {{info.symbolset.name}} symbol{{info.count > 1 ? 's' : ''}} {{info.symbolset.licence.name}}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page: download the preview. Book: generate the whole book in the background, then download it once. -->
+      <div fxLayoutAlign="space-between center" class="mt-2">
+        <div class="mb-1 book-export" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+          <button *ngIf="mode === 'page'" mat-raised-button color="primary" class="download-page"
+                  [disabled]="status != 'success'" (click)="downloadPage()" i18n="download|Download">Download</button>
+
+          <ng-container *ngIf="mode === 'book'">
+            <button mat-raised-button color="primary" class="generate-book" *ngIf="!bookReady"
+                    [disabled]="generating || status === 'loading'" (click)="generateBook()" i18n="generate pdf|Generate PDF button">Generate PDF</button>
+
+            <div class="export-progress" *ngIf="generating" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+              <mat-progress-spinner mode="indeterminate" diameter="24"></mat-progress-spinner>
+              <span i18n="generating book pdf|Shown while the whole-book PDF is generated">Generating your book… large books can take a few minutes.</span>
+            </div>
+
+            <a class="download-link" *ngIf="bookReady" (click)="downloadBook()" (keyup.enter)="downloadBook()" tabindex="0" role="link">
+              <mat-icon class="align-middle">download</mat-icon>
+              <ng-container i18n="download book pdf|Link to download the finished book PDF">Download book PDF</ng-container>
+            </a>
+            <span class="text-danger export-error" *ngIf="exportError">{{exportError}}</span>
+          </ng-container>
+        </div>
+
+        <button mat-button color="primary" mat-stroked-button (click)="setTemplateDefaults()" *ngIf="showReset"
+          i18n="pdf reset settings|PDF Reset Settings button">Reset Settings</button>
+      </div>
+
+    </div>
+
+    <app-loading-notice *ngIf="status === 'loading' || status === 'error'" action="Generating" i18n-subject="generating|Generating (working/building)" subject="PDF" [error]="!!apiError"></app-loading-notice>
+
+    <div class="mt-3" *ngIf="apiError?.category === 'insufficient_cell_height'">
+      <span i18n="pdf error fit help|PDF Generator fit error">We can't fit everything on the page with your chosen settings. You can fix this by&hellip;</span>
+      <ul>
+        <li i18n="PDF Generator error suggestion 1">Reducing Cell Spacing or Cell Padding by at least {{apiError.overflow / 2}} pt.</li>
+        <li i18n="PDF Generator error suggestion 2">Reducing Image/Label Spacing by at least {{apiError.overflow}} pt.</li>
+        <li i18n="PDF Generator error suggestion 3" *ngIf="['above', 'below'].includes(board.captions_position)">
+          Reducing Text Size by at least {{apiError.overflow}} pt.
+        </li>
+        <li i18n="PDF Generator error suggestion 4">Using a larger Paper Size.</li>
+      </ul>
+    </div>
+
+    <object [style.visibility]="status === 'success' ? 'visible' : 'hidden'"
+            [data]="compiledPdfUrl | bypassSanitiser: 'resourceUrl'" style="max-width: 1000px; width: 100%" [height]="pdfEmbedHeight"></object>
+  </div>
+</div>
