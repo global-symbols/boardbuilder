@@ -8,7 +8,7 @@
       <h2 class="mb-1" *ngIf="mode === 'page'"><ng-container i18n="print individual page|Print individual page">Print individual page</ng-container>: {{board.name}}</h2>
 
       <p class="text-muted mb-3" *ngIf="mode === 'book'" i18n="print book intro|Explains the whole-book PDF">
-        The preview shows the first page. The PDF has every page, each followed by the back page if the book has one.
+        Every page, each followed by the back page if the book has one.
       </p>
       <p class="print-note mb-3" *ngIf="mode === 'page' && tabRow">
         <ng-container i18n="tab position for this print|Tab row chosen for a single page print, followed by a number">Tab position for this print only: row</ng-container> {{tabRow}}<ng-container *ngIf="includeBackPage">,
@@ -112,27 +112,17 @@
         </div>
       </div>
 
-      <!-- Page: download the preview. Book: generate the whole book in the background, then download it once. -->
       <div fxLayoutAlign="space-between center" class="mt-2">
-        <div class="mb-1 book-export" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
-          <button *ngIf="mode === 'page'" mat-raised-button color="primary" class="download-page"
-                  [disabled]="status != 'success'" (click)="downloadPage()" i18n="download|Download">Download</button>
-
-          <ng-container *ngIf="mode === 'book'">
-            <button mat-raised-button color="primary" class="generate-book" *ngIf="!bookReady"
-                    [disabled]="generating || status === 'loading'" (click)="generateBook()" i18n="generate pdf|Generate PDF button">Generate PDF</button>
-
-            <div class="export-progress" *ngIf="generating" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-              <mat-progress-spinner mode="indeterminate" diameter="24"></mat-progress-spinner>
-              <span i18n="generating book pdf|Shown while the whole-book PDF is generated">Generating your book… large books can take a few minutes.</span>
-            </div>
-
-            <a class="download-link" *ngIf="bookReady" (click)="downloadBook()" (keyup.enter)="downloadBook()" tabindex="0" role="link">
-              <mat-icon class="align-middle">download</mat-icon>
-              <ng-container i18n="download book pdf|Link to download the finished book PDF">Download book PDF</ng-container>
-            </a>
-            <span class="text-danger export-error" *ngIf="exportError">{{exportError}}</span>
-          </ng-container>
+        <div class="mb-1">
+          <button mat-raised-button [disabled]="status != 'success'" (click)="downloadPdf()" color="primary" class="mr-2 download" i18n="download|Download">
+            Download
+          </button>
+          <button mat-icon-button [disabled]="status == 'loading'"
+                  aria-label="Refresh PDF" i18n-aria-label="refresh pdf|Refresh PDF"
+                  matTooltip="Refresh PDF" i18n-matTooltip="refresh pdf|Refresh PDF"
+                  (click)="loadPreview()" matTooltipPosition="right">
+            <mat-icon>refresh</mat-icon>
+          </button>
         </div>
 
         <button mat-button color="primary" mat-stroked-button (click)="setTemplateDefaults()" *ngIf="showReset"
@@ -142,6 +132,9 @@
     </div>
 
     <app-loading-notice *ngIf="status === 'loading' || status === 'error'" action="Generating" i18n-subject="generating|Generating (working/building)" subject="PDF" [error]="!!apiError"></app-loading-notice>
+    <!-- Book mode follows the background job page by page. -->
+    <p class="text-muted book-progress" *ngIf="status === 'loading' && progressText">{{progressText}}</p>
+    <p class="text-danger export-error" *ngIf="status === 'error' && apiError?.message && apiError?.category !== 'insufficient_cell_height'">{{apiError.message}}</p>
 
     <div class="mt-3" *ngIf="apiError?.category === 'insufficient_cell_height'">
       <span i18n="pdf error fit help|PDF Generator fit error">We can't fit everything on the page with your chosen settings. You can fix this by&hellip;</span>

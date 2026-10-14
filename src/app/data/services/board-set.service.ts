@@ -13,6 +13,9 @@ import {Template} from '@data/models/template.model';
 export interface BookPdfExport {
   id: number;
   status: 'queued' | 'running' | 'done' | 'failed';
+  // Sheets drawn so far, and in total.
+  progress?: number;
+  total?: number;
   error?: { message?: string, category?: string, overflow?: number } | null;
 }
 

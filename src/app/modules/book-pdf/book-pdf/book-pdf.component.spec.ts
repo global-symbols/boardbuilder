@@ -75,8 +75,8 @@ describe('BookPdfComponent', () => {
       expect(template.pageSize.name).toBe('A4');
       expect([template.cellSpacing, template.cellPadding, template.showHeader]).toEqual([10, 10, false]);
       expect(fixture.nativeElement.textContent).toContain('Tab position for this print only: row');
-      expect(fixture.nativeElement.querySelector('.download-page')).toBeTruthy();
-      expect(fixture.nativeElement.querySelector('.generate-book')).toBeNull();
+      expect(fixture.nativeElement.querySelector('.download')).toBeTruthy();
+      expect(boardSetService.startBookPdfExport).not.toHaveBeenCalled();
     });
 
     it('has no board-set "Enable tabs" option', () => {
@@ -87,74 +87,70 @@ describe('BookPdfComponent', () => {
   });
 
   describe('book mode', () => {
-    it('previews page 1 only, with no tab override', () => {
+    function expectExport(states: any[]) {
+      boardSetService.startBookPdfExport.and.returnValue(of({ id: 5, status: 'queued', progress: 0, total: 0 }));
+      boardSetService.bookPdfExport.and.returnValues(...states.map(state => of({ id: 5, ...state })));
+      boardSetService.downloadBookPdfExport.and.returnValue(of(new Blob(['%PDF book'], { type: 'application/pdf' })));
+    }
+
+    it('previews the whole book through a background export, following its progress', fakeAsync(() => {
+      expectExport([
+        { status: 'running', progress: 2, total: 6 },
+        { status: 'done', progress: 6, total: 6 }
+      ]);
       create({ id: '1' });
 
-      const { boardId, template } = lastPreview();
-      expect(boardId).toBe(10);
-      expect(template.tabRow).toBeUndefined();
-      expect(template.includeBackPage).toBeUndefined();
-      expect(fixture.nativeElement.querySelector('.generate-book')).toBeTruthy();
-    });
-
-    it('generates in the background, shows a spinner while polling, then a download link', fakeAsync(() => {
-      create({ id: '1' });
-      boardSetService.startBookPdfExport.and.returnValue(of({ id: 5, status: 'queued' }));
-      boardSetService.bookPdfExport.and.returnValues(of({ id: 5, status: 'running' }), of({ id: 5, status: 'done' }));
-
-      component.generateBook();
-      fixture.detectChanges();
       expect(boardSetService.startBookPdfExport).toHaveBeenCalledWith(component.book, component.template);
-      expect(fixture.nativeElement.querySelector('.export-progress')).toBeTruthy();
+      expect(boardService.pdfBlob).not.toHaveBeenCalled();
+      tick(0);
+      fixture.detectChanges();
+      expect(component.status).toBe('loading');
+      expect(fixture.nativeElement.querySelector('.book-progress').textContent).toContain('Page 3 of 6');
 
       tick(BOOK_EXPORT_POLL_MS);
       fixture.detectChanges();
-      expect(component.generating).toBeTrue();
-
-      tick(BOOK_EXPORT_POLL_MS);
-      fixture.detectChanges();
-      expect(component.bookReady).toBeTrue();
-      expect(fixture.nativeElement.querySelector('.export-progress')).toBeNull();
-      expect(fixture.nativeElement.querySelector('.download-link')).toBeTruthy();
-      expect(boardSetService.bookPdfExport).toHaveBeenCalledTimes(2);
+      expect(boardSetService.downloadBookPdfExport).toHaveBeenCalledWith(component.book, 5);
+      expect(component.status).toBe('success');
+      expect(fixture.nativeElement.querySelector('.book-progress')).toBeNull();
       discardPeriodicTasks();
     }));
 
-    it('downloads the finished book once', fakeAsync(() => {
+    it('downloads the whole book shown in the preview', fakeAsync(() => {
+      expectExport([{ status: 'done', progress: 6, total: 6 }]);
       create({ id: '1' });
-      component.bookExport = { id: 5, status: 'done' };
-      boardSetService.downloadBookPdfExport.and.returnValue(of(new Blob(['%PDF'])));
+      tick(0);
+      fixture.detectChanges();
 
-      component.downloadBook();
-      flush();
+      component.downloadPdf();
 
-      expect(boardSetService.downloadBookPdfExport).toHaveBeenCalledWith(component.book, 5);
-      expect(component.bookExport).toBeNull();
+      expect(boardSetService.downloadBookPdfExport).toHaveBeenCalledTimes(1);
+      expect(fixture.nativeElement.querySelector('.download').disabled).toBeFalse();
+      discardPeriodicTasks();
+      flush(); // file-saver's delayed clean-up
     }));
 
-    it('changing a setting drops the generated book and refreshes the preview', () => {
+    it('changing a setting starts a new export for the preview', fakeAsync(() => {
+      expectExport([{ status: 'done', progress: 6, total: 6 }, { status: 'running', progress: 0, total: 6 }]);
       create({ id: '1' });
-      component.bookExport = { id: 5, status: 'done' };
-      const previews = boardService.pdfBlob.calls.count();
+      tick(0);
 
       component.template.cellSpacing = 20;
       component.onSettingChanged();
 
-      expect(component.bookExport).toBeNull();
-      expect(boardService.pdfBlob.calls.count()).toBe(previews + 1);
-    });
+      expect(component.status).toBe('loading');
+      expect(boardSetService.startBookPdfExport).toHaveBeenCalledTimes(2);
+      discardPeriodicTasks();
+    }));
 
-    it('explains a failed book, e.g. when the layout does not fit', fakeAsync(() => {
+    it('shows the board-set "can\'t fit" help when the layout does not fit', fakeAsync(() => {
+      expectExport([{ status: 'failed', error: { category: 'insufficient_cell_height', overflow: 12 } }]);
       create({ id: '1' });
-      boardSetService.startBookPdfExport.and.returnValue(of({ id: 5, status: 'queued' }));
-      boardSetService.bookPdfExport.and.returnValue(of({ id: 5, status: 'failed', error: { category: 'insufficient_cell_height' } }));
-
-      component.generateBook();
-      tick(BOOK_EXPORT_POLL_MS);
+      tick(0);
       fixture.detectChanges();
 
-      expect(component.generating).toBeFalse();
-      expect(fixture.nativeElement.querySelector('.export-error').textContent).toContain('can\'t fit');
+      expect(component.status).toBe('error');
+      expect(component.apiError.category).toBe('insufficient_cell_height');
+      expect(fixture.nativeElement.textContent).toContain('can\'t fit everything on the page');
       discardPeriodicTasks();
     }));
   });

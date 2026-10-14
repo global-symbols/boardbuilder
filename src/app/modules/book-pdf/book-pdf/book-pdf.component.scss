@@ -85,17 +85,7 @@ mat-progress-spinner {
   background: rgba(0, 121, 107, 0.06);
 }
 
-.book-export {
-  min-height: 48px;
-}
-
-.export-progress {
-  mat-progress-spinner {
-    margin: 0;
-  }
-}
-
-a.download-link {
-  cursor: pointer;
-  font-weight: 500;
+.book-progress {
+  margin-top: -1rem;
+  text-align: center;
 }

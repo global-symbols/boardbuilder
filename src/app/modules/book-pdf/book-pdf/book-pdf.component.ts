@@ -16,14 +16,14 @@ import {PageSize} from '@data/models/page-size.model';
 import {ApiError} from '@data/interfaces/api-error.interface';
 import {Symbolset} from '@data/models/symbolset';
 
-// How often the page asks whether a book PDF has finished.
-export const BOOK_EXPORT_POLL_MS = 2000;
+// How often the page asks how far the book PDF has got.
+export const BOOK_EXPORT_POLL_MS = 1000;
 
-// Prints books (D31). Same settings and defaults as the board-set PDF screen.
-// - Book mode (/boardsets/:id/book-pdf): previews page 1; Generate PDF builds the whole book in the background,
-//   then offers a download link.
-// - Page mode (/boardsets/:id/book-pdf/:board_id?tabRow=&includeBackPage=): previews one page (and its back)
-//   with the tab row chosen for this print only, and downloads it.
+// Prints books (D31). Same layout, settings and defaults as the board-set PDF screen.
+// - Book mode (/boardsets/:id/book-pdf): the preview is the whole book (each page followed by the back page),
+//   generated in the background; the loading notice follows the job page by page.
+// - Page mode (/boardsets/:id/book-pdf/:board_id?tabRow=&includeBackPage=): one page (and its back) with the
+//   tab row chosen for this print only, generated straight away.
 @Component({
   selector: 'app-book-pdf',
   templateUrl: './book-pdf.component.html',
@@ -32,7 +32,7 @@ export const BOOK_EXPORT_POLL_MS = 2000;
 export class BookPdfComponent implements OnInit, OnDestroy {
 
   book: BoardSet;
-  // The page previewed: the chosen page, or page 1 for the whole book.
+  // The chosen page, or page 1 for the whole book (it sets the default orientation and text size).
   board: Board;
   mode: 'book' | 'page';
   tabRow: number | null = null;
@@ -52,10 +52,8 @@ export class BookPdfComponent implements OnInit, OnDestroy {
   pdfEmbedWidth = 1000;
   pdfEmbedHeight = 600;
 
-  // Whole-book export (book mode).
+  // Book mode: the background export behind the preview.
   bookExport: BookPdfExport | null = null;
-  exportError: string | null = null;
-  downloading = false;
   private poll: Subscription;
 
   symbolsets: Symbolset[] = [];
@@ -97,8 +95,11 @@ export class BookPdfComponent implements OnInit, OnDestroy {
     return !!this.bookExport && ['queued', 'running'].includes(this.bookExport.status);
   }
 
-  get bookReady(): boolean {
-    return this.bookExport?.status === 'done';
+  // "page 5 of 12" while the book generates.
+  get progressText(): string | null {
+    const progress = this.bookExport;
+    if (!progress?.total) { return null; }
+    return $localize`:book pdf progress|Pages of the book PDF drawn so far:Page ${Math.min(progress.progress + 1, progress.total)}:done: of ${progress.total}:total:`;
   }
 
   get hasPictos(): boolean {
@@ -131,11 +132,7 @@ export class BookPdfComponent implements OnInit, OnDestroy {
     this.settingsChanged();
   }
 
-  // New settings: refresh the preview and drop any whole-book PDF made with the old ones.
   private settingsChanged(): void {
-    this.stopPolling();
-    this.bookExport = null;
-    this.exportError = null;
     this.loadPreview();
   }
 
@@ -149,24 +146,36 @@ export class BookPdfComponent implements OnInit, OnDestroy {
     return template;
   }
 
+  // Regenerates the preview: the page straight away, or the whole book through a background export.
   loadPreview(): void {
     this.status = 'loading';
     this.apiError = null;
     this.setEmbedHeight();
     this.revokeCompiledPdfUrl();
+    this.stopPolling();
+    this.bookExport = null;
 
-    this.boardService.pdfBlob(this.board.id, this.previewTemplate()).then(blob => {
-      this.compiledPdfBlob = blob;
-      this.compiledPdfUrl = URL.createObjectURL(blob);
-      this.status = 'success';
-    }, (error: HttpErrorResponse) => {
-      this.status = 'error';
-      if (error.error instanceof Blob) {
-        error.error.text().then(text => {
-          try { this.apiError = JSON.parse(text).error; } catch (e) { /* not JSON */ }
-        });
-      }
-    });
+    if (this.mode === 'book') {
+      this.generateBook();
+      return;
+    }
+
+    this.boardService.pdfBlob(this.board.id, this.previewTemplate()).then(
+      blob => this.showPdf(blob),
+      (error: HttpErrorResponse) => {
+        this.status = 'error';
+        if (error.error instanceof Blob) {
+          error.error.text().then(text => {
+            try { this.apiError = JSON.parse(text).error; } catch (e) { /* not JSON */ }
+          });
+        }
+      });
+  }
+
+  private showPdf(blob: Blob): void {
+    this.compiledPdfBlob = blob;
+    this.compiledPdfUrl = URL.createObjectURL(blob);
+    this.status = 'success';
   }
 
   setEmbedHeight(): void {
@@ -178,64 +187,44 @@ export class BookPdfComponent implements OnInit, OnDestroy {
     }
   }
 
-  // Page mode: download what the preview shows.
-  downloadPage(): void {
+  downloadPdf(): void {
     if (this.compiledPdfBlob) {
-      saveAs(this.compiledPdfBlob, `${this.board.name}.pdf`);
+      saveAs(this.compiledPdfBlob, `${this.mode === 'book' ? this.book.name : this.board.name}.pdf`);
     }
   }
 
-  // Book mode: start the whole book in the background and poll until it is ready.
-  generateBook(): void {
-    if (this.generating) { return; }
-    this.exportError = null;
-    this.bookExport = { id: null, status: 'queued' };
-
-    this.boardSetService.startBookPdfExport(this.book, this.template).subscribe(started => {
-      this.bookExport = started;
-      this.watchExport(started.id);
-    }, () => this.exportFailed());
+  // Starts the whole book in the background (replacing any earlier export) and follows it until it is ready.
+  private generateBook(): void {
+    this.bookExport = { id: null, status: 'queued', progress: 0, total: 0 };
+    this.boardSetService.startBookPdfExport(this.book, this.template).subscribe(
+      started => this.watchExport(started),
+      () => this.exportFailed());
   }
 
-  private watchExport(exportId: number): void {
-    this.stopPolling();
-    if (!this.generating) { return this.showExportOutcome(); }
-
-    this.poll = timer(BOOK_EXPORT_POLL_MS, BOOK_EXPORT_POLL_MS).pipe(
-      switchMap(() => this.boardSetService.bookPdfExport(this.book, exportId)),
+  private watchExport(started: BookPdfExport): void {
+    this.bookExport = started;
+    this.poll = timer(0, BOOK_EXPORT_POLL_MS).pipe(
+      switchMap(() => this.boardSetService.bookPdfExport(this.book, started.id)),
       takeWhile(state => ['queued', 'running'].includes(state.status), true)
     ).subscribe(state => {
       this.bookExport = state;
-      this.showExportOutcome();
+      if (state.status === 'done') { this.fetchBook(state.id); }
+      if (state.status === 'failed') { this.exportFailed(state.error); }
     }, () => this.exportFailed());
   }
 
-  private showExportOutcome(): void {
-    if (this.bookExport?.status !== 'failed') { return; }
-    const error = this.bookExport.error;
-    this.exportError = error?.category === 'insufficient_cell_height'
-      ? $localize`:book pdf fit error|Book PDF could not fit the layout:We can't fit everything on the page with these settings. Try smaller spacing, padding or text, or a larger paper size.`
-      : $localize`:book pdf failed|Book PDF generation failed:The book PDF could not be generated. Please try again.`;
+  // The finished file is fetched once (Rails then deletes it) and kept here for the preview and Download.
+  private fetchBook(exportId: number): void {
+    this.boardSetService.downloadBookPdfExport(this.book, exportId).subscribe(
+      blob => this.showPdf(blob),
+      () => this.exportFailed());
   }
 
-  private exportFailed(): void {
+  private exportFailed(error?: BookPdfExport['error']): void {
     this.stopPolling();
-    this.bookExport = { id: this.bookExport?.id, status: 'failed' };
-    this.showExportOutcome();
-  }
-
-  // The file can be downloaded once: Rails deletes it afterwards, so the link goes too.
-  downloadBook(): void {
-    if (!this.bookReady || this.downloading) { return; }
-    this.downloading = true;
-    this.boardSetService.downloadBookPdfExport(this.book, this.bookExport.id).subscribe(blob => {
-      saveAs(blob, `${this.book.name}.pdf`);
-      this.bookExport = null;
-      this.downloading = false;
-    }, () => {
-      this.downloading = false;
-      this.exportFailed();
-    });
+    this.status = 'error';
+    // Layout errors look like the single-board ones, so the same "can't fit" help shows.
+    this.apiError = (error || { message: 'The book PDF could not be generated' }) as ApiError;
   }
 
   returnToBook(): void {
