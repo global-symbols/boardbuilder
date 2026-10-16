@@ -89,8 +89,8 @@ describe('BoardSetsComponent', () => {
 
     expect(page.querySelector('h2').textContent).toContain('My Books & Board Sets');
     expect(labels.length).toBe(2);
-    expect(labels[0]).toContain('Books (1)');
-    expect(labels[1]).toContain('Board Sets (1)');
+    expect(labels[0]).toContain('Board Sets (1)');
+    expect(labels[1]).toContain('Books (1)');
     expect(page.querySelector('.books .add-book').textContent).toContain('Create Book');
     expect(page.querySelector('.board-sets')).toBeNull('only the open tab is drawn');
 
@@ -103,7 +103,7 @@ describe('BoardSetsComponent', () => {
 
   it('remembers the chosen tab per browser', () => {
     component.selectTab(BOARD_SETS_TAB);
-    expect(localStorage.getItem(LANDING_TAB_KEY)).toBe(String(BOARD_SETS_TAB));
+    expect(localStorage.getItem(LANDING_TAB_KEY)).toBe('board-sets');
 
     const next = TestBed.createComponent(BoardSetsComponent);
     next.detectChanges();

@@ -56,38 +56,6 @@
 
       <mat-tab>
         <ng-template mat-tab-label>
-          <mat-icon class="tab-icon books-icon">menu_book</mat-icon>
-          <ng-container i18n="Books tab|Books tab on the landing page">Books</ng-container>&nbsp;({{filteredBooks.length}})
-        </ng-template>
-
-        <section class="kind-section books">
-          <p class="text-muted section-description" i18n="Books section description">Communication books: same-size pages with a tab on each page, printed back to back.</p>
-      <div class="board-row">
-        <div fxLayout="row wrap" fxLayoutGap="1rem grid">
-          <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngIf="!searching">
-            <mat-card fxFlexFill class="add-card add-book">
-              <mat-card-actions fxFlex fxLayout="column" class="p-0">
-                <button fxFlex mat-flat-button class="create-button" (click)="newBook()">
-                  <mat-icon class="mat-icon-2x">menu_book</mat-icon><br/>
-                  <ng-container i18n="create book|Create Book button">Create Book</ng-container>
-                </button>
-                <button mat-flat-button class="mt-1 import-button" (click)="importBook()" i18n="import book|Import Book button">Import Book</button>
-              </mat-card-actions>
-            </mat-card>
-          </div>
-
-          <app-board-set-tile *ngFor="let boardSet of filteredBooks" [boardSet]="boardSet" [menu]="menu"
-                              [folderName]="searching ? folderName(boardSet) : ''"
-                              fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
-          </app-board-set-tile>
-        </div>
-      </div>
-          <p class="text-muted" *ngIf="searching && filteredBooks.length === 0" i18n="no matching books">No matching books.</p>
-        </section>
-      </mat-tab>
-
-      <mat-tab>
-        <ng-template mat-tab-label>
           <mat-icon class="tab-icon">dashboard</mat-icon>
           <ng-container i18n="Board Sets tab|Board Sets tab on the landing page">Board Sets</ng-container>&nbsp;({{filteredBoardSets.length}})
         </ng-template>
@@ -122,6 +90,38 @@
             </app-board-set-tile>
           </div>
 
+        </section>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="tab-icon books-icon">menu_book</mat-icon>
+          <ng-container i18n="Books tab|Books tab on the landing page">Books</ng-container>&nbsp;({{filteredBooks.length}})
+        </ng-template>
+
+        <section class="kind-section books">
+          <p class="text-muted section-description" i18n="Books section description">Communication books: same-size pages with a tab on each page, printed back to back.</p>
+      <div class="board-row">
+        <div fxLayout="row wrap" fxLayoutGap="1rem grid">
+          <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngIf="!searching">
+            <mat-card fxFlexFill class="add-card add-book">
+              <mat-card-actions fxFlex fxLayout="column" class="p-0">
+                <button fxFlex mat-flat-button class="create-button" (click)="newBook()">
+                  <mat-icon class="mat-icon-2x">menu_book</mat-icon><br/>
+                  <ng-container i18n="create book|Create Book button">Create Book</ng-container>
+                </button>
+                <button mat-flat-button class="mt-1 import-button" (click)="importBook()" i18n="import book|Import Book button">Import Book</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+
+          <app-board-set-tile *ngFor="let boardSet of filteredBooks" [boardSet]="boardSet" [menu]="menu"
+                              [folderName]="searching ? folderName(boardSet) : ''"
+                              fxFlex.xs="50" fxFlex.sm="33" fxFlex="25">
+          </app-board-set-tile>
+        </div>
+      </div>
+          <p class="text-muted" *ngIf="searching && filteredBooks.length === 0" i18n="no matching books">No matching books.</p>
         </section>
       </mat-tab>
     </mat-tab-group>

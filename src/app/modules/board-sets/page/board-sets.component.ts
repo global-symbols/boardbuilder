@@ -15,10 +15,11 @@ import {MoveToFolderDialogComponent} from '@modules/board-sets/move-to-folder-di
 import {TranslateBoardSetDialogComponent} from '@shared/components/translate-board-set-dialog/translate-board-set-dialog.component';
 import {CopyBoardSetDialogComponent} from '@shared/components/copy-board-set-dialog/copy-board-set-dialog.component';
 
-// The landing page's Books / Board Sets tab, remembered per browser.
+// The landing page's Board Sets / Books tab (in that order), remembered per browser by name.
 export const LANDING_TAB_KEY = 'boardbuilder.landing.tab';
-export const BOOKS_TAB = 0;
-export const BOARD_SETS_TAB = 1;
+export const BOARD_SETS_TAB = 0;
+export const BOOKS_TAB = 1;
+const TAB_NAMES = ['board-sets', 'books'];
 
 @Component({
   selector: 'app-board-sets',
@@ -89,14 +90,14 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   selectTab(index: number): void {
     this.selectedTab = index;
     this.tabRemembered = true;
-    try { localStorage.setItem(LANDING_TAB_KEY, String(index)); } catch (e) { /* storage unavailable */ }
+    try { localStorage.setItem(LANDING_TAB_KEY, TAB_NAMES[index]); } catch (e) { /* storage unavailable */ }
   }
 
   private restoreTab(): void {
     try {
-      const stored = localStorage.getItem(LANDING_TAB_KEY);
-      if (stored === String(BOOKS_TAB) || stored === String(BOARD_SETS_TAB)) {
-        this.selectedTab = Number(stored);
+      const index = TAB_NAMES.indexOf(localStorage.getItem(LANDING_TAB_KEY));
+      if (index !== -1) {
+        this.selectedTab = index;
         this.tabRemembered = true;
       }
     } catch (e) { /* storage unavailable */ }
