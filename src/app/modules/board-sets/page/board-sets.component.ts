@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {environment} from '@env';
 import {BoardSetService} from '@data/services/board-set.service';
 import {BoardSet} from '@data/models/boardset.model';
 import {Router} from '@angular/router';
@@ -43,6 +44,8 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   readonly booksTab = BOOKS_TAB;
   private tabRemembered = false;
   private booksIntroSeen = readFlag(BOOKS_INTRO_SEEN_KEY);
+  private readonly booksIntroPreview = !environment.production &&
+    new URLSearchParams(window.location.search).get('booksIntro') === 'preview';
 
   loading: boolean;
   private currentDialogRef;
@@ -58,6 +61,7 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    if (this.booksIntroPreview) { this.booksIntroSeen = false; }
     this.restoreTab();
     this.loadBoardSets();
     this.loadFolders();
@@ -96,7 +100,9 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   }
 
   // Shown until someone with no books opens the Books tab or dismisses it.
+  // Outside production, ?booksIntro=preview shows it anyway, to check how it looks.
   get showBooksIntro(): boolean {
+    if (this.booksIntroPreview) { return !this.booksIntroSeen; }
     return !this.loading && !this.booksIntroSeen && !this.boardSets.some(item => item.isBook);
   }
 
