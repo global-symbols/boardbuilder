@@ -3,6 +3,9 @@ import {BoardSet} from '@data/models/boardset.model';
 
 export type Term = 'board' | 'boards' | 'boardSet' | 'boardSets';
 
+// The landing page, which lists both books and board sets; back buttons to it use this name (D35).
+export const LANDING_PAGE_NAME = $localize`:Books and Board Sets heading:My Books & Board Sets`;
+
 // Visible wording for board sets and books. A book calls its boards pages.
 const TERMS: { [key in Term]: { boardSet: string, book: string } } = {
   board: {

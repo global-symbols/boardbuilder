@@ -102,7 +102,7 @@ describe('BuilderComponent', () => {
     expect(component.board.name).toBe('First');
     expect(fixture.nativeElement.querySelector('app-book-page-list')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('app-board-tree')).toBeNull();
-    expect(toolbar.setButtons.calls.mostRecent().args[0][0].text).toBe('Books');
+    expect(toolbar.setButtons.calls.mostRecent().args[0][0].text).toBe('My Books & Board Sets');
   });
 
   it('keeps the board tree for board sets', () => {
@@ -110,7 +110,7 @@ describe('BuilderComponent', () => {
 
     expect(fixture.nativeElement.querySelector('app-board-tree')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('app-book-page-list')).toBeNull();
-    expect(toolbar.setButtons.calls.mostRecent().args[0][0].text).toBe('Board Sets');
+    expect(toolbar.setButtons.calls.mostRecent().args[0][0].text).toBe('My Books & Board Sets');
   });
 
   it('book menu: Print book and Download book, no OBF, OBZ or tab settings', () => {

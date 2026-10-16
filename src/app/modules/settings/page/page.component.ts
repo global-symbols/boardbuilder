@@ -1,3 +1,4 @@
+import {LANDING_PAGE_NAME} from '@shared/pipes/term.pipe';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Cell} from '@data/models/cell.model';
 import {UserService} from '@data/services/user.service';
@@ -50,7 +51,7 @@ export class PageComponent implements OnInit, OnDestroy {
     });
 
     this.toolbarService.setButtons([{
-      text: 'Board Sets',
+      text: LANDING_PAGE_NAME,
       icon: 'arrow_back',
       action: () => this.router.navigate(['/', 'boardsets'])
     }]);

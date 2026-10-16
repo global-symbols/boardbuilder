@@ -30,7 +30,7 @@ import {CellActionsService} from '@data/services/cell-actions.service';
 import {EnableTabsDialogComponent} from '../enable-tabs-dialog/enable-tabs-dialog.component';
 import {PrintableBookDialogComponent} from '../printable-book-dialog/printable-book-dialog.component';
 import {features} from '@app/features';
-import {term} from '@shared/pipes/term.pipe';
+import {LANDING_PAGE_NAME} from '@shared/pipes/term.pipe';
 import {PrintPageChoice, PrintPageDialogComponent} from '../print-page-dialog/print-page-dialog.component';
 
 // Book page tab cells carry their picto too, for adaptable symbols.
@@ -256,10 +256,10 @@ export class BuilderComponent implements OnInit, OnDestroy {
     }
   }
 
-  // The back button names the landing section this book or board set lives in.
+  // The back button goes to the landing page, which lists books and board sets.
   private setToolbar(): void {
     this.toolbarService.setButtons([{
-      text: term('boardSets', this.boardSet),
+      text: LANDING_PAGE_NAME,
       icon: 'arrow_back',
       action: () => this.router.navigate(['/', 'boardsets'])
     }], [{
