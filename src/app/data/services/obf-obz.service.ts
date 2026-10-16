@@ -13,6 +13,12 @@ import {BOOK_LAYOUTS} from '@data/models/boardset.model';
 import {ObzBook} from '@data/models/obz-manifest.interface';
 import {Cell} from '@data/models/cell.model';
 
+// A single page file read for adding to a book.
+export interface BookPageImport {
+  role: 'page' | 'back_page';
+  board: Board;
+}
+
 // One board read from an OBZ, with its manifest id and raw OBF (for book fields).
 interface ObzBoardItem {
   obfId: string;
@@ -253,6 +259,44 @@ export class ObfObzService {
       imported.importNotes = [$localize`:obz book skipped boards|Boards in a book OBZ that are not part of the book:${skipped}:count: other board(s) in the file are not part of the book and will be skipped.`];
     }
     return imported;
+  }
+
+  // Reads a single page file (book/BOOK-OBZ-FORMAT.md §6) for adding to this book: a page (with its tab), or
+  // the back page with its type. A plain OBF becomes a page. The board must have the book's layout.
+  public parseBookPageObf(json: string, book: BoardSet): BookPageImport {
+    let obf: Obf;
+    try {
+      obf = JSON.parse(json);
+    } catch (e) {
+      throw bookError($localize`:obf page not json|An OBF file chosen for a book page is not valid JSON:the file is not a valid OBF file.`);
+    }
+    if (!obf?.grid || !Array.isArray(obf.buttons)) {
+      throw bookError(
+        $localize`:obf page not obf|An OBF file chosen for a book page is not an OBF board:the file is not a valid OBF board.`);
+    }
+
+    // Embedded images (data) become data URLs, uploaded like any imported image.
+    (obf.images || []).forEach(image => {
+      if (!image.url && image.data) { image.url = image.data; }
+    });
+    const board = this.parseObf(obf);
+    if (board.columns !== book.book_columns || board.rows !== book.book_rows) {
+      throw bookError($localize`:obz book board size|A board in the book OBZ has a different size from the book:"${board.name}:name:" is ${board.columns}:boardColumns: columns × ${board.rows}:boardRows: rows; this book is ${book.book_columns}:columns: columns × ${book.book_rows}:rows: rows.`);
+    }
+
+    const page = obf.ext_globalsymbols_book_page;
+    if (page?.role === 'back_page') {
+      if (!['core_words', 'conversation_support'].includes(page.type)) {
+        throw bookError($localize`:obz book bad back page type|Back page type in the book OBZ is not supported:the back page type "${page.type}:type:" is not Core Words or Conversation Support.`);
+      }
+      board.role = 'back_page';
+      board.back_page_type = page.type;
+      return { role: 'back_page', board };
+    }
+
+    board.role = 'page';
+    board.tab_cell = this.tabCell({ obfId: String(obf.id), obf, board });
+    return { role: 'page', board };
   }
 
   // A page's tab from ext_globalsymbols_book_tab. Without one, Rails labels the tab with the page name.

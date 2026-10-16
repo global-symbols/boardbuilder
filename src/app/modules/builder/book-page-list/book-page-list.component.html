@@ -75,6 +75,10 @@
       <mat-icon>translate</mat-icon>
       <ng-container i18n="translate|Translate">Translate</ng-container>
     </button>
+    <button mat-menu-item class="download-page" (click)="downloadBoard.emit(page)">
+      <mat-icon>save_alt</mat-icon>
+      <ng-container i18n="download page|Download a book page as OBF">Download page</ng-container>
+    </button>
     <button mat-menu-item class="print-page" (click)="printPage.emit(page)">
       <mat-icon>print</mat-icon>
       <ng-container i18n="print individual page|Print individual page">Print individual page</ng-container>
@@ -108,6 +112,10 @@
         <ng-container i18n="change back page to|Change back page to (followed by a type)">Change to</ng-container> {{option.name}}
       </button>
     </ng-container>
+    <button mat-menu-item class="download-back-page" (click)="downloadBoard.emit(backPage)">
+      <mat-icon>save_alt</mat-icon>
+      <ng-container i18n="download back page|Download the back page as OBF">Download back page</ng-container>
+    </button>
     <mat-divider></mat-divider>
     <button mat-menu-item class="remove-back-page" (click)="deleteBoard.emit(backPage)" [disabled]="readonly">
       <mat-icon>delete</mat-icon>

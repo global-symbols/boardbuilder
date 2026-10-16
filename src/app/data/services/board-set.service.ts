@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {BoardSet} from '@data/models/boardset.model';
 import {BackPageType, Board} from '@data/models/board.model';
+import {Cell} from '@data/models/cell.model';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '@env';
 import {map} from 'rxjs/operators';
@@ -106,9 +107,9 @@ export class BoardSetService {
     return this.http.get(`${this.apiEndpoint}/${book.id}/book_pdf_exports/${exportId}/download`, { responseType: 'blob' });
   }
 
-  // Adds the single back page to a book.
-  addBackPage(boardSet: BoardSet, type: BackPageType): Observable<Board> {
-    return this.http.post<Board>(`${this.apiEndpoint}/${boardSet.id}/back_page`, { type })
+  // Adds the single back page to a book; an imported back page brings its name and cells.
+  addBackPage(boardSet: BoardSet, type: BackPageType, imported?: { name: string, cells: Cell[] }): Observable<Board> {
+    return this.http.post<Board>(`${this.apiEndpoint}/${boardSet.id}/back_page`, { type, ...(imported || {}) })
       .pipe(map(data => new Board().deserialise(data)));
   }
 
@@ -156,32 +157,37 @@ export class BoardSetService {
       print: { back_page_after_each_page: true, mirror_back_page: true }
     };
 
-    return this.writeObz([...pages, ...(backPage ? [backPage] : [])], board => {
-      const obf = board.toObf();
-      if (board === backPage) {
-        obf.ext_globalsymbols_book_page = { role: 'back_page', type: board.back_page_type };
-        return obf;
-      }
-      const index = pages.indexOf(board);
-      obf.ext_globalsymbols_book_page = { role: 'page', number: index + 1, tab_row: tabRow(index, board.rows) + 1 };
-      const tab = board.tab_cell;
-      if (tab) {
-        // Colours as stored (hex or rgb()); the tab's image sits in this board's images like a button's.
-        const tabId = `${board.id}-tab`;
-        obf.ext_globalsymbols_book_tab = {
-          id: tabId,
-          label: tab.caption ?? board.name,
-          ...(tab.image_url ? { image_id: tabId } : {}),
-          ...(tab.background_colour ? { background_color: tab.background_colour } : {}),
-          ...(tab.border_colour ? { border_color: tab.border_colour } : {}),
-          ...(tab.text_colour ? { text_color: tab.text_colour } : {})
-        };
-        if (tab.image_url) {
-          obf.images.push({ id: tabId, url: tab.image_url, content_type: mime.getType(tab.image_url) });
-        }
-      }
+    return this.writeObz([...pages, ...(backPage ? [backPage] : [])], board => this.bookPageObf(book, board), ext);
+  }
+
+  // One book page or the back page as OBF, with its book fields. The same JSON is a page's file inside a book OBZ,
+  // and on its own it is a single page file (book/BOOK-OBZ-FORMAT.md §6).
+  bookPageObf(book: BoardSet, board: Board): Obf {
+    const obf = board.toObf();
+    if (board.role === 'back_page') {
+      obf.ext_globalsymbols_book_page = { role: 'back_page', type: board.back_page_type };
       return obf;
-    }, ext);
+    }
+    const pages = book.pages;
+    const index = pages.findIndex(page => page.id === board.id);
+    obf.ext_globalsymbols_book_page = { role: 'page', number: index + 1, tab_row: tabRow(index, board.rows) + 1 };
+    const tab = board.tab_cell;
+    if (tab) {
+      // Colours as stored (hex or rgb()); the tab's image sits in this board's images like a button's.
+      const tabId = `${board.id}-tab`;
+      obf.ext_globalsymbols_book_tab = {
+        id: tabId,
+        label: tab.caption ?? board.name,
+        ...(tab.image_url ? { image_id: tabId } : {}),
+        ...(tab.background_colour ? { background_color: tab.background_colour } : {}),
+        ...(tab.border_colour ? { border_color: tab.border_colour } : {}),
+        ...(tab.text_colour ? { text_color: tab.text_colour } : {})
+      };
+      if (tab.image_url) {
+        obf.images.push({ id: tabId, url: tab.image_url, content_type: mime.getType(tab.image_url) });
+      }
+    }
+    return obf;
   }
 
   // Zips the boards' OBF files with a manifest. The first board is the root.

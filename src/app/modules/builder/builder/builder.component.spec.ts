@@ -20,6 +20,7 @@ import {BoardSet} from '@data/models/boardset.model';
 import {Board} from '@data/models/board.model';
 import {Cell} from '@data/models/cell.model';
 import {TermPipe} from '@shared/pipes/term.pipe';
+import {ObfObzService} from '@data/services/obf-obz.service';
 
 describe('BuilderComponent', () => {
   let component: BuilderComponent;
@@ -54,15 +55,20 @@ describe('BuilderComponent', () => {
   }
 
   let hotkeys: Hotkey[];
+  let obfObzService: jasmine.SpyObj<ObfObzService>;
+  let dialogService: jasmine.SpyObj<DialogService>;
   let cellActions: jasmine.SpyObj<CellActionsService>;
 
   beforeEach(waitForAsync(() => {
     hotkeys = [];
+    obfObzService = jasmine.createSpyObj('ObfObzService', ['parseBookPageObf', 'uploadInlineImagesToMedia']);
+    obfObzService.uploadInlineImagesToMedia.and.callFake((set: BoardSet) => of(set));
+    dialogService = jasmine.createSpyObj('DialogService', ['messageBox', 'error']);
     cellActions = jasmine.createSpyObj('CellActionsService', ['resetUndo', 'delete', 'copy', 'cut', 'paste'],
                                        { linksChanged$: new Subject() });
-    boardSetService = jasmine.createSpyObj('BoardSetService', ['get', 'touch']);
+    boardSetService = jasmine.createSpyObj('BoardSetService', ['get', 'touch', 'addBackPage', 'bookPageObf']);
     boardSetService.touch.and.returnValue(of(null));
-    boardService = jasmine.createSpyObj('BoardService', ['add', 'duplicate']);
+    boardService = jasmine.createSpyObj('BoardService', ['add', 'duplicate', 'delete']);
     toolbar = jasmine.createSpyObj('ToolbarService', ['setButtons', 'clearButtons']);
 
     TestBed.configureTestingModule({
@@ -76,7 +82,7 @@ describe('BuilderComponent', () => {
             add: (hotkey: any) => { hotkeys.push(hotkey); return hotkey; }, remove: () => {}, cheatSheetToggle: new Subject()
           } },
         { provide: ToolbarService, useValue: toolbar },
-        { provide: DialogService, useValue: {} },
+        { provide: DialogService, useValue: dialogService },
         { provide: MatDialog, useValue: {} },
         { provide: ActivatedRoute, useValue: {
             paramMap: of(convertToParamMap({ id: '1' })),
@@ -85,7 +91,8 @@ describe('BuilderComponent', () => {
         { provide: Router, useValue: jasmine.createSpyObj('Router', ['navigate']) },
         { provide: Clipboard, useValue: {} },
         { provide: MatSnackBar, useValue: {} },
-        { provide: CellActionsService, useValue: cellActions }
+        { provide: CellActionsService, useValue: cellActions },
+        { provide: ObfObzService, useValue: obfObzService }
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
@@ -158,5 +165,66 @@ describe('BuilderComponent', () => {
     expect(cellActions.copy).not.toHaveBeenCalled();
     expect(cellActions.cut).not.toHaveBeenCalled();
     expect(cellActions.paste).not.toHaveBeenCalled();
+  });
+
+  describe('Add page from OBF', () => {
+    const file = () => new File(['{}'], 'page.obf');
+    const withBackPage = () => {
+      const b = book();
+      b.boards.push(new Board({ id: 199, name: 'Core Words', role: 'back_page', back_page_type: 'core_words', rows: 4, columns: 3 }));
+      return b;
+    };
+
+    it('adds an imported page at the end of the book', async () => {
+      create(book());
+      const page = new Board({ name: 'Animals', role: 'page', rows: 4, columns: 3 });
+      obfObzService.parseBookPageObf.and.returnValue({ role: 'page', board: page });
+      boardService.add.and.returnValue(of(new Board({ id: 12, name: 'Animals', rows: 4, columns: 3 })));
+
+      await component.importBookPage(file());
+
+      expect(boardService.add).toHaveBeenCalledWith(page);
+      expect(page.board_set_id).toBe(1);
+    });
+
+    it('asks before replacing the back page, and keeps it when the user cancels', async () => {
+      create(withBackPage());
+      obfObzService.parseBookPageObf.and.returnValue({
+        role: 'back_page',
+        board: new Board({ name: 'Chat', role: 'back_page', back_page_type: 'conversation_support', rows: 4, columns: 3 })
+      });
+      dialogService.messageBox.and.returnValue({ afterClosed: () => of(false) } as any);
+
+      await component.importBookPage(file());
+
+      expect(dialogService.messageBox.calls.mostRecent().args[0].heading).toBe('Replace the back page?');
+      expect(boardService.delete).not.toHaveBeenCalled();
+      expect(boardSetService.addBackPage).not.toHaveBeenCalled();
+    });
+
+    it('replaces the back page when the user confirms', async () => {
+      create(withBackPage());
+      const back = new Board({ name: 'Chat', role: 'back_page', back_page_type: 'conversation_support', rows: 4, columns: 3 });
+      obfObzService.parseBookPageObf.and.returnValue({ role: 'back_page', board: back });
+      dialogService.messageBox.and.returnValue({ afterClosed: () => of(true) } as any);
+      boardService.delete.and.returnValue(of(null));
+      boardSetService.addBackPage.and.returnValue(of(new Board({ id: 200, name: 'Chat', rows: 4, columns: 3 })));
+
+      await component.importBookPage(file());
+
+      expect(boardService.delete.calls.mostRecent().args[0].id).toBe(199);
+      expect(boardSetService.addBackPage)
+        .toHaveBeenCalledWith(component.boardSet, 'conversation_support', { name: 'Chat', cells: back.cells });
+    });
+
+    it('explains a file that cannot be added', async () => {
+      create(book());
+      obfObzService.parseBookPageObf.and.throwError('"Big" is 6 columns × 6 rows; this book is 3 columns × 4 rows.');
+
+      await component.importBookPage(file());
+
+      expect(dialogService.error.calls.mostRecent().args[0].content).toContain('"Big" is 6 columns × 6 rows');
+      expect(boardService.add).not.toHaveBeenCalled();
+    });
   });
 });

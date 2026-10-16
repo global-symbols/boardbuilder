@@ -46,6 +46,7 @@
                             (updateBoard)="loadBoardSet()"
                             (boardAdded)="reloadAndSelect($event)"
                             (printPage)="printPage($event)"
+                            (downloadBoard)="downloadBookPage($event)"
                             fxFlex="grow"
                             style="overflow-y: overlay"
         ></app-book-page-list>
@@ -137,6 +138,9 @@
     <button mat-menu-item class="download-book" (click)="downloadBook()">
       <mat-icon>save_alt</mat-icon> <ng-container i18n="download book|Download book">Download book</ng-container>
     </button>
+    <button mat-menu-item class="add-page-obf" (click)="bookPageInput.click()" [disabled]="boardSet?.readonly">
+      <mat-icon>note_add</mat-icon> <ng-container i18n="add page from obf|Add page from OBF">Add page from OBF</ng-container>
+    </button>
   </ng-container>
   <button mat-menu-item class="add-board-obf" (click)="uploadBoardObf()" [disabled]="boardSet?.readonly" *ngIf="!boardSet?.isBook">
     <mat-icon>note_add</mat-icon> <ng-container i18n="Add Board from OBF">Add Board from OBF</ng-container>
@@ -194,5 +198,9 @@
 -->
 
 
+
+<!-- Add page from OBF: a page or back page file downloaded from a book. -->
+<input type="file" accept=".obf,application/json" style="display: none" #bookPageInput
+       (change)="importBookPage($event.target.files[0]); $event.target.value = ''">
 
 <hotkeys-cheatsheet title="Keyboard Shortcuts" i18n-title="keyboard shortcuts|Keyboard Shortcuts" ></hotkeys-cheatsheet>

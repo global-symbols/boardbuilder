@@ -191,6 +191,56 @@ describe('Book OBZ', () => {
     });
   });
 
+  describe('single page files', () => {
+    it('a downloaded page reads back as a page with its tab', () => {
+      const source = book(3, 4, 2, true);
+      const json = JSON.stringify(boardSetService.bookPageObf(source, source.pages[0]));
+
+      const imported = obz.parseBookPageObf(json, source);
+
+      expect(imported.role).toBe('page');
+      expect(imported.board.name).toBe('Page 1');
+      expect(imported.board.cells.map(c => c.caption)).toEqual(source.pages[0].cells.map(c => c.caption));
+      expect(imported.board.tab_cell.caption).toBe('Tab 1');
+      expect(imported.board.tab_cell.image_url).toBe('https://example.test/tab.svg');
+      expect(imported.board.tab_cell.background_colour).toBe('rgb(68, 114, 196)');
+    });
+
+    it('a downloaded back page reads back as the back page with its type', () => {
+      const source = book(3, 4, 1, true);
+      const json = JSON.stringify(boardSetService.bookPageObf(source, source.backPage));
+
+      const imported = obz.parseBookPageObf(json, source);
+
+      expect(imported.role).toBe('back_page');
+      expect(imported.board.back_page_type).toBe('core_words');
+      expect(imported.board.cells[0].caption).toBe('core 1');
+    });
+
+    it('a plain OBF becomes a page without a tab', () => {
+      const source = book(3, 4, 1, false);
+      const plain = source.pages[0].toObf();
+
+      const imported = obz.parseBookPageObf(JSON.stringify(plain), source);
+
+      expect(imported.role).toBe('page');
+      expect(imported.board.tab_cell).toBeUndefined();
+    });
+
+    it('refuses a page of another size, naming it', () => {
+      const big = book(6, 6, 1, false);
+      const small = book(3, 4, 1, false);
+
+      expect(() => obz.parseBookPageObf(JSON.stringify(boardSetService.bookPageObf(big, big.pages[0])), small))
+        .toThrowError(/"Page 1" is 6 columns × 6 rows; this book is 3 columns × 4 rows/);
+    });
+
+    it('refuses a file that is not an OBF board', () => {
+      expect(() => obz.parseBookPageObf('{ nope', book(3, 4, 1, false))).toThrowError(/not a valid OBF file/);
+      expect(() => obz.parseBookPageObf('{"name":"x"}', book(3, 4, 1, false))).toThrowError(/not a valid OBF board/);
+    });
+  });
+
   it('uploads embedded tab images like cell images', async () => {
     const copy = new BoardSet().deserialise({ kind: 'book', book_columns: 3, book_rows: 4, boards: [
       { name: 'P', role: 'page', rows: 4, columns: 3, cells: [],

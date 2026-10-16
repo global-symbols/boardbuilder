@@ -28,6 +28,8 @@ export class BookPageListComponent implements OnChanges {
   @Output() readonly boardAdded = new EventEmitter<Board>();
   // Print individual page: the builder asks for the tab row, then opens the book PDF screen.
   @Output() readonly printPage = new EventEmitter<Board>();
+  // Download page / Download back page: the board as a single page OBF file.
+  @Output() readonly downloadBoard = new EventEmitter<Board>();
 
   readonly backPageTypes: { type: BackPageType, name: string }[] = [
     { type: 'core_words', name: $localize`:core words|Back page type:Core Words` },

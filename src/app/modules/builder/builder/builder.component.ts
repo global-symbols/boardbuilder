@@ -32,6 +32,7 @@ import {PrintableBookDialogComponent} from '../printable-book-dialog/printable-b
 import {features} from '@app/features';
 import {LANDING_PAGE_NAME} from '@shared/pipes/term.pipe';
 import {PrintPageChoice, PrintPageDialogComponent} from '../print-page-dialog/print-page-dialog.component';
+import {ObfObzService} from '@data/services/obf-obz.service';
 
 // Book page tab cells carry their picto too, for adaptable symbols.
 const BOARD_SET_EXPAND = 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media tabs ' +
@@ -81,7 +82,8 @@ export class BuilderComponent implements OnInit, OnDestroy {
               private router: Router,
               private clipboard: Clipboard,
               private snackBar: MatSnackBar,
-              private cellActions: CellActionsService
+              private cellActions: CellActionsService,
+              private obfObzService: ObfObzService
   ) {
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
 
@@ -550,6 +552,54 @@ export class BuilderComponent implements OnInit, OnDestroy {
   // The book as an OBZ with its book settings (book/BOOK-OBZ-FORMAT.md); importing it makes a new book.
   downloadBook() {
     this.boardSetService.convertBookToObz(this.boardSet).then(content => saveAs(content, this.boardSet.title + '.obz'));
+  }
+
+  // Download page / Download back page: one board as a single page OBF (book/BOOK-OBZ-FORMAT.md §6).
+  downloadBookPage(board: Board) {
+    const obf = this.boardSetService.bookPageObf(this.boardSet, board);
+    saveAs(new Blob([JSON.stringify(obf, null, 2)], {type: 'application/json;charset=utf-8'}), board.name + '.obf');
+  }
+
+  // Add page from OBF: a page becomes a new page at the end (with its tab); a back page becomes the back page,
+  // replacing the current one only if the user confirms.
+  async importBookPage(file: File) {
+    if (!file || this.boardSet.readonly) { return; }
+    let imported;
+    try {
+      imported = this.obfObzService.parseBookPageObf(await file.text(), this.boardSet);
+    } catch (e) {
+      this.dialogService.error({
+        heading: $localize`:add page from obf failed|Heading when an OBF file cannot be added to a book:The file could not be added`,
+        content: e.message
+      });
+      return;
+    }
+
+    const board: Board = imported.board;
+    board.board_set_id = this.boardSet.id;
+    const current = this.boardSet.backPage;
+    if (imported.role === 'back_page' && current) {
+      const replace = await this.dialogService.messageBox({
+        heading: $localize`:replace back page heading|Confirm replacing the back page:Replace the back page?`,
+        content: $localize`:replace back page text|Confirm replacing the back page:This book already has a back page, "${current.name}:name:". Replace it with "${board.name}:newName:"? The current back page and everything on it will be deleted.`,
+        icon: 'swap_horiz',
+        confirm: $localize`:replace|Replace:Replace`,
+        showCancel: true
+      }).afterClosed().toPromise();
+      if (!replace) { return; }
+    }
+
+    const withImages = new BoardSet({ boards: [board] });
+    this.obfObzService.uploadInlineImagesToMedia(withImages).pipe(
+      switchMap(() => {
+        if (imported.role === 'page') { return this.boardService.add(board); }
+        const add = this.boardSetService.addBackPage(this.boardSet, board.back_page_type, { name: board.name, cells: board.cells });
+        return current ? this.boardService.delete(current).pipe(switchMap(() => add)) : add;
+      })
+    ).subscribe(created => this.reloadAndSelect(created), error => this.dialogService.error({
+      heading: $localize`:add page from obf failed|Heading when an OBF file cannot be added to a book:The file could not be added`,
+      content: error?.error?.error || error?.message || ''
+    }));
   }
 
   downloadBoardSetObz() {
