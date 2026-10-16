@@ -8,7 +8,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {of} from 'rxjs';
 
-import {BOARD_SETS_TAB, BOOKS_INTRO_SEEN_KEY, BOOKS_TAB, BoardSetsComponent, LANDING_TAB_KEY} from './board-sets.component';
+import {BOARD_SETS_TAB, BOOKS_INTRO_SEEN_KEY, BOOKS_NEW_BADGE_UNTIL, BOOKS_TAB, BoardSetsComponent, LANDING_TAB_KEY} from './board-sets.component';
 import {BoardSetService} from '@data/services/board-set.service';
 import {FolderService} from '@data/services/folder.service';
 import {DialogService} from '@app/services/dialog.service';
@@ -148,6 +148,29 @@ describe('BoardSetsComponent', () => {
     localStorage.removeItem(BOOKS_INTRO_SEEN_KEY);
   });
 
+  describe('New badge on the Books tab', () => {
+    const badge = (): HTMLElement => fixture.nativeElement.querySelector('.new-badge');
+
+    it('shows to everyone, books or not, until 15 November 2026', () => {
+      spyOn(component, 'now').and.returnValue(new Date(2026, 10, 15, 23, 59));
+      fixture.detectChanges();
+      expect(badge()).toBeTruthy();
+    });
+
+    it('stays after the popup is dismissed', () => {
+      spyOn(component, 'now').and.returnValue(new Date(2026, 9, 20));
+      component.dismissBooksIntro();
+      fixture.detectChanges();
+      expect(badge()).toBeTruthy();
+    });
+
+    it('is gone from 16 November 2026', () => {
+      spyOn(component, 'now').and.returnValue(BOOKS_NEW_BADGE_UNTIL);
+      fixture.detectChanges();
+      expect(badge()).toBeNull();
+    });
+  });
+
   describe('books introduction', () => {
     const popup = (): HTMLElement => document.querySelector('.cdk-overlay-container .books-popup');
 
@@ -163,12 +186,11 @@ describe('BoardSetsComponent', () => {
 
     afterEach(() => fixture.destroy());
 
-    it('pops up at the Books tab, with a New badge, for someone who has no books', async () => {
+    it('pops up at the Books tab for someone who has no books', async () => {
       const page = await withoutBooks();
 
       expect(page.showBooksIntro).toBeTrue();
       expect(popup().textContent).toContain('New: communication books');
-      expect(fixture.nativeElement.querySelector('.new-badge')).toBeTruthy();
     });
 
     it('is not shown to someone who already has books', async () => {

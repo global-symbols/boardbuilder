@@ -24,6 +24,8 @@ export const BOOKS_TAB = 1;
 const TAB_NAMES = ['board-sets', 'books'];
 // Set once someone has opened the Books tab or dismissed the books introduction.
 export const BOOKS_INTRO_SEEN_KEY = 'boardbuilder.books.introSeen';
+// The Books tab's "New" badge shows to everyone until the end of 15 November 2026 (local time), on every build.
+export const BOOKS_NEW_BADGE_UNTIL = new Date(2026, 10, 16);
 
 function readFlag(key: string): boolean {
   try { return !!localStorage.getItem(key); } catch (e) { return false; }
@@ -110,6 +112,15 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   @ViewChild('booksTabLabel', { read: CdkOverlayOrigin })
   set booksTabLabel(origin: CdkOverlayOrigin) {
     Promise.resolve().then(() => this.booksTabOrigin = origin);
+  }
+
+  get showBooksNewBadge(): boolean {
+    return this.now() < BOOKS_NEW_BADGE_UNTIL;
+  }
+
+  // Separate so tests can move the clock.
+  now(): Date {
+    return new Date();
   }
 
   // Shown until someone with no books opens the Books tab or dismisses it.
