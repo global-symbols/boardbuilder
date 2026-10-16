@@ -6,7 +6,8 @@
 
   <div mat-dialog-content>
     <ng-container *ngIf="!result">
-      <p i18n="Translate Board Set dialog prompt">Create a translated copy of this Board Set. The original will not be changed.</p>
+      <p *ngIf="!boardSet.isBook" i18n="Translate Board Set dialog prompt">Create a translated copy of this Board Set. The original will not be changed.</p>
+      <p *ngIf="boardSet.isBook" i18n="Translate Book dialog prompt">Create a translated copy of this book, including its tabs. The original will not be changed.</p>
 
       <app-loading-notice *ngIf="loadingLanguages" subject="Languages" i18n-subject="languages|Languages"></app-loading-notice>
 
@@ -17,8 +18,10 @@
         </mat-select>
       </mat-form-field>
 
-      <app-loading-notice *ngIf="translating" action="Translating" subject="Board Set"
+      <app-loading-notice *ngIf="translating && !boardSet.isBook" action="Translating" subject="Board Set"
                           i18n-action="translating|Translating" i18n-subject="board set|Board Set"></app-loading-notice>
+      <app-loading-notice *ngIf="translating && boardSet.isBook" action="Translating" subject="Book"
+                          i18n-action="translating|Translating" i18n-subject="book|A communication book"></app-loading-notice>
 
       <p class="text-muted" *ngIf="error">{{error}}</p>
     </ng-container>

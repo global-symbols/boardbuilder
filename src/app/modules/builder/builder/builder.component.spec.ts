@@ -132,6 +132,20 @@ describe('BuilderComponent', () => {
     expect(items.some(item => item.includes('Tab Printer Settings'))).toBeFalse();
   });
 
+  it('a read-only book can still be printed and downloaded, but not changed', () => {
+    const readonlyBook = book();
+    readonlyBook.readonly = true;
+    create(readonlyBook);
+    (fixture.nativeElement.querySelector('#leftSidebarHeaderPanel button') as HTMLElement).click();
+    fixture.detectChanges();
+    const item = (selector: string) => document.querySelector(`.cdk-overlay-container ${selector}`) as HTMLButtonElement;
+
+    expect(item('.print-book').disabled).toBeFalse();
+    expect(item('.download-book').disabled).toBeFalse();
+    expect(item('.add-page-obf').disabled).toBeTrue();
+    expect(boardSetService.touch).not.toHaveBeenCalled();
+  });
+
   it('board set menu is unchanged', () => {
     create(boardSet());
     const items = menuItems();

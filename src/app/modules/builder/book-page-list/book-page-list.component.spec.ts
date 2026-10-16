@@ -145,6 +145,17 @@ describe('BookPageListComponent', () => {
     expect(overlayButtons('.delete-page')[0].disabled).toBeFalse();
   });
 
+  it('a read-only book keeps Print and Download but disables changes', () => {
+    const b = book(true, 2);
+    b.readonly = true;
+    load(b);
+
+    openMenu(fixture.nativeElement.querySelector('.pages button'));
+    expect(overlayButtons('.print-page')[0].disabled).toBeFalse();
+    expect(overlayButtons('.download-page')[0].disabled).toBeFalse();
+    expect(overlayButtons('.delete-page')[0].disabled).toBeTrue();
+  });
+
   it('reorders pages through the pages-only endpoint', () => {
     load(book(true));
     boardSetService.reorderBoards.and.returnValue(of(component.boardSet));
