@@ -25,6 +25,7 @@ import {FolderNameDialogComponent} from './folder-name-dialog/folder-name-dialog
 import {MoveToFolderDialogComponent} from './move-to-folder-dialog/move-to-folder-dialog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
+import {OverlayModule} from '@angular/cdk/overlay';
 import {NewBookDialogComponent} from './new-book-dialog/new-book-dialog.component';
 
 export const routes: Routes = [
@@ -66,7 +67,8 @@ export const routes: Routes = [
     MatFormFieldModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    OverlayModule
   ]
 })
 export class BoardSetsModule { }

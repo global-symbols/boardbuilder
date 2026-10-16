@@ -52,20 +52,21 @@
     </div>
 
     <!-- Books and board sets are created and listed on separate tabs so they are not confused. The tab is remembered. -->
-    <!-- Introduces books once, to people who have not used them yet. -->
-    <div class="books-intro" *ngIf="showBooksIntro" role="status" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1rem">
-      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.75rem">
-        <mat-icon class="books-intro-icon">menu_book</mat-icon>
-        <span>
-          <strong i18n="books intro title|Introduces the new books feature">New: communication books.</strong>
-          <ng-container i18n="books intro text|Introduces the new books feature">Same-size pages with a tab on each page, printed back to back.</ng-container>
-        </span>
+    <!-- Introduces books once, to people who have not used them yet: a small popup pointing at the Books tab. -->
+    <ng-template cdkConnectedOverlay
+                 [cdkConnectedOverlayOrigin]="booksTabOrigin"
+                 [cdkConnectedOverlayOpen]="!!booksTabOrigin && showBooksIntro"
+                 [cdkConnectedOverlayPositions]="booksPopupPositions">
+      <div class="books-popup" role="dialog" aria-labelledby="booksPopupTitle">
+        <div class="books-popup-arrow"></div>
+        <strong id="booksPopupTitle" i18n="books intro title|Introduces the new books feature">New: communication books</strong>
+        <p class="mb-2" i18n="books intro text|Introduces the new books feature">Same-size pages with a tab on each page, printed back to back.</p>
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="0.5rem">
+          <button mat-button class="books-intro-dismiss" (click)="dismissBooksIntro()" i18n="got it|Closes the books introduction">Got it</button>
+          <button mat-flat-button class="books-intro-open" (click)="selectTab(booksTab)" i18n="take a look|Opens the Books tab">Take a look</button>
+        </div>
       </div>
-      <div fxLayout="row" fxLayoutGap="0.5rem" class="books-intro-actions">
-        <button mat-flat-button class="books-intro-open" (click)="selectTab(booksTab)" i18n="take a look|Opens the Books tab">Take a look</button>
-        <button mat-button class="books-intro-dismiss" (click)="dismissBooksIntro()" i18n="dismiss|Dismiss">Dismiss</button>
-      </div>
-    </div>
+    </ng-template>
 
     <mat-tab-group class="kind-tabs" [selectedIndex]="selectedTab" (selectedIndexChange)="selectTab($event)" animationDuration="0ms">
 
@@ -111,7 +112,9 @@
       <mat-tab>
         <ng-template mat-tab-label>
           <mat-icon class="tab-icon books-icon">menu_book</mat-icon>
-          <ng-container i18n="Books tab|Books tab on the landing page">Books</ng-container>&nbsp;({{filteredBooks.length}})
+          <span cdkOverlayOrigin #booksTabLabel="cdkOverlayOrigin">
+            <ng-container i18n="Books tab|Books tab on the landing page">Books</ng-container>&nbsp;({{filteredBooks.length}})
+          </span>
           <span class="new-badge" *ngIf="showBooksIntro" i18n="new badge|Marks a new feature">New</span>
         </ng-template>
 

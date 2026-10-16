@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
+import {OverlayModule} from '@angular/cdk/overlay';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {of} from 'rxjs';
 
@@ -38,7 +39,7 @@ describe('BoardSetsComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [ BoardSetsComponent ],
-      imports: [ MatMenuModule, MatTabsModule, NoopAnimationsModule ],
+      imports: [ MatMenuModule, MatTabsModule, OverlayModule, NoopAnimationsModule ],
       providers: [
         { provide: BoardSetService, useValue: boardSetService },
         { provide: FolderService, useValue: { list: () => of([]) } },
@@ -148,45 +149,56 @@ describe('BoardSetsComponent', () => {
   });
 
   describe('books introduction', () => {
-    function withoutBooks(): BoardSetsComponent {
+    const popup = (): HTMLElement => document.querySelector('.cdk-overlay-container .books-popup');
+
+    async function withoutBooks(): Promise<BoardSetsComponent> {
       boardSetService.list.and.returnValue(of([boardSet, filedBoardSet]));
-      const next = TestBed.createComponent(BoardSetsComponent);
-      next.detectChanges();
-      fixture = next;
-      return next.componentInstance;
+      fixture.destroy();
+      fixture = TestBed.createComponent(BoardSetsComponent);
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      return fixture.componentInstance;
     }
 
-    it('introduces books, with a New badge, to someone who has none', () => {
-      const page = withoutBooks();
+    afterEach(() => fixture.destroy());
+
+    it('pops up at the Books tab, with a New badge, for someone who has no books', async () => {
+      const page = await withoutBooks();
 
       expect(page.showBooksIntro).toBeTrue();
-      expect(fixture.nativeElement.querySelector('.books-intro').textContent).toContain('New: communication books.');
+      expect(popup().textContent).toContain('New: communication books');
       expect(fixture.nativeElement.querySelector('.new-badge')).toBeTruthy();
     });
 
-    it('is not shown to someone who already has books', () => {
+    it('is not shown to someone who already has books', async () => {
+      await fixture.whenStable();
+      fixture.detectChanges();
+
       expect(component.showBooksIntro).toBeFalse();
-      expect(fixture.nativeElement.querySelector('.books-intro')).toBeNull();
+      expect(popup()).toBeNull();
     });
 
-    it('Take a look opens the Books tab and the introduction goes for good', () => {
-      const page = withoutBooks();
+    it('Take a look opens the Books tab and the popup goes for good', async () => {
+      const page = await withoutBooks();
 
-      (fixture.nativeElement.querySelector('.books-intro-open') as HTMLElement).click();
+      (popup().querySelector('.books-intro-open') as HTMLElement).click();
       fixture.detectChanges();
 
       expect(page.selectedTab).toBe(BOOKS_TAB);
-      expect(fixture.nativeElement.querySelector('.books-intro')).toBeNull();
-      expect(withoutBooks().showBooksIntro).toBeFalse();
+      expect(popup()).toBeNull();
+      expect((await withoutBooks()).showBooksIntro).toBeFalse();
     });
 
-    it('Dismiss hides it for good', () => {
-      const page = withoutBooks();
+    it('Got it closes it for good', async () => {
+      const page = await withoutBooks();
 
-      page.dismissBooksIntro();
+      (popup().querySelector('.books-intro-dismiss') as HTMLElement).click();
+      fixture.detectChanges();
 
+      expect(popup()).toBeNull();
       expect(localStorage.getItem(BOOKS_INTRO_SEEN_KEY)).toBe('1');
-      expect(withoutBooks().showBooksIntro).toBeFalse();
+      expect((await withoutBooks()).showBooksIntro).toBeFalse();
     });
   });
 });

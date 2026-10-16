@@ -75,26 +75,35 @@ mat-card.add-book button {
   color: white;
 }
 
-// One-time introduction to books (teal, like the Books tab).
-.books-intro {
-  margin-bottom: 1rem;
+// One-time books popup, drawn in the overlay (so outside this component's style scope: ::ng-deep).
+::ng-deep .books-popup {
+  position: relative;
+  width: 280px;
   padding: 0.75rem 1rem;
-  border-left: 4px solid $book-accent;
-  border-radius: 4px;
-  background: rgba($book-accent, 0.08);
+  border-radius: 8px;
+  background: white;
+  border-top: 4px solid $book-accent;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 
-  .books-intro-icon {
-    color: $book-accent;
-    flex: none;
+  .books-popup-arrow {
+    position: absolute;
+    top: -12px;
+    left: calc(50% - 8px);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid $book-accent;
+  }
+
+  p {
+    margin-top: 0.25rem;
+    color: rgba(0, 0, 0, 0.7);
   }
 
   .books-intro-open {
     background-color: $book-accent;
     color: white;
-  }
-
-  .books-intro-actions {
-    flex: none;
   }
 }
 

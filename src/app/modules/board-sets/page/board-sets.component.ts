@@ -1,4 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {CdkOverlayOrigin, ConnectedPosition} from '@angular/cdk/overlay';
 import {environment} from '@env';
 import {BoardSetService} from '@data/services/board-set.service';
 import {BoardSet} from '@data/models/boardset.model';
@@ -42,6 +43,12 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   activeFolder: Folder | null = null;
   selectedTab = BOOKS_TAB;
   readonly booksTab = BOOKS_TAB;
+  // The books popup sits below the Books tab, or above it if there is no room.
+  readonly booksPopupPositions: ConnectedPosition[] = [
+    { originX: 'center', originY: 'bottom', overlayX: 'center', overlayY: 'top', offsetY: 14 },
+    { originX: 'center', originY: 'top', overlayX: 'center', overlayY: 'bottom', offsetY: -14 }
+  ];
+  booksTabOrigin: CdkOverlayOrigin;
   private tabRemembered = false;
   private booksIntroSeen = readFlag(BOOKS_INTRO_SEEN_KEY);
   private readonly booksIntroPreview = !environment.production &&
@@ -97,6 +104,12 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
 
   get filteredBoardSets(): BoardSet[] {
     return this.visibleItems.filter(bs => !bs.isBook);
+  }
+
+  // The Books tab label is drawn by the tab group after this view, so the popup attaches on the next turn.
+  @ViewChild('booksTabLabel', { read: CdkOverlayOrigin })
+  set booksTabLabel(origin: CdkOverlayOrigin) {
+    Promise.resolve().then(() => this.booksTabOrigin = origin);
   }
 
   // Shown until someone with no books opens the Books tab or dismisses it.
