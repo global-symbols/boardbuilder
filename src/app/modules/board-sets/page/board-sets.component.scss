@@ -74,3 +74,38 @@ mat-card.add-book button {
   background-color: $book-accent;
   color: white;
 }
+
+// One-time introduction to books (teal, like the Books tab).
+.books-intro {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid $book-accent;
+  border-radius: 4px;
+  background: rgba($book-accent, 0.08);
+
+  .books-intro-icon {
+    color: $book-accent;
+    flex: none;
+  }
+
+  .books-intro-open {
+    background-color: $book-accent;
+    color: white;
+  }
+
+  .books-intro-actions {
+    flex: none;
+  }
+}
+
+.new-badge {
+  margin-left: 0.5rem;
+  padding: 1px 6px;
+  border-radius: 8px;
+  background: $book-accent;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  text-transform: uppercase;
+}

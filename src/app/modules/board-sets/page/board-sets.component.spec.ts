@@ -7,7 +7,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {of} from 'rxjs';
 
-import {BOARD_SETS_TAB, BoardSetsComponent, LANDING_TAB_KEY} from './board-sets.component';
+import {BOARD_SETS_TAB, BOOKS_INTRO_SEEN_KEY, BOOKS_TAB, BoardSetsComponent, LANDING_TAB_KEY} from './board-sets.component';
 import {BoardSetService} from '@data/services/board-set.service';
 import {FolderService} from '@data/services/folder.service';
 import {DialogService} from '@app/services/dialog.service';
@@ -55,6 +55,7 @@ describe('BoardSetsComponent', () => {
 
   beforeEach(() => {
     localStorage.removeItem(LANDING_TAB_KEY);
+    localStorage.removeItem(BOOKS_INTRO_SEEN_KEY);
     fixture = TestBed.createComponent(BoardSetsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -141,5 +142,51 @@ describe('BoardSetsComponent', () => {
     expect(router.navigate).toHaveBeenCalledWith(['/', 'boardsets', 7]);
   });
 
-  afterEach(() => localStorage.removeItem(LANDING_TAB_KEY));
+  afterEach(() => {
+    localStorage.removeItem(LANDING_TAB_KEY);
+    localStorage.removeItem(BOOKS_INTRO_SEEN_KEY);
+  });
+
+  describe('books introduction', () => {
+    function withoutBooks(): BoardSetsComponent {
+      boardSetService.list.and.returnValue(of([boardSet, filedBoardSet]));
+      const next = TestBed.createComponent(BoardSetsComponent);
+      next.detectChanges();
+      fixture = next;
+      return next.componentInstance;
+    }
+
+    it('introduces books, with a New badge, to someone who has none', () => {
+      const page = withoutBooks();
+
+      expect(page.showBooksIntro).toBeTrue();
+      expect(fixture.nativeElement.querySelector('.books-intro').textContent).toContain('New: communication books.');
+      expect(fixture.nativeElement.querySelector('.new-badge')).toBeTruthy();
+    });
+
+    it('is not shown to someone who already has books', () => {
+      expect(component.showBooksIntro).toBeFalse();
+      expect(fixture.nativeElement.querySelector('.books-intro')).toBeNull();
+    });
+
+    it('Take a look opens the Books tab and the introduction goes for good', () => {
+      const page = withoutBooks();
+
+      (fixture.nativeElement.querySelector('.books-intro-open') as HTMLElement).click();
+      fixture.detectChanges();
+
+      expect(page.selectedTab).toBe(BOOKS_TAB);
+      expect(fixture.nativeElement.querySelector('.books-intro')).toBeNull();
+      expect(withoutBooks().showBooksIntro).toBeFalse();
+    });
+
+    it('Dismiss hides it for good', () => {
+      const page = withoutBooks();
+
+      page.dismissBooksIntro();
+
+      expect(localStorage.getItem(BOOKS_INTRO_SEEN_KEY)).toBe('1');
+      expect(withoutBooks().showBooksIntro).toBeFalse();
+    });
+  });
 });

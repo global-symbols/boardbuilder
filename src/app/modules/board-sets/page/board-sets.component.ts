@@ -20,6 +20,12 @@ export const LANDING_TAB_KEY = 'boardbuilder.landing.tab';
 export const BOARD_SETS_TAB = 0;
 export const BOOKS_TAB = 1;
 const TAB_NAMES = ['board-sets', 'books'];
+// Set once someone has opened the Books tab or dismissed the books introduction.
+export const BOOKS_INTRO_SEEN_KEY = 'boardbuilder.books.introSeen';
+
+function readFlag(key: string): boolean {
+  try { return !!localStorage.getItem(key); } catch (e) { return false; }
+}
 
 @Component({
   selector: 'app-board-sets',
@@ -34,7 +40,9 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   searchQuery = '';
   activeFolder: Folder | null = null;
   selectedTab = BOOKS_TAB;
+  readonly booksTab = BOOKS_TAB;
   private tabRemembered = false;
+  private booksIntroSeen = readFlag(BOOKS_INTRO_SEEN_KEY);
 
   loading: boolean;
   private currentDialogRef;
@@ -87,7 +95,18 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
     return this.visibleItems.filter(bs => !bs.isBook);
   }
 
+  // Shown until someone with no books opens the Books tab or dismisses it.
+  get showBooksIntro(): boolean {
+    return !this.loading && !this.booksIntroSeen && !this.boardSets.some(item => item.isBook);
+  }
+
+  dismissBooksIntro(): void {
+    this.booksIntroSeen = true;
+    try { localStorage.setItem(BOOKS_INTRO_SEEN_KEY, '1'); } catch (e) { /* storage unavailable */ }
+  }
+
   selectTab(index: number): void {
+    if (index === BOOKS_TAB) { this.dismissBooksIntro(); }
     this.selectedTab = index;
     this.tabRemembered = true;
     try { localStorage.setItem(LANDING_TAB_KEY, TAB_NAMES[index]); } catch (e) { /* storage unavailable */ }
