@@ -38,6 +38,24 @@ export interface ObfImage {
   content_type: string;
 }
 
+// Book fields (book/BOOK-OBZ-FORMAT.md §2–3). Apps that ignore ext_ fields see a normal board.
+export interface ObfBookPage {
+  role: 'page' | 'back_page';
+  number?: number;         // pages: 1-based position in the book
+  tab_row?: number;        // pages: 1-based tab row, for convenience
+  type?: 'core_words' | 'conversation_support';  // back page only
+}
+
+// A page's tab, in OBF button shape. image_id points into the board's images.
+export interface ObfBookTab {
+  id: string;
+  label: string;
+  image_id?: string;
+  background_color?: string;
+  border_color?: string;
+  text_color?: string;
+}
+
 export interface Obf {
   format: string;
   id: string;
@@ -51,4 +69,7 @@ export interface Obf {
   grid: ObfGrid;
 
   images: ObfImage[];
+
+  ext_globalsymbols_book_page?: ObfBookPage;
+  ext_globalsymbols_book_tab?: ObfBookTab;
 }

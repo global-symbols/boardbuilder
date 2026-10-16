@@ -4,14 +4,16 @@
 >
 
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
-    <h1 mat-dialog-title class="mb-0" i18n="OBZ Upload Dialog heading">Create Board Set from OBZ File</h1>
+    <h1 mat-dialog-title class="mb-0" *ngIf="!expectBook" i18n="OBZ Upload Dialog heading">Create Board Set from OBZ File</h1>
+    <h1 mat-dialog-title class="mb-0" *ngIf="expectBook" i18n="OBZ Upload Dialog book heading">Import Book from OBZ File</h1>
     <button mat-icon-button aria-label="Close" [mat-dialog-close]="false" appStopPropagation>
       <mat-icon>close</mat-icon>
     </button>
   </header>
 
   <div mat-dialog-content>
-    <p i18n="OBZ Upload Dialog intro 1">This will create a Board Set from an Open Board Format Collection (OBZ) file that you upload.</p>
+    <p *ngIf="!expectBook" i18n="OBZ Upload Dialog intro 1">This will create a Board Set from an Open Board Format Collection (OBZ) file that you upload.</p>
+    <p *ngIf="expectBook" i18n="OBZ Upload Dialog book intro">This will create a new book from a book OBZ file downloaded from Board Builder.</p>
     <p i18n="OBZ Upload Dialog intro 2">Select an OBZ file to begin.</p>
     <div fxLayout="row" fxLayoutAlign="center none" >
       <button mat-stroked-button color="primary" (click)="uploadInput.click()" appStopPropagation>
@@ -22,15 +24,27 @@
 
     <input type="file" accept=".obz" style="display: none" #uploadInput (change)="fileChanged($event.target)">
 
-    <p *ngIf="boardSet && boardSet.boards && !fileInvalidReason" role="alert" i18n="OBZ Upload Dialog scan results">
+    <p *ngIf="boardSet && boardSet.boards && !fileInvalidReason && !boardSet.isBook" role="alert" i18n="OBZ Upload Dialog scan results">
       We found {{boardSet.boards.length}} {boardSet.boards.length, plural, =1 {board} other {boards}} in your OBZ file.
     </p>
+    <p *ngIf="boardSet?.isBook && !fileInvalidReason" role="alert" class="book-summary">
+      <ng-container i18n="OBZ Upload Dialog book found|Summary of a book found in an OBZ file">Book</ng-container>
+      “{{boardSet.name}}” · {{boardSet.bookCellCount}} <ng-container i18n="cells|Cells per book page, after a number">cells</ng-container>
+      · {{boardSet.pages.length}} <ng-container i18n="pages lowercase|pages, after a number">pages</ng-container>
+      · <ng-container i18n="back page|Back Page section heading in a book">Back Page</ng-container>: {{backPageName}}
+    </p>
+    <p *ngIf="expectBook && boardSet && !boardSet.isBook && !fileInvalidReason && !boardSet.importNotes?.length" class="not-a-book"
+       i18n="OBZ Upload Dialog not a book|An OBZ chosen as a book has no book settings">This file is not a book, so it will be added as a board set.</p>
+    <p *ngFor="let note of boardSet?.importNotes" class="import-note">{{note}}</p>
 
     <p *ngIf="fileInvalidReason" role="alert" i18n="OBZ Upload Dialog file not valid">The OBZ file could not be read because {{fileInvalidReason}}</p>
   </div>
   <div mat-dialog-actions>
     <button mat-stroked-button [mat-dialog-close]="false" color="primary" appStopPropagation i18n="cancel|Cancel">Cancel</button>
     <span class="spacer"></span>
-    <button mat-raised-button [mat-dialog-close]="boardSet" color="primary" [disabled]="!boardSet || !!fileInvalidReason" appStopPropagation i18n="add board set|Add Board Set">Add Board Set</button>
+    <button mat-raised-button [mat-dialog-close]="boardSet" color="primary" [disabled]="!boardSet || !!fileInvalidReason" appStopPropagation class="add-button">
+      <ng-container *ngIf="!boardSet?.isBook" i18n="add board set|Add Board Set">Add Board Set</ng-container>
+      <ng-container *ngIf="boardSet?.isBook" i18n="add book|Add Book">Add Book</ng-container>
+    </button>
   </div>
 </div>

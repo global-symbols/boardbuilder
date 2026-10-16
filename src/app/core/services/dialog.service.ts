@@ -198,9 +198,11 @@ export class DialogService {
     return this.delete(data);
   }
 
-  uploadObz(): MatDialogRef<ObzUploadDialogComponent> {
+  // expectBook: opened from "Import book" (book files become books either way).
+  uploadObz(expectBook = false): MatDialogRef<ObzUploadDialogComponent> {
     this.currentDialog = this.dialog.open(ObzUploadDialogComponent, {
-      width: '500px'
+      width: '500px',
+      data: { expectBook }
     });
 
     return this.currentDialog;

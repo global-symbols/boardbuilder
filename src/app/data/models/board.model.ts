@@ -78,8 +78,9 @@ export class Board extends Record implements Deserialisable {
 
   toObf(): Obf {
 
-    // Returns a string that identifies and connects Cell/Image/Button items in the OBF
-    const cellId = cell => this.id.toString() + cell.id.toString();
+    // Returns a string that identifies and connects Cell/Image/Button items in the OBF.
+    // The separator keeps ids unique across every board in an OBZ ("1"+"23" and "12"+"3" no longer collide).
+    const cellId = cell => `${this.id}-${cell.id}`;
 
     // Chunk the Cells according to the number of rows/cols
     const gridOrderMatrix = [];

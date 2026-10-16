@@ -33,6 +33,8 @@ export class BoardSet extends Record implements Deserialisable {
     public book_rows?: number;
     public tabs: CatalogueTab[] = [];
     public translated?: number;
+    // Messages for the person importing an OBZ (e.g. boards skipped). Not saved.
+    public importNotes?: string[];
     public skipped?: number;
     public boards = Array<Board>();
     opened_at: Date;

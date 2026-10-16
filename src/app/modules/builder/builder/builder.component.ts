@@ -547,6 +547,11 @@ export class BuilderComponent implements OnInit, OnDestroy {
     });
   }
 
+  // The book as an OBZ with its book settings (book/BOOK-OBZ-FORMAT.md); importing it makes a new book.
+  downloadBook() {
+    this.boardSetService.convertBookToObz(this.boardSet).then(content => saveAs(content, this.boardSet.title + '.obz'));
+  }
+
   downloadBoardSetObz() {
     this.boardSetService.convertToObz(this.boardSet).then(content => saveAs(content, this.boardSet.title + '.obz'));
   }

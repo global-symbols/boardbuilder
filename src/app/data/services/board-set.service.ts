@@ -8,6 +8,10 @@ import {map} from 'rxjs/operators';
 import * as JSZip from 'jszip';
 import {ObzManifest} from '@data/models/obz-manifest.interface';
 import {Template} from '@data/models/template.model';
+import {ObzBook} from '@data/models/obz-manifest.interface';
+import {Obf} from '@data/models/obf.interface';
+import {BOOK_TAB_WIDTH_RATIO, tabRow} from '@data/models/book-tabs';
+import * as mime from 'mime/lite';
 
 // A whole-book PDF generated in the background (Rails BookPdfJob).
 export interface BookPdfExport {
@@ -133,24 +137,74 @@ export class BoardSetService {
   }
 
   convertToObz(boardSet: BoardSet): Promise<any> {
+    return this.writeObz(boardSet.boards, board => board.toObf());
+  }
+
+  // A book as an OBZ (book/BOOK-OBZ-FORMAT.md): a normal OBZ of the pages and back page, plus the book settings
+  // in ext_globalsymbols_book fields that other apps can ignore.
+  convertBookToObz(book: BoardSet): Promise<Blob> {
+    const pages = book.pages;
+    const backPage = book.backPage;
+    const ext: ObzBook = {
+      format: 'book-0.1',
+      producer: 'Global Symbols Board Builder',
+      name: book.name,
+      layout: { columns: book.book_columns, rows: book.book_rows },
+      pages: pages.map(page => page.id.toString()),
+      back_page: backPage ? { id: backPage.id.toString(), type: backPage.back_page_type } : null,
+      tabs: { edge: 'right', width_ratio: Math.round(BOOK_TAB_WIDTH_RATIO * 1000) / 1000, placement: 'row_cycle' },
+      print: { back_page_after_each_page: true, mirror_back_page: true }
+    };
+
+    return this.writeObz([...pages, ...(backPage ? [backPage] : [])], board => {
+      const obf = board.toObf();
+      if (board === backPage) {
+        obf.ext_globalsymbols_book_page = { role: 'back_page', type: board.back_page_type };
+        return obf;
+      }
+      const index = pages.indexOf(board);
+      obf.ext_globalsymbols_book_page = { role: 'page', number: index + 1, tab_row: tabRow(index, board.rows) + 1 };
+      const tab = board.tab_cell;
+      if (tab) {
+        // Colours as stored (hex or rgb()); the tab's image sits in this board's images like a button's.
+        const tabId = `${board.id}-tab`;
+        obf.ext_globalsymbols_book_tab = {
+          id: tabId,
+          label: tab.caption ?? board.name,
+          ...(tab.image_url ? { image_id: tabId } : {}),
+          ...(tab.background_colour ? { background_color: tab.background_colour } : {}),
+          ...(tab.border_colour ? { border_color: tab.border_colour } : {}),
+          ...(tab.text_colour ? { text_color: tab.text_colour } : {})
+        };
+        if (tab.image_url) {
+          obf.images.push({ id: tabId, url: tab.image_url, content_type: mime.getType(tab.image_url) });
+        }
+      }
+      return obf;
+    }, ext);
+  }
+
+  // Zips the boards' OBF files with a manifest. The first board is the root.
+  private writeObz(boards: Board[], toObf: (board: Board) => Obf, book?: ObzBook): Promise<Blob> {
     const zip = new JSZip();
 
     // Prepare the bare OBZ Manifest data
     const manifest: ObzManifest = {
       format: 'open-board-0.1',
-      root: 'boards/' + boardSet.boards[0].id + '.obf',
+      root: 'boards/' + boards[0].id + '.obf',
       paths: {
         boards: { },
         images: { },
         sounds: { }
       }
     };
+    if (book) { manifest.ext_globalsymbols_book = book; }
 
-    boardSet.boards.forEach(board => {
+    boards.forEach(board => {
       const boardFilename = 'boards/' + board.id + '.obf';
 
       // Add the Board OBF file to the ZIP file.
-      zip.file(boardFilename, JSON.stringify(board.toObf(), null, 2));
+      zip.file(boardFilename, JSON.stringify(toObf(board), null, 2));
 
       // Add the Board OBF file path to the OBZ Manifest
       return manifest.paths.boards[board.id] = boardFilename;

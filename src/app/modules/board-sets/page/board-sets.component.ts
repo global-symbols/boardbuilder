@@ -297,14 +297,15 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
     }
   }
 
-  // TODO(P7): make Import book book-aware; for now it is the OBZ import.
+  // Book files become a new book from either import; this one says it expects a book.
   importBook() {
-    this.uploadObz();
+    this.uploadObz(true);
   }
 
-  uploadObz() {
-    this.dialogService.uploadObz().afterClosed().subscribe(newBoardSet => {
+  uploadObz(expectBook = false) {
+    this.dialogService.uploadObz(expectBook).afterClosed().subscribe(newBoardSet => {
       if (newBoardSet instanceof BoardSet) {
+        this.selectTab(newBoardSet.isBook ? BOOKS_TAB : BOARD_SETS_TAB);
         this.obfObzService.uploadInlineImagesToMedia(newBoardSet).subscribe(bs => {
           this.service.add(bs).subscribe(boardSet => this.openBoardSet(boardSet));
         });

@@ -134,12 +134,9 @@
     <button mat-menu-item class="print-book" (click)="printBook()">
       <mat-icon>print</mat-icon> <ng-container i18n="print book|Print book">Print book</ng-container>
     </button>
-    <!-- P7 enables this. -->
-    <div matTooltip="Coming soon" i18n-matTooltip="coming soon|Coming soon tooltip" matTooltipPosition="right">
-      <button mat-menu-item class="download-book" disabled>
-        <mat-icon>save_alt</mat-icon> <ng-container i18n="download book|Download book">Download book</ng-container>
-      </button>
-    </div>
+    <button mat-menu-item class="download-book" (click)="downloadBook()">
+      <mat-icon>save_alt</mat-icon> <ng-container i18n="download book|Download book">Download book</ng-container>
+    </button>
   </ng-container>
   <button mat-menu-item class="add-board-obf" (click)="uploadBoardObf()" [disabled]="boardSet?.readonly" *ngIf="!boardSet?.isBook">
     <mat-icon>note_add</mat-icon> <ng-container i18n="Add Board from OBF">Add Board from OBF</ng-container>
