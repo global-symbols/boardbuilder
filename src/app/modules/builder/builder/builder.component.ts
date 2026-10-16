@@ -271,12 +271,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
     }]);
   }
 
-  get boardSetActionsTooltip(): string {
-    return this.boardSet?.isBook
-      ? $localize`:book actions|Book Actions button:Book Actions`
-      : $localize`:board set actions|Board Set Actions button:Board Set Actions`;
-  }
-
   private isTyping(event: KeyboardEvent): boolean {
     const el = event.target as HTMLElement;
     if (!el) { return false; }

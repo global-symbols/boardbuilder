@@ -15,9 +15,17 @@
           <div fxLayout="row" fxLayoutAlign="space-between center" (dblclick)="editBoardSet()">
             <h3 id="boardSetName">{{boardSet.name}}</h3>
 
-            <button mat-button mat-icon-button
+            <!-- Template i18n (not $localize) so the board-set tooltip keeps its existing translations. -->
+            <button mat-button mat-icon-button *ngIf="!boardSet.isBook"
                     [matMenuTriggerFor]="matBoardSetMenu"
-                    [matTooltip]="boardSetActionsTooltip" matTooltipPosition="right"
+                    matTooltip="Board Set Actions" i18n-matTooltip="board set actions|Board Set Actions button" matTooltipPosition="right"
+                    (click)="$event.stopPropagation()"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <button mat-button mat-icon-button *ngIf="boardSet.isBook"
+                    [matMenuTriggerFor]="matBoardSetMenu"
+                    matTooltip="Book Actions" i18n-matTooltip="book actions|Book Actions button" matTooltipPosition="right"
                     (click)="$event.stopPropagation()"
             >
               <mat-icon>more_vert</mat-icon>
