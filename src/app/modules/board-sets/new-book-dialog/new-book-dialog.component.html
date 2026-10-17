@@ -52,8 +52,7 @@
 
       <!-- Convert to book: how each board fits the chosen layout (D40). -->
       <div class="compatibility mt-3" *ngIf="converting">
-        <h3 class="mb-1"><ng-container i18n="compatibility heading|Convert to book report heading">Compatibility</ng-container>
-          ({{selectedLayout.cells}} <ng-container i18n="cells|Cells per book page, after a number">cells</ng-container>)</h3>
+        <h3 class="mb-1 compatibility-summary" i18n="compatibility summary|Convert to book report heading with how many boards fit">Compatibility ({{passCount}} {passCount, plural, =1 {board} other {boards}} pass, {{failCount}} fail)</h3>
         <ul class="report">
           <li *ngFor="let board of sourceBoards" class="report-row fit-{{fit(board)}}"
               fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="0.5rem">

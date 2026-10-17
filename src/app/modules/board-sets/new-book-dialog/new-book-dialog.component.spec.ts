@@ -111,6 +111,8 @@ describe('NewBookDialogComponent', () => {
       expect(rows().map(row => row.className.match(/fit-(\w+)/)[1])).toEqual(['same', 'reflow', 'too_big']);
       expect(rows()[1].textContent).toContain('Links to other boards will be removed');
       expect(rows()[2].querySelector('.leave-out')).toBeTruthy();
+      expect(fixture.nativeElement.querySelector('.compatibility-summary').textContent.replace(/\s+/g, ' ').trim())
+        .toBe('Compatibility (2 boards pass, 1 fail)');
     });
 
     it('blocks Convert until boards that do not fit are left out', () => {
@@ -132,6 +134,8 @@ describe('NewBookDialogComponent', () => {
 
       expect(component.blocked).toBeFalse();
       expect(rows().map(row => row.className.match(/fit-(\w+)/)[1])).toEqual(['reflow', 'reflow', 'reflow']);
+      expect(fixture.nativeElement.querySelector('.compatibility-summary').textContent.replace(/\s+/g, ' ').trim())
+        .toBe('Compatibility (3 boards pass, 0 fail)');
     });
 
     it('converts the boards that fit into a new book and closes with it', () => {

@@ -287,10 +287,6 @@
           <context context-type="linenumber">45</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">56</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
           <context context-type="linenumber">32</context>
         </context-group>
@@ -570,7 +566,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">90</context>
+          <context context-type="linenumber">89</context>
         </context-group>
         <note priority="1" from="description">Create</note>
         <note priority="1" from="meaning">create</note>
@@ -653,20 +649,27 @@
         <note priority="1" from="description">Rows, after a number</note>
         <note priority="1" from="meaning">rows</note>
       </trans-unit>
-      <trans-unit id="fb3fd9bb9060879faa1c997664d50e42f5a1d517" datatype="html">
-        <source>Compatibility</source>
+      <trans-unit id="b52857cf5c02f1f42ca49389e711c7e5a706a006" datatype="html">
+        <source>Compatibility (<x id="INTERPOLATION" equiv-text="{{passCount}}"/> <x id="ICU" equiv-text="{passCount, plural, =1 {board} other {boards}}"/> pass, <x id="INTERPOLATION_1" equiv-text="{{failCount}}"/> fail)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
           <context context-type="linenumber">55</context>
         </context-group>
-        <note priority="1" from="description">Convert to book report heading</note>
-        <note priority="1" from="meaning">compatibility heading</note>
+        <note priority="1" from="description">Convert to book report heading with how many boards fit</note>
+        <note priority="1" from="meaning">compatibility summary</note>
+      </trans-unit>
+      <trans-unit id="87966ceb9d8931631a6c5d76ad487f5fdb50ec66" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {board} other {boards}}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="17846910fa020495cbec575d46999c5ea1291a5b" datatype="html">
         <source>Compatible.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">69</context>
+          <context context-type="linenumber">68</context>
         </context-group>
         <note priority="1" from="description">Board already has the book layout</note>
         <note priority="1" from="meaning">fit same</note>
@@ -675,7 +678,7 @@
         <source>Compatible, but cells will be re-arranged to fill the page in order.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">69</context>
         </context-group>
         <note priority="1" from="description">Board will be re-flowed into the book layout</note>
         <note priority="1" from="meaning">fit reflow</note>
@@ -684,7 +687,7 @@
         <source>Not compatible: more cells than a book page.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">71</context>
+          <context context-type="linenumber">70</context>
         </context-group>
         <note priority="1" from="description">Board has more cells than a book page</note>
         <note priority="1" from="meaning">fit too big</note>
@@ -693,7 +696,7 @@
         <source> Links to other boards will be removed.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">72</context>
+          <context context-type="linenumber">71</context>
         </context-group>
         <note priority="1" from="description">Links between boards are removed in a book</note>
         <note priority="1" from="meaning">fit links</note>
@@ -702,7 +705,7 @@
         <source>Leave out</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">76</context>
         </context-group>
         <note priority="1" from="description">Ignore an incompatible board when converting</note>
         <note priority="1" from="meaning">leave out</note>
@@ -711,7 +714,7 @@
         <source>Tick &quot;Leave out&quot; for boards that are not compatible, or choose another layout.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">80</context>
+          <context context-type="linenumber">79</context>
         </context-group>
         <note priority="1" from="description">Explains why Convert is disabled</note>
         <note priority="1" from="meaning">convert blocked</note>
@@ -720,7 +723,7 @@
         <source>No boards fit this layout.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">80</context>
         </context-group>
         <note priority="1" from="description">No boards fit the book</note>
         <note priority="1" from="meaning">convert nothing</note>
@@ -729,7 +732,7 @@
         <source>The layout cannot be changed after the book is created.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">85</context>
+          <context context-type="linenumber">84</context>
         </context-group>
         <note priority="1" from="description">Create Book layout fixed note</note>
       </trans-unit>
@@ -737,7 +740,7 @@
         <source>Convert</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">91</context>
+          <context context-type="linenumber">90</context>
         </context-group>
         <note priority="1" from="description">Convert to book button</note>
         <note priority="1" from="meaning">convert</note>
@@ -746,7 +749,7 @@
         <source>The book could not be made. Please try again.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.ts</context>
-          <context context-type="linenumber">114</context>
+          <context context-type="linenumber">118</context>
         </context-group>
         <note priority="1" from="description">Convert to book failed</note>
         <note priority="1" from="meaning">convert to book failed</note>

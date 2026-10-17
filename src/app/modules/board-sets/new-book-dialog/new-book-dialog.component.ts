@@ -70,6 +70,10 @@ export class NewBookDialogComponent implements OnInit {
     if (leaveOut) { this.leftOut.add(board.id); } else { this.leftOut.delete(board.id); }
   }
 
+  // Report summary: boards that fit (same or re-flowed) and boards with more cells than a page.
+  get passCount(): number { return this.includedBoards.length; }
+  get failCount(): number { return this.sourceBoards.length - this.passCount; }
+
   // Boards that will become pages: every board that fits.
   get includedBoards(): Board[] {
     return this.sourceBoards.filter(board => this.fit(board) !== 'too_big');
