@@ -33,6 +33,7 @@ import {features} from '@app/features';
 import {LANDING_PAGE_NAME} from '@shared/pipes/term.pipe';
 import {PrintPageChoice, PrintPageDialogComponent} from '../print-page-dialog/print-page-dialog.component';
 import {ObfObzService} from '@data/services/obf-obz.service';
+import {NewBookDialogComponent} from '@modules/board-sets/new-book-dialog/new-book-dialog.component';
 
 // Book page tab cells carry their picto too, for adaptable symbols.
 const BOARD_SET_EXPAND = 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media tabs ' +
@@ -603,6 +604,19 @@ export class BuilderComponent implements OnInit, OnDestroy {
   generatePdf() {
     this.updateBoardSet()
       .subscribe(r => this.router.navigate(['/', 'boardsets', this.boardSet.id, this.board.id, 'pdf']));
+  }
+
+  // Convert to book (D40): a new book from this board set's boards that fit; the board set is not changed.
+  convertToBook() {
+    if (this.boardSet.isBook || this.currentDialogRef !== undefined) { return; }
+    this.currentDialogRef = this.dialog.open(NewBookDialogComponent, {
+      width: '640px',
+      data: { source: this.boardSet }
+    });
+    this.currentDialogRef.afterClosed().subscribe(book => {
+      this.currentDialogRef = undefined;
+      if (book instanceof BoardSet) { this.router.navigate(['/', 'boardsets', book.id]); }
+    });
   }
 
   // Books print on their own screen, never the board-set PDF screen (D31).

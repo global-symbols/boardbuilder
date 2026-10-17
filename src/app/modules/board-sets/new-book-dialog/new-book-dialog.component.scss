@@ -77,3 +77,31 @@
   right: 0.5rem;
   color: $book-accent;
 }
+
+// Convert to book report
+.report {
+  max-height: 260px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.report-row {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.fit-same .fit-icon { color: #2e7d32; }
+.fit-reflow .fit-icon { color: #ef6c00; }
+.fit-too_big .fit-icon { color: #c62828; }
+
+.fit-note {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.leave-out {
+  flex: none;
+  font-size: 13px;
+}

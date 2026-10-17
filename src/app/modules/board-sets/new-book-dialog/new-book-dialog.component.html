@@ -4,7 +4,8 @@
 >
 
   <header fxLayout="row" fxLayoutAlign="space-between center" class="mb-3">
-    <h1 mat-dialog-title i18n="Create Book dialog title" class="mb-0">Create Book</h1>
+    <h1 mat-dialog-title *ngIf="!converting" i18n="Create Book dialog title" class="mb-0">Create Book</h1>
+    <h1 mat-dialog-title *ngIf="converting" i18n="Convert to Book dialog title" class="mb-0">Convert to Book</h1>
     <button mat-icon-button aria-label="Close" i18n-aria-label="close|Close" [mat-dialog-close]="false"
             appStopPropagation>
       <mat-icon>close</mat-icon>
@@ -21,7 +22,10 @@
         <mat-hint align="end">{{bookForm.value.name.length || 0}}&nbsp;/&nbsp;250</mat-hint>
       </mat-form-field>
 
-      <p class="mb-2" i18n="Create Book layout intro">Every page in a book has the same layout, with a tab on the right edge.</p>
+      <p class="mb-2" *ngIf="converting" i18n="Convert to Book intro|Explains converting a board set into a book">
+        This makes a new book from this board set. The board set is not changed. Every page in a book has the same layout, so choose one and check how each board fits.
+      </p>
+      <p class="mb-2" *ngIf="!converting" i18n="Create Book layout intro">Every page in a book has the same layout, with a tab on the right edge.</p>
 
       <div class="layouts" fxLayout="row" fxLayout.xs="column" fxLayoutGap="1rem" role="radiogroup"
            aria-label="Book layout" i18n-aria-label="book layout|Book layout radio group label">
@@ -46,12 +50,46 @@
         </button>
       </div>
 
+      <!-- Convert to book: how each board fits the chosen layout (D40). -->
+      <div class="compatibility mt-3" *ngIf="converting">
+        <h3 class="mb-1"><ng-container i18n="compatibility heading|Convert to book report heading">Compatibility</ng-container>
+          ({{selectedLayout.cells}} <ng-container i18n="cells|Cells per book page, after a number">cells</ng-container>)</h3>
+        <ul class="report">
+          <li *ngFor="let board of sourceBoards" class="report-row fit-{{fit(board)}}"
+              fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="0.5rem">
+            <mat-icon class="fit-icon" [ngSwitch]="fit(board)">
+              <ng-container *ngSwitchCase="'same'">check_circle</ng-container>
+              <ng-container *ngSwitchCase="'reflow'">warning</ng-container>
+              <ng-container *ngSwitchCase="'too_big'">block</ng-container>
+            </mat-icon>
+            <div fxFlex>
+              <strong>{{board.name}}</strong>
+              <span class="text-muted"> · {{board.columns}} × {{board.rows}}</span>
+              <div class="fit-note" [ngSwitch]="fit(board)">
+                <ng-container *ngSwitchCase="'same'" i18n="fit same|Board already has the book layout">Compatible.</ng-container>
+                <ng-container *ngSwitchCase="'reflow'" i18n="fit reflow|Board will be re-flowed into the book layout">Compatible, but cells will be re-arranged to fill the page in order.</ng-container>
+                <ng-container *ngSwitchCase="'too_big'" i18n="fit too big|Board has more cells than a book page">Not compatible: more cells than a book page.</ng-container>
+                <ng-container *ngIf="hasLinks(board) && fit(board) !== 'too_big'" i18n="fit links|Links between boards are removed in a book"> Links to other boards will be removed.</ng-container>
+              </div>
+            </div>
+            <mat-checkbox *ngIf="fit(board) === 'too_big'" class="leave-out" [checked]="leftOut.has(board.id)"
+                          (change)="toggleLeftOut(board, $event.checked)"
+                          i18n="leave out|Ignore an incompatible board when converting">Leave out</mat-checkbox>
+          </li>
+        </ul>
+        <p class="text-danger mb-0" *ngIf="blocked" i18n="convert blocked|Explains why Convert is disabled">Tick "Leave out" for boards that are not compatible, or choose another layout.</p>
+        <p class="text-danger mb-0" *ngIf="!blocked && includedBoards.length === 0" i18n="convert nothing|No boards fit the book">No boards fit this layout.</p>
+      </div>
+      <p class="text-danger mt-2 mb-0 convert-error" *ngIf="error">{{error}}</p>
+
       <p class="text-muted mt-3 mb-0" i18n="Create Book layout fixed note">The layout cannot be changed after the book is created.</p>
     </div>
 
     <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center" class="mt-2">
-      <button mat-raised-button color="primary" type="submit" [disabled]="bookForm.invalid || saving"
-              appStopPropagation i18n="create|Create">Create</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!canSubmit" appStopPropagation class="submit">
+        <ng-container *ngIf="!converting" i18n="create|Create">Create</ng-container>
+        <ng-container *ngIf="converting" i18n="convert|Convert to book button">Convert</ng-container>
+      </button>
     </div>
   </form>
 </div>

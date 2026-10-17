@@ -156,6 +156,9 @@
   <button mat-menu-item class="download-obz" (click)="downloadBoardSetObz()" *ngIf="!boardSet?.isBook">
     <mat-icon>save_alt</mat-icon> <ng-container i18n="download obz|Download Board Set as OBZ">Download Board Set as OBZ</ng-container>
   </button>
+  <button mat-menu-item class="convert-to-book" (click)="convertToBook()" *ngIf="!boardSet?.isBook">
+    <mat-icon>menu_book</mat-icon> <ng-container i18n="convert to book|Convert a board set to a book">Convert to book</ng-container>
+  </button>
   <button mat-menu-item (click)="translateBoardSet()">
     <mat-icon>translate</mat-icon>
     <ng-container i18n="translate|Translate">Translate</ng-container>

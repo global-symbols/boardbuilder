@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatDialogRef} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {of} from 'rxjs';
 
 import {NewBookDialogComponent} from './new-book-dialog.component';
@@ -14,8 +14,12 @@ describe('NewBookDialogComponent', () => {
   let service: jasmine.SpyObj<BoardSetService>;
   let dialogRef: jasmine.SpyObj<MatDialogRef<NewBookDialogComponent>>;
 
+  // Shared with the test module; Convert to book tests set a source before creating the dialog.
+  const dialogData: { source?: BoardSet } = {};
+
   beforeEach(waitForAsync(() => {
-    service = jasmine.createSpyObj('BoardSetService', ['add']);
+    delete dialogData.source;
+    service = jasmine.createSpyObj('BoardSetService', ['add', 'convertToBook']);
     dialogRef = jasmine.createSpyObj('MatDialogRef', ['close']);
 
     TestBed.configureTestingModule({
@@ -23,7 +27,8 @@ describe('NewBookDialogComponent', () => {
       imports: [ ReactiveFormsModule ],
       providers: [
         { provide: BoardSetService, useValue: service },
-        { provide: MatDialogRef, useValue: dialogRef }
+        { provide: MatDialogRef, useValue: dialogRef },
+        { provide: MAT_DIALOG_DATA, useValue: dialogData }
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
@@ -72,5 +77,76 @@ describe('NewBookDialogComponent', () => {
     expect([sent.book_columns, sent.book_rows]).toEqual([6, 6]);
     expect(sent.boards).toEqual([]);
     expect(dialogRef.close).toHaveBeenCalledWith(created);
+  });
+
+  describe('Convert to book', () => {
+    const source = () => new BoardSet().deserialise({
+      id: 3, name: 'Home', boards: [
+        { id: 31, name: 'Core', index: 0, columns: 3, rows: 4, cells: [] },
+        { id: 32, name: 'Food', index: 1, columns: 4, rows: 2, cells: [{ id: 1, linked_board_id: 31 }] },
+        { id: 33, name: 'Big', index: 2, columns: 5, rows: 5, cells: [] }
+      ] as any
+    });
+
+    function openConvert() {
+      dialogData.source = source();
+      fixture = TestBed.createComponent(NewBookDialogComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    }
+
+    const rows = (): HTMLElement[] => Array.from(fixture.nativeElement.querySelectorAll('.report-row'));
+
+    it('starts from the board set name and the layout most boards fit', () => {
+      openConvert();
+
+      expect(component.bookForm.value.name).toBe('Home');
+      expect(component.selectedLayout.cells).toBe(12);
+      expect(fixture.nativeElement.textContent).toContain('Convert to Book');
+    });
+
+    it('reports each board: compatible, re-flowed (with links noted), not compatible', () => {
+      openConvert();
+
+      expect(rows().map(row => row.className.match(/fit-(\w+)/)[1])).toEqual(['same', 'reflow', 'too_big']);
+      expect(rows()[1].textContent).toContain('Links to other boards will be removed');
+      expect(rows()[2].querySelector('.leave-out')).toBeTruthy();
+    });
+
+    it('blocks Convert until boards that do not fit are left out', () => {
+      openConvert();
+      expect(component.blocked).toBeTrue();
+      expect(fixture.nativeElement.querySelector('.submit').disabled).toBeTrue();
+
+      component.toggleLeftOut(component.sourceBoards[2], true);
+      fixture.detectChanges();
+
+      expect(component.blocked).toBeFalse();
+      expect(fixture.nativeElement.querySelector('.submit').disabled).toBeFalse();
+    });
+
+    it('a bigger layout can make every board fit', () => {
+      openConvert();
+      component.selectLayout(component.layouts[1]);
+      fixture.detectChanges();
+
+      expect(component.blocked).toBeFalse();
+      expect(rows().map(row => row.className.match(/fit-(\w+)/)[1])).toEqual(['reflow', 'reflow', 'reflow']);
+    });
+
+    it('converts the boards that fit into a new book and closes with it', () => {
+      openConvert();
+      const book = new BoardSet({ id: 50, kind: 'book', book_columns: 3, book_rows: 4 });
+      service.convertToBook.and.returnValue(of(book));
+      component.toggleLeftOut(component.sourceBoards[2], true);
+
+      component.create();
+
+      expect(service.convertToBook).toHaveBeenCalledWith(component.source, {
+        name: 'Home', book_columns: 3, book_rows: 4, board_ids: [31, 32]
+      });
+      expect(service.add).not.toHaveBeenCalled();
+      expect(dialogRef.close).toHaveBeenCalledWith(book);
+    });
   });
 });

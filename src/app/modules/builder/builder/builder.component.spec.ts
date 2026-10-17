@@ -130,6 +130,7 @@ describe('BuilderComponent', () => {
     expect(items.some(item => item.includes('Add Board from OBF'))).toBeFalse();
     expect(items.some(item => item.includes('Download Board Set as OBZ'))).toBeFalse();
     expect(items.some(item => item.includes('Tab Printer Settings'))).toBeFalse();
+    expect(items.some(item => item.includes('Convert to book'))).toBeFalse();
   });
 
   it('a read-only book can still be printed and downloaded, but not changed', () => {
@@ -153,6 +154,7 @@ describe('BuilderComponent', () => {
     expect(items.some(item => item.includes('Add Board from OBF'))).toBeTrue();
     expect(items.some(item => item.includes('Download Board Set as OBZ'))).toBeTrue();
     expect(items.some(item => item.includes('Print book'))).toBeFalse();
+    expect(items.some(item => item.endsWith('Convert to book'))).toBeTrue();
   });
 
   it('adds "Page n" to a book in the book layout, without a dialog', () => {

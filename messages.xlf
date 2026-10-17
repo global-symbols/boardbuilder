@@ -284,7 +284,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">56</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/obz-upload-dialog/obz-upload-dialog.component.html</context>
@@ -444,7 +448,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">9</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-editor-dialog/board-editor-dialog.component.html</context>
@@ -566,7 +570,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">54</context>
+          <context context-type="linenumber">90</context>
         </context-group>
         <note priority="1" from="description">Create</note>
         <note priority="1" from="meaning">create</note>
@@ -579,11 +583,19 @@
         </context-group>
         <note priority="1" from="description">Create Book dialog title</note>
       </trans-unit>
+      <trans-unit id="654506a25fa89fd9c75d126f3d4102908660ce85" datatype="html">
+        <source>Convert to Book</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Convert to Book dialog title</note>
+      </trans-unit>
       <trans-unit id="f26b5e7e2f3f9dc546e5e9904f75a5aee13e73d5" datatype="html">
         <source>Book title</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <note priority="1" from="description">Book title field label</note>
         <note priority="1" from="meaning">book.title label</note>
@@ -592,16 +604,25 @@
         <source>Choose a name for the new book.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">21</context>
         </context-group>
         <note priority="1" from="description">Book title field hint</note>
         <note priority="1" from="meaning">book.title hint</note>
+      </trans-unit>
+      <trans-unit id="0a36e1d7dedb9913d8a14c29ad0da7208e0f6fef" datatype="html">
+        <source> This makes a new book from this board set. The board set is not changed. Every page in a book has the same layout, so choose one and check how each board fits. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+        <note priority="1" from="description">Explains converting a board set into a book</note>
+        <note priority="1" from="meaning">Convert to Book intro</note>
       </trans-unit>
       <trans-unit id="b8a9565c1b262d1fa832896d7fec81f112b1db71" datatype="html">
         <source>Every page in a book has the same layout, with a tab on the right edge.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <note priority="1" from="description">Create Book layout intro</note>
       </trans-unit>
@@ -609,7 +630,7 @@
         <source>Book layout</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">31</context>
         </context-group>
         <note priority="1" from="description">Book layout radio group label</note>
         <note priority="1" from="meaning">book layout</note>
@@ -618,7 +639,7 @@
         <source>columns</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">46</context>
         </context-group>
         <note priority="1" from="description">Columns, after a number</note>
         <note priority="1" from="meaning">columns</note>
@@ -627,18 +648,108 @@
         <source>rows</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">47</context>
         </context-group>
         <note priority="1" from="description">Rows, after a number</note>
         <note priority="1" from="meaning">rows</note>
+      </trans-unit>
+      <trans-unit id="fb3fd9bb9060879faa1c997664d50e42f5a1d517" datatype="html">
+        <source>Compatibility</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">Convert to book report heading</note>
+        <note priority="1" from="meaning">compatibility heading</note>
+      </trans-unit>
+      <trans-unit id="17846910fa020495cbec575d46999c5ea1291a5b" datatype="html">
+        <source>Compatible.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <note priority="1" from="description">Board already has the book layout</note>
+        <note priority="1" from="meaning">fit same</note>
+      </trans-unit>
+      <trans-unit id="c53a91e924392224b30ab6c275ca5d7078cc484a" datatype="html">
+        <source>Compatible, but cells will be re-arranged to fill the page in order.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <note priority="1" from="description">Board will be re-flowed into the book layout</note>
+        <note priority="1" from="meaning">fit reflow</note>
+      </trans-unit>
+      <trans-unit id="3b31a3ac7fc777ce1c3e1ae9c71db223570ec6d5" datatype="html">
+        <source>Not compatible: more cells than a book page.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+        <note priority="1" from="description">Board has more cells than a book page</note>
+        <note priority="1" from="meaning">fit too big</note>
+      </trans-unit>
+      <trans-unit id="1f07fd44d5fe26143227ee1c9cdd1f61fdb2ca50" datatype="html">
+        <source> Links to other boards will be removed.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+        <note priority="1" from="description">Links between boards are removed in a book</note>
+        <note priority="1" from="meaning">fit links</note>
+      </trans-unit>
+      <trans-unit id="16a4dfab4788593cfea3c1d697255684b798bd6b" datatype="html">
+        <source>Leave out</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+        <note priority="1" from="description">Ignore an incompatible board when converting</note>
+        <note priority="1" from="meaning">leave out</note>
+      </trans-unit>
+      <trans-unit id="f0cfde483c1a706daeadea1dea192de0a8f989f4" datatype="html">
+        <source>Tick &quot;Leave out&quot; for boards that are not compatible, or choose another layout.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+        <note priority="1" from="description">Explains why Convert is disabled</note>
+        <note priority="1" from="meaning">convert blocked</note>
+      </trans-unit>
+      <trans-unit id="b658681a3456d38df6b57b88b60b41912e2b4fbb" datatype="html">
+        <source>No boards fit this layout.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <note priority="1" from="description">No boards fit the book</note>
+        <note priority="1" from="meaning">convert nothing</note>
       </trans-unit>
       <trans-unit id="ebde5b2479c09f2cdb2681f47875863563e9b45f" datatype="html">
         <source>The layout cannot be changed after the book is created.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">85</context>
         </context-group>
         <note priority="1" from="description">Create Book layout fixed note</note>
+      </trans-unit>
+      <trans-unit id="3a2ab4a491994ae1bacbafa96747817ac4d31811" datatype="html">
+        <source>Convert</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+        <note priority="1" from="description">Convert to book button</note>
+        <note priority="1" from="meaning">convert</note>
+      </trans-unit>
+      <trans-unit id="2933614647899457630" datatype="html">
+        <source>The book could not be made. Please try again.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.ts</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+        <note priority="1" from="description">Convert to book failed</note>
+        <note priority="1" from="meaning">convert to book failed</note>
       </trans-unit>
       <trans-unit id="bbf5040b065473b7757cf27521108a385832b18b" datatype="html">
         <source>My Books &amp; Board Sets</source>
@@ -869,7 +980,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">161</context>
+          <context context-type="linenumber">164</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/translate-board-dialog/translate-board-dialog.component.html</context>
@@ -920,7 +1031,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">188</context>
+          <context context-type="linenumber">191</context>
         </context-group>
         <note priority="1" from="description">Delete</note>
         <note priority="1" from="meaning">delete</note>
@@ -1701,7 +1812,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">193</context>
+          <context context-type="linenumber">196</context>
         </context-group>
         <note priority="1" from="description">Properties button</note>
         <note priority="1" from="meaning">properties</note>
@@ -1931,11 +2042,20 @@
         <note priority="1" from="description">Download Board Set as OBZ</note>
         <note priority="1" from="meaning">download obz</note>
       </trans-unit>
+      <trans-unit id="438d44d4f4d24dcdff2fb80b24d2dabc6e177ef6" datatype="html">
+        <source>Convert to book</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
+          <context context-type="linenumber">160</context>
+        </context-group>
+        <note priority="1" from="description">Convert a board set to a book</note>
+        <note priority="1" from="meaning">convert to book</note>
+      </trans-unit>
       <trans-unit id="b8bc353c029e7e1f609cc368484c8d0165e0b2a9" datatype="html">
         <source>Duplicate board set</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">165</context>
+          <context context-type="linenumber">168</context>
         </context-group>
         <note priority="1" from="description">Duplicate board set</note>
         <note priority="1" from="meaning">duplicate board set</note>
@@ -1944,7 +2064,7 @@
         <source>Duplicate book</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">166</context>
+          <context context-type="linenumber">169</context>
         </context-group>
         <note priority="1" from="description">Duplicate book</note>
         <note priority="1" from="meaning">duplicate book</note>
@@ -1953,7 +2073,7 @@
         <source>Tab Printer Settings</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">170</context>
+          <context context-type="linenumber">173</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
@@ -1965,7 +2085,7 @@
         <source>Tab settings</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">174</context>
+          <context context-type="linenumber">177</context>
         </context-group>
         <note priority="1" from="description">Tab settings</note>
         <note priority="1" from="meaning">tab settings</note>
@@ -1974,7 +2094,7 @@
         <source>Keyboard Shortcuts</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">214</context>
+          <context context-type="linenumber">217</context>
         </context-group>
         <note priority="1" from="description">Keyboard Shortcuts</note>
         <note priority="1" from="meaning">keyboard shortcuts</note>
@@ -1983,11 +2103,11 @@
         <source>The file could not be added</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.ts</context>
-          <context context-type="linenumber">566</context>
+          <context context-type="linenumber">567</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.ts</context>
-          <context context-type="linenumber">594</context>
+          <context context-type="linenumber">595</context>
         </context-group>
         <note priority="1" from="description">Heading when an OBF file cannot be added to a book</note>
         <note priority="1" from="meaning">add page from obf failed</note>
@@ -1996,7 +2116,7 @@
         <source>Replace the back page?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.ts</context>
-          <context context-type="linenumber">577</context>
+          <context context-type="linenumber">578</context>
         </context-group>
         <note priority="1" from="description">Confirm replacing the back page</note>
         <note priority="1" from="meaning">replace back page heading</note>
@@ -2005,7 +2125,7 @@
         <source>This book already has a back page, &quot;<x id="name" equiv-text="current.name"/>&quot;. Replace it with &quot;<x id="newName" equiv-text="board.name"/>&quot;? The current back page and everything on it will be deleted.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.ts</context>
-          <context context-type="linenumber">578</context>
+          <context context-type="linenumber">579</context>
         </context-group>
         <note priority="1" from="description">Confirm replacing the back page</note>
         <note priority="1" from="meaning">replace back page text</note>
@@ -2014,7 +2134,7 @@
         <source>Replace</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.ts</context>
-          <context context-type="linenumber">580</context>
+          <context context-type="linenumber">581</context>
         </context-group>
         <note priority="1" from="description">Replace</note>
         <note priority="1" from="meaning">replace</note>

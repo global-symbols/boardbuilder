@@ -1,3 +1,4 @@
+import {NewBookDialogModule} from '@modules/board-sets/new-book-dialog/new-book-dialog.module';
 import {PrintPageDialogComponent} from './print-page-dialog/print-page-dialog.component';
 import {BookPageListComponent} from './book-page-list/book-page-list.component';
 import {NgModule} from '@angular/core';
@@ -115,6 +116,7 @@ export const routes: Routes = [
         MatSlideToggleModule,
         MatCheckboxModule,
         MatRadioModule,
+        NewBookDialogModule,
         HotkeyModule,
         ColorGithubModule,
         NgxGoogleAnalyticsModule

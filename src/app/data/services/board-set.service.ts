@@ -93,6 +93,13 @@ export class BoardSetService {
       .pipe(map(data => new BoardSet().deserialise(data)));
   }
 
+  // Makes a new book from a board set's chosen boards (the board set is not changed).
+  convertToBook(boardSet: BoardSet, book: { name: string, book_columns: number, book_rows: number, board_ids: number[] }):
+    Observable<BoardSet> {
+    return this.http.post<BoardSet>(`${this.apiEndpoint}/${boardSet.id}/convert_to_book`, book)
+      .pipe(map(data => new BoardSet().deserialise(data)));
+  }
+
   // Starts generating the whole book as one PDF, in the background.
   startBookPdfExport(book: BoardSet, template: Template): Observable<BookPdfExport> {
     return this.http.post<BookPdfExport>(`${this.apiEndpoint}/${book.id}/book_pdf_exports`, template);
