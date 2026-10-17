@@ -151,6 +151,14 @@ mat-card.add-book button {
 .new-folder {
   height: 36px;
   border-radius: 18px;
+  flex: none;
+
+  // Centre the icon and label on one line, with a little gap.
+  ::ng-deep .mat-button-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
 }
 
 .folder-breadcrumb .folder-icon {
