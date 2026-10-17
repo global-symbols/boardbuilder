@@ -14,7 +14,6 @@ export class Template implements Deserialisable {
   drawCellBorders: boolean;
   cellBorderWidth: number;
   showHeader: boolean;
-  showTabs: boolean;
   imageTextSpacing: number;
 
   // Book pages only, for this print: tab row (1 = top) and whether the back page follows.

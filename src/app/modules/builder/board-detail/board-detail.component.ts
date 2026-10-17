@@ -4,7 +4,6 @@ import {CdkDragDrop} from '@angular/cdk/drag-drop';
 import {MatMenuTrigger} from '@angular/material/menu';
 import {Board} from '@data/models/board.model';
 import {BoardSet} from '@data/models/boardset.model';
-import {CatalogueTab} from '@data/models/catalogue-tab.model';
 import {Cell} from '@data/models/cell.model';
 import {DialogService} from '@app/services/dialog.service';
 import {Media} from '@data/models/media.model';
@@ -83,10 +82,6 @@ export class BoardDetailComponent implements OnChanges {
     }
   }
 
-  get showTabs(): boolean {
-    return false;
-  }
-
   // --- Book tabs (plan §6.4). The tab is the page's tab cell, drawn in a column beside the grid. ---
 
   get isBook(): boolean { return !!this.boardSet?.isBook; }
@@ -123,28 +118,6 @@ export class BoardDetailComponent implements OnChanges {
   toggleBookTabs(show: boolean): void {
     this.showBookTabs = show;
     try { localStorage.setItem(SHOW_BOOK_TABS_KEY, show ? '1' : '0'); } catch (e) { /* storage unavailable */ }
-  }
-
-  get tabEdge(): 'top' | 'bottom' | 'left' | 'right' {
-    return this.boardSet?.tab_edge || 'right';
-  }
-
-  get tabs(): CatalogueTab[] {
-    return (this.boardSet?.tabs || []).slice().sort((a, b) => (a.position || 0) - (b.position || 0) || a.id - b.id);
-  }
-
-  isCurrentTab(tab: CatalogueTab): boolean {
-    return !!this.board?.id && (tab.board_ids || []).indexOf(this.board.id) !== -1;
-  }
-
-  tabTextColour(colour: string): string {
-    const hex = (colour || '#4472C4').replace('#', '');
-    const full = hex.length === 3 ? hex.split('').map(c => c + c).join('') : hex;
-    if (full.length !== 6) { return '#ffffff'; }
-    const r = parseInt(full.slice(0, 2), 16);
-    const g = parseInt(full.slice(2, 4), 16);
-    const b = parseInt(full.slice(4, 6), 16);
-    return (0.299 * r + 0.587 * g + 0.114 * b) > 160 ? '#000000' : '#ffffff';
   }
 
   selectCell(cell: Cell) {

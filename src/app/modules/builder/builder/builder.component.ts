@@ -27,16 +27,13 @@ import {Cell} from '@data/models/cell.model';
 import {BoardTreeComponent} from '@modules/builder/board-tree/board-tree.component';
 import {CellEditorComponent} from '@modules/builder/cell-editor/cell-editor.component';
 import {CellActionsService} from '@data/services/cell-actions.service';
-import {EnableTabsDialogComponent} from '../enable-tabs-dialog/enable-tabs-dialog.component';
-import {PrintableBookDialogComponent} from '../printable-book-dialog/printable-book-dialog.component';
-import {features} from '@app/features';
 import {LANDING_PAGE_NAME} from '@shared/pipes/term.pipe';
 import {PrintPageChoice, PrintPageDialogComponent} from '../print-page-dialog/print-page-dialog.component';
 import {ObfObzService} from '@data/services/obf-obz.service';
 import {NewBookDialogComponent} from '@modules/board-sets/new-book-dialog/new-book-dialog.component';
 
 // Book page tab cells carry their picto too, for adaptable symbols.
-const BOARD_SET_EXPAND = 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media tabs ' +
+const BOARD_SET_EXPAND = 'boards boards.cells boards.cells.picto boards.cells.picto.image boards.header_media ' +
   'boards.tab_cell.picto boards.tab_cell.picto.image';
 
 @Component({
@@ -52,9 +49,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
 
   loading: boolean;
   loadingError = false;
-  readonly catalogueTabsEnabled = features.catalogueTabs;
-  // Tab settings stays in the app so the menu item can be switched back on.
-  readonly showTabSettingsMenu = false;
 
   disableCellEditorAnimations = true;
 
@@ -331,8 +325,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
       rows: this.board?.rows,
       columns: this.board?.columns,
       captions_position: this.board?.captions_position,
-      catalogue_tabs: !!this.boardSet.catalogue_tabs,
-      tab_enabled: true
     });
 
     this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
@@ -488,7 +480,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
     if (this.boardSet.readonly) { return; }
     if (this.currentDialogRef !== undefined) { return; }
 
-    board.catalogue_tabs = !!this.boardSet.catalogue_tabs;
     this.currentDialogRef = this.dialog.open(BoardEditorDialogComponent, {
       width: '700px',
       data: { board: this.board, bookMode: this.boardSet.isBook }
@@ -649,42 +640,6 @@ export class BuilderComponent implements OnInit, OnDestroy {
     });
     this.currentDialogRef.afterClosed().subscribe(() => {
       this.currentDialogRef = undefined;
-    });
-  }
-
-  openPrintableBook() {
-    if (!this.boardSet || this.boardSet.readonly || this.currentDialogRef !== undefined) { return; }
-    this.currentDialogRef = this.dialog.open(PrintableBookDialogComponent, {
-      width: '980px',
-      maxWidth: '96vw',
-      autoFocus: false,
-      data: this.boardSet
-    });
-    this.currentDialogRef.afterClosed().subscribe((result: BoardSet) => {
-      this.currentDialogRef = undefined;
-      if (result instanceof BoardSet) {
-        this.boardSet.catalogue_tabs = result.catalogue_tabs;
-        this.boardSet.tab_edge = result.tab_edge;
-        this.boardSet.tabs = result.tabs || [];
-      }
-    });
-  }
-
-  openTabs() {
-    if (!this.boardSet || this.boardSet.readonly || this.currentDialogRef !== undefined) { return; }
-    this.currentDialogRef = this.dialog.open(EnableTabsDialogComponent, {
-      width: '980px',
-      maxWidth: '96vw',
-      autoFocus: false,
-      data: this.boardSet
-    });
-    this.currentDialogRef.afterClosed().subscribe((result: BoardSet) => {
-      this.currentDialogRef = undefined;
-      if (result instanceof BoardSet) {
-        this.boardSet.catalogue_tabs = result.catalogue_tabs;
-        this.boardSet.tab_edge = result.tab_edge;
-        this.boardSet.tabs = result.tabs || [];
-      }
     });
   }
 

@@ -30,18 +30,7 @@
     </div>
   </div>
 
-  <div class="board-stage" [class.has-tabs]="showTabs" [attr.data-edge]="showTabs ? tabEdge : null"
-       [class.book-stage]="isBook && showBookTabs" [class.back-page]="isBackPage">
-    <aside class="tab-strip" *ngIf="showTabs">
-      <div *ngFor="let tab of tabs"
-           class="tab-chip"
-           [class.current]="isCurrentTab(tab)"
-           [style.background]="tab.colour || '#4472C4'"
-           [style.color]="tabTextColour(tab.colour)">
-        <img *ngIf="tab.image_url" [src]="tab.image_url" alt="">
-        <span class="tab-label">{{ tab.label }}</span>
-      </div>
-    </aside>
+  <div class="board-stage" [class.book-stage]="isBook && showBookTabs" [class.back-page]="isBackPage">
     <mat-grid-list [cols]="board.columns" rowHeight="11.85rem" gutterSize="1rem">
     <mat-grid-tile *ngFor="let c of board.cells | slice:0 : (board.columns * board.rows); let i = index"
                    [attr.data-cell-index]="i"

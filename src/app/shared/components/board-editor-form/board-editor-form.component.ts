@@ -16,13 +16,8 @@ export class BoardEditorFormComponent implements OnInit {
 
   @Input() board: Board;
   @Input() media: Media[];
-  @Input() catalogueTabs = false;
   // Book pages: hide the layout templates and rows/columns (the book layout is fixed).
   @Input() bookMode = false;
-
-  get showTabSettings(): boolean {
-    return false;
-  }
 
   @ViewChild('titleField') titleField: ElementRef;
 

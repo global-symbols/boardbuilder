@@ -77,22 +77,6 @@ export class BoardSetService {
       .pipe(map(data => new BoardSet().deserialise(data)));
   }
 
-  saveTabs(boardSetId: number, payload: {
-    catalogue_tabs: boolean;
-    tab_edge: string;
-    tabs: Array<{
-      id?: number;
-      label: string;
-      colour: string;
-      image_url: string;
-      position: number;
-      board_ids: number[];
-    }>;
-  }): Observable<BoardSet> {
-    return this.http.patch<BoardSet>(`${this.apiEndpoint}/${boardSetId}/tabs`, payload)
-      .pipe(map(data => new BoardSet().deserialise(data)));
-  }
-
   // Makes a new book from a board set's chosen boards (the board set is not changed).
   convertToBook(boardSet: BoardSet, book: { name: string, book_columns: number, book_rows: number, board_ids: number[] }):
     Observable<BoardSet> {

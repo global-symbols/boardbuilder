@@ -20,12 +20,6 @@ export class Board extends Record implements Deserialisable {
   cells: Array<Cell>;
   captions_position: 'hidden' | 'above' | 'below' | 'left' | 'right';
   header_media: Media;
-  catalogue_tabs: boolean;
-  tab_enabled: boolean;
-  tab_label: string;
-  tab_colour: string;
-  tab_position: number;
-  tab_image_url: string;
   // Books only: page or the single back page, the back page's type, and the page's tab (a Cell outside the grid).
   role?: BoardRole;
   back_page_type?: BackPageType;

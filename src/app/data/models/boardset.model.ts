@@ -3,7 +3,6 @@ import {Board} from './board.model';
 import {Record} from '@data/models/record';
 import {Cell} from '@data/models/cell.model';
 import {User} from '@data/models/user.model';
-import {CatalogueTab} from '@data/models/catalogue-tab.model';
 
 export type BoardSetKind = 'board_set' | 'book';
 
@@ -25,13 +24,10 @@ export class BoardSet extends Record implements Deserialisable {
     public public: boolean;
     public readonly: boolean;
     public folder_id: number;
-    public catalogue_tabs: boolean;
-    public tab_edge: 'top' | 'bottom' | 'left' | 'right';
     // A book is a board set with a fixed layout, ordered pages, an optional back page and a tab per page.
     public kind: BoardSetKind = 'board_set';
     public book_columns?: number;
     public book_rows?: number;
-    public tabs: CatalogueTab[] = [];
     public translated?: number;
     // Messages for the person importing an OBZ (e.g. boards skipped). Not saved.
     public importNotes?: string[];
@@ -51,16 +47,6 @@ export class BoardSet extends Record implements Deserialisable {
     deserialise(input: Partial<BoardSet>): this {
       const object = Object.assign(this, input);
       if (object.boards) { this.boards = object.boards.map(board => new Board().deserialise(board)); }
-      if (object.tabs) {
-        this.tabs = object.tabs.map(tab => ({
-          id: tab.id,
-          label: tab.label,
-          colour: tab.colour,
-          image_url: tab.image_url,
-          position: tab.position,
-          board_ids: tab.board_ids ? tab.board_ids.slice() : []
-        }));
-      }
       if (object.preview_cells) { this.preview_cells = object.preview_cells.map(c => new Cell().deserialise(c)); }
       if (object.owner) { this.owner = new User().deserialise(object.owner); }
       return this;

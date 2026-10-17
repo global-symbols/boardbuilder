@@ -168,14 +168,6 @@
     <ng-container *ngIf="!boardSet?.isBook" i18n="duplicate board set|Duplicate board set">Duplicate board set</ng-container>
     <ng-container *ngIf="boardSet?.isBook" i18n="duplicate book|Duplicate book">Duplicate book</ng-container>
   </button>
-  <button mat-menu-item class="tab-printer-settings" (click)="openPrintableBook()" [disabled]="boardSet?.readonly" *ngIf="catalogueTabsEnabled && !boardSet?.isBook">
-    <mat-icon>menu_book</mat-icon>
-    <ng-container i18n="tab printer settings">Tab Printer Settings</ng-container>
-  </button>
-  <button mat-menu-item (click)="openTabs()" [disabled]="boardSet?.readonly" *ngIf="catalogueTabsEnabled && showTabSettingsMenu && !boardSet?.isBook">
-    <mat-icon>tab</mat-icon>
-    <ng-container i18n="tab settings|Tab settings">Tab settings</ng-container>
-  </button>
 
   <mat-divider></mat-divider>
 

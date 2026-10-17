@@ -6,7 +6,6 @@ import {Board} from '@data/models/board.model';
 import {MatDialogRef} from '@angular/material/dialog';
 import {StepperSelectionEvent} from '@angular/cdk/stepper';
 import {BoardEditorFormComponent} from '@shared/components/board-editor-form/board-editor-form.component';
-import { features } from '@app/features';
 
 
 @Component({
@@ -21,8 +20,6 @@ export class NewBoardSetDialogComponent implements OnInit {
   boardSetForm: FormGroup;
 
   board: Board;
-  catalogueTabs = false;
-  readonly catalogueTabsEnabled = features.catalogueTabs;
 
   @ViewChild(BoardEditorFormComponent) boardEditorForm: BoardEditorFormComponent;
 
@@ -46,11 +43,8 @@ export class NewBoardSetDialogComponent implements OnInit {
   }
 
   create(): void {
-    const tabsOn = this.catalogueTabsEnabled && this.catalogueTabs;
-    this.board.tab_enabled = tabsOn;
     const boardSet = new BoardSet({
       name: this.boardSetForm.value.name,
-      catalogue_tabs: tabsOn,
       boards: [this.board]
     });
 

@@ -338,16 +338,8 @@
           <context context-type="linenumber">13</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">106</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/print-page-dialog/print-page-dialog.component.html</context>
           <context context-type="linenumber">41</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">138</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/translate-board-dialog/translate-board-dialog.component.html</context>
@@ -381,14 +373,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/folder-name-dialog/folder-name-dialog.component.html</context>
           <context context-type="linenumber">12</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">108</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">140</context>
         </context-group>
         <note priority="1" from="description">Save</note>
         <note priority="1" from="meaning">save</note>
@@ -749,7 +733,7 @@
         <source>The book could not be made. Please try again.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.ts</context>
-          <context context-type="linenumber">118</context>
+          <context context-type="linenumber">124</context>
         </context-group>
         <note priority="1" from="description">Convert to book failed</note>
         <note priority="1" from="meaning">convert to book failed</note>
@@ -1034,7 +1018,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">191</context>
+          <context context-type="linenumber">183</context>
         </context-group>
         <note priority="1" from="description">Delete</note>
         <note priority="1" from="meaning">delete</note>
@@ -1325,7 +1309,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">96,98</context>
+          <context context-type="linenumber">93,95</context>
         </context-group>
         <note priority="1" from="description">Legal notice about symbol licensing</note>
         <note priority="1" from="meaning">symbolset license notice</note>
@@ -1338,7 +1322,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">99</context>
+          <context context-type="linenumber">96</context>
         </context-group>
         <note priority="1" from="description">Symbolsets Used</note>
         <note priority="1" from="meaning">symbolsets used</note>
@@ -1351,7 +1335,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">112,113</context>
+          <context context-type="linenumber">109,110</context>
         </context-group>
         <note priority="1" from="description">Download</note>
         <note priority="1" from="meaning">download</note>
@@ -1368,11 +1352,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">115</context>
+          <context context-type="linenumber">112</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">116</context>
+          <context context-type="linenumber">113</context>
         </context-group>
         <note priority="1" from="description">Refresh PDF</note>
         <note priority="1" from="meaning">refresh pdf</note>
@@ -1385,7 +1369,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">123</context>
+          <context context-type="linenumber">120</context>
         </context-group>
         <note priority="1" from="description">PDF Reset Settings button</note>
         <note priority="1" from="meaning">pdf reset settings</note>
@@ -1398,7 +1382,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">128</context>
+          <context context-type="linenumber">125</context>
         </context-group>
         <note priority="1" from="description">Generating (working/building)</note>
         <note priority="1" from="meaning">generating</note>
@@ -1411,7 +1395,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">131</context>
+          <context context-type="linenumber">128</context>
         </context-group>
         <note priority="1" from="description">PDF Generator fit error</note>
         <note priority="1" from="meaning">pdf error fit help</note>
@@ -1424,7 +1408,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">133</context>
+          <context context-type="linenumber">130</context>
         </context-group>
         <note priority="1" from="description">PDF Generator error suggestion 1</note>
       </trans-unit>
@@ -1436,7 +1420,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">134</context>
+          <context context-type="linenumber">131</context>
         </context-group>
         <note priority="1" from="description">PDF Generator error suggestion 2</note>
       </trans-unit>
@@ -1448,7 +1432,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">135,137</context>
+          <context context-type="linenumber">132,134</context>
         </context-group>
         <note priority="1" from="description">PDF Generator error suggestion 3</note>
       </trans-unit>
@@ -1460,7 +1444,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">138</context>
+          <context context-type="linenumber">135</context>
         </context-group>
         <note priority="1" from="description">PDF Generator error suggestion 4</note>
       </trans-unit>
@@ -1495,11 +1479,11 @@
         <source>Go to Linked Board</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
-          <context context-type="linenumber">118</context>
+          <context context-type="linenumber">107</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
-          <context context-type="linenumber">144</context>
+          <context context-type="linenumber">133</context>
         </context-group>
         <note priority="1" from="description">Board Cell Go to Linked Board button</note>
         <note priority="1" from="meaning">go to linked board</note>
@@ -1508,7 +1492,7 @@
         <source> Each page&apos;s tab is printed here </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
-          <context context-type="linenumber">178,179</context>
+          <context context-type="linenumber">167,168</context>
         </context-group>
         <note priority="1" from="description">Placeholder for the tab column on a book back page</note>
         <note priority="1" from="meaning">back page tab placeholder</note>
@@ -1517,7 +1501,7 @@
         <source>Cut</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
-          <context context-type="linenumber">193</context>
+          <context context-type="linenumber">182</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
@@ -1530,7 +1514,7 @@
         <source>Copy</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
-          <context context-type="linenumber">197</context>
+          <context context-type="linenumber">186</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
@@ -1543,7 +1527,7 @@
         <source>Paste</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
-          <context context-type="linenumber">201</context>
+          <context context-type="linenumber">190</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
@@ -1556,7 +1540,7 @@
         <source>Delete</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
-          <context context-type="linenumber">205</context>
+          <context context-type="linenumber">194</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
@@ -1569,7 +1553,7 @@
         <source>Undo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-detail/board-detail.component.html</context>
-          <context context-type="linenumber">210</context>
+          <context context-type="linenumber">199</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/cell-editor/cell-editor.component.html</context>
@@ -1815,7 +1799,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">196</context>
+          <context context-type="linenumber">188</context>
         </context-group>
         <note priority="1" from="description">Properties button</note>
         <note priority="1" from="meaning">properties</note>
@@ -2072,32 +2056,11 @@
         <note priority="1" from="description">Duplicate book</note>
         <note priority="1" from="meaning">duplicate book</note>
       </trans-unit>
-      <trans-unit id="74bd0836420b691d1901cdf4f0b765d6bec10d5f" datatype="html">
-        <source>Tab Printer Settings</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">173</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-        <note priority="1" from="description">tab printer settings</note>
-      </trans-unit>
-      <trans-unit id="1ac1777ab1d27fceaa6e983abf11c0b92542dd87" datatype="html">
-        <source>Tab settings</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">177</context>
-        </context-group>
-        <note priority="1" from="description">Tab settings</note>
-        <note priority="1" from="meaning">tab settings</note>
-      </trans-unit>
       <trans-unit id="5047656acb358048cad9221dc10628a86b2a9903" datatype="html">
         <source>Keyboard Shortcuts</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.html</context>
-          <context context-type="linenumber">217</context>
+          <context context-type="linenumber">209</context>
         </context-group>
         <note priority="1" from="description">Keyboard Shortcuts</note>
         <note priority="1" from="meaning">keyboard shortcuts</note>
@@ -2106,11 +2069,11 @@
         <source>The file could not be added</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.ts</context>
-          <context context-type="linenumber">567</context>
+          <context context-type="linenumber">558</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.ts</context>
-          <context context-type="linenumber">595</context>
+          <context context-type="linenumber">586</context>
         </context-group>
         <note priority="1" from="description">Heading when an OBF file cannot be added to a book</note>
         <note priority="1" from="meaning">add page from obf failed</note>
@@ -2119,7 +2082,7 @@
         <source>Replace the back page?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.ts</context>
-          <context context-type="linenumber">578</context>
+          <context context-type="linenumber">569</context>
         </context-group>
         <note priority="1" from="description">Confirm replacing the back page</note>
         <note priority="1" from="meaning">replace back page heading</note>
@@ -2128,7 +2091,7 @@
         <source>This book already has a back page, &quot;<x id="name" equiv-text="current.name"/>&quot;. Replace it with &quot;<x id="newName" equiv-text="board.name"/>&quot;? The current back page and everything on it will be deleted.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.ts</context>
-          <context context-type="linenumber">579</context>
+          <context context-type="linenumber">570</context>
         </context-group>
         <note priority="1" from="description">Confirm replacing the back page</note>
         <note priority="1" from="meaning">replace back page text</note>
@@ -2137,7 +2100,7 @@
         <source>Replace</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/builder/builder.component.ts</context>
-          <context context-type="linenumber">581</context>
+          <context context-type="linenumber">572</context>
         </context-group>
         <note priority="1" from="description">Replace</note>
         <note priority="1" from="meaning">replace</note>
@@ -2371,187 +2334,6 @@
         <note priority="1" from="description">My Images</note>
         <note priority="1" from="meaning">my images</note>
       </trans-unit>
-      <trans-unit id="f81965c143b7533274f1d3c3f3542576ed3c7d5a" datatype="html">
-        <source>Tab settings</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-        <note priority="1" from="description">tab settings heading</note>
-      </trans-unit>
-      <trans-unit id="4a41f824a35ba01d5bd7be61aa06b3e8145209d0" datatype="html">
-        <source>Configuration</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-        <note priority="1" from="description">tab configuration heading</note>
-      </trans-unit>
-      <trans-unit id="7235935819076c18d73fbed2fbbe5f5f319cd448" datatype="html">
-        <source> Print catalogue tabs </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">9,10</context>
-        </context-group>
-        <note priority="1" from="description">enable catalogue tabs</note>
-      </trans-unit>
-      <trans-unit id="f56e994eb727cc1ba7ae73ed3037808254214434" datatype="html">
-        <source>Tab edge:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-        <note priority="1" from="description">tab edge label</note>
-      </trans-unit>
-      <trans-unit id="6ae1c94f6bad274424f97e9bc8766242c1577447" datatype="html">
-        <source>Top</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">43</context>
-        </context-group>
-        <note priority="1" from="description">tab edge top</note>
-      </trans-unit>
-      <trans-unit id="6723d5c967329a3ac75524cf0c1af5ced022b9a3" datatype="html">
-        <source>Bottom</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">44</context>
-        </context-group>
-        <note priority="1" from="description">tab edge bottom</note>
-      </trans-unit>
-      <trans-unit id="8cfab4bcc008ad9ba1b7e449ae9bcaa654fc45f6" datatype="html">
-        <source>Left</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">45</context>
-        </context-group>
-        <note priority="1" from="description">tab edge left</note>
-      </trans-unit>
-      <trans-unit id="4e175172f20acd59251fbe2797e7b9646154cee1" datatype="html">
-        <source>Right</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">46</context>
-        </context-group>
-        <note priority="1" from="description">tab edge right</note>
-      </trans-unit>
-      <trans-unit id="2ee26d58f2707416e636887111d5603b35346c4a" datatype="html">
-        <source>Allocation</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">24</context>
-        </context-group>
-        <note priority="1" from="description">tab allocation heading</note>
-      </trans-unit>
-      <trans-unit id="ca18b080702f09e8c5bc47dac0cbc0872ff802cb" datatype="html">
-        <source> Drag boards onto a tab. A board can only be in one tab. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">26,27</context>
-        </context-group>
-        <note priority="1" from="description">shared tab hint</note>
-      </trans-unit>
-      <trans-unit id="cf6ff48f794c02123e431c70694805722f249e6e" datatype="html">
-        <source>Tabs</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">61</context>
-        </context-group>
-        <note priority="1" from="description">tabs column</note>
-      </trans-unit>
-      <trans-unit id="f4253adb5c2487e1c60683b25a5b95373c458393" datatype="html">
-        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> Add tab </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">34,36</context>
-        </context-group>
-        <note priority="1" from="description">add tab</note>
-      </trans-unit>
-      <trans-unit id="3e6a2e64f4d052a774e87dd9e0d5c1f466cd4042" datatype="html">
-        <source>Add a tab, then drag boards onto it.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-        <note priority="1" from="description">no tabs yet</note>
-      </trans-unit>
-      <trans-unit id="29cbaedc0858053bcaac547084a31838bdc0b2ce" datatype="html">
-        <source>Label</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">50</context>
-        </context-group>
-        <note priority="1" from="description">Tab label</note>
-        <note priority="1" from="meaning">tab label</note>
-      </trans-unit>
-      <trans-unit id="7c19116ba1a2849f82f0eb1d1988552750c1617e" datatype="html">
-        <source>Drop boards here</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">73</context>
-        </context-group>
-        <note priority="1" from="description">drop boards hint</note>
-      </trans-unit>
-      <trans-unit id="3a641252e00c69c7c66fef9c81dc14e29b9b0c16" datatype="html">
-        <source> Add selected </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">77,78</context>
-        </context-group>
-        <note priority="1" from="description">add selected boards</note>
-      </trans-unit>
-      <trans-unit id="2f11c9a547fa59634b8ab256974b4eb7317f89f5" datatype="html">
-        <source>Boards</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">85</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">69</context>
-        </context-group>
-        <note priority="1" from="description">boards column</note>
-      </trans-unit>
-      <trans-unit id="d463f24eaa75a8863e85b7dbdd1b155dc4a71eeb" datatype="html">
-        <source>Tick several boards, then use Add selected or drag one of them onto a tab.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">88</context>
-        </context-group>
-        <note priority="1" from="description">board drag hint</note>
-      </trans-unit>
-      <trans-unit id="84b9947fa88d82c68f840b3a8d159fd2b194c39d" datatype="html">
-        <source>This board set has no boards yet.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/enable-tabs-dialog/enable-tabs-dialog.component.html</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">94</context>
-        </context-group>
-        <note priority="1" from="description">no boards</note>
-      </trans-unit>
       <trans-unit id="5ac70aa304e29b2aca5b5881280c7a56d62f6b81" datatype="html">
         <source> — choose where the tab goes for this print only. </source>
         <context-group purpose="location">
@@ -2605,90 +2387,6 @@
         </context-group>
         <note priority="1" from="description">Continue</note>
         <note priority="1" from="meaning">continue</note>
-      </trans-unit>
-      <trans-unit id="4e4be887454caf904a9b2cf219b9ee1fbe8f8971" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{ enabled ? &apos;Enabled&apos; : &apos;Disabled&apos; }}"/> </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">4,6</context>
-        </context-group>
-        <note priority="1" from="description">tab printer enabled</note>
-      </trans-unit>
-      <trans-unit id="785fb65be4f15d2392d38d08255a18ba3688f153" datatype="html">
-        <source>Layout</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
-          <context context-type="linenumber">43</context>
-        </context-group>
-        <note priority="1" from="description">book layout section heading</note>
-      </trans-unit>
-      <trans-unit id="b169576ab898458aa823e09c1e7f3397f8f011a0" datatype="html">
-        <source>Columns</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">27</context>
-        </context-group>
-        <note priority="1" from="description">layout columns</note>
-      </trans-unit>
-      <trans-unit id="79765b4b2ed87b05e0fd5d6937cec32d1995645f" datatype="html">
-        <source>Rows</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">31</context>
-        </context-group>
-        <note priority="1" from="description">layout rows</note>
-      </trans-unit>
-      <trans-unit id="5a0c065540d6f4bab2174f16f676d0132497a81b" datatype="html">
-        <source>This board set has no board layout yet.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">35</context>
-        </context-group>
-        <note priority="1" from="description">no layout</note>
-      </trans-unit>
-      <trans-unit id="8932511961f03fcc77cbe957b995066d2ac3e5ca" datatype="html">
-        <source> Drag boards into the tab order, or tick them and choose Add selected. A board can only be added once. The number is the row its tab prints in. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">63,64</context>
-        </context-group>
-        <note priority="1" from="description">tab order hint</note>
-      </trans-unit>
-      <trans-unit id="c9effacdd970ef24c30a5f872417e29ca4a10ed6" datatype="html">
-        <source>Tab order</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">100</context>
-        </context-group>
-        <note priority="1" from="description">tab order column</note>
-      </trans-unit>
-      <trans-unit id="ad638e6b170ca7421950c4420b7a5c166bb4f418" datatype="html">
-        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon&gt;"/>add<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> Add selected </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">102,104</context>
-        </context-group>
-        <note priority="1" from="description">add selected boards</note>
-      </trans-unit>
-      <trans-unit id="7aae7a6928bc71b5b035392165a40474667ff364" datatype="html">
-        <source>Drop boards here to add tabs.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/builder/printable-book-dialog/printable-book-dialog.component.html</context>
-          <context context-type="linenumber">128</context>
-        </context-group>
-        <note priority="1" from="description">empty tab order hint</note>
       </trans-unit>
       <trans-unit id="2ca20f0011adadf966e5b878e4a8382e69479f23" datatype="html">
         <source>Translate <x id="INTERPOLATION" equiv-text="{{board.name}}"/></source>
@@ -3116,15 +2814,6 @@
           <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="06339c86cb5de134e2963c54f870e8c76bfe18b9" datatype="html">
-        <source> Enable tabs </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/pdf/pdf-preview/pdf-preview.component.html</context>
-          <context context-type="linenumber">87,88</context>
-        </context-group>
-        <note priority="1" from="description">PDF Enable Tabs</note>
-        <note priority="1" from="meaning">enable tabs</note>
       </trans-unit>
       <trans-unit id="121cc5391cd2a5115bc2b3160379ee5b36cd7716" datatype="html">
         <source>Settings</source>
@@ -3573,6 +3262,14 @@
         </context-group>
         <note priority="1" from="description">Board Layout Selector label position input hint</note>
       </trans-unit>
+      <trans-unit id="785fb65be4f15d2392d38d08255a18ba3688f153" datatype="html">
+        <source>Layout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">Board Editor Form layout tab</note>
+      </trans-unit>
       <trans-unit id="2e24e22d22570663b7e019c5c2fb11d9821590a1" datatype="html">
         <source>Generic Templates</source>
         <context-group purpose="location">
@@ -3604,49 +3301,6 @@
           <context context-type="linenumber">83</context>
         </context-group>
         <note priority="1" from="description">Board Layout Selector rows input label</note>
-      </trans-unit>
-      <trans-unit id="9d9672b63fd53a52ee924621d746a776761a70c5" datatype="html">
-        <source>Catalogue tab</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
-          <context context-type="linenumber">120</context>
-        </context-group>
-        <note priority="1" from="description">catalogue tab heading</note>
-      </trans-unit>
-      <trans-unit id="65b0c8a9081e95c6c61d6f1a4270b58b97b710cd" datatype="html">
-        <source> Show tab on printed pages </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
-          <context context-type="linenumber">122,123</context>
-        </context-group>
-        <note priority="1" from="description">Show tab</note>
-        <note priority="1" from="meaning">show tab</note>
-      </trans-unit>
-      <trans-unit id="4b4b9fe39a166e2ef3aef99ce6fabfb7030a94dd" datatype="html">
-        <source>Tab label</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
-          <context context-type="linenumber">126</context>
-        </context-group>
-        <note priority="1" from="description">Tab label</note>
-        <note priority="1" from="meaning">tab label</note>
-      </trans-unit>
-      <trans-unit id="8a49ff1a2e9302d1d39f7febb08da660ccb9f5d9" datatype="html">
-        <source>Defaults to the board title. Keep it short (e.g. Sports).</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
-          <context context-type="linenumber">129</context>
-        </context-group>
-        <note priority="1" from="description">tab label hint</note>
-      </trans-unit>
-      <trans-unit id="6c9ec76a053524a5853230f6803f01d6dabff56d" datatype="html">
-        <source>Tab colour</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/board-editor-form/board-editor-form.component.html</context>
-          <context context-type="linenumber">132</context>
-        </context-group>
-        <note priority="1" from="description">Tab colour</note>
-        <note priority="1" from="meaning">tab colour</note>
       </trans-unit>
       <trans-unit id="8ec336f10fd8d3981f925e716bfcb7766793d3cf" datatype="html">
         <source>Copy <x id="INTERPOLATION" equiv-text="{{boardSet.name}}"/></source>
