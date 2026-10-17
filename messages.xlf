@@ -773,29 +773,29 @@
         <note priority="1" from="description">Books and Board Sets</note>
         <note priority="1" from="meaning">books and board sets</note>
       </trans-unit>
-      <trans-unit id="c7df6f6c84e4d2f506d2ff65492bbe6833655a29" datatype="html">
-        <source>Folder actions</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">28</context>
-        </context-group>
-        <note priority="1" from="description">Folder actions button</note>
-        <note priority="1" from="meaning">folder actions</note>
-      </trans-unit>
       <trans-unit id="aa92fab7b40b4b6c169c762ef5472b9d6cbd1a33" datatype="html">
         <source>New folder</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">New folder</note>
         <note priority="1" from="meaning">new folder</note>
+      </trans-unit>
+      <trans-unit id="c7df6f6c84e4d2f506d2ff65492bbe6833655a29" datatype="html">
+        <source>Folder actions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <note priority="1" from="description">Folder actions button</note>
+        <note priority="1" from="meaning">folder actions</note>
       </trans-unit>
       <trans-unit id="7876e61062ffb4091f9a64b13d2788b797a4419d" datatype="html">
         <source>All</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">47</context>
         </context-group>
         <note priority="1" from="description">Back from a folder to everything</note>
         <note priority="1" from="meaning">all folders back</note>
@@ -804,7 +804,7 @@
         <source>New: communication books</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">63</context>
         </context-group>
         <note priority="1" from="description">Introduces the new books feature</note>
         <note priority="1" from="meaning">books intro title</note>
@@ -813,7 +813,7 @@
         <source>Same-size pages with a tab on each page, printed back to back.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">64</context>
         </context-group>
         <note priority="1" from="description">Introduces the new books feature</note>
         <note priority="1" from="meaning">books intro text</note>
@@ -822,7 +822,7 @@
         <source>Got it</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">66</context>
         </context-group>
         <note priority="1" from="description">Closes the books introduction</note>
         <note priority="1" from="meaning">got it</note>
@@ -831,7 +831,7 @@
         <source>Take a look</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">67</context>
         </context-group>
         <note priority="1" from="description">Opens the Books tab</note>
         <note priority="1" from="meaning">take a look</note>
@@ -840,24 +840,16 @@
         <source>Board Sets</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">77</context>
         </context-group>
         <note priority="1" from="description">Board Sets tab on the landing page</note>
         <note priority="1" from="meaning">Board Sets tab</note>
-      </trans-unit>
-      <trans-unit id="4a4110e1f95a3da709a684c62840896eb2bfe7a6" datatype="html">
-        <source>Collections of communication boards, in any size and layout.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">74</context>
-        </context-group>
-        <note priority="1" from="description">Board Sets section description</note>
       </trans-unit>
       <trans-unit id="a8c9058c85bdcce58a801cfc207c6094d29e6343" datatype="html">
         <source>Create Board Set</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">83</context>
+          <context context-type="linenumber">90</context>
         </context-group>
         <note priority="1" from="description">Create Board Set button</note>
         <note priority="1" from="meaning">create board set</note>
@@ -866,7 +858,7 @@
         <source>Import OBZ</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">85</context>
+          <context context-type="linenumber">92</context>
         </context-group>
         <note priority="1" from="description">Import OBZ button</note>
         <note priority="1" from="meaning">import obz</note>
@@ -875,7 +867,7 @@
         <source>No matching board sets.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">103</context>
         </context-group>
         <note priority="1" from="description">no matching board sets</note>
       </trans-unit>
@@ -883,7 +875,7 @@
         <source>Featured Board Sets</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">98</context>
+          <context context-type="linenumber">105</context>
         </context-group>
         <note priority="1" from="description">Board Sets Featured heading</note>
       </trans-unit>
@@ -891,7 +883,7 @@
         <source>Books</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">111</context>
+          <context context-type="linenumber">118</context>
         </context-group>
         <note priority="1" from="description">Books tab on the landing page</note>
         <note priority="1" from="meaning">Books tab</note>
@@ -900,24 +892,16 @@
         <source>New</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">113</context>
+          <context context-type="linenumber">120</context>
         </context-group>
         <note priority="1" from="description">Marks a new feature</note>
         <note priority="1" from="meaning">new badge</note>
-      </trans-unit>
-      <trans-unit id="3eccd8d573e2c335ed05d9c254349a6ee31ec862" datatype="html">
-        <source>Communication books: same-size pages with a tab on each page, printed back to back.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">117</context>
-        </context-group>
-        <note priority="1" from="description">Books section description</note>
       </trans-unit>
       <trans-unit id="6f0f8a9e0c4ddbd7196ff67775d7170b37810031" datatype="html">
         <source>Create Book</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">126</context>
+          <context context-type="linenumber">133</context>
         </context-group>
         <note priority="1" from="description">Create Book button</note>
         <note priority="1" from="meaning">create book</note>
@@ -926,7 +910,7 @@
         <source>Import Book</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">128</context>
+          <context context-type="linenumber">135</context>
         </context-group>
         <note priority="1" from="description">Import Book button</note>
         <note priority="1" from="meaning">import book</note>
@@ -935,7 +919,7 @@
         <source>No matching books.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">139</context>
+          <context context-type="linenumber">146</context>
         </context-group>
         <note priority="1" from="description">no matching books</note>
       </trans-unit>
@@ -943,7 +927,7 @@
         <source>This folder is empty.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">144</context>
+          <context context-type="linenumber">151</context>
         </context-group>
         <note priority="1" from="description">empty folder</note>
       </trans-unit>
@@ -951,11 +935,11 @@
         <source>Open</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">154</context>
+          <context context-type="linenumber">161</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">179</context>
+          <context context-type="linenumber">186</context>
         </context-group>
         <note priority="1" from="description">Open</note>
         <note priority="1" from="meaning">open</note>
@@ -964,7 +948,7 @@
         <source>Translate</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">158</context>
+          <context context-type="linenumber">165</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
@@ -993,7 +977,7 @@
         <source>Duplicate</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">162</context>
+          <context context-type="linenumber">169</context>
         </context-group>
         <note priority="1" from="description">Duplicate board set</note>
         <note priority="1" from="meaning">duplicate board set</note>
@@ -1002,7 +986,7 @@
         <source>Move to folder</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">166</context>
+          <context context-type="linenumber">173</context>
         </context-group>
         <note priority="1" from="description">Move to folder</note>
         <note priority="1" from="meaning">move to folder</note>
@@ -1011,11 +995,11 @@
         <source>Delete</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">170</context>
+          <context context-type="linenumber">177</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">187</context>
+          <context context-type="linenumber">194</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/board-tree/board-tree.component.html</context>
@@ -1036,7 +1020,7 @@
         <source>Rename</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.html</context>
-          <context context-type="linenumber">183</context>
+          <context context-type="linenumber">190</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/builder/book-page-list/book-page-list.component.html</context>
@@ -1045,11 +1029,27 @@
         <note priority="1" from="description">Rename</note>
         <note priority="1" from="meaning">rename</note>
       </trans-unit>
+      <trans-unit id="4920886200429801313" datatype="html">
+        <source>Communication books: same-size pages with a tab on each page, printed back to back.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <note priority="1" from="description">Books section description</note>
+      </trans-unit>
+      <trans-unit id="2588592456944942876" datatype="html">
+        <source>Collections of communication boards, in any size and layout.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <note priority="1" from="description">Board Sets section description</note>
+      </trans-unit>
       <trans-unit id="6845166387904028042" datatype="html">
         <source><x id="count" equiv-text="count"/> <x id="noun" equiv-text="count === 1 ? &apos;book&apos; : &apos;books&apos;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.ts</context>
-          <context context-type="linenumber">163</context>
+          <context context-type="linenumber">165</context>
         </context-group>
         <note priority="1" from="description">Books in a folder</note>
         <note priority="1" from="meaning">folder book count</note>
@@ -1058,7 +1058,7 @@
         <source><x id="count" equiv-text="count"/> <x id="noun" equiv-text="count === 1 ? &apos;board set&apos; : &apos;board sets&apos;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/page/board-sets.component.ts</context>
-          <context context-type="linenumber">164</context>
+          <context context-type="linenumber">166</context>
         </context-group>
         <note priority="1" from="description">Board sets in a folder</note>
         <note priority="1" from="meaning">folder board set count</note>

@@ -45,6 +45,8 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
   activeFolder: Folder | null = null;
   selectedTab = BOOKS_TAB;
   readonly booksTab = BOOKS_TAB;
+  readonly booksDescription = $localize`:Books section description:Communication books: same-size pages with a tab on each page, printed back to back.`;
+  readonly boardSetsDescription = $localize`:Board Sets section description:Collections of communication boards, in any size and layout.`;
   // The books popup sits below the Books tab, or above it if there is no room.
   readonly booksPopupPositions: ConnectedPosition[] = [
     { originX: 'center', originY: 'bottom', overlayX: 'center', overlayY: 'top', offsetY: 14 },

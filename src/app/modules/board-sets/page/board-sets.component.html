@@ -15,8 +15,19 @@
   <ng-container *ngIf="!loading">
 
     <!-- Folders hold books and board sets; each tab shows them as a slim bar with that tab's count (D42). -->
+    <!-- Description on the left, New folder on the right, at the top of each tab. -->
+    <ng-template #tabHeader let-description="description">
+      <div class="tab-header" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1rem">
+        <p class="text-muted section-description mb-0">{{description}}</p>
+        <button mat-stroked-button color="primary" class="new-folder" (click)="newFolder()" *ngIf="!searching">
+          <mat-icon>create_new_folder</mat-icon>
+          <ng-container i18n="new folder|New folder">New folder</ng-container>
+        </button>
+      </div>
+    </ng-template>
+
     <ng-template #folderBar let-books="books">
-      <div class="folder-bar" *ngIf="!searching" fxLayout="row wrap" fxLayoutAlign="start center">
+      <div class="folder-bar" *ngIf="!searching && (folders.length || activeFolder)" fxLayout="row wrap" fxLayoutAlign="start center">
         <ng-container *ngIf="!activeFolder">
           <div class="folder-chip" *ngFor="let folder of folders" role="button" tabindex="0"
                (click)="openFolder(folder)" (keyup.enter)="openFolder(folder)"
@@ -29,10 +40,6 @@
               <mat-icon>more_vert</mat-icon>
             </button>
           </div>
-          <button mat-stroked-button color="primary" class="new-folder" (click)="newFolder()">
-            <mat-icon>create_new_folder</mat-icon>
-            <ng-container i18n="new folder|New folder">New folder</ng-container>
-          </button>
         </ng-container>
         <div *ngIf="activeFolder" class="folder-breadcrumb" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.25rem">
           <button mat-button class="folder-back" (click)="clearFolder()">
@@ -71,7 +78,7 @@
         </ng-template>
 
         <section class="kind-section board-sets">
-          <p class="text-muted section-description" i18n="Board Sets section description">Collections of communication boards, in any size and layout.</p>
+          <ng-container *ngTemplateOutlet="tabHeader; context: { description: boardSetsDescription }"></ng-container>
           <ng-container *ngTemplateOutlet="folderBar; context: { books: false }"></ng-container>
       <div class="board-row">
         <div fxLayout="row wrap" fxLayoutGap="1rem grid">
@@ -114,7 +121,7 @@
         </ng-template>
 
         <section class="kind-section books">
-          <p class="text-muted section-description" i18n="Books section description">Communication books: same-size pages with a tab on each page, printed back to back.</p>
+          <ng-container *ngTemplateOutlet="tabHeader; context: { description: booksDescription }"></ng-container>
           <ng-container *ngTemplateOutlet="folderBar; context: { books: true }"></ng-container>
       <div class="board-row">
         <div fxLayout="row wrap" fxLayoutGap="1rem grid">

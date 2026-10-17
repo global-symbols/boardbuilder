@@ -108,7 +108,8 @@ describe('BoardSetsComponent', () => {
 
     expect(chip()).toContain('School');
     expect(chip()).toContain('· 1 book');
-    expect(fixture.nativeElement.querySelector('.folder-bar .new-folder')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.tab-header .new-folder')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.tab-header').textContent).toContain('Communication books');
 
     component.selectTab(BOARD_SETS_TAB);
     fixture.detectChanges();
@@ -123,6 +124,14 @@ describe('BoardSetsComponent', () => {
 
     expect(fixture.nativeElement.querySelector('.folder-chip')).toBeNull();
     expect(fixture.nativeElement.querySelector('.folder-breadcrumb').textContent).toContain('School');
+  });
+
+  it('has no folder row when there are no folders, but still offers New folder', async () => {
+    component.folders = [];
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.folder-bar')).toBeNull();
+    expect(fixture.nativeElement.querySelector('.tab-header .new-folder')).toBeTruthy();
   });
 
   it('hides the folder bar while searching', () => {
