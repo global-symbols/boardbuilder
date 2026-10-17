@@ -276,11 +276,20 @@
         <note priority="1" from="description">Book tile icon label</note>
         <note priority="1" from="meaning">book</note>
       </trans-unit>
+      <trans-unit id="0436c9adfdec5f58cf67d192e28795b59899825a" datatype="html">
+        <source>Board set</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Board set tile icon label</note>
+        <note priority="1" from="meaning">board set</note>
+      </trans-unit>
       <trans-unit id="a078e04b2fcdece98b76225a42be8b63dfc8dc6d" datatype="html">
         <source>cells</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/new-book-dialog/new-book-dialog.component.html</context>
@@ -297,7 +306,7 @@
         <source>By</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">33</context>
         </context-group>
         <note priority="1" from="description">Board Set tile author prefix (e.g. &apos;By E.A. Draffan&apos;)</note>
         <note priority="1" from="meaning">by author</note>
@@ -306,7 +315,7 @@
         <source>Opened</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <note priority="1" from="description">Board Set tile opened prefix (e.g. &apos;Opened 5 minutes ago&apos;)</note>
       </trans-unit>
@@ -314,7 +323,7 @@
         <source>Never Opened</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/board-sets/board-set-tile/board-set-tile.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">40</context>
         </context-group>
         <note priority="1" from="description">Board Set tile never opened</note>
       </trans-unit>

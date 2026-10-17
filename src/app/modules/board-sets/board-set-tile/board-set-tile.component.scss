@@ -57,6 +57,10 @@ mat-card-title {
   color: $book-accent;
   margin-right: 0.25rem;
   flex: none;
+
+  &.board-set-icon {
+    color: $blue;
+  }
 }
 
 .book-size {

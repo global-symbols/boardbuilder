@@ -5,6 +5,8 @@
       <mat-card-title class="mt-1" fxFlex>
         <mat-icon class="kind-icon" *ngIf="boardSet.isBook" aria-hidden="false"
                   aria-label="Book" i18n-aria-label="book|Book tile icon label">menu_book</mat-icon>
+        <mat-icon class="kind-icon board-set-icon" *ngIf="!boardSet.isBook" aria-hidden="false"
+                  aria-label="Board set" i18n-aria-label="board set|Board set tile icon label">dashboard</mat-icon>
         <a [routerLink]="['/', 'boardsets', boardSet.id]" fxFlex>{{boardSet.name}}</a>
       </mat-card-title>
       <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{boardSet: boardSet}" *ngIf="menu">
