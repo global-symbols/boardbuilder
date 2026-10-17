@@ -58,7 +58,7 @@
               fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="0.5rem">
             <mat-icon class="fit-icon" [ngSwitch]="fit(board)">
               <ng-container *ngSwitchCase="'same'">check_circle</ng-container>
-              <ng-container *ngSwitchCase="'reflow'">warning</ng-container>
+              <ng-container *ngSwitchCase="'reflow'">warning_amber</ng-container>
               <ng-container *ngSwitchCase="'too_big'">block</ng-container>
             </mat-icon>
             <div fxFlex>
