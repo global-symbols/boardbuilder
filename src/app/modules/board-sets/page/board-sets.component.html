@@ -8,48 +8,42 @@
       <input matInput [(ngModel)]="searchQuery" autocomplete="off">
       <mat-icon matPrefix>search</mat-icon>
     </mat-form-field>
-    <button mat-stroked-button color="primary" (click)="newFolder()" *ngIf="!searching">
-      <mat-icon>create_new_folder</mat-icon>
-      <ng-container i18n="new folder|New folder">New folder</ng-container>
-    </button>
   </div>
 
   <app-loading-notice *ngIf="loading" subject="Books and Board Sets" i18n-subject="books and board sets|Books and Board Sets"></app-loading-notice>
 
   <ng-container *ngIf="!loading">
 
-    <div *ngIf="activeFolder && !searching" class="mb-3" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-      <button mat-button (click)="clearFolder()">
-        <mat-icon>arrow_back</mat-icon>
-        <ng-container i18n="all books and board sets|All books and board sets">All books and board sets</ng-container>
-      </button>
-      <h3 class="mb-0 mt-0">{{activeFolder.name}}</h3>
-    </div>
-
-    <div class="folder-row" *ngIf="!searching && !activeFolder && folders.length">
-      <div fxLayout="row wrap" fxLayoutGap="1rem grid">
-        <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container"
-             *ngFor="let folder of folders">
-          <mat-card fxFlexFill class="folder-card" (click)="openFolder(folder)">
-            <mat-card-header>
-              <div class="w-100" fxLayout="row" fxLayoutAlign="space-between start">
-                <mat-card-title class="mt-1" fxFlex>
-                  <mat-icon class="folder-icon">folder</mat-icon>
-                  {{folder.name}}
-                </mat-card-title>
-                <button mat-icon-button [matMenuTriggerFor]="folderMenu" [matMenuTriggerData]="{folder: folder}" (click)="$event.stopPropagation()">
-                  <mat-icon>more_vert</mat-icon>
-                </button>
-              </div>
-            </mat-card-header>
-            <mat-card-content class="text-muted">
-              {{folder.board_sets_count || 0}}
-              <ng-container i18n="folder items count|items in a folder (books and board sets)">items</ng-container>
-            </mat-card-content>
-          </mat-card>
+    <!-- Folders hold books and board sets; each tab shows them as a slim bar with that tab's count (D42). -->
+    <ng-template #folderBar let-books="books">
+      <div class="folder-bar" *ngIf="!searching" fxLayout="row wrap" fxLayoutAlign="start center">
+        <ng-container *ngIf="!activeFolder">
+          <div class="folder-chip" *ngFor="let folder of folders" role="button" tabindex="0"
+               (click)="openFolder(folder)" (keyup.enter)="openFolder(folder)"
+               [attr.aria-label]="folder.name + ', ' + folderCount(folder, books)">
+            <mat-icon class="folder-icon">folder</mat-icon>
+            <span class="folder-name">{{folder.name}}</span>
+            <span class="folder-count">· {{folderCount(folder, books)}}</span>
+            <button mat-icon-button class="folder-menu" [matMenuTriggerFor]="folderMenu" [matMenuTriggerData]="{folder: folder}"
+                    (click)="$event.stopPropagation()" aria-label="Folder actions" i18n-aria-label="folder actions|Folder actions button">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </div>
+          <button mat-stroked-button color="primary" class="new-folder" (click)="newFolder()">
+            <mat-icon>create_new_folder</mat-icon>
+            <ng-container i18n="new folder|New folder">New folder</ng-container>
+          </button>
+        </ng-container>
+        <div *ngIf="activeFolder" class="folder-breadcrumb" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.25rem">
+          <button mat-button class="folder-back" (click)="clearFolder()">
+            <mat-icon>arrow_back</mat-icon>
+            <ng-container i18n="all folders back|Back from a folder to everything">All</ng-container>
+          </button>
+          <mat-icon class="folder-icon">folder_open</mat-icon>
+          <strong>{{activeFolder.name}}</strong>
         </div>
       </div>
-    </div>
+    </ng-template>
 
     <!-- Books and board sets are created and listed on separate tabs so they are not confused. The tab is remembered. -->
     <!-- Introduces books once, to people who have not used them yet: a small popup pointing at the Books tab. -->
@@ -78,6 +72,7 @@
 
         <section class="kind-section board-sets">
           <p class="text-muted section-description" i18n="Board Sets section description">Collections of communication boards, in any size and layout.</p>
+          <ng-container *ngTemplateOutlet="folderBar; context: { books: false }"></ng-container>
       <div class="board-row">
         <div fxLayout="row wrap" fxLayoutGap="1rem grid">
           <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngIf="!searching">
@@ -120,6 +115,7 @@
 
         <section class="kind-section books">
           <p class="text-muted section-description" i18n="Books section description">Communication books: same-size pages with a tab on each page, printed back to back.</p>
+          <ng-container *ngTemplateOutlet="folderBar; context: { books: true }"></ng-container>
       <div class="board-row">
         <div fxLayout="row wrap" fxLayoutGap="1rem grid">
           <div fxFlex.xs="50" fxFlex.sm="33" fxFlex="25" class="card-container" *ngIf="!searching">

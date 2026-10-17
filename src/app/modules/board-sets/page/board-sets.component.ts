@@ -156,6 +156,14 @@ export class BoardSetsComponent implements OnInit, OnDestroy {
     return this.searchQuery.trim().length > 0;
   }
 
+  // A folder's count on a tab: "3 books" on Books, "5 board sets" on Board Sets.
+  folderCount(folder: Folder, books: boolean): string {
+    const count = (this.boardSets || []).filter(bs => bs.folder_id === folder.id && bs.isBook === books).length;
+    return books
+      ? $localize`:folder book count|Books in a folder:${count}:count: ${count === 1 ? 'book' : 'books'}:noun:`
+      : $localize`:folder board set count|Board sets in a folder:${count}:count: ${count === 1 ? 'board set' : 'board sets'}:noun:`;
+  }
+
   folderName(boardSet: BoardSet): string {
     if (!boardSet.folder_id) { return ''; }
     const folder = this.folders.find(f => f.id === boardSet.folder_id);

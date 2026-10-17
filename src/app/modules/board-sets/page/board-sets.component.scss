@@ -1,12 +1,7 @@
 @import "~app/shared/variables";
 
-.folder-row,
 .board-row {
   overflow: hidden;
-}
-
-.folder-row {
-  margin-bottom: 1.5rem;
 }
 
 .card-container {
@@ -14,19 +9,8 @@
   display: flex;
 }
 
-.folder-card {
-  cursor: pointer;
-  width: 100%;
-  min-height: 165px;
-}
-
 .search-field {
   margin-bottom: -1.25em;
-}
-
-.folder-icon {
-  vertical-align: middle;
-  margin-right: 0.25rem;
 }
 
 
@@ -117,4 +101,58 @@ mat-card.add-book button {
   font-weight: 600;
   line-height: 16px;
   text-transform: uppercase;
+}
+
+// Slim folder bar inside each tab (D42).
+.folder-bar {
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.folder-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 36px;
+  padding: 0 0 0 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  background: white;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover, &:focus-visible {
+    border-color: $blue;
+    outline: none;
+  }
+
+  .folder-icon {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .folder-count {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  .folder-menu {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+  }
+}
+
+.books .folder-chip:hover, .books .folder-chip:focus-visible {
+  border-color: $book-accent;
+}
+
+.new-folder {
+  height: 36px;
+  border-radius: 18px;
+}
+
+.folder-breadcrumb .folder-icon {
+  color: rgba(0, 0, 0, 0.54);
 }

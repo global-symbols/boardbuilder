@@ -42,7 +42,7 @@ describe('BoardSetsComponent', () => {
       imports: [ MatMenuModule, MatTabsModule, OverlayModule, NoopAnimationsModule ],
       providers: [
         { provide: BoardSetService, useValue: boardSetService },
-        { provide: FolderService, useValue: { list: () => of([]) } },
+        { provide: FolderService, useValue: { list: () => of([{ id: 9, name: 'School' }]) } },
         { provide: Router, useValue: router },
         { provide: MatDialog, useValue: dialog },
         { provide: DialogService, useValue: {} },
@@ -101,6 +101,35 @@ describe('BoardSetsComponent', () => {
     await fixture.whenStable();
     fixture.detectChanges();
     expect(page.querySelector('.board-sets .add-boardset').textContent).toContain('Create Board Set');
+  });
+
+  it('shows folders as a slim bar inside each tab, counting that tab\'s kind', async () => {
+    const chip = () => fixture.nativeElement.querySelector('.folder-chip').textContent.replace(/\s+/g, ' ');
+
+    expect(chip()).toContain('School');
+    expect(chip()).toContain('· 1 book');
+    expect(fixture.nativeElement.querySelector('.folder-bar .new-folder')).toBeTruthy();
+
+    component.selectTab(BOARD_SETS_TAB);
+    fixture.detectChanges();
+    await fixture.whenStable();
+    fixture.detectChanges();
+    expect(chip()).toContain('· 1 board set');
+  });
+
+  it('an open folder shows a breadcrumb in the tab instead of the folder chips', () => {
+    component.openFolder({ id: 9, name: 'School' } as any);
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.folder-chip')).toBeNull();
+    expect(fixture.nativeElement.querySelector('.folder-breadcrumb').textContent).toContain('School');
+  });
+
+  it('hides the folder bar while searching', () => {
+    component.searchQuery = 'filed';
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.folder-bar')).toBeNull();
   });
 
   it('remembers the chosen tab per browser', () => {
