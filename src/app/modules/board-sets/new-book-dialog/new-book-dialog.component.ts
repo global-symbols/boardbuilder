@@ -58,6 +58,12 @@ export class NewBookDialogComponent implements OnInit {
     return (this.source?.boards || []).slice().sort((a, b) => (a.index ?? 0) - (b.index ?? 0) || (a.id ?? 0) - (b.id ?? 0));
   }
 
+  // The report lists boards that fail first (they need a decision), then the rest in set order.
+  get reportBoards(): Board[] {
+    const boards = this.sourceBoards;
+    return [...boards.filter(board => this.fit(board) === 'too_big'), ...boards.filter(board => this.fit(board) !== 'too_big')];
+  }
+
   fit(board: Board): BookFit {
     return bookFit(board, this.selectedLayout.columns, this.selectedLayout.rows);
   }

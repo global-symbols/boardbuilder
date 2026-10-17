@@ -105,12 +105,13 @@ describe('NewBookDialogComponent', () => {
       expect(fixture.nativeElement.textContent).toContain('Convert to Book');
     });
 
-    it('reports each board: compatible, re-flowed (with links noted), not compatible', () => {
+    it('reports each board, failing boards first: not compatible, compatible, re-flowed (links noted)', () => {
       openConvert();
 
-      expect(rows().map(row => row.className.match(/fit-(\w+)/)[1])).toEqual(['same', 'reflow', 'too_big']);
-      expect(rows()[1].textContent).toContain('Links to other boards will be removed');
-      expect(rows()[2].querySelector('.leave-out')).toBeTruthy();
+      expect(rows().map(row => row.className.match(/fit-(\w+)/)[1])).toEqual(['too_big', 'same', 'reflow']);
+      expect(rows()[0].querySelector('.leave-out')).toBeTruthy();
+      expect(rows()[0].textContent).toContain('Big');
+      expect(rows()[2].textContent).toContain('Links to other boards will be removed');
       expect(fixture.nativeElement.querySelector('.compatibility-summary').textContent.replace(/\s+/g, ' ').trim())
         .toBe('Compatibility (2 boards pass, 1 fail)');
     });
