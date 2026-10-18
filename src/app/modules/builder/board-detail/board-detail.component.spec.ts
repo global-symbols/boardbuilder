@@ -89,7 +89,7 @@ describe('BoardDetailComponent', () => {
   it('uses the palette colour for the page position until the tab has its own', () => {
     const b = book();
     show(b, b.pages[1]);
-    expect(component.tabBackground).toBe('#ED7D31');
+    expect(component.tabBackground).toBe('#FAD0C3');
 
     b.pages[1].tab_cell.background_colour = '#123456';
     expect(component.tabBackground).toBe('#123456');

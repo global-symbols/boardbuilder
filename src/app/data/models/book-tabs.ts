@@ -1,7 +1,10 @@
 // Book tab rules shared by the builder (and mirrored by the Rails book PDF, plan §6.4).
 
-// Same palette as Tab Printer Settings.
-export const BOOK_TAB_COLOURS = ['#4472C4', '#ED7D31', '#70AD47', '#FFC000', '#5B9BD5', '#C45911', '#7030A0'];
+import {palettes} from '@data/colour-picker-colours';
+
+// Default tab colours: the lighter row of the cell colour picker, without grey and white (Richard, UAT).
+// Rails BookToPdf::TAB_COLOURS must list the same colours.
+export const BOOK_TAB_COLOURS = palettes.regular.slice(10, 18);
 
 // Tab width as a fraction of one cell width (D6).
 export const BOOK_TAB_WIDTH_RATIO = 2 / 3;

@@ -14,10 +14,15 @@ describe('book tabs', () => {
     expect(tabRow(3, 0)).toBe(0);
   });
 
-  it('picks the default colour by page order from the tab palette', () => {
-    expect(defaultTabColour(0)).toBe('#4472C4');
-    expect(defaultTabColour(1)).toBe('#ED7D31');
-    expect(defaultTabColour(BOOK_TAB_COLOURS.length)).toBe('#4472C4');
+  it('picks the default colour by page order from the colour picker\'s lighter row', () => {
+    expect(BOOK_TAB_COLOURS).toEqual(['#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']);
+    expect(defaultTabColour(0)).toBe('#EB9694');
+    expect(defaultTabColour(1)).toBe('#FAD0C3');
+    expect(defaultTabColour(BOOK_TAB_COLOURS.length)).toBe('#EB9694');
+  });
+
+  it('puts black text on every default (light) tab colour', () => {
+    BOOK_TAB_COLOURS.forEach(colour => expect(tabTextColour(colour)).toBe('#000000'));
   });
 
   it('chooses readable text for hex and rgb() backgrounds', () => {
