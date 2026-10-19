@@ -1,64 +1,64 @@
 {
   "Mulberry": {
     "culture": {
-      "enabled": false,
+      "enabled": true,
       "defaultValue": ""
     },
     "loraAdapter": "mulberry_v1",
     "loraTrigger": "gs_mulberry",
     "loraStrength": 1.185,
-    "prompt": "<culture-placeholder></culture-placeholder>"
+    "prompt": ""
   },
   "ARASAAC": {
     "culture": {
-      "enabled": false,
+      "enabled": true,
       "defaultValue": ""
     },
     "loraAdapter": "arasaac_v1",
     "loraTrigger": "gs_arasaac",
     "loraStrength": 1.0,
-    "prompt": "<culture-placeholder></culture-placeholder>"
+    "prompt": ""
   },
   "Jellow": {
     "culture": {
-      "enabled": false,
+      "enabled": true,
       "defaultValue": ""
     },
     "loraAdapter": "jellow_v1",
     "loraTrigger": "gs_jellow",
     "loraStrength": 1.15,
-    "prompt": "<culture-placeholder></culture-placeholder>"
+    "prompt": ""
   },
   "PiCom Cartoon": {
     "culture": {
-      "enabled": false,
+      "enabled": true,
       "defaultValue": ""
     },
     "loraAdapter": "",
-    "prompt": "<culture-placeholder></culture-placeholder>. Minimalist cartoon style with maximum 3 colors and thick black stroke outline. No shadow, no highlight. on plain bright white background. simple details, simple color blocks, illustrations with simple strokes. Minimalist Picture. Do not show any text labels."
+    "prompt": "Minimalist cartoon symbol, at most three flat colours, thick black outline, plain white background."
   },
   "PiCom Cute": {
     "culture": {
-      "enabled": false,
+      "enabled": true,
       "defaultValue": ""
     },
     "loraAdapter": "",
-    "prompt": "<culture-placeholder></culture-placeholder>. Kawaii art style. On a white background."
+    "prompt": "Kawaii symbol on a plain white background."
   },
   "Realistic": {
     "culture": {
-      "enabled": false,
+      "enabled": true,
       "defaultValue": ""
     },
     "loraAdapter": "",
-    "prompt": "<culture-placeholder></culture-placeholder>. Realistic image on a white background."
+    "prompt": "Realistic symbol on a plain white background."
   },
   "Generic": {
     "culture": {
-      "enabled": false,
+      "enabled": true,
       "defaultValue": ""
     },
     "loraAdapter": "",
-    "prompt": "<culture-placeholder></culture-placeholder>. Minimalist vector style with a maximum of 3 bold colors and a thick black stroke outline. Simple lines. Low detail. Simple color blocks. Do not show shadows. No highlight. No shadow. on plain white background. Minimalist pictures. Do not show any text labels."
+    "prompt": "Minimalist vector symbol, few flat colours, thick black outline, plain white background."
   }
 }
