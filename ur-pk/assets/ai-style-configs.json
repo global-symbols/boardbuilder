@@ -1,7 +1,7 @@
 {
   "Mulberry": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
     "loraAdapter": "mulberry_v1",
@@ -11,7 +11,7 @@
   },
   "ARASAAC": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
     "loraAdapter": "arasaac_v1",
@@ -21,7 +21,7 @@
   },
   "Jellow": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
     "loraAdapter": "jellow_v1",
@@ -31,7 +31,7 @@
   },
   "PiCom Cartoon": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
     "loraAdapter": "",
@@ -39,7 +39,7 @@
   },
   "PiCom Cute": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
     "loraAdapter": "",
@@ -47,7 +47,7 @@
   },
   "Realistic": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
     "loraAdapter": "",
@@ -55,7 +55,7 @@
   },
   "Generic": {
     "culture": {
-      "enabled": true,
+      "enabled": false,
       "defaultValue": ""
     },
     "loraAdapter": "",
