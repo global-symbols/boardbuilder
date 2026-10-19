@@ -92,4 +92,13 @@ describe('PromptBuilderService', () => {
 
     expect(prompt).toBe('a red bus. Realistic symbol on a plain white background.');
   });
+
+  // Culture is not released yet: the box shows "Coming soon" and every shipped style keeps it off.
+  it('ships with culture disabled for every style', async () => {
+    const configs: { [style: string]: StyleConfig } = await (await fetch('/assets/ai-style-configs.json')).json();
+
+    expect(Object.keys(configs).length).toBeGreaterThan(0);
+    Object.entries(configs).forEach(([style, styleConfig]) =>
+      expect(styleConfig.culture?.enabled).withContext(style).toBeFalse());
+  });
 });

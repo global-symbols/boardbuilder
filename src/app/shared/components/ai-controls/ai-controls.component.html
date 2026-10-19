@@ -20,15 +20,17 @@
 
   </div>
 
-  <div class="culture-field-wrapper control-item"
-       [class.is-disabled]="!styleState.cultureEnabled">
+  <!-- Culture is not ready for release: shown disabled with a "Coming soon" tip. -->
+  <div class="culture-field-wrapper control-item is-disabled"
+       matTooltip="Coming soon"
+       matTooltipPosition="above">
     <mat-form-field appearance="outline" class="culture-field">
       <mat-label>Culture</mat-label>
       <input matInput
-             placeholder="e.g. Indian"
              [value]="styleState.cultureText"
-             [disabled]="!styleState.cultureEnabled"
-             (input)="onCultureTextChanged($any($event.target).value)">
+             disabled
+             readonly
+             tabindex="-1">
     </mat-form-field>
   </div>
 
